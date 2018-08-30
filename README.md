@@ -167,6 +167,18 @@ Below is a list of ReactJS interview questions and answers.
 |159| [What is Redux DevTools?](#what-is-redux-devtools)|
 |160| [What are the features of Redux DevTools?](#what-are-the-features-of-redux-devtools)|
 |161| [How to focus an input element on page load?](#how-to-focus-an-input-element-on-page-load)|
+|162| [What are the possible ways to update object in state?](#what-are-the-possible-ways-to-update-object-in-state)|
+|163| [Why function is preferred over object for setState?](#why-function-is-preferred-over-object-for-setstate)|
+|164| [How can we find the version of React at runtime in the browser?](#how-can-we-find-the-version-of-react-at-runtime-in-the-browser)|
+|165| [What is redux form?](#what-is-redux-form)|
+|166| [What are the main features of redux form?](#what-are-the-main-features-of-redux-form)|
+|167| [How to use TypeScript for create-react-app applications?](#how-to-use-typescript-for-create-react-app-applications)|
+|168| [What are the approaches to include pollyfills in your create-react-app?](#what-are-the-approaches-to-include-pollyfills-in-your-create-react-app)|
+|169| [How to use https instead of http in create-react-app?](#how-to-use-https-instead-of-http-in-create-react-app)|
+|170| [How to avoid using relative path imports in create-react-app?](#how-to-avoid-using-relative-path-imports-in-create-react-app)|
+|171| [How to add google analytics for react-router?](#how-to-add-google-analytics-for-react-router)|
+|171| [How to update react component for every second?](#how-to-update-react-component-for-every-second)|
+|172| [How do you apply vendor prefixes to inline styles in reactjs?](#how-do-you-apply-vendor-prefixes-to-inline-styles-in-reactjs)|
 
 ### What is ReactJS?
 
@@ -2447,4 +2459,164 @@ ReactDOM.render(<App />, document.getElementById('app'));
 componentDidMount(){
    this.nameInput.focus();
 }
+```
+### What are the possible ways to update object in state?
+Below are the two ways of updating object in the state.
+1. **Using an object**
+First create a copy of an object then do the changes
+```
+let user = Object.assign({}, this.state.user);    //creating copy of object
+user.age = 30;                        //updating value
+this.setState({user});
+```
+Instead of using Object.assign we can also write it like this:
+```
+let user = {...this.state.user};
+```
+2. **Using a function**
+```
+this.setState(prevState => ({
+    user: {
+        ...prevState.user,
+        age: 30
+    }
+}))
+```
+### Why function is preferred over object for setState?
+React may batch multiple setState() calls into a single update for performance. Because this.props and this.state may be updated asynchronously, you should not rely on their values for calculating the next state.
+For example, the below counter example will fail to update as expected,
+```
+// Wrong
+this.setState({
+  counter: this.state.counter + this.props.increment,
+});
+```
+The preferred approach is to use function rather object for setState call. That function will receive the previous state as the first argument, and the props at the time the update is applied as the second argument.
+The correct approach is to use function for the counter example,
+```
+// Correct
+this.setState((prevState, props) => ({
+  counter: prevState.counter + props.increment
+}));
+```
+### How can we find the version of React at runtime in the browser?
+You can use **React.version** to find the version. The example to find the react version as below
+```
+const REACT_VERSION = React.version;
+
+ReactDOM.render(
+  <div>React version: {REACT_VERSION}</div>,
+  document.getElementById('app')
+);
+```
+### What is redux form?
+Redux Form works with React and Redux to enable a form in React to use Redux to store all of its state. Redux Form can be used with raw HTML5 inputs, but it also works with very well with common UI frameworks like Material UI, React Widgets and React Bootstrap.
+### What are the main features of redux form?
+Below are the major features of redux form?
+1. Field values persistence via Redux store
+2. Validation (sync/async) and submission
+3. Formatting, parsing and normalization of field values
+### How redux-form initialValues get updated from state?
+You need to add **enableReinitialize : true** setting as below.
+```
+let InitializeFromStateForm = reduxForm({
+    form: 'initializeFromState',
+    enableReinitialize : true // this is needed!!
+})(UserEdit)
+```
+If your initialValues prop gets updated, your form will update too.
+
+### How to use TypeScript for create-react-app applications?
+When you create a new project called my-app then supply **--scripts-version** option as **react-scripts-ts**. react-scripts-ts is a set of adjustments to take the standard create-react-app project pipeline and bring TypeScript into the mix.
+Now the project layout should look like the following:
+```
+my-app/
+├─ .gitignore
+├─ images.d.ts
+├─ node_modules/
+├─ public/
+├─ src/
+│  └─ ...
+├─ package.json
+├─ tsconfig.json
+├─ tsconfig.prod.json
+├─ tsconfig.test.json
+└─ tslint.json
+```
+### What are the approaches to include pollyfills in your create-react-app?
+Below are the two way which can be used
+1. **Manual import from core-js**
+
+Create a file called (something like) polyfills.js and import it into root index.js file. Run npm install core-js or yarn add core-js and import your specific required features, like
+```
+/* polyfills.js */
+
+import 'core-js/fn/array/find';
+import 'core-js/fn/array/includes';
+import 'core-js/fn/number/is-nan';
+```
+2. **Using Polyfill service**
+Use the polyfill.io CDN to retrieve custom, browser-specific polyfills by adding this line to index.html
+```
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,Array.prototype.includes"></script>
+
+```
+In the above script we had to explicitly request the **Array.prototype.includes** feature as it is not included in the default feature set.
+### How to use https instead of http in create-react-app?
+You just need to use HTTPS=true configuration. You can edit your package.json scripts section as below
+```
+"scripts": {
+        "start": "set HTTPS=true&&react-scripts start",
+        ...
+     }
+```
+or just run set HTTPS=true&&npm start
+### How to avoid using relative path imports in create-react-app?
+Create a file called .env in the project root and write the import path
+```
+NODE_PATH=src/app
+```
+After that restart the development server. Now you should be able to import anything inside **src/app* without relative paths.
+### How to add google analytics for react-router?
+You need to follow two steps
+1. Keep your history object
+```
+var history = createBrowserHistory();
+
+ReactDOM.render((
+    <Router history={history}>
+        [...]
+```
+2. Add a listener to record each page view
+```
+history.listen(function (location) {
+    window.ga('set', 'page', location.pathname + location.search);
+    window.ga('send', 'pageview', location.pathname + location.search);
+});
+```
+### How to update react component for every second?
+You need to use setInterval to trigger the change, but you also need to clear the timer when the component unmounts to prevent it leaving errors and leaking memory
+```
+componentDidMount() {
+  this.interval = setInterval(() => this.setState({ time: Date.now() }), 1000);
+}
+componentWillUnmount() {
+  clearInterval(this.interval);
+}
+```
+### How do you apply vendor prefixes to inline styles in reactjs?
+React does not apply vendor prefixes automatically. In order to add vendor prefixes, name the vendor prefix as per the following pattern, and add it as a separate prop.
+```
+-vendor-specific-prop: 'value'
+```
+It becomes
+```
+VendorSpecificProp: 'value'
+```
+For example, the transform property need to be added for vendor specific browsers as below,
+```
+<div style={{
+    transform: 'rotate(90deg)',
+    WebkitTransform: 'rotate(90deg)'
+}}>Hello World</div>
 ```
