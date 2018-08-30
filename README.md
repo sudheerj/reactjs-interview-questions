@@ -157,7 +157,16 @@ Below is a list of ReactJS interview questions and answers.
 |149| [What are the different ways to write mapDispatchToProps?](#what-are-the-different-ways-to-write-mapDispatchToProps)|
 |150| [What is the use of the ownprops arg in mapStateToProps and mapDispatchToProps?](#what-is-the-use-of-the-ownprops-arg-in-mapstatetoprops-and-mapdispatchtoprops)|
 |151| [How to structure redux top level directories?](#how-to-structure-redux-top-level-directories)|
-
+|152| [What is redux saga?](#what-is-redux-saga?)|
+|153| [What is the mental model of redux saga?](#what-is-the-mental-model-of-redux-saga)|
+|154| [What are the differences between call and put in redux-saga](#what-are-the-differences-between-call-and-put-in-redux-saga)|
+|155| [What is Redux thunk?](#what-is-redux-thunk)|
+|156| [What are the differences between redux-saga and redux thunk](#what-are-the-differences-between-redux-saga-and-redux-thunk)|
+|157| [What is React Dev Tools?](#what-is-react-dev-tools)|
+|158| [Why React tab is not showing up for dev tools?](#why-react-tab-is-not-showing-up-for-dev-tools)|
+|159| [What is Redux DevTools?](#what-is-redux-devtools)|
+|160| [What are the features of Redux DevTools?](#what-are-the-features-of-redux-devtools)|
+|161| [How to focus an input element on page load?](#how-to-focus-an-input-element-on-page-load)|
 
 ### What is ReactJS?
 
@@ -1558,6 +1567,10 @@ Redux follows three fundamental principles
 
 ### What are Redux selectors?Why use them?
 Selectors are functions that take Redux state as an argument and return some data to pass to the component.
+For example, to get user details from the state,
+```
+const getUserData = state => state.user.data;
+```
 
 ### What is reselect?How it works?
 Reselect is a selector library(for Redux) which uses memoization concept. It was originally written to compute derived data from redux-like applications state, but it cann't be tied to any architecture or library.
@@ -2355,3 +2368,83 @@ Most of the applications has several top-level directories as below
 5. **Store** Used for store initialization
 This structure works well for small and mid-level size apps.
 
+### What is redux-saga?
+redux-saga is a library that aims to make side effects(i.e. asynchronous things like data fetching and impure things like accessing the browser cache) in React/Redux applications easier and better.
+It is available in NPM as
+```
+npm install --save redux-saga
+```
+### What is the mental model of redux-saga?
+The mental model is that a saga is like a separate thread in your application that's solely responsible for side effects. redux-saga is a redux middleware, which means this thread can be started, paused and cancelled from the main application with normal redux actions, it has access to the full redux application state and it can dispatch redux actions as well.
+### What are the differences between call and put in redux-saga?
+Both **call** and **put** are effects creators functions. call function is used to create effect description, which instructs middleware to call the promise. put function creates effect, in which instructs middleware to dispatch an action to the store.
+Let's take example of how these effects work for fetching particular user data
+```
+function* fetchUserSaga(action) {
+  // `call` function accepts rest arguments, which will be passed to `api.fetchUser` function.
+  // Instructing middleware to call promise, it resolved value will be assigned to `userData` variable
+  const userData = yield call(api.fetchUser, action.userId);
+  // Instructing middleware to dispatch corresponding action.
+  yield put({
+    type: 'FETCH_USER_SUCCESS',
+    userData
+  });
+}
+```
+### What is Redux thunk?
+Redux Thunk middleware allows you to write action creators that return a function instead of an action. The thunk can be used to delay the dispatch of an action, or to dispatch only if a certain condition is met. The inner function receives the store methods dispatch and getState() as parameters.
+### What are the differences between redux-saga and redux-thunk?
+Both Redux Thunk and Redux Saga take care of dealing with side effects. In most of the scenarios, Thunk allows Promises" to deal with them, whereas Saga uses Generators. Thunk is simple to use and Promises are familiar to many developers, Saga/Generators are more powerful but you will need to learn them. But both the two middleware can coexists, so you can start with Thunks and introduce Sagas when/if you need them.
+### What is React Dev Tools?
+React Developer Tools makes you inspect the React component hierarchy, including component props and state. It exists both as a browser extension (for Chrome and Firefox), and as a standalone app (works with other environments including Safari, IE, and React Native).
+The official extensions available for different browsers or environments.
+1. **Chrome extension**
+2. **Firefox extension**
+3. **Standalone app (Safari, React Native, etc)**
+After installation the quick navigation icon would appear as below,
+![ScreenShot](images/devtoolsTab.png)
+and creates React new tab as below,
+![ScreenShot](images/devtoolsInspect.png)
+### Why React tab is not showing up for dev tools?
+When the page loads, the devtools sets a global named __REACT_DEVTOOLS_GLOBAL_HOOK__, then React communicates with that hook during initialization. If the website is not using React or if React fails to communicate with DevTools then it won't show up the tab.
+### What is Redux DevTools?
+Redux DevTools is a live-editing time travel environment for redux with hot reloading, action replay, and customizable UI. If you don’t want to bother with installing Redux DevTools and integrating it into your project, consider using Redux DevTools Extension for Chrome and Firefox.
+### What are the features of Redux DevTools?
+Below are the major features of redux devTools
+1. Lets you inspect every state and action payload
+2. Lets you go back in time by “cancelling” actions
+3. If you change the reducer code, each “staged” action will be re-evaluated
+4. If the reducers throw, you will see during which action this happened, and what the error was
+5. With persistState() store enhancer, you can persist debug sessions across page reloads
+
+### How to focus an input element on page load?
+You can do it in two steps
+1. **Define ref callback for input**
+```
+class App extends React.Component{
+  componentDidMount(){
+    this.nameInput.focus();
+  }
+  render() {
+    return(
+      <div>
+        <input
+          defaultValue="Won't focus"
+        />
+        <input
+          ref={(input) => { this.nameInput = input; }}
+          defaultValue="will focus"
+        />
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<App />, document.getElementById('app'));
+```
+2. **Apply input focus in componentDidMount**
+```
+componentDidMount(){
+   this.nameInput.focus();
+}
+```
