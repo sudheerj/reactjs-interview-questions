@@ -179,6 +179,35 @@ Below is a list of ReactJS interview questions and answers.
 |171| [How to add google analytics for react-router?](#how-to-add-google-analytics-for-react-router)|
 |171| [How to update react component for every second?](#how-to-update-react-component-for-every-second)|
 |172| [How do you apply vendor prefixes to inline styles in reactjs?](#how-do-you-apply-vendor-prefixes-to-inline-styles-in-reactjs)|
+|173| [What is the purpose of react TestUtils package?](#what-is-the-purpose-of-react-testutils-package)|
+|174| [How to import and export components using react and ES6?](#how-to-import-and-export-components-using-react-and-es6)|
+|175| [Why react component names must begin with a capital letter?](#why-react-component-names-must-begin-with-a-capital-letter)|
+|176| [What is the main goal of React Fiber?](#what-is-the-main-goal-of-react-fiber)|
+|177| [How to add multiple middlewares to redux?](#how-to-add-multiple-middlewares-to-redux)|
+|178| [How to test React Native apps?](#how-to-test-react-native-apps)|
+|179| [How to set initial state in redux?](#how-to-set-initial-state-in-redux)|
+|180| [Why is react component's constructor called once?](#why-is-react-component's-constructor-called-once)|
+|181| [How to define constants in reactjs?](#how-to-define-constants-in-reactjs)|
+|182| [How to programmatically trigger click event in reactjs?](#how-to-programmatically-trigger-click-event-in-reactjs)|
+|183| [](#)|
+|184| [](#)|
+|185| [](#)|
+|186| [](#)|
+|187| [](#)|
+|188| [](#)|
+|189| [](#)|
+|190| [](#)|
+|191| [](#)|
+|192| [](#)|
+|193| [](#)|
+|194| [](#)|
+|195| [](#)|
+|196| [](#)|
+|197| [](#)|
+|198| [](#)|
+|199| [](#)|
+|200| [](#)|
+|201| [](#)|
 
 ### What is ReactJS?
 
@@ -2620,3 +2649,86 @@ For example, the transform property need to be added for vendor specific browser
     WebkitTransform: 'rotate(90deg)'
 }}>Hello World</div>
 ```
+### What is the purpose of react TestUtils package?
+ReactJs TestUtils are provided in the 'with-addons' react package and allow you to perform actions against a simulated DOM for the purposes of unit testing.
+### How react propTypes allow different types of propTypes for one prop?
+You can use oneOfType method of propTypes. For example, the height property can be defined with either string or number type as below,
+```
+size: PropTypes.oneOfType([
+  PropTypes.string,
+  PropTypes.number
+]),
+```
+### How to import and export components using react and ES6?
+You should use default for exporting the components
+```
+import React from 'react';
+import User from 'user';
+
+export default class MyProfile extends React.Component {
+    render(){
+      return (
+        <User type="customer">
+        ...
+        </User>
+      );
+    }
+}
+```
+With the export specifier, the MyProfile is going to be the member and exported to this module and the same can be imported without mentioning the name in other components.
+### Why react component names must begin with a capital letter?
+In JSX, lower-case tag names are considered to be HTML tags. However, lower-case tag names with a dot (property accessor) and capital-case letters aren't.
+The react components with different case are going to be converted as below
+1. <component /> compiles to React.createElement('component') (i.e, html tag)
+2. <obj.component /> compiles to React.createElement(obj.component)
+3. <Component /> compiles to React.createElement(Component)
+### What is the main goal of React Fiber?
+The goal of React Fiber is to increase its suitability for areas like animation, layout, and gestures. Its headline feature is incremental rendering: the ability to split rendering work into chunks and spread it out over multiple frames.
+### How to add multiple middlewares to redux?
+You can use applyMiddleware where you can pass each piece of middleware as a new argument. So you just need to pass each piece of middleware you'd like. For example, you can add ReduxThunk and logger middlewares as an argument as below,
+```
+import { createStore, applyMiddleware } from 'redux'
+const createStoreWithMiddleware = applyMiddleware(ReduxThunk, logger)(createStore);
+
+```
+### How to test React Native apps?
+React Native can be tested only in mobile simulators like IOS and Android. You can run the app in your mobile using expo app(https://expo.io) Where it syncs using QR code, your mobile and computer should be in same wirelesss network.
+### Why is react component's constructor called once?
+React's reconciliation algorithm assumes that without any information to the contrary, if a custom component appears in the same place on subsequent renders, it's the same component as before, so reuses the previous instance rather than creating a new one.
+### How to define constants in reactjs?
+If you want to keep the constants in the React component then use **statics** property.
+```
+var MyComponent = React.createClass({
+    statics: {
+    DEFAULT_PAGINATION: 10
+    }
+    });
+```
+### How to set initial state in redux?
+You need to pass initial state as second argument to createStore
+```
+const rootReducer = combineReducers({
+  todos: todos,
+  visibilityFilter: visibilityFilter
+});
+
+const initialState = {
+  todos: [{id:123, name:'sudheer', completed: false}]
+};
+
+const store = createStore(
+  rootReducer,
+  initialState
+);
+```
+### How to programmatically trigger click event in reactjs?
+You could use the ref prop to acquire a reference to the underlying HTMLInputElement object through a callback, store the reference as a class property, then use that reference to later trigger a click from your event handlers using the HTMLElement.click method. This can be done in two steps
+1. Create ref in render method
+```
+<input ref={input => this.inputElement = input} ... />
+```
+2. Apply click event in your event handler
+```
+this.inputElement.click();
+```
+###
