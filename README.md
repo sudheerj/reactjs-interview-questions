@@ -189,13 +189,13 @@ Below is a list of ReactJS interview questions and answers.
 |180| [Why is react component's constructor called once?](#why-is-react-component's-constructor-called-once)|
 |181| [How to define constants in reactjs?](#how-to-define-constants-in-reactjs)|
 |182| [How to programmatically trigger click event in reactjs?](#how-to-programmatically-trigger-click-event-in-reactjs)|
-|183| [](#)|
-|184| [](#)|
-|185| [](#)|
-|186| [](#)|
-|187| [](#)|
-|188| [](#)|
-|189| [](#)|
+|183| [Is it possible to use async/await in plain react?](#is-it-possible-to-use-async/await-in-plain-react)|
+|184| [How to pass numbers to components?](#how-to-pass-numbers-to-components)|
+|185| [What are styled components?](#what-are-styled-components)|
+|186| [Give an example of styled components?](#give-an-example-of-styled-components)|
+|187| [What is Relay?](#what-is-relay)|
+|188| [How Relay is different from Redux?](#how-relay-is-different-from-redux)|
+|189| [What are the common folder structures for react?](#what-are-the-common-folder-structures-for-react)|
 |190| [](#)|
 |191| [](#)|
 |192| [](#)|
@@ -2731,4 +2731,88 @@ You could use the ref prop to acquire a reference to the underlying HTMLInputEle
 ```
 this.inputElement.click();
 ```
-###
+### Is it possible to use async/await in plain react?
+React Native ships with Babel and some Babel presets, whereas React on the web is just React related code. f you want to use async/await on the web then either
+1. You'll need Babel and the correct transforms
+https://babeljs.io/docs/plugins/transform-async-to-generator/
+2. Use stage-1 presets which is fairly common in React apps
+https://babeljs.io/docs/plugins/transform-async-to-generator/
+### How to pass numbers to components?
+You should be passing the numbers via curly braces({}) where as strings inn quotes
+```
+React.render(<User age={30} department={"IT"} />, document.getElementById('container'));
+```
+### What are styled components?
+Styled-components is a JavaScript library for styling React applications. It removes the mapping between styles and components, and lets you write actual CSS augmented with JavaScript.
+### Give an example of styled components?
+Lets create Title and Wrapper components with specific styles for each.
+```
+import React from 'react';
+import styled from 'styled-components';
+
+// Create a <Title> react component that renders an <h1> which is centered, red and sized at 1.5em
+const Title = styled.h1`
+  font-size: 1.5em;
+  text-align: center;
+  color: palevioletred;
+`;
+
+// Create a <Wrapper> react component that renders a <section> with some padding and a papayawhip background
+const Wrapper = styled.section`
+  padding: 4em;
+  background: papayawhip;
+`;
+```
+These two variables, Title and Wrapper, are now a React components you can render like any other React component
+```
+<Wrapper>
+  <Title>Lets start first styled component!</Title>
+</Wrapper>
+```
+### What is Relay?
+Relay is a JavaScript framework for providing a data layer and client-server communication to web applications using the React view layer.
+### How Relay is different from Redux?
+Relay is similar to redux in that they both use a single store. The main difference is that relay only manages state originated from the server, and all access to the state is used via GraphQL querys (for reading data) and mutations (for changing data). Relay caches the data for you and optimizes data fetching for you, by fetching only changed data and nothing more.
+### What are the common folder structures for react?
+Basically there are two common practices for reactjs file structure
+1. **Grouping by features or routes**
+One common way to structure projects is locate CSS, JS, and tests together inside folders grouped by feature or route.
+```
+common/
+  Avatar.js
+  Avatar.css
+  APIUtils.js
+  APIUtils.test.js
+feed/
+  index.js
+  Feed.js
+  Feed.css
+  FeedStory.js
+  FeedStory.test.js
+  FeedAPI.js
+profile/
+  index.js
+  Profile.js
+  ProfileHeader.js
+  ProfileHeader.css
+  ProfileAPI.js
+```
+2. **Grouping by file type**
+Another popular way to structure projects is to group similar files together
+```
+api/
+  APIUtils.js
+  APIUtils.test.js
+  ProfileAPI.js
+  UserAPI.js
+components/
+  Avatar.js
+  Avatar.css
+  Feed.js
+  Feed.css
+  FeedStory.js
+  FeedStory.test.js
+  Profile.js
+  ProfileHeader.js
+  ProfileHeader.css
+```
