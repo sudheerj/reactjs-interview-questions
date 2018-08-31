@@ -196,10 +196,10 @@ Below is a list of ReactJS interview questions and answers.
 |187| [What is Relay?](#what-is-relay)|
 |188| [How Relay is different from Redux?](#how-relay-is-different-from-redux)|
 |189| [What are the common folder structures for react?](#what-are-the-common-folder-structures-for-react)|
-|190| [](#)|
-|191| [](#)|
-|192| [](#)|
-|193| [](#)|
+|190| [What are the popular packages for animation?](#what-are-the-popular-packages-for-animation)|
+|191| [What is the benefit of styles modules?](#what-is-the-benefit-of-styles-modules)|
+|192| [How to create props proxy for HOC component?](#how-to-create-props-proxy-for-hoc-component)|
+|193| [What are the popular React-specific linting?](#what-are-the-popular-react-specific-linting)|
 |194| [](#)|
 |195| [](#)|
 |196| [](#)|
@@ -2816,3 +2816,47 @@ components/
   ProfileHeader.js
   ProfileHeader.css
 ```
+### What are the popular packages for animation?
+Basically both "React Transition Group" and "React Motion" can be used as popular animation packages in reactjs eco system.
+### What is the benefit of styles modules?
+It is recommended that hard coding styles values in a component should be avoided. Any values that are likely to be used across different UI components should be split into their own module.
+For example, below component styles can be reused
+```
+export const colors = {
+  white,
+  black,
+  blue
+};
+
+export const space = [
+  0,
+  8,
+  16,
+  32,
+  64
+];
+```
+And they can imported individually in other components as below
+```
+import { space, colors } from './styles'
+```
+### How to create props proxy for HOC component?
+You can add/edit props passed to the Component as a props proxy as below
+```
+function HOC(WrappedComponent) {
+  return class Test extends Component {
+    render() {
+      const newProps = {
+        title: 'New Header',
+        footer: false,
+        showFeatureX: false,
+        showFeatureY: true
+      };
+
+      return <WrappedComponent {...this.props} {...newProps} />
+    }
+  }
+}
+```
+### What are the popular React-specific linting?
+ESLint is a popular linter for various JavaScript projects. There are plugins available that analyse specific code styles. One of the most common for React is an npm package called eslint-plugin-react.  By default, it will check a number of best practices, with rules checking things from keys in iterators to a complete set of prop types. Another popular plugin is eslint-plugin-jsx-a11y, which will help fix common issues with accessibility. As JSX offers slightly different syntax to regular HTML, issues with alt text and tabindex, for example, will not be picked up by regular plugins.
