@@ -200,14 +200,14 @@ Below is a list of ReactJS interview questions and answers.
 |191| [What is the benefit of styles modules?](#what-is-the-benefit-of-styles-modules)|
 |192| [How to create props proxy for HOC component?](#how-to-create-props-proxy-for-hoc-component)|
 |193| [What are the popular React-specific linting?](#what-are-the-popular-react-specific-linting)|
-|194| [](#)|
-|195| [](#)|
-|196| [](#)|
-|197| [](#)|
-|198| [](#)|
-|199| [](#)|
-|200| [](#)|
-|201| [](#)|
+|194| [What is JEST?](#what-is-jest)|
+|195| [What are the advantages of JEST over jasmine?](#what-are-the-advantages-of-jest-over-jasmine)|
+|196| [Give a simple example for JEST test case?](#give-a-simple-example-for-jest-test-case)|
+|197| [How virtual DOM works?](#how-virtual-dom-works)|
+|198| [How to do logging in react native?](#how-to-do-logging-in-react-native)|
+|199| [How to debug your react native?](#how-to-debug-your-react-native)|
+|200| [What are the advantages of react over vuejs?](#what-are-the-advantages-of-react-over-vuejs)|
+|201| [What is the difference between ReactJS and Angular?](#what-is-the-difference-between-reactjs-and-angular)|
 
 ### What is ReactJS?
 
@@ -2860,3 +2860,79 @@ function HOC(WrappedComponent) {
 ```
 ### What are the popular React-specific linting?
 ESLint is a popular linter for various JavaScript projects. There are plugins available that analyse specific code styles. One of the most common for React is an npm package called eslint-plugin-react.  By default, it will check a number of best practices, with rules checking things from keys in iterators to a complete set of prop types. Another popular plugin is eslint-plugin-jsx-a11y, which will help fix common issues with accessibility. As JSX offers slightly different syntax to regular HTML, issues with alt text and tabindex, for example, will not be picked up by regular plugins.
+### What is JEST?
+Jest is a JavaScript unit testing framework made by Facebook based on Jasmine and provides automated mock creation and a jsdom environment. It's often used for testing React components.
+### What are the advantages of JEST over jasmine?
+There are couple of advantages compared to vanilla jasmine
+1. Automatically finds tests to execute in your source code
+2. Automatically mocks dependencies when running your tests
+3. Allows you to test asynchronous code synchronously
+4. Runs your tests with a fake DOM implementation (via jsdom) so that your tests can be run on the command line
+5. Runs tests in parallel processes so that they finish sooner.
+### Give a simple example for JEST test case?
+ Lets take writing a test for a function that adds two numbers and name it as **sum.js** file:
+ ```
+ function sum(a, b) {
+   return a + b;
+ }
+ module.exports = sum;
+ ```
+ Now create a file named **sum.test.js** which contains actual test
+ ```
+ const sum = require('./sum');
+
+ test('adds 1 + 2 to equal 3', () => {
+   expect(sum(1, 2)).toBe(3);
+ });
+ ```
+ And then add the following section to your **package.json**
+ ```
+ {
+   "scripts": {
+     "test": "jest"
+   }
+ }
+ ```
+ Finally, run **yarn test or npm test** and Jest will print this message
+ ```
+ PASS  ./sum.test.js
+ ✓ adds 1 + 2 to equal 3 (5ms)
+ ```
+ ### How virtual DOM works?
+ The Virtual DOM works in three simple steps.
+ 1. Whenever any underlying data changes, the entire UI is re-rendered in Virtual DOM representation.
+  ![ScreenShot](images/vdom1.png)
+ 2. Then the difference between the previous DOM representation and the new one is calculated.
+ ![ScreenShot](images/vdom2.png)
+ 3. Once the calculations are done, the real DOM will be updated with only the things that have actually changed.
+ ![ScreenShot](images/vdom3.png)
+### How to do logging in react native?
+You can use console.log, console.warn etc. As of React Native 0.29 you can simply run the following to see logs in the console
+```
+$ react-native log-ios
+$ react-native log-android
+```
+### How to debug your react native?
+Follow the below steps to do debugging react app
+1. Run your application in the iOS simulator.
+2. Press Command + D and a webpage should open up at http://localhost:8081/debugger-ui. (Chrome only for now) or use the Shake Gesture
+3. Enable Pause On Caught Exceptions for a better debugging experience.
+4. Press Command + Option + I to open the Chrome Developer tools, or open it via View -> Developer -> Developer Tools.
+5. You should now be able to debug as you normally would.
+### What are the advantages of react over vuejs?
+React has the following advantages over Vue
+1. Gives more flexibility in large apps developing;
+2. Easier to test;
+3. Suitable for mobile apps creating;
+4. More information and solutions available
+
+### What is the difference between ReactJS and Angular?
+The comparision between reactjs and angular is represented in a tabular format.
+
+| ReactJS | Angular |
+|---- | ---------
+| React is a Library and has only the View layer  | Angular is a Framework and has complete MVC functionality |
+| React handle rendering on the server side | Angular JS render on the client side but Angular 2 and above render on the server side |
+| In React, HTML is written in JS which can be confusing| Angular follows the template approach for HTML, which makes code shorter and easy to understand.|
+| React native, which is a React type to build mobile applications are faster and more stable | Ionic, Angular’s mobile native app is relatively less stable and slower|
+| In React, data flows only in one way and hence debugging is easy | In Angular, data flows both way i.e it has two-way data binding between children and parent and hence debugging is often difficult |
