@@ -2,6 +2,8 @@
 To encourage us and if you like the project then click star(💫) and also any PR contributions are appreciated
 <hr/>
 
+ <img src="images/logo.jpeg" width="600" height="300">
+
 Below is a list of ReactJS interview questions and answers.
 -------------------------------------------------------------------
 | No. | Questions |
