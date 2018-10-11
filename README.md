@@ -282,7 +282,7 @@ And finally it renders to the DOM using ReactDOM.render as below,
 ```
 <div id='login-btn'>Login</div>
 ```
-Whereas a **component** can be declared in several different ways. It can be a class with a render() method. Alternatively, in simple cases, it can be defined as a function. In either case, it takes props as an input, and returns an element tree as the output. JSX transpiled as createElement at the end.
+Whereas a **component** can be declared in several different ways. It can be a class with a render() method. Alternatively, in simple cases, it can be defined as a function. In either case, it takes props as an input, and returns an element tree as the output. JSX transpiled it as createElement at the end.
 ```
 function Button ({ onLogin }) {
   return React.createElement(
@@ -304,7 +304,7 @@ There are two possible ways to create ReactJS Components.
 	}
 ```
 
-2. **Class components:** You can also use Es6 class to define component. The above functional component can be written as below,
+2. **Class components:** You can also use ES6 class to define a component. The above functional component can be written as below,
 ```
       class Greeting extends React.Component {
   	    render() {
@@ -315,15 +315,15 @@ There are two possible ways to create ReactJS Components.
 
 6. ### When to use a Class Component over a Functional Component?
 
-If the component need state or lifecycle methods then use class component otherwise use functional component.
+If the component need **state or lifecycle methods** then use class component otherwise use functional component.
 
 7. ### What are Pure Components?
 **PureComponent** is exactly the same as Component except that it handles the shouldComponentUpdate method for you. When props or state changes, PureComponent will do a shallow comparison on both props and state. Component on the other hand won’t compare current props and state to next out of the box. Thus, the component will re-render by default whenever shouldComponentUpdate is called.
 
 8. ### What is state in ReactJS?
- State of a component is an object that holds some information that may change over the lifetime of the component. We should always try to make our state as simple as possible and minimize the number of stateful components.
+ The **State** of a component is an object that holds some information that may change over the lifetime of the component. We should always try to make our state as simple as possible and minimize the number of stateful components.
 
- Let's create user component with message state,
+ Let's create an user component with message state,
 
  ```
  class User extends React.Component {
@@ -347,7 +347,7 @@ If the component need state or lifecycle methods then use class component otherw
 
 9. ### What is props in ReactJS?
 
-Props are inputs to a React component. They are single values or objects containing a set of values that are passed to React Components on creation using a naming convention similar to HTML-tag attributes. i.e, They are data passed down from a parent component to a child component.
+**Props** are inputs to a React component. They are single values or objects containing a set of values that are passed to React components on creation using a naming convention similar to HTML-tag attributes. i.e, They are data passed down from a parent component to a child component.
 
 The primary purpose of props in React is to provide following component functionality:
 
@@ -367,7 +367,7 @@ This "reactProp" (or whatever you came up with) name then becomes a property att
 ```
 
 10. ### What is the difference between state and props?
-Both props and state are plain JavaScript objects. While both of them hold information that influences the output of render, they are different in their functionality with respect to component. i.e, Props get passed to the component similar to function parameters whereas state is managed within the component similar to variables declared within a function.
+Both **props and state** are plain JavaScript objects. While both of them hold information that influences the output of render, they are different in their functionality with respect to component. i.e, Props get passed to the component similar to function parameters whereas state is managed within the component similar to variables declared within a function.
 
 11. ### Why should not we update the state directly?
 
