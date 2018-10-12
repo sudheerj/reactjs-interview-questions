@@ -806,7 +806,7 @@ The above code snippets reveals that this.props behavior is different only with 
 When a component’s props or state change, React decides whether an actual DOM update is necessary by comparing the newly returned element with the previously rendered one. When they are not equal, React will update the DOM. This process is called “reconciliation”.
 
 42. ### How to set state with a dynamic key name?
-If you are using ES6 or the Babel transpiler to transform your JSX code thenn you can accomplish this with computed property names
+If you are using ES6 or the Babel transpiler to transform your JSX code then you can accomplish this with computed property names
 ```
 handleInputChange : function (event) {
     this.setState({ [event.target.id]: event.target.value });
@@ -1071,7 +1071,7 @@ Handling events with React elements has some syntactic differences:
 2. With JSX you pass a function as the event handler, rather than a string.
 ---------------
 63. ### What will happen if you use setState in constructor?
-When you use setState(), then apart from assigning to the object state react also re-renders the component and all it's children. You would get error like this:Can only update a mounted or mounting component. So we need to use this.state to initialize variables inside constructor.
+When you use setState(), then apart from assigning to the object state react also re-renders the component and all it's children. You would get error like this: Can only update a mounted or mounting component. So we need to use this.state to initialize variables inside constructor.
 
 64. ### What is the impact of indexes as keys?
 Keys should be stable, predictable, and unique so that React can keep track of elements.
@@ -1123,7 +1123,7 @@ class MyComponent extends React.Component {
 
   render() {
     return <div>
-            this.state.inputVal
+            {this.state.inputVal}
            </div>
   }
 }
@@ -1142,7 +1142,7 @@ class MyComponent extends React.Component {
 
   render() {
     return <div>
-            this.props.inputVal
+            {this.props.inputVal}
            </div>
   }
 }
@@ -2062,11 +2062,11 @@ React Router is a powerful routing library built on top of React that helps you 
 131. ### How React router is different from history library?
 React Router is a wrapper around the **history** library which handles interaction with the browser's window.history with its browser and hash histories. It also provides memory history which is useful for environments that don't have global history (such as mobile app development (react-native) and unit testing with Node).
 
-132.### What are the components of React Router 4 version?
-ReactRouter4 provides below 3 components
-1. <BrowserRouter>
-2. <HashRouter>
-3. <MemoryRouter>
+132. ### What are the components of React Router 4 version?
+React Router 4 provides below 3 components:
+1. \<BrowserRouter>
+2. \<HashRouter>
+3. \<MemoryRouter>
 
 The above components will create browser, hash, and memory instances. React Router makes the properties and methods of the history instance associated with your router available through the context, under the router object.
 
@@ -2077,7 +2077,7 @@ A history instance has two methods for navigation purpose.
 
 If you think of the history as an array of visited locations, push will add a new location to the array and replace will replace the current location in the array with the new one.
 
-134. ### How do you programmatically navigate using React router4?
+134. ### How do you programmatically navigate using React Router 4?
 There are three different ways to achieve programmatic routing/navigation within react components.
 1. **Use the withRouter higher-order component:**
 The **withRouter** HOC will inject the history object as a prop of the component. This object provides push and replace methods to avoid the usage of context.
@@ -2131,8 +2131,8 @@ Button.contextTypes = {
 }
 ```
 
-135. ### How to get query parameters in react-router4?
-The ability to parse query strings was taken out of react-routerV4 because there have been user requests over the years to support different implementation. So the decision has been given to users to choose the implementation they like. The recommended approach is to use query strings library.
+135. ### How to get query parameters in React Router 4?
+The ability to parse query strings was taken out of React Router 4 because there have been user requests over the years to support different implementation. So the decision has been given to users to choose the implementation they like. The recommended approach is to use query strings library.
 ```
 const queryString = require('query-string');
 const parsed = queryString.parse(props.location.search);
