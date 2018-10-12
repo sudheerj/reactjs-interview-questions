@@ -229,6 +229,7 @@ Below is a list of ReactJS interview questions and answers.
 |211| [Can Redux only be used with React?](#can-redux-only-be-used-with-react)|
 |212| [How redux-form initialValues get updated from state?](#how-redux-form-initialvalues-get-updated-from-state)|
 |213| [How react propTypes allow different types of propTypes for one prop?](#how-react-proptypes-allow-different-types-of-proptypes-for-one-prop)|
+|214| [How to import an SVG as a React component](#how-to-import-an-svg-as-a-react-component)|
 
 ## Core ReactJS
 
@@ -3140,4 +3141,18 @@ size: PropTypes.oneOfType([
   PropTypes.number
 ]),
 ```
+
+214. ### How to import an SVG as a React component?
+You can also import SVGs directly as React components instead loading it as a file. This is handy if you don't want to load SVG as a separate file. i.e, You want a React component that renders an SVG, rather than its filename.
+For example,
+```
+import { ReactComponent as Logo } from './logo.svg';
+const App = () => (
+  <div>
+    {/* Logo is an actual React component */}
+    <Logo />
+  </div>
+);
+```
+**Note**: Don't forget the curly braces in the import!. This feature is available with react-scripts@2.0.0 and higher.
 
