@@ -4,6 +4,8 @@ To encourage us and if you like the project then click star(💫) and also any P
 
  <img src="images/logo.jpeg" width="600" height="300">
 
+![](https://img.shields.io/github/stars/sudheerj/reactjs-interview-questions/editor.md.svg) ![](https://img.shields.io/github/forks/sudheerj/reactjs-interview-questions/editor.md.svg) ![
+
 Below is a list of ReactJS interview questions and answers.
 -------------------------------------------------------------------
 | No. | Questions |
@@ -21,7 +23,7 @@ Below is a list of ReactJS interview questions and answers.
 |10 | [What is the difference between state and props?](#what-is-the-difference-between-state-and-props)|
 |11 | [Why should not we update the state directly?](#why-should-not-we-update-the-state-directly)|
 |12 | [What is the purpose of callback function as an argument of setState?](#what-is-the-purpose-of-callback-function-as-an-argument-of-setstate)
-|13 | [What is the difference between HTML and React event handling?](#what-is-the-difference-between-html-and-react-event-handling)|
+|13 | [What is the difference of event handling between HTML and React?](#what-is-the-difference-of--event-handling-between-html-and-react)|
 |14 | [How to bind methods or event handlers in JSX callbacks?](#how-to-bind-methods-or-event-handlers-in-jsx-callbacks)|
 |15 | [How to pass a parameter to an event handler or callback?](#how-to-pass-a-parameter-to-an-event-handler-or-callback)|
 |16 | [What are synthetic events in ReactJS?](#what-are-synthetic-events-in-reactjs)|
@@ -391,18 +393,18 @@ Instead use setState() method. It schedules an update to a component’s state o
 
 12. ### What is the purpose of callback function as an argument of setState?
 The callback function is invoked when setState finished and the component gets rendered. Since setState is **asynchronous** the callback function is used for any post action.
-**Note:** It is recommended to use lifecycle method rather this callback function.
 ```
 setState({name: 'sudheer'}, () => console.log('The name has updated and component re-rendered'));
 ```
-13. ### What is the difference between HTML and React event handling?
-Below are the few differences between HTML and React event handling,
+**Note:** It is recommended to use lifecycle method rather this callback function.
+13. ### What is the difference of event handling between HTML and React?
+Below are the few differences of event handling between HTML and React,
 1. In HTML, the event name should be in lowercase.
 ```
             <button onclick="activateLasers()">
 ```
 
-Whereas in ReactJS it follows camelCase convention,
+  Whereas in ReactJS it follows camelCase convention,
 
 ```
             <button onClick={activateLasers}>
@@ -414,7 +416,7 @@ Whereas in ReactJS it follows camelCase convention,
         <a href="#" onclick="console.log('The link was clicked.'); return false"/>
 ```
 
-3. Whereas in ReactJS you must call preventDefault explicitly,
+3. Whereas in ReactJS you must call preventDefault method explicitly,
 
 ```
             function handleClick(e) {
@@ -425,11 +427,11 @@ Whereas in ReactJS it follows camelCase convention,
 
 14. ### How to bind methods or event handlers in JSX callbacks?
 **(Or)**
-### How to use this in JSX callbacks?
+###     How to use this keyword in JSX callbacks?
 
 There are 3 possible ways to achieve,
 
-1.	**Binding in Constructor:** In JavaScript classes, the methods are not bound by default. The same thing applies for ReactJS event handlers defined as class methods. Normally we bind them in constructor as follows,
+1.	**Binding in Constructor:** In JavaScript classes, the methods are not bound by default. The same thing applies for ReactJS event handlers defined as class methods. Normally, we bind them in constructor as follows,
 ```
             constructor(props) {
                 super(props);
@@ -464,15 +466,15 @@ There are 3 possible ways to achieve,
 
 You can use an arrow function to wrap around an event handler and pass parameters:
 
-```
+```javascript
 <button onClick={() => this.handleClick(id)} />
 ```
-This is equivalent to calling .bind as below,
-```
+This is equivalent to using **bind** method as below,
+```javascript
 <button onClick={this.handleClick.bind(this, id)} />
 ```
 16. ### What are synthetic events in ReactJS?
-SyntheticEvent is a cross-browser wrapper around the browser's native event. It's API is same as the browser's native event, including stopPropagation() and preventDefault(), except the events work identically across all browsers.
+**SyntheticEvent** is a cross-browser wrapper around the browser's native event. It's API is same as the browser's native event, including *stopPropagation()* and *preventDefault()*, except the events work identically across all browsers.
 
 17. ### What is inline conditional expressions?
 
