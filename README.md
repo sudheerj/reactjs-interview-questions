@@ -23,7 +23,7 @@ Below is a list of ReactJS interview questions and answers.
 |10 | [What is the difference between state and props?](#what-is-the-difference-between-state-and-props)|
 |11 | [Why should not we update the state directly?](#why-should-not-we-update-the-state-directly)|
 |12 | [What is the purpose of callback function as an argument of setState?](#what-is-the-purpose-of-callback-function-as-an-argument-of-setstate)
-|13 | [What is the difference of event handling between HTML and React?](#what-is-the-difference-of--event-handling-between-html-and-react)|
+|13 | [What is the difference of event handling between HTML and React?](#what-is-the-difference-of-event-handling-between-html-and-react)|
 |14 | [How to bind methods or event handlers in JSX callbacks?](#how-to-bind-methods-or-event-handlers-in-jsx-callbacks)|
 |15 | [How to pass a parameter to an event handler or callback?](#how-to-pass-a-parameter-to-an-event-handler-or-callback)|
 |16 | [What are synthetic events in ReactJS?](#what-are-synthetic-events-in-reactjs)|
@@ -252,7 +252,7 @@ The major features of ReactJS are as follows,
 
 JSX is a syntax notation for **JavaScript XML**(XML-like syntax extension to ECMAScript). It stands for JavaScript XML. It provides expressiveness of JavaScript along with HTML like template syntax. For example, the below text inside h1 tag return as javascript function to the render function,
 
-```
+```jsx
    render(){
     	return(
          <div>
