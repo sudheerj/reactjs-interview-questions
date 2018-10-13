@@ -264,7 +264,7 @@ JSX is a syntax notation for **JavaScript XML**(XML-like syntax extension to ECM
 4. ### What is the difference between Element and Component?
 An **element** is a plain object describing what you want to appear on the screen in terms of the DOM nodes or other components. Elements can contain other elements in their props. Creating a React element is cheap. Once an element is created, it is never mutated.
 The object representation of React element would be as follows,
-```
+```javascript
 const element = React.createElement(
   'div',
   {id: 'login-btn'},
@@ -272,7 +272,7 @@ const element = React.createElement(
 )
 ```
 The above createElement returns as object as below,
-```
+```javascript
 {
   type: 'div',
   props: {
@@ -282,11 +282,11 @@ The above createElement returns as object as below,
 }
 ```
 And finally it renders to the DOM using ReactDOM.render as below,
-```
+```html
 <div id='login-btn'>Login</div>
 ```
 Whereas a **component** can be declared in several different ways. It can be a class with a render() method. Alternatively, in simple cases, it can be defined as a function. In either case, it takes props as an input, and returns an element tree as the output. JSX transpiled it as createElement at the end.
-```
+```javascript
 function Button ({ onLogin }) {
   return React.createElement(
     'div',
@@ -301,14 +301,14 @@ function Button ({ onLogin }) {
 There are two possible ways to create ReactJS Components.
 
 1. **Functional components:** This is the simplest way to create ReactJS components. It accepts props as an Object and returns ReactJS elements. We call it as “functional” because those are pure JavaScript functions.
-```
+```jsx
 	function Greeting(props) {
    	   return <h1> Hello, {props.message}</h1> 
 	}
 ```
 
 2. **Class components:** You can also use ES6 class to define a component. The above functional component can be written as below,
-```
+```jsx
       class Greeting extends React.Component {
   	    render() {
     		    return <h1>Hello, {this.props.message}</h1>;
@@ -328,7 +328,7 @@ If the component need **state or lifecycle methods** then use class component ot
 
  Let's create an user component with message state,
 
- ```
+ ```jsx
  class User extends React.Component {
     constructor(props) {
        super(props);
@@ -359,13 +359,13 @@ The primary purpose of props in React is to provide following component function
 3. Use via this.props.reactProp inside component's render() method.
 
 For example, let us create an element with reactProp property,
-```
+```jsx
  <Element reactProp = "1" />
 ```
 
 This "reactProp" (or whatever you came up with) name then becomes a property attached to React's native props object which originally already exists on all components created using React library.
 
-```
+```jsx
  props.reactProp;
 ```
 
@@ -376,14 +376,14 @@ Both **props and state** are plain JavaScript objects. While both of them hold i
 
 If you try to update state directly then it won’t re-render the component.
 
-```
+```jsx
     //Wrong
     This.state.message =”Hello world”;
 ```
 
 Instead use setState() method. It schedules an update to a component’s state object. When state changes, the component responds by re-rendering
 
-```
+```jsx
     //Correct
     This.setState({message: ‘Hello World’});
 ```
@@ -393,32 +393,33 @@ Instead use setState() method. It schedules an update to a component’s state o
 
 12. ### What is the purpose of callback function as an argument of setState?
 The callback function is invoked when setState finished and the component gets rendered. Since setState is **asynchronous** the callback function is used for any post action.
-```
+```jsx
 setState({name: 'sudheer'}, () => console.log('The name has updated and component re-rendered'));
 ```
 **Note:** It is recommended to use lifecycle method rather this callback function.
+------------------------
 13. ### What is the difference of event handling between HTML and React?
 Below are the few differences of event handling between HTML and React,
 1. In HTML, the event name should be in lowercase.
-```
+```html
             <button onclick="activateLasers()">
 ```
 
   Whereas in ReactJS it follows camelCase convention,
 
-```
+```jsx
             <button onClick={activateLasers}>
 ```
 
 2. In HTML, you can return false to prevent default behavior,
 
-```
+```html
         <a href="#" onclick="console.log('The link was clicked.'); return false"/>
 ```
 
 3. Whereas in ReactJS you must call preventDefault method explicitly,
 
-```
+```jsx
             function handleClick(e) {
     	        e.preventDefault();
     	        console.log('The link was clicked.');
@@ -432,7 +433,7 @@ Below are the few differences of event handling between HTML and React,
 There are 3 possible ways to achieve,
 
 1.	**Binding in Constructor:** In JavaScript classes, the methods are not bound by default. The same thing applies for ReactJS event handlers defined as class methods. Normally, we bind them in constructor as follows,
-```
+```jsx
             constructor(props) {
                 super(props);
                 this.handleClick = this.handleClick.bind(this);
@@ -444,7 +445,7 @@ There are 3 possible ways to achieve,
 ```
 
 2. **Public class fields syntax:** If you don’t like to use bind approach then public class fields syntax can be used to correctly bind callbacks
-```
+```jsx
             handleClick = () => {
                 console.log('this is:', this);
             }
@@ -454,7 +455,7 @@ There are 3 possible ways to achieve,
 ```
 
 3. **Arrow functions in callbacks:** You can use arrow functions directly in the callbacks as below
-```
+```jsx
             <button onClick={(e) => this.handleClick(e)}>
                 Click me
             </button>
@@ -466,11 +467,11 @@ There are 3 possible ways to achieve,
 
 You can use an arrow function to wrap around an event handler and pass parameters:
 
-```javascript
+```jsx
 <button onClick={() => this.handleClick(id)} />
 ```
 This is equivalent to using **bind** method as below,
-```javascript
+```jsx
 <button onClick={this.handleClick.bind(this, id)} />
 ```
 16. ### What are synthetic events in ReactJS?
@@ -479,7 +480,7 @@ This is equivalent to using **bind** method as below,
 17. ### What is inline conditional expressions?
 
 You can use either if statements or ternary expressions which are available from JS to conditionally render expressions. Apart from these approaches, you can also embed any expressions in JSX by wrapping them in curly braces and then followed by JS logical operator(&&).
-```
+```jsx
     <h1>Hello!</h1>
       {messages.length > 0 &&
     <h2>
@@ -492,7 +493,7 @@ You can use either if statements or ternary expressions which are available from
 
    For example, most often we use IDs from your data as keys
 
-```
+```jsx
     const todoItems = todos.map((todo) =>
         <li key={todo.id}>
         {todo.text}
@@ -501,7 +502,7 @@ You can use either if statements or ternary expressions which are available from
 ```
  When you don’t have stable IDs for rendered items, you may use the item index as a key as a last resort:
 
-```
+```jsx
     const todoItems = todos.map((todo, index) =>
         <li key={index}>
             {todo.text}
@@ -521,7 +522,7 @@ The ref is used to return a reference to the element. They should be avoided in 
 
 20. ### How to create refs?
 Refs are created using React.createRef() method and attached to React elements via the ref attribute. In order to use refs throughout the component, just assign the ref to the instance property with in constructor.
-```
+```jsx
 class MyComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -532,7 +533,7 @@ class MyComponent extends React.Component {
   }
 }
 ```
-```
+```jsx
 class UserForm extends Component {
   handleSubmit = () => {
     console.log("Input Value is: ", this.input.value)
@@ -554,7 +555,7 @@ We can also use it in functional components with the help of closures.
 21. ### What are forward refs?
 Ref forwarding is a feature that lets some components take a ref they receive, and pass it further down to a child.
 
-```
+```jsx
 const ButtonElement = React.forwardRef((props, ref) => (
   <button ref={ref} className="CustomButton">
     {props.children}
@@ -569,7 +570,7 @@ const ref = React.createRef();
 It is preferred to use callback refs over findDOMNode() API. Because findDOMNode() prevents certain improvements in React in the future.
 
 The legacy approach of using findDOMNode
-```
+```jsx
 class MyComponent extends Component {
   componentDidMount() {
     findDOMNode(this).scrollIntoView();
@@ -581,7 +582,7 @@ class MyComponent extends Component {
 }
 ```
 The recommended approach is
-```
+```jsx
 class MyComponent extends Component {
   componentDidMount() {
     this.node.scrollIntoView();
@@ -625,7 +626,7 @@ A ReactJS component that controls the input elements within the forms on subsequ
 
   For example, to write all the names in uppercase letters, we use handleChange as below,
 
-```
+```jsx
             handleChange(event) {
                 this.setState({value: event.target.value.toUpperCase()});
             }
@@ -633,7 +634,7 @@ A ReactJS component that controls the input elements within the forms on subsequ
 30. ### What are uncontrolled components?
 The **Uncontrolled Component** are the one that stores its own state internally, and you query the DOM using a ref to find its current value when you need it. This is a bit more like traditional HTML
 For example, in the below UserProfile component, the name input accessed using ref as below,
-```
+```jsx
 class UserProfile extends React.Component {
   constructor(props) {
     super(props);
@@ -690,7 +691,7 @@ There are four different phases of React component’s lifecycle:
 
 A higher-order component **(HOC)** is a function that takes a component and returns a new component. Basically, it’s a pattern that is derived from React’s compositional nature
 We call them as **“pure’ components”**  because they can accept any dynamically provided child component but they won’t modify or copy any behavior from their input components.
-```
+```jsx
 const EnhancedComponent = higherOrderComponent(WrappedComponent);
 
 ```
@@ -703,7 +704,7 @@ HOC can be used for many use cases as below,
 ------------------------------
 36. ### How to create props proxy for HOC component?
 You can add/edit props passed to the Component as a props proxy as below
-```
+```jsx
 function HOC(WrappedComponent) {
   return class Test extends Component {
     render() {
@@ -722,7 +723,7 @@ function HOC(WrappedComponent) {
 
 37. ### What is context?
 Context provides a way to pass data through the component tree without having to pass props down manually at every level. For example, authenticated user, locale preference, UI theme need to be accessed in the application by many components.
-```
+```jsx
 const {Provider, Consumer} = React.createContext(defaultValue);
 
 ```
@@ -733,7 +734,7 @@ Children is a prop(this.prop.children) that allow you to pass components as data
 There are a number of methods available in the React API to work with this prop. These include React.Children.map, React.Children.forEach, React.Children.count, React.Children.only, React.Children.toArray.
 
 A simple usage of children prop looks as below,
-```
+```jsx
 var MyDiv = React.createClass({
   render: function() {
     return <div>{this.props.children}</div>;
@@ -753,7 +754,7 @@ ReactDOM.render(
 The comments in ReactJS/JSX is similar to javascript multiline comments which are wrapped with curly braces
 
 **Single-line comments:**
-```
+```jsx
 <div>
   {/* Single-line comments */}
   Welcome {user}, Let's play React
@@ -761,7 +762,7 @@ The comments in ReactJS/JSX is similar to javascript multiline comments which ar
 ```
 
 **Multi-line comments:**
-```
+```jsx
 <div>
   {/* Multi-line comments for more than
    one line */}
@@ -774,7 +775,7 @@ The comments in ReactJS/JSX is similar to javascript multiline comments which ar
 A child class constructor cannot make use of **this** reference until super() method has been called. The same applies for ES6 sub-classes as well. The main reason of passing props parameter to super() call is to access this.props in your child constructors.
 
 **Passing props:**
-```
+```jsx
 class MyComponent extends React.Component {
     constructor(props) {
         super(props);
@@ -784,7 +785,7 @@ class MyComponent extends React.Component {
 }
 ```
 **Not passing props:**
-```
+```jsx
 class MyComponent extends React.Component {
     constructor(props) {
         super();
@@ -810,7 +811,7 @@ When a component’s props or state change, React decides whether an actual DOM 
 
 42. ### How to set state with a dynamic key name?
 If you are using ES6 or the Babel transpiler to transform your JSX code then you can accomplish this with computed property names
-```
+```jsx
 handleInputChange : function (event) {
     this.setState({ [event.target.id]: event.target.value });
 }
@@ -819,7 +820,7 @@ handleInputChange : function (event) {
 43. ### What would be the common mistake of function being called every time the component renders?
 
 You need to make sure that function is not being called while passing the function as a parameter.
-```
+```jsx
 render() {
   // Wrong way: handleClick is called instead of passed as a reference!
   return <button onClick={this.handleClick()}>Click Me</button>
@@ -828,7 +829,7 @@ render() {
 
 Instead, pass the function itself without parenthesis:
 
-```
+```jsx
 render() {
   // Correct way: handleClick is passed as a reference!
   return <button onClick={this.handleClick}>Click Me</button>
@@ -841,7 +842,7 @@ It is necessary because components are not the DOM element but they are construc
 45. ### Why ReactJS uses className over class attribute?
 class is a keyword in javascript and JSX is an extension of javascript. That's the principal reason why React uses className instead of class. Pass a string as the className prop.
 
-```
+```jsx
 render() {
   return <span className="menu navigation-menu">Menu</span>
 }
@@ -851,7 +852,7 @@ render() {
 
 It's common pattern in React which is used for a component to return multiple elements. Fragments let you group a list of children without adding extra nodes to the DOM.
 
-```
+```jsx
 render() {
   return (
     <React.Fragment>
@@ -865,7 +866,7 @@ render() {
 
 There is also a shorter syntax which is not supported in many tools
 
-```
+```jsx
 render() {
     return (
       <>
@@ -887,7 +888,7 @@ Below are the reasons why fragments recommended
 
 Portal is a recommended way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.
 
-```
+```jsx
 ReactDOM.createPortal(child, container);
 ```
 
@@ -898,7 +899,7 @@ If the behaviour is independent of its state then it can be a stateless componen
 
 50. ### What are stateful components?
 If the behaviour of a component is dependent on the state of the component then it can be termed as stateful component.These Stateful components are always class components and have a state that gets initialized in the constructor.
-```
+```jsx
 class App extends Component {
  constructor(props) {
   super(props);
@@ -924,7 +925,7 @@ The set of predefined prop types are below
 5. React.PropTypes.bool
 
 For example, we define propTypes for user component as below,
-```
+```jsx
 import PropTypes from 'prop-types';
 
 class User extends React.Component {
@@ -964,7 +965,7 @@ Below are the list of limitations,
 Error boundaries are React components that catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI instead of the component tree that crashed.
 
 A class component becomes an error boundary if it defines a new lifecycle method called componentDidCatch(error, info)
-```
+```jsx
 class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
@@ -990,7 +991,7 @@ class ErrorBoundary extends React.Component {
 
 After that use it as a regular component
 
-```
+```jsx
 <ErrorBoundary>
   <MyWidget />
 </ErrorBoundary>
@@ -1023,7 +1024,7 @@ The ReactDOMServer object enables you to render components to static markup(typi
 1. renderToString()
 2. renderToStaticMarkup()
 For example, you generally run a Node-based web server like Express, Hapi, or Koa, and you call renderToString to render your root component to a string, which you then write to a response
-```
+```jsx
 // using Express
 import { renderToString } from "react-dom/server"
 import MyPage from "./MyPage"
@@ -1039,7 +1040,7 @@ app.get("/", (req, res) => {
 60. ### How to use InnerHtml in ReactJS?
 The attribute named "dangerouslySetInnerHTML" is React’s replacement for using innerHTML in the browser DOM. Just like InnerHtml, it is risky to use this attribute considering cross-site scripting (XSS) attacks. You just need to pass object __html as key and html text as the value.
 For example, MyComponent uses this attribute for setting html markup using the code as below,
-```
+```jsx
 function createMarkup() {
   return {__html: 'First &middot; Second'};
 }
@@ -1051,7 +1052,7 @@ function MyComponent() {
 
 61. ### How to use styles in ReactJS?
 The style attribute accepts a JavaScript object with camelCased properties rather than a CSS string. This is consistent with the DOM style JavaScript property, is more efficient, and prevents XSS security holes. For example,
-```
+```jsx
 const divStyle = {
   color: 'blue',
   backgroundImage: 'url(' + imgUrl + ')',
@@ -1062,7 +1063,7 @@ function HelloWorldComponent() {
 }
 ```
 Style keys are camelCased in order to be consistent with accessing the properties on DOM nodes from JS (e.g. node.style.backgroundImage). The styles are not autoprefixed for vendor specific browsers. To support vendor specific browsers, you need to supply corresponding style properties,
-```
+```jsx
 const divStyle = {
   WebkitTransition: 'all', // note the capital 'W' here
   msTransition: 'all' // 'ms' is the only lowercase vendor prefix
@@ -1081,7 +1082,7 @@ Keys should be stable, predictable, and unique so that React can keep track of e
 
 In the below code snippet each element's key will be based on ordering, rather than tied to the data that is being represented. This limits the optimizations that React can do.
 
-```
+```jsx
 {todos.map((todo, index) =>
   <Todo
     {...todo}
@@ -1090,7 +1091,7 @@ In the below code snippet each element's key will be based on ordering, rather t
 )}
 ```
 If you use element data for unique key, assuming todo.id is unique to this list and stable, React would be able to reorder elements without needing to reevaluate them as much
-```
+```jsx
 {todos.map((todo) =>
   <Todo {...todo}
     key={todo.id} />
@@ -1099,7 +1100,7 @@ If you use element data for unique key, assuming todo.id is unique to this list 
 
 65. ### Is it good to use setState in componentWillMount method?
 It is recommended to avoid async initialization in componentWillMount lifecycle method. componentWillMount() is invoked immediately before mounting occurs. It is called before render(), therefore setting state in this method will not trigger a re-render. Avoid introducing any side-effects or subscriptions in this method. We need to make sure async calls for component initialization happened in componentDidMount instead of componentWillMount.
-```
+```jsx
 componentDidMount() {
   axios.get(`api/todos`)
     .then((result) => {
@@ -1113,7 +1114,7 @@ componentDidMount() {
 If the props on the component are changed without the component being refreshed, the new prop value will never be displayed because the constructor function (or getInitialState) will never update the current state of the component. The initialization of state from props only runs when the component is first created.
 For example, the below component won't display the updated input value,
 
-```
+```jsx
 class MyComponent extends React.Component {
   // constructor function (or getInitialState)
   constructor(props) {
@@ -1133,7 +1134,7 @@ class MyComponent extends React.Component {
 ```
 Where as using props inside render method will give the updated value,
 
-```
+```jsx
 class MyComponent extends React.Component {
   // constructor function (or getInitialState)
   constructor(props) {
@@ -1153,7 +1154,7 @@ class MyComponent extends React.Component {
 
 67. ### How do you conditionally render components?
 In some cases you want to render different components depending on some state. JSX does not render false or undefined, so you can use conditional short circuting to render a given part of your component only if a certain condition is true,
-```
+```jsx
 const MyComponent = ({ name, address }) => (
   <div>
     <h2>{name}</h2>
@@ -1164,7 +1165,7 @@ const MyComponent = ({ name, address }) => (
 );
 ```
 If you are in a if-else block condition then use ternary operator as below,
-```
+```jsx
 const MyComponent = ({ name, address }) => (
   <div>
     <h2>{name}</h2>
@@ -1178,14 +1179,14 @@ const MyComponent = ({ name, address }) => (
 
 68. ### Why we need to be careful when spreading props on DOM elements?
 When we spread props we run into the risk of adding unknown HTML attributes, which is a bad practice. Instead we can use prop destructuring with **...rest** operator So it will add only required props. For example,
-```
+```jsx
 const ComponentA = () => (<ComponentB isDisplay={true} className="componentStyle"/>);
 const ComponentB = ({ isDisplay, ...domProps }) => (<div {...domProps}>ComponentB</div>);
 ```
 69. ### How you use decorators in ReactJS?
 You can decorate your class components, which is the same as passing the component into a function. Decorators are flexible and readable way of modifying component functionality.
 For example,
-```
+```jsx
 @setTitle('Profile')
 class Profile extends React.Component {
     ....
@@ -1210,7 +1211,7 @@ const setTitle = (title) => (WrappedComponent) => {
 
 70. ### How do you memoize react components?
 There are memoize libraries available which can be used for functional react components. For example, moize library can memoize the component in another component as follow,
-```
+```jsx
 import moize from 'moize';
 // this component will export a non-memoized version
 import Foo from './components/Foo';
@@ -1225,7 +1226,7 @@ const Consumer = () => {
 
 71. ### How you implement Server-Side Rendering or SSR?
 React is already equipped to handle rendering on Node servers. A special version of the DOM renderer is available, which follows the same pattern as on the client side.
-```
+```jsx
 import ReactDOMServer from 'react-dom/server';
 import App from './App';
 ReactDOMServer.renderToString(<App />);
@@ -1239,7 +1240,7 @@ We should use Webpack’s DefinePlugin method to set NODE_ENV to production, by 
 The 'create-react-app' CLI tool recently released by Facebook's engineering team that allows you to quickly create & run React applications with no configuration.
 
 For example, lets create todo app using tool
-```
+```jsx
 Installation
 npm install -g create-react-app
 
@@ -1269,7 +1270,7 @@ There is an “UNSAFE_” prefix to these lifecycles in an upcoming release.
 
 76. ### What is the use of **getDerivedStateFromProps** lifecycle method?
 The new static **getDerivedStateFromProps** lifecycle is invoked after a component is instantiated as well as before it is re-rendered. It can return an object to update state, or null to indicate that the new props do not require any state updates
-```
+```jsx
 class MyComponent extends React.Component {
   static getDerivedStateFromProps(props, state) {
     // ...
@@ -1280,7 +1281,7 @@ This lifecycle method along with **componentDidUpdate** covers all the use cases
 
 77. ### What is the use of getSnapshotBeforeUpdate lifecycle method?
 The new **getSnapshotBeforeUpdate** lifecycle is called right before DOM updates. The return value for this lifecycle will be passed as the third parameter to **componentDidUpdate**
-```
+```jsx
 class MyComponent extends React.Component {
   getSnapshotBeforeUpdate(prevProps, prevState) {
     // ...
@@ -1295,7 +1296,7 @@ In JSX the React element is transpiled to **createElement** which represents an 
 79. ### What is the recommended way for naming components?
 It is recommended to name the component by reference instead of using displayName.
 Using displayName for naming component as follow,
-```
+```jsx
 export default React.createClass({
   displayName: 'TodoApp',
   // stuff goes here
@@ -1303,7 +1304,7 @@ export default React.createClass({
 ```
 
 The recommended approach as below,
-```
+```jsx
 export default class TodoApp extends React.Component {
 }
 ```
@@ -1328,7 +1329,7 @@ Below is the recommended ordering of methods from mounting to render stage
 81. ### What is a switching component?
 
 A **switching component** is a component that renders one of many components. We need to use object to map prop values to components. For example, a switching component to display different pages based on page as below,
-```
+```jsx
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
 import ServicesPage from './ServicesPage';
@@ -1359,7 +1360,7 @@ Page.propTypes = {
 The reason behind for this suggestion is because setState an asynchronous operation. React batches state changes for performance reasons, so the state may not change immediately after setState is called. That means you should not rely on the current state when calling setState since you can’t be sure what that state will be. The solution is to pass a function to setState, with the previous state as an argument. By doing this it avoids issues with the user getting the old state value on access due to the asynchrony of behavior of setState
 
 For example, lets say the initial count value is zero. After increment operations, the value is going to be the same
-```
+```jsx
 // assuming this.state.count === 0
 this.setState({count: this.state.count + 1});
 this.setState({count: this.state.count + 1});
@@ -1367,7 +1368,7 @@ this.setState({count: this.state.count + 1});
 // this.state.count === 1, not 3
 ```
 If we pass a function to increment the count gives the proper result as below
-```
+```jsx
 this.setState((prevState, props) => ({
   count: prevState.count + props.increment
 }));
@@ -1377,7 +1378,7 @@ this.setState((prevState, props) => ({
 83. ### What is strict mode in React?
 **StrictMode** is a tool for highlighting potential problems in an application. Just like Fragment, StrictMode does not render any visible UI. It activates additional checks and warnings for its descendants. These checks applies for development mode only.
 Let's see an example of how we apply strict mode
-```
+```jsx
 import React from 'react';
 
 function ExampleApplication() {
@@ -1402,9 +1403,9 @@ In the above example, the strict mode checks applies for ComponentOne and Compon
 4. Detecting legacy context API
 -------------
 84. ### What are React Mixins?
-Mixins are a way to totally separate components to have a common functionality.These Mixins are not recommended to used and can be replaced with high order components or decorators
+**Mixins** are a way to totally separate components to have a common functionality.These Mixins are not recommended to used and can be replaced with high order components or decorators
 One of the most commonly used mixins is PureRenderMixin. You might be using it in some components to prevent unnecessary re-renders when the props and state are shallowly equal to the previous props and state:
-```
+```jsx
 var PureRenderMixin = require('react-addons-pure-render-mixin');
 
 var Button = React.createClass({
@@ -1417,7 +1418,7 @@ var Button = React.createClass({
 
 85. ### Why is isMounted an Anti-pattern and what is the proper solution?
 The primary use case for isMounted() is to avoid calling setState() after a component has unmounted, because calling setState() after a component has unmounted will emit a warning. To avoid this warning normally developers will do,
-```
+```jsx
 if (this.isMounted()) { // This is bad.
   this.setState({...});
 }
@@ -1441,7 +1442,7 @@ The following event types are now available in React DOM:
 87. ### Why should component names start with capital letter?
 If you are rendering your component using JSX, the name of that component has to begin with a capital letter otherwise React will throw an error as unrecognized tag. This convention is because only HTML elements and SVG tags can begin with a lowercase.
 You can define component class with lowercase but while import it should use capital letter
-```
+```jsx
 // Here lowercase is fine.
 class myComponent extends Component {
   render() {
@@ -1457,7 +1458,7 @@ import MyComponent from 'primaryButton';
 
 88. ### Is it custom DOM attributes supported in React16?
 Yes, instead of ignoring unrecognized HTML and SVG attributes, React will now pass them through to the DOM. Also, React doesn’t have to include the whole attribute whitelist in the production version.
-```
+```jsx
 // Your code:
 <div mycustomattribute="something" />
 // React 15 output:
@@ -1471,8 +1472,8 @@ It solved the below two problems
 ---------------
 89. ### What is the difference between constructor and getInitialState?
 You should initialize state in the constructor when using ES6 classes, whereas use getInitialState method when using React.createClass
-Using ES6 classes
-```
+######Using ES6 classes
+```jsx
 class MyComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -1480,8 +1481,8 @@ class MyComponent extends React.Component {
   }
 }
 ```
-Using React.createClass
-```
+######Using React.createClass
+```jsx
 var MyComponent = React.createClass({
   getInitialState() {
     return { /* initial state */ };
@@ -1491,15 +1492,15 @@ var MyComponent = React.createClass({
 
 90. ### Can you force a React component to re-render without calling setState?
 By default, when your component’s state or props change, your component will re-render. If your render() method depends on some other data, you can tell React that the component needs re-rendering by calling forceUpdate().
-```
+```jsx
 component.forceUpdate(callback)
 ```
 It is recommended to avoid all uses of forceUpdate() and only read from this.props and this.state in render()
 
 91. ### What is the difference between super and super with props argument in React using es6 classes?
 When you want to access this.props in constructor then you should pass props to super method.
-using super(props)
-```
+#####using super(props)
+```jsx
 class MyComponent extends React.Component {
     constructor(props) {
         super(props)
@@ -1507,8 +1508,8 @@ class MyComponent extends React.Component {
     }
 }
 ```
-using super()
-```
+#####using super()
+```jsx
 class MyComponent extends React.Component {
     constructor(props) {
         super()
@@ -1520,14 +1521,14 @@ Outside constructor both will display same value for **this.props**
 
 92. ### How to loop inside JSX?
 You can simply use **map** Array method with ES6 syntax. For example, the items array iterate and returns an array of components as below
-```
+```jsx
 <tbody>
   {items.map(item => <SomeComponent key={item.id} name={item.name} />)}
 </tbody>
 ```
 
 You can't iterate using for loop as below,
-```
+```jsx
 <tbody>
     for (var i=0; i < objects.length; i++) {
         <SomeComponent obj={objects[i]} key={i}> // This is similar to function call in JavaScript i.e SomeComponent()
@@ -1537,17 +1538,17 @@ You can't iterate using for loop as below,
 
 93. ### How do you access props in attribute quotes?
 ReactJS (or JSX) doesn't support variable interpolation inside an attribute value. The below representation is wrong
-```
+```jsx
 <img className="image" src="images/{this.props.image}" />
 ```
 But  you can put any JS expression inside curly braces as the entire attribute value. So the below expression works
-```
+```jsx
 <img className="image" src={"images/" + this.props.image} />
 ```
 
 94. ### What is React proptype array with shape?
 If you want to pass an array of objects to a component with a particular shape then use React.PropTypes.shape() as an argument to React.PropTypes.arrayOf().
-```
+```jsx
 // an array of a particular shape.
 ReactComponent.propTypes = {
    arrayWithShape: React.PropTypes.arrayOf(React.PropTypes.shape({
@@ -1559,31 +1560,31 @@ ReactComponent.propTypes = {
 
 95. ### How conditionally apply class attributes?
 You shouldn't use curly braces inside quotes because it is going to be evaluated as a string.
-```
+```jsx
 <div className="btn-panel {this.props.visible ? 'show' : 'hidden'}">
 ```
 Instead you need move curly braces outside
-```
+```jsx
 <div className={"btn-panel " + (this.props.visible ? 'show' : 'hidden')}>
 ```
 Don't forget include spaces in between classes
 
 96. ### What is the difference between React and ReactDOM?
 You can use React package to define and create your elements,lifecycle hooks etc. i.e, the basic building blocks of react application. For example, the below methods comes under React package.
-```
+```javascript
 React.createElement, React.createClass, React.Component, React.PropTypes, React.Children
 ```
 Whereas all DOM related actions performed using ReactDOM. Below are some of the use cases of ReactDOM.
 1. Mounting with render method
-```
+```javascript
 ReactDOM.render()
 ```
 2. Use findDOMNode() method to gain direct access to a DOM element
-```
+```javascript
 ReactDOM.findDOMNode()
 ```
 3. If the app is "isomorphic" then use renderToString() method in the backend code.
-```
+```javascript
 ReactDOM.renderToString()
 ```
 
@@ -1592,29 +1593,29 @@ The React team worked on extracting all DOM-related stuff into a separate librar
 
 98. ### How to use React label element?
 If you try to render a label element bound to a text input using the standard for attribute then it produces HTML missing the required (and standard) for attribute.
-```
+```html
 <label for="user">User</label>
 <input type="text" id="user" />
 ```
 Instead use htmlFor for consistency with the DOM property API. In development environment, you should have seen a warning in your console about this.
-```
+```html
 <label htmlFor="user">User</label>
 <input type="text" id="user" />
 ```
 
 99. ### How to combine multiple inline style objects?
 You can use spread operator in regular ReactJS
-```
+```jsx
  <button style={{...styles.panel.button,...styles.panel.submitButton}}>Submit</button>
 ```
 If you're using React Native then you can use the array notation
-```
+```jsx
 <button style={[styles.panel.button, styles.panel.submitButton]}>Submit</button>
 ```
 
 100. ### How to re-render the view when the browser is resized?
 You can listen resize event in componentDidMount and then update the dimensions(width and height). Whereas you can remove the listener in componentUnmount method.
-```
+```jsx
 var WindowDimensions = React.createClass({
     componentWillMount: function() {
         this.updateDimensions();
@@ -1639,13 +1640,13 @@ When you use **setState** the current and previous states are merged. Whereas **
 
 102. ### How to listen state changes?
 The following lifecycle methods will be called when state changes. You can use the provided arguments and the current state to determine if something meaningful changed.
-```
+```jsx
 componentWillUpdate(object nextProps, object nextState);
 componentDidUpdate(object prevProps, object prevState);
 ```
 103. ### What is the recommended approach of removing an array element in react state?
 The better approach is to use filter method of javascript array. For example, lets create a removeItem method for updating the state
-```
+```jsx
 removeItem(index) {
   this.setState({
     data: this.state.data.filter((item, i) => i !== index)
@@ -1655,7 +1656,7 @@ removeItem(index) {
 
 104. ### Is it possible to use react without rendering html?
 It is possible with latest version(>=16.2). Below are the possible options
-```
+```jsx
 render() {
    return false;
 }
@@ -1680,7 +1681,7 @@ Whereas returning undefined doesn't work.
 
 105. ### How to do pretty printing JSON with React?
 We can use PRE tag so that the formatting of the JSON's stringify is retained
-```
+```jsx
 var data = { name: "sudheer", age: 30 };
 
 var User = React.createClass({
@@ -1698,7 +1699,7 @@ The React philosophy is that props should be immutable and top-down. This means 
 107. ### How to focus an input element on page load?
 You can do it in two steps
 1. **Define ref callback for input**
-```
+```jsx
 class App extends React.Component{
   componentDidMount(){
     this.nameInput.focus();
@@ -1721,7 +1722,7 @@ class App extends React.Component{
 ReactDOM.render(<App />, document.getElementById('app'));
 ```
 2. **Apply input focus in componentDidMount**
-```
+```jsx
 componentDidMount(){
    this.nameInput.focus();
 }
@@ -1731,17 +1732,17 @@ componentDidMount(){
 Below are the two ways of updating object in the state.
 1. **Using an object**
 First create a copy of an object then do the changes
-```
+```jsx
 let user = Object.assign({}, this.state.user);    //creating copy of object
 user.age = 30;                        //updating value
 this.setState({user});
 ```
 Instead of using Object.assign we can also write it like this:
-```
+```jsx
 let user = {...this.state.user};
 ```
 2. **Using a function**
-```
+```jsx
 this.setState(prevState => ({
     user: {
         ...prevState.user,
@@ -1753,7 +1754,7 @@ this.setState(prevState => ({
 109. ### Why function is preferred over object for setState?
 React may batch multiple setState() calls into a single update for performance. Because this.props and this.state may be updated asynchronously, you should not rely on their values for calculating the next state.
 For example, the below counter example will fail to update as expected,
-```
+```jsx
 // Wrong
 this.setState({
   counter: this.state.counter + this.props.increment,
@@ -1761,7 +1762,7 @@ this.setState({
 ```
 The preferred approach is to use function rather object for setState call. That function will receive the previous state as the first argument, and the props at the time the update is applied as the second argument.
 The correct approach is to use function for the counter example,
-```
+```jsx
 // Correct
 this.setState((prevState, props) => ({
   counter: prevState.counter + props.increment
@@ -1770,7 +1771,7 @@ this.setState((prevState, props) => ({
 
 110. ### How can we find the version of React at runtime in the browser?
 You can use **React.version** to find the version. The example to find the react version as below
-```
+```jsx
 const REACT_VERSION = React.version;
 
 ReactDOM.render(
@@ -1784,7 +1785,7 @@ Below are the two way which can be used
 1. **Manual import from core-js**
 
 Create a file called (something like) polyfills.js and import it into root index.js file. Run npm install core-js or yarn add core-js and import your specific required features, like
-```
+```jsx
 /* polyfills.js */
 
 import 'core-js/fn/array/find';
@@ -1793,7 +1794,7 @@ import 'core-js/fn/number/is-nan';
 ```
 2. **Using Polyfill service**
 Use the polyfill.io CDN to retrieve custom, browser-specific polyfills by adding this line to index.html
-```
+```html
 <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,Array.prototype.includes"></script>
 
 ```
@@ -1801,7 +1802,7 @@ In the above script we had to explicitly request the **Array.prototype.includes*
 
 112. ### How to use https instead of http in create-react-app?
 You just need to use HTTPS=true configuration. You can edit your package.json scripts section as below
-```
+```javascript
 "scripts": {
         "start": "set HTTPS=true&&react-scripts start",
         ...
@@ -1819,7 +1820,7 @@ After that restart the development server. Now you should be able to import anyt
 114. ### How to add google analytics for react-router?
 You need to follow two steps
 1. Keep your history object
-```
+```jsx
 var history = createBrowserHistory();
 
 ReactDOM.render((
@@ -1827,7 +1828,7 @@ ReactDOM.render((
         [...]
 ```
 2. Add a listener to record each page view
-```
+```jsx
 history.listen(function (location) {
     window.ga('set', 'page', location.pathname + location.search);
     window.ga('send', 'pageview', location.pathname + location.search);
@@ -1835,7 +1836,7 @@ history.listen(function (location) {
 ```
 115. ### How to update react component for every second?
 You need to use setInterval to trigger the change, but you also need to clear the timer when the component unmounts to prevent it leaving errors and leaking memory
-```
+```jsx
 componentDidMount() {
   this.interval = setInterval(() => this.setState({ time: Date.now() }), 1000);
 }
@@ -1854,7 +1855,7 @@ It becomes
 VendorSpecificProp: 'value'
 ```
 For example, the transform property need to be added for vendor specific browsers as below,
-```
+```jsx
 <div style={{
     transform: 'rotate(90deg)',
     WebkitTransform: 'rotate(90deg)'
@@ -1863,7 +1864,7 @@ For example, the transform property need to be added for vendor specific browser
 
 117. ### How to import and export components using react and ES6?
 You should use default for exporting the components
-```
+```jsx
 import React from 'react';
 import User from 'user';
 
@@ -1891,7 +1892,7 @@ React's reconciliation algorithm assumes that without any information to the con
 
 120. ### How to define constants in reactjs?
 If you want to keep the constants in the React component then use **statics** property.
-```
+```jsx
 var MyComponent = React.createClass({
     statics: {
     DEFAULT_PAGINATION: 10
@@ -1902,11 +1903,11 @@ var MyComponent = React.createClass({
 121. ### How to programmatically trigger click event in reactjs?
 You could use the ref prop to acquire a reference to the underlying HTMLInputElement object through a callback, store the reference as a class property, then use that reference to later trigger a click from your event handlers using the HTMLElement.click method. This can be done in two steps
 1. Create ref in render method
-```
+```jsx
 <input ref={input => this.inputElement = input} ... />
 ```
 2. Apply click event in your event handler
-```
+```jsx
 this.inputElement.click();
 ```
 
@@ -1919,7 +1920,7 @@ https://babeljs.io/docs/plugins/transform-async-to-generator/
 ---------
 123. ### How to pass numbers to components?
 You should be passing the numbers via curly braces({}) where as strings inn quotes
-```
+```jsx
 React.render(<User age={30} department={"IT"} />, document.getElementById('container'));
 ```
 
@@ -1973,7 +1974,7 @@ Basically both "React Transition Group" and "React Motion" can be used as popula
 126. ### What is the benefit of styles modules?
 It is recommended that hard coding styles values in a component should be avoided. Any values that are likely to be used across different UI components should be split into their own module.
 For example, below component styles can be reused
-```
+```jsx
 export const colors = {
   white,
   black,
@@ -1989,7 +1990,7 @@ export const space = [
 ];
 ```
 And they can imported individually in other components as below
-```
+```jsx
 import { space, colors } from './styles'
 ```
 
@@ -1999,7 +2000,7 @@ ESLint is a popular linter for various JavaScript projects. There are plugins av
 128. ### How to make AJAX call and In which component lifecycle should I make an AJAX call?
 You can use AJAX libraries such as  Axios, jQuery AJAX, and the browser built-in window.fetch. You should populate data with AJAX calls in the componentDidMount lifecycle method. This is so you can use setState to update your component when the data is retrieved.
 For example, the employees list fetched from API and set local state as below,
-```
+```jsx
 class MyComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -2049,7 +2050,7 @@ class MyComponent extends React.Component {
 
 129. ### What are render props?
 **Render Props** is a simple technique for sharing code between React components using a prop whose value is a function. The below component uses render prop which returns a React element
-```
+```jsx
 <DataProvider render={data => (
   <h1>Hello {data.target}</h1>
 )}/>
@@ -2084,7 +2085,7 @@ If you think of the history as an array of visited locations, push will add a ne
 There are three different ways to achieve programmatic routing/navigation within react components.
 1. **Use the withRouter higher-order component:**
 The **withRouter** HOC will inject the history object as a prop of the component. This object provides push and replace methods to avoid the usage of context.
-```
+```jsx
 import { withRouter } from 'react-router-dom'
 // this also works with react-router-native
 
@@ -2099,7 +2100,7 @@ const Button = withRouter(({ history }) => (
 ```
 2. **Use composition and render a <Route>**
 The <Route> component passes the same props as withRouter, so you will be able to access the history methods through the history prop.
-```
+```jsx
 import { Route } from 'react-router-dom'
 
 const Button = () => (
@@ -2115,7 +2116,7 @@ const Button = () => (
 ```
 3. **Using the context**
 This option is not recommended and treated as unstable API
-```
+```jsx
 const Button = (props, context) => (
   <button
     type='button'
@@ -2136,12 +2137,12 @@ Button.contextTypes = {
 
 135. ### How to get query parameters in React Router 4?
 The ability to parse query strings was taken out of React Router 4 because there have been user requests over the years to support different implementation. So the decision has been given to users to choose the implementation they like. The recommended approach is to use query strings library.
-```
+```jsx
 const queryString = require('query-string');
 const parsed = queryString.parse(props.location.search);
 ```
 You can also use new URLSearchParams(plain javascript implemention) if you want something native,
-```
+```jsx
 const params = new URLSearchParams(props.location.search);
 const foo = params.get('name'); // sudheer
 ```
@@ -2150,11 +2151,11 @@ You should use polyfills for Internet Explorer11
 136. ### Why you get "Router may have only one child element" warning?
 You have to wrap your Route's in a **Switch** block because <Switch> is unique in that it renders a route exclusively.
 At first you need to add Switch to your imports.
-```
+```jsx
 import { Switch, Router, Route } from 'react-router';
 ```
 Define the routes with Switch block as follows,
-```
+```jsx
 <Router>
   <Switch>
     <Route ...>
@@ -2166,7 +2167,7 @@ Define the routes with Switch block as follows,
 137. ### How to pass params with history push method in v4?
 How to pass params with history.push in react-router v4?
 While navigating you can pass props to the history object as below
-```
+```jsx
 this.props.history.push({
   pathname: '/template',
   search: '?name=sudheer',
@@ -2176,7 +2177,7 @@ this.props.history.push({
 The search property is used to pass query params with in push method.
 138. ### How to implement default page or not found page?
 A **<Switch>** renders the first child **<Route>** that matches. A **<Route>** with no path always matches. So you just need to simply drop path attribute as below
-```
+```jsx
 <Switch>
   <Route exact path="/" component={Home}/>
   <Route path="/user" component={User}/>
@@ -2187,7 +2188,7 @@ A **<Switch>** renders the first child **<Route>** that matches. A **<Route>** w
 139. ### How to get history on react-router v4?
 You need follow these steps to get history
 1. Create a module that exports a history object and import this module across the project. For example, create history.js file
-```
+```jsx
 // history.js
 import { createBrowserHistory } from 'history'
 
@@ -2196,7 +2197,7 @@ export default createBrowserHistory({
 })
 ```
 2. You should use the <Router> component instead built-in routers. Imported the above history.js inside index.js file
-```
+```jsx
 // index.js
 import { Router } from 'react-router-dom'
 import history from './history'
@@ -2209,7 +2210,7 @@ ReactDOM.render((
 ), holder)
 ```
 3. You can also use push method of history object similar to built-in history object
- ```
+ ```jsx
  // some-other-file.js
  import history from './history'
  history.push('/go-here')
@@ -2217,7 +2218,7 @@ ReactDOM.render((
 
 140. ### How to perform automatic redirect after login?
 The react-router package provides **<Redirect>** component in react-router. Rendering a <Redirect> will navigate to a new location. Like server-side redirects, the new location will override the current location in the history stack.
-```
+```jsx
 import React, { Component } from 'react';
 import { Redirect } from 'react-router';
 export default class LoginComponent extends Component {
@@ -2247,13 +2248,13 @@ Below are the main features of React-Intl
 ---------------
 143. ### What are the two ways of formatting in React Intl?
 The library provides two ways to format strings, numbers, and dates: React components or an API.
-```
+```jsx
 <FormattedMessage
   id=”account”
   defaultMessage=“The amount is less than minimum balance.”
 />
 ```
-```
+```jsx
 const messages = defineMessages({
   accountMessage: {
     id: "account",
@@ -2267,7 +2268,7 @@ formatMessage(messages.accountMessage);
 144. ### How to use FormattedMessage for placehoder purpose using React Intl?
 The **<Formatted... />** React components in **react-intl** is used for rendering scenarios but not for placeholders, alternative text etc. i.e, These components render HTML, not plain text which is not useful in this scenario. In this case, we should use lower level API(**formatMessage(...)**). Even the rendering components using this API under the hood.
 You should inject the intl object into your component by using the injectIntl HOC and then just format the message through the API. For example, the below component use this lower level API for input's placeholder.
-```
+```jsx
 import React from 'react';
 import { injectIntl, intlShape } from 'react-intl';
 
@@ -2287,7 +2288,7 @@ export default injectIntl(MyComponent);
 
 145. ### How to access current locale with react-intl?
 You can get the current locale in any component of your application by simply accessing it from React Intl's "injection API" as below
-```
+```jsx
 import {injectIntl, intlShape} from 'react-intl';
 
 const MyComponent = ({intl}) => (
@@ -2303,7 +2304,7 @@ export default injectIntl(MyComponent);
 
 146. ### How to format date using react-intl?
 The **injectIntl** HOC will give you access to the formatDate method via the props in your component. The method is used internally by instances of FormattedDate and it returns the string representation of the formatted date.
-```
+```jsx
 import {injectIntl, intlShape} from 'react-intl';
 
 const stringDate = this.props.intl.formatDate(date,
@@ -2329,7 +2330,7 @@ export default injectIntl(MyComponent);
 147. ### What is Shallow Renderer in ReactJS testing?
 Shallow Rendering is useful for writing unit test cases in ReactJS. It makes you render a component “one level deep” and assert facts about what its render method returns, without worrying about the behavior of child components, which are not instantiated or rendered.
 For example, if you have the following component:
-```
+```jsx
 function MyComponent() {
   return (
     <div>
@@ -2340,7 +2341,7 @@ function MyComponent() {
 }
 ```
 Then you can assert as follows
-```
+```jsx
 import ShallowRenderer from 'react-test-renderer/shallow';
 
 // in your test:
@@ -2358,7 +2359,7 @@ expect(result.props.children).toEqual([
 148. ### What is TestRenderer package in ReactJS?
 This package provides a React renderer that can be used to render React components to pure JavaScript objects, without depending on the DOM or a native mobile environment. This package makes it easy to grab a snapshot of the platform view hierarchy (similar to a DOM tree) rendered by a React DOM or React Native component without using a browser or jsdom.
 
-```
+```jsx
 import TestRenderer from 'react-test-renderer';
 
 function Link(props) {
@@ -2391,14 +2392,14 @@ There are couple of advantages compared to vanilla jasmine
 ----------------
 152. ### Give a simple example for JEST test case?
  Lets take writing a test for a function that adds two numbers and name it as **sum.js** file:
- ```
+ ```jsx
  function sum(a, b) {
    return a + b;
  }
  module.exports = sum;
  ```
  Now create a file named **sum.test.js** which contains actual test
- ```
+ ```jsx
  const sum = require('./sum');
 
  test('adds 1 + 2 to equal 3', () => {
@@ -2406,7 +2407,7 @@ There are couple of advantages compared to vanilla jasmine
  });
  ```
  And then add the following section to your **package.json**
- ```
+ ```jsx
  {
    "scripts": {
      "test": "jest"
@@ -2446,7 +2447,7 @@ Flux currently lets you do very impressive static type checks which Redux doesn'
 --------------
 157. ### What is the difference between mapStateToProps and mapDispatchToProps?
 **mapStateToProps()** is a utility which helps your component get updated state(which is updated by some other components),
-```
+```jsx
 const mapStateToProps = (state) => {
   return {
     todos: getVisibleTodos(state.todos, state.visibilityFilter)
@@ -2454,7 +2455,7 @@ const mapStateToProps = (state) => {
 }
 ```
 **mapDispatchToProps()** is a utility which will help your component to fire an action event (dispatching action which may cause change of application state)
-```
+```jsx
 const mapDispatchToProps = (dispatch) => {
   return {
     onTodoClick: (id) => {
@@ -2469,7 +2470,7 @@ Dispatching an action within a reducer is an anti-pattern. Your reducer should b
 
 159. ### How to access redux store outside a react component?
 Yes.You just need to export the store from the module where it created with createStore. Also, it shouldn't pollute the global window object
-```
+```jsx
 store = createStore(myReducer);
 export default store;
 ```
@@ -2488,7 +2489,7 @@ Redux is a tool for managing state throughout the application. It is usually use
 
 162. ### How to dispatch an action on load?
 You can dispatch an action in Root componentDidMount method and in render method you can verify the data.
-```
+```jsx
 class App extends Component {
   componentDidMount() {
     this.props.fetchData()
@@ -2516,7 +2517,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(App)
 You need to follow two steps to use your store in your container
 1. **Use mapStateToProps():** It maps the state variables from your store to the props that you specify
 2. **Connect the above props to your container:** The object returned by the mapStateToProps component is connected to the container. You can import connect from react-redux like import {connect} from 'react-redux'
-```
+```jsx
 import React from 'react';
 import { connect } from 'react-redux';
 
@@ -2541,7 +2542,7 @@ export default connect(mapStateToProps)(App);
 
 164. ### How to reset state in redux?
 You need to write a root reducer in your application which delegate handling the action to the reducer generated by combineReducers(). For example, let us take rootReducer to return the initial state after USER_LOGOUT action. As we know, reducers are supposed to return the initial state when they are called with undefined as the first argument, no matter the action.
-```
+```jsx
 const appReducer = combineReducers({
   /* your app’s top-level reducers */
 })
@@ -2555,7 +2556,7 @@ const rootReducer = (state, action) => {
 }
 ```
 In case of using redux-persist, you may also need to clean your storage. Redux-perist keeps a copy of your state in a storage engine. First, you need to import the appropriate storage engine and then, to parse the state before setting it to undefined and clean each storage state key,
-```
+```jsx
 const appReducer = combineReducers({
   /* your app’s top-level reducers */
 })
@@ -2575,7 +2576,7 @@ const rootReducer = (state, action) => {
 165. ### Whats the purpose of at symbol in the redux connect decorator?
 The @ symbol is in fact a JavaScript expression used to signify decorators. Decorators make it possible to annotate and modify classes and properties at design time. Let's take an example setting up Redux without and with a decorator
 **Without decorator**
-```
+```jsx
 import React from 'react';
 import * as actionCreators from './actionCreators';
 import { bindActionCreators } from 'redux';
@@ -2596,7 +2597,7 @@ class MyApp extends React.Component {
 export default connect(mapStateToProps, mapDispatchToProps)(MyApp);
 ```
 **With decorator**
-```
+```jsx
 import React from 'react';
 import * as actionCreators from './actionCreators';
 import { bindActionCreators } from 'redux';
@@ -2625,7 +2626,7 @@ Reducers always return the accumulation of the state (based on all previous and 
 
 168. ### How to make ajax request in redux?
 You can use **redux-thunk** middleware which allows you to define async actions. Let's take an example of fetching specific account as a ajax call using fetch API,
-```
+```jsx
 export function fetchAccount(id) {
  return dispatch => {
    dispatch(setLoadingAccountState()); // Show a loading spinner
@@ -2650,7 +2651,7 @@ function setAccount(data) {
 
 170. ### What is the proper way to access redux store?
 The best way to access your store through a component is using the connect() function. Actually creates a new component that wraps around your existing one! This pattern is called Higher-Order Components, and is generally the preferred way of extending a component's functionality in React. This allows you to map state and action creators to your component, and have them passed in automatically as your store updates. Let's take an example of FilterLink component using connect,
-```
+```jsx
 import { connect } from 'react-redux'
 import { setVisibilityFilter } from '../actions'
 import Link from '../components/Link'
@@ -2677,7 +2678,7 @@ const FilterLink = connect(
 export default FilterLink
 ```
 Due to it having quite a few performance optimizations and generally being less likely to cause bugs, the Redux devs almost always recommend using connect over accessing the store directly(using context API).
-```
+```jsx
 class MyComponent {
   someMethod() {
     doSomethingWith(this.context.store);
@@ -2693,7 +2694,7 @@ class MyComponent {
 Constants allows you to easily find all usages of that specific functionality across the project when you use an IDE. It also prevents you from introducing silly bugs caused by typos -- in which case, you will get a ReferenceError immediately.
 Normally we will save them in a single file(constants.js or actionTypes.js)
 For example,
-```
+```jsx
 export const ADD_TODO = 'ADD_TODO';
 export const DELETE_TODO = 'DELETE_TODO';
 export const EDIT_TODO = 'EDIT_TODO';
@@ -2704,7 +2705,7 @@ export const CLEAR_COMPLETED = 'CLEAR_COMPLETED';
 In redux you use them in two places
 1. **During actions creation**
 Let's take actions.js
-```
+```jsx
 import { ADD_TODO } from './actionTypes';
 
 export function addTodo(text) {
@@ -2713,7 +2714,7 @@ export function addTodo(text) {
 ```
 2. **Reducers**
 Let's create reducer.js
-```
+```jsx
 import { ADD_TODO } from './actionTypes';
 
 export default (state = [], action) => {
@@ -2734,7 +2735,7 @@ export default (state = [], action) => {
 
 173. ### What are the different ways to write mapDispatchToProps?
 You can follow different ways of dispatching an in mapDispatchToProps. Below are the possible options
-```
+```jsx
 // option 1
 const mapDispatchToProps = (dispatch) => ({
  action: () => dispatch(action())
@@ -2756,7 +2757,7 @@ Option #3 is just a shorthand for option #1
 
 174. ### What is the use of the ownprops arg in mapStateToProps and mapDispatchToProps?
 If the ownProps parameter is specified, react-redux will pass the props that were passed to the component into your connect functions. So, if you use a connected component like this
-```
+```jsx
 import ConnectedComponent from './containers/ConnectedComponent'
 
 <ConnectedComponent
@@ -2764,7 +2765,7 @@ import ConnectedComponent from './containers/ConnectedComponent'
 />
 ```
 The ownProps inside your **mapStateToProps** and **mapDispatchToProps** functions will be an object
-```
+```jsx
 { user: 'john' }
 ```
 You could use this object to decide what to return from those functions.
@@ -2791,7 +2792,7 @@ The mental model is that a saga is like a separate thread in your application th
 178. ### What are the differences between call and put in redux-saga?
 Both **call** and **put** are effects creators functions. call function is used to create effect description, which instructs middleware to call the promise. put function creates effect, in which instructs middleware to dispatch an action to the store.
 Let's take example of how these effects work for fetching particular user data
-```
+```jsx
 function* fetchUserSaga(action) {
   // `call` function accepts rest arguments, which will be passed to `api.fetchUser` function.
   // Instructing middleware to call promise, it resolved value will be assigned to `userData` variable
@@ -2824,7 +2825,7 @@ Below are the major features of redux devTools
 183. ### What are Redux selectors and Why to use them?
 Selectors are functions that take Redux state as an argument and return some data to pass to the component.
 For example, to get user details from the state,
-```
+```jsx
 const getUserData = state => state.user.data;
 ```
 
@@ -2839,7 +2840,7 @@ Below are the major features of redux form?
 ------------
 186. ### How to add multiple middlewares to redux?
 You can use applyMiddleware where you can pass each piece of middleware as a new argument. So you just need to pass each piece of middleware you'd like. For example, you can add ReduxThunk and logger middlewares as an argument as below,
-```
+```jsx
 import { createStore, applyMiddleware } from 'redux'
 const createStoreWithMiddleware = applyMiddleware(ReduxThunk, logger)(createStore);
 
@@ -2847,7 +2848,7 @@ const createStoreWithMiddleware = applyMiddleware(ReduxThunk, logger)(createStor
 
 187. ### How to set initial state in redux?
 You need to pass initial state as second argument to createStore
-```
+```jsx
 const rootReducer = combineReducers({
   todos: todos,
   visibilityFilter: visibilityFilter
@@ -2908,11 +2909,11 @@ The below steps followed to include font-awesome in ReactJS
 npm install --save font-awesome
 ```
 2. Import font-awesome to your index.js file
-```
+```jsx
 import 'font-awesome/css/font-awesome.min.css';
 ```
 3. Add font-awesome classes in className
-```
+```jsx
  render: function() {
     return <div><i className="fa fa-spinner">Click</i></div>;
 }
@@ -2935,7 +2936,7 @@ If you opened a local html file in your browser (file://...) then you must first
 199. ### How to use Polymer in ReactJS?
 Yes, it is possible. You need to follow below steps
 1. Create a polymer element.
-```
+```jsx
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 Polymer({
     is: 'calender-element',
@@ -2945,11 +2946,11 @@ Polymer({
 });
 ```
 2. Make the polymer component a html tag by importing it in a html page. E.g. import it in the index.html of your react application
-```
+```html
 <link rel="import" href="./src/polymer-components/calender-element.html">
 ```
 3. Use that element in the jsx file.
-```
+```jsx
 'use strict';
 
 import React from 'react';
@@ -2992,7 +2993,7 @@ Styled-components is a JavaScript library for styling React applications. It rem
 
 204. ### Give an example of styled components?
 Lets create Title and Wrapper components with specific styles for each.
-```
+```jsx
 import React from 'react';
 import styled from 'styled-components';
 
@@ -3010,7 +3011,7 @@ const Wrapper = styled.section`
 `;
 ```
 These two variables, Title and Wrapper, are now a React components you can render like any other React component
-```
+```jsx
 <Wrapper>
   <Title>Lets start first styled component!</Title>
 </Wrapper>
@@ -3046,7 +3047,7 @@ Below are the major features of reselect library
 ----------
 208. #### Give an example of reselect usage?
 Lets take calculations and different amounts of a shipment order with the simplified usage of reselect
-```
+```jsx
 import { createSelector } from 'reselect'
 
 const shopItemsSelector = state => state.shop.items
@@ -3088,7 +3089,7 @@ Actions are plain JavaScript objects or payloads of information that send data f
 
 For example an example action which represents adding a new todo item,
 
-```
+```jsx
 {
   type: ADD_TODO,
   text: 'Add todo item'
@@ -3097,7 +3098,7 @@ For example an example action which represents adding a new todo item,
 
 210. ### Does the statics object work with ES6 classes in React?
 No, statics only works with React.createClass.
-```
+```jsx
 someComponent= React.createClass({
 statics:{
         willTransitionFrom: function(transition,component){
@@ -3107,7 +3108,7 @@ statics:{
 });
 ```
 But you can write statics inside ES6+ classes this way
-```
+```jsx
 class Component extends React.Component {
     static propTypes = {
     ...
@@ -3126,7 +3127,7 @@ Redux is originally written in ES6 and transpiled for production into ES5 with W
 
 212. ### How redux-form initialValues get updated from state?
 You need to add **enableReinitialize : true** setting as below.
-```
+```jsx
 let InitializeFromStateForm = reduxForm({
     form: 'initializeFromState',
     enableReinitialize : true // this is needed!!
@@ -3137,7 +3138,7 @@ If your initialValues prop gets updated, your form will update too.
 
 213. ### How react propTypes allow different types of propTypes for one prop?
 You can use oneOfType method of propTypes. For example, the height property can be defined with either string or number type as below,
-```
+```jsx
 size: PropTypes.oneOfType([
   PropTypes.string,
   PropTypes.number
@@ -3147,7 +3148,7 @@ size: PropTypes.oneOfType([
 214. ### How to import an SVG as a React component?
 You can also import SVGs directly as React components instead loading it as a file. This is handy if you don't want to load SVG as a separate file. i.e, You want a React component that renders an SVG, rather than its filename.
 For example,
-```
+```jsx
 import { ReactComponent as Logo } from './logo.svg';
 const App = () => (
   <div>
