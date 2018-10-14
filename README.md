@@ -2,9 +2,7 @@
 To encourage us and if you like the project then click star(💫) and also any PR contributions are appreciated
 <hr/>
 
- <img src="images/logo.jpeg" width="600" height="300">
-
-![](https://img.shields.io/github/stars/sudheerj/reactjs-interview-questions/editor.md.svg) ![](https://img.shields.io/github/forks/sudheerj/reactjs-interview-questions/editor.md.svg) ![
+ <img src="images/logo.jpeg" width="600" height="250">
 
 Below is a list of ReactJS interview questions and answers.
 -------------------------------------------------------------------
@@ -33,7 +31,7 @@ Below is a list of ReactJS interview questions and answers.
 |20 | [How to create refs?](#how-to-create-refs)
 |21 | [What are forward refs?](#what-are-forward-refs)|
 |22 | [Which is preferred option with in callback refs and findDOMNode()?](#which-is-preferred-option-with-in-callback-refs-and-finddomnode)|
-|23 | [Why are String Refs legacy?](#why-are-string-refs-legacy)|
+|23 | [Why are String Refs considered legacy?](#why-are-string-refs-considered-legacy)|
 |24 | [What is virtual DOM?](#what-is-virtual-dom)|
 |25 | [How virtual DOM works?](#how-virtual-dom-works)|
 |26 | [What is the difference between ShadowDOM and VirtualDOM?](#what-is-the-difference-between-shadowdom-and-virtualdom)|
@@ -232,6 +230,7 @@ Below is a list of ReactJS interview questions and answers.
 |212| [How redux-form initialValues get updated from state?](#how-redux-form-initialvalues-get-updated-from-state)|
 |213| [How react propTypes allow different types of propTypes for one prop?](#how-react-proptypes-allow-different-types-of-proptypes-for-one-prop)|
 |214| [How to import an SVG as a React component](#how-to-import-an-svg-as-a-react-component)|
+|215| [Why are inline ref callbacks or functions not recommended?](#why-are-inline-ref-callbacks-or-functions-not-recommended)|
 
 ## Core ReactJS
 
@@ -518,7 +517,8 @@ You can use either if statements or ternary expressions which are available from
 There will be a warning in the console if the key is not present on list items.
 
 19. ### What is the use of refs?
-The ref is used to return a reference to the element. They should be avoided in most cases, however, they can be useful when we need direct access to DOM element or an instance of a component.
+There are two approaches
+1. This is a recently added approach. The ref is used to return a reference to the element. They should be avoided in most cases, however, they can be useful when we need direct access to DOM element or an instance of a component.
 
 20. ### How to create refs?
 Refs are created using React.createRef() method and attached to React elements via the ref attribute. In order to use refs throughout the component, just assign the ref to the instance property with in constructor.
@@ -533,27 +533,35 @@ class MyComponent extends React.Component {
   }
 }
 ```
+2. You can also use ref callbacks approach regardless of React version. For example, the search bar component's input element accessed as follows,
 ```jsx
-class UserForm extends Component {
-  handleSubmit = () => {
-    console.log("Input Value is: ", this.input.value)
-  }
-  render () {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <input
-          type='text'
-          ref={(input) => this.input = input} /> // Access DOM input in handle submit
-        <button type='submit'>Submit</button>
-      </form>
-    )
-  }
+class SearchBar extends Component {
+   constructor(props) {
+      super(props);
+      this.txtSearch = null;
+      this.state = { term: '' };
+      this.setInputSearchRef = e => {
+         this.txtSearch = e;
+      }
+   }
+   onInputChange(event) {
+      this.setState({ term: this.txtSearch.value });
+   }
+   render() {
+      return (
+         <input
+            value={this.state.term}
+            onChange={this.onInputChange.bind(this)}
+            ref={this.setInputSearchRef} />
+      );
+   }
 }
 ```
 We can also use it in functional components with the help of closures.
+**Note**: You can also use inline ref callbacks even though it is not a recommended approach
 
 21. ### What are forward refs?
-Ref forwarding is a feature that lets some components take a ref they receive, and pass it further down to a child.
+Ref forwarding is a feature that lets components take a ref they receive, and pass it further down to a child.
 
 ```jsx
 const ButtonElement = React.forwardRef((props, ref) => (
@@ -594,10 +602,26 @@ class MyComponent extends Component {
 }
 ```
 
-23. ### Why are String Refs legacy?
-If you worked with React before, you might be familiar with an older API where the ref attribute is a string, like "textInput", and the DOM node is accessed as this.refs.textInput. We advise against it because string refs have below issues, are considered legacy, and are likely to be removed in one of the future releases.
-1. It requires that React keeps track of currently rendering component (since it can't guess this). This makes React a bit slower.
-2. It is not composable, i.e. if a library puts a ref on the passed child, the user can't put another ref on it. Callback refs are perfectly composable.
+23. ### Why are String Refs considered legacy?
+If you worked with React before, you might be familiar with an older API where the ref attribute is a string, like "textInput", and the DOM node is accessed as this.refs.textInput. We advise against it because string refs have below issues, are considered legacy(from 16.3.x), and are likely to be removed in one of the future releases.
+1. It requires that React keeps track of currently rendering component (since it can't guess this keyword). This makes React a bit slower.
+2. It doesn't work as most people would expect with the "render callback" pattern (e.g. <DataGrid renderRow={this.renderRow} />)
+```
+class MyComponent extends Component {
+  renderRow = (index) => {
+    // This won't work. Ref will get attached to DataTable rather than MyComponent:
+    return <input ref={'input-' + index} />;
+
+    // This would work though! Callback refs are awesome.
+    return <input ref={input => this['input-' + index] = input} />;
+  }
+
+  render() {
+    return <DataTable data={this.props.data} renderRow={this.renderRow} />
+  }
+}
+```
+3. It is not composable, i.e. if a library puts a ref on the passed child, the user can't put another ref on it. Callback refs are perfectly composable.
 ------------------------------
 24. ### What is virtual DOM?
 The virtual DOM (VDOM) is an in-memory representation of Real DOM. The representation of a UI is kept in memory and synced with the “real” DOM. It’s a step that happens between the render function being called and the displaying of elements on the screen. This entire process is called reconciliation.
@@ -3158,4 +3182,50 @@ const App = () => (
 );
 ```
 **Note**: Don't forget the curly braces in the import!. This feature is available with react-scripts@2.0.0 and higher.
+---------------------------------
+215. ### Why are inline ref callbacks or functions not recommended?
+If the ref callback is defined as an inline function, it will get called twice during updates, first with null and then again with the DOM element. This is because a new instance of the function is created with each render, so React needs to clear the old ref and set up the new one.
+```jsx
+class UserForm extends Component {
+  handleSubmit = () => {
+    console.log("Input Value is: ", this.input.value)
+  }
+
+
+  render () {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <input
+          type='text'
+          ref={(input) => this.input = input} /> // Access DOM input in handle submit
+        <button type='submit'>Submit</button>
+      </form>
+    )
+  }
+}
+```
+But our expectation is for the ref callback to get called once, when the component mounts. One quick fix is to use the ES7 class property syntax to define the function
+```jsx
+class UserForm extends Component {
+  handleSubmit = () => {
+    console.log("Input Value is: ", this.input.value)
+  }
+
+  setSearchInput = (input) => {
+    this.input = input
+  }
+
+  render () {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <input
+          type='text'
+          ref={this.setSearchInput} /> // Access DOM input in handle submit
+        <button type='submit'>Submit</button>
+      </form>
+    )
+  }
+}
+
+```
 
