@@ -231,6 +231,8 @@ Below is a list of ReactJS interview questions and answers.
 |213| [How react propTypes allow different types of propTypes for one prop?](#how-react-proptypes-allow-different-types-of-proptypes-for-one-prop)|
 |214| [How to import an SVG as a React component](#how-to-import-an-svg-as-a-react-component)|
 |215| [Why are inline ref callbacks or functions not recommended?](#why-are-inline-ref-callbacks-or-functions-not-recommended)|
+|216| [What is render hijacking in reactjs?](#what-is-render-hijacking-in-reactjs)|
+|217| [What are HOC factory implementations?](#what-are-hoc-factory-implementations)|
 
 ## Core ReactJS
 
@@ -624,7 +626,7 @@ class MyComponent extends Component {
 3. It is not composable, i.e. if a library puts a ref on the passed child, the user can't put another ref on it. Callback refs are perfectly composable.
 ------------------------------
 24. ### What is virtual DOM?
-The virtual DOM (VDOM) is an in-memory representation of Real DOM. The representation of a UI is kept in memory and synced with the “real” DOM. It’s a step that happens between the render function being called and the displaying of elements on the screen. This entire process is called reconciliation.
+The **Virtual DOM (VDOM)** is an in-memory representation of Real DOM. The representation of a UI is kept in memory and synced with the “real” DOM. It’s a step that happens between the render function being called and the displaying of elements on the screen. This entire process is called *reconciliation*.
 
 25. ### How virtual DOM works?
 The Virtual DOM works in three simple steps.
@@ -636,13 +638,13 @@ The Virtual DOM works in three simple steps.
  ![ScreenShot](images/vdom3.png)
 ----------------------------------
 26. ### What is the difference between ShadowDOM and VirtualDOM?
-The Shadow DOM is a browser technology designed primarily for scoping variables and CSS in web components. The virtual DOM is a concept implemented by libraries in JavaScript on top of browser APIs.
+The **Shadow DOM(SDOM)** is a browser technology designed primarily for scoping variables and CSS in web components. Whereas **Virtual DOM(VDOM)** is a concept implemented by libraries in JavaScript on top of browser APIs.
 
 27. ### What is React Fiber?
-Fiber is the new reconciliation engine or reimplementation core algorithm in React 16. Its main goal is to enable incremental rendering of the virtual DOM.The goal of React Fiber is to increase its suitability for areas like animation, layout, gestures, ability to pause, abort, or reuse work and  assign priority to different types of updates; and new concurrency primitives.
+**Fiber** is the new reconciliation engine or reimplementation core algorithm in React 16. Its main goal is to enable incremental rendering of the virtual DOM. The goal of React Fiber is to increase its suitability for areas like animation, layout, gestures, ability to pause, abort, or reuse work and  assign priority to different types of updates; and new concurrency primitives.
 
 28. ### What is the main goal of React Fiber?
-The goal of React Fiber is to increase its suitability for areas like animation, layout, and gestures. Its headline feature is incremental rendering: the ability to split rendering work into chunks and spread it out over multiple frames.
+The main goal of React Fiber is to increase its suitability for areas like animation, layout, and gestures. Its headline feature is incremental rendering: the ability to split rendering work into chunks and spread it out over multiple frames.
 
 29. ### What are controlled components?
 
@@ -657,7 +659,8 @@ A ReactJS component that controls the input elements within the forms on subsequ
 ```
 30. ### What are uncontrolled components?
 The **Uncontrolled Component** are the one that stores its own state internally, and you query the DOM using a ref to find its current value when you need it. This is a bit more like traditional HTML
-For example, in the below UserProfile component, the name input accessed using ref as below,
+
+ For example, in the below UserProfile component, the name input accessed using ref as below,
 ```jsx
 class UserProfile extends React.Component {
   constructor(props) {
@@ -690,11 +693,11 @@ In most cases, it is recommend using controlled components to implement forms.
 JSX elements will be transpiled to createElement JS syntax to create React elements which are going to be used for the object representation of UI. Whereas cloneElement is used to clone an element and pass it to new props.
 
 32. ### What is Lifting State Up in ReactJS?
-When several components need to share the same changing data then it is recommended to lifting the shared state up to their closest common ancestor. For example, if two child components sharing the same data from its parent then move the state to parent instead of maintaining the local state inn both child components.
+When several components need to share the same changing data then it is recommended to lifting the shared state up to their closest common ancestor. For example, if two child components sharing the same data from its parent then move the state to parent instead of maintaining the local state in both child components.
 
 33. ### What are the different phases of ReactJS component lifecycle?
 There are four different phases of React component’s lifecycle:
-1. **Initialization:** In this phase react component prepares setting up the initial state and default props.
+1. **Initialization:** In this phase, react component prepares setting up the initial state and default props.
 2. **Mounting:** The react component is ready to mount in the browser DOM. This phase covers **componentWillMount** and **componentDidMount** lifecycle methods.
 3. **Updating:** In this phase, the component get updated in two ways, sending the new props and updating the state. This phase covers **shouldComponentUpdate, componentWillUpdate and componentDidUpdate** lifecycle methods.
 4. **Unmounting:** In this last phase, the component is not needed and get unmounted from the browser DOM. This phase include **componentWillUnmount** lifecycle method.
@@ -702,7 +705,7 @@ There are four different phases of React component’s lifecycle:
 ---------
 34. ### What are the lifecycle methods of ReactJS?
 
--	**componentWillMount:** Executed before rendering and is used for App level configuration in your root component.
+-	**componentWillMount:** Executed before rendering and is used for app level configuration in your root component.
 -	**componentDidMount:** Executed after first rendering and here all AJAX requests, DOM or state updates, and set up eventListeners should occur.
 -	**componentWillReceiveProps:** Executed when particular prop updates to trigger state transitions.
 -	**shouldComponentUpdate:** Determines if the component will be updated or not. By default it returns true. If you are sure that the component doesn't need to render after state or props are updated, you can return false value. It is a great place to improve performance as it allows you to prevent a rerender if component receives new prop.
@@ -713,7 +716,7 @@ There are four different phases of React component’s lifecycle:
 
 35. ### What are Higher-Order components?
 
-A higher-order component **(HOC)** is a function that takes a component and returns a new component. Basically, it’s a pattern that is derived from React’s compositional nature
+A higher-order component **(HOC)** is a function that takes a component and returns a new component. Basically, it’s a pattern that is derived from React’s compositional nature.
 We call them as **“pure’ components”**  because they can accept any dynamically provided child component but they won’t modify or copy any behavior from their input components.
 ```jsx
 const EnhancedComponent = higherOrderComponent(WrappedComponent);
@@ -746,7 +749,7 @@ function HOC(WrappedComponent) {
 ```
 
 37. ### What is context?
-Context provides a way to pass data through the component tree without having to pass props down manually at every level. For example, authenticated user, locale preference, UI theme need to be accessed in the application by many components.
+**Context** provides a way to pass data through the component tree without having to pass props down manually at every level. For example, authenticated user, locale preference, UI theme need to be accessed in the application by many components.
 ```jsx
 const {Provider, Consumer} = React.createContext(defaultValue);
 
@@ -754,7 +757,7 @@ const {Provider, Consumer} = React.createContext(defaultValue);
 
 38. ### What is children prop?
 
-Children is a prop(this.prop.children) that allow you to pass components as data to other components, just like any other prop you use.
+**A Children prop** is a prop(this.prop.children) that allow you to pass components as data to other components, just like any other prop you use.
 There are a number of methods available in the React API to work with this prop. These include React.Children.map, React.Children.forEach, React.Children.count, React.Children.only, React.Children.toArray.
 
 A simple usage of children prop looks as below,
@@ -775,12 +778,12 @@ ReactDOM.render(
 ```
 39. ### How to write comments in ReactJS?
 
-The comments in ReactJS/JSX is similar to javascript multiline comments which are wrapped with curly braces
+The comments in ReactJS/JSX is similar to JavaScript with little changes. Both Single-line annd Multi-line comments are wrapped with curly braces in addition as below
 
 **Single-line comments:**
 ```jsx
 <div>
-  {/* Single-line comments */}
+  {/* Single-line comments */}    // In vanilla JavaScript, the single-line comments are represented by double slash(//)
   Welcome {user}, Let's play React
 </div>
 ```
@@ -827,7 +830,7 @@ class MyComponent extends React.Component {
 }
 ```
 
-The above code snippets reveals that this.props behavior is different only with in the constructor. It would be same outside the constructor.
+The above code snippets reveals that this.props behavior is different with in the constructor only. It would be same outside the constructor.
 
 41. ### What is reconciliation?
 
@@ -1496,7 +1499,7 @@ It solved the below two problems
 ---------------
 89. ### What is the difference between constructor and getInitialState?
 You should initialize state in the constructor when using ES6 classes, whereas use getInitialState method when using React.createClass
-######Using ES6 classes
+**Using ES6 classes**
 ```jsx
 class MyComponent extends React.Component {
   constructor(props) {
@@ -1505,7 +1508,7 @@ class MyComponent extends React.Component {
   }
 }
 ```
-######Using React.createClass
+**Using React.createClass**
 ```jsx
 var MyComponent = React.createClass({
   getInitialState() {
@@ -3182,7 +3185,7 @@ const App = () => (
 );
 ```
 **Note**: Don't forget the curly braces in the import!. This feature is available with react-scripts@2.0.0 and higher.
----------------------------------
+
 215. ### Why are inline ref callbacks or functions not recommended?
 If the ref callback is defined as an inline function, it will get called twice during updates, first with null and then again with the DOM element. This is because a new instance of the function is created with each render, so React needs to clear the old ref and set up the new one.
 ```jsx
@@ -3226,6 +3229,33 @@ class UserForm extends Component {
     )
   }
 }
-
 ```
+216. ### What is render hijacking in reactjs?
 
+The concept of render hijacking is the ability to control what a component will output from another component. It actually means that you decorate your component by wrapping it into a Higher-Order component. By wrapping you can inject additional props or make other changes, which can cause changing logic of rendering. It does not actually enables hijacking, but by using HOC you make your component behave in different way.
+
+217. ### What are HOC factory implementations?
+There are two main ways of implementing HOCs in React. 1. Props Proxy (PP) and 2. Inheritance Inversion (II). They follow different approaches for manipulating the *WrappedComponent*.
+**Props Proxy**
+In this approach, the render method of the HOC returns a React Element of the type of the WrappedComponent. We also pass through the props that the HOC receives, hence the name **Props Proxy**.
+```jsx
+
+function ppHOC(WrappedComponent) {
+  return class PP extends React.Component {
+    render() {
+      return <WrappedComponent {...this.props}/>
+    }
+  }
+}
+```
+**Inheritance Inversion**
+In this approach, the returned HOC class (Enhancer) extends the WrappedComponent. It is called Inheritance Inversion because instead of the WrappedComponent extending some Enhancer class, it is passively extended by the Enhancer. In this way the relationship between them seems **inverse**.
+```jsx
+function iiHOC(WrappedComponent) {
+  return class Enhancer extends WrappedComponent {
+    render() {
+      return super.render()
+    }
+  }
+}
+```
