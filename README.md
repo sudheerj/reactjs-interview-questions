@@ -231,7 +231,8 @@
 |215| [Why are inline ref callbacks or functions not recommended?](#why-are-inline-ref-callbacks-or-functions-not-recommended)|
 |216| [What is render hijacking in reactjs?](#what-is-render-hijacking-in-reactjs)|
 |217| [What are HOC factory implementations?](#what-are-hoc-factory-implementations)|
-|218| [How to pass numbers to React component?](#how-to-pass-numbers-to-react-component?)
+|218| [How to pass numbers to React component?](#how-to-pass-numbers-to-react-component?)|
+|219| [Do I need to keep all my state into Redux? Should I ever use react internal state?](#do-i-need-to-keep-all-my-state-into-redux-should-i-ever-use-react-internal-state)|
 
 ## Core React
 
@@ -3758,3 +3759,13 @@
      ```jsx
         React.render(<User age={30} department={"IT"} />, document.getElementById('container'));
      ```
+219. ### Do I need to keep all my state into Redux? Should I ever use react internal state?
+     It is up to developer decision. i.e, It is developer job to determine what kinds of state make up your application, and where each piece of state should liveSome users prefer to keep every single piece of data in Redux, to maintain a fully serializable and controlled version of their application at all times. Others prefer to keep non-critical or UI state, such as “is this dropdown currently open”, inside a component's internal state.
+
+     Below are the thumb rules to determine what kind of data should be put into Redux
+     1. Do other parts of the application care about this data?
+     2. Do you need to be able to create further derived data based on this original data?
+     3. Is the same data being used to drive multiple components?
+     4. Is there value to you in being able to restore this state to a given point in time (ie, time travel debugging)?
+     5. Do you want to cache the data (ie, use what's in state if it's already there instead of re-requesting it)?
+
