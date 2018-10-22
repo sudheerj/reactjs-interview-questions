@@ -233,6 +233,7 @@
 |217| [What are HOC factory implementations?](#what-are-hoc-factory-implementations)|
 |218| [How to pass numbers to React component?](#how-to-pass-numbers-to-react-component?)|
 |219| [Do I need to keep all my state into Redux? Should I ever use react internal state?](#do-i-need-to-keep-all-my-state-into-redux-should-i-ever-use-react-internal-state)|
+|220| [What is the purpose of registerServiceWorker in React?](#what-is-the-purpose-of-registerserviceworker-in-react)|
 
 ## Core React
 
@@ -3769,3 +3770,16 @@
      4. Is there value to you in being able to restore this state to a given point in time (ie, time travel debugging)?
      5. Do you want to cache the data (ie, use what's in state if it's already there instead of re-requesting it)?
 
+220. ### What is the purpose of registerServiceWorker in React?
+
+     React creates a service worker for you without any configuration by default. The service worker is a web API that helps you cache your assets and other files so that when the user is offline or on slow network, he/she can still see results on the screen, as such, it helps you build a better user experience, that's what you should know about service worker's for now. It's all about adding offline capabilities to your site.
+
+     ```jsx
+        import React from 'react';
+        import ReactDOM from 'react-dom';
+        import App from './App';
+        import registerServiceWorker from './registerServiceWorker';
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+        registerServiceWorker();
+     ```
