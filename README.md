@@ -234,6 +234,8 @@
 |218| [How to pass numbers to React component?](#how-to-pass-numbers-to-react-component?)|
 |219| [Do I need to keep all my state into Redux? Should I ever use react internal state?](#do-i-need-to-keep-all-my-state-into-redux-should-i-ever-use-react-internal-state)|
 |220| [What is the purpose of registerServiceWorker in React?](#what-is-the-purpose-of-registerserviceworker-in-react)|
+|221| [What is React memo function?](#what-is-react-memo-function)|
+|222| [What is React lazy function?](#what-is-react-lazy-function)|
 
 ## Core React
 
@@ -3783,3 +3785,26 @@
         ReactDOM.render(<App />, document.getElementById('root'));
         registerServiceWorker();
      ```
+221. ### What is React memo function?
+
+     Class components can be restricted from rendering when their input props are the same using **PureComponent or shouldComponentUpdate**. Now you can do the same with function components by wrapping them in **React.memo**.
+     ```jsx
+     const MyComponent = React.memo(function MyComponent(props) {
+      /* only rerenders if props change */
+     });
+     ```
+222. ### What is React lazy function?
+     The React.lazy function lets you render an dynamic import as a regular component. It will automatically load the bundle containing the OtherComponent when the component gets rendered. This must return a Promise which resolves to a module with a default export containing a React component.
+     ```jsx
+     const OtherComponent = React.lazy(() => import('./OtherComponent'));
+
+     function MyComponent() {
+      return (
+        <div>
+          <OtherComponent />
+        </div>
+      );
+     }
+     ```
+     **Note:**
+     React.lazy and Suspense is not yet available for server-side rendering. If you want to do code-splitting in a server rendered app, we still recommend React Loadable.
