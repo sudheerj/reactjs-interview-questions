@@ -236,6 +236,9 @@
 |220| [What is the purpose of registerServiceWorker in React?](#what-is-the-purpose-of-registerserviceworker-in-react)|
 |221| [What is React memo function?](#what-is-react-memo-function)|
 |222| [What is React lazy function?](#what-is-react-lazy-function)|
+|223| [How to prevent unnecessary updates using setState?](#how-to-prevent-unnecessary-updates-using-setstate)|
+|224| [How do you render Array, Strings and Numbers in React 16 Version?](#how-do-you-render-array,-strings-and-numbers-in-react-16-version)|
+|225| [How to use class field declarations syntax in React classes?](#how-to-use-class-field-declarations-syntax-in-react-classes)|
 
 ## Core React
 
@@ -418,7 +421,7 @@
     this.setState({ message: 'Hello World' })
     ```
 
-    **Note:** The only place you can directly assign to the state object is in *constructor*.
+    **Note:** You can directly assign to the state object either in *constructor* or using latest javascript's class field declaration syntax.
 
 12. ### What is the purpose of callback function as an argument of `setState()`?
 
@@ -3808,3 +3811,81 @@
      ```
      **Note:**
      React.lazy and Suspense is not yet available for server-side rendering. If you want to do code-splitting in a server rendered app, we still recommend React Loadable.
+223. ### How to prevent unnecessary updates using setState?
+     You can compare current value of the state with an existing state value and decide whether to rerender the page or not. If the values are same then you need to return **null** to stop rerendering otherwise return the latest state value. For example, the user profile information is conditionally rendered as follows,
+     ```jsx
+     getUserProfile = user => {
+       const latestAddress = user.address;
+       this.setState(state => {
+         if (state.address === latestAddress) {
+           return null;
+         } else {
+           return { title: latestAddress };
+         }
+       });
+     };
+     ```
+224. ### How do you render Array, Strings and Numbers in React 16 Version?
+     **Arrays**: Unlike older releases, you don't need to make sure **render** method return a single element in React16. You are able to return multiple sibling elements without a wrapping element by returning an array. For example, let us take the below list of developers,
+     ```jsx
+     const ReactJSDevs = () => {
+       return [
+         <li key="1">John</li>,
+         <li key="2">Jackie</li>,
+         <li key="3">Jordan</li>
+       ];
+     }
+     ```
+     You can also merge this array of items in another array component
+     ```jsx
+     const JSDevs = () => {
+       return (
+         <ul>
+           <li>Brad</li>
+           <li>Brodge</li>
+           <ReactJSDevs/>
+           <li>Brandon</li>
+         </ul>
+       );
+     }
+     ```
+     **Strings and Numbers:** You can also return string and number type from the render method
+     ```jsx
+     render() {
+      return 'Welcome to ReactJS questions';
+     }
+     // Number
+     render() {
+      return 2018;
+     }
+     ```
+225. ### How to use class field declarations syntax in React classes?
+React Class Components can be made much more concise using the class field declarations. You can initialize local state without using the constructor and declare class methods by using arrow functions without the extra need to bind them. Let's take a counter example to demonstrate class field declarations for state without using constructor and methods without binding,
+```jsx
+class Counter extends Component {
+  state = { value: 0 };
+
+  handleIncrement = () => {
+    this.setState(prevState => ({
+      value: prevState.value + 1
+    }));
+  };
+
+  handleDecrement = () => {
+    this.setState(prevState => ({
+      value: prevState.value - 1
+    }));
+  };
+
+  render() {
+    return (
+      <div>
+        {this.state.value}
+
+        <button onClick={this.handleIncrement}>+</button>
+        <button onClick={this.handleDecrement}>-</button>
+      </div>
+    )
+  }
+}
+```
