@@ -239,6 +239,9 @@
 |223| [How to prevent unnecessary updates using setState?](#how-to-prevent-unnecessary-updates-using-setstate)|
 |224| [How do you render Array, Strings and Numbers in React 16 Version?](#how-do-you-render-array,-strings-and-numbers-in-react-16-version)|
 |225| [How to use class field declarations syntax in React classes?](#how-to-use-class-field-declarations-syntax-in-react-classes)|
+|226| [What are hooks?](#what-are-hooks)|
+|227| [What are the rules needs to follow for hooks?](#what-are-the-rules-needs-to-follow-for-hooks)|
+|228| [How to ensure hooks followed the rules in your project?](#how-to-ensure-hooks-followed-the-rules-in-your-project)|
 
 ## Core React
 
@@ -3889,3 +3892,48 @@ class Counter extends Component {
   }
 }
 ```
+226. ### What are hooks?
+Hooks are a new feature proposal that lets you use state and other React features without writing a class. Let's see an example of useState hook example,
+```jsx
+import { useState } from 'react';
+
+function Example() {
+  // Declare a new state variable, which we'll call "count"
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+```
+227. ### What are the rules needs to follow for hooks?
+
+     You need to follow two rules inorder to use hooks
+     1. Call Hooks only at the top level of your react functions. i.e, You shouldn’t call Hooks inside loops, conditions, or nested functions. This will ensure that Hooks are called in the same order each time a component renders and it preserves the state of Hooks between multiple useState and useEffect calls.
+     2. Call Hooks from React Functions only. i.e, You shouldn’t call Hooks from regular JavaScript functions.
+
+228. ### How to ensure hooks followed the rules in your project?
+     React team released an ESLint plugin called **eslint-plugin-react-hooks** that enforces these two rules. You can add this plugin to your project using the below command,
+     ```javascript
+     npm install eslint-plugin-react-hooks@next
+     ```
+     And apply the below config in your ESLint config file,
+     ```javascript
+     // Your ESLint configuration
+     {
+       "plugins": [
+         // ...
+         "react-hooks"
+       ],
+       "rules": {
+         // ...
+         "react-hooks/rules-of-hooks": "error"
+       }
+     }
+     ```
+     **Note:** This plugin is intended to use in Create React App by default.
