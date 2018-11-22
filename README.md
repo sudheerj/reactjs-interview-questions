@@ -244,6 +244,7 @@
 |228| [How to ensure hooks followed the rules in your project?](#how-to-ensure-hooks-followed-the-rules-in-your-project)|
 |229| [What are the differences between Flux and Redux?](#what-are-the-differences-between-flux-and-redux)|
 |230| [What are the benefits of React Router V4?](#what-are-the-benefits-of-react-router-v4)|
+|231| [Can you describe about componentDidCatch lifecycle method signature?](#can-you-describe-about-componentdidcatch-lifecycle-method-signature)|
 
 ## Core React
 
@@ -3956,3 +3957,12 @@
      1. In React Router v4(version 4), the API is completely about components. A router can be visualized as a single component(<BrowserRouter>) which wraps specific child router components(<Route>).
      2. You don't need to manually set history. The router module will take care history by wrapping routes with  <BrowserRouter> component.
      3. The application size is reduced by adding only the specific router module(Web, core, or native)
+231. ### Can you describe about componentDidCatch lifecycle method signature?
+     The **componentDidCatch** lifecycle method is invoked after an error has been thrown by a descendant component. The method receives two parameters,
+     1. error: - The error object which was thrown
+     2. info: - An object with a componentStack key contains the information about which component threw the error.
+
+     The method structure would be as follows
+     ```javascript
+     componentDidCatch(error, info)
+     ```
