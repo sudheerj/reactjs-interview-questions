@@ -245,6 +245,12 @@
 |229| [What are the differences between Flux and Redux?](#what-are-the-differences-between-flux-and-redux)|
 |230| [What are the benefits of React Router V4?](#what-are-the-benefits-of-react-router-v4)|
 |231| [Can you describe about componentDidCatch lifecycle method signature?](#can-you-describe-about-componentdidcatch-lifecycle-method-signature)|
+|232| [In which scenarios error boundaries do not catch errors?](#in-which-scenarios-error-boundaries-do-not-catch-errors)|
+|233| [Why do not you need error boundaries for event handlers?](#why-do-not-you-need-error-boundaries-for-event0-handlers)|
+|234| [What is the difference between try cath block and error boundaries?](#what-is-the-difference-between-try-catch-block-and-error-boundaries)|
+|235| [What is the behavior of uncaught errors in react 16?](#what-is-the-behavior-of-uncaught-errors-in-react-16)|
+|236| [What is the proper placement for error boundaries?](#what-is-the-proper-placement-for-error-boundaries)|
+|237| [What is the benefit of component stack trace from error boundary?](#what-is-the-benefit-of-component-stack-trace-from-error-boundary)|
 
 ## Core React
 
@@ -3966,3 +3972,64 @@
      ```javascript
      componentDidCatch(error, info)
      ```
+232. ### In which scenarios error boundaries do not catch errors?
+     Below are the cases in which error boundaries doesn't work
+     1. Inside Event handlers
+     2. Asynchronous code using **setTimeout or requestAnimationFrame** callbacks
+     3. During Server side rendering
+     4. When errors thrown in the error boundary code itself
+233. ### Why do not you need error boundaries for event handlers?
+     Error boundaries do not catch errors inside event handlers. Event handlers don't happened or invoked during rendering time unlike render method or lifecycle methods. So React knows how to recover these kind of errors in event handlers.
+     If still you need to catch an error inside event handler, use the regular JavaScript try / catch statement as below
+     ```javascript
+     class MyComponent extends React.Component {
+       constructor(props) {
+         super(props);
+         this.state = { error: null };
+       }
+
+       handleClick = () => {
+         try {
+           // Do something that could throw
+         } catch (error) {
+           this.setState({ error });
+         }
+       }
+
+       render() {
+         if (this.state.error) {
+           return <h1>Caught an error.</h1>
+         }
+         return <div onClick={this.handleClick}>Click Me</div>
+       }
+     }
+     ```
+     The above code is catching the error using vanilla javascript try/catch block instead of error boundaries.
+234. ### What is the difference between try catch block and error boundaries?
+     Try catch block works with imperative code whereas error boundaries are meant for declarative code to render on the screen.
+     For example, the try catch block used for below imperative code
+     ```javascript
+     try {
+       showButton();
+     } catch (error) {
+       // ...
+     }
+     ```
+     Whereas error boundaries wrap declarative code as below,
+     ```javascript
+     <ErrorBoundary>
+       <MyComponent />
+     </ErrorBoundary>
+     ```
+     So if an error occurs in a **componentDidUpdate** method caused by a **setState** somewhere deep in the tree, it will still correctly propagate to the closest error boundary.
+
+235. ### What is the behavior of uncaught errors in react 16?
+     In React 16, errors that were not caught by any error boundary will result in unmounting of the whole React component tree. The reason behind this decision is that it is worse to leave corrupted UI in place than to completely remove it. For example, it is worse for a payments app to display a wrong amount than to render nothing.
+236. ### What is the proper placement for error boundaries?
+     The granularity of error boundaries usage is up to the developer based on project needs. You can follow either of these approaches,
+     1. You can wrap top-level route components to display a generic error message for the entire application.
+     2. You can also wrap individual components in an error boundary to protect them from crashing the rest of the application.
+237. ### What is the benefit of component stack trace from error boundary?
+     Apart from error messages and javascript stack, React16 will display the component stack trace with file names and line numbers using error boundary concept. For example, BuggyCounter component displays the component stack trace as below,
+
+     ![stacktrace](images/error_boundary.png)
