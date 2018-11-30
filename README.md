@@ -255,6 +255,9 @@
 |239| [What are the possible return types of render method?](#what-are-the-possible-return-types-of-render-method)|
 |240| [What is the main purpose of constructor?](#what-is-the-main-purpose-of-constructor)|
 |241| [Is it mandatory to define constructor for React component?](#is-it-mandatory-to-define-constructor-for-react-component)|
+|242| [What are default props?](#what-are-default-props)|
+|243| [Why should not call setState in componentWillUnmount?](#why-should-not-call-setstate-in-componentwillunmount)|
+|244| [What is the purpose of getDerivedStateFromError?](#what-is-the-purpose-of-getderivedstatefromerror)|
 
 ## Core React
 
@@ -4063,3 +4066,53 @@
      ```
 241. ### Is it mandatory to define constructor for React component?
      No, it is not mandatory. i.e, If you don’t initialize state and you don’t bind methods, you don’t need to implement a constructor for your React component.
+242. ### What are default props?
+     The defaultProps are defined as a property on the component class to set the default props for the class. This is used for undefined props, but not for null props. For example, let us create color default prop for the button component,
+     ```javascript
+     class MyButton extends React.Component {
+       // ...
+     }
+
+     MyButton.defaultProps = {
+       color: 'red'
+     };
+
+     ```
+
+     If props.color is not provided then it will set the default value to 'red'. i.e, Whenever you try to access the color prop it uses default value
+     ```javascript
+     render() {
+        return <MyButton /> ; // props.color will be set to red
+      }
+     ```
+     **Note:** If you provide null value then it remains null value.
+243. ### Why should not call setState in componentWillUnmount?
+     You should not call setState() in componentWillUnmount() because Once a component instance is unmounted, it will never be mounted again.
+244. ### What is the purpose of getDerivedStateFromError?
+     This lifecycle method is invoked after an error has been thrown by a descendant component. It receives the error that was thrown as a parameter and should return a value to update state. The signature of the lifecycle method is as follows,
+     ```javascript
+     static getDerivedStateFromError(error)
+     ```
+     Let us take error boundary use case with the above lifecycle method for demonistration purpose,
+     ```javascript
+     class ErrorBoundary extends React.Component {
+       constructor(props) {
+         super(props);
+         this.state = { hasError: false };
+       }
+
+       static getDerivedStateFromError(error) {
+         // Update state so the next render will show the fallback UI.
+         return { hasError: true };
+       }
+
+       render() {
+         if (this.state.hasError) {
+           // You can render any custom fallback UI
+           return <h1>Something went wrong.</h1>;
+         }
+
+         return this.props.children;
+       }
+     }
+     ```
