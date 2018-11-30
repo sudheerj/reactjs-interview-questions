@@ -253,6 +253,8 @@
 |237| [What is the benefit of component stack trace from error boundary?](#what-is-the-benefit-of-component-stack-trace-from-error-boundary)|
 |238| [What is the required method to be defined for a class component?](#what-is-the-required-method-to-be-defined-for-a-class-component)|
 |239| [What are the possible return types of render method?](#what-are-the-possible-return-types-of-render-method)|
+|240| [What is the main purpose of constructor?](#what-is-the-main-purpose-of-constructor)|
+|241| [Is it mandatory to define constructor for React component?](#is-it-mandatory-to-define-constructor-for-react-component)|
 
 ## Core React
 
@@ -4045,3 +4047,19 @@
      3. **Portals:** Render children into a different DOM subtree.
      4. **String and numbers:** Render both Strings and Numbers as text nodes in the DOM
      5. **Booleans or null:** Doesn't render anything but these types are used to conditionally render content.
+
+240. ### What is the main purpose of constructor?
+     The constructor is mainly used for two purposes,
+     1. To initialize local state by assigning object to this.state
+     2. For binding event handler methods to the instatnce
+     For example, the below code covers both the above casess,
+     ```javascript
+     constructor(props) {
+       super(props);
+       // Don't call this.setState() here!
+       this.state = { counter: 0 };
+       this.handleClick = this.handleClick.bind(this);
+     }
+     ```
+241. ### Is it mandatory to define constructor for React component?
+     No, it is not mandatory. i.e, If you don’t initialize state and you don’t bind methods, you don’t need to implement a constructor for your React component.
