@@ -251,6 +251,8 @@
 |235| [What is the behavior of uncaught errors in react 16?](#what-is-the-behavior-of-uncaught-errors-in-react-16)|
 |236| [What is the proper placement for error boundaries?](#what-is-the-proper-placement-for-error-boundaries)|
 |237| [What is the benefit of component stack trace from error boundary?](#what-is-the-benefit-of-component-stack-trace-from-error-boundary)|
+|238| [What is the required method to be defined for a class component?](#what-is-the-required-method-to-be-defined-for-a-class-component)|
+|239| [What are the possible return types of render method?](#what-are-the-possible-return-types-of-render-method)|
 
 ## Core React
 
@@ -1032,7 +1034,7 @@
     ReactDOM.createPortal(child, container)
     ```
 
-    The first argument is any renderable React child, such as an element, string, or fragment. The second argument is a DOM element.
+    The first argument is any render-able React child, such as an element, string, or fragment. The second argument is a DOM element.
 
 49. ### What are stateless components?
 
@@ -4033,3 +4035,13 @@
      Apart from error messages and javascript stack, React16 will display the component stack trace with file names and line numbers using error boundary concept. For example, BuggyCounter component displays the component stack trace as below,
 
      ![stacktrace](images/error_boundary.png)
+
+238. ### What is the required method to be defined for a class component?
+     The render() method is the only required method in a class component. i.e, All methods other than render method are optional for a class component.
+239. ### What are the possible return types of render method?
+     Below are the list of following types used and return from render method,
+     1. **React elements:** Elements that instruct React to render a DOM node. It includes html elements such as <div/> and user defined elements.
+     2. **Arrays and fragments:** Return multiple elements to render as Arrays and Fragments to wrap multiple elements
+     3. **Portals:** Render children into a different DOM subtree.
+     4. **String and numbers:** Render both Strings and Numbers as text nodes in the DOM
+     5. **Booleans or null:** Doesn't render anything but these types are used to conditionally render content.
