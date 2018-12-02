@@ -264,6 +264,7 @@
 |248| [What is the browser support for react applications?](#what-is-the-browser-support-for-react-applications)|
 |249| [What is the purpose of unmountComponentAtNode method?](#what-is-the-purpose-of-unmountcomponentatNode-method)|
 |250| [What is code-splitting?](#what-is-code-splitting)|
+|251| [What is the benefit of strict mode?](#what-is-the-benefit-of-strict-mode)|
 
 ## Core React
 
@@ -1633,12 +1634,7 @@
     }
     ```
 
-    In the example above, the *strict mode* checks apply to `<ComponentOne>` and `<ComponentTwo>` components only. `<StrictMode>` currently helps with:
-
-    1. Identifying components with **unsafe lifecycle methods**.
-    2. Warning about **legacy string ref** API usage.
-    3. Detecting unexpected **side effects**.
-    4. Detecting **legacy context** API.
+    In the example above, the *strict mode* checks apply to `<ComponentOne>` and `<ComponentTwo>` components only.
 
 84. ### What are React Mixins?
 
@@ -4191,3 +4187,10 @@
      export default App;
 
      ```
+251. ### What is the benefit of strict mode?
+     The <StrictMode> will be  helpful in the below cases
+
+     1. Identifying components with **unsafe lifecycle methods**.
+     2. Warning about **legacy string ref** API usage.
+     3. Detecting unexpected **side effects**.
+     4. Detecting **legacy context** API.
