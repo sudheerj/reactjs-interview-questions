@@ -258,6 +258,12 @@
 |242| [What are default props?](#what-are-default-props)|
 |243| [Why should not call setState in componentWillUnmount?](#why-should-not-call-setstate-in-componentwillunmount)|
 |244| [What is the purpose of getDerivedStateFromError?](#what-is-the-purpose-of-getderivedstatefromerror)|
+|245| [What is the methods order when component re-rendered?](#what-is-the-methods-order-when-component-re-rendered)|
+|246| [What are the methods invoked during error handling?](#what-are-the-methods-invoked-during-error-handling)|
+|247| [What is the purpose of displayName class property?](#what-is-the-purpose-of-displayname-class-property)|
+|248| [What is the browser support for react applications?](#what-is-the-browser-support-for-react-applications)|
+|249| [What is the purpose of unmountComponentAtNode method?](#what-is-the-purpose-of-unmountcomponentatNode-method)|
+|250| [What is code-splitting?](#what-is-code-splitting)|
 
 ## Core React
 
@@ -4115,4 +4121,73 @@
          return this.props.children;
        }
      }
+     ```
+245. ### What is the methods order when component re-rendered?
+     An update can be caused by changes to props or state. The below methods are called in the following order when a component is being re-rendered.
+     1. static getDerivedStateFromProps()
+     2. shouldComponentUpdate()
+     3. render()
+     4. getSnapshotBeforeUpdate()
+     5. componentDidUpdate()
+
+246. ### What are the methods invoked during error handling?
+     Below methods are called when there is an error during rendering, in a lifecycle method, or in the constructor of any child component.
+     1. static getDerivedStateFromError()
+     2. componentDidCatch()
+247. ### What is the purpose of displayName class property?
+     The displayName string is used in debugging messages. Usually, you don’t need to set it explicitly because it’s inferred from the name of the function or class that defines the component. You might want to set it explicitly if you want to display a different name for debugging purposes or when you create a higher-order component.
+     For example, To ease debugging, choose a display name that communicates that it’s the result of a withSubscription HOC.
+     ```javascript
+     function withSubscription(WrappedComponent) {
+       class WithSubscription extends React.Component {/* ... */}
+       WithSubscription.displayName = `WithSubscription(${getDisplayName(WrappedComponent)})`;
+       return WithSubscription;
+     }
+     function getDisplayName(WrappedComponent) {
+       return WrappedComponent.displayName || WrappedComponent.name || 'Component';
+     }
+     ```
+248. ### What is the browser support for react applications?
+     React supports all popular browsers, including Internet Explorer 9 and above, although some polyfills are required for older browsers such as IE 9 and IE 10. If you use  **es5-shim and es5-sham** polyfill then it even support old browsers that doesn't support ES5 methods.
+249. ### What is the purpose of unmountComponentAtNode method?
+     This method is available from react-dom package and it removes a mounted React component from the DOM and clean up its event handlers and state. If no component was mounted in the container, calling this function does nothing. Returns true if a component was unmounted and false if there was no component to unmount.
+     The method signature would be as follows,
+     ```javascript
+     ReactDOM.unmountComponentAtNode(container)
+     ```
+250. ### What is code-splitting?
+     Code-Splitting is a feature supported by bundlers like Webpack and Browserify which can create multiple bundles that can be dynamically loaded at runtime. The react project supports code splitting via dynamic import() feature.
+     For example, in the below code snippets, it will make moduleA.js and all its unique dependencies as a separate chunk that only loads after the user clicks the 'Load' button.
+     **moduleA.js**
+     ```javascript
+     const moduleA = 'Hello';
+
+     export { moduleA };
+     ```
+     **App.js**
+     ```javascript
+     import React, { Component } from 'react';
+
+     class App extends Component {
+       handleClick = () => {
+         import('./moduleA')
+           .then(({ moduleA }) => {
+             // Use moduleA
+           })
+           .catch(err => {
+             // Handle failure
+           });
+       };
+
+       render() {
+         return (
+           <div>
+             <button onClick={this.handleClick}>Load</button>
+           </div>
+         );
+       }
+     }
+
+     export default App;
+
      ```
