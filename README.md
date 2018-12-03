@@ -266,6 +266,9 @@
 |250| [What is code-splitting?](#what-is-code-splitting)|
 |251| [What is the benefit of strict mode?](#what-is-the-benefit-of-strict-mode)|
 |252| [What are Keyed Fragments?](#what-are-keyed-fragments)|
+|253| [Is it React support all HTML attributes?](#is-it-react-support-all-html-attributes)|
+|254| [What are the limitations with HOCs?](#what-are-the-limitations-with-hocs)|
+|255| [How to debug forwardRefs in DevTools?](#how-to-debug-forwardrefs-in-devtools)|
 
 ## Core React
 
@@ -4214,3 +4217,83 @@
      }
      ```
      **Note:** key is the only attribute that can be passed to Fragment. In the future, there might be a support for additional attributes, such as event handlers.
+253. ### Is it React support all HTML attributes?
+     As of React 16, both standard or custom DOM attributes are fully supported. Since React components often take both custom and DOM-related props, React uses the camelCase convention just like the DOM APIs. Let us take few props with respect to standard HTML attributes,
+     ```javascript
+     <div tabIndex="-1" />      // Just like node.tabIndex DOM API
+     <div className="Button" /> // Just like node.className DOM API
+     <input readOnly={true} />  // Just like node.readOnly DOM API
+     ```
+     These props work similarly to the corresponding HTML attributes, with the exception of the special cases. It also support all SVG attributes.
+254. ### What are the limitations with HOCs?
+
+     Higher-order components come with a few caveats apart from its benefits. Below are the few listed in an order
+     1. **Don’t Use HOCs Inside the render Method:**
+        It is not recommended to apply a HOC to a component within the render method of a component.
+        ```javascript
+        render() {
+          // A new version of EnhancedComponent is created on every render
+          // EnhancedComponent1 !== EnhancedComponent2
+          const EnhancedComponent = enhance(MyComponent);
+          // That causes the entire subtree to unmount/remount each time!
+          return <EnhancedComponent />;
+        }
+        ```
+        The above code impact performance by remounting a component that causes the state of that component and all of its children to be lost. Instead, apply HOCs outside the component definition so that the resulting component is created only once
+     2. **Static Methods Must Be Copied Over:**
+        When you apply a HOC to a component the new component does not have any of the static methods of the original component
+        ```javascript
+        // Define a static method
+        WrappedComponent.staticMethod = function() {/*...*/}
+        // Now apply a HOC
+        const EnhancedComponent = enhance(WrappedComponent);
+
+        // The enhanced component has no static method
+        typeof EnhancedComponent.staticMethod === 'undefined' // true
+        ```
+        You can overcome this by copying the methods onto the container before returning it
+        ```javascript
+        function enhance(WrappedComponent) {
+          class Enhance extends React.Component {/*...*/}
+          // Must know exactly which method(s) to copy :(
+          Enhance.staticMethod = WrappedComponent.staticMethod;
+          return Enhance;
+        }
+        ```
+     3. **Refs Aren’t Passed Through:**
+        For HOCs you need to pass through all props to the wrapped component but this does not work for refs. This is because ref is not really a prop similar to key. In this case you need to use the React.forwardRef API
+255. ### How to debug forwardRefs in DevTools?
+
+     **React.forwardRef** accepts a render function as parameter and DevTools uses this function to determine what to display for the ref forwarding component. For example, If you don't name the render function or not using displayName property then it will appear as ”ForwardRef” in the DevTools,
+     ```javascript
+     const WrappedComponent = React.forwardRef((props, ref) => {
+       return <LogProps {...props} forwardedRef={ref} />;
+     });
+     ```
+     But If you name the render function then it will appear as **”ForwardRef(myFunction)”**
+     ```javascript
+     const WrappedComponent = React.forwardRef(
+       function myFunction(props, ref) {
+         return <LogProps {...props} forwardedRef={ref} />;
+       }
+     );
+     ```
+     As an alternative, You can also set displayName property for forwardRef function,
+     ```javascript
+     function logProps(Component) {
+       class LogProps extends React.Component {
+         // ...
+       }
+
+       function forwardRef(props, ref) {
+         return <LogProps {...props} forwardedRef={ref} />;
+       }
+
+       // Give this component a more helpful display name in DevTools.
+       // e.g. "ForwardRef(logProps(MyComponent))"
+       const name = Component.displayName || Component.name;
+       forwardRef.displayName = `logProps(${name})`;
+
+       return React.forwardRef(forwardRef);
+     }
+     ```
