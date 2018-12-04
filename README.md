@@ -269,6 +269,7 @@
 |253| [Is it React support all HTML attributes?](#is-it-react-support-all-html-attributes)|
 |254| [What are the limitations with HOCs?](#what-are-the-limitations-with-hocs)|
 |255| [How to debug forwardRefs in DevTools?](#how-to-debug-forwardrefs-in-devtools)|
+|256| [When component props defaults to true?](#when-component-props-defaults-to-true)|
 
 ## Core React
 
@@ -4297,3 +4298,11 @@
        return React.forwardRef(forwardRef);
      }
      ```
+256. ### When component props defaults to true?
+     If you pass no value for a prop, it defaults to true. This behavior is available so that it matches the behavior of HTML. For example, below expressions are equivalent,
+     ```javascript
+     <MyInput autocomplete />
+
+     <MyInput autocomplete={true} />
+     ```
+     **Note:** It is not recommend using this approach because it can be confused with the ES6 object shorthand (example, {name} which is short for {name: name})
