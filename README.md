@@ -561,14 +561,16 @@
     ```jsx harmony
     <h1>Hello!</h1>
     {
-      messages.length > 0 &&
-      <h2>
-        You have {messages.length} unread messages.
-      </h2>
+        messages.length > 0 && !isLogin?
+          <h2>
+              You have {messages.length} unread messages.
+          </h2>
+          :
+          <h2>
+              You don't have unread messages.
+          </h2>
     }
     ```
-
-    <!-- TODO: fix this section -->
 
 18. ### What are "key" props and what is the benefit of using them in arrays of elements?
 
