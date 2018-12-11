@@ -271,6 +271,8 @@
 |255| [How to debug forwardRefs in DevTools?](#how-to-debug-forwardrefs-in-devtools)|
 |256| [When component props defaults to true?](#when-component-props-defaults-to-true)|
 |257| [What is NextJS and major features of it?](#what-is-nextjs-and-major-features-of-it)|
+|258| [How do you pass an event handler to a component?](#how-do-you-pass-an-event-handler-to-a-component)|
+|259| [Is it good to use arrow functions in render methods?](#is-it-good-to-use-arrow-functions-in-render-methods)|
 
 ## Core React
 
@@ -4317,3 +4319,10 @@
      4. Webpack-based dev environment which supports (HMR)
      5. Able to implement with Express or any other Node.js HTTP server
      6. Customizable with your own Babel and Webpack configurations
+258. ### How do you pass an event handler to a component?
+     You can pass event handlers and other functions as props to child components. It can be used in child component as  below,
+     ```
+     <button onClick={this.handleClick}>
+     ```
+259. ### Is it good to use arrow functions in render methods?
+     Yes, You can use. It is often the easiest way to pass parameters to callback functions. But you need to optimize the performance for any issues.
