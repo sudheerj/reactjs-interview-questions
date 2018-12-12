@@ -273,6 +273,7 @@
 |257| [What is NextJS and major features of it?](#what-is-nextjs-and-major-features-of-it)|
 |258| [How do you pass an event handler to a component?](#how-do-you-pass-an-event-handler-to-a-component)|
 |259| [Is it good to use arrow functions in render methods?](#is-it-good-to-use-arrow-functions-in-render-methods)|
+|260| [How to prevent a function from being called multiple times?](#how-to-prevent-a-function-from-being-called-multiple-times)|
 
 ## Core React
 
@@ -4325,4 +4326,21 @@
      <button onClick={this.handleClick}>
      ```
 259. ### Is it good to use arrow functions in render methods?
-     Yes, You can use. It is often the easiest way to pass parameters to callback functions. But you need to optimize the performance for any issues.
+     Yes, You can use. It is often the easiest way to pass parameters to callback functions. But you need to optimize the performance while using it.
+     ```javascript
+     class Foo extends Component {
+       handleClick() {
+         console.log('Click happened');
+       }
+       render() {
+         return <button onClick={() => this.handleClick()}>Click Me</button>;
+       }
+     }
+     ```
+     **Note:** Using an arrow function in render method creates a new function each time the component renders, which may have performance implications
+260. ### How to prevent a function from being called multiple times?
+     If you use an event handler such as **onClick or onScroll** and want to prevent the callback from being fired too quickly, then you can limit the rate at which callback is executed. This can be achieved in the below possible ways,
+     1. **Throttling:** Changes based on a time based frequency. For example, it can be used using _.throttle lodash function
+     2. **Debouncing:** Publish changes after a period of inactivity. For example, it can be used using _.debounce lodash function
+     3. **RequestAnimationFrame throttling:** Changes based on requestAnimationFrame. For example, it can be used using raf-schd lodash function
+
