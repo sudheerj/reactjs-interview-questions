@@ -274,6 +274,7 @@
 |258| [How do you pass an event handler to a component?](#how-do-you-pass-an-event-handler-to-a-component)|
 |259| [Is it good to use arrow functions in render methods?](#is-it-good-to-use-arrow-functions-in-render-methods)|
 |260| [How to prevent a function from being called multiple times?](#how-to-prevent-a-function-from-being-called-multiple-times)|
+|261| [How JSX prevents Injection Attacks?](#how-jsx-prevents-injection-attacks)|
 
 ## Core React
 
@@ -4343,4 +4344,13 @@
      1. **Throttling:** Changes based on a time based frequency. For example, it can be used using _.throttle lodash function
      2. **Debouncing:** Publish changes after a period of inactivity. For example, it can be used using _.debounce lodash function
      3. **RequestAnimationFrame throttling:** Changes based on requestAnimationFrame. For example, it can be used using raf-schd lodash function
+261. ### How JSX prevents Injection Attacks?
+     By default, React DOM escapes any values embedded in JSX before rendering them. Thus it ensures that you can never inject anything that’s not explicitly written in your application. Everything is converted to a string before being rendered. For example, you can embed user input as below,
+     ```javascript
+     const name = response.potentiallyMaliciousInput;
+     // This is safe:
+     const element = <h1>{name}</h1>;
+     ```
+     This way you can prevent XSS(Cross-site-scripting) attacks in the application.
+
 
