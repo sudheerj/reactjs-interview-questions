@@ -4345,12 +4345,26 @@
      2. **Debouncing:** Publish changes after a period of inactivity. For example, it can be used using _.debounce lodash function
      3. **RequestAnimationFrame throttling:** Changes based on requestAnimationFrame. For example, it can be used using raf-schd lodash function
 261. ### How JSX prevents Injection Attacks?
-     By default, React DOM escapes any values embedded in JSX before rendering them. Thus it ensures that you can never inject anything that’s not explicitly written in your application. Everything is converted to a string before being rendered. For example, you can embed user input as below,
+     React DOM escapes any values embedded in JSX before rendering them. Thus it ensures that you can never inject anything that’s not explicitly written in your application. Everything is converted to a string before being rendered. For example, you can embed user input as below,
      ```javascript
      const name = response.potentiallyMaliciousInput;
-     // This is safe:
      const element = <h1>{name}</h1>;
      ```
      This way you can prevent XSS(Cross-site-scripting) attacks in the application.
+262. ### How to update rendered elements?
+     You can update UI(represented by rendered element) by passing the newly created element to ReactDOM's render method. For example, lets take a ticking clock example, where it updates the time by calling render method multiple times,
+     ```javascript
+     function tick() {
+       const element = (
+         <div>
+           <h1>Hello, world!</h1>
+           <h2>It is {new Date().toLocaleTimeString()}.</h2>
+         </div>
+       );
+       ReactDOM.render(element, document.getElementById('root'));
+     }
 
+     setInterval(tick, 1000);
+     ```
+263. ###
 
