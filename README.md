@@ -281,7 +281,9 @@
 |265| [How do you pass arguments to an event handler?](#how-do-you-pass-arguments-to-an-event-handler)|
 |266| [How to prevent component from rendering?](#how-to-prevent-component-from-rendering)|
 |267| [What are the conditions to safely use the index as a key?](#What-are-the-conditions-to-safely-use-the-index-as-a-key)|
-|268| [Is it keys should be globally unique?](#is-it-keys-should-be-globally-unique?)|
+|268| [Is it keys should be globally unique?](#is-it-keys-should-be-globally-unique)|
+|269| [What is the popular choice for form handling?](#what-is-the-popular-choice-for-form-handling)|
+|270| [What are the advantages of formik over redux form library?](#what-are-the-advantages-of-formik-over-redux-form-library)|
 
 ## Core React
 
@@ -4486,3 +4488,16 @@
        );
      }
      ```
+269. ### What is the popular choice for form handling?
+     Formik is a form library for react which provides solutions such as validation, keeping track of the visited fields, and handling form submission. In detail, You can categorize them as follows,
+
+     1. Getting values in and out of form state
+     2. Validation and error messages
+     3. Handling form submission
+
+     It is used to create a scalable, performant, form helper with a minimal API to solve annoying stuff.
+270. ### What are the advantages of formik over redux form library?
+     Below are the main reasons to recommend formik over redux form library
+     1. The form state is inherently short-term and local, so tracking it in Redux (or any kind of Flux library) is unnecessary.
+     2. Redux-Form calls your entire top-level Redux reducer multiple times ON EVERY SINGLE KEYSTROKE. This way it increases input latency for large apps.
+     3. Redux-Form is 22.5 kB minified gzipped whereas Formik is 12.7 kB
