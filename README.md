@@ -275,6 +275,13 @@
 |259| [Is it good to use arrow functions in render methods?](#is-it-good-to-use-arrow-functions-in-render-methods)|
 |260| [How to prevent a function from being called multiple times?](#how-to-prevent-a-function-from-being-called-multiple-times)|
 |261| [How JSX prevents Injection Attacks?](#how-jsx-prevents-injection-attacks)|
+|262| [How do you update rendered elements?](#how-do-you-update-rendered-elements)|
+|263| [How do you say that props are read only?](#how-do-you-say-that-props-are-read-only)|
+|264| [How do you say that state updates are merged?](#how-do-you-say-that-state-updates-are-merged)|
+|265| [How do you pass arguments to an event handler?](#how-do-you-pass-arguments-to-an-event-handler)|
+|266| [How to prevent component from rendering?](#how-to-prevent-component-from-rendering)|
+|267| [What are the conditions to safely use the index as a key?](#What-are-the-conditions-to-safely-use-the-index-as-a-key)|
+|268| [Is it keys should be globally unique?](#is-it-keys-should-be-globally-unique?)|
 
 ## Core React
 
@@ -414,6 +421,8 @@
     ```
 
     ![state](images/state.jpg)
+
+    State is similar to props, but it is private and fully controlled by the component. i.e, It is not accessible to any component other than the one that owns and sets it.
 
 9. ### What are props in React?
 
@@ -4351,7 +4360,7 @@
      const element = <h1>{name}</h1>;
      ```
      This way you can prevent XSS(Cross-site-scripting) attacks in the application.
-262. ### How to update rendered elements?
+262. ### How do you update rendered elements?
      You can update UI(represented by rendered element) by passing the newly created element to ReactDOM's render method. For example, lets take a ticking clock example, where it updates the time by calling render method multiple times,
      ```javascript
      function tick() {
@@ -4366,5 +4375,114 @@
 
      setInterval(tick, 1000);
      ```
-263. ###
+263. ### How do you say that props are read only?
+     When you declare a component as a function or a class, it must never modify its own props. Let us take a below capital function,
+     ```javascript
+     function capital(amount, interest) {
+        return amount + interest;
+     }
+     ```
+     The above function is called “pure” because it does not attempt to change their inputs, and always return the same result for the same inputs. Hence, React has a single rule saying "All React components must act like pure functions with respect to their props."
+264. ### How do you say that state updates are merged?
+     When you call setState() in the component, React merges the object you provide into the current state. For example, let us take a facebook user with posts and comments details as state variables,
+     ```javascript
+       constructor(props) {
+         super(props);
+         this.state = {
+           posts: [],
+           comments: []
+         };
+       }
+     ```
+     Now you can update them independently with separate setState() calls as below,
+     ```javascript
+      componentDidMount() {
+         fetchPosts().then(response => {
+           this.setState({
+             posts: response.posts
+           });
+         });
 
+         fetchComments().then(response => {
+           this.setState({
+             comments: response.comments
+           });
+         });
+       }
+     ```
+     As mentioned in the above code snippets, this.setState({comments}) updates only comments variable without modifying or replacing posts variable.
+265. ### How do you pass arguments to an event handler?
+     During iterations or loops, it is common to pass an extra parameter to an event handler. This can be achieved through arrow functions or bind method. Let us take an example of user details updated in a grid,
+     ```javascript
+     <button onClick={(e) => this.updateUser(userId, e)}>Update User details</button>
+     <button onClick={this.updateUser.bind(this, userId)}>Update User details</button>
+     ```
+     In both the approaches, the synthetic argument e is passed as a second argument. You need to pass it explicitly for arrow functions and it forwarded automatically for bind method.
+266. ### How to prevent component from rendering?
+     You can prevent component from rendering by returning null based on specific condition. This way it can conditionally render component.
+     ```javascript
+     function Greeting(props) {
+       if (!props.loggedIn) {
+         return null;
+       }
+
+       return (
+         <div className="greeting">
+           welcome, {props.name}
+         </div>
+       );
+     }
+     ```
+     ```javascript
+     class User extends React.Component {
+       constructor(props) {
+         super(props);
+         this.state = {loggedIn: false, name: 'John'};
+       }
+
+       render() {
+        return (
+            <div>
+              //Prevent component render if it is not loggedIn
+              <Greeting loggedIn={this.state.loggedIn} />
+              <UserDetails name={this.state.name}>
+            </div>
+        );
+       }
+     ```
+     In the above example, the greeting component skips its rendering section by applying condition and returning null value.
+267. ### What are the conditions to safely use the index as a key?
+     There are three conditions to make sure, it is safe use the index as a key.
+     1. The list and items are static– they are not computed and do not change
+     2. The items in the list have no ids
+     3. The list is never reordered or filtered.
+
+268. ### Is it keys should be globally unique?
+     Keys used within arrays should be unique among their siblings but they don’t need to be globally unique. i.e, You can use the same keys withtwo different arrays. For example, the below book component uses two arrays with different arrays,
+     ```javascript
+     function Book(props) {
+       const index = (
+         <ul>
+           {props.pages.map((page) =>
+             <li key={page.id}>
+               {page.title}
+             </li>
+           )}
+         </ul>
+       );
+       const content = props.pages.map((page) =>
+         <div key={page.id}>
+           <h3>{page.title}</h3>
+           <p>{page.content}</p>
+           <p>{page.pageNumber}</p>
+         </div>
+       );
+       return (
+         <div>
+           {index}
+           <hr />
+           {content}
+         </div>
+       );
+     }
+     ```
