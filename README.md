@@ -284,6 +284,8 @@
 |268| [Is it keys should be globally unique?](#is-it-keys-should-be-globally-unique)|
 |269| [What is the popular choice for form handling?](#what-is-the-popular-choice-for-form-handling)|
 |270| [What are the advantages of formik over redux form library?](#what-are-the-advantages-of-formik-over-redux-form-library)|
+|271| [Why do you not required to use inheritance?](#why-do-you-not-required-to-use-inheritance)|
+|272| [Can I use web components in react application?](#can-i-use-web-components-in-react-application)|
 
 ## Core React
 
@@ -4501,3 +4503,24 @@
      1. The form state is inherently short-term and local, so tracking it in Redux (or any kind of Flux library) is unnecessary.
      2. Redux-Form calls your entire top-level Redux reducer multiple times ON EVERY SINGLE KEYSTROKE. This way it increases input latency for large apps.
      3. Redux-Form is 22.5 kB minified gzipped whereas Formik is 12.7 kB
+
+271. ### Why do you not required to use inheritance?
+     In React, it is recommend using composition instead of inheritance to reuse code between components. Both Props and composition give you all the flexibility you need to customize a component’s look and behavior in an explicit and safe way.
+     Whereas, If you want to reuse non-UI functionality between components, it is suggested to extracting it into a separate JavaScript module. Later components import it and use that function, object, or a class, without extending it.
+272. ### Can I use web components in react application?
+     Yes, you can user web components in a react application. Even though many developers won't use this combination, it may require especially if you are using third-party UI components that are written using Web Components. For example, let us  use Vaadin date picker web component as below,
+     ```javascript
+     import React, { Component } from 'react';
+     import './App.css';
+     import '@vaadin/vaadin-date-picker';
+     class App extends Component {
+       render() {
+         return (
+           <div className="App">
+             <vaadin-date-picker label="When were you born?"></vaadin-date-picker>
+           </div>
+         );
+       }
+     }
+     export default App;
+     ```
