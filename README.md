@@ -286,6 +286,10 @@
 |270| [What are the advantages of formik over redux form library?](#what-are-the-advantages-of-formik-over-redux-form-library)|
 |271| [Why do you not required to use inheritance?](#why-do-you-not-required-to-use-inheritance)|
 |272| [Can I use web components in react application?](#can-i-use-web-components-in-react-application)|
+|273| [What is dynamic import?](#what-is-dynamic-import)|
+|274| [What are loadable components?](#what-are-loadable-components)|
+|275| [What is suspense component?](#what-is-suspense-component)|
+|276| [What is route based code splitting?](#what-is-route-based-code-splitting)|
 
 ## Core React
 
@@ -4524,3 +4528,69 @@
      }
      export default App;
      ```
+273. ### What is dynamic import?
+     The dynamic import() syntax is a ECMAScript proposal not currently part of the language standard. It is expected to be accepted in the near future. You can achieve code-splitting into your app using dynamic import(). Let's take an example of addition,
+     **Normal Import**
+     ```javascript
+     import { add } from './math';
+     console.log(add(10, 20));
+     ```
+     **Dynamic Import**
+     ```javascript
+     import("./math").then(math => {
+       console.log(math.add(10, 20));
+     });
+     ```
+274. ### What are loadable components?
+     If you want to do code-splitting in a server rendered app, it is recommend to use Loadable Components because React.lazy and Suspense is not yet available for server-side rendering. Loadable lets you render a dynamic import as a regular component. Lets take an example,
+     ```javascript
+     import loadable from '@loadable/component'
+
+     const OtherComponent = loadable(() => import('./OtherComponent'))
+
+     function MyComponent() {
+       return (
+         <div>
+           <OtherComponent />
+         </div>
+       )
+     }
+     ```
+     Now OtherComponent will be loaded in a separated bundle
+275. ### What is suspense component?
+     If the module containing the dynamic import is not yet loaded by the time parent component renders, you must show some fallback content while you’re waiting for it to load using a loading indicator. This can be done using **Suspense** component. For example, the below code uses suspense component,
+     ```javascript
+     const OtherComponent = React.lazy(() => import('./OtherComponent'));
+
+     function MyComponent() {
+       return (
+         <div>
+           <Suspense fallback={<div>Loading...</div>}>
+             <OtherComponent />
+           </Suspense>
+         </div>
+       );
+     }
+     ```
+     As mentioned in the above code, Suspense is wrapped above the lazy component.
+276. ### What is route based code splitting?
+     One of the best place to do code splitting is with routes. The entire page is going to re-render at once so users are unlikely to interact with other elements in the page at the same time. Due to this, the user experience won't be disturbed. Let us take an example of route based website using libraries like React Router with React.lazy,
+     ```javascript
+     import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+     import React, { Suspense, lazy } from 'react';
+
+     const Home = lazy(() => import('./routes/Home'));
+     const About = lazy(() => import('./routes/About'));
+
+     const App = () => (
+       <Router>
+         <Suspense fallback={<div>Loading...</div>}>
+           <Switch>
+             <Route exact path="/" component={Home}/>
+             <Route path="/about" component={About}/>
+           </Switch>
+         </Suspense>
+       </Router>
+     );
+     ```
+     In the above code, the code splitting will happen at each route level.
