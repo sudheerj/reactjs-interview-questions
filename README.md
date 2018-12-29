@@ -295,6 +295,9 @@
 |279| [How do you use contextType?](#how-do-you-use-contexttype)|
 |280| [What is a consumer?](#what-is-a-consumer)|
 |281| [How do you solve performance corner cases while using context?](#how-do-you-solve-performance-corner-cases-while-using-context)|
+|282| [What is the purpose of forward ref in HOCs?](#what-is-the-purpose-of-forward-ref-in-hocs)|
+|283| [Is it ref argument available for all functions or class components?](#is-it-ref-argument-available-for-all-functions-or-class-components)|
+|284| [Why do you need additional care for component libraries while using forward refs?](#why-do-you-need-additional-care-for-component-libraries-while-using-forward-refs)|
 
 ## Core React
 
@@ -4714,3 +4717,54 @@
        }
      }
      ```
+282. ### What is the purpose of forward ref in HOCs?
+     Refs will not get passed through because ref is not a prop. It handled differently by React just like **key**. If you add a ref to a HOC, the ref will refer to the outermost container component, not the wrapped component. In this case, you can use Forward Ref API. For example, we can explicitly forward refs to the inner FancyButton component using the React.forwardRef API.
+     The below HOC logs all props,
+     ```javascript
+     function logProps(Component) {
+       class LogProps extends React.Component {
+         componentDidUpdate(prevProps) {
+           console.log('old props:', prevProps);
+           console.log('new props:', this.props);
+         }
+
+         render() {
+           const {forwardedRef, ...rest} = this.props;
+
+           // Assign the custom prop "forwardedRef" as a ref
+           return <Component ref={forwardedRef} {...rest} />;
+         }
+       }
+
+       return React.forwardRef((props, ref) => {
+         return <LogProps {...props} forwardedRef={ref} />;
+       });
+     }
+     ```
+     Let's use this HOC to log all props that get passed to our “fancy button” component,
+     ```javascript
+     class FancyButton extends React.Component {
+       focus() {
+         // ...
+       }
+
+       // ...
+     }
+     export default logProps(FancyButton);
+     ```
+     Now lets create a ref and pass it to FancyButton component. In this case, you can set focus to button element.
+     ```javascript
+     import FancyButton from './FancyButton';
+
+     const ref = React.createRef();
+     ref.current.focus();
+     <FancyButton
+       label="Click Me"
+       handleClick={handleClick}
+       ref={ref}
+     />;
+     ```
+283. ### Is it ref argument available for all functions or class components?
+     Regular function or class components don’t receive the ref argument, and ref is not available in props either. The second ref argument only exists when you define a component with React.forwardRef call.
+284. ### Why do you need additional care for component libraries while using forward refs?
+     When you start using forwardRef in a component library, you should treat it as a breaking change and release a new major version of your library. This is because your library likely has a different behavior such as what refs get assigned to, and what types are exported. These changes can break apps and other libraries that depend on the old behavior.
