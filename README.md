@@ -290,6 +290,11 @@
 |274| [What are loadable components?](#what-are-loadable-components)|
 |275| [What is suspense component?](#what-is-suspense-component)|
 |276| [What is route based code splitting?](#what-is-route-based-code-splitting)|
+|277| [Give an example on How to use context?](#give-an-example-on-how-to-use-context)|
+|278| [What is the purpose of default value in context?](#what-is-the-purpose-of-default-value-in-context)|
+|279| [How do you use contextType?](#how-do-you-use-contexttype)|
+|280| [What is a consumer?](#what-is-a-consumer)|
+|281| [How do you solve performance corner cases while using context?](#how-do-you-solve-performance-corner-cases-while-using-context)|
 
 ## Core React
 
@@ -4530,12 +4535,12 @@
      ```
 273. ### What is dynamic import?
      The dynamic import() syntax is a ECMAScript proposal not currently part of the language standard. It is expected to be accepted in the near future. You can achieve code-splitting into your app using dynamic import(). Let's take an example of addition,
-     **Normal Import**
+     1. **Normal Import**
      ```javascript
      import { add } from './math';
      console.log(add(10, 20));
      ```
-     **Dynamic Import**
+     2. **Dynamic Import**
      ```javascript
      import("./math").then(math => {
        console.log(math.add(10, 20));
@@ -4594,3 +4599,115 @@
      );
      ```
      In the above code, the code splitting will happen at each route level.
+277. ### Give an example on How to use context?
+     **Context** is designed to share data that can be considered **global** for a tree of React components.  For example, in the code below lets manually thread through a “theme” prop in order to style the Button component.
+     ```javascript
+     //Lets create a context with a default theme value "luna"
+     const ThemeContext = React.createContext('luna');
+     // Create App component where it uses provider to pass theme value in the tree
+     class App extends React.Component {
+       render() {
+         return (
+           <ThemeContext.Provider value="nova">
+             <Toolbar />
+           </ThemeContext.Provider>
+         );
+       }
+     }
+     // A middle component where you don't need to pass theme prop anymore
+     function Toolbar(props) {
+       return (
+         <div>
+           <ThemedButton />
+         </div>
+       );
+     }
+     // Lets read theme value in the button component to use
+     class ThemedButton extends React.Component {
+       static contextType = ThemeContext;
+       render() {
+         return <Button theme={this.context} />;
+       }
+     }
+     ```
+278. ### What is the purpose of default value in context?
+     The defaultValue argument is only used when a component does not have a matching Provider above it in the tree. This can be helpful for testing components in isolation without wrapping them. Below code snippet provides default theme value as Luna.
+     ```javascript
+     const MyContext = React.createContext(defaultValue);
+     ```
+279. ### How do you use contextType?
+     ContextType is used to consume the context object. The contextType property can be used in two ways,
+     1. **contextType as property of class:**
+     The contextType property on a class can be assigned a Context object created by React.createContext(). After that, you can consume the nearest current value of that Context type using this.context in any of the lifecycle methods and render function.
+     Lets assign contextType property on MyClass as below,
+     ```javascript
+     class MyClass extends React.Component {
+       componentDidMount() {
+         let value = this.context;
+         /* perform a side-effect at mount using the value of MyContext */
+       }
+       componentDidUpdate() {
+         let value = this.context;
+         /* ... */
+       }
+       componentWillUnmount() {
+         let value = this.context;
+         /* ... */
+       }
+       render() {
+         let value = this.context;
+         /* render something based on the value of MyContext */
+       }
+     }
+     MyClass.contextType = MyContext;
+     ```
+     2. **Static field**
+     You can use a static class field to initialize your contextType using public class field syntax.
+     ```javascript
+     class MyClass extends React.Component {
+       static contextType = MyContext;
+       render() {
+         let value = this.context;
+         /* render something based on the value */
+       }
+     }
+     ```
+280. ### What is a consumer?
+     A Consumer is a React component that subscribes to context changes. It requires a function as a child which receives current context value as argument and returns a react node. The value argument passed to the function will be equal to the value prop of the closest Provider for this context above in the tree. Lets take a simple example,
+     ```javascript
+     <MyContext.Consumer>
+       {value => /* render something based on the context value */}
+     </MyContext.Consumer>
+     ```
+281. ### How do you solve performance corner cases while using context?
+     The context uses reference identity to determine when to re-render, there are some gotchas that could trigger unintentional renders in consumers when a provider’s parent re-renders. For example, the code below will re-render all consumers every time the Provider re-renders because a new object is always created for value.
+     ```javascript
+     class App extends React.Component {
+       render() {
+         return (
+           <Provider value={{something: 'something'}}>
+             <Toolbar />
+           </Provider>
+         );
+       }
+     }
+     ```
+     This can be solved by lifting up the value to parent state,
+     ```javascript
+     class App extends React.Component {
+       constructor(props) {
+         super(props);
+         this.state = {
+           value: {something: 'something'},
+         };
+       }
+
+       render() {
+         return (
+           <Provider value={this.state.value}>
+             <Toolbar />
+           </Provider>
+         );
+       }
+     }
+     ```
