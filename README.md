@@ -302,6 +302,7 @@
 |286| [Is it possible to use react without JSX?](#is-it-possible-to-use-react-without-jsx)|
 |287| [What is diffing algorithm?](#what-is-diffing-algorithm)|
 |288| [What are the rules covered by diffing algorithm?](#what-are-the-rules-covered-by-diffing-algorithm)|
+|289| [When do you need to use refs?](#when-do-you-need-to-use-refs)|
 
 ## Core React
 
@@ -4867,5 +4868,10 @@
        <li key="2016">Villanova</li>
      </ul>
      ```
+289. ### When do you need to use refs?
+     There are few use cases to go for refs
+     1. Managing focus, text selection, or media playback.
+     2. Triggering imperative animations.
+     3. Integrating with third-party DOM libraries.
 
 
