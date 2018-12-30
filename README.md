@@ -306,6 +306,7 @@
 |290| [Is it prop must be named as render for render props?](#is-it-prop-must-be-named-as-render-for-render-props)|
 |291| [What are the problems of using render props with pure components?](#what-are-the-problems-of-using-render-props-with-pure-components)|
 |292| [How do you create HOC using render props?](#how-do-you-create-hoc-using-render-props)|
+|293| [What is windowing technique?](#what-is-windowing-technique)|
 
 ## Core React
 
@@ -4915,4 +4916,5 @@
      }
      ```
      This way render props gives the flexibility of using either pattern.
-
+293. ### What is windowing technique?
+     Windowing is a technique that only renders a small subset of your rows at any given time, and can dramatically reduce the time it takes to re-render the components as well as the number of DOM nodes created. If your application renders long lists of data then this technique is recommended. Both react-window and react-virtualized are popular windowing libraries which provides several reusable components for displaying lists, grids, and tabular data.
