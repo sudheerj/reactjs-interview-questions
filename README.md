@@ -307,6 +307,7 @@
 |291| [What are the problems of using render props with pure components?](#what-are-the-problems-of-using-render-props-with-pure-components)|
 |292| [How do you create HOC using render props?](#how-do-you-create-hoc-using-render-props)|
 |293| [What is windowing technique?](#what-is-windowing-technique)|
+|294| [How do you print falsy values in JSX?](#how-do-you-print-falsy-values-in-jsx)|
 
 ## Core React
 
@@ -4918,3 +4919,10 @@
      This way render props gives the flexibility of using either pattern.
 293. ### What is windowing technique?
      Windowing is a technique that only renders a small subset of your rows at any given time, and can dramatically reduce the time it takes to re-render the components as well as the number of DOM nodes created. If your application renders long lists of data then this technique is recommended. Both react-window and react-virtualized are popular windowing libraries which provides several reusable components for displaying lists, grids, and tabular data.
+294. ### How do you print falsy values in JSX?
+     The falsy values such as false, null, undefined, and true are valid children but they don't render anything. If you still want to display them then you need to convert it to string. Let's take an example on how to convert to a string,
+     ```javascript
+     <div>
+       My JavaScript variable is {String(myVariable)}.
+     </div>
+     ```
