@@ -300,6 +300,8 @@
 |284| [Why do you need additional care for component libraries while using forward refs?](#why-do-you-need-additional-care-for-component-libraries-while-using-forward-refs)|
 |285| [How to create react class components without ES6?](#how-to-create-react-class-components-without-es6)|
 |286| [Is it possible to use react without JSX?](#is-it-possible-to-use-react-without-jsx)|
+|287| [What is diffing algorithm?](#what-is-diffing-algorithm)|
+|288| [What are the rules covered by diffing algorithm?](#what-are-the-rules-covered-by-diffing-algorithm)|
 
 ## Core React
 
@@ -4818,4 +4820,52 @@
        document.getElementById('root')
      );
      ```
+287. ### What is diffing algorithm?
+     React needs to use algorithms to find out how to efficiently update the UI to match the most recent tree. The diffing algorithms is generating the minimum number of operations to transform one tree into another. However, the algorithms have a complexity in the order of O(n3) where n is the number of elements in the tree.
+     In this case, for displaying 1000 elements would require in the order of one billion comparisons. This is far too expensive. Instead, React implements a heuristic O(n) algorithm based on two assumptions:
+     1. Two elements of different types will produce different trees.
+     2. The developer can hint at which child elements may be stable across different renders with a key prop.
+288. ### What are the rules covered by diffing algorithm?
+     When diffing two trees, React first compares the two root elements. The behavior is different depending on the types of the root elements. It covers the below rules during reconsilation algorithm,
+     1. **Elements Of Different Types:**
+        Whenever the root elements have different types, React will tear down the old tree and build the new tree from scratch. For example,  elements <a> to <img>, or from <Article> to <Comment> of different types lead a full rebuild.
+     2. **DOM Elements Of The Same Type:**
+        When comparing two React DOM elements of the same type, React looks at the attributes of both, keeps the same underlying DOM node, and only updates the changed attributes. Lets take an example with same DOM eleemnts except className attribute,
+        ```javascript
+        <div className="show" title="ReactJS" />
+
+        <div className="hide" title="ReactJS" />
+        ```
+     3. **Component Elements Of The Same Type:**
+        When a component updates, the instance stays the same, so that state is maintained across renders. React updates the props of the underlying component instance to match the new element, and calls componentWillReceiveProps() and componentWillUpdate() on the underlying instance. After that, the render() method is called and the diff algorithm recurses on the previous result and the new result.
+     4. **Recursing On Children:**
+        when recursing on the children of a DOM node, React just iterates over both lists of children at the same time and generates a mutation whenever there’s a difference. For example, when adding an element at the end of the children, converting between these two trees works well.
+        ```javascript
+        <ul>
+          <li>first</li>
+          <li>second</li>
+        </ul>
+
+        <ul>
+          <li>first</li>
+          <li>second</li>
+          <li>third</li>
+        </ul>
+
+        ```
+     5. **Handling keys:**
+     React supports a key attribute. When children have keys, React uses the key to match children in the original tree with children in the subsequent tree. For example, adding a key can make the tree conversion efficient,
+     ```javascript
+     <ul>
+       <li key="2015">Duke</li>
+       <li key="2016">Villanova</li>
+     </ul>
+
+     <ul>
+       <li key="2014">Connecticut</li>
+       <li key="2015">Duke</li>
+       <li key="2016">Villanova</li>
+     </ul>
+     ```
+
 
