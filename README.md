@@ -308,6 +308,12 @@
 |292| [How do you create HOC using render props?](#how-do-you-create-hoc-using-render-props)|
 |293| [What is windowing technique?](#what-is-windowing-technique)|
 |294| [How do you print falsy values in JSX?](#how-do-you-print-falsy-values-in-jsx)|
+|295| [What is the typical use case of portals?](#what-is-the-typical-use-case-of-portals?)|
+|296| [How do you set default value for uncontrolled component?](#how-do-you-set-default-value-for-uncontrolled-component)|
+|297| [What is your favorite React stack?](#what-is-your-favorite-react-stack)|
+|298| [What is the difference between Real DOM and Virtual DOM?](#what-is-the-difference-between-real-dom-and-virtual-dom)|
+|299| [How to add a bootstrap for a react application?](#how-to-add-a-bootstrap-for-a-react-application)|
+|300| [Can you list down top websites or applications using react as front end framework?](#can-you-list-down-top-websites-or-applications-using-react-as-front-end-framework)|
 
 ## Core React
 
@@ -1515,6 +1521,14 @@
     $ npm run test
     $ npm start
     ```
+    It includes everything we need to build a React app:
+
+    1. React, JSX, ES6, and Flow syntax support.
+    2. Language extras beyond ES6 like the object spread operator.
+    3. Autoprefixed CSS, so you don’t need -webkit- or other prefixes.
+    4. A fast interactive unit test runner with built-in support for coverage reporting.
+    5. A live development server that warns about common mistakes.
+    6. A build script to bundle JS, CSS, and images for production, with hashes and sourcemaps.
 
 74. ### What is the lifecycle methods order in mounting?
 
@@ -4926,3 +4940,62 @@
        My JavaScript variable is {String(myVariable)}.
      </div>
      ```
+295. ### What is the typical use case of portals?
+     React portals are very useful when a parent component has overflow: hidden or has properties that affect the stacking context(z-index,position,opacity etc styles) and you need to visually “break out” of its container. For example, dialogs, global message notifications, hovercards, and tooltips.
+296. ### How do you set default value for uncontrolled component?
+     In React, the value attribute on form elements will override the value in the DOM. With an uncontrolled component, you might want React to specify the initial value, but leave subsequent updates uncontrolled. To handle this case, you can specify a **defaultValue** attribute instead of **value**.
+     ```javascript
+     render() {
+       return (
+         <form onSubmit={this.handleSubmit}>
+           <label>
+             User Name:
+             <input
+               defaultValue="John"
+               type="text"
+               ref={this.input} />
+           </label>
+           <input type="submit" value="Submit" />
+         </form>
+       );
+     }
+     ```
+     The same applies for `select` and `textArea` inputs. But you need to use **defaultChecked** for `checkbox` and `radio` inputs.
+297. ### What is your favorite React stack?
+     Even though the tech stack varies from developer to developer, the most popular stack is used in react boilerplate project code. It mainly uses Redux and redux-saga for state management and asynchronous side-effects, react-router for routing purpose, styled-components for styling react components, axios for invoking REST api, and other supported stack such as webpack, reselect, ESNext, Babel. You can clone the project https://github.com/react-boilerplate/react-boilerplate and start working on any new react project.
+298. ### What is the difference between Real DOM and Virtual DOM?
+
+     | Real DOM | Virtual DOM |
+     | ----- | ------- |
+     | Updates are slow | Updates are fast |
+     | DOM manipulation is very expensive. | DOM manipulation is very easy |
+     | You can update HTML directly. | You Can’t directly update HTML |
+     | It causes too much of memory wastage | 	There is no memory wastage|
+     | Creates a new DOM if element updates | It updates the JSX if element update|
+
+299. ### How to add a bootstrap for a react application?
+     Bootstrap can be added to your React app in a three possible ways
+     1. Using the Bootstrap CDN:
+        This is the easiest way to add bootstrap. Add both bootstrap CSS and JS resources in a head tag.
+     2. Bootstrap as Dependency:
+        If you are using a build tool or a module bundler such as Webpack, then this is the preferred option for adding Bootstrap to your React application
+        ```javascript
+        npm install bootstrap
+        ``
+     3. React Bootstrap Package:
+        In this case, you can add Bootstrap to our React app is by using a package that has rebuilt Bootstrap components to work particularly as React components. Below packages are popular in this category,
+        1. react-bootstrap
+        2. reactstrap
+300. ### Can you list down top websites or applications using react as front end framework?
+     Below are the top 10 websites using React as their front-end framework,
+
+     1. Facebook
+     2. Uber
+     3. Instagram
+     4. WhatsApp
+     5. Khan Academy
+     6. Airbnb
+     7. Dropbox
+     8. Flipboard
+     9. Netflix
+     10. PayPal
