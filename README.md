@@ -314,6 +314,7 @@
 |298| [What is the difference between Real DOM and Virtual DOM?](#what-is-the-difference-between-real-dom-and-virtual-dom)|
 |299| [How to add a bootstrap for a react application?](#how-to-add-a-bootstrap-for-a-react-application)|
 |300| [Can you list down top websites or applications using react as front end framework?](#can-you-list-down-top-websites-or-applications-using-react-as-front-end-framework)|
+|301| [Is it recommended to use CSS In JS technique in React?](#is-it-recommended-to-use-css-in-js-technique-in-react)|
 
 ## Core React
 
@@ -5001,3 +5002,5 @@
      8. Flipboard
      9. Netflix
      10. PayPal
+301. ### Is it recommended to use CSS In JS technique in React?
+     React does not have any opinion about how styles are defined but if you are a beginner then good starting point is to define your styles in a separate *.css file as usual and refer to them using className. This functionality is not part of React but came from third-party libraries. But If you want to try a different approach(CSS-In-JS) then styled-components library is a good option.
