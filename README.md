@@ -3839,6 +3839,7 @@
 
 217. ### What are HOC factory implementations?
      There are two main ways of implementing HOCs in React. 1. Props Proxy (PP) and 2. Inheritance Inversion (II). They follow different approaches for manipulating the *WrappedComponent*.
+
      **Props Proxy**
 
      In this approach, the render method of the HOC returns a React Element of the type of the WrappedComponent. We also pass through the props that the HOC receives, hence the name **Props Proxy**.
@@ -3854,6 +3855,7 @@
      }
      ```
      **Inheritance Inversion**
+
      In this approach, the returned HOC class (Enhancer) extends the WrappedComponent. It is called Inheritance Inversion because instead of the WrappedComponent extending some Enhancer class, it is passively extended by the Enhancer. In this way the relationship between them seems **inverse**.
 
      ```jsx
