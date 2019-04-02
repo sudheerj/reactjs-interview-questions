@@ -381,14 +381,14 @@
     <div id='login-btn'>Login</div>
     ```
 
-    Whereas a **component** can be declared in several different ways. It can be a class with a `render()` method. Alternatively, in simple cases, it can be defined as a function. In either case, it takes props as an input, and returns an JSX tree as the output:
+    Whereas a **component** can be declared in several different ways. It can be a class with a `render()` method. Alternatively, in simple cases, it can be defined as a function. In either case, it takes props as an input, and returns a JSX tree as the output:
 
     ```javascript
     const Button = ({ onLogin }) =>
       <div id={'login-btn'} onClick={onLogin} />
     ```
 
-    Then JSX gets transpiled to `React.createElement()` function tree:
+    Then JSX gets transpiled to a `React.createElement()` function tree:
 
     ```javascript
     const Button = ({ onLogin }) => React.createElement(
