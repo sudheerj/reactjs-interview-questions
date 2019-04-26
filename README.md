@@ -1,6 +1,15 @@
 # React Interview Questions & Answers
 
-> Click :star:if you like the project. Pull Request are highly appreciated.
+### Contributor
+
+<a href="https://github.com/SeonHyungJo" target="_blank" rel="nofollow">
+	<img src="https://avatars2.githubusercontent.com/u/24274424?s=60&v=4">
+</a>
+
+> * :clipboard: 본 문서는 [sudheerj](https://github.com/sudheerj)의 [reactjs-interview-questions](https://github.com/sudheerj/reactjs-interview-questions)의 번역본입니다.
+> * :star: 이 프로젝트가 마음에 드셨다면 **STAR**를 눌러주세요.
+> * :heavy_check_mark: 풀 리퀘스트는 언제든 환영입니다.
+> * :clap: [vuejs-interview-questions-korean](https://github.com/sudheerj/vuejs-interview-questions-korean)를 참고를 해서 작성하였습니다.
 
 ### Table of Contents
 
@@ -528,7 +537,7 @@
     <button onClick={activateLasers}>
     ```
 
-    2. In HTML, you can return `false` to prevent default behavior:
+    1. In HTML, you can return `false` to prevent default behavior:
 
     ```html
     <a href='#' onclick='console.log("The link was clicked."); return false;' />
@@ -562,7 +571,7 @@
     }
     ```
 
-    2. **Public class fields syntax:** If you don't like to use bind approach then *public class fields syntax* can be used to correctly bind callbacks.
+    1. **Public class fields syntax:** If you don't like to use bind approach then *public class fields syntax* can be used to correctly bind callbacks.
 
     ```jsx harmony
     handleClick = () => {
@@ -576,7 +585,7 @@
     </button>
     ```
 
-    3. **Arrow functions in callbacks:** You can use *arrow functions* directly in the callbacks.
+    1. **Arrow functions in callbacks:** You can use *arrow functions* directly in the callbacks.
 
     ```jsx harmony
     <button onClick={(event) => this.handleClick(event)}>
@@ -672,7 +681,7 @@
       }
     }
     ```
-    2. You can also use ref callbacks approach regardless of React version. For example, the search bar component's input element accessed as follows,
+    1. You can also use ref callbacks approach regardless of React version. For example, the search bar component's input element accessed as follows,
     ```jsx harmony
     class SearchBar extends Component {
        constructor(props) {
@@ -2498,15 +2507,15 @@
 
 ## React Router
 
-129. ### What is React Router?
+1.   ### What is React Router?
 
      React Router is a powerful routing library built on top of React that helps you add new screens and flows to your application incredibly quickly, all while keeping the URL in sync with what's being displayed on the page.
 
-130. ### How React Router is different from history library?
+2.   ### How React Router is different from history library?
 
      React Router is a wrapper around the `history` library which handles interaction with the browser's `window.history` with its browser and hash histories. It also provides memory history which is useful for environments that don't have global history, such as mobile app development (React Native) and unit testing with Node.
 
-131. ### What are the `<Router>` components of React Router v4?
+3.   ### What are the `<Router>` components of React Router v4?
 
      React Router v4 provides below 3 `<Router>` components:
 
@@ -2516,7 +2525,7 @@
 
      The above components will create *browser*, *hash*, and *memory* history instances. React Router v4 makes the properties and methods of the `history` instance associated with your router available through the context in the `router` object.
 
-132. ### What is the purpose of `push()` and `replace()` methods of `history`?
+4.   ### What is the purpose of `push()` and `replace()` methods of `history`?
 
      A history instance has two methods for navigation purpose.
 
@@ -2525,7 +2534,7 @@
 
      If you think of the history as an array of visited locations, `push()` will add a new location to the array and `replace()` will replace the current location in the array with the new one.
 
-133. ### How do you programmatically navigate using React Router v4?
+5.   ### How do you programmatically navigate using React Router v4?
 
      There are three different ways to achieve programmatic routing/navigation within components.
 
@@ -2588,7 +2597,7 @@
          }
          ```
 
-134. ### How to get query parameters in React Router v4?
+6.   ### How to get query parameters in React Router v4?
 
      The ability to parse query strings was taken out of React Router v4 because there have been user requests over the years to support different implementation. So the decision has been given to users to choose the implementation they like. The recommended approach is to use query strings library.
 
@@ -2606,7 +2615,7 @@
 
      You should use a *polyfill* for IE11.
 
-135. ### Why you get "Router may have only one child element" warning?
+7.   ### Why you get "Router may have only one child element" warning?
 
      You have to wrap your Route's in a `<Switch>` block because `<Switch>` is unique in that it renders a route exclusively.
 
@@ -2627,7 +2636,7 @@
      </Router>
      ```
 
-136. ### How to pass params to `history.push` method in React Router v4?
+8.   ### How to pass params to `history.push` method in React Router v4?
 
      While navigating you can pass props to the `history` object:
 
@@ -2641,7 +2650,7 @@
 
      The `search` property is used to pass query params in `push()` method.
 
-137. ### How to implement *default* or *NotFound* page?
+9.   ### How to implement *default* or *NotFound* page?
 
      A `<Switch>` renders the first child `<Route>` that matches. A `<Route>` with no path always matches. So you just need to simply drop path attribute as below
 
@@ -2653,7 +2662,7 @@
      </Switch>
      ```
 
-138. ### How to get history on React Router v4?
+10.  ### How to get history on React Router v4?
 
      1. Create a module that exports a `history` object and import this module across the project.
 
@@ -2690,7 +2699,7 @@
          history.push('/go-here')
          ```
 
-139. ### How to perform automatic redirect after login?
+11.  ### How to perform automatic redirect after login?
 
      The `react-router` package provides `<Redirect>` component in React Router. Rendering a `<Redirect>` will navigate to a new location. Like server-side redirects, the new location will override the current location in the history stack.
 
@@ -2711,11 +2720,11 @@
 
 ## React Internationalization
 
-140. ### What is React Intl?
+1.   ### What is React Intl?
 
      The *React Intl* library makes internalization in React straightforward, with off-the-shelf components and an API that can handle everything from formatting strings, dates, and numbers, to pluralization. React Intl is part of *FormatJS* which provides bindings to React via its components and API.
 
-141. ### What are the main features of React Intl?
+2.   ### What are the main features of React Intl?
 
      1. Display numbers with separators.
      2. Display dates and times correctly.
@@ -2725,7 +2734,7 @@
      6. Runs in the browser and Node.
      7. Built on standards.
 
-142. ### What are the two ways of formatting in React Intl?
+3.   ### What are the two ways of formatting in React Intl?
 
      The library provides two ways to format strings, numbers, and dates: react components or an API.
 
@@ -2747,7 +2756,7 @@
      formatMessage(messages.accountMessage)
      ```
 
-143. ### How to use `<FormattedMessage>` as placeholder using React Intl?
+4.   ### How to use `<FormattedMessage>` as placeholder using React Intl?
 
      The `<Formatted... />` components from `react-intl` return elements, not plain text, so they can't be used for placeholders, alt text, etc. In that case, you should use lower level API `formatMessage()`. You can inject the `intl` object into your component using `injectIntl()` higher-order component and then format the message using `formatMessage()` available on that object.
 
@@ -2767,7 +2776,7 @@
      export default injectIntl(MyComponent)
      ```
 
-144. ### How to access current locale with React Intl?
+5.   ### How to access current locale with React Intl?
 
      You can get the current locale in any component of your application using `injectIntl()`:
 
@@ -2785,7 +2794,7 @@
      export default injectIntl(MyComponent)
      ```
 
-145. ### How to format date using React Intl?
+6.   ### How to format date using React Intl?
 
      The `injectIntl()` higher-order component will give you access to the `formatDate()` method via the props in your component. The method is used internally by instances of `FormattedDate` and it returns the string representation of the formatted date.
 
@@ -2811,7 +2820,7 @@
 
 ## React Testing
 
-146. ### What is Shallow Renderer in React testing?
+1.   ### What is Shallow Renderer in React testing?
 
      *Shallow rendering* is useful for writing unit test cases in React. It lets you render a component *one level deep* and assert facts about what its render method returns, without worrying about the behavior of child components, which are not instantiated or rendered.
 
@@ -2846,7 +2855,7 @@
      ])
      ```
 
-147. ### What is `TestRenderer` package in React?
+2.   ### What is `TestRenderer` package in React?
 
      This package provides a renderer that can be used to render components to pure JavaScript objects, without depending on the DOM or a native mobile environment. This package makes it easy to grab a snapshot of the platform view hierarchy (similar to a DOM tree) rendered by a ReactDOM or React Native without using a browser or `jsdom`.
 
@@ -2867,15 +2876,15 @@
      // }
      ```
 
-148. ### What is the purpose of ReactTestUtils package?
+3.   ### What is the purpose of ReactTestUtils package?
 
      *ReactTestUtils* are provided in the `with-addons` package and allow you to perform actions against a simulated DOM for the purpose of unit testing.
 
-149. ### What is Jest?
+4.   ### What is Jest?
 
      *Jest* is a JavaScript unit testing framework created by Facebook based on Jasmine and provides automated mock creation and a `jsdom` environment. It's often used for testing components.
 
-150. ### What are the advantages of Jest over Jasmine?
+5.   ### What are the advantages of Jest over Jasmine?
 
      There are couple of advantages compared to Jasmine:
 
@@ -2885,7 +2894,7 @@
      - Runs your tests with a fake DOM implementation (via `jsdom`) so that your tests can be run on the command line.
      - Runs tests in parallel processes so that they finish sooner.
 
-151. ### Give a simple example of Jest test case
+6.   ### Give a simple example of Jest test case
 
      Let's write a test for a function that adds two numbers in `sum.js` file:
 
@@ -2925,7 +2934,7 @@
 
 ## React Redux
 
-152. ### What is flux?
+1.   ### What is flux?
 
      *Flux* is an *application design paradigm* used as a replacement for the more traditional MVC pattern. It is not a framework or a library but a new kind of architecture that complements React and the concept of Unidirectional Data Flow. Facebook uses this pattern internally when working with React.
 
@@ -2933,11 +2942,11 @@
 
      ![flux](images/flux.png)
 
-153. ### What is Redux?
+2.   ### What is Redux?
 
      *Redux* is a predictable state container for JavaScript apps based on the *Flux design pattern*. Redux can be used together with React, or with any other view library. It is tiny (about 2kB) and has no dependencies.
 
-154. ### What are the core principles of Redux?
+3.   ### What are the core principles of Redux?
 
      Redux follows three fundamental principles:
 
@@ -2945,7 +2954,7 @@
      2. **State is read-only:** The only way to change the state is to emit an action, an object describing what happened. This ensures that neither the views nor the network callbacks will ever write directly to the state.
      3. **Changes are made with pure functions:** To specify how the state tree is transformed by actions, you write reducers. Reducers are just pure functions that take the previous state and an action as parameters, and return the next state.
 
-155. ### What are the downsides of Redux compared to Flux?
+4.   ### What are the downsides of Redux compared to Flux?
 
      Instead of saying downsides we can say that there are few compromises of using Redux over Flux. Those are as follows:
 
@@ -2953,7 +2962,7 @@
      2. **You're going to have to carefully pick your packages:** While Flux explicitly doesn't try to solve problems such as undo/redo, persistence, or forms, Redux has extension points such as middleware and store enhancers, and it has spawned a rich ecosystem.
      3. **There is no nice Flow integration yet:** Flux currently lets you do very impressive static type checks which Redux doesn't support yet.
 
-156. ### What is the difference between `mapStateToProps()` and `mapDispatchToProps()`?
+5.   ### What is the difference between `mapStateToProps()` and `mapDispatchToProps()`?
 
      `mapStateToProps()` is a utility which helps your component get updated state (which is updated by some other components):
 
@@ -2977,11 +2986,11 @@
      }
      ```
 
-157. ### Can I dispatch an action in reducer?
+6.   ### Can I dispatch an action in reducer?
 
      Dispatching an action within a reducer is an **anti-pattern**. Your reducer should be *without side effects*, simply digesting the action payload and returning a new state object. Adding listeners and dispatching actions within the reducer can lead to chained actions and other side effects.
 
-158. ### How to access Redux store outside a component?
+7.   ### How to access Redux store outside a component?
 
      Yes. You just need to export the store from the module where it created with `createStore()`. Also, it shouldn't pollute the global window object.
 
@@ -2991,20 +3000,20 @@
      export default store
      ```
 
-159. ### What are the drawbacks of MVW pattern?
+8.   ### What are the drawbacks of MVW pattern?
 
      1. The DOM manipulation is very expensive which causes applications behaves slowly and inefficient.
-     3. Due to circular dependencies, a complicated model was created around models and views.
+     2. Due to circular dependencies, a complicated model was created around models and views.
      3. Lot of data changes happens for collaborative applications(like Google Docs).
      4. No way to do undo (travel back in time) easily without adding so much extra code.
 
-160. ### Are there any similarities between Redux and RxJS?
+9.   ### Are there any similarities between Redux and RxJS?
 
      These libraries are very different for very different purposes, but there are some vague similarities.
 
      Redux is a tool for managing state throughout the application. It is usually used as an architecture for UIs. Think of it as an alternative to (half of) Angular. RxJS is a reactive programming library. It is usually used as a tool to accomplish asynchronous tasks in JavaScript. Think of it as an alternative to Promises. Redux uses the Reactive paradigm because the Store is reactive. The Store observes actions from a distance, and changes itself. RxJS also uses the Reactive paradigm, but instead of being an architecture, it gives you basic building blocks, Observables, to accomplish this pattern.
 
-161. ### How to dispatch an action on load?
+10.  ### How to dispatch an action on load?
 
      You can dispatch an action in `componentDidMount()` method and in `render()` method you can verify the data.
 
@@ -3030,7 +3039,7 @@
      export default connect(mapStateToProps, mapDispatchToProps)(App)
      ```
 
-162. ### How to use `connect()` from React Redux?
+11.  ### How to use `connect()` from React Redux?
 
      You need to follow two steps to use your store in your container:
 
@@ -3054,7 +3063,7 @@
          export default connect(mapStateToProps)(App)
          ```
 
-163. ### How to reset state in Redux?
+12.  ### How to reset state in Redux?
 
      You need to write a *root reducer* in your application which delegate handling the action to the reducer generated by `combineReducers()`.
 
@@ -3094,7 +3103,7 @@
      }
      ```
 
-164. ### Whats the purpose of `at` symbol in the Redux connect decorator?
+13.  ### Whats the purpose of `at` symbol in the Redux connect decorator?
 
      The **@** symbol is in fact a JavaScript expression used to signify decorators. *Decorators* make it possible to annotate and modify classes and properties at design time.
 
@@ -3147,15 +3156,15 @@
 
      The above examples are almost similar except the usage of decorator. The decorator syntax isn't built into any JavaScript runtimes yet, and is still experimental and subject to change. You can use babel for the decorators support.
 
-165. ### What is the difference between React context and React Redux?
+14.  ### What is the difference between React context and React Redux?
 
      You can use **Context** in your application directly and is going to be great for passing down data to deeply nested components which what it was designed for. Whereas **Redux** is much more powerful and provides a large number of features that the Context API doesn't provide. Also, React Redux uses context internally but it doesn't expose this fact in the public API.
 
-166. ### Why are Redux state functions called reducers?
+15.  ### Why are Redux state functions called reducers?
 
      Reducers always return the accumulation of the state (based on all previous and current actions). Therefore, they act as a reducer of state. Each time a Redux reducer is called, the state and action are passed as parameters. This state is then reduced (or accumulated) based on the action, and then the next state is returned. You could *reduce* a collection of actions and an initial state (of the store) on which to perform these actions to get the resulting final state.
 
-167. ### How to make AJAX request in Redux?
+16.  ### How to make AJAX request in Redux?
 
      You can use `redux-thunk` middleware which allows you to define async actions.
 
@@ -3181,11 +3190,11 @@
      }
      ```
 
-168. ### Should I keep all component's state in Redux store?
+17.  ### Should I keep all component's state in Redux store?
 
       Keep your data in the Redux store, and the UI related state internally in the component.
 
-169. ### What is the proper way to access Redux store?
+18.  ### What is the proper way to access Redux store?
 
      The best way to access your store in a component is to use the `connect()` function, that creates a new component that wraps around your existing one. This pattern is called *Higher-Order Components*, and is generally the preferred way of extending a component's functionality in React. This allows you to map state and action creators to your component, and have them passed in automatically as your store updates.
 
@@ -3222,13 +3231,13 @@
      }
      ```
 
-170. ### What is the difference between component and container in React Redux?
+19.  ### What is the difference between component and container in React Redux?
 
      **Component** is a class or function component that describes the presentational part of your application.
 
      **Container** is an informal term for a component that is connected to a Redux store. Containers *subscribe* to Redux state updates and *dispatch* actions, and they usually don't render DOM elements; they delegate rendering to presentational child components.
 
-171. ### What is the purpose of the constants in Redux?
+20.  ### What is the purpose of the constants in Redux?
 
      Constants allows you to easily find all usages of that specific functionality across the project when you use an IDE. It also prevents you from introducing silly bugs caused by typos – in which case, you will get a `ReferenceError` immediately.
 
@@ -3280,7 +3289,7 @@
          }
          ```
 
-172. ### What are the different ways to write `mapDispatchToProps()`?
+21.  ### What are the different ways to write `mapDispatchToProps()`?
 
      There are a few ways of binding *action creators* to `dispatch()` in `mapDispatchToProps()`. Below are the possible options:
 
@@ -3302,7 +3311,7 @@
 
      The third option is just a shorthand for the first one.
 
-173. ### What is the use of the `ownProps` parameter in `mapStateToProps()` and `mapDispatchToProps()`?
+22.  ### What is the use of the `ownProps` parameter in `mapStateToProps()` and `mapDispatchToProps()`?
 
      If the `ownProps` parameter is specified, React Redux will pass the props that were passed to the component into your *connect* functions. So, if you use a connected component:
 
@@ -3320,7 +3329,7 @@
 
      You can use this object to decide what to return from those functions.
 
-174. ### How to structure Redux top level directories?
+23.  ### How to structure Redux top level directories?
 
      Most of the applications has several top-level directories as below:
 
@@ -3332,7 +3341,7 @@
 
      This structure works well for small and medium size apps.
 
-175. ### What is redux-saga?
+24.  ### What is redux-saga?
 
      `redux-saga` is a library that aims to make side effects (asynchronous things like data fetching and impure things like accessing the browser cache) in React/Redux applications easier and better.
 
@@ -3342,11 +3351,11 @@
      $ npm install --save redux-saga
      ```
 
-176. ### What is the mental model of redux-saga?
+25.  ### What is the mental model of redux-saga?
 
      *Saga* is like a separate thread in your application, that's solely responsible for side effects. `redux-saga` is a redux *middleware*, which means this thread can be started, paused and cancelled from the main application with normal Redux actions, it has access to the full Redux application state and it can dispatch Redux actions as well.
 
-177. ### What are the differences between `call()` and `put()` in redux-saga?
+26.  ### What are the differences between `call()` and `put()` in redux-saga?
 
      Both `call()` and `put()` are effect creator functions. `call()` function is used to create effect description, which instructs middleware to call the promise. `put()` function creates an effect, which instructs middleware to dispatch an action to the store.
 
@@ -3366,19 +3375,19 @@
      }
      ```
 
-178. ### What is Redux Thunk?
+27.  ### What is Redux Thunk?
 
      *Redux Thunk* middleware allows you to write action creators that return a function instead of an action. The thunk can be used to delay the dispatch of an action, or to dispatch only if a certain condition is met. The inner function receives the store methods `dispatch()` and `getState()` as parameters.
 
-179. ### What are the differences between `redux-saga` and `redux-thunk`?
+28.  ### What are the differences between `redux-saga` and `redux-thunk`?
 
      Both *Redux Thunk* and *Redux Saga* take care of dealing with side effects. In most of the scenarios, Thunk uses *Promises* to deal with them, whereas Saga uses *Generators*. Thunk is simple to use and Promises are familiar to many developers, Sagas/Generators are more powerful but you will need to learn them. But both middleware can coexist, so you can start with Thunks and introduce Sagas when/if you need them.
 
-180. ### What is Redux DevTools?
+29.  ### What is Redux DevTools?
 
      *Redux DevTools* is a live-editing time travel environment for Redux with hot reloading, action replay, and customizable UI. If you don't want to bother with installing Redux DevTools and integrating it into your project, consider using Redux DevTools Extension for Chrome and Firefox.
 
-181. ### What are the features of Redux DevTools?
+30.  ### What are the features of Redux DevTools?
 
      1. Lets you inspect every state and action payload.
      2. Lets you go back in time by *cancelling* actions.
@@ -3386,7 +3395,7 @@
      4. If the reducers throw, you will see during which action this happened, and what the error was.
      5. With `persistState()` store enhancer, you can persist debug sessions across page reloads.
 
-182. ### What are Redux selectors and why to use them?
+31.  ### What are Redux selectors and why to use them?
 
      *Selectors* are functions that take Redux state as an argument and return some data to pass to the component.
 
@@ -3396,17 +3405,17 @@
      const getUserData = state => state.user.data
      ```
 
-183. ### What is Redux Form?
+32.  ### What is Redux Form?
 
      *Redux Form* works with React and Redux to enable a form in React to use Redux to store all of its state. Redux Form can be used with raw HTML5 inputs, but it also works very well with common UI frameworks like Material UI, React Widgets and React Bootstrap.
 
-184. ### What are the main features of Redux Form?
+33.  ### What are the main features of Redux Form?
 
        1. Field values persistence via Redux store.
        2. Validation (sync/async) and submission.
        3. Formatting, parsing and normalization of field values.
 
-185. ### How to add multiple middlewares to Redux?
+34.  ### How to add multiple middlewares to Redux?
 
      You can use `applyMiddleware()`.
 
@@ -3417,7 +3426,7 @@
      const createStoreWithMiddleware = applyMiddleware(ReduxThunk, logger)(createStore)
      ```
 
-186. ### How to set initial state in Redux?
+35.  ### How to set initial state in Redux?
 
      You need to pass initial state as second argument to createStore:
 
@@ -3437,23 +3446,23 @@
      )
      ```
 
-187. ### How Relay is different from Redux?
+36.  ### How Relay is different from Redux?
 
      Relay is similar to Redux in that they both use a single store. The main difference is that relay only manages state originated from the server, and all access to the state is used via *GraphQL* queries (for reading data) and mutations (for changing data). Relay caches the data for you and optimizes data fetching for you, by fetching only changed data and nothing more.
 
 ## React Native
 
-188. ### What is the difference between React Native and React?
+1.   ### What is the difference between React Native and React?
 
      **React** is a JavaScript library, supporting both front end web and being run on the server, for building user interfaces and web applications.
 
      **React Native** is a mobile framework that compiles to native app components, allowing you to build native mobile applications (iOS, Android, and Windows) in JavaScript that allows you to use React to build your components, and implements React under the hood.
 
-189. ### How to test React Native apps?
+2.   ### How to test React Native apps?
 
      React Native can be tested only in mobile simulators like iOS and Android. You can run the app in your mobile using expo app (https://expo.io) Where it syncs using QR code, your mobile and computer should be in same wireless network.
 
-190. ### How to do logging in React Native?
+3.   ### How to do logging in React Native?
 
      You can use `console.log`, `console.warn`, etc. As of React Native v0.29 you can simply run the following to see logs in the console:
 
@@ -3462,7 +3471,7 @@
      $ react-native log-android
      ```
 
-191. ### How to debug your React Native?
+4.   ### How to debug your React Native?
 
      Follow the below steps to debug React Native app:
 
