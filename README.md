@@ -16,19 +16,19 @@
 | No. | Questions |
 | --- | --------- |
 |   | **Core React** |
-|1  | [What is React?](#what-is-react) |
-|2  | [What are the major features of React?](#what-are-the-major-features-of-react) |
-|3  | [What is JSX?](#what-is-jsx) |
-|4  | [What is the difference between Element and Component?](#what-is-the-difference-between-element-and-component) |
-|5  | [How to create components in React?](#how-to-create-components-in-react) |
-|6  | [When to use a Class Component over a Function Component?](#when-to-use-a-class-component-over-a-function-component) |
-|7  | [What are Pure Components?](#what-are-pure-components) |
-|8  | [What is state in React?](#what-is-state-in-react) |
-|9  | [What are props in React?](#what-are-props-in-react) |
-|10 | [What is the difference between state and props?](#what-is-the-difference-between-state-and-props) |
-|11 | [Why should we not update the state directly?](#why-should-we-not-update-the-state-directly) |
-|12 | [What is the purpose of callback function as an argument of setState()?](#what-is-the-purpose-of-callback-function-as-an-argument-of-setstate)
-|13 | [What is the difference between HTML and React event handling?](#what-is-the-difference-between-html-and-react-event-handling) |
+|1  | [React란 무엇인가?](#React란-무엇인가?) |
+|2  | [React의 주요 특징은?](#React의-주요-특징은?) |
+|3  | [JSX란 무엇인가?](#JSX란-무엇인가?) |
+|4  | [Element와 Component의 차이점은?](#what-is-the-difference-between-element-and-component) |
+|5  | [React에서 components는 어떻게 만드나?](#how-to-create-components-in-react) |
+|6  | [언제 Function Component 대신에 Class Component를 사용하나?](#when-to-use-a-class-component-over-a-function-component) |
+|7  | [Pure Components란 무엇인가?](#what-are-pure-components) |
+|8  | [React에서 state는 무엇인가?](#what-is-state-in-react) |
+|9  | [React에서 props는 무엇인가?](#what-are-props-in-react) |
+|10 | [state와 prop의 차이점은?](#what-is-the-difference-between-state-and-props) |
+|11 | [왜 state를 직접 update하면 안되나?](#why-should-we-not-update-the-state-directly) |
+|12 | [setState()의 argument로 callback 함수를 사용하는 이유는?](#what-is-the-purpose-of-callback-function-as-an-argument-of-setstate)
+|13 | [HTML과 React의 event handling의 차이점은?](#what-is-the-difference-between-html-and-react-event-handling) |
 |14 | [How to bind methods or event handlers in JSX callbacks?](#how-to-bind-methods-or-event-handlers-in-jsx-callbacks) |
 |15 | [How to pass a parameter to an event handler or callback?](#how-to-pass-a-parameter-to-an-event-handler-or-callback) |
 |16 | [What are synthetic events in React?](#what-are-synthetic-events-in-react) |
@@ -330,24 +330,24 @@
 
 ## Core React
 
-1. ### What is React?
+1. ### React란 무엇인가?
 
-    React is an **open-source frontend JavaScript library** which is used for building user interfaces especially for single page applications. It is used for handling view layer for web and mobile apps. React was created by Jordan Walke, a software engineer working for Facebook. React was first deployed on Facebook's News Feed in 2011 and on Instagram in 2012.
+    React는 단일 페이지 어플리케이션으로 UI(user interface)를 만드는데 사용되는 **오픈-소스 프론트엔드 JavaScript 라이브러리** 로 웹과 모바일 앱에서 view layer를 다루는데 사용된다. React는 Facebook에서 소프트웨어 엔지니어로 있는 Jordan Walke가 만들었다. React는 2011년 Facebook's News Feed, 2012년 Instagram에서 처음 선보였다.
 
-2. ### What are the major features of React?
+2. ### React의 주요 특징은?
 
-    The major features of React are:
+    React의 주요 특징은 :
 
-    * It uses **VirtualDOM** instead RealDOM considering that RealDOM manipulations are expensive.
-    * Supports **server-side rendering**.
-    * Follows *Unidirectional** data flow or data binding.
-    * Uses **reusable/composable** UI components to develop the view.
+    * 실제돔(RealDOM)을 조작하는 것은 비용이 크다는 것을 고려하여 실제돔 대신에 **가상돔(VirtualDOM)** 을 사용한다.
+    * **서버-사이드 렌더링(server-side rendering)** 를 지원한다.
+    * **단방향** 데이터 흐름 또는 데이터 바인딩을 따른다.
+    * 화면 개발을 위해 **재사용 가능한(reusable)/구성 가능한(composable)** UI 컴포넌트를 사용한다.
 
-3. ### What is JSX?
+3. ### JSX란 무엇인가?
 
-    *JSX* is a XML-like syntax extension to ECMAScript (the acronym stands for *JavaScript XML*). Basically it just provides syntactic sugar for the `React.createElement()` function, giving us expressiveness of JavaScript along with HTML like template syntax.
+    *JSX* 는 ECMAScript를 위한 XML-처럼 생긴 구문 확장자(*JavaScript XML* 의 약어)이다. 기본적으로 `React.createElement()` 함수를 위한 syntactic sugar, JavaScript의 표현력과 HTML같은 템플릿 문법을 제공한다.
 
-    In the example below text inside `<h1>` tag return as JavaScript function to the render function.
+    아래 예제에서 `<h1>` 태그 안의 텍스트는 render 함수에 JavaScript 함수로 반환된다.
 
     ```jsx harmony
     class App extends React.Component {
