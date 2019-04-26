@@ -19,7 +19,7 @@
 |1  | [React란 무엇인가?](#React란-무엇인가?) |
 |2  | [React의 주요 특징은?](#React의-주요-특징은?) |
 |3  | [JSX란 무엇인가?](#JSX란-무엇인가?) |
-|4  | [Element와 Component의 차이점은?](#what-is-the-difference-between-element-and-component) |
+|4  | [Element와 Component의 차이점은?](#Element와-omponent-차이점은?) |
 |5  | [React에서 components는 어떻게 만드나?](#how-to-create-components-in-react) |
 |6  | [언제 Function Component 대신에 Class Component를 사용하나?](#when-to-use-a-class-component-over-a-function-component) |
 |7  | [Pure Components란 무엇인가?](#what-are-pure-components) |
@@ -361,11 +361,11 @@
     }
     ```
 
-4. ### What is the difference between Element and Component?
+4. ### Element와 Component의 차이점은?
 
-    An *Element* is a plain object describing what you want to appear on the screen in terms of the DOM nodes or other components. *Elements* can contain other *Elements* in their props. Creating a React element is cheap. Once an element is created, it is never mutated.
+    *Element* 는 DOM 노드나 다른 컴포넌트들 관점에서 화면에 보이기 원하는 걸 묘사한 일반 객체이다. *Elements* 는 props에 있는 다른 *Elements* 를 포함할 수 있다. React element를 만드는 것은 저렴하다. 일단 element가 만들어지면 절대 변경되지 않는다.
 
-    The object representation of React Element would be as follows:
+    React Element 객체 표현은 다음과 같다. :
 
     ```javascript
     const element = React.createElement(
@@ -375,7 +375,7 @@
     )
     ```
 
-    The above `React.createElement()` function returns an object:
+    위의 `React.createElement()` 함수는 객체를 반환한다. :
 
     ```
     {
@@ -387,20 +387,20 @@
     }
     ```
 
-    And finally it renders to the DOM using `ReactDOM.render()`:
+    마지막으로 `ReactDOM.render()` 를 사용해서 DOM으로 렌더링한다. :
 
     ```html
     <div id='login-btn'>Login</div>
     ```
 
-    Whereas a **component** can be declared in several different ways. It can be a class with a `render()` method. Alternatively, in simple cases, it can be defined as a function. In either case, it takes props as an input, and returns a JSX tree as the output:
+    반면에 **component** 는 여러 다른 방법으로 선언될 수 있다. `render()` 메소드를 포함한 클래스가 될 수 있다. 또는 단순하게 함수로 정의될 수 있다. 두 경우 모두, 입력으로 props를 가져오고, 출력으로 JSX tree를 return한다.
 
     ```javascript
     const Button = ({ onLogin }) =>
       <div id={'login-btn'} onClick={onLogin} />
     ```
 
-    Then JSX gets transpiled to a `React.createElement()` function tree:
+    JSX는 `React.createElement()` 함수 트리로 변환된다. :
 
     ```javascript
     const Button = ({ onLogin }) => React.createElement(
