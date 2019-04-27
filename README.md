@@ -16,11 +16,11 @@
 | No. | Questions |
 | --- | --------- |
 |   | **Core React** |
-|1  | [React란 무엇인가?](#React란-무엇인가?) |
-|2  | [React의 주요 특징은?](#React의-주요-특징은?) |
-|3  | [JSX란 무엇인가?](#JSX란-무엇인가?) |
-|4  | [Element와 Component의 차이점은?](#Element와-omponent-차이점은?) |
-|5  | [React에서 components는 어떻게 만드나?](#how-to-create-components-in-react) |
+|1  | [React란 무엇인가?](#React란-무엇인가) |
+|2  | [React의 주요 특징은?](#React의-주요-특징은) |
+|3  | [JSX란 무엇인가?](#JSX란-무엇인가) |
+|4  | [Element와 Component의 차이점은?](#Element와-omponent-차이점은) |
+|5  | [React에서 components는 어떻게 만드나?](#React에서-components는-어떻게-만드나) |
 |6  | [언제 Function Component 대신에 Class Component를 사용하나?](#when-to-use-a-class-component-over-a-function-component) |
 |7  | [Pure Components란 무엇인가?](#what-are-pure-components) |
 |8  | [React에서 state는 무엇인가?](#what-is-state-in-react) |
@@ -410,7 +410,7 @@
     )
     ```
 
-5. ### How to create components in React?
+5. ### React에서 components는 어떻게 만드나?
 
     There are two possible ways to create a component.
 
