@@ -19,7 +19,7 @@
 |1  | [React란 무엇인가?](#React란-무엇인가) |
 |2  | [React의 주요 특징은?](#React의-주요-특징은) |
 |3  | [JSX란 무엇인가?](#JSX란-무엇인가) |
-|4  | [Element와 Component의 차이점은?](#Element와-omponent-차이점은) |
+|4  | [Element와 Component의 차이점은?](#element와-component의-차이점은) |
 |5  | [React에서 components는 어떻게 만드나?](#React에서-components는-어떻게-만드나) |
 |6  | [언제 Function Component 대신에 Class Component를 사용하나?](#when-to-use-a-class-component-over-a-function-component) |
 |7  | [Pure Components란 무엇인가?](#what-are-pure-components) |
