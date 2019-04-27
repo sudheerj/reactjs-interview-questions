@@ -412,9 +412,9 @@
 
 5. ### React에서 components는 어떻게 만드나?
 
-    There are two possible ways to create a component.
+    컴포넌트를 만드는 방법은 2가지가 있다.
 
-    1. **Function Components:** This is the simplest way to create a component. Those are pure JavaScript functions that accept props object as first parameter and return React elements:
+    1. **Function Components:** 컴포넌트를 만드는 가장 간단한 방법이다. 순수 JavaScript functions 로 첫번째 인자로는 props 객체를 받고 React elements를 반환한다. : 
 
         ```jsx harmony
         function Greeting({ message }) {
@@ -422,7 +422,7 @@
         }
         ```
 
-    2. **Class Components:** You can also use ES6 class to define a component. The above function component can be written as:
+    2. **Class Components:** ES6의 class를 사용해서 컴포넌트를 만들 수 있다. 위의 함수는 다음과 같이 작성될 수 있다. :
 
         ```jsx harmony
         class Greeting extends React.Component {
