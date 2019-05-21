@@ -319,6 +319,7 @@
 |303| [How to fetch data with React Hooks?](#how-to-fetch-data-with-react-hooks)|
 |304| [Is Hooks cover all use cases for classes?](#is-hooks-cover-all-use-cases-for-classes)|
 |305| [What is the stable release for hooks support?](#what-is-the-stable-release-for-hooks-support)|
+|306| [Why do we use square brackets in useState?](#why-do-we-use-square-brackets-in-usestate?)|
 
 ## Core React
 
@@ -5073,4 +5074,10 @@
      2. React DOM Server
      3. React Test Renderer
      4. React Shallow Renderer
-
+306. ### Why do we use square brackets in useState?
+     When we declare a state variable with useState, it returns a pair — an array with two items. The first item is the current value, and the second is a function that lets us update it. Using [0] and [1] to access them is a bit confusing because they have a specific meaning. This is why we use array destructuring instead.
+     For example, you can declare state variables for count
+     ```javascript
+      const [count, setCount] = useState(0);
+     ```
+     You can name anything for your own state variables.
