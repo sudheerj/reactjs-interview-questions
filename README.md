@@ -320,6 +320,7 @@
 |304| [Is Hooks cover all use cases for classes?](#is-hooks-cover-all-use-cases-for-classes)|
 |305| [What is the stable release for hooks support?](#what-is-the-stable-release-for-hooks-support)|
 |306| [Why do we use square brackets in useState?](#why-do-we-use-square-brackets-in-usestate?)|
+|307| [What are the sources used for introducing hooks?](#what-are-the-sources-used-for-introducing-hooks)|
 
 ## Core React
 
@@ -5081,3 +5082,10 @@
       const [count, setCount] = useState(0);
      ```
      You can name anything for your own state variables.
+307. ### What are the sources used for introducing hooks?
+     Hooks got the ideas from several different sources. Below are some of them,
+     1. Previous experiments with functional APIs in the react-future repository
+     2. Community experiments with render prop APIs such as Reactions Component
+     3. State variables and state cells in DisplayScript.
+     4. Subscriptions in Rx.
+     5. Reducer components in ReasonReact.
