@@ -321,6 +321,7 @@
 |305| [What is the stable release for hooks support?](#what-is-the-stable-release-for-hooks-support)|
 |306| [Why do we use square brackets in useState?](#why-do-we-use-square-brackets-in-usestate?)|
 |307| [What are the sources used for introducing hooks?](#what-are-the-sources-used-for-introducing-hooks)|
+|308| [How do you access imperative API of web components?](#how-do-you-access-imperative-api-of-web-components)|
 
 ## Core React
 
@@ -5089,3 +5090,5 @@
      3. State variables and state cells in DisplayScript.
      4. Subscriptions in Rx.
      5. Reducer components in ReasonReact.
+308. ### How do you access imperative API of web components?
+     Web Components often expose an imperative API to implement its functions. You will need to use a **ref** to interact with the DOM node directly if you want to access imperative API of a web component. But if you are using third-party Web Components, the best solution is to write a React component that behaves as a **wrapper** for your Web Component.
