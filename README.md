@@ -603,6 +603,13 @@
     ```jsx harmony
     <button onClick={this.handleClick.bind(this, id)} />
     ```
+    Apart from these two approaches, you can also pass arguments to a function which is defined as array function
+    ```jsx harmony
+    <button onClick={this.handleClick(id)} />
+    handleClick = (id) => () => {
+        console.log("Hello, your ticket number is", id)
+    };
+    ```
 
 16. ### What are synthetic events in React?
 
