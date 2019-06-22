@@ -322,6 +322,7 @@
 |306| [Why do we use square brackets in useState?](#why-do-we-use-square-brackets-in-usestate?)|
 |307| [What are the sources used for introducing hooks?](#what-are-the-sources-used-for-introducing-hooks)|
 |308| [How do you access imperative API of web components?](#how-do-you-access-imperative-api-of-web-components)|
+|309| [What is formik?](#what-is-formik)|
 
 ## Core React
 
@@ -5099,3 +5100,8 @@
      5. Reducer components in ReasonReact.
 308. ### How do you access imperative API of web components?
      Web Components often expose an imperative API to implement its functions. You will need to use a **ref** to interact with the DOM node directly if you want to access imperative API of a web component. But if you are using third-party Web Components, the best solution is to write a React component that behaves as a **wrapper** for your Web Component.
+309. ### What is formik?
+     Formik is a small react form library that helps you with the three major problems,
+     1. Getting values in and out of form state
+     2. Validation and error messages
+     3. Handling form submission
