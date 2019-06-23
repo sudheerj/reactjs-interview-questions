@@ -323,6 +323,7 @@
 |307| [What are the sources used for introducing hooks?](#what-are-the-sources-used-for-introducing-hooks)|
 |308| [How do you access imperative API of web components?](#how-do-you-access-imperative-api-of-web-components)|
 |309| [What is formik?](#what-is-formik)|
+|310| [What are typical middleware choices for handling asynchronous calls in Redux?](#what-are-typical-middleware-choices-for-handling-asynchronous-calls-in-redux)|
 
 ## Core React
 
@@ -5105,3 +5106,6 @@
      1. Getting values in and out of form state
      2. Validation and error messages
      3. Handling form submission
+
+310. ### What are typical middleware choices for handling asynchronous calls in Redux?
+     Some of the popular middleware choices for handling asynchronous calls in Redux eco system are `Redux Thunk, Redux Promise, Redux Saga`.
