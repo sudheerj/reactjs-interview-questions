@@ -101,7 +101,7 @@
 |92 | [How to loop inside JSX?](#how-to-loop-inside-jsx) |
 |93 | [How do you access props in attribute quotes?](#how-do-you-access-props-in-attribute-quotes) |
 |94 | [What is React PropType array with shape?](#what-is-react-proptype-array-with-shape) |
-|95 | [How conditionally apply class attributes?](#how-conditionally-apply-class-attributes) |
+|95 | [How to conditionally apply class attributes?](#how-to-conditionally-apply-class-attributes) |
 |96 | [What is the difference between React and ReactDOM?](#what-is-the-difference-between-react-and-reactdom) |
 |97 | [Why ReactDOM is separated from React?](#why-reactdom-is-separated-from-react) |
 |98 | [How to use React label element?](#how-to-use-react-label-element) |
@@ -1772,7 +1772,7 @@
 
 86. ### What are the Pointer Events supported in React?
 
-    *Pointer Events* provide a unified way of handling all input events. In the olden days we have a mouse and respective event listeners to handle them but nowadays we have many devices which don't correlate to having a mouse, like phones with touch surface or pens. We need to remember that these events will only work in browsers that support the *Pointer Events* specification.
+    *Pointer Events* provide a unified way of handling all input events. In the old days we had a mouse and respective event listeners to handle them but nowadays we have many devices which don't correlate to having a mouse, like phones with touch surface or pens. We need to remember that these events will only work in browsers that support the *Pointer Events* specification.
 
     The following event types are now available in *React DOM*:
 
@@ -1951,7 +1951,7 @@
     }
     ```
 
-95. ### How conditionally apply class attributes?
+95. ### How to conditionally apply class attributes?
 
     You shouldn't use curly braces inside quotes because it is going to be evaluated as a string.
 
@@ -3008,7 +3008,7 @@
 
 159. ### What are the drawbacks of MVW pattern?
 
-     1. The DOM manipulation is very expensive which causes applications behaves slowly and inefficient.
+     1. DOM manipulation is very expensive which causes applications to behave slow and inefficient.
      3. Due to circular dependencies, a complicated model was created around models and views.
      3. Lot of data changes happens for collaborative applications(like Google Docs).
      4. No way to do undo (travel back in time) easily without adding so much extra code.
@@ -3893,7 +3893,7 @@
         React.render(<User age={30} department={"IT"} />, document.getElementById('container'));
      ```
 219. ### Do I need to keep all my state into Redux? Should I ever use react internal state?
-     It is up to developer decision. i.e, It is developer job to determine what kinds of state make up your application, and where each piece of state should liveSome users prefer to keep every single piece of data in Redux, to maintain a fully serializable and controlled version of their application at all times. Others prefer to keep non-critical or UI state, such as “is this dropdown currently open”, inside a component's internal state.
+     It is up to developer decision. i.e, It is developer job to determine what kinds of state make up your application, and where each piece of state should live. Some users prefer to keep every single piece of data in Redux, to maintain a fully serializable and controlled version of their application at all times. Others prefer to keep non-critical or UI state, such as “is this dropdown currently open”, inside a component's internal state.
 
      Below are the thumb rules to determine what kind of data should be put into Redux
      1. Do other parts of the application care about this data?
@@ -4162,8 +4162,8 @@
 240. ### What is the main purpose of constructor?
      The constructor is mainly used for two purposes,
      1. To initialize local state by assigning object to this.state
-     2. For binding event handler methods to the instatnce
-     For example, the below code covers both the above casess,
+     2. For binding event handler methods to the instance
+     For example, the below code covers both the above cases,
      ```javascript
      constructor(props) {
        super(props);
@@ -4888,11 +4888,11 @@
      1. Two elements of different types will produce different trees.
      2. The developer can hint at which child elements may be stable across different renders with a key prop.
 288. ### What are the rules covered by diffing algorithm?
-     When diffing two trees, React first compares the two root elements. The behavior is different depending on the types of the root elements. It covers the below rules during reconsilation algorithm,
+     When diffing two trees, React first compares the two root elements. The behavior is different depending on the types of the root elements. It covers the below rules during reconciliation algorithm,
      1. **Elements Of Different Types:**
         Whenever the root elements have different types, React will tear down the old tree and build the new tree from scratch. For example,  elements <a> to <img>, or from <Article> to <Comment> of different types lead a full rebuild.
      2. **DOM Elements Of The Same Type:**
-        When comparing two React DOM elements of the same type, React looks at the attributes of both, keeps the same underlying DOM node, and only updates the changed attributes. Lets take an example with same DOM eleemnts except className attribute,
+        When comparing two React DOM elements of the same type, React looks at the attributes of both, keeps the same underlying DOM node, and only updates the changed attributes. Lets take an example with same DOM elements except className attribute,
         ```javascript
         <div className="show" title="ReactJS" />
 
