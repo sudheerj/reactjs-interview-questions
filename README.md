@@ -3735,7 +3735,7 @@
      })
      ```
 
-     But you can write statics inside ES6+ classes like this:
+     But you can write statics inside ES6+ classes or writing them outside class as below,
 
      ```javascript
      class Component extends React.Component {
@@ -3747,6 +3747,14 @@
          // ...
        }
      }
+     ```
+     ```javascript
+     class Component extends React.Component {
+        ....
+     }
+
+     Component.propTypes = {...}
+     Component.someMethod = function(){....}
      ```
 
 210. ### Can Redux only be used with React?
@@ -4017,7 +4025,7 @@
      }
      ```
 226. ### What are hooks?
-     Hooks are a new feature proposal that lets you use state and other React features without writing a class. Let's see an example of useState hook example,
+     Hooks is a new feature that lets you use state and other React features without writing a class. Let's see an example of useState hook example,
      ```jsx
      import { useState } from 'react';
 
