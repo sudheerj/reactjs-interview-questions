@@ -3638,8 +3638,15 @@
      Relay is a JavaScript framework for providing a data layer and client-server communication to web applications using the React view layer.
 
 205. ### How to use TypeScript in `create-react-app` application?
+     Starting from react-scripts@2.1.0 or higher, there is a built-in support for typescript. You can just pass `--typescript` option as below
+     ```bash
+     npx create-react-app my-app --typescript
 
-     When you create a new project supply `--scripts-version` option as `react-scripts-ts`. `react-scripts-ts` is a set of adjustments to take the standard `create-react-app` project pipeline and bring TypeScript into the mix.
+     # or
+
+     yarn create react-app my-app --typescript
+     ```
+     But for lower versions of react scripts, just supply `--scripts-version` option as `react-scripts-ts` while you create a new project. `react-scripts-ts` is a set of adjustments to take the standard `create-react-app` project pipeline and bring TypeScript into the mix.
 
      Now the project layout should look like the following:
 
