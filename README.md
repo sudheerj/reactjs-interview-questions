@@ -326,6 +326,8 @@
 |310| [What are typical middleware choices for handling asynchronous calls in Redux?](#what-are-typical-middleware-choices-for-handling-asynchronous-calls-in-redux)|
 |311| [Is browsers understand JSX code?](#is-browsers-understand-jsx-code)|
 |312| [Describe about data flow in react?](#describe-about-data-flow-in-react)|
+|313| [What is react scripts?](#what-is-react-scripts)|
+|314| [What are the features of create react app?](#what-are-the-features-of-create-react-app)|
 
 ## Core React
 
@@ -5130,3 +5132,14 @@
      No, browsers can't understand JSX code. You need a transpiler to convert your JSX to regular Javascript that browsers can understand. The most widely used transpiler right now is Babel.
 312. ### Describe about data flow in react?
      React implements one-way reactive data flow using props which reduce boilerplate and is easier to understand than traditional two-way data binding.
+313. ### What is react scripts?
+     The `react-scripts` package is a set of scripts from the create-react-app starter pack which helps you kick off projects without configuring. The `react-scripts start` command sets up the development environment and starts a server, as well as hot module reloading.
+314. ### What are the features of create react app?
+     Below are the list of some of the features provided by create react app.
+     1. React, JSX, ES6, Typescript and Flow syntax support.
+     2. Autoprefixed CSS
+     3. A live development server
+     4. A fast interactive unit test runner with built-in support for coverage reporting
+     5. A build script to bundle JS, CSS, and images for production, with hashes and sourcemaps
+     6. An offline-first service worker and a web app manifest, meeting all the Progressive Web App criteria.
+
