@@ -398,7 +398,7 @@
 
     ```javascript
     const Button = ({ onLogin }) =>
-      <div id={'login-btn'} onClick={onLogin} />
+      <div id={'login-btn'} onClick={onLogin}>Login</div>
     ```
 
     Then JSX gets transpiled to a `React.createElement()` function tree:
