@@ -754,12 +754,16 @@
 
     ```javascript
     class MyComponent extends Component {
+      constructor(props){
+        super(props);
+        this.node = createRef();
+      }
       componentDidMount() {
-        this.node.scrollIntoView()
+        this.node.current.scrollIntoView();
       }
 
       render() {
-        return <div ref={node => this.node = node} />
+        return <div ref={this.node} />
       }
     }
     ```
