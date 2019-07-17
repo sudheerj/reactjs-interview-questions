@@ -2021,6 +2021,11 @@
 
      ```javascript
      class WindowDimensions extends React.Component {
+       constructor(props){
+         super(props);
+         this.updateDimensions = this.updateDimensions.bind(this);
+       }
+        
        componentWillMount() {
          this.updateDimensions()
        }
@@ -2034,7 +2039,7 @@
        }
 
        updateDimensions() {
-         this.setState({width: $(window).width(), height: $(window).height()})
+         this.setState({width: window.innerWidth, height: window.innerHeight})
        }
 
        render() {
