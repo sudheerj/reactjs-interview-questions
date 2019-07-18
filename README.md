@@ -329,6 +329,9 @@
 |313| [What is react scripts?](#what-is-react-scripts)|
 |314| [What are the features of create react app?](#what-are-the-features-of-create-react-app)|
 |315| [What is the purpose of renderToNodeStream method?](#what-is-the-purpose-of-rendertonodestream-method)|
+|316| [What is MobX?](#what-is-mobx)|
+|317| [What are the differences between Redux and MobX?](#what-are-the-differences-between-redux-and-mobx)|
+
 
 ## Core React
 
@@ -5156,3 +5159,10 @@
 315. ### What is the purpose of renderToNodeStream method?
      The `ReactDOMServer#renderToNodeStream` method is used to generate HTML on the server and send the markup down on the initial request for faster page loads. It also helps search engines to crawl your pages easily for SEO purposes.
      **Note:** Remember this method is not available in the browser but only server.
+316. ### What is MobX?
+     MobX is a simple, scalable and battle tested state management solution for applying functional reactive programming (TFRP). For reactJs application, you need to install below packages,
+     ```bash
+     npm install mobx --save
+     npm install mobx-react --save
+     ```
+317. ### What are the differences between Redux and MobX?
