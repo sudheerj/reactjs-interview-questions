@@ -328,6 +328,7 @@
 |312| [Describe about data flow in react?](#describe-about-data-flow-in-react)|
 |313| [What is react scripts?](#what-is-react-scripts)|
 |314| [What are the features of create react app?](#what-are-the-features-of-create-react-app)|
+|315| [What is the purpose of renderToNodeStream method?](#what-is-the-purpose-of-rendertonodestream-method)|
 
 ## Core React
 
@@ -5152,3 +5153,6 @@
      5. A build script to bundle JS, CSS, and images for production, with hashes and sourcemaps
      6. An offline-first service worker and a web app manifest, meeting all the Progressive Web App criteria.
 
+315. ### What is the purpose of renderToNodeStream method?
+     The `ReactDOMServer#renderToNodeStream` method is used to generate HTML on the server and send the markup down on the initial request for faster page loads. It also helps search engines to crawl your pages easily for SEO purposes.
+     **Note:** Remember this method is not available in the browser but only server.
