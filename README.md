@@ -50,7 +50,7 @@
 |41 | [What is reconciliation?](#what-is-reconciliation) |
 |42 | [How to set state with a dynamic key name?](#how-to-set-state-with-a-dynamic-key-name) |
 |43 | [What would be the common mistake of function being called every time the component renders?](#what-would-be-the-common-mistake-of-function-being-called-every-time-the-component-renders) |
-|44 | [Why is it necessary to capitalize component names?](#why-is-it-necessary-to-capitalize-component-names) |
+|44 | [Is lazy function supports named exports??](#is-lazy-function-supports-named-exports) |
 |45 | [Why React uses className over class attribute?](#why-react-uses-classname-over-class-attribute) |
 |46 | [What are fragments?](#what-are-fragments) |
 |47 | [Why fragments are better than container divs?](#why-fragments-are-better-than-container-divs) |
@@ -1091,10 +1091,24 @@
     }
     ```
 
-44. ### Why is it necessary to capitalize component names?
-
-    It is necessary because components are not DOM elements, they are constructors. Also, in JSX lowercase tag names are referring to HTML elements, not components.
-
+44. ### Is lazy function supports named exports?
+    No, currently `React.lazy` function supports default exports only. If you would like to import modules which are named exports, you can create an intermediate module that reexports it as the default. It also ensures that tree shaking keeps working and don’t pull unused components.
+    Let's take a component file which exports multiple named components,
+    ```javascript
+    // MoreComponents.js
+    export const SomeComponent = /* ... */;
+    export const UnusedComponent = /* ... */;
+    ```
+    and reexport `MoreComponents.js` components in an intermediate file `IntermediateComponent.js`
+    ```javascript
+    // IntermediateComponent.js
+    export { SomeComponent as default } from "./MoreComponents.js";
+    ```
+    Now you can import the module using lazy function as below,
+    ```javascript
+    import React, { lazy } from 'react';
+    const SomeComponent = lazy(() => import("./IntermediateComponent.js"));
+    ```
 45. ### Why React uses `className` over `class` attribute?
 
     `class` is a keyword in JavaScript, and JSX is an extension of JavaScript. That's the principal reason why React uses `className` instead of `class`. Pass a string as the `className` prop.
@@ -1800,7 +1814,11 @@
 87. ### Why should component names start with capital letter?
 
     If you are rendering your component using JSX, the name of that component has to begin with a capital letter otherwise React will throw an error as unrecognized tag. This convention is because only HTML elements and SVG tags can begin with a lowercase letter.
-
+    ```jsx harmony
+    class SomeComponent extends Component {
+     // Code goes here
+    }
+    ```
     You can define component class which name starts with lowercase letter, but when it's imported it should have capital letter. Here lowercase is fine:
 
     ```jsx harmony
@@ -2333,14 +2351,17 @@
 
      With the export specifier, the MyProfile is going to be the member and exported to this module and the same can be imported without mentioning the name in other components.
 
-118. ### Why React component names must begin with a capital letter?
+118. ### What are the exceptions on React component naming?
 
-     In JSX, lowercase tag names are considered to be HTML tags. However, capitalized and lowercase tag names with a dot (property accessors) aren't.
-
-     1. `<component />` compiles to `React.createElement('component')` (i.e, HTML tag)
-     2. `<obj.component />` compiles to `React.createElement(obj.component)`
-     3. `<Component />` compiles to `React.createElement(Component)`
-
+     The component names should start with a uppercase letter but there are few exceptions on this convention. The lowercase tag names with a dot (property accessors) are still considered as valid component names.
+     For example the below tag can be compiled to a valid component,
+     ```javascript
+     render(){
+        return (
+            <obj.component /> // `React.createElement(obj.component)`
+           )
+     }
+     ```
 119. ### Why is a component constructor called only once?
 
      React's *reconciliation* algorithm assumes that without any information to the contrary, if a custom component appears in the same place on subsequent renders, it's the same component as before, so reuses the previous instance rather than creating a new one.
