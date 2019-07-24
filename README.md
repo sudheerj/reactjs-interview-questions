@@ -5187,6 +5187,17 @@
      npm install mobx-react --save
      ```
 317. ### What are the differences between Redux and MobX?
+     Below are the main differences between Redux and MobX,
+
+     | Topic | Redux | MobX |
+     | ----- | ------- |
+     | Definition| It is a javascript library for managing the application state | It is a library for reactively managing the state of your applications |
+     | Programming | It is mainly written in ES6 | It is written in JavaScript(ES5) |
+     | Data Store | There is only one large store exist for data storage | There is more than one store for storage |
+     | Usage | Mainly used for large and complex applications | Used for simple applications |
+     | Performance | Need to be improved | Provides better performance |
+     | How it stores | Uses JS Object to store | Uses observable to store the data |
+
 318. ### Should I learn ES6 before learning ReactJS?
      No, you don’t have to learn es2015/es6 to learn react. But you may find many resources or React ecosystem uses ES6 extensively. Let's see some of the frequently used ES6 features,
      1. Destructuring: To get props and use them in a component
