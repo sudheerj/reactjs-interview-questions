@@ -332,6 +332,8 @@
 |316| [What is MobX?](#what-is-mobx)|
 |317| [What are the differences between Redux and MobX?](#what-are-the-differences-between-redux-and-mobx)|
 |318| [Should I learn ES6 before learning ReactJS?](#should-i-learn-es6-before-learning-reactjs)|
+|319| [What is Concurrent Rendering?](#what-is-concurrent-rendering)|
+|320| [What is the difference between async mode and concurrent mode?](#what-is-the-difference-between-async-mode-and-concurrent-mode)|
 
 ## Core React
 
@@ -5226,3 +5228,16 @@
      // es 6
      const users = usersList.map(user => <li>{user.name}</li>);
      ```
+319. ### What is Concurrent Rendering?
+     The Concurrent rendering makes React apps to be more responsive by rendering component trees without blocking the main UI thread. It allows React to interrupt a long-running render to handle a high-priority event. i.e, When you enabled concurrent Mode, React will keep an eye on other tasks that need to be done, and if there's something with a higher priority it will pause what it is currently rendering and let the other task finish first. You can enable this in two ways,
+     ```javascript
+     // 1. Part of an app by wrapping with ConcurrentMode
+     <React.unstable_ConcurrentMode>
+       <Something />
+     </React.unstable_ConcurrentMode>
+
+     // 2. Whole app using createRoot
+     ReactDOM.unstable_createRoot(domNode).render(<App />);
+     ```
+320. ### What is the difference between async mode and concurrent mode?
+     Both refers the same thing. Previously concurrent Mode being referred to as "Async Mode" by React team. The name has been changed to highlight React’s ability to perform work on different priority levels. So it avoids the confusion from other approaches to Async Rendering.
