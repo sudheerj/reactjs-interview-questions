@@ -3029,6 +3029,16 @@
        }
      }
      ```
+     
+     Recommend always using the “object shorthand” form for the `mapDispatchToProps`
+        
+     Redux wrap it in another function that looks like (…args) => dispatch(onTodoClick(…args)), and pass that wrapper function as a prop to your component.
+      
+      ```javascript
+       const mapDispatchToProps = ({
+         onTodoClick
+       })
+      ```
 
 157. ### Can I dispatch an action in reducer?
 
