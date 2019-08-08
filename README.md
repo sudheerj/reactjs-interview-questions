@@ -5224,7 +5224,7 @@
      2. Spread operator: Helps in passing props down into a component
      ```javascript
      // in es 5
-     <SomeComponent myData={this.props.someData} dispatch={this.props.dispatch} />
+     <SomeComponent someData={this.props.someData} dispatch={this.props.dispatch} />
 
      // in es6
      <SomeComponent {...this.props} />
