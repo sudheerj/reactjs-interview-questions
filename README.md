@@ -334,6 +334,7 @@
 |318| [Should I learn ES6 before learning ReactJS?](#should-i-learn-es6-before-learning-reactjs)|
 |319| [What is Concurrent Rendering?](#what-is-concurrent-rendering)|
 |320| [What is the difference between async mode and concurrent mode?](#what-is-the-difference-between-async-mode-and-concurrent-mode)|
+|321| [Can I use javascript urls in react16.9?](#can-i-use-javascript-urls-in-react16.9)|
 
 ## Core React
 
@@ -5251,3 +5252,13 @@
      ```
 320. ### What is the difference between async mode and concurrent mode?
      Both refers the same thing. Previously concurrent Mode being referred to as "Async Mode" by React team. The name has been changed to highlight React’s ability to perform work on different priority levels. So it avoids the confusion from other approaches to Async Rendering.
+321. ### Can I use javascript urls in react16.9?
+     Yes, you can use javascript: URLs but it will log a warning in the console. Because URLs starting with javascript: are dangerous by including unsanitized output in a tag like <a href> and create a security hole.
+     ```javascript
+     const companyProfile = {
+       website: "javascript: alert('Your website is hacked')",
+     };
+     // It will log a warning
+     <a href={companyProfile.website}>More details</a>
+     ```
+     Remember that the future versions will throw an error for javascript URLs.
