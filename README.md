@@ -312,7 +312,7 @@
 |296| [How do you set default value for uncontrolled component?](#how-do-you-set-default-value-for-uncontrolled-component)|
 |297| [What is your favorite React stack?](#what-is-your-favorite-react-stack)|
 |298| [What is the difference between Real DOM and Virtual DOM?](#what-is-the-difference-between-real-dom-and-virtual-dom)|
-|299| [How to add a bootstrap for a react application?](#how-to-add-a-bootstrap-for-a-react-application)|
+|299| [How to add Bootstrap to a react application?](#how-to-add-bootstrap-to-react-application)|
 |300| [Can you list down top websites or applications using react as front end framework?](#can-you-list-down-top-websites-or-applications-using-react-as-front-end-framework)|
 |301| [Is it recommended to use CSS In JS technique in React?](#is-it-recommended-to-use-css-in-js-technique-in-react)|
 |302| [Do I need to rewrite all my class components with hooks?](#do-i-need-to-rewrite-all-my-class-components-with-hooks)|
@@ -5081,7 +5081,7 @@
      | It causes too much of memory wastage | 	There is no memory wastage|
      | Creates a new DOM if element updates | It updates the JSX if element update|
 
-299. ### How to add a bootstrap for a react application?
+299. ### How to add Bootstrap to a react application?
      Bootstrap can be added to your React app in a three possible ways
      1. Using the Bootstrap CDN:
         This is the easiest way to add bootstrap. Add both bootstrap CSS and JS resources in a head tag.
