@@ -339,7 +339,6 @@
 ## Core React
 
 
-   **[⬆ Back to Top](#table-of-contents)**
     
 1. ### What is React?
 
@@ -6223,3 +6222,6 @@
      <a href={companyProfile.website}>More details</a>
      ```
      Remember that the future versions will throw an error for javascript URLs.
+  
+     **[⬆ Back to Top](#table-of-contents)**
+
