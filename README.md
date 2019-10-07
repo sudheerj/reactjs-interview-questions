@@ -426,7 +426,8 @@
 
         ```jsx harmony
         function Greeting({ message }) {
-          return <h1>{`Hello, ${message}`}</h1> 
+          return <h1>{`Hello, ${message}`}</h1>
+
         }
         ```
 
@@ -5203,10 +5204,11 @@
      Below are the list of some of the features provided by create react app.
      1. React, JSX, ES6, Typescript and Flow syntax support.
      2. Autoprefixed CSS
-     3. A live development server
-     4. A fast interactive unit test runner with built-in support for coverage reporting
-     5. A build script to bundle JS, CSS, and images for production, with hashes and sourcemaps
-     6. An offline-first service worker and a web app manifest, meeting all the Progressive Web App criteria.
+     3. CSS Reset/Normalize  
+     4. A live development server
+     5. A fast interactive unit test runner with built-in support for coverage reporting
+     6. A build script to bundle JS, CSS, and images for production, with hashes and sourcemaps
+     7. An offline-first service worker and a web app manifest, meeting all the Progressive Web App criteria.
 
 315. ### What is the purpose of renderToNodeStream method?
      The `ReactDOMServer#renderToNodeStream` method is used to generate HTML on the server and send the markup down on the initial request for faster page loads. It also helps search engines to crawl your pages easily for SEO purposes.
