@@ -601,6 +601,9 @@
     }
     ```
 
+    2. In HTML, you need to invoke the function by appending `()`
+    Whereas in react you should not append `()` with the function name. (refer "activateLasers" function in the first point for example)
+    
 
    **[⬆ Back to Top](#table-of-contents)**
     
