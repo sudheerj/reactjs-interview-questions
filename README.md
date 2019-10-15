@@ -266,7 +266,7 @@
 |250| [What is code-splitting?](#what-is-code-splitting)|
 |251| [What is the benefit of strict mode?](#what-is-the-benefit-of-strict-mode)|
 |252| [What are Keyed Fragments?](#what-are-keyed-fragments)|
-|253| [Does React support all HTML attributes?](#is-it-react-support-all-html-attributes)|
+|253| [Does React support all HTML attributes?](#does-react-support-all-html-attributes)|
 |254| [What are the limitations with HOCs?](#what-are-the-limitations-with-hocs)|
 |255| [How to debug forwardRefs in DevTools?](#how-to-debug-forwardrefs-in-devtools)|
 |256| [When component props defaults to true?](#when-component-props-defaults-to-true)|
