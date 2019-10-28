@@ -335,7 +335,8 @@
 |319| [What is Concurrent Rendering?](#what-is-concurrent-rendering)|
 |320| [What is the difference between async mode and concurrent mode?](#what-is-the-difference-between-async-mode-and-concurrent-mode)|
 |321| [Can I use javascript urls in react16.9?](#can-i-use-javascript-urls-in-react16.9)|
-|323| [What is the purpose of eslint plugin for hooks?](#what-is-the-purpose-of-eslint-plugin-for-hooks)|
+|322| [What is the purpose of eslint plugin for hooks?](#what-is-the-purpose-of-eslint-plugin-for-hooks)|
+|323| [What is the reason to use array destructuring for useState?](#what-is-the-reason-to-use-array-destructuring-for-usestate)|
 
 ## Core React
 
@@ -6252,3 +6253,15 @@
      1. Calls to Hooks are either inside a PascalCase function (assumed to be a component) or another useSomething function (assumed to be a custom Hook).
      2. Hooks are called in the same order on every render.
    **[⬆ Back to Top](#table-of-contents)**
+
+323. ### What is the reason to use array destructuring for useState?
+     If you declare a state variable with useState then it returns a pair or an array with two items. The first item is the current value, and the second is a function that lets us update it. It is a bit confusing to access them as [0] and [1] when they have a specific meaning. This is the reason to use an array destructuring instead of array index access. For example, the array index access would be as below,
+     ```javascript
+      var userStateVariable = useState('userProfile'); // Returns an array pair
+      var user = userStateVariable[0]; // Access first item
+      var setUser = userStateVariable[1]; // Access second item
+     ```
+     Where as array destructuring for useState can be written as below,
+     ```javascript
+     const [user, setUser] = useState('userProfile');
+     ```
