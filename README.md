@@ -319,7 +319,7 @@
 |303| [How to fetch data with React Hooks?](#how-to-fetch-data-with-react-hooks)|
 |304| [Is Hooks cover all use cases for classes?](#is-hooks-cover-all-use-cases-for-classes)|
 |305| [What is the stable release for hooks support?](#what-is-the-stable-release-for-hooks-support)|
-|306| [Why do we use square brackets in useState?](#why-do-we-use-square-brackets-in-usestate)|
+|306| [Why do we use array destructuring (square brackets notation) in useState?](#why-do-we-use-array-destructuring-square-brackets-notation-in-usestate)|
 |307| [What are the sources used for introducing hooks?](#what-are-the-sources-used-for-introducing-hooks)|
 |308| [How do you access imperative API of web components?](#how-do-you-access-imperative-api-of-web-components)|
 |309| [What is formik?](#what-is-formik)|
@@ -336,7 +336,7 @@
 |320| [What is the difference between async mode and concurrent mode?](#what-is-the-difference-between-async-mode-and-concurrent-mode)|
 |321| [Can I use javascript urls in react16.9?](#can-i-use-javascript-urls-in-react16.9)|
 |322| [What is the purpose of eslint plugin for hooks?](#what-is-the-purpose-of-eslint-plugin-for-hooks)|
-|323| [What is the reason to use array destructuring for useState?](#what-is-the-reason-to-use-array-destructuring-for-usestate)|
+|323| [?](#)|
 
 ## Core React
 
@@ -6089,15 +6089,20 @@
 
    **[⬆ Back to Top](#table-of-contents)**
     
-306. ### Why do we use square brackets in useState?
-     When we declare a state variable with useState, it returns a pair — an array with two items. The first item is the current value, and the second is a function that lets us update it. Using [0] and [1] to access them is a bit confusing because they have a specific meaning. This is why we use array destructuring instead.
-     For example, you can declare state variables for count
+306. ### Why do we use array destructuring (square brackets notation) in `useState`?
+     When we declare a state variable with `useState`, it returns a pair — an array with two items. The first item is the current value, and the second is a function that updates the value. Using [0] and [1] to access them is a bit confusing because they have a specific meaning. This is why we use array destructuring instead.
+     For example, the array index access would look as follows:
      ```javascript
-      const [count, setCount] = useState(0);
+      var userStateVariable = useState('userProfile'); // Returns an array pair
+      var user = userStateVariable[0]; // Access first item
+      var setUser = userStateVariable[1]; // Access second item
      ```
-     You can name anything for your own state variables.
+     Whereas with array destructuring the variables can be accessed as follows:
+     ```javascript
+     const [user, setUser] = useState('userProfile');
+     ```
 
-   **[⬆ Back to Top](#table-of-contents)**
+     **[⬆ Back to Top](#table-of-contents)**
     
 307. ### What are the sources used for introducing hooks?
      Hooks got the ideas from several different sources. Below are some of them,
@@ -6256,16 +6261,5 @@
 
    **[⬆ Back to Top](#table-of-contents)**
 
-323. ### What is the reason to use array destructuring for useState?
-     If you declare a state variable with useState then it returns a pair or an array with two items. The first item is the current value, and the second is a function that lets us update it. It is a bit confusing to access them as [0] and [1] when they have a specific meaning. This is the reason to use an array destructuring instead of array index access. For example, the array index access would be as below,
-     ```javascript
-      var userStateVariable = useState('userProfile'); // Returns an array pair
-      var user = userStateVariable[0]; // Access first item
-      var setUser = userStateVariable[1]; // Access second item
-     ```
-     Where as array destructuring for useState can be written as below,
-     ```javascript
-     const [user, setUser] = useState('userProfile');
-     ```
-   **[⬆ Back to Top](#table-of-contents)**
+323. ### ?
    
