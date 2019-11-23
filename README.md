@@ -6262,7 +6262,7 @@
 
    **[⬆ Back to Top](#table-of-contents)**
 
-323. ### What is the difference between Imperative and Declarative in React.Js?
+323. ### [What is the difference between Imperative and Declarative in React.Js?](#imperative-vs-declarative)
 Imagine a simple UI component, such as a "Like" button. When you tap it, it turns blue if it was previously grey, and grey if it was previously blue.
 
 The imperative way of doing this would be:
