@@ -6263,11 +6263,11 @@
    **[⬆ Back to Top](#table-of-contents)**
 
 323. ### What is the difference between Imperative and Declarative in React.Js?
-    
 Imagine a simple UI component, such as a "Like" button. When you tap it, it turns blue if it was previously grey, and grey if it was previously blue.
 
 The imperative way of doing this would be:
-            ```if( user.likes() ) {
+            ```javascript
+            if( user.likes() ) {
                 if( hasBlue() ) {
                     removeBlue();
                     addGrey();
@@ -6280,7 +6280,8 @@ Basically, you have to check what is currently on the screen and handle all the 
 
 In contrast, the declarative approach would be:
 
-            ```if( this.state.liked ) {
+            ```javascript
+            if( this.state.liked ) {
                 return <blueLike />;
             } else {
                 return <greyLike />;
