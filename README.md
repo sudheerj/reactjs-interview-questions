@@ -336,7 +336,7 @@
 |320| [What is the difference between async mode and concurrent mode?](#what-is-the-difference-between-async-mode-and-concurrent-mode)|
 |321| [Can I use javascript urls in react16.9?](#can-i-use-javascript-urls-in-react16.9)|
 |322| [What is the purpose of eslint plugin for hooks?](#what-is-the-purpose-of-eslint-plugin-for-hooks)|
-|323| [What is the difference between Imperative and Declarative in React.Js?](#imperative-vs-declarative)|
+|323| [What is the difference between Imperative and Declarative in React.Js?](#What-is-the-difference-between-Imperative-and-Declarative-in-React.Js)|
 |324| (#) ?
 
 ## Core React
@@ -6262,10 +6262,11 @@
 
    **[⬆ Back to Top](#table-of-contents)**
 
-323. ### [What is the difference between Imperative and Declarative in React.Js?](#imperative-vs-declarative)
+323. ### What is the difference between Imperative and Declarative in React.Js?
 Imagine a simple UI component, such as a "Like" button. When you tap it, it turns blue if it was previously grey, and grey if it was previously blue.
 
 The imperative way of doing this would be:
+
             ```javascript
             if( user.likes() ) {
                 if( hasBlue() ) {
