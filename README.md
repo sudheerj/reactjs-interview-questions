@@ -336,7 +336,7 @@
 |320| [What is the difference between async mode and concurrent mode?](#what-is-the-difference-between-async-mode-and-concurrent-mode)|
 |321| [Can I use javascript urls in react16.9?](#can-i-use-javascript-urls-in-react16.9)|
 |322| [What is the purpose of eslint plugin for hooks?](#what-is-the-purpose-of-eslint-plugin-for-hooks)|
-|323| [What is the difference between Imperative and Declarative in React.Js?]|
+|323| [What is the difference between Imperative and Declarative in React.Js?] (#imperative-vs-declarative)|
 |324| (#) ?
 
 ## Core React
@@ -6285,5 +6285,7 @@ In contrast, the declarative approach would be:
                 return <greyLike />;
             }```
 Because the declarative approach separates concerns, this part of it only needs to handle how the UI should look in a sepecific state, and is therefore much simpler to understand.
+
+   **[⬆ Back to Top](#imperative-vs-declarative)**
 
 324. ### ?
