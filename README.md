@@ -336,7 +336,7 @@
 |320| [What is the difference between async mode and concurrent mode?](#what-is-the-difference-between-async-mode-and-concurrent-mode)|
 |321| [Can I use javascript urls in react16.9?](#can-i-use-javascript-urls-in-react16.9)|
 |322| [What is the purpose of eslint plugin for hooks?](#what-is-the-purpose-of-eslint-plugin-for-hooks)|
-|323| [What is the difference between Imperative and Declarative in React.Js?] (#imperative-vs-declarative)|
+|323| [What is the difference between Imperative and Declarative in React.Js?](#imperative-vs-declarative)|
 |324| (#) ?
 
 ## Core React
