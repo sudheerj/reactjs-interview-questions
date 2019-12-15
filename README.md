@@ -1786,7 +1786,7 @@
     }
     ```
 
-    **Update:** Since React v16.6.0, we have a `React.memo`. It provides a higher order component which momoizes component unless the props change. To use it, simply wrap the component using React.memo before you use it.
+    **Update:** Since React v16.6.0, we have a `React.memo`. It provides a higher order component which memoizes component unless the props change. To use it, simply wrap the component using React.memo before you use it.
 
     ```js
       const MemoComponent = React.memo(function MemoComponent(props) {
