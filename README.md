@@ -1786,6 +1786,15 @@
     }
     ```
 
+    **Update:** Since React v16.6.0, we have a `React.memo`. It provides a higher order component which memoizes component unless the props change. To use it, simply wrap the component using React.memo before you use it.
+
+    ```js
+      const MemoComponent = React.memo(function MemoComponent(props) {
+        /* render using props */
+      });
+      OR
+      export default React.memo(MyFunctionComponent);
+    ```
 
    **[⬆ Back to Top](#table-of-contents)**
     
