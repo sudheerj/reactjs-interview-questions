@@ -2099,7 +2099,7 @@
     3. `onPointerUp`
     4. `onPointerCancel`
     5. `onGotPointerCapture`
-    6. `onLostPointerCaptur`
+    6. `onLostPointerCapture`
     7. `onPointerEnter`
     8. `onPointerLeave`
     9. `onPointerOver`
