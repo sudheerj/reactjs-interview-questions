@@ -6252,7 +6252,7 @@
    **[⬆ Back to Top](#table-of-contents)**
     
 321. ### Can I use javascript urls in react16.9?
-     Yes, you can use javascript: URLs but it will log a warning in the console. Because URLs starting with javascript: are dangerous by including unsanitized output in a tag like <a href> and create a security hole.
+     Yes, you can use javascript: URLs but it will log a warning in the console. Because URLs starting with javascript: are dangerous by including unsanitized output in a tag like ```<a href>``` and create a security hole.
      ```javascript
      const companyProfile = {
        website: "javascript: alert('Your website is hacked')",
