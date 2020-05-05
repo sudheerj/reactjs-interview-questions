@@ -312,7 +312,7 @@
 |296| [How do you set default value for uncontrolled component?](#how-do-you-set-default-value-for-uncontrolled-component)|
 |297| [What is your favorite React stack?](#what-is-your-favorite-react-stack)|
 |298| [What is the difference between Real DOM and Virtual DOM?](#what-is-the-difference-between-real-dom-and-virtual-dom)|
-|299| [How to add Bootstrap to a react application?](#how-to-add-bootstrap-to-react-application)|
+|299| [How to add Bootstrap to a react application?](#how-to-add-bootstrap-to-a-react-application)|
 |300| [Can you list down top websites or applications using react as front end framework?](#can-you-list-down-top-websites-or-applications-using-react-as-front-end-framework)|
 |301| [Is it recommended to use CSS In JS technique in React?](#is-it-recommended-to-use-css-in-js-technique-in-react)|
 |302| [Do I need to rewrite all my class components with hooks?](#do-i-need-to-rewrite-all-my-class-components-with-hooks)|
@@ -2065,7 +2065,7 @@
       mixins: [PureRenderMixin],
       // ...
     })
-    ````
+    ```
     <!-- TODO: mixins are deprecated -->
 
 
@@ -6016,7 +6016,7 @@
         If you are using a build tool or a module bundler such as Webpack, then this is the preferred option for adding Bootstrap to your React application
         ```javascript
         npm install bootstrap
-        ``
+        ```
      3. React Bootstrap Package:
         In this case, you can add Bootstrap to our React app is by using a package that has rebuilt Bootstrap components to work particularly as React components. Below packages are popular in this category,
         1. react-bootstrap
@@ -6272,31 +6272,35 @@
    **[⬆ Back to Top](#table-of-contents)**
 
 323. ### What is the difference between Imperative and Declarative in React?
-Imagine a simple UI component, such as a "Like" button. When you tap it, it turns blue if it was previously grey, and grey if it was previously blue.
 
-The imperative way of doing this would be:
+    Imagine a simple UI component, such as a "Like" button. When you tap it, it turns blue if it was previously grey, and grey if it was previously blue.
+    The imperative way of doing this would be:
 
-            ```javascript
-            if( user.likes() ) {
-                if( hasBlue() ) {
-                    removeBlue();
-                    addGrey();
-                } else {
-                    removeGrey();
-                    addBlue();
-                }
-            }```
-Basically, you have to check what is currently on the screen and handle all the changes necessary to redraw it with the current state, including undoing the changes from the previous state. You can imagine how complex this could be in a real-world scenario.
+    ```javascript
+    if( user.likes() ) {
+        if( hasBlue() ) {
+            removeBlue();
+            addGrey();
+        } else {
+            removeGrey();
+            addBlue();
+        }
+    }
+    ```
+    
+    Basically, you have to check what is currently on the screen and handle all the changes necessary to redraw it with the current state, including undoing the changes from the previous state. You can imagine how complex this could be in a real-world scenario.
 
-In contrast, the declarative approach would be:
+    In contrast, the declarative approach would be:
 
-            ```javascript
-            if( this.state.liked ) {
-                return <blueLike />;
-            } else {
-                return <greyLike />;
-            }```
-Because the declarative approach separates concerns, this part of it only needs to handle how the UI should look in a sepecific state, and is therefore much simpler to understand.
+    ```javascript
+    if( this.state.liked ) {
+        return <blueLike />;
+    } else {
+        return <greyLidke />;
+    }
+    ```
+    
+    Because the declarative approach separates concerns, this part of it only needs to handle how the UI should look in a sepecific state, and is therefore much simpler to understand.
 
    **[⬆ Back to Top](#table-of-contents)**
 
