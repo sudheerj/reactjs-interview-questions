@@ -124,7 +124,7 @@
 |115| [How to update a component every second?](#how-to-update-a-component-every-second) |
 |116| [How do you apply vendor prefixes to inline styles in React?](#how-do-you-apply-vendor-prefixes-to-inline-styles-in-react) |
 |117| [How to import and export components using react and ES6?](#how-to-import-and-export-components-using-react-and-es6) |
-|118| [Why React component names must begin with a capital letter?](#why-react-component-names-must-begin-with-a-capital-letter) |
+|118| [What are the exceptions on React component naming?](#what-are-the-exceptions-on-react-component-naming) |
 |119| [Why is a component constructor called only once?](#why-is-a-component-constructor-called-only-once) |
 |120| [How to define constants in React?](#how-to-define-constants-in-react) |
 |121| [How to programmatically trigger click event in React?](#how-to-programmatically-trigger-click-event-in-react) |
@@ -247,7 +247,7 @@
 |231| [Can you describe about componentDidCatch lifecycle method signature?](#can-you-describe-about-componentdidcatch-lifecycle-method-signature)|
 |232| [In which scenarios error boundaries do not catch errors?](#in-which-scenarios-error-boundaries-do-not-catch-errors)|
 |233| [Why do not you need error boundaries for event handlers?](#why-do-not-you-need-error-boundaries-for-event-handlers)|
-|234| [What is the difference between try cath block and error boundaries?](#what-is-the-difference-between-try-catch-block-and-error-boundaries)|
+|234| [What is the difference between try catch block and error boundaries?](#what-is-the-difference-between-try-catch-block-and-error-boundaries)|
 |235| [What is the behavior of uncaught errors in react 16?](#what-is-the-behavior-of-uncaught-errors-in-react-16)|
 |236| [What is the proper placement for error boundaries?](#what-is-the-proper-placement-for-error-boundaries)|
 |237| [What is the benefit of component stack trace from error boundary?](#what-is-the-benefit-of-component-stack-trace-from-error-boundary)|
@@ -312,7 +312,7 @@
 |296| [How do you set default value for uncontrolled component?](#how-do-you-set-default-value-for-uncontrolled-component)|
 |297| [What is your favorite React stack?](#what-is-your-favorite-react-stack)|
 |298| [What is the difference between Real DOM and Virtual DOM?](#what-is-the-difference-between-real-dom-and-virtual-dom)|
-|299| [How to add Bootstrap to a react application?](#how-to-add-bootstrap-to-react-application)|
+|299| [How to add Bootstrap to a react application?](#how-to-add-bootstrap-to-a-react-application)|
 |300| [Can you list down top websites or applications using react as front end framework?](#can-you-list-down-top-websites-or-applications-using-react-as-front-end-framework)|
 |301| [Is it recommended to use CSS In JS technique in React?](#is-it-recommended-to-use-css-in-js-technique-in-react)|
 |302| [Do I need to rewrite all my class components with hooks?](#do-i-need-to-rewrite-all-my-class-components-with-hooks)|
@@ -334,7 +334,7 @@
 |318| [Should I learn ES6 before learning ReactJS?](#should-i-learn-es6-before-learning-reactjs)|
 |319| [What is Concurrent Rendering?](#what-is-concurrent-rendering)|
 |320| [What is the difference between async mode and concurrent mode?](#what-is-the-difference-between-async-mode-and-concurrent-mode)|
-|321| [Can I use javascript urls in react16.9?](#can-i-use-javascript-urls-in-react16.9)|
+|321| [Can I use javascript urls in react16.9?](#can-i-use-javascript-urls-in-react169)|
 |322| [What is the purpose of eslint plugin for hooks?](#what-is-the-purpose-of-eslint-plugin-for-hooks)|
 |323| [What is the difference between Imperative and Declarative in React?](#what-is-the-difference-between-imperative-and-declarative-in-react)|
 |324| [What are the benefits of using typescript with reactjs?](#what-are-the-benefits-of-using-typescript-with-reactjs)|
@@ -2065,7 +2065,7 @@
       mixins: [PureRenderMixin],
       // ...
     })
-    ````
+    ```
     <!-- TODO: mixins are deprecated -->
 
 
@@ -2099,7 +2099,7 @@
     3. `onPointerUp`
     4. `onPointerCancel`
     5. `onGotPointerCapture`
-    6. `onLostPointerCaptur`
+    6. `onLostPointerCapture`
     7. `onPointerEnter`
     8. `onPointerLeave`
     9. `onPointerOver`
@@ -2940,9 +2940,9 @@
          } else {
            return (
              <ul>
-               {employees.map(item => (
+               {employees.map(employee => (
                  <li key={employee.name}>
-                   {employee.name}-{employees.experience}
+                   {employee.name}-{employee.experience}
                  </li>
                ))}
              </ul>
@@ -6016,7 +6016,7 @@
         If you are using a build tool or a module bundler such as Webpack, then this is the preferred option for adding Bootstrap to your React application
         ```javascript
         npm install bootstrap
-        ``
+        ```
      3. React Bootstrap Package:
         In this case, you can add Bootstrap to our React app is by using a package that has rebuilt Bootstrap components to work particularly as React components. Below packages are popular in this category,
         1. react-bootstrap
@@ -6252,7 +6252,7 @@
    **[⬆ Back to Top](#table-of-contents)**
     
 321. ### Can I use javascript urls in react16.9?
-     Yes, you can use javascript: URLs but it will log a warning in the console. Because URLs starting with javascript: are dangerous by including unsanitized output in a tag like <a href> and create a security hole.
+     Yes, you can use javascript: URLs but it will log a warning in the console. Because URLs starting with javascript: are dangerous by including unsanitized output in a tag like ```<a href>``` and create a security hole.
      ```javascript
      const companyProfile = {
        website: "javascript: alert('Your website is hacked')",
@@ -6272,31 +6272,35 @@
    **[⬆ Back to Top](#table-of-contents)**
 
 323. ### What is the difference between Imperative and Declarative in React?
-Imagine a simple UI component, such as a "Like" button. When you tap it, it turns blue if it was previously grey, and grey if it was previously blue.
 
-The imperative way of doing this would be:
+    Imagine a simple UI component, such as a "Like" button. When you tap it, it turns blue if it was previously grey, and grey if it was previously blue.
+    The imperative way of doing this would be:
 
-            ```javascript
-            if( user.likes() ) {
-                if( hasBlue() ) {
-                    removeBlue();
-                    addGrey();
-                } else {
-                    removeGrey();
-                    addBlue();
-                }
-            }```
-Basically, you have to check what is currently on the screen and handle all the changes necessary to redraw it with the current state, including undoing the changes from the previous state. You can imagine how complex this could be in a real-world scenario.
+    ```javascript
+    if( user.likes() ) {
+        if( hasBlue() ) {
+            removeBlue();
+            addGrey();
+        } else {
+            removeGrey();
+            addBlue();
+        }
+    }
+    ```
+    
+    Basically, you have to check what is currently on the screen and handle all the changes necessary to redraw it with the current state, including undoing the changes from the previous state. You can imagine how complex this could be in a real-world scenario.
 
-In contrast, the declarative approach would be:
+    In contrast, the declarative approach would be:
 
-            ```javascript
-            if( this.state.liked ) {
-                return <blueLike />;
-            } else {
-                return <greyLike />;
-            }```
-Because the declarative approach separates concerns, this part of it only needs to handle how the UI should look in a sepecific state, and is therefore much simpler to understand.
+    ```javascript
+    if( this.state.liked ) {
+        return <blueLike />;
+    } else {
+        return <greyLidke />;
+    }
+    ```
+    
+    Because the declarative approach separates concerns, this part of it only needs to handle how the UI should look in a sepecific state, and is therefore much simpler to understand.
 
    **[⬆ Back to Top](#table-of-contents)**
 
