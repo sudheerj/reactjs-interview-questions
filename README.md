@@ -4264,7 +4264,7 @@
      3. Suitable for mobile apps creating.
      4. More information and solutions available.
 
-
+   **Note:** The above list of advantages are purely opinionated and it vary based on the professional experience. But they are helpful as base parameters.
    **[⬆ Back to Top](#table-of-contents)**
     
 200. ### What is the difference between React and Angular?
@@ -4277,7 +4277,7 @@
      | React Native, which is a React type to build mobile applications are faster and more stable | Ionic, Angular's mobile native app is relatively less stable and slower |
      | In React, data flows only in one way and hence debugging is easy | In Angular, data flows both way i.e it has two-way data binding between children and parent and hence debugging is often difficult |
 
-
+   **Note:** The above list of advantages are purely opinionated and it vary based on the professional experience. But they are helpful as base parameters.
    **[⬆ Back to Top](#table-of-contents)**
     
 201. ### Why React tab is not showing up in DevTools?
