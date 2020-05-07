@@ -19,8 +19,8 @@
 |8  | [state تو ری‌اکت چیکار می‌کنه؟](#what-is-state-in-react) |
 |9  | [props تو ری‌اکت چیکار می‌کنه؟](#what-are-props-in-react) |
 |10 | [تفاوت state و props چیه؟](#what-is-the-difference-between-state-and-props) |
-|11 | [Why should we not update the state directly?](#why-should-we-not-update-the-state-directly) |
-|12 | [What is the purpose of callback function as an argument of setState()?](#what-is-the-purpose-of-callback-function-as-an-argument-of-setstate)
+|11 | [چرا نباید state رو مستقیما آپدیت کنیم؟](#why-should-we-not-update-the-state-directly) |
+|12 | [هدف از متدهای callback توی استفاده از setState چیه؟](#what-is-the-purpose-of-callback-function-as-an-argument-of-setstate)
 |13 | [What is the difference between HTML and React event handling?](#what-is-the-difference-between-html-and-react-event-handling) |
 |14 | [How to bind methods or event handlers in JSX callbacks?](#how-to-bind-methods-or-event-handlers-in-jsx-callbacks) |
 |15 | [How to pass a parameter to an event handler or callback?](#how-to-pass-a-parameter-to-an-event-handler-or-callback) |
@@ -28,11 +28,11 @@
 |17 | [What is inline conditional expressions?](#what-is-inline-conditional-expressions) |
 |18 | [What are "key" props and what is the benefit of using them in arrays of elements?](#what-are-key-props-and-what-is-the-benefit-of-using-them-in-arrays-of-elements) |
 |19 | [What is the use of refs?](#what-is-the-use-of-refs) |
-|20 | [How to create refs?](#how-to-create-refs)
-|21 | [What are forward refs?](#what-are-forward-refs) |
+|20 | [چطوری از ref استفاده کنیم؟](#how-to-create-refs)
+|21 | [forward ref چیه؟](#what-are-forward-refs) |
 |22 | [Which is preferred option with in callback refs and findDOMNode()?](#which-is-preferred-option-with-in-callback-refs-and-finddomnode) |
 |23 | [Why are String Refs legacy?](#why-are-string-refs-legacy) |
-|24 | [What is Virtual DOM?](#what-is-virtual-dom) |
+|24 | [Virtual DOM چیه؟](#what-is-virtual-dom) |
 |25 | [How Virtual DOM works?](#how-virtual-dom-works) |
 |26 | [What is the difference between Shadow DOM and Virtual DOM?](#what-is-the-difference-between-shadow-dom-and-virtual-dom) |
 |27 | [What is React Fiber?](#what-is-react-fiber) |
