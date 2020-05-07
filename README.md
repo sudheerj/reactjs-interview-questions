@@ -2,6 +2,10 @@
 
 > Click :star:if you like the project. Pull Request are highly appreciated. Follow me [@SudheerJonna](https://twitter.com/SudheerJonna) for technical updates.
 
+## Downloading PDF/Epub formats
+
+You can download the PDF and Epub version of this repository from the latest run on the [actions tab](https://github.com/sudheerj/reactjs-interview-questions/actions).
+
 ### Table of Contents
 
 | No. | Questions |
@@ -889,12 +893,15 @@
     The *Virtual DOM* works in three simple steps.
 
     1. Whenever any underlying data changes, the entire UI is re-rendered in Virtual DOM representation.
+
         ![vdom](images/vdom1.png)
 
     2. Then the difference between the previous DOM representation and the new one is calculated.
+
         ![vdom2](images/vdom2.png)
 
     3. Once the calculations are done, the real DOM will be updated with only the things that have actually changed.
+
         ![vdom3](images/vdom3.png)
 
 
