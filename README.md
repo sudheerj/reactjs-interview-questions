@@ -4,6 +4,12 @@
 
 > اگه خوشتون اومد روی :star: کلیک کنید. اگر هم قصد مشارکت داشتید خیلی خوشحال می‌شم :)
 
+
+## دانلود کتاب به فرمت‌های PDF/Epub 
+
+می‌تونید از لینک [اکشن‌ها](https://github.com/sudheerj/reactjs-interview-questions/actions) دانلود کنید.
+
+
 ### جدول محتوا 
 
 | ردیف. | سوال |
@@ -126,7 +132,7 @@
 |115| [How to update a component every second?](#how-to-update-a-component-every-second) |
 |116| [How do you apply vendor prefixes to inline styles in React?](#how-do-you-apply-vendor-prefixes-to-inline-styles-in-react) |
 |117| [How to import and export components using react and ES6?](#how-to-import-and-export-components-using-react-and-es6) |
-|118| [Why React component names must begin with a capital letter?](#why-react-component-names-must-begin-with-a-capital-letter) |
+|118| [What are the exceptions on React component naming?](#what-are-the-exceptions-on-react-component-naming) |
 |119| [Why is a component constructor called only once?](#why-is-a-component-constructor-called-only-once) |
 |120| [How to define constants in React?](#how-to-define-constants-in-react) |
 |121| [How to programmatically trigger click event in React?](#how-to-programmatically-trigger-click-event-in-react) |
@@ -249,7 +255,7 @@
 |231| [Can you describe about componentDidCatch lifecycle method signature?](#can-you-describe-about-componentdidcatch-lifecycle-method-signature)|
 |232| [In which scenarios error boundaries do not catch errors?](#in-which-scenarios-error-boundaries-do-not-catch-errors)|
 |233| [Why do not you need error boundaries for event handlers?](#why-do-not-you-need-error-boundaries-for-event-handlers)|
-|234| [What is the difference between try cath block and error boundaries?](#what-is-the-difference-between-try-catch-block-and-error-boundaries)|
+|234| [What is the difference between try catch block and error boundaries?](#what-is-the-difference-between-try-catch-block-and-error-boundaries)|
 |235| [What is the behavior of uncaught errors in react 16?](#what-is-the-behavior-of-uncaught-errors-in-react-16)|
 |236| [What is the proper placement for error boundaries?](#what-is-the-proper-placement-for-error-boundaries)|
 |237| [What is the benefit of component stack trace from error boundary?](#what-is-the-benefit-of-component-stack-trace-from-error-boundary)|
@@ -268,7 +274,7 @@
 |250| [What is code-splitting?](#what-is-code-splitting)|
 |251| [What is the benefit of strict mode?](#what-is-the-benefit-of-strict-mode)|
 |252| [What are Keyed Fragments?](#what-are-keyed-fragments)|
-|253| [Is it React support all HTML attributes?](#is-it-react-support-all-html-attributes)|
+|253| [Does React support all HTML attributes?](#does-react-support-all-html-attributes)|
 |254| [What are the limitations with HOCs?](#what-are-the-limitations-with-hocs)|
 |255| [How to debug forwardRefs in DevTools?](#how-to-debug-forwardrefs-in-devtools)|
 |256| [When component props defaults to true?](#when-component-props-defaults-to-true)|
@@ -314,19 +320,19 @@
 |296| [How do you set default value for uncontrolled component?](#how-do-you-set-default-value-for-uncontrolled-component)|
 |297| [What is your favorite React stack?](#what-is-your-favorite-react-stack)|
 |298| [What is the difference between Real DOM and Virtual DOM?](#what-is-the-difference-between-real-dom-and-virtual-dom)|
-|299| [How to add Bootstrap to a react application?](#how-to-add-bootstrap-to-react-application)|
+|299| [How to add Bootstrap to a react application?](#how-to-add-bootstrap-to-a-react-application)|
 |300| [Can you list down top websites or applications using react as front end framework?](#can-you-list-down-top-websites-or-applications-using-react-as-front-end-framework)|
 |301| [Is it recommended to use CSS In JS technique in React?](#is-it-recommended-to-use-css-in-js-technique-in-react)|
 |302| [Do I need to rewrite all my class components with hooks?](#do-i-need-to-rewrite-all-my-class-components-with-hooks)|
 |303| [How to fetch data with React Hooks?](#how-to-fetch-data-with-react-hooks)|
 |304| [Is Hooks cover all use cases for classes?](#is-hooks-cover-all-use-cases-for-classes)|
 |305| [What is the stable release for hooks support?](#what-is-the-stable-release-for-hooks-support)|
-|306| [Why do we use square brackets in useState?](#why-do-we-use-square-brackets-in-usestate)|
+|306| [Why do we use array destructuring (square brackets notation) in useState?](#why-do-we-use-array-destructuring-square-brackets-notation-in-usestate)|
 |307| [What are the sources used for introducing hooks?](#what-are-the-sources-used-for-introducing-hooks)|
 |308| [How do you access imperative API of web components?](#how-do-you-access-imperative-api-of-web-components)|
 |309| [What is formik?](#what-is-formik)|
 |310| [What are typical middleware choices for handling asynchronous calls in Redux?](#what-are-typical-middleware-choices-for-handling-asynchronous-calls-in-redux)|
-|311| [Is browsers understand JSX code?](#is-browsers-understand-jsx-code)|
+|311| [Do browsers understand JSX code?](#do-browsers-understand-jsx-code)|
 |312| [Describe about data flow in react?](#describe-about-data-flow-in-react)|
 |313| [What is react scripts?](#what-is-react-scripts)|
 |314| [What are the features of create react app?](#what-are-the-features-of-create-react-app)|
@@ -336,7 +342,10 @@
 |318| [Should I learn ES6 before learning ReactJS?](#should-i-learn-es6-before-learning-reactjs)|
 |319| [What is Concurrent Rendering?](#what-is-concurrent-rendering)|
 |320| [What is the difference between async mode and concurrent mode?](#what-is-the-difference-between-async-mode-and-concurrent-mode)|
-|321| [Can I use javascript urls in react16.9?](#can-i-use-javascript-urls-in-react16.9)|
+|321| [Can I use javascript urls in react16.9?](#can-i-use-javascript-urls-in-react169)|
+|322| [What is the purpose of eslint plugin for hooks?](#what-is-the-purpose-of-eslint-plugin-for-hooks)|
+|323| [What is the difference between Imperative and Declarative in React?](#what-is-the-difference-between-imperative-and-declarative-in-react)|
+|324| [What are the benefits of using typescript with reactjs?](#what-are-the-benefits-of-using-typescript-with-reactjs)|
 
 ## Core React
 
@@ -344,7 +353,8 @@
     
 1. ### React چیه؟
 
-    ری‌اکت یه **کتابخونه متن‌باز** هست که برای ساختن رابط کاربری مخصوصا برنامه‌های تک صفحه‌ای استفاده میشه. از این کتابخونه برای مدیریت لایه view توی برنامه‌های وب و موبایل استفاده میشه. توسط Jordan Walke تولید شده که یه مهندس نرم‌افزار توی شرکت فیس‌بوک هستش. اولین بار سال ۲۰۱۱ و روی برنامه اینستاگرام مورد استفاده قرار گرفت
+    ری‌اکت یه **کتابخونه متن‌باز** هست که برای ساختن رابط کاربری مخصوصا برنامه‌های تک صفحه‌ای استفاده میشه. از این کتابخونه برای مدیریت لایه view توی برنامه‌های وب و موبایل استفاده میشه. توسط [Jordan Walke](https://github.com/jordwalke) تولید شده که یه مهندس نرم‌افزار توی شرکت فیس‌بوک هستش. اولین بار سال ۲۰۱۱ و روی برنامه اینستاگرام مورد استفاده قرار گرفت
+
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -441,7 +451,8 @@
 
         ```jsx harmony
         function Greeting({ message }) {
-          return <h1>{`Hello, ${message}`}</h1> 
+          return <h1>{`Hello, ${message}`}</h1>
+
         }
         ```
 
@@ -599,6 +610,9 @@
       console.log('The link was clicked.')
     }
     ```
+
+    3. In HTML, you need to invoke the function by appending `()`
+    Whereas in react you should not append `()` with the function name. (refer "activateLasers" function in the first point for example)
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -883,12 +897,15 @@
     The *Virtual DOM* works in three simple steps.
 
     1. Whenever any underlying data changes, the entire UI is re-rendered in Virtual DOM representation.
+
         ![vdom](images/vdom1.png)
 
     2. Then the difference between the previous DOM representation and the new one is calculated.
+
         ![vdom2](images/vdom2.png)
 
     3. Once the calculations are done, the real DOM will be updated with only the things that have actually changed.
+
         ![vdom3](images/vdom3.png)
 
 
@@ -1339,13 +1356,30 @@
       }
     }
     ```
+    **React 16.8 Update:**
+    Hooks let you use state and other React features without writing classes.
+
+    *The Equivalent Functional Component*
+
+    ```javascript
+    import React, {useState} from 'react';
+
+    const App = (props) => {
+      const [count, setCount] = useState(0);
+
+      return (
+        // JSX
+      )
+    }
+    ```
+
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
 51. ### How to apply validation on props in React?
 
-    When the application is running in *development mode*, React will automatically check all props that we set on components to make sure they have *correct type*. If the type is incorrect, React will generate warning messages in the console. It's disabled in *production mode* due performance impact. The mandatory props are defined with `isRequired`.
+    When the application is running in *development mode*, React will automatically check all props that we set on components to make sure they have *correct type*. If the type is incorrect, React will generate warning messages in the console. It's disabled in *production mode* due to performance impact. The mandatory props are defined with `isRequired`.
 
     The set of predefined prop types:
 
@@ -1763,6 +1797,15 @@
     }
     ```
 
+    **Update:** Since React v16.6.0, we have a `React.memo`. It provides a higher order component which memoizes component unless the props change. To use it, simply wrap the component using React.memo before you use it.
+
+    ```js
+      const MemoComponent = React.memo(function MemoComponent(props) {
+        /* render using props */
+      });
+      OR
+      export default React.memo(MyFunctionComponent);
+    ```
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -1968,7 +2011,7 @@
     
 82. ### Why we need to pass a function to setState()?
 
-    The reason behind for this is that `setState()` is an asynchronous operation. React batches state changes for performance reasons, so the state may not change immediately after `setState()` is called. That means you should not rely on the current state when calling `setState()` since you can't be sure what that state will be. The solution is to pass a function to `setState()`, with the previous state as an argument. By doing this you can avoid issues with the user getting the old state value on access due to the asynchronous nature of `setState()`.
+    The reason behind for this is that `setState()` is an asynchronous operation. React batches state changes for performance reasons, so the state may not change immediately after `setState()` is called. That means you should not rely on the current state when calling `setState()` since you can't be sure what that state will be. The solution is to  pass a function to `setState()`, with the previous state as an argument. By doing this you can avoid issues with the user getting the old state value on access due to the asynchronous nature of `setState()`.
 
     Let's say the initial count value is zero. After three consecutive increment operations, the value is going to be incremented only by one.
 
@@ -1994,7 +2037,7 @@
     
 83. ### What is strict mode in React?
 
-    `React.StrictMode` is an useful component for highlighting potential problems in an application. Just like `<Fragment>`, `<StrictMode>` does not render any extra DOM elements. It activates additional checks and warnings for its descendants. These checks apply for *development mode* only.
+    `React.StrictMode` is a useful component for highlighting potential problems in an application. Just like `<Fragment>`, `<StrictMode>` does not render any extra DOM elements. It activates additional checks and warnings for its descendants. These checks apply for *development mode* only.
 
     ```jsx harmony
     import React from 'react'
@@ -2033,7 +2076,7 @@
       mixins: [PureRenderMixin],
       // ...
     })
-    ````
+    ```
     <!-- TODO: mixins are deprecated -->
 
 
@@ -2067,7 +2110,7 @@
     3. `onPointerUp`
     4. `onPointerCancel`
     5. `onGotPointerCapture`
-    6. `onLostPointerCaptur`
+    6. `onLostPointerCapture`
     7. `onPointerEnter`
     8. `onPointerLeave`
     9. `onPointerOver`
@@ -2908,9 +2951,9 @@
          } else {
            return (
              <ul>
-               {employees.map(item => (
+               {employees.map(employee => (
                  <li key={employee.name}>
-                   {employee.name}-{employees.experience}
+                   {employee.name}-{employee.experience}
                  </li>
                ))}
              </ul>
@@ -4232,7 +4275,7 @@
      3. Suitable for mobile apps creating.
      4. More information and solutions available.
 
-
+   **نکته:** لیست موارد فوق صرفاً اظهار نظر شخصی بوده و براساس تجربه حرفه‌ای ممکن است متفاوت باشد. اما به عنوان پارامترهای پایه مفید هستند
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
 200. ### What is the difference between React and Angular?
@@ -4245,7 +4288,7 @@
      | React Native, which is a React type to build mobile applications are faster and more stable | Ionic, Angular's mobile native app is relatively less stable and slower |
      | In React, data flows only in one way and hence debugging is easy | In Angular, data flows both way i.e it has two-way data binding between children and parent and hence debugging is often difficult |
 
-
+   **نکته:** لیست موارد فوق صرفاً اظهار نظر شخصی بوده و براساس تجربه حرفه‌ای ممکن است متفاوت باشد. اما به عنوان پارامترهای پایه مفید هستند
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
 201. ### Why React tab is not showing up in DevTools?
@@ -5140,7 +5183,7 @@
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-253. ### Is it React support all HTML attributes?
+253. ### Does React support all HTML attributes?
      As of React 16, both standard or custom DOM attributes are fully supported. Since React components often take both custom and DOM-related props, React uses the camelCase convention just like the DOM APIs. Let us take few props with respect to standard HTML attributes,
      ```javascript
      <div tabIndex="-1" />      // Just like node.tabIndex DOM API
@@ -5984,7 +6027,7 @@
         If you are using a build tool or a module bundler such as Webpack, then this is the preferred option for adding Bootstrap to your React application
         ```javascript
         npm install bootstrap
-        ``
+        ```
      3. React Bootstrap Package:
         In this case, you can add Bootstrap to our React app is by using a package that has rebuilt Bootstrap components to work particularly as React components. Below packages are popular in this category,
         1. react-bootstrap
@@ -6067,13 +6110,18 @@
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-306. ### Why do we use square brackets in useState?
-     When we declare a state variable with useState, it returns a pair — an array with two items. The first item is the current value, and the second is a function that lets us update it. Using [0] and [1] to access them is a bit confusing because they have a specific meaning. This is why we use array destructuring instead.
-     For example, you can declare state variables for count
+306. ### Why do we use array destructuring (square brackets notation) in `useState`?
+     When we declare a state variable with `useState`, it returns a pair — an array with two items. The first item is the current value, and the second is a function that updates the value. Using [0] and [1] to access them is a bit confusing because they have a specific meaning. This is why we use array destructuring instead.
+     For example, the array index access would look as follows:
      ```javascript
-      const [count, setCount] = useState(0);
+      var userStateVariable = useState('userProfile'); // Returns an array pair
+      var user = userStateVariable[0]; // Access first item
+      var setUser = userStateVariable[1]; // Access second item
      ```
-     You can name anything for your own state variables.
+     Whereas with array destructuring the variables can be accessed as follows:
+     ```javascript
+     const [user, setUser] = useState('userProfile');
+     ```
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -6106,7 +6154,7 @@
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-311. ### Is browsers understand JSX code?
+311. ### Do browsers understand JSX code?
      No, browsers can't understand JSX code. You need a transpiler to convert your JSX to regular Javascript that browsers can understand. The most widely used transpiler right now is Babel.
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -6125,10 +6173,11 @@
      Below are the list of some of the features provided by create react app.
      1. React, JSX, ES6, Typescript and Flow syntax support.
      2. Autoprefixed CSS
-     3. A live development server
-     4. A fast interactive unit test runner with built-in support for coverage reporting
-     5. A build script to bundle JS, CSS, and images for production, with hashes and sourcemaps
-     6. An offline-first service worker and a web app manifest, meeting all the Progressive Web App criteria.
+     3. CSS Reset/Normalize  
+     4. A live development server
+     5. A fast interactive unit test runner with built-in support for coverage reporting
+     6. A build script to bundle JS, CSS, and images for production, with hashes and sourcemaps
+     7. An offline-first service worker and a web app manifest, meeting all the Progressive Web App criteria.
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -6214,7 +6263,7 @@
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
 321. ### Can I use javascript urls in react16.9?
-     Yes, you can use javascript: URLs but it will log a warning in the console. Because URLs starting with javascript: are dangerous by including unsanitized output in a tag like <a href> and create a security hole.
+     Yes, you can use javascript: URLs but it will log a warning in the console. Because URLs starting with javascript: are dangerous by including unsanitized output in a tag like ```<a href>``` and create a security hole.
      ```javascript
      const companyProfile = {
        website: "javascript: alert('Your website is hacked')",
@@ -6225,4 +6274,52 @@
      Remember that the future versions will throw an error for javascript URLs.
   
      **[⬆ برگشت به بالا](#جدول-محتوا)**
+   
+322. ### What is the purpose of eslint plugin for hooks?
+     The ESLint plugin enforces rules of Hooks to avoid bugs. It assumes that any function starting with ”use” and a capital letter right after it is a Hook. In particular, the rule enforces that,
+     1. Calls to Hooks are either inside a PascalCase function (assumed to be a component) or another useSomething function (assumed to be a custom Hook).
+     2. Hooks are called in the same order on every render.
+
+   **[⬆ Back to Top](#table-of-contents)**
+
+323. ### What is the difference between Imperative and Declarative in React?
+
+    Imagine a simple UI component, such as a "Like" button. When you tap it, it turns blue if it was previously grey, and grey if it was previously blue.
+    The imperative way of doing this would be:
+
+    ```javascript
+    if( user.likes() ) {
+        if( hasBlue() ) {
+            removeBlue();
+            addGrey();
+        } else {
+            removeGrey();
+            addBlue();
+        }
+    }
+    ```
+    
+    Basically, you have to check what is currently on the screen and handle all the changes necessary to redraw it with the current state, including undoing the changes from the previous state. You can imagine how complex this could be in a real-world scenario.
+
+    In contrast, the declarative approach would be:
+
+    ```javascript
+    if( this.state.liked ) {
+        return <blueLike />;
+    } else {
+        return <greyLidke />;
+    }
+    ```
+    
+    Because the declarative approach separates concerns, this part of it only needs to handle how the UI should look in a sepecific state, and is therefore much simpler to understand.
+
+   **[⬆ Back to Top](#table-of-contents)**
+
+324. ### What are the benefits of using typescript with reactjs?
+     Below are some of the benefits of using typescript with Reactjs,
+     1. It is possible to use latest JavaScript features
+     2. Use of interfaces for complex type definitions
+     3. IDEs such as VS Code was made for TypeScript
+     4. Avoid bugs with the ease of readability and Validation
+
 </div>
