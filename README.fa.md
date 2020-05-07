@@ -1,3 +1,4 @@
+<div dir="rtl">
 # React Interview Questions & Answers
 
 > Click :star:if you like the project. Pull Request are highly appreciated. Follow me [@SudheerJonna](https://twitter.com/SudheerJonna) for technical updates.
@@ -6224,4 +6225,4 @@
      Remember that the future versions will throw an error for javascript URLs.
   
      **[⬆ Back to Top](#table-of-contents)**
-
+</div>
