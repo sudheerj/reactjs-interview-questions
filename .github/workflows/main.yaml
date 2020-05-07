@@ -1,6 +1,6 @@
 name: Advanced Usage
 
-on: push
+on: [push, pull_request]
 
 env:
   FILE_NAME: react-interview-questions
