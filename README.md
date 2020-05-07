@@ -377,8 +377,8 @@
 
     In the example below text inside `<h1>` tag return as JavaScript function to the render function.
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     class App extends React.Component {
       render() {
         return(
@@ -389,7 +389,7 @@
       }
     }
     ```
-     </div>
+    </div>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -407,12 +407,11 @@
       'Login'
     )
     ```
-     </div>
+    </div>
 
     The above `React.createElement()` function returns an object:
 
     ```
-     </div>
     {
       type: 'div',
       props: {
@@ -421,15 +420,15 @@
       }
     }
     ```
-     </div>
+    </div>
 
     And finally it renders to the DOM using `ReactDOM.render()`:
 
-    ```
-     </div>html
+    <div dir="ltr">
+     ```html
     <div id='login-btn'>Login</div>
     ```
-     </div>
+    </div>
 
     Whereas a **component** can be declared in several different ways. It can be a class with a `render()` method. Alternatively, in simple cases, it can be defined as a function. In either case, it takes props as an input, and returns a JSX tree as the output:
 
@@ -438,7 +437,7 @@
     const Button = ({ onLogin }) =>
       <div id={'login-btn'} onClick={onLogin}>Login</div>
     ```
-     </div>
+    </div>
 
     Then JSX gets transpiled to a `React.createElement()` function tree:
 
@@ -450,7 +449,7 @@
       'Login'
     )
     ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -461,26 +460,26 @@
 
     1. **Function Components:** This is the simplest way to create a component. Those are pure JavaScript functions that accept props object as first parameter and return React elements:
 
-        ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
         function Greeting({ message }) {
           return <h1>{`Hello, ${message}`}</h1>
 
         }
-        ```
-     </div>
+    ```
+    </div>
 
     2. **Class Components:** You can also use ES6 class to define a component. The above function component can be written as:
 
-        ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
         class Greeting extends React.Component {
           render() {
             return <h1>{`Hello, ${this.props.message}`}</h1>
           }
         }
-        ```
-     </div>
+    ```
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -505,8 +504,8 @@
     *State* of a component is an object that holds some information that may change over the lifetime of the component. We should always try to make our state as simple as possible and minimize the number of stateful components. Let's create an user component with message state,
 
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     class User extends React.Component {
       constructor(props) {
         super(props)
@@ -525,7 +524,7 @@
       }
     }
     ```
-     </div>
+    </div>
 
     ![state](images/state.jpg)
 
@@ -546,19 +545,19 @@
 
     For example, let us create an element with `reactProp` property:
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     <Element reactProp={'1'} />
     ```
-     </div>
+    </div>
 
     This `reactProp` (or whatever you came up with) name then becomes a property attached to React's native props object which originally already exists on all components created using React library.
 
+    <div dir="ltr">
     ```
-     </div>
     props.reactProp
     ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -579,7 +578,7 @@
     //Wrong
     this.state.message = 'Hello world'
     ```
-     </div>
+    </div>
 
     Instead use `setState()` method. It schedules an update to a component's state object. When state changes, the component responds by re-rendering.
 
@@ -588,7 +587,7 @@
     //Correct
     this.setState({ message: 'Hello World' })
     ```
-     </div>
+    </div>
 
     **Note:** You can directly assign to the state object either in *constructor* or using latest javascript's class field declaration syntax.
 
@@ -602,10 +601,10 @@
     **Note:** It is recommended to use lifecycle method rather than this callback function.
 
     <div dir="ltr">
-     ```javascript
+    ```javascript
     setState({ name: 'John' }, () => console.log('The name has updated and component re-rendered'))
     ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -614,27 +613,27 @@
 
     1. In HTML, the event name should be in *lowercase*:
 
-    ```
-     </div>html
+    <div dir="ltr">
+    ```html
     <button onclick='activateLasers()'>
     ```
-     </div>
+    </div>
 
     Whereas in React it follows *camelCase* convention:
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     <button onClick={activateLasers}>
     ```
-     </div>
+    </div>
 
     2. In HTML, you can return `false` to prevent default behavior:
 
-    ```
-     </div>html
+    <div dir="ltr">
+    ```html
     <a href='#' onclick='console.log("The link was clicked."); return false;' />
     ```
-     </div>
+    </div>
 
     Whereas in React you must call `preventDefault()` explicitly:
 
@@ -645,7 +644,7 @@
       console.log('The link was clicked.')
     }
     ```
-     </div>
+    </div>
 
     3. In HTML, you need to invoke the function by appending `()`
     Whereas in react you should not append `()` with the function name. (refer "activateLasers" function in the first point for example)
@@ -672,35 +671,35 @@
       }
     }
     ```
-     </div>
+    </div>
 
     2. **Public class fields syntax:** If you don't like to use bind approach then *public class fields syntax* can be used to correctly bind callbacks.
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     handleClick = () => {
       console.log('this is:', this)
     }
     ```
-     </div>
+    </div>
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     <button onClick={this.handleClick}>
       {'Click me'}
     </button>
     ```
-     </div>
+    </div>
 
     3. **Arrow functions in callbacks:** You can use *arrow functions* directly in the callbacks.
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     <button onClick={(event) => this.handleClick(event)}>
       {'Click me'}
     </button>
     ```
-     </div>
+    </div>
 
     **Note:** If the callback is passed as prop to child components, those components might do an extra re-rendering. In those cases, it is preferred to go with `.bind()` or *public class fields syntax* approach considering performance.
 
@@ -711,28 +710,28 @@
 
     You can use an *arrow function* to wrap around an *event handler* and pass parameters:
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     <button onClick={() => this.handleClick(id)} />
     ```
-     </div>
+    </div>
 
     This is an equivalent to calling `.bind`:
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     <button onClick={this.handleClick.bind(this, id)} />
     ```
-     </div>
+    </div>
     Apart from these two approaches, you can also pass arguments to a function which is defined as array function
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     <button onClick={this.handleClick(id)} />
     handleClick = (id) => () => {
         console.log("Hello, your ticket number is", id)
     };
     ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -748,8 +747,8 @@
 
     You can use either *if statements* or *ternary expressions* which are available from JS to conditionally render expressions. Apart from these approaches, you can also embed any expressions in JSX by wrapping them in curly braces and then followed by JS logical operator `&&`.
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     <h1>Hello!</h1>
     {
         messages.length > 0 && !isLogin?
@@ -762,7 +761,7 @@
           </h2>
     }
     ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -773,27 +772,27 @@
 
     Most often we use IDs from our data as *keys*:
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     const todoItems = todos.map((todo) =>
       <li key={todo.id}>
         {todo.text}
       </li>
     )
     ```
-     </div>
+    </div>
 
     When you don't have stable IDs for rendered items, you may use the item *index* as a *key* as a last resort:
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     const todoItems = todos.map((todo, index) =>
       <li key={index}>
         {todo.text}
       </li>
     )
     ```
-     </div>
+    </div>
 
     **Note:**
 
@@ -816,8 +815,8 @@
     There are two approaches
     1. This is a recently added approach. *Refs* are created using `React.createRef()` method and attached to React elements via the `ref` attribute. In order to use *refs* throughout the component, just assign the *ref* to the instance property within constructor.
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     class MyComponent extends React.Component {
       constructor(props) {
         super(props)
@@ -828,10 +827,10 @@
       }
     }
     ```
-     </div>
+    </div>
     2. You can also use ref callbacks approach regardless of React version. For example, the search bar component's input element accessed as follows,
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     class SearchBar extends Component {
        constructor(props) {
           super(props);
@@ -854,7 +853,7 @@
        }
     }
     ```
-     </div>
+    </div>
 
     You can also use *refs* in function components using **closures**.
     **Note**: You can also use inline ref callbacks even though it is not a recommended approach
@@ -865,8 +864,8 @@
 
     *Ref forwarding* is a feature that lets some components take a *ref* they receive, and pass it further down to a child.
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     const ButtonElement = React.forwardRef((props, ref) => (
       <button ref={ref} className="CustomButton">
         {props.children}
@@ -877,7 +876,7 @@
     const ref = React.createRef();
     <ButtonElement ref={ref}>{'Forward Ref'}</ButtonElement>
     ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -900,7 +899,7 @@
       }
     }
     ```
-     </div>
+    </div>
 
     The recommended approach is:
 
@@ -920,7 +919,7 @@
       }
     }
     ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -933,8 +932,8 @@
     2. They are *not composable* — if a library puts a ref on the passed child, the user can't put another ref on it. Callback refs are perfectly composable.
     3. They *don't work with static analysis* like Flow. Flow can't guess the magic that framework does to make the string ref appear on `this.refs`, as well as its type (which could be different). Callback refs are friendlier to static analysis.
     4. It doesn't work as most people would expect with the "render callback" pattern (e.g. <DataGrid renderRow={this.renderRow} />)
-       ```
-     </div>jsx harmony
+       <div dir="ltr">
+    ```jsx harmony
        class MyComponent extends Component {
          renderRow = (index) => {
            // This won't work. Ref will get attached to DataTable rather than MyComponent:
@@ -949,7 +948,7 @@
          }
        }
        ```
-     </div>
+    </div>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -1012,7 +1011,7 @@
       this.setState({value: event.target.value.toUpperCase()})
     }
     ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -1023,8 +1022,8 @@
 
     In the below UserProfile component, the `name` input is accessed using ref.
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     class UserProfile extends React.Component {
       constructor(props) {
         super(props)
@@ -1050,7 +1049,7 @@
       }
     }
     ```
-     </div>
+    </div>
 
     In most cases, it's recommend to use controlled components to implement forms.
 
@@ -1135,7 +1134,7 @@
      ```javascript
     const EnhancedComponent = higherOrderComponent(WrappedComponent)
     ```
-     </div>
+    </div>
 
     HOC can be used for many use cases:
 
@@ -1151,8 +1150,8 @@
 
     You can add/edit props passed to the component using *props proxy* pattern like this:
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     function HOC(WrappedComponent) {
       return class Test extends Component {
         render() {
@@ -1168,7 +1167,7 @@
       }
     }
     ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -1181,7 +1180,7 @@
      ```javascript
     const {Provider, Consumer} = React.createContext(defaultValue)
     ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -1193,8 +1192,8 @@
     There are a number of methods available in the React API to work with this prop. These include `React.Children.map`, `React.Children.forEach`, `React.Children.count`, `React.Children.only`, `React.Children.toArray`.
     A simple usage of children prop looks as below,
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     const MyDiv = React.createClass({
       render: function() {
         return <div>{this.props.children}</div>
@@ -1209,7 +1208,7 @@
       node
     )
     ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -1220,26 +1219,26 @@
 
     **Single-line comments:**
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     <div>
       {/* Single-line comments(In vanilla JavaScript, the single-line comments are represented by double slash(//)) */}
       {`Welcome ${user}, let's play React`}
     </div>
     ```
-     </div>
+    </div>
 
     **Multi-line comments:**
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     <div>
       {/* Multi-line comments for more than
        one line */}
       {`Welcome ${user}, let's play React`}
     </div>
     ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -1260,7 +1259,7 @@
       }
     }
     ```
-     </div>
+    </div>
 
     **Not passing props:**
 
@@ -1282,7 +1281,7 @@
       }
     }
     ```
-     </div>
+    </div>
 
     The above code snippets reveals that `this.props` is different only within the constructor. It would be the same outside the constructor.
 
@@ -1306,7 +1305,7 @@
       this.setState({ [event.target.id]: event.target.value })
     }
     ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -1315,25 +1314,25 @@
 
     You need to make sure that function is not being called while passing the function as a parameter.
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     render() {
       // Wrong: handleClick is called instead of passed as a reference!
       return <button onClick={this.handleClick()}>{'Click Me'}</button>
     }
     ```
-     </div>
+    </div>
 
     Instead, pass the function itself without parenthesis:
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     render() {
       // Correct: handleClick is passed as a reference!
       return <button onClick={this.handleClick}>{'Click Me'}</button>
     }
     ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -1347,21 +1346,21 @@
     export const SomeComponent = /* ... */;
     export const UnusedComponent = /* ... */;
     ```
-     </div>
+    </div>
     and reexport `MoreComponents.js` components in an intermediate file `IntermediateComponent.js`
     <div dir="ltr">
      ```javascript
     // IntermediateComponent.js
     export { SomeComponent as default } from "./MoreComponents.js";
     ```
-     </div>
+    </div>
     Now you can import the module using lazy function as below,
     <div dir="ltr">
      ```javascript
     import React, { lazy } from 'react';
     const SomeComponent = lazy(() => import("./IntermediateComponent.js"));
     ```
-     </div>
+    </div>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -1369,13 +1368,13 @@
 
     `class` is a keyword in JavaScript, and JSX is an extension of JavaScript. That's the principal reason why React uses `className` instead of `class`. Pass a string as the `className` prop.
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     render() {
       return <span className={'menu navigation-menu'}>{'Menu'}</span>
     }
     ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -1384,8 +1383,8 @@
 
     It's common pattern in React which is used for a component to return multiple elements. *Fragments* let you group a list of children without adding extra nodes to the DOM.
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     render() {
       return (
         <React.Fragment>
@@ -1396,12 +1395,12 @@
       )
     }
     ```
-     </div>
+    </div>
 
     There is also a *shorter syntax*, but it's not supported in many tools:
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     render() {
       return (
         <>
@@ -1412,7 +1411,7 @@
       )
     }
     ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -1434,7 +1433,7 @@
      ```javascript
     ReactDOM.createPortal(child, container)
     ```
-     </div>
+    </div>
 
     The first argument is any render-able React child, such as an element, string, or fragment. The second argument is a DOM element.
 
@@ -1465,7 +1464,7 @@
       }
     }
     ```
-     </div>
+    </div>
     **React 16.8 Update:**
     Hooks let you use state and other React features without writing classes.
 
@@ -1483,7 +1482,7 @@
       )
     }
     ```
-     </div>
+    </div>
 
 
 
@@ -1508,8 +1507,8 @@
 
     We can define `propTypes` for `User` component as below:
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     import React from 'react'
     import PropTypes from 'prop-types'
 
@@ -1529,7 +1528,7 @@
       }
     }
     ```
-     </div>
+    </div>
 
     **Note:** In React v15.5 *PropTypes* were moved from `React.PropTypes` to `prop-types` library.
 
@@ -1564,8 +1563,8 @@
 
     A class component becomes an error boundary if it defines a new lifecycle method called `componentDidCatch(error, info)` or `static getDerivedStateFromError() `:
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     class ErrorBoundary extends React.Component {
       constructor(props) {
         super(props)
@@ -1591,17 +1590,17 @@
       }
     }
     ```
-     </div>
+    </div>
 
     After that use it as a regular component:
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     <ErrorBoundary>
       <MyWidget />
     </ErrorBoundary>
     ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -1638,10 +1637,10 @@
     This method is used to render a React element into the DOM in the supplied container and return a reference to the component. If the React element was previously rendered into container, it will perform an update on it and only mutate the DOM as necessary to reflect the latest changes.
 
     ```
-     </div>
+    </div>
     ReactDOM.render(element, container[, callback])
     ```
-     </div>
+    </div>
 
     If the optional callback is provided, it will be executed after the component is rendered or updated.
 
@@ -1671,7 +1670,7 @@
       res.end()
     })
     ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -1682,8 +1681,8 @@
 
     In this example MyComponent uses `dangerouslySetInnerHTML` attribute for setting HTML markup:
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     function createMarkup() {
       return { __html: 'First &middot; Second' }
     }
@@ -1692,7 +1691,7 @@
       return <div dangerouslySetInnerHTML={createMarkup()} />
     }
     ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -1701,8 +1700,8 @@
 
     The `style` attribute accepts a JavaScript object with camelCased properties rather than a CSS string. This is consistent with the DOM style JavaScript property, is more efficient, and prevents XSS security holes.
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     const divStyle = {
       color: 'blue',
       backgroundImage: 'url(' + imgUrl + ')'
@@ -1712,7 +1711,7 @@
       return <div style={divStyle}>Hello World!</div>
     }
     ```
-     </div>
+    </div>
 
     Style keys are camelCased in order to be consistent with accessing the properties on DOM nodes in JavaScript (e.g. `node.style.backgroundImage`).
 
@@ -1742,8 +1741,8 @@
 
     In the below code snippet each element's key will be based on ordering, rather than tied to the data that is being represented. This limits the optimizations that React can do.
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     {todos.map((todo, index) =>
       <Todo
         {...todo}
@@ -1751,18 +1750,18 @@
       />
     )}
     ```
-     </div>
+    </div>
 
     If you use element data for unique key, assuming todo.id is unique to this list and stable, React would be able to reorder elements without needing to reevaluate them as much.
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     {todos.map((todo) =>
       <Todo {...todo}
         key={todo.id} />
     )}
     ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -1771,8 +1770,8 @@
 
     It is recommended to avoid async initialization in `componentWillMount()` lifecycle method. `componentWillMount()` is invoked immediately before mounting occurs. It is called before `render()`, therefore setting state in this method will not trigger a re-render. Avoid introducing any side-effects or subscriptions in this method. We need to make sure async calls for component initialization happened in `componentDidMount()` instead of `componentWillMount()`.
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     componentDidMount() {
       axios.get(`api/todos`)
         .then((result) => {
@@ -1782,7 +1781,7 @@
         })
     }
     ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -1793,8 +1792,8 @@
 
     The below component won't display the updated input value:
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     class MyComponent extends React.Component {
       constructor(props) {
         super(props)
@@ -1810,12 +1809,12 @@
       }
     }
     ```
-     </div>
+    </div>
 
     Using props inside render method will update the value:
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     class MyComponent extends React.Component {
       constructor(props) {
         super(props)
@@ -1830,7 +1829,7 @@
       }
     }
     ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -1839,8 +1838,8 @@
 
     In some cases you want to render different components depending on some state. JSX does not render `false` or `undefined`, so you can use conditional *short-circuiting* to render a given part of your component only if a certain condition is true.
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     const MyComponent = ({ name, address }) => (
       <div>
         <h2>{name}</h2>
@@ -1850,12 +1849,12 @@
       </div>
     )
     ```
-     </div>
+    </div>
 
     If you need an `if-else` condition then use *ternary operator*.
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     const MyComponent = ({ name, address }) => (
       <div>
         <h2>{name}</h2>
@@ -1866,7 +1865,7 @@
       </div>
     )
     ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -1875,15 +1874,15 @@
 
     When we *spread props* we run into the risk of adding unknown HTML attributes, which is a bad practice. Instead we can use prop destructuring with `...rest` operator, so it will add only required props. For example,
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     const ComponentA = () =>
       <ComponentB isDisplay={true} className={'componentStyle'} />
 
     const ComponentB = ({ isDisplay, ...domProps }) =>
       <div {...domProps}>{'ComponentB'}</div>
     ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -1892,8 +1891,8 @@
 
     You can *decorate* your *class* components, which is the same as passing the component into a function. **Decorators** are flexible and readable way of modifying component functionality.
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     @setTitle('Profile')
     class Profile extends React.Component {
         //....
@@ -1916,7 +1915,7 @@
       }
     }
     ```
-     </div>
+    </div>
 
     **Note:** Decorators are a feature that didn't make it into ES7, but are currently a *stage 2 proposal*.
 
@@ -1927,8 +1926,8 @@
 
     There are memoize libraries available which can be used on function components. For example `moize` library can memoize the component in another component.
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     import moize from 'moize'
     import Component from './components/Component' // this module exports a non-memoized component
 
@@ -1941,19 +1940,19 @@
       </div>
     }
     ```
-     </div>
+    </div>
 
     **Update:** Since React v16.6.0, we have a `React.memo`. It provides a higher order component which memoizes component unless the props change. To use it, simply wrap the component using React.memo before you use it.
 
     ```
-     </div>js
+    </div>js
       const MemoComponent = React.memo(function MemoComponent(props) {
         /* render using props */
       });
       OR
       export default React.memo(MyFunctionComponent);
     ```
-     </div>
+    </div>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -1961,14 +1960,14 @@
 
     React is already equipped to handle rendering on Node servers. A special version of the DOM renderer is available, which follows the same pattern as on the client side.
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     import ReactDOMServer from 'react-dom/server'
     import App from './App'
 
     ReactDOMServer.renderToString(<App />)
     ```
-     </div>
+    </div>
 
     This method will output the regular HTML as a string, which can be then placed inside a page body as part of the server response. On the client side, React detects the pre-rendered content and seamlessly picks up where it left off.
 
@@ -1989,7 +1988,7 @@
     Let's create Todo App using *CRA*:
 
     ```
-     </div>console
+    </div>console
     # Installation
     $ npm install -g create-react-app
 
@@ -2002,7 +2001,7 @@
     $ npm run test
     $ npm start
     ```
-     </div>
+    </div>
     It includes everything we need to build a React app:
 
     1. React, JSX, ES6, and Flow syntax support.
@@ -2052,7 +2051,7 @@
       }
     }
     ```
-     </div>
+    </div>
 
     This lifecycle method along with `componentDidUpdate()` covers all the use cases of `componentWillReceiveProps()`.
 
@@ -2071,7 +2070,7 @@
       }
     }
     ```
-     </div>
+    </div>
 
     This lifecycle method along with `componentDidUpdate()` covers all the use cases of `componentWillUpdate()`.
 
@@ -2098,7 +2097,7 @@
       // ...
     })
     ```
-     </div>
+    </div>
 
     The **recommended** approach:
 
@@ -2108,7 +2107,7 @@
       // ...
     }
     ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -2141,8 +2140,8 @@
 
     For example, a switching component to display different pages based on `page` prop:
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     import HomePage from './HomePage'
     import AboutPage from './AboutPage'
     import ServicesPage from './ServicesPage'
@@ -2166,7 +2165,7 @@
       page: PropTypes.oneOf(Object.keys(PAGES)).isRequired
     }
     ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -2185,7 +2184,7 @@
     this.setState({ count: this.state.count + 1 })
     // this.state.count === 1, not 3
     ```
-     </div>
+    </div>
 
     If we pass a function to `setState()`, the count gets incremented correctly.
 
@@ -2196,7 +2195,7 @@
     }))
     // this.state.count === 3 as expected
     ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -2205,8 +2204,8 @@
 
     `React.StrictMode` is a useful component for highlighting potential problems in an application. Just like `<Fragment>`, `<StrictMode>` does not render any extra DOM elements. It activates additional checks and warnings for its descendants. These checks apply for *development mode* only.
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     import React from 'react'
 
     function ExampleApplication() {
@@ -2224,7 +2223,7 @@
       )
     }
     ```
-     </div>
+    </div>
 
     In the example above, the *strict mode* checks apply to `<ComponentOne>` and `<ComponentTwo>` components only.
 
@@ -2246,7 +2245,7 @@
       // ...
     })
     ```
-     </div>
+    </div>
     <!-- TODO: mixins are deprecated -->
 
 
@@ -2262,7 +2261,7 @@
       this.setState({...})
     }
     ```
-     </div>
+    </div>
 
     Checking `isMounted()` before calling `setState()` does eliminate the warning, but it also defeats the purpose of the warning. Using `isMounted()` is a code smell because the only reason you would check is because you think you might be holding a reference after the component has unmounted.
 
@@ -2294,17 +2293,17 @@
 87. ### Why should component names start with capital letter?
 
     If you are rendering your component using JSX, the name of that component has to begin with a capital letter otherwise React will throw an error as unrecognized tag. This convention is because only HTML elements and SVG tags can begin with a lowercase letter.
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     class SomeComponent extends Component {
      // Code goes here
     }
     ```
-     </div>
+    </div>
     You can define component class which name starts with lowercase letter, but when it's imported it should have capital letter. Here lowercase is fine:
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     class myComponent extends Component {
       render() {
         return <div />
@@ -2313,15 +2312,15 @@
 
     export default myComponent
     ```
-     </div>
+    </div>
 
     While when imported in another file it should start with capital letter:
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     import MyComponent from './MyComponent'
     ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -2330,27 +2329,27 @@
 
     Yes. In the past, React used to ignore unknown DOM attributes. If you wrote JSX with an attribute that React doesn't recognize, React would just skip it. For example, this:
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     <div mycustomattribute={'something'} />
     ```
-     </div>
+    </div>
 
     Would render an empty div to the DOM with React v15:
 
-    ```
-     </div>html
+    <div dir="ltr">
+    ```html
     <div />
     ```
-     </div>
+    </div>
 
     In React v16 any unknown attributes will end up in the DOM:
 
-    ```
-     </div>html
+    <div dir="ltr">
+    ```html
     <div mycustomattribute='something' />
     ```
-     </div>
+    </div>
 
     This is useful for supplying browser-specific non-standard attributes, trying new DOM APIs, and integrating with opinionated third-party libraries.
 
@@ -2372,7 +2371,7 @@
       }
     }
     ```
-     </div>
+    </div>
 
     Using `React.createClass()`:
 
@@ -2384,7 +2383,7 @@
       }
     })
     ```
-     </div>
+    </div>
 
     **Note:** `React.createClass()` is deprecated and removed in React v16. Use plain JavaScript classes instead.
 
@@ -2399,7 +2398,7 @@
      ```javascript
     component.forceUpdate(callback)
     ```
-     </div>
+    </div>
 
     It is recommended to avoid all uses of `forceUpdate()` and only read from `this.props` and `this.state` in `render()`.
 
@@ -2421,7 +2420,7 @@
       }
     }
     ```
-     </div>
+    </div>
 
     Using `super()`:
 
@@ -2434,7 +2433,7 @@
       }
     }
     ```
-     </div>
+    </div>
 
     Outside `constructor()` both will display same value for `this.props`.
 
@@ -2445,25 +2444,25 @@
 
     You can simply use `Array.prototype.map` with ES6 *arrow function* syntax. For example, the `items` array of objects is mapped into an array of components:
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     <tbody>
       {items.map(item => <SomeComponent key={item.id} name={item.name} />)}
     </tbody>
     ```
-     </div>
+    </div>
 
     You can't iterate using `for` loop:
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     <tbody>
       for (let i = 0; i < items.length; i++) {
         <SomeComponent key={items[i].id} name={items[i].name} />
       }
     </tbody>
     ```
-     </div>
+    </div>
 
     This is because JSX tags are transpiled into *function calls*, and you can't use statements inside expressions. This may change thanks to `do` expressions which are *stage 1 proposal*.
 
@@ -2474,27 +2473,27 @@
 
     React (or JSX) doesn't support variable interpolation inside an attribute value. The below representation won't work:
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     <img className='image' src='images/{this.props.image}' />
     ```
-     </div>
+    </div>
 
     But you can put any JS expression inside curly braces as the entire attribute value. So the below expression works:
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     <img className='image' src={'images/' + this.props.image} />
     ```
-     </div>
+    </div>
 
     Using *template strings* will also work:
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     <img className='image' src={`images/${this.props.image}`} />
     ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -2512,7 +2511,7 @@
       })).isRequired
     }
     ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -2521,27 +2520,27 @@
 
     You shouldn't use curly braces inside quotes because it is going to be evaluated as a string.
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     <div className="btn-panel {this.props.visible ? 'show' : 'hidden'}">
     ```
-     </div>
+    </div>
 
     Instead you need to move curly braces outside (don't forget to include spaces between class names):
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     <div className={'btn-panel ' + (this.props.visible ? 'show' : 'hidden')}>
     ```
-     </div>
+    </div>
 
     *Template strings* will also work:
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     <div className={`btn-panel ${this.props.visible ? 'show' : 'hidden'}`}>
     ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -2564,21 +2563,21 @@
 
     If you try to render a `<label>` element bound to a text input using the standard `for` attribute, then it produces HTML missing that attribute and prints a warning to the console.
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     <label for={'user'}>{'User'}</label>
     <input type={'text'} id={'user'} />
     ```
-     </div>
+    </div>
 
     Since `for` is a reserved keyword in JavaScript, use `htmlFor` instead.
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     <label htmlFor={'user'}>{'User'}</label>
     <input type={'text'} id={'user'} />
     ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -2587,19 +2586,19 @@
 
     You can use *spread operator* in regular React:
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
      <button style={{...styles.panel.button, ...styles.panel.submitButton}}>{'Submit'}</button>
     ```
-     </div>
+    </div>
 
     If you're using React Native then you can use the array notation:
 
-    ```
-     </div>jsx harmony
+    <div dir="ltr">
+    ```jsx harmony
     <button style={[styles.panel.button, styles.panel.submitButton]}>{'Submit'}</button>
     ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -2637,7 +2636,7 @@
        }
      }
      ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -2654,11 +2653,11 @@
      The following lifecycle methods will be called when state changes. You can compare provided state and props values with current state and props to determine if something meaningful changed.
 
      ```
-     </div>
+    </div>
      componentWillUpdate(object nextProps, object nextState)
      componentDidUpdate(object prevProps, object prevState)
      ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -2677,7 +2676,7 @@
        })
      }
      ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -2686,45 +2685,45 @@
 
      It is possible with latest version (>=16.2). Below are the possible options:
 
-     ```
-     </div>jsx harmony
+     <div dir="ltr">
+    ```jsx harmony
      render() {
        return false
      }
      ```
-     </div>
+    </div>
 
-     ```
-     </div>jsx harmony
+     <div dir="ltr">
+    ```jsx harmony
      render() {
        return null
      }
      ```
-     </div>
+    </div>
 
-     ```
-     </div>jsx harmony
+     <div dir="ltr">
+    ```jsx harmony
      render() {
        return []
      }
      ```
-     </div>
+    </div>
 
-     ```
-     </div>jsx harmony
+     <div dir="ltr">
+    ```jsx harmony
      render() {
        return <React.Fragment></React.Fragment>
      }
      ```
-     </div>
+    </div>
 
-     ```
-     </div>jsx harmony
+     <div dir="ltr">
+    ```jsx harmony
      render() {
        return <></>
      }
      ```
-     </div>
+    </div>
 
      Returning `undefined` won't work.
 
@@ -2735,8 +2734,8 @@
 
      We can use `<pre>` tag so that the formatting of the `JSON.stringify()` is retained:
 
-     ```
-     </div>jsx harmony
+     <div dir="ltr">
+    ```jsx harmony
      const data = { name: 'John', age: 42 }
 
      class User extends React.Component {
@@ -2751,7 +2750,7 @@
 
      React.render(<User />, document.getElementById('container'))
      ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -2767,8 +2766,8 @@
 
      You can do it by creating *ref* for `input` element and using it in `componentDidMount()`:
 
-     ```
-     </div>jsx harmony
+     <div dir="ltr">
+    ```jsx harmony
      class App extends React.Component{
        componentDidMount() {
          this.nameInput.focus()
@@ -2791,7 +2790,7 @@
 
      ReactDOM.render(<App />, document.getElementById('app'))
      ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -2807,7 +2806,7 @@
              const user = Object.assign({}, this.state.user, { age: 42 })
              this.setState({ user })
              ```
-     </div>
+    </div>
 
          * Using *spread operator*:
 
@@ -2816,7 +2815,7 @@
              const user = { ...this.state.user, age: 42 }
              this.setState({ user })
              ```
-     </div>
+    </div>
 
      2. **Calling `setState()` with a function:**
 
@@ -2829,7 +2828,7 @@
            }
          }))
          ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -2847,7 +2846,7 @@
        counter: this.state.counter + this.props.increment,
      })
      ```
-     </div>
+    </div>
 
      The preferred approach is to call `setState()` with function rather than object. That function will receive the previous state as the first argument, and the props at the time the update is applied as the second argument.
 
@@ -2858,7 +2857,7 @@
        counter: prevState.counter + props.increment
      }))
      ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -2867,8 +2866,8 @@
 
      You can use `React.version` to get the version.
 
-     ```
-     </div>jsx harmony
+     <div dir="ltr">
+    ```jsx harmony
      const REACT_VERSION = React.version
 
      ReactDOM.render(
@@ -2876,7 +2875,7 @@
        document.getElementById('app')
      )
      ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -2893,17 +2892,17 @@
          import 'core-js/fn/array/includes'
          import 'core-js/fn/number/is-nan'
          ```
-     </div>
+    </div>
 
      2. **Using Polyfill service:**
 
          Use the polyfill.io CDN to retrieve custom, browser-specific polyfills by adding this line to `index.html`:
 
-         ```
-     </div>html
+         <div dir="ltr">
+    ```html
          <script src='https://cdn.polyfill.io/v2/polyfill.min.js?features=default,Array.prototype.includes'></script>
          ```
-     </div>
+    </div>
 
          In the above script we had to explicitly request the `Array.prototype.includes` feature as it is not included in the default feature set.
 
@@ -2915,12 +2914,12 @@
      You just need to use `HTTPS=true` configuration. You can edit your `package.json` scripts section:
 
      ```
-     </div>json
+    </div>json
      "scripts": {
        "start": "set HTTPS=true && react-scripts start"
      }
      ```
-     </div>
+    </div>
 
      or just run `set HTTPS=true && npm start`
 
@@ -2932,10 +2931,10 @@
      Create a file called `.env` in the project root and write the import path:
 
      ```
-     </div>
+    </div>
      NODE_PATH=src/app
      ```
-     </div>
+    </div>
 
      After that restart the development server. Now you should be able to import anything inside `src/app` without relative paths.
 
@@ -2953,7 +2952,7 @@
        window.ga('send', 'pageview', location.pathname + location.search)
      })
      ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -2972,7 +2971,7 @@
        clearInterval(this.interval)
      }
      ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -2981,15 +2980,15 @@
 
      React *does not* apply *vendor prefixes* automatically. You need to add vendor prefixes manually.
 
-     ```
-     </div>jsx harmony
+     <div dir="ltr">
+    ```jsx harmony
      <div style={{
        transform: 'rotate(90deg)',
        WebkitTransform: 'rotate(90deg)', // note the capital 'W' here
        msTransform: 'rotate(90deg)' // 'ms' is the only lowercase vendor prefix
      }} />
      ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -2998,8 +2997,8 @@
 
      You should use default for exporting the components
 
-     ```
-     </div>jsx harmony
+     <div dir="ltr">
+    ```jsx harmony
      import React from 'react'
      import User from 'user'
 
@@ -3013,7 +3012,7 @@
        }
      }
      ```
-     </div>
+    </div>
 
      With the export specifier, the MyProfile is going to be the member and exported to this module and the same can be imported without mentioning the name in other components.
 
@@ -3032,7 +3031,7 @@
            )
      }
      ```
-     </div>
+    </div>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -3053,7 +3052,7 @@
        static DEFAULT_PAGINATION = 10
      }
      ```
-     </div>
+    </div>
 
      *Static fields* are part of the *Class Fields* stage 3 proposal.
 
@@ -3066,11 +3065,11 @@
 
      1. Create ref in render method:
 
-         ```
-     </div>jsx harmony
+         <div dir="ltr">
+    ```jsx harmony
          <input ref={input => this.inputElement = input} />
          ```
-     </div>
+    </div>
 
      2. Apply click event in your event handler:
 
@@ -3078,7 +3077,7 @@
      ```javascript
          this.inputElement.click()
          ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -3099,7 +3098,7 @@
          One common way to structure projects is locate CSS, JS, and tests together, grouped by feature or route.
 
          ```
-     </div>
+    </div>
          common/
          ├─ Avatar.js
          ├─ Avatar.css
@@ -3119,14 +3118,14 @@
          ├─ ProfileHeader.css
          └─ ProfileAPI.js
          ```
-     </div>
+    </div>
 
      2. **Grouping by file type:**
 
          Another popular way to structure projects is to group similar files together.
 
          ```
-     </div>
+    </div>
          api/
          ├─ APIUtils.js
          ├─ APIUtils.test.js
@@ -3143,7 +3142,7 @@
          ├─ ProfileHeader.js
          └─ ProfileHeader.css
          ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -3177,7 +3176,7 @@
        64
      ]
      ```
-     </div>
+    </div>
 
      And then imported individually in other components:
 
@@ -3185,7 +3184,7 @@
      ```javascript
      import { space, colors } from './styles'
      ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -3203,8 +3202,8 @@
 
      For example, the employees list fetched from API and set local state:
 
-     ```
-     </div>jsx harmony
+     <div dir="ltr">
+    ```jsx harmony
      class MyComponent extends React.Component {
        constructor(props) {
          super(props)
@@ -3247,7 +3246,7 @@
        }
      }
      ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -3256,13 +3255,13 @@
 
      **Render Props** is a simple technique for sharing code between components using a prop whose value is a function. The below component uses render prop which returns a React element.
 
-     ```
-     </div>jsx harmony
+     <div dir="ltr">
+    ```jsx harmony
      <DataProvider render={data => (
        <h1>{`Hello ${data.target}`}</h1>
      )}/>
      ```
-     </div>
+    </div>
 
      Libraries such as React Router and DownShift are using this pattern.
 
@@ -3318,8 +3317,8 @@
 
          The `withRouter()` higher-order function will inject the history object as a prop of the component. This object provides `push()` and `replace()` methods to avoid the usage of context.
 
-         ```
-     </div>jsx harmony
+         <div dir="ltr">
+    ```jsx harmony
          import { withRouter } from 'react-router-dom' // this also works with 'react-router-native'
 
          const Button = withRouter(({ history }) => (
@@ -3331,14 +3330,14 @@
            </button>
          ))
          ```
-     </div>
+    </div>
 
      2. **Using `<Route>` component and render props pattern:**
 
          The `<Route>` component passes the same props as `withRouter()`, so you will be able to access the history methods through the history prop.
 
-         ```
-     </div>jsx harmony
+         <div dir="ltr">
+    ```jsx harmony
          import { Route } from 'react-router-dom'
 
          const Button = () => (
@@ -3352,14 +3351,14 @@
            )} />
          )
          ```
-     </div>
+    </div>
 
      3. **Using context:**
 
          This option is not recommended and treated as unstable API.
 
-         ```
-     </div>jsx harmony
+         <div dir="ltr">
+    ```jsx harmony
          const Button = (props, context) => (
            <button
              type='button'
@@ -3377,7 +3376,7 @@
            })
          }
          ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -3391,7 +3390,7 @@
      const queryString = require('query-string');
      const parsed = queryString.parse(props.location.search);
      ```
-     </div>
+    </div>
 
      You can also use `URLSearchParams` if you want something native:
 
@@ -3400,7 +3399,7 @@
      const params = new URLSearchParams(props.location.search)
      const foo = params.get('name')
      ```
-     </div>
+    </div>
 
      You should use a *polyfill* for IE11.
 
@@ -3417,12 +3416,12 @@
      ```javascript
      import { Switch, Router, Route } from 'react-router'
      ```
-     </div>
+    </div>
 
      Then define the routes within `<Switch>` block:
 
-     ```
-     </div>jsx harmony
+     <div dir="ltr">
+    ```jsx harmony
      <Router>
        <Switch>
          <Route {/* ... */} />
@@ -3430,7 +3429,7 @@
        </Switch>
      </Router>
      ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -3447,7 +3446,7 @@
        state: { detail: response.data }
      })
      ```
-     </div>
+    </div>
 
      The `search` property is used to pass query params in `push()` method.
 
@@ -3458,15 +3457,15 @@
 
      A `<Switch>` renders the first child `<Route>` that matches. A `<Route>` with no path always matches. So you just need to simply drop path attribute as below
 
-     ```
-     </div>jsx harmony
+     <div dir="ltr">
+    ```jsx harmony
      <Switch>
        <Route exact path="/" component={Home}/>
        <Route path="/user" component={User}/>
        <Route component={NotFound} />
      </Switch>
      ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -3485,12 +3484,12 @@
            /* pass a configuration object here if needed */
          })
          ```
-     </div>
+    </div>
 
      2. You should use the `<Router>` component instead of built-in routers. Imported the above `history.js` inside `index.js` file:
 
-         ```
-     </div>jsx harmony
+         <div dir="ltr">
+    ```jsx harmony
          import { Router } from 'react-router-dom'
          import history from './history'
          import App from './App'
@@ -3501,7 +3500,7 @@
            </Router>
          ), holder)
          ```
-     </div>
+    </div>
 
      3. You can also use push method of `history` object similar to built-in history object:
 
@@ -3512,7 +3511,7 @@
 
          history.push('/go-here')
          ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -3536,7 +3535,7 @@
        }
      }
      ```
-     </div>
+    </div>
 
 ## React Internationalization
 
@@ -3567,14 +3566,14 @@
 
      The library provides two ways to format strings, numbers, and dates: react components or an API.
 
-     ```
-     </div>jsx harmony
+     <div dir="ltr">
+    ```jsx harmony
      <FormattedMessage
        id={'account'}
        defaultMessage={'The amount is less than minimum balance.'}
      />
      ```
-     </div>
+    </div>
 
      <div dir="ltr">
      ```javascript
@@ -3587,7 +3586,7 @@
 
      formatMessage(messages.accountMessage)
      ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -3596,8 +3595,8 @@
 
      The `<Formatted... />` components from `react-intl` return elements, not plain text, so they can't be used for placeholders, alt text, etc. In that case, you should use lower level API `formatMessage()`. You can inject the `intl` object into your component using `injectIntl()` higher-order component and then format the message using `formatMessage()` available on that object.
 
-     ```
-     </div>jsx harmony
+     <div dir="ltr">
+    ```jsx harmony
      import React from 'react'
      import { injectIntl, intlShape } from 'react-intl'
 
@@ -3612,7 +3611,7 @@
 
      export default injectIntl(MyComponent)
      ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -3621,8 +3620,8 @@
 
      You can get the current locale in any component of your application using `injectIntl()`:
 
-     ```
-     </div>jsx harmony
+     <div dir="ltr">
+    ```jsx harmony
      import { injectIntl, intlShape } from 'react-intl'
 
      const MyComponent = ({ intl }) => (
@@ -3635,7 +3634,7 @@
 
      export default injectIntl(MyComponent)
      ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -3644,8 +3643,8 @@
 
      The `injectIntl()` higher-order component will give you access to the `formatDate()` method via the props in your component. The method is used internally by instances of `FormattedDate` and it returns the string representation of the formatted date.
 
-     ```
-     </div>jsx harmony
+     <div dir="ltr">
+    ```jsx harmony
      import { injectIntl, intlShape } from 'react-intl'
 
      const stringDate = this.props.intl.formatDate(date, {
@@ -3664,7 +3663,7 @@
 
      export default injectIntl(MyComponent)
      ```
-     </div>
+    </div>
 
 ## React Testing
 
@@ -3688,12 +3687,12 @@
        )
      }
      ```
-     </div>
+    </div>
 
      Then you can assert as follows:
 
-     ```
-     </div>jsx harmony
+     <div dir="ltr">
+    ```jsx harmony
      import ShallowRenderer from 'react-test-renderer/shallow'
 
      // in your test
@@ -3708,7 +3707,7 @@
        <span className={'description'}>{'Description'}</span>
      ])
      ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -3717,8 +3716,8 @@
 
      This package provides a renderer that can be used to render components to pure JavaScript objects, without depending on the DOM or a native mobile environment. This package makes it easy to grab a snapshot of the platform view hierarchy (similar to a DOM tree) rendered by a ReactDOM or React Native without using a browser or `jsdom`.
 
-     ```
-     </div>jsx harmony
+     <div dir="ltr">
+    ```jsx harmony
      import TestRenderer from 'react-test-renderer'
 
      const Link = ({page, children}) => <a href={page}>{children}</a>
@@ -3734,7 +3733,7 @@
      //   children: [ 'Facebook' ]
      // }
      ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -3776,7 +3775,7 @@
 
      export default sum
      ```
-     </div>
+    </div>
 
      Create a file named `sum.test.js` which contains actual test:
 
@@ -3788,29 +3787,29 @@
        expect(sum(1, 2)).toBe(3)
      })
      ```
-     </div>
+    </div>
 
      And then add the following section to your `package.json`:
 
      ```
-     </div>json
+    </div>json
      {
        "scripts": {
          "test": "jest"
        }
      }
      ```
-     </div>
+    </div>
 
      Finally, run `yarn test` or `npm test` and Jest will print a result:
 
      ```
-     </div>console
+    </div>console
      $ yarn test
      PASS ./sum.test.js
      ✓ adds 1 + 2 to equal 3 (2ms)
      ```
-     </div>
+    </div>
 
 ## React Redux
 
@@ -3869,7 +3868,7 @@
        }
      }
      ```
-     </div>
+    </div>
 
      `mapDispatchToProps()` is a utility which will help your component to fire an action event (dispatching action which may cause change of application state):
 
@@ -3883,7 +3882,7 @@
        }
      }
      ```
-     </div>
+    </div>
      
      Recommend always using the “object shorthand” form for the `mapDispatchToProps`
         
@@ -3895,7 +3894,7 @@
          onTodoClick
        })
       ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -3917,7 +3916,7 @@
 
      export default store
      ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -3967,7 +3966,7 @@
 
      export default connect(mapStateToProps, mapDispatchToProps)(App)
      ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -3979,8 +3978,8 @@
      1. **Use `mapStateToProps()`:** It maps the state variables from your store to the props that you specify.
      2. **Connect the above props to your container:** The object returned by the `mapStateToProps` function is connected to the container. You can import `connect()` from `react-redux`.
 
-         ```
-     </div>jsx harmony
+         <div dir="ltr">
+    ```jsx harmony
          import React from 'react'
          import { connect } from 'react-redux'
 
@@ -3996,7 +3995,7 @@
 
          export default connect(mapStateToProps)(App)
          ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -4021,7 +4020,7 @@
        return appReducer(state, action)
      }
      ```
-     </div>
+    </div>
 
      In case of using `redux-persist`, you may also need to clean your storage. `redux-persist` keeps a copy of your state in a storage engine. First, you need to import the appropriate storage engine and then, to parse the state before setting it to undefined and clean each storage state key.
 
@@ -4043,7 +4042,7 @@
        return appReducer(state, action)
      }
      ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -4077,7 +4076,7 @@
 
          export default connect(mapStateToProps, mapDispatchToProps)(MyApp)
          ```
-     </div>
+    </div>
 
      * **With decorator:**
 
@@ -4101,7 +4100,7 @@
            // ...define your main app here
          }
          ```
-     </div>
+    </div>
 
      The above examples are almost similar except the usage of decorator. The decorator syntax isn't built into any JavaScript runtimes yet, and is still experimental and subject to change. You can use babel for the decorators support.
 
@@ -4148,7 +4147,7 @@
       return { type: 'SET_Account', data: data }
      }
      ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -4187,7 +4186,7 @@
 
      export default FilterLink
      ```
-     </div>
+    </div>
 
      Due to it having quite a few performance optimizations and generally being less likely to cause bugs, the Redux developers almost always recommend using `connect()` over accessing the store directly (using context API).
 
@@ -4199,7 +4198,7 @@
        }
      }
      ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -4228,7 +4227,7 @@
      export const COMPLETE_ALL = 'COMPLETE_ALL'
      export const CLEAR_COMPLETED = 'CLEAR_COMPLETED'
      ```
-     </div>
+    </div>
 
      In Redux you use them in two places:
 
@@ -4244,7 +4243,7 @@
            return { type: ADD_TODO, text }
          }
          ```
-     </div>
+    </div>
 
      2. **In reducers:**
 
@@ -4269,7 +4268,7 @@
            }
          }
          ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -4284,7 +4283,7 @@
       action: () => dispatch(action())
      })
      ```
-     </div>
+    </div>
 
      <div dir="ltr">
      ```javascript
@@ -4292,13 +4291,13 @@
       action: bindActionCreators(action, dispatch)
      })
      ```
-     </div>
+    </div>
 
      <div dir="ltr">
      ```javascript
      const mapDispatchToProps = { action }
      ```
-     </div>
+    </div>
 
      The third option is just a shorthand for the first one.
 
@@ -4309,13 +4308,13 @@
 
      If the `ownProps` parameter is specified, React Redux will pass the props that were passed to the component into your *connect* functions. So, if you use a connected component:
 
-     ```
-     </div>jsx harmony
+     <div dir="ltr">
+    ```jsx harmony
      import ConnectedComponent from './containers/ConnectedComponent';
 
      <ConnectedComponent user={'john'} />
      ```
-     </div>
+    </div>
 
      The `ownProps` inside your `mapStateToProps()` and `mapDispatchToProps()` functions will be an object:
 
@@ -4323,7 +4322,7 @@
      ```javascript
      { user: 'john' }
      ```
-     </div>
+    </div>
 
      You can use this object to decide what to return from those functions.
 
@@ -4352,10 +4351,10 @@
      It is available in NPM:
 
      ```
-     </div>console
+    </div>console
      $ npm install --save redux-saga
      ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -4387,7 +4386,7 @@
        })
      }
      ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -4434,7 +4433,7 @@
      ```javascript
      const getUserData = state => state.user.data
      ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -4466,7 +4465,7 @@
      import { createStore, applyMiddleware } from 'redux'
      const createStoreWithMiddleware = applyMiddleware(ReduxThunk, logger)(createStore)
      ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -4491,7 +4490,7 @@
        initialState
      )
      ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -4526,11 +4525,11 @@
      You can use `console.log`, `console.warn`, etc. As of React Native v0.29 you can simply run the following to see logs in the console:
 
      ```
-     </div>
+    </div>
      $ react-native log-ios
      $ react-native log-android
      ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -4580,10 +4579,10 @@
      1. Install `font-awesome`:
 
      ```
-     </div>console
+    </div>console
      $ npm install --save font-awesome
      ```
-     </div>
+    </div>
 
      2. Import `font-awesome` in your `index.js` file:
 
@@ -4591,7 +4590,7 @@
      ```javascript
      import 'font-awesome/css/font-awesome.min.css'
      ```
-     </div>
+    </div>
 
      3. Add Font Awesome classes in `className`:
 
@@ -4601,7 +4600,7 @@
        return <div><i className={'fa fa-spinner'} /></div>
      }
      ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -4629,8 +4628,8 @@
 
      1. Create a Polymer element:
 
-         ```
-     </div>jsx harmony
+         <div dir="ltr">
+    ```jsx harmony
          <link rel='import' href='../../bower_components/polymer/polymer.html' />
          Polymer({
            is: 'calender-element',
@@ -4639,15 +4638,15 @@
            }
          })
          ```
-     </div>
+    </div>
 
      2. Create the Polymer component HTML tag by importing it in a HTML document, e.g. import it in the `index.html` of your React application:
 
-         ```
-     </div>html
+         <div dir="ltr">
+    ```html
          <link rel='import' href='./src/polymer-components/calender-element.html'>
          ```
-     </div>
+    </div>
 
          3. Use that element in the JSX file:
 
@@ -4665,7 +4664,7 @@
 
          export default MyComponent
          ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -4731,17 +4730,17 @@
        background: papayawhip;
      `
      ```
-     </div>
+    </div>
 
      These two variables, `Title` and `Wrapper`, are now components that you can render just like any other react component.
 
-     ```
-     </div>jsx harmony
+     <div dir="ltr">
+    ```jsx harmony
      <Wrapper>
        <Title>{'Lets start first styled component!'}</Title>
      </Wrapper>
      ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -4756,20 +4755,20 @@
 205. ### How to use TypeScript in `create-react-app` application?
      Starting from react-scripts@2.1.0 or higher, there is a built-in support for typescript. You can just pass `--typescript` option as below
      ```
-     </div>bash
+    </div>bash
      npx create-react-app my-app --typescript
 
      # or
 
      yarn create react-app my-app --typescript
      ```
-     </div>
+    </div>
      But for lower versions of react scripts, just supply `--scripts-version` option as `react-scripts-ts` while you create a new project. `react-scripts-ts` is a set of adjustments to take the standard `create-react-app` project pipeline and bring TypeScript into the mix.
 
      Now the project layout should look like the following:
 
      ```
-     </div>
+    </div>
      my-app/
      ├─ .gitignore
      ├─ images.d.ts
@@ -4783,7 +4782,7 @@
      ├─ tsconfig.test.json
      └─ tslint.json
      ```
-     </div>
+    </div>
 
 ## Miscellaneous
 
@@ -4838,7 +4837,7 @@
      console.log(taxSelector(exampleState))      // 0.172
      console.log(totalSelector(exampleState))    // { total: 2.322 }
      ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -4850,13 +4849,13 @@
      For example an example action which represents adding a new todo item:
 
      ```
-     </div>
+    </div>
      {
        type: ADD_TODO,
        text: 'Add todo item'
      }
      ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -4875,7 +4874,7 @@
        }
      })
      ```
-     </div>
+    </div>
 
      But you can write statics inside ES6+ classes or writing them outside class as below,
 
@@ -4891,7 +4890,7 @@
        }
      }
      ```
-     </div>
+    </div>
      <div dir="ltr">
      ```javascript
      class Component extends React.Component {
@@ -4901,7 +4900,7 @@
      Component.propTypes = {...}
      Component.someMethod = function(){....}
      ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -4931,7 +4930,7 @@
        enableReinitialize : true
      })(UserEdit)
      ```
-     </div>
+    </div>
 
      If your `initialValues` prop gets updated, your form will update too.
 
@@ -4953,7 +4952,7 @@
        ])
      }
      ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -4962,8 +4961,8 @@
 
      You can import SVG directly as component instead of loading it as a file. This feature is available with `react-scripts@2.0.0` and higher.
 
-     ```
-     </div>jsx harmony
+     <div dir="ltr">
+    ```jsx harmony
      import { ReactComponent as Logo } from './logo.svg'
 
      const App = () => (
@@ -4973,7 +4972,7 @@
        </div>
      )
      ```
-     </div>
+    </div>
 
      **Note**: Don't forget about the curly braces in the import.
 
@@ -4984,8 +4983,8 @@
 
      If the ref callback is defined as an inline function, it will get called twice during updates, first with null and then again with the DOM element. This is because a new instance of the function is created with each render, so React needs to clear the old ref and set up the new one.
 
-     ```
-     </div>jsx
+     <div dir="ltr">
+    ```jsx 
      class UserForm extends Component {
        handleSubmit = () => {
          console.log("Input Value is: ", this.input.value)
@@ -5004,12 +5003,12 @@
       }
      }
      ```
-     </div>
+    </div>
 
      But our expectation is for the ref callback to get called once, when the component mounts. One quick fix is to use the ES7 class property syntax to define the function
 
-     ```
-     </div>jsx
+     <div dir="ltr">
+    ```jsx 
      class UserForm extends Component {
       handleSubmit = () => {
         console.log("Input Value is: ", this.input.value)
@@ -5031,7 +5030,7 @@
       }
      }
      ```
-     </div>
+    </div>
 
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -5050,8 +5049,8 @@
 
      In this approach, the render method of the HOC returns a React Element of the type of the WrappedComponent. We also pass through the props that the HOC receives, hence the name **Props Proxy**.
 
-     ```
-     </div>jsx
+     <div dir="ltr">
+    ```jsx 
 
      function ppHOC(WrappedComponent) {
       return class PP extends React.Component {
@@ -5061,13 +5060,13 @@
       }
      }
      ```
-     </div>
+    </div>
      **Inheritance Inversion**
 
      In this approach, the returned HOC class (Enhancer) extends the WrappedComponent. It is called Inheritance Inversion because instead of the WrappedComponent extending some Enhancer class, it is passively extended by the Enhancer. In this way the relationship between them seems **inverse**.
 
-     ```
-     </div>jsx
+     <div dir="ltr">
+    ```jsx 
      function iiHOC(WrappedComponent) {
       return class Enhancer extends WrappedComponent {
         render() {
@@ -5076,7 +5075,7 @@
       }
      }
      ```
-     </div>
+    </div>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -5084,11 +5083,11 @@
 
      You should be passing the numbers via curly braces({}) where as strings inn quotes
 
-     ```
-     </div>jsx
+     <div dir="ltr">
+    ```jsx 
         React.render(<User age={30} department={"IT"} />, document.getElementById('container'));
      ```
-     </div>
+    </div>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -5109,8 +5108,8 @@
 
      React creates a service worker for you without any configuration by default. The service worker is a web API that helps you cache your assets and other files so that when the user is offline or on slow network, he/she can still see results on the screen, as such, it helps you build a better user experience, that's what you should know about service worker's for now. It's all about adding offline capabilities to your site.
 
-     ```
-     </div>jsx
+     <div dir="ltr">
+    ```jsx 
         import React from 'react';
         import ReactDOM from 'react-dom';
         import App from './App';
@@ -5119,27 +5118,27 @@
         ReactDOM.render(<App />, document.getElementById('root'));
         registerServiceWorker();
      ```
-     </div>
+    </div>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
 221. ### What is React memo function?
 
      Class components can be restricted from rendering when their input props are the same using **PureComponent or shouldComponentUpdate**. Now you can do the same with function components by wrapping them in **React.memo**.
-     ```
-     </div>jsx
+     <div dir="ltr">
+    ```jsx 
      const MyComponent = React.memo(function MyComponent(props) {
       /* only rerenders if props change */
      });
      ```
-     </div>
+    </div>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
 222. ### What is React lazy function?
      The React.lazy function lets you render an dynamic import as a regular component. It will automatically load the bundle containing the OtherComponent when the component gets rendered. This must return a Promise which resolves to a module with a default export containing a React component.
-     ```
-     </div>jsx
+     <div dir="ltr">
+    ```jsx 
      const OtherComponent = React.lazy(() => import('./OtherComponent'));
 
      function MyComponent() {
@@ -5150,7 +5149,7 @@
       );
      }
      ```
-     </div>
+    </div>
      **Note:**
      React.lazy and Suspense is not yet available for server-side rendering. If you want to do code-splitting in a server rendered app, we still recommend React Loadable.
 
@@ -5158,8 +5157,8 @@
     
 223. ### How to prevent unnecessary updates using setState?
      You can compare current value of the state with an existing state value and decide whether to rerender the page or not. If the values are same then you need to return **null** to stop rerendering otherwise return the latest state value. For example, the user profile information is conditionally rendered as follows,
-     ```
-     </div>jsx
+     <div dir="ltr">
+    ```jsx 
      getUserProfile = user => {
        const latestAddress = user.address;
        this.setState(state => {
@@ -5171,14 +5170,14 @@
        });
      };
      ```
-     </div>
+    </div>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
 224. ### How do you render Array, Strings and Numbers in React 16 Version?
      **Arrays**: Unlike older releases, you don't need to make sure **render** method return a single element in React16. You are able to return multiple sibling elements without a wrapping element by returning an array. For example, let us take the below list of developers,
-     ```
-     </div>jsx
+     <div dir="ltr">
+    ```jsx 
      const ReactJSDevs = () => {
        return [
          <li key="1">John</li>,
@@ -5187,10 +5186,10 @@
        ];
      }
      ```
-     </div>
+    </div>
      You can also merge this array of items in another array component
-     ```
-     </div>jsx
+     <div dir="ltr">
+    ```jsx 
      const JSDevs = () => {
        return (
          <ul>
@@ -5202,10 +5201,10 @@
        );
      }
      ```
-     </div>
+    </div>
      **Strings and Numbers:** You can also return string and number type from the render method
-     ```
-     </div>jsx
+     <div dir="ltr">
+    ```jsx 
      render() {
       return 'Welcome to ReactJS questions';
      }
@@ -5214,14 +5213,14 @@
       return 2018;
      }
      ```
-     </div>
+    </div>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
 225. ### How to use class field declarations syntax in React classes?
      React Class Components can be made much more concise using the class field declarations. You can initialize local state without using the constructor and declare class methods by using arrow functions without the extra need to bind them. Let's take a counter example to demonstrate class field declarations for state without using constructor and methods without binding,
-     ```
-     </div>jsx
+     <div dir="ltr">
+    ```jsx 
      class Counter extends Component {
        state = { value: 0 };
 
@@ -5249,14 +5248,14 @@
        }
      }
      ```
-     </div>
+    </div>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
 226. ### What are hooks?
      Hooks is a new feature that lets you use state and other React features without writing a class. Let's see an example of useState hook example,
-     ```
-     </div>jsx
+     <div dir="ltr">
+    ```jsx 
      import { useState } from 'react';
 
      function Example() {
@@ -5273,7 +5272,7 @@
        );
      }
      ```
-     </div>
+    </div>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -5292,7 +5291,7 @@
      ```javascript
      npm install eslint-plugin-react-hooks@next
      ```
-     </div>
+    </div>
      And apply the below config in your ESLint config file,
      <div dir="ltr">
      ```javascript
@@ -5308,7 +5307,7 @@
        }
      }
      ```
-     </div>
+    </div>
      **Note:** This plugin is intended to use in Create React App by default.
 
 
@@ -5346,7 +5345,7 @@
      ```javascript
      componentDidCatch(error, info)
      ```
-     </div>
+    </div>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -5386,7 +5385,7 @@
        }
      }
      ```
-     </div>
+    </div>
      The above code is catching the error using vanilla javascript try/catch block instead of error boundaries.
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -5402,7 +5401,7 @@
        // ...
      }
      ```
-     </div>
+    </div>
      Whereas error boundaries wrap declarative code as below,
      <div dir="ltr">
      ```javascript
@@ -5410,7 +5409,7 @@
        <MyComponent />
      </ErrorBoundary>
      ```
-     </div>
+    </div>
      So if an error occurs in a **componentDidUpdate** method caused by a **setState** somewhere deep in the tree, it will still correctly propagate to the closest error boundary.
 
 
@@ -5466,7 +5465,7 @@
        this.handleClick = this.handleClick.bind(this);
      }
      ```
-     </div>
+    </div>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -5488,7 +5487,7 @@
      };
 
      ```
-     </div>
+    </div>
 
      If props.color is not provided then it will set the default value to 'red'. i.e, Whenever you try to access the color prop it uses default value
      <div dir="ltr">
@@ -5497,7 +5496,7 @@
         return <MyButton /> ; // props.color will be set to red
       }
      ```
-     </div>
+    </div>
      **Note:** If you provide null value then it remains null value.
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -5513,7 +5512,7 @@
      ```javascript
      static getDerivedStateFromError(error)
      ```
-     </div>
+    </div>
      Let us take error boundary use case with the above lifecycle method for demonistration purpose,
      <div dir="ltr">
      ```javascript
@@ -5538,7 +5537,7 @@
        }
      }
      ```
-     </div>
+    </div>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -5574,7 +5573,7 @@
        return WrappedComponent.displayName || WrappedComponent.name || 'Component';
      }
      ```
-     </div>
+    </div>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -5590,7 +5589,7 @@
      ```javascript
      ReactDOM.unmountComponentAtNode(container)
      ```
-     </div>
+    </div>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -5604,7 +5603,7 @@
 
      export { moduleA };
      ```
-     </div>
+    </div>
      **App.js**
      <div dir="ltr">
      ```javascript
@@ -5633,7 +5632,7 @@
      export default App;
 
      ```
-     </div>
+    </div>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -5666,7 +5665,7 @@
        );
      }
      ```
-     </div>
+    </div>
      **Note:** key is the only attribute that can be passed to Fragment. In the future, there might be a support for additional attributes, such as event handlers.
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -5679,7 +5678,7 @@
      <div className="Button" /> // Just like node.className DOM API
      <input readOnly={true} />  // Just like node.readOnly DOM API
      ```
-     </div>
+    </div>
      These props work similarly to the corresponding HTML attributes, with the exception of the special cases. It also support all SVG attributes.
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -5699,7 +5698,7 @@
           return <EnhancedComponent />;
         }
         ```
-     </div>
+    </div>
         The above code impact performance by remounting a component that causes the state of that component and all of its children to be lost. Instead, apply HOCs outside the component definition so that the resulting component is created only once
      2. **Static Methods Must Be Copied Over:**
         When you apply a HOC to a component the new component does not have any of the static methods of the original component
@@ -5713,7 +5712,7 @@
         // The enhanced component has no static method
         typeof EnhancedComponent.staticMethod === 'undefined' // true
         ```
-     </div>
+    </div>
         You can overcome this by copying the methods onto the container before returning it
         <div dir="ltr">
      ```javascript
@@ -5724,7 +5723,7 @@
           return Enhance;
         }
         ```
-     </div>
+    </div>
      3. **Refs Aren’t Passed Through:**
         For HOCs you need to pass through all props to the wrapped component but this does not work for refs. This is because ref is not really a prop similar to key. In this case you need to use the React.forwardRef API
 
@@ -5739,7 +5738,7 @@
        return <LogProps {...props} forwardedRef={ref} />;
      });
      ```
-     </div>
+    </div>
      But If you name the render function then it will appear as **”ForwardRef(myFunction)”**
      <div dir="ltr">
      ```javascript
@@ -5749,7 +5748,7 @@
        }
      );
      ```
-     </div>
+    </div>
      As an alternative, You can also set displayName property for forwardRef function,
      <div dir="ltr">
      ```javascript
@@ -5770,7 +5769,7 @@
        return React.forwardRef(forwardRef);
      }
      ```
-     </div>
+    </div>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -5782,7 +5781,7 @@
 
      <MyInput autocomplete={true} />
      ```
-     </div>
+    </div>
      **Note:** It is not recommend using this approach because it can be confused with the ES6 object shorthand (example, {name} which is short for {name: name})
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -5801,10 +5800,10 @@
 258. ### How do you pass an event handler to a component?
      You can pass event handlers and other functions as props to child components. It can be used in child component as  below,
      ```
-     </div>
+    </div>
      <button onClick={this.handleClick}>
      ```
-     </div>
+    </div>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -5821,7 +5820,7 @@
        }
      }
      ```
-     </div>
+    </div>
      **Note:** Using an arrow function in render method creates a new function each time the component renders, which may have performance implications
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -5841,7 +5840,7 @@
      const name = response.potentiallyMaliciousInput;
      const element = <h1>{name}</h1>;
      ```
-     </div>
+    </div>
      This way you can prevent XSS(Cross-site-scripting) attacks in the application.
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -5862,7 +5861,7 @@
 
      setInterval(tick, 1000);
      ```
-     </div>
+    </div>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -5874,7 +5873,7 @@
         return amount + interest;
      }
      ```
-     </div>
+    </div>
      The above function is called “pure” because it does not attempt to change their inputs, and always return the same result for the same inputs. Hence, React has a single rule saying "All React components must act like pure functions with respect to their props."
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -5891,7 +5890,7 @@
          };
        }
      ```
-     </div>
+    </div>
      Now you can update them independently with separate setState() calls as below,
      <div dir="ltr">
      ```javascript
@@ -5909,7 +5908,7 @@
          });
        }
      ```
-     </div>
+    </div>
      As mentioned in the above code snippets, this.setState({comments}) updates only comments variable without modifying or replacing posts variable.
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -5921,7 +5920,7 @@
      <button onClick={(e) => this.updateUser(userId, e)}>Update User details</button>
      <button onClick={this.updateUser.bind(this, userId)}>Update User details</button>
      ```
-     </div>
+    </div>
      In both the approaches, the synthetic argument e is passed as a second argument. You need to pass it explicitly for arrow functions and it forwarded automatically for bind method.
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -5942,7 +5941,7 @@
        );
      }
      ```
-     </div>
+    </div>
      <div dir="ltr">
      ```javascript
      class User extends React.Component {
@@ -5961,7 +5960,7 @@
         );
        }
      ```
-     </div>
+    </div>
      In the above example, the greeting component skips its rendering section by applying condition and returning null value.
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -6005,7 +6004,7 @@
        );
      }
      ```
-     </div>
+    </div>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -6053,7 +6052,7 @@
      }
      export default App;
      ```
-     </div>
+    </div>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -6065,7 +6064,7 @@
      import { add } from './math';
      console.log(add(10, 20));
      ```
-     </div>
+    </div>
      2. **Dynamic Import**
      <div dir="ltr">
      ```javascript
@@ -6073,7 +6072,7 @@
        console.log(math.add(10, 20));
      });
      ```
-     </div>
+    </div>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -6093,7 +6092,7 @@
        )
      }
      ```
-     </div>
+    </div>
      Now OtherComponent will be loaded in a separated bundle
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -6114,7 +6113,7 @@
        );
      }
      ```
-     </div>
+    </div>
      As mentioned in the above code, Suspense is wrapped above the lazy component.
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -6140,7 +6139,7 @@
        </Router>
      );
      ```
-     </div>
+    </div>
      In the above code, the code splitting will happen at each route level.
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -6177,7 +6176,7 @@
        }
      }
      ```
-     </div>
+    </div>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -6187,7 +6186,7 @@
      ```javascript
      const MyContext = React.createContext(defaultValue);
      ```
-     </div>
+    </div>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -6218,7 +6217,7 @@
      }
      MyClass.contextType = MyContext;
      ```
-     </div>
+    </div>
      2. **Static field**
      You can use a static class field to initialize your contextType using public class field syntax.
      <div dir="ltr">
@@ -6231,7 +6230,7 @@
        }
      }
      ```
-     </div>
+    </div>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -6243,7 +6242,7 @@
        {value => /* render something based on the context value */}
      </MyContext.Consumer>
      ```
-     </div>
+    </div>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -6261,7 +6260,7 @@
        }
      }
      ```
-     </div>
+    </div>
      This can be solved by lifting up the value to parent state,
      <div dir="ltr">
      ```javascript
@@ -6282,7 +6281,7 @@
        }
      }
      ```
-     </div>
+    </div>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -6311,7 +6310,7 @@
        });
      }
      ```
-     </div>
+    </div>
      Let's use this HOC to log all props that get passed to our “fancy button” component,
      <div dir="ltr">
      ```javascript
@@ -6324,7 +6323,7 @@
      }
      export default logProps(FancyButton);
      ```
-     </div>
+    </div>
      Now lets create a ref and pass it to FancyButton component. In this case, you can set focus to button element.
      <div dir="ltr">
      ```javascript
@@ -6338,7 +6337,7 @@
        ref={ref}
      />;
      ```
-     </div>
+    </div>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -6373,7 +6372,7 @@
        }
      });
      ```
-     </div>
+    </div>
      **Note:** If you use createReactClass then autobinding is available for all methods. i.e, You don't need to use .bind(this) with in constructor for event handlers.
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -6393,7 +6392,7 @@
        document.getElementById('root')
      );
      ```
-     </div>
+    </div>
      You can write the same code without JSX as below,
      <div dir="ltr">
      ```javascript
@@ -6408,7 +6407,7 @@
        document.getElementById('root')
      );
      ```
-     </div>
+    </div>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -6432,7 +6431,7 @@
 
         <div className="hide" title="ReactJS" />
         ```
-     </div>
+    </div>
      3. **Component Elements Of The Same Type:**
         When a component updates, the instance stays the same, so that state is maintained across renders. React updates the props of the underlying component instance to match the new element, and calls componentWillReceiveProps() and componentWillUpdate() on the underlying instance. After that, the render() method is called and the diff algorithm recurses on the previous result and the new result.
      4. **Recursing On Children:**
@@ -6451,7 +6450,7 @@
         </ul>
 
         ```
-     </div>
+    </div>
      5. **Handling keys:**
      React supports a key attribute. When children have keys, React uses the key to match children in the original tree with children in the subsequent tree. For example, adding a key can make the tree conversion efficient,
      <div dir="ltr">
@@ -6467,7 +6466,7 @@
        <li key="2016">Villanova</li>
      </ul>
      ```
-     </div>
+    </div>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -6487,7 +6486,7 @@
        <p>The mouse position is {mouse.x}, {mouse.y}</p>
      )}/>
      ```
-     </div>
+    </div>
      Actually children prop doesn’t need to be named in the list of “attributes” in JSX element. Instead, you can keep it directly inside element,
      <div dir="ltr">
      ```javascript
@@ -6497,7 +6496,7 @@
        )}
      </Mouse>
      ```
-     </div>
+    </div>
      While using this above technique(without any name), explicitly state that children should be a function in your propTypes.
      <div dir="ltr">
      ```javascript
@@ -6505,7 +6504,7 @@
        children: PropTypes.func.isRequired
      };
      ```
-     </div>
+    </div>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -6530,7 +6529,7 @@
        }
      }
      ```
-     </div>
+    </div>
      This way render props gives the flexibility of using either pattern.
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -6548,7 +6547,7 @@
        My JavaScript variable is {String(myVariable)}.
      </div>
      ```
-     </div>
+    </div>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -6576,7 +6575,7 @@
        );
      }
      ```
-     </div>
+    </div>
      The same applies for `select` and `textArea` inputs. But you need to use **defaultChecked** for `checkbox` and `radio` inputs.
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -6611,7 +6610,7 @@
      ```javascript
         npm install bootstrap
         ```
-     </div>
+    </div>
      3. React Bootstrap Package:
         In this case, you can add Bootstrap to our React app is by using a package that has rebuilt Bootstrap components to work particularly as React components. Below packages are popular in this category,
         1. react-bootstrap
@@ -6677,7 +6676,7 @@
 
      export default App;
      ```
-     </div>
+    </div>
      Remember we provided an empty array as second argument to the effect hook to avoid activating it on component updates but only for the mounting of the component. i.e, It fetches only for component mount.
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -6705,13 +6704,13 @@
       var user = userStateVariable[0]; // Access first item
       var setUser = userStateVariable[1]; // Access second item
      ```
-     </div>
+    </div>
      Whereas with array destructuring the variables can be accessed as follows:
      <div dir="ltr">
      ```javascript
      const [user, setUser] = useState('userProfile');
      ```
-     </div>
+    </div>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -6781,11 +6780,11 @@
 316. ### What is MobX?
      MobX is a simple, scalable and battle tested state management solution for applying functional reactive programming (TFRP). For reactJs application, you need to install below packages,
      ```
-     </div>bash
+    </div>bash
      npm install mobx --save
      npm install mobx-react --save
      ```
-     </div>
+    </div>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -6816,7 +6815,7 @@
      // in es6
      const { someData, dispatch } = this.props
      ```
-     </div>
+    </div>
      2. Spread operator: Helps in passing props down into a component
      <div dir="ltr">
      ```javascript
@@ -6826,7 +6825,7 @@
      // in es6
      <SomeComponent {...this.props} />
      ```
-     </div>
+    </div>
      3. Arrow functions: Makes compact syntax
      <div dir="ltr">
      ```javascript
@@ -6837,7 +6836,7 @@
      // es 6
      const users = usersList.map(user => <li>{user.name}</li>);
      ```
-     </div>
+    </div>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -6853,7 +6852,7 @@
      // 2. Whole app using createRoot
      ReactDOM.unstable_createRoot(domNode).render(<App />);
      ```
-     </div>
+    </div>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -6874,7 +6873,7 @@
      // It will log a warning
      <a href={companyProfile.website}>More details</a>
      ```
-     </div>
+    </div>
      Remember that the future versions will throw an error for javascript URLs.
   
      **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -6903,7 +6902,7 @@
         }
     }
     ```
-     </div>
+    </div>
     
     Basically, you have to check what is currently on the screen and handle all the changes necessary to redraw it with the current state, including undoing the changes from the previous state. You can imagine how complex this could be in a real-world scenario.
 
@@ -6917,7 +6916,7 @@
         return <greyLidke />;
     }
     ```
-     </div>
+    </div>
     
     Because the declarative approach separates concerns, this part of it only needs to handle how the UI should look in a sepecific state, and is therefore much simpler to understand.
 
