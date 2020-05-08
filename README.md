@@ -58,7 +58,7 @@
 |41 | [reconciliation چیه؟](#what-is-reconciliation) |
 |42 | [چطوری با یه اسم داینامیک set state کنیم؟](#how-to-set-state-with-a-dynamic-key-name) |
 |43 | [یه اشتباه رایج برای مدیریت توابع eventها که باعث میشه با هر رندر توابع مجدد ساخته بشن چی هستش؟](#what-would-be-the-common-mistake-of-function-being-called-every-time-the-component-renders) |
-|44 | [Is lazy function supports named exports??](#is-lazy-function-supports-named-exports) |
+|44 | [آیا توابع lazy از named export پشتیبانی میکنند؟](#is-lazy-function-supports-named-exports) |
 |45 | [Why React uses className over class attribute?](#why-react-uses-classname-over-class-attribute) |
 |46 | [What are fragments?](#what-are-fragments) |
 |47 | [Why fragments are better than container divs?](#why-fragments-are-better-than-container-divs) |
