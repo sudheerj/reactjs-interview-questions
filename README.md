@@ -377,7 +377,7 @@
 
     In the example below text inside `<h1>` tag return as JavaScript function to the render function.
 
-    <div style="direction: ltr; text-align: left;">
+    <span align="left" dir="ltr">
 
     ```jsx
     class App extends React.Component {
@@ -391,7 +391,7 @@
     }
     ```
    
-    </div>
+    </span>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
