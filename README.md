@@ -2938,19 +2938,19 @@
              <span align="left" dir="ltr">
 
      ```javascript
-             const user = Object.assign({}, this.state.user, { age: 42 })
-             this.setState({ user })
+        const user = Object.assign({}, this.state.user, { age: 42 })
+        this.setState({ user })
      ```
    
      </span>
 
          * Using *spread operator*:
 
-             <span align="left" dir="ltr">
+     <span align="left" dir="ltr">
 
      ```javascript
-             const user = { ...this.state.user, age: 42 }
-             this.setState({ user })
+        const user = { ...this.state.user, age: 42 }
+        this.setState({ user })
      ```
    
      </span>
@@ -3175,9 +3175,10 @@
 
      The component names should start with a uppercase letter but there are few exceptions on this convention. The lowercase tag names with a dot (property accessors) are still considered as valid component names.
      For example the below tag can be compiled to a valid component,
+     
      <span align="left" dir="ltr">
 
-     ```javascript
+     ```jsx
      render(){
         return (
             <obj.component /> // `React.createElement(obj.component)`
@@ -3649,11 +3650,11 @@
      <span align="left" dir="ltr">
 
      ```javascript
-         import { createBrowserHistory } from 'history'
+     import { createBrowserHistory } from 'history'
 
-         export default createBrowserHistory({
-           /* pass a configuration object here if needed */
-         })
+     export default createBrowserHistory({
+       /* pass a configuration object here if needed */
+     })
      ```
    
      </span>
@@ -3663,24 +3664,24 @@
      <span align="left" dir="ltr">
 
      ```jsx harmony
-         import { Router } from 'react-router-dom'
-         import history from './history'
-         import App from './App'
+     import { Router } from 'react-router-dom'
+     import history from './history'
+     import App from './App'
 
-         ReactDOM.render((
-           <Router history={history}>
-             <App />
-           </Router>
-         ), holder)
+     ReactDOM.render((
+       <Router history={history}>
+         <App />
+       </Router>
+     ), holder)
      ```
    
      </span>
 
      3. You can also use push method of `history` object similar to built-in history object:
 
-         <span align="left" dir="ltr">
+     <span align="left" dir="ltr">
 
-    ```javascript
+     ```javascript
          // some-other-file.js
          import history from './history'
 
@@ -3697,7 +3698,7 @@
 
      <span align="left" dir="ltr">
 
-    ```javascript
+     ```javascript
      import React, { Component } from 'react'
      import { Redirect } from 'react-router'
 
@@ -3715,9 +3716,7 @@
      </span>
 
 ## React Internationalization
-     
-     **[⬆ برگشت به بالا](#جدول-محتوا)**
-    
+         
 140. ### What is React Intl?
 
      The *React Intl* library makes internalization in React straightforward, with off-the-shelf components and an API that can handle everything from formatting strings, dates, and numbers, to pluralization. React Intl is part of *FormatJS* which provides bindings to React via its components and API.
@@ -3742,7 +3741,7 @@
 
      <span align="left" dir="ltr">
 
-    ```jsx harmony
+     ```jsx harmony
      <FormattedMessage
        id={'account'}
        defaultMessage={'The amount is less than minimum balance.'}
@@ -3753,7 +3752,7 @@
 
      <span align="left" dir="ltr">
 
-    ```javascript
+     ```javascript
      const messages = defineMessages({
        accountMessage: {
          id: 'account',
@@ -3774,7 +3773,7 @@
 
      <span align="left" dir="ltr">
 
-    ```jsx harmony
+     ```jsx harmony
      import React from 'react'
      import { injectIntl, intlShape } from 'react-intl'
 
@@ -3800,7 +3799,7 @@
 
      <span align="left" dir="ltr">
 
-    ```jsx harmony
+     ```jsx harmony
      import { injectIntl, intlShape } from 'react-intl'
 
      const MyComponent = ({ intl }) => (
@@ -3824,7 +3823,7 @@
 
      <span align="left" dir="ltr">
 
-    ```jsx harmony
+     ```jsx harmony
      import { injectIntl, intlShape } from 'react-intl'
 
      const stringDate = this.props.intl.formatDate(date, {
@@ -3858,7 +3857,7 @@
 
      <span align="left" dir="ltr">
 
-    ```javascript
+     ```javascript
      function MyComponent() {
        return (
          <div>
@@ -3875,7 +3874,7 @@
 
      <span align="left" dir="ltr">
 
-    ```jsx harmony
+     ```jsx harmony
      import ShallowRenderer from 'react-test-renderer/shallow'
 
      // in your test
@@ -3901,7 +3900,7 @@
 
      <span align="left" dir="ltr">
 
-    ```jsx harmony
+     ```jsx harmony
      import TestRenderer from 'react-test-renderer'
 
      const Link = ({page, children}) => <a href={page}>{children}</a>
@@ -3952,7 +3951,7 @@
 
      <span align="left" dir="ltr">
 
-    ```javascript
+     ```javascript
      const sum = (a, b) => a + b
 
      export default sum
@@ -3964,7 +3963,7 @@
 
      <span align="left" dir="ltr">
 
-    ```javascript
+     ```javascript
      import sum from './sum'
 
      test('adds 1 + 2 to equal 3', () => {
@@ -3975,9 +3974,10 @@
      </span>
 
      And then add the following section to your `package.json`:
-     ```
-   
-     </span>json
+     
+     <span align="left" dir="ltr"> 
+     
+     ```json
      {
        "scripts": {
          "test": "jest"
@@ -3988,9 +3988,10 @@
      </span>
 
      Finally, run `yarn test` or `npm test` and Jest will print a result:
-     ```
-   
-     </span>console
+     
+     <span align="left" dir="ltr"> 
+     
+     ```console
      $ yarn test
      PASS ./sum.test.js
      ✓ adds 1 + 2 to equal 3 (2ms)
@@ -3999,9 +4000,7 @@
      </span>
 
 ## React Redux
-     
-     **[⬆ برگشت به بالا](#جدول-محتوا)**
-    
+         
 152. ### What is flux?
 
      *Flux* is an *application design paradigm* used as a replacement for the more traditional MVC pattern. It is not a framework or a library but a new kind of architecture that complements React and the concept of Unidirectional Data Flow. Facebook uses this pattern internally when working with React.
@@ -4044,7 +4043,7 @@
 
      <span align="left" dir="ltr">
 
-    ```javascript
+     ```javascript
      const mapStateToProps = (state) => {
        return {
          todos: getVisibleTodos(state.todos, state.visibilityFilter)
@@ -4058,7 +4057,7 @@
 
      <span align="left" dir="ltr">
 
-    ```javascript
+     ```javascript
      const mapDispatchToProps = (dispatch) => {
        return {
          onTodoClick: (id) => {
@@ -4076,7 +4075,7 @@
       
       <span align="left" dir="ltr">
 
-    ```javascript
+     ```javascript
        const mapDispatchToProps = ({
          onTodoClick
        })
@@ -4098,7 +4097,7 @@
 
      <span align="left" dir="ltr">
 
-    ```javascript
+     ```javascript
      store = createStore(myReducer)
 
      export default store
@@ -4131,7 +4130,7 @@
 
      <span align="left" dir="ltr">
 
-    ```javascript
+     ```javascript
      class App extends Component {
        componentDidMount() {
          this.props.fetchData()
@@ -4166,7 +4165,7 @@
 
          <span align="left" dir="ltr">
 
-    ```jsx harmony
+     ```jsx harmony
          import React from 'react'
          import { connect } from 'react-redux'
 
@@ -4195,7 +4194,7 @@
 
      <span align="left" dir="ltr">
 
-    ```javascript
+     ```javascript
      const appReducer = combineReducers({
        /* your app's top-level reducers */
      })
@@ -4215,7 +4214,7 @@
 
      <span align="left" dir="ltr">
 
-    ```javascript
+     ```javascript
      const appReducer = combineReducers({
        /* your app's top-level reducers */
      })
@@ -4247,7 +4246,7 @@
 
          <span align="left" dir="ltr">
 
-    ```javascript
+     ```javascript
          import React from 'react'
          import * as actionCreators from './actionCreators'
          import { bindActionCreators } from 'redux'
@@ -4274,7 +4273,7 @@
 
          <span align="left" dir="ltr">
 
-    ```javascript
+     ```javascript
          import React from 'react'
          import * as actionCreators from './actionCreators'
          import { bindActionCreators } from 'redux'
@@ -4320,7 +4319,7 @@
 
      <span align="left" dir="ltr">
 
-    ```javascript
+     ```javascript
      export function fetchAccount(id) {
        return dispatch => {
          dispatch(setLoadingAccountState()) // Show a loading spinner
@@ -4358,7 +4357,7 @@
 
      <span align="left" dir="ltr">
 
-    ```javascript
+     ```javascript
      import { connect } from 'react-redux'
      import { setVisibilityFilter } from '../actions'
      import Link from '../components/Link'
@@ -4385,7 +4384,7 @@
 
      <span align="left" dir="ltr">
 
-    ```javascript
+     ```javascript
      class MyComponent {
        someMethod() {
          doSomethingWith(this.context.store)
@@ -4413,7 +4412,7 @@
 
      <span align="left" dir="ltr">
 
-    ```javascript
+     ```javascript
      export const ADD_TODO = 'ADD_TODO'
      export const DELETE_TODO = 'DELETE_TODO'
      export const EDIT_TODO = 'EDIT_TODO'
@@ -4432,7 +4431,7 @@
 
          <span align="left" dir="ltr">
 
-    ```javascript
+     ```javascript
          import { ADD_TODO } from './actionTypes';
 
          export function addTodo(text) {
@@ -4448,7 +4447,7 @@
 
          <span align="left" dir="ltr">
 
-    ```javascript
+     ```javascript
          import { ADD_TODO } from './actionTypes'
 
          export default (state = [], action) => {
@@ -4477,7 +4476,7 @@
 
      <span align="left" dir="ltr">
 
-    ```javascript
+     ```javascript
      const mapDispatchToProps = (dispatch) => ({
       action: () => dispatch(action())
      })
@@ -4487,7 +4486,7 @@
 
      <span align="left" dir="ltr">
 
-    ```javascript
+     ```javascript
      const mapDispatchToProps = (dispatch) => ({
       action: bindActionCreators(action, dispatch)
      })
@@ -4497,7 +4496,7 @@
 
      <span align="left" dir="ltr">
 
-    ```javascript
+     ```javascript
      const mapDispatchToProps = { action }
      ```
    
@@ -4513,7 +4512,7 @@
 
      <span align="left" dir="ltr">
 
-    ```jsx harmony
+     ```jsx harmony
      import ConnectedComponent from './containers/ConnectedComponent';
 
      <ConnectedComponent user={'john'} />
@@ -4525,7 +4524,7 @@
 
      <span align="left" dir="ltr">
 
-    ```javascript
+     ```javascript
      { user: 'john' }
      ```
    
@@ -4554,9 +4553,10 @@
      `redux-saga` is a library that aims to make side effects (asynchronous things like data fetching and impure things like accessing the browser cache) in React/Redux applications easier and better.
 
      It is available in NPM:
-     ```
-   
-     </span>console
+     
+     <span align="left" dir="ltr"> 
+     
+     ```console
      $ npm install --save redux-saga
      ```
    
@@ -4578,7 +4578,7 @@
 
      <span align="left" dir="ltr">
 
-    ```javascript
+     ```javascript
      function* fetchUserSaga(action) {
        // `call` function accepts rest arguments, which will be passed to `api.fetchUser` function.
        // Instructing middleware to call promise, it resolved value will be assigned to `userData` variable
@@ -4632,7 +4632,7 @@
 
      <span align="left" dir="ltr">
 
-    ```javascript
+     ```javascript
      const getUserData = state => state.user.data
      ```
    
@@ -4662,7 +4662,7 @@
 
      <span align="left" dir="ltr">
 
-    ```javascript
+     ```javascript
      import { createStore, applyMiddleware } from 'redux'
      const createStoreWithMiddleware = applyMiddleware(ReduxThunk, logger)(createStore)
      ```
@@ -4677,7 +4677,7 @@
 
      <span align="left" dir="ltr">
 
-    ```javascript
+     ```javascript
      const rootReducer = combineReducers({
        todos: todos,
        visibilityFilter: visibilityFilter
@@ -4702,8 +4702,6 @@
      Relay is similar to Redux in that they both use a single store. The main difference is that relay only manages state originated from the server, and all access to the state is used via *GraphQL* queries (for reading data) and mutations (for changing data). Relay caches the data for you and optimizes data fetching for you, by fetching only changed data and nothing more.
 
 ## React Native
-     
-     **[⬆ برگشت به بالا](#جدول-محتوا)**
     
 188. ### What is the difference between React Native and React?
 
@@ -4722,9 +4720,10 @@
 190. ### How to do logging in React Native?
 
      You can use `console.log`, `console.warn`, etc. As of React Native v0.29 you can simply run the following to see logs in the console:
-     ```
-   
-     </span>
+     
+     <span align="left" dir="ltr"> 
+     
+     ```console
      $ react-native log-ios
      $ react-native log-android
      ```
@@ -4744,8 +4743,6 @@
      5. You should now be able to debug as you normally would.
 
 ## React supported libraries & Integration
-     
-     **[⬆ برگشت به بالا](#جدول-محتوا)**
     
 192. ### What is reselect and how it works?
 
@@ -4772,9 +4769,10 @@
      The below steps followed to include Font Awesome in React:
 
      1. Install `font-awesome`:
-     ```
-   
-     </span>console
+     
+     <span align="left" dir="ltr"> 
+     
+     ```console
      $ npm install --save font-awesome
      ```
    
@@ -4784,7 +4782,7 @@
 
      <span align="left" dir="ltr">
 
-    ```javascript
+     ```javascript
      import 'font-awesome/css/font-awesome.min.css'
      ```
    
@@ -4794,7 +4792,7 @@
 
      <span align="left" dir="ltr">
 
-    ```javascript
+     ```javascript
      render() {
        return <div><i className={'fa fa-spinner'} /></div>
      }
@@ -4827,7 +4825,7 @@
 
          <span align="left" dir="ltr">
 
-    ```jsx harmony
+     ```jsx harmony
          <link rel='import' href='../../bower_components/polymer/polymer.html' />
          Polymer({
            is: 'calender-element',
@@ -4843,7 +4841,7 @@
 
          <span align="left" dir="ltr">
 
-    ```html
+     ```html
          <link rel='import' href='./src/polymer-components/calender-element.html'>
      ```
    
@@ -4853,7 +4851,7 @@
 
          <span align="left" dir="ltr">
 
-    ```javascript
+     ```javascript
          import React from 'react'
 
          class MyComponent extends React.Component {
@@ -4916,7 +4914,7 @@
 
      <span align="left" dir="ltr">
 
-    ```javascript
+     ```javascript
      import React from 'react'
      import styled from 'styled-components'
 
@@ -4940,7 +4938,7 @@
 
      <span align="left" dir="ltr">
 
-    ```jsx harmony
+     ```jsx harmony
      <Wrapper>
        <Title>{'Lets start first styled component!'}</Title>
      </Wrapper>
@@ -4958,9 +4956,10 @@
     
 205. ### How to use TypeScript in `create-react-app` application?
      Starting from react-scripts@2.1.0 or higher, there is a built-in support for typescript. You can just pass `--typescript` option as below
-     ```
-   
-     </span>bash
+     
+     <span dir="ltr" align="left">
+  
+     ```bash
      npx create-react-app my-app --typescript
 
      # or
@@ -4972,9 +4971,10 @@
      But for lower versions of react scripts, just supply `--scripts-version` option as `react-scripts-ts` while you create a new project. `react-scripts-ts` is a set of adjustments to take the standard `create-react-app` project pipeline and bring TypeScript into the mix.
 
      Now the project layout should look like the following:
+     
+     <span dir="ltr" align="left">
+     
      ```
-   
-     </span>
      my-app/
      ├─ .gitignore
      ├─ images.d.ts
@@ -4997,9 +4997,9 @@
     
 206. ### What are the main features of Reselect library?
 
-       1. Selectors can compute derived data, allowing Redux to store the minimal possible state.
-       2. Selectors are efficient. A selector is not recomputed unless one of its arguments changes.
-       3. Selectors are composable. They can be used as input to other selectors.
+     1. Selectors can compute derived data, allowing Redux to store the minimal possible state.
+     2. Selectors are efficient. A selector is not recomputed unless one of its arguments changes.
+     3. Selectors are composable. They can be used as input to other selectors.
 
 207. #### Give an example of Reselect usage?
 
@@ -5007,7 +5007,7 @@
 
      <span align="left" dir="ltr">
 
-    ```javascript
+     ```javascript
      import { createSelector } from 'reselect'
 
      const shopItemsSelector = state => state.shop.items
@@ -5073,7 +5073,7 @@
 
      <span align="left" dir="ltr">
 
-    ```javascript
+     ```javascript
      someComponent= React.createClass({
        statics: {
          someMethod: function() {
@@ -5089,7 +5089,7 @@
 
      <span align="left" dir="ltr">
 
-    ```javascript
+     ```javascript
      class Component extends React.Component {
        static propTypes = {
          // ...
@@ -5104,7 +5104,7 @@
      </span>
      <span align="left" dir="ltr">
 
-    ```javascript
+     ```javascript
      class Component extends React.Component {
         ....
      }
@@ -5135,7 +5135,7 @@
 
      <span align="left" dir="ltr">
 
-    ```javascript
+     ```javascript
      const InitializeFromStateForm = reduxForm({
        form: 'initializeFromState',
        enableReinitialize : true
@@ -5156,7 +5156,7 @@
 
      <span align="left" dir="ltr">
 
-    ```javascript
+     ```javascript
      Component.PropTypes = {
        size: PropTypes.oneOfType([
          PropTypes.string,
@@ -5175,7 +5175,7 @@
 
      <span align="left" dir="ltr">
 
-    ```jsx harmony
+     ```jsx harmony
      import { ReactComponent as Logo } from './logo.svg'
 
      const App = () => (
@@ -5198,7 +5198,7 @@
 
      <span align="left" dir="ltr">
 
-    ```jsx 
+     ```jsx 
      class UserForm extends Component {
        handleSubmit = () => {
          console.log("Input Value is: ", this.input.value)
@@ -5224,7 +5224,7 @@
 
      <span align="left" dir="ltr">
 
-    ```jsx 
+     ```jsx 
      class UserForm extends Component {
       handleSubmit = () => {
         console.log("Input Value is: ", this.input.value)
@@ -5292,7 +5292,7 @@
         }
       }
      }
-      ```
+     ```
    
      </span>
      
@@ -5304,7 +5304,7 @@
 
      <span align="left" dir="ltr">
 
-    ```jsx 
+     ```jsx 
         React.render(<User age={30} department={"IT"} />, document.getElementById('container'));
      ```
    
@@ -5330,7 +5330,7 @@
 
      <span align="left" dir="ltr">
 
-    ```jsx 
+     ```jsx 
         import React from 'react';
         import ReactDOM from 'react-dom';
         import App from './App';
@@ -5347,9 +5347,10 @@
 221. ### What is React memo function?
 
      Class components can be restricted from rendering when their input props are the same using **PureComponent or shouldComponentUpdate**. Now you can do the same with function components by wrapping them in **React.memo**.
+    
      <span align="left" dir="ltr">
 
-    ```jsx 
+     ```jsx 
      const MyComponent = React.memo(function MyComponent(props) {
       /* only rerenders if props change */
      });
@@ -5361,9 +5362,10 @@
     
 222. ### What is React lazy function?
      The React.lazy function lets you render an dynamic import as a regular component. It will automatically load the bundle containing the OtherComponent when the component gets rendered. This must return a Promise which resolves to a module with a default export containing a React component.
+    
      <span align="left" dir="ltr">
 
-    ```jsx 
+     ```jsx 
      const OtherComponent = React.lazy(() => import('./OtherComponent'));
 
      function MyComponent() {
@@ -5383,9 +5385,10 @@
     
 223. ### How to prevent unnecessary updates using setState?
      You can compare current value of the state with an existing state value and decide whether to rerender the page or not. If the values are same then you need to return **null** to stop rerendering otherwise return the latest state value. For example, the user profile information is conditionally rendered as follows,
+     
      <span align="left" dir="ltr">
 
-    ```jsx 
+     ```jsx 
      getUserProfile = user => {
        const latestAddress = user.address;
        this.setState(state => {
@@ -5404,6 +5407,7 @@
     
 224. ### How do you render Array, Strings and Numbers in React 16 Version?
      **Arrays**: Unlike older releases, you don't need to make sure **render** method return a single element in React16. You are able to return multiple sibling elements without a wrapping element by returning an array. For example, let us take the below list of developers,
+    
      <span align="left" dir="ltr">
 
      ```jsx 
@@ -5418,6 +5422,7 @@
    
      </span>
      You can also merge this array of items in another array component
+     
      <span align="left" dir="ltr">
 
      ```jsx 
@@ -5435,6 +5440,7 @@
    
      </span>
      **Strings and Numbers:** You can also return string and number type from the render method
+     
      <span align="left" dir="ltr">
 
      ```jsx 
@@ -5453,6 +5459,7 @@
     
 225. ### How to use class field declarations syntax in React classes?
      React Class Components can be made much more concise using the class field declarations. You can initialize local state without using the constructor and declare class methods by using arrow functions without the extra need to bind them. Let's take a counter example to demonstrate class field declarations for state without using constructor and methods without binding,
+     
      <span align="left" dir="ltr">
 
      ```jsx 
@@ -5490,6 +5497,7 @@
     
 226. ### What are hooks?
      Hooks is a new feature that lets you use state and other React features without writing a class. Let's see an example of useState hook example,
+    
      <span align="left" dir="ltr">
 
      ```jsx 
@@ -5524,14 +5532,16 @@
     
 228. ### How to ensure hooks followed the rules in your project?
      React team released an ESLint plugin called **eslint-plugin-react-hooks** that enforces these two rules. You can add this plugin to your project using the below command,
+     
      <span align="left" dir="ltr">
 
-     ```javascript
+     ```bash
      npm install eslint-plugin-react-hooks@next
      ```
    
      </span>
      And apply the below config in your ESLint config file,
+     
      <span align="left" dir="ltr">
 
      ```javascript
@@ -5603,9 +5613,10 @@
 233. ### Why do not you need error boundaries for event handlers?
      Error boundaries do not catch errors inside event handlers. Event handlers don't happened or invoked during rendering time unlike render method or lifecycle methods. So React knows how to recover these kind of errors in event handlers.
      If still you need to catch an error inside event handler, use the regular JavaScript try / catch statement as below
+     
      <span align="left" dir="ltr">
 
-     ```javascript
+     ```jsx
      class MyComponent extends React.Component {
        constructor(props) {
          super(props);
@@ -5637,6 +5648,7 @@
 234. ### What is the difference between try catch block and error boundaries?
      Try catch block works with imperative code whereas error boundaries are meant for declarative code to render on the screen.
      For example, the try catch block used for below imperative code
+     
      <span align="left" dir="ltr">
 
      ```javascript
@@ -5649,9 +5661,10 @@
    
      </span>
      Whereas error boundaries wrap declarative code as below,
+     
      <span align="left" dir="ltr">
 
-     ```javascript
+     ```jsx
      <ErrorBoundary>
        <MyComponent />
      </ErrorBoundary>
@@ -5723,6 +5736,7 @@
     
 242. ### What are default props?
      The defaultProps are defined as a property on the component class to set the default props for the class. This is used for undefined props, but not for null props. For example, let us create color default prop for the button component,
+     
      <span align="left" dir="ltr">
 
      ```javascript
@@ -5738,6 +5752,7 @@
      </span>
 
      If props.color is not provided then it will set the default value to 'red'. i.e, Whenever you try to access the color prop it uses default value
+     
      <span align="left" dir="ltr">
 
      ```jsx
@@ -5758,6 +5773,7 @@
     
 244. ### What is the purpose of getDerivedStateFromError?
      This lifecycle method is invoked after an error has been thrown by a descendant component. It receives the error that was thrown as a parameter and should return a value to update state. The signature of the lifecycle method is as follows,
+     
      <span align="left" dir="ltr">
 
      ```javascript
@@ -5766,6 +5782,7 @@
    
      </span>
      Let us take error boundary use case with the above lifecycle method for demonistration purpose,
+     
      <span align="left" dir="ltr">
 
      ```jsx
@@ -5815,6 +5832,7 @@
 247. ### What is the purpose of displayName class property?
      The displayName string is used in debugging messages. Usually, you don’t need to set it explicitly because it’s inferred from the name of the function or class that defines the component. You might want to set it explicitly if you want to display a different name for debugging purposes or when you create a higher-order component.
      For example, To ease debugging, choose a display name that communicates that it’s the result of a withSubscription HOC.
+     
      <span align="left" dir="ltr">
 
      ```javascript
@@ -5840,6 +5858,7 @@
 249. ### What is the purpose of unmountComponentAtNode method?
      This method is available from react-dom package and it removes a mounted React component from the DOM and clean up its event handlers and state. If no component was mounted in the container, calling this function does nothing. Returns true if a component was unmounted and false if there was no component to unmount.
      The method signature would be as follows,
+     
      <span align="left" dir="ltr">
 
      ```javascript
@@ -5854,6 +5873,7 @@
      Code-Splitting is a feature supported by bundlers like Webpack and Browserify which can create multiple bundles that can be dynamically loaded at runtime. The react project supports code splitting via dynamic import() feature.
      For example, in the below code snippets, it will make moduleA.js and all its unique dependencies as a separate chunk that only loads after the user clicks the 'Load' button.
      **moduleA.js**
+     
      <span align="left" dir="ltr">
 
      ```javascript
@@ -5864,6 +5884,7 @@
    
      </span>
      **App.js**
+    
      <span align="left" dir="ltr">
 
      ```jsx
@@ -5909,6 +5930,7 @@
     
 252. ### What are Keyed Fragments?
      The Fragments declared with the explicit <React.Fragment> syntax may have keys. The general usecase is mapping a collection to an array of fragments as below,
+     
      <span align="left" dir="ltr">
 
      ```jsx
@@ -5934,9 +5956,10 @@
     
 253. ### Does React support all HTML attributes?
      As of React 16, both standard or custom DOM attributes are fully supported. Since React components often take both custom and DOM-related props, React uses the camelCase convention just like the DOM APIs. Let us take few props with respect to standard HTML attributes,
+    
      <span align="left" dir="ltr">
 
-     ```javascript
+     ```jsx
      <div tabIndex="-1" />      // Just like node.tabIndex DOM API
      <div className="Button" /> // Just like node.className DOM API
      <input readOnly={true} />  // Just like node.readOnly DOM API
@@ -5952,36 +5975,39 @@
      Higher-order components come with a few caveats apart from its benefits. Below are the few listed in an order
      1. **Don’t Use HOCs Inside the render Method:**
         It is not recommended to apply a HOC to a component within the render method of a component.
+        
         <span align="left" dir="ltr">
 
      ```jsx
-        render() {
-          // A new version of EnhancedComponent is created on every render
-          // EnhancedComponent1 !== EnhancedComponent2
-          const EnhancedComponent = enhance(MyComponent);
-          // That causes the entire subtree to unmount/remount each time!
-          return <EnhancedComponent />;
-        }
+     render() {
+       // A new version of EnhancedComponent is created on every render
+       // EnhancedComponent1 !== EnhancedComponent2
+       const EnhancedComponent = enhance(MyComponent);
+       // That causes the entire subtree to unmount/remount each time!
+       return <EnhancedComponent />;
+     }
      ```
    
      </span>
         The above code impact performance by remounting a component that causes the state of that component and all of its children to be lost. Instead, apply HOCs outside the component definition so that the resulting component is created only once
      2. **Static Methods Must Be Copied Over:**
         When you apply a HOC to a component the new component does not have any of the static methods of the original component
+        
         <span align="left" dir="ltr">
 
      ```javascript
-        // Define a static method
-        WrappedComponent.staticMethod = function() {/*...*/}
-        // Now apply a HOC
-        const EnhancedComponent = enhance(WrappedComponent);
+     // Define a static method
+     WrappedComponent.staticMethod = function() {/*...*/}
+     // Now apply a HOC
+     const EnhancedComponent = enhance(WrappedComponent);
 
-        // The enhanced component has no static method
-        typeof EnhancedComponent.staticMethod === 'undefined' // true
+     // The enhanced component has no static method
+     typeof EnhancedComponent.staticMethod === 'undefined' // true
      ```
    
      </span>
         You can overcome this by copying the methods onto the container before returning it
+     
      <span align="left" dir="ltr">
 
      ```javascript
@@ -6002,6 +6028,7 @@
 255. ### How to debug forwardRefs in DevTools?
 
      **React.forwardRef** accepts a render function as parameter and DevTools uses this function to determine what to display for the ref forwarding component. For example, If you don't name the render function or not using displayName property then it will appear as ”ForwardRef” in the DevTools,
+     
      <span align="left" dir="ltr">
 
      ```jsx
@@ -6012,6 +6039,7 @@
    
      </span>
      But If you name the render function then it will appear as **”ForwardRef(myFunction)”**
+     
      <span align="left" dir="ltr">
 
      ```jsx
@@ -6024,6 +6052,7 @@
    
      </span>
      As an alternative, You can also set displayName property for forwardRef function,
+     
      <span align="left" dir="ltr">
 
      ```javascript
@@ -6051,9 +6080,10 @@
     
 256. ### When component props defaults to true?
      If you pass no value for a prop, it defaults to true. This behavior is available so that it matches the behavior of HTML. For example, below expressions are equivalent,
+     
      <span align="left" dir="ltr">
 
-     ```javascript
+     ```jsx
      <MyInput autocomplete />
 
      <MyInput autocomplete={true} />
@@ -6077,6 +6107,7 @@
     
 258. ### How do you pass an event handler to a component?
      You can pass event handlers and other functions as props to child components. It can be used in child component as  below,
+     
      <span align="left" dir="ltr">
 
      ```
@@ -6089,6 +6120,7 @@
     
 259. ### Is it good to use arrow functions in render methods?
      Yes, You can use. It is often the easiest way to pass parameters to callback functions. But you need to optimize the performance while using it.
+     
      <span align="left" dir="ltr">
 
      ```jsx
@@ -6117,9 +6149,10 @@
     
 261. ### How JSX prevents Injection Attacks?
      React DOM escapes any values embedded in JSX before rendering them. Thus it ensures that you can never inject anything that’s not explicitly written in your application. Everything is converted to a string before being rendered. For example, you can embed user input as below,
+     
      <span align="left" dir="ltr">
 
-     ```javascript
+     ```jsx
      const name = response.potentiallyMaliciousInput;
      const element = <h1>{name}</h1>;
      ```
@@ -6131,9 +6164,10 @@
     
 262. ### How do you update rendered elements?
      You can update UI(represented by rendered element) by passing the newly created element to ReactDOM's render method. For example, lets take a ticking clock example, where it updates the time by calling render method multiple times,
+     
      <span align="left" dir="ltr">
 
-     ```javascript
+     ```jsx
      function tick() {
        const element = (
          <div>
@@ -6168,6 +6202,7 @@
     
 264. ### How do you say that state updates are merged?
      When you call setState() in the component, React merges the object you provide into the current state. For example, let us take a facebook user with posts and comments details as state variables,
+     
      <span align="left" dir="ltr">
 
      ```javascript
@@ -6182,6 +6217,7 @@
    
      </span>
      Now you can update them independently with separate setState() calls as below,
+     
      <span align="left" dir="ltr">
 
      ```javascript
@@ -6222,6 +6258,7 @@
     
 266. ### How to prevent component from rendering?
      You can prevent component from rendering by returning null based on specific condition. This way it can conditionally render component.
+     
      <span align="left" dir="ltr">
 
      ```jsx
@@ -6239,6 +6276,7 @@
      ```
    
      </span>
+     
      <span align="left" dir="ltr">
 
      ```jsx
@@ -6274,6 +6312,7 @@
     
 268. ### Is it keys should be globally unique?
      Keys used within arrays should be unique among their siblings but they don’t need to be globally unique. i.e, You can use the same keys withtwo different arrays. For example, the below book component uses two arrays with different arrays,
+     
      <span align="left" dir="ltr">
 
      ```jsx
@@ -6335,6 +6374,7 @@
     
 272. ### Can I use web components in react application?
      Yes, you can use web components in a react application. Even though many developers won't use this combination, it may require especially if you are using third-party UI components that are written using Web Components. For example, let us  use Vaadin date picker web component as below,
+     
      <span align="left" dir="ltr">
 
      ```jsx
@@ -6360,6 +6400,7 @@
 273. ### What is dynamic import?
      The dynamic import() syntax is a ECMAScript proposal not currently part of the language standard. It is expected to be accepted in the near future. You can achieve code-splitting into your app using dynamic import(). Let's take an example of addition,
      1. **Normal Import**
+     
      <span align="left" dir="ltr">
 
      ```javascript
@@ -6369,6 +6410,7 @@
    
      </span>
      2. **Dynamic Import**
+     
      <span align="left" dir="ltr">
 
      ```javascript
@@ -6383,6 +6425,7 @@
     
 274. ### What are loadable components?
      If you want to do code-splitting in a server rendered app, it is recommend to use Loadable Components because React.lazy and Suspense is not yet available for server-side rendering. Loadable lets you render a dynamic import as a regular component. Lets take an example,
+     
      <span align="left" dir="ltr">
 
      ```jsx
@@ -6406,6 +6449,7 @@
     
 275. ### What is suspense component?
      If the module containing the dynamic import is not yet loaded by the time parent component renders, you must show some fallback content while you’re waiting for it to load using a loading indicator. This can be done using **Suspense** component. For example, the below code uses suspense component,
+     
      <span align="left" dir="ltr">
 
      ```jsx
