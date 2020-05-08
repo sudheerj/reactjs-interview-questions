@@ -447,7 +447,7 @@
    
      </span>
      
-     JSX به `()React.createElement` transplie میشه : 
+     JSX به `React.createElement()` transplie میشه : 
 
     <span align="left" dir="ltr">
 
