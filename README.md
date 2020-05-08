@@ -226,7 +226,7 @@
 |203| [Give an example of Styled Components?](#give-an-example-of-styled-components) |
 |204| [What is Relay?](#what-is-relay) |
 |205| [How to use TypeScript in create-react-app application?](#how-to-use-typescript-in-create-react-app-application) |
-|   | **Miscellaneous** |
+|   | **متفرقه** |
 |206| [What are the main features of reselect library?](#what-are-the-main-features-of-reselect-library) |
 |207| [Give an example of reselect usage?](#give-an-example-of-reselect-usage) |
 |208| [What is an action in Redux?](#what-is-an-action-in-redux) |
@@ -1393,24 +1393,26 @@
 44. ### Is lazy function supports named exports?
     No, currently `React.lazy` function supports default exports only. If you would like to import modules which are named exports, you can create an intermediate module that reexports it as the default. It also ensures that tree shaking keeps working and don’t pull unused components.
     Let's take a component file which exports multiple named components,
+    
     <span align="left" dir="ltr">
 
     ```javascript
     // MoreComponents.js
     export const SomeComponent = /* ... */;
     export const UnusedComponent = /* ... */;
-     ```
+    ```
    
-     </span>
+    </span>
     and reexport `MoreComponents.js` components in an intermediate file `IntermediateComponent.js`
+    
     <span align="left" dir="ltr">
 
     ```javascript
     // IntermediateComponent.js
     export { SomeComponent as default } from "./MoreComponents.js";
-     ```
+    ```
    
-     </span>
+    </span>
     Now you can import the module using lazy function as below,
     <span align="left" dir="ltr">
 
@@ -1698,13 +1700,14 @@
 58. ### What is the purpose of render method of `react-dom`?
 
     This method is used to render a React element into the DOM in the supplied container and return a reference to the component. If the React element was previously rendered into container, it will perform an update on it and only mutate the DOM as necessary to reflect the latest changes.
-     ```
-   
-     </span>
+    
+    <span align="left" dir="ltr"> 
+     
+    ```javascript
     ReactDOM.render(element, container[, callback])
-     ```
+    ```
    
-     </span>
+    </span>
 
     If the optional callback is provided, it will be executed after the component is rendered or updated.
      
@@ -2016,22 +2019,23 @@
         <MemoizedFoo/>
       </div>
     }
-     ```
+    ```
    
-     </span>
+    </span>
 
     **Update:** Since React v16.6.0, we have a `React.memo`. It provides a higher order component which memoizes component unless the props change. To use it, simply wrap the component using React.memo before you use it.
-     ```
+
+    <span align="left" dir="ltr"> 
+    
+    ```js
+    const MemoComponent = React.memo(function MemoComponent(props) {
+      /* render using props */
+    });
+    // OR
+    export default React.memo(MyFunctionComponent);
+    ```
    
-     </span>js
-      const MemoComponent = React.memo(function MemoComponent(props) {
-        /* render using props */
-      });
-      OR
-      export default React.memo(MyFunctionComponent);
-     ```
-   
-     </span>
+    </span>
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -2065,9 +2069,10 @@
     The `create-react-app` CLI tool allows you to quickly create & run React applications with no configuration step.
 
     Let's create Todo App using *CRA*:
-     ```
-   
-     </span>console
+    
+    <span align="left" dir="ltr"> 
+    
+     ```console
     # Installation
     $ npm install -g create-react-app
 
@@ -2708,9 +2713,9 @@
 
     ```jsx harmony
     <button style={{...styles.panel.button, ...styles.panel.submitButton}}>{'Submit'}</button>
-     ```
+    ```
    
-     </span>
+    </span>
 
     If you're using React Native then you can use the array notation:
 
@@ -2718,17 +2723,17 @@
 
     ```jsx harmony
     <button style={[styles.panel.button, styles.panel.submitButton]}>{'Submit'}</button>
-     ```
+    ```
    
-     </span>
+    </span>
      
-     **[⬆ برگشت به بالا](#جدول-محتوا)**
+    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
 100. ### How to re-render the view when the browser is resized?
 
      You can listen to the `resize` event in `componentDidMount()` and then update the dimensions (`width` and `height`). You should remove the listener in `componentWillUnmount()` method.
 
-     <p align="left" dir="ltr">
+     <span align="left" dir="ltr">
     
      ```jsx
      class WindowDimensions extends React.Component {
@@ -2759,7 +2764,7 @@
      }
      ```
     
-     </p>
+     </span>
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -3282,9 +3287,10 @@
      2. **Grouping by file type:**
 
          Another popular way to structure projects is to group similar files together.
+     
+     <span align="left" dir="ltr"> 
+     
      ```
-   
-     </span>
          api/
          ├─ APIUtils.js
          ├─ APIUtils.test.js
@@ -3429,9 +3435,7 @@
      Libraries such as React Router and DownShift are using this pattern.
 
 ## React Router
-     
-     **[⬆ برگشت به بالا](#جدول-محتوا)**
-    
+         
 129. ### What is React Router?
 
      React Router is a powerful routing library built on top of React that helps you add new screens and flows to your application incredibly quickly, all while keeping the URL in sync with what's being displayed on the page.
@@ -3846,9 +3850,7 @@
      </span>
 
 ## React Testing
-     
-     **[⬆ برگشت به بالا](#جدول-محتوا)**
-    
+         
 146. ### What is Shallow Renderer in React testing?
 
      *Shallow rendering* is useful for writing unit test cases in React. It lets you render a component *one level deep* and assert facts about what its render method returns, without worrying about the behavior of child components, which are not instantiated or rendered.
@@ -4244,7 +4246,7 @@
 
      * **Without decorator:**
 
-         <span align="left" dir="ltr">
+     <span align="left" dir="ltr">
 
      ```javascript
          import React from 'react'
@@ -4271,7 +4273,7 @@
 
      * **With decorator:**
 
-         <span align="left" dir="ltr">
+     <span align="left" dir="ltr">
 
      ```javascript
          import React from 'react'
@@ -4429,7 +4431,7 @@
 
          Let's take `actions.js`:
 
-         <span align="left" dir="ltr">
+     <span align="left" dir="ltr">
 
      ```javascript
          import { ADD_TODO } from './actionTypes';
@@ -4445,7 +4447,7 @@
 
          Let's create `reducer.js`:
 
-         <span align="left" dir="ltr">
+     <span align="left" dir="ltr">
 
      ```javascript
          import { ADD_TODO } from './actionTypes'
@@ -4823,7 +4825,7 @@
 
      1. Create a Polymer element:
 
-         <span align="left" dir="ltr">
+     <span align="left" dir="ltr">
 
      ```jsx harmony
          <link rel='import' href='../../bower_components/polymer/polymer.html' />
@@ -4839,7 +4841,7 @@
 
      2. Create the Polymer component HTML tag by importing it in a HTML document, e.g. import it in the `index.html` of your React application:
 
-         <span align="left" dir="ltr">
+     <span align="left" dir="ltr">
 
      ```html
          <link rel='import' href='./src/polymer-components/calender-element.html'>
@@ -4849,7 +4851,7 @@
 
          3. Use that element in the JSX file:
 
-         <span align="left" dir="ltr">
+     <span align="left" dir="ltr">
 
      ```javascript
          import React from 'react'
@@ -4878,8 +4880,7 @@
      3. Suitable for mobile apps creating.
      4. More information and solutions available.
 
-   **نکته:** لیست موارد فوق صرفاً اظهار نظر شخصی بوده و براساس تجربه حرفه‌ای ممکن است متفاوت باشد. اما به عنوان پارامترهای پایه مفید هستند
-     
+   **نکته:** لیست موارد فوق صرفاً اظهار نظر شخصی بوده و براساس تجربه حرفه‌ای ممکن است متفاوت باشد. اما به عنوان پارامترهای پایه مفید هستند 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
 200. ### What is the difference between React and Angular?
@@ -4893,7 +4894,6 @@
      | In React, data flows only in one way and hence debugging is easy | In Angular, data flows both way i.e it has two-way data binding between children and parent and hence debugging is often difficult |
 
    **نکته:** لیست موارد فوق صرفاً اظهار نظر شخصی بوده و براساس تجربه حرفه‌ای ممکن است متفاوت باشد. اما به عنوان پارامترهای پایه مفید هستند
-     
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
 201. ### Why React tab is not showing up in DevTools?
@@ -4991,10 +4991,8 @@
    
      </span>
 
-## Miscellaneous
-     
-     **[⬆ برگشت به بالا](#جدول-محتوا)**
-    
+## متفرقه 
+         
 206. ### What are the main features of Reselect library?
 
      1. Selectors can compute derived data, allowing Redux to store the minimal possible state.
@@ -5054,11 +5052,12 @@
      *Actions* are plain JavaScript objects or payloads of information that send data from your application to your store. They are the only source of information for the store. Actions must have a type property that indicates the type of action being performed.
 
      For example an example action which represents adding a new todo item:
-     ```
-   
-     </span>
+     
+     <span align="left" dir="ltr"> 
+     
+     ```javascript
      {
-       type: ADD_TODO,
+       type: 'ADD_TODO',
        text: 'Add todo item'
      }
      ```
@@ -6187,6 +6186,7 @@
     
 263. ### How do you say that props are read only?
      When you declare a component as a function or a class, it must never modify its own props. Let us take a below capital function,
+     
      <span align="left" dir="ltr">
 
      ```javascript
