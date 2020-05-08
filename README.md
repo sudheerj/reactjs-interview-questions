@@ -14,7 +14,7 @@
 
 | ردیف. | سوال |
 | --- | --------- |
-|   | **هسته ری‌اکت ** |
+|   | **هسته ری‌اکت** |
 |1  | [ری‌اکت چیه؟](#what-is-react) |
 |2  | [اصلی‌ترین ویژگی‌های ری‌اکت چیه؟](#what-are-the-major-features-of-react) |
 |3  | [JSX چیه؟](#what-is-jsx) |
@@ -377,7 +377,7 @@
 
     In the example below text inside `<h1>` tag return as JavaScript function to the render function.
 
-    <p dir="ltr">
+    <span dir="ltr">
 
     ```jsx
     class App extends React.Component {
@@ -391,7 +391,7 @@
     }
     ```
    
-    </p>
+    </span>
 
    **[⬆ برگشت به بالا](#جدول-محتوا)**
     
