@@ -377,7 +377,7 @@
 
     In the example below text inside `<h1>` tag return as JavaScript function to the render function.
 
-    <span dir="ltr">
+    <span style="direction: ltr; text-align: left;">
 
     ```jsx
     class App extends React.Component {
@@ -401,7 +401,7 @@
 
     The object representation of React Element would be as follows:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```javascript
     const element = React.createElement(
@@ -415,7 +415,7 @@
 
     The above `React.createElement()` function returns an object:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```
     {
@@ -431,7 +431,7 @@
 
     And finally it renders to the DOM using `ReactDOM.render()`:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```html
     <div id='login-btn'>Login</div>
@@ -441,7 +441,7 @@
 
     Whereas a **component** can be declared in several different ways. It can be a class with a `render()` method. Alternatively, in simple cases, it can be defined as a function. In either case, it takes props as an input, and returns a JSX tree as the output:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx
     const Button = ({ onLogin }) =>
@@ -452,7 +452,7 @@
 
     Then JSX gets transpiled to a `React.createElement()` function tree:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```javascript
     const Button = ({ onLogin }) => React.createElement(
@@ -473,7 +473,7 @@
 
     1. **Function Components:** This is the simplest way to create a component. Those are pure JavaScript functions that accept props object as first parameter and return React elements:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
         function Greeting({ message }) {
@@ -485,7 +485,7 @@
 
     2. **Class Components:** You can also use ES6 class to define a component. The above function component can be written as:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
         class Greeting extends React.Component {
@@ -520,7 +520,7 @@
     *State* of a component is an object that holds some information that may change over the lifetime of the component. We should always try to make our state as simple as possible and minimize the number of stateful components. Let's create an user component with message state,
 
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     class User extends React.Component {
@@ -563,7 +563,7 @@
 
     For example, let us create an element with `reactProp` property:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     <Element reactProp={'1'} />
@@ -573,7 +573,7 @@
 
     This `reactProp` (or whatever you came up with) name then becomes a property attached to React's native props object which originally already exists on all components created using React library.
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```
     props.reactProp
@@ -595,7 +595,7 @@
 
     If you try to update state directly then it won't re-render the component.
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```javascript
     //Wrong
@@ -606,7 +606,7 @@
 
     Instead use `setState()` method. It schedules an update to a component's state object. When state changes, the component responds by re-rendering.
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```javascript
     //Correct
@@ -626,7 +626,7 @@
 
     **Note:** It is recommended to use lifecycle method rather than this callback function.
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```javascript
     setState({ name: 'John' }, () => console.log('The name has updated and component re-rendered'))
@@ -641,7 +641,7 @@
 
     1. In HTML, the event name should be in *lowercase*:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```html
     <button onclick='activateLasers()'>
@@ -651,7 +651,7 @@
 
     Whereas in React it follows *camelCase* convention:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     <button onClick={activateLasers}>Test</button>
@@ -661,7 +661,7 @@
 
     2. In HTML, you can return `false` to prevent default behavior:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```html
     <a href='#' onclick='console.log("The link was clicked."); return false;' />
@@ -671,7 +671,7 @@
 
     Whereas in React you must call `preventDefault()` explicitly:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```javascript
     function handleClick(event) {
@@ -694,7 +694,7 @@
 
     1.	**Binding in Constructor:** In JavaScript classes, the methods are not bound by default. The same thing applies for React event handlers defined as class methods. Normally we bind them in constructor.
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```javascript
     class Component extends React.Componenet {
@@ -713,7 +713,7 @@
 
     2. **Public class fields syntax:** If you don't like to use bind approach then *public class fields syntax* can be used to correctly bind callbacks.
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     handleClick = () => {
@@ -723,7 +723,7 @@
    
     </p>
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     <button onClick={this.handleClick}>
@@ -735,7 +735,7 @@
 
     3. **Arrow functions in callbacks:** You can use *arrow functions* directly in the callbacks.
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     <button onClick={(event) => this.handleClick(event)}>
@@ -754,7 +754,7 @@
 
     You can use an *arrow function* to wrap around an *event handler* and pass parameters:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     <button onClick={() => this.handleClick(id)} >Test</button>
@@ -764,7 +764,7 @@
 
     This is an equivalent to calling `.bind`:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     <button onClick={this.handleClick.bind(this, id)} />
@@ -772,7 +772,7 @@
    
     </p>
     Apart from these two approaches, you can also pass arguments to a function which is defined as array function
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     <button onClick={this.handleClick(id)} />
@@ -797,7 +797,7 @@
 
     You can use either *if statements* or *ternary expressions* which are available from JS to conditionally render expressions. Apart from these approaches, you can also embed any expressions in JSX by wrapping them in curly braces and then followed by JS logical operator `&&`.
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     <h1>Hello!</h1>
@@ -824,7 +824,7 @@
 
     Most often we use IDs from our data as *keys*:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     const todoItems = todos.map((todo) =>
@@ -838,7 +838,7 @@
 
     When you don't have stable IDs for rendered items, you may use the item *index* as a *key* as a last resort:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     const todoItems = todos.map((todo, index) =>
@@ -871,7 +871,7 @@
     There are two approaches
     1. This is a recently added approach. *Refs* are created using `React.createRef()` method and attached to React elements via the `ref` attribute. In order to use *refs* throughout the component, just assign the *ref* to the instance property within constructor.
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     class MyComponent extends React.Component {
@@ -887,7 +887,7 @@
    
     </p>
     2. You can also use ref callbacks approach regardless of React version. For example, the search bar component's input element accessed as follows,
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     class SearchBar extends Component {
@@ -924,7 +924,7 @@
 
     *Ref forwarding* is a feature that lets some components take a *ref* they receive, and pass it further down to a child.
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     const ButtonElement = React.forwardRef((props, ref) => (
@@ -949,7 +949,7 @@
 
     The **legacy** approach of using `findDOMNode`:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```javascript
     class MyComponent extends Component {
@@ -967,7 +967,7 @@
 
     The recommended approach is:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```javascript
     class MyComponent extends Component {
@@ -999,7 +999,7 @@
     3. They *don't work with static analysis* like Flow. Flow can't guess the magic that framework does to make the string ref appear on `this.refs`, as well as its type (which could be different). Callback refs are friendlier to static analysis.
     4. It doesn't work as most people would expect with the "render callback" pattern (e.g. <DataGrid renderRow={this.renderRow} />)
     
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
        class MyComponent extends Component {
@@ -1074,7 +1074,7 @@
 
     For example, to write all the names in uppercase letters, we use handleChange as below,
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```javascript
     handleChange(event) {
@@ -1093,7 +1093,7 @@
 
     In the below UserProfile component, the `name` input is accessed using ref.
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     class UserProfile extends React.Component {
@@ -1203,7 +1203,7 @@
 
     We call them **pure components** because they can accept any dynamically provided child component but they won't modify or copy any behavior from their input components.
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```javascript
     const EnhancedComponent = higherOrderComponent(WrappedComponent)
@@ -1225,7 +1225,7 @@
 
     You can add/edit props passed to the component using *props proxy* pattern like this:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     function HOC(WrappedComponent) {
@@ -1253,7 +1253,7 @@
 
     *Context* provides a way to pass data through the component tree without having to pass props down manually at every level. For example, authenticated user, locale preference, UI theme need to be accessed in the application by many components.
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```javascript
     const {Provider, Consumer} = React.createContext(defaultValue)
@@ -1271,7 +1271,7 @@
     There are a number of methods available in the React API to work with this prop. These include `React.Children.map`, `React.Children.forEach`, `React.Children.count`, `React.Children.only`, `React.Children.toArray`.
     A simple usage of children prop looks as below,
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     const MyDiv = React.createClass({
@@ -1300,7 +1300,7 @@
 
     **Single-line comments:**
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     <div>
@@ -1313,7 +1313,7 @@
 
     **Multi-line comments:**
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     <div>
@@ -1334,7 +1334,7 @@
 
     **Passing props:**
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```javascript
     class MyComponent extends React.Component {
@@ -1350,7 +1350,7 @@
 
     **Not passing props:**
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```javascript
     class MyComponent extends React.Component {
@@ -1388,7 +1388,7 @@
 
     If you are using ES6 or the Babel transpiler to transform your JSX code then you can accomplish this with *computed property names*.
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```javascript
     handleInputChange(event) {
@@ -1405,7 +1405,7 @@
 
     You need to make sure that function is not being called while passing the function as a parameter.
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     render() {
@@ -1418,7 +1418,7 @@
 
     Instead, pass the function itself without parenthesis:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     render() {
@@ -1435,7 +1435,7 @@
 44. ### Is lazy function supports named exports?
     No, currently `React.lazy` function supports default exports only. If you would like to import modules which are named exports, you can create an intermediate module that reexports it as the default. It also ensures that tree shaking keeps working and don’t pull unused components.
     Let's take a component file which exports multiple named components,
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```javascript
     // MoreComponents.js
@@ -1445,7 +1445,7 @@
    
     </p>
     and reexport `MoreComponents.js` components in an intermediate file `IntermediateComponent.js`
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```javascript
     // IntermediateComponent.js
@@ -1454,7 +1454,7 @@
    
     </p>
     Now you can import the module using lazy function as below,
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```javascript
     import React, { lazy } from 'react';
@@ -1469,7 +1469,7 @@
 
     `class` is a keyword in JavaScript, and JSX is an extension of JavaScript. That's the principal reason why React uses `className` instead of `class`. Pass a string as the `className` prop.
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     render() {
@@ -1486,7 +1486,7 @@
 
     It's common pattern in React which is used for a component to return multiple elements. *Fragments* let you group a list of children without adding extra nodes to the DOM.
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     render() {
@@ -1504,7 +1504,7 @@
 
     There is also a *shorter syntax*, but it's not supported in many tools:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     render() {
@@ -1536,7 +1536,7 @@
 
     *Portal* is a recommended way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```javascript
     ReactDOM.createPortal(child, container)
@@ -1560,7 +1560,7 @@
 
     If the behaviour of a component is dependent on the *state* of the component then it can be termed as stateful component. These *stateful components* are always *class components* and have a state that gets initialized in the `constructor`.
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```javascript
     class App extends Component {
@@ -1581,7 +1581,7 @@
 
     *The Equivalent Functional Component*
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```javascript
     import React, {useState} from 'react';
@@ -1620,7 +1620,7 @@
 
     We can define `propTypes` for `User` component as below:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     import React from 'react'
@@ -1678,7 +1678,7 @@
 
     A class component becomes an error boundary if it defines a new lifecycle method called `componentDidCatch(error, info)` or `static getDerivedStateFromError() `:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     class ErrorBoundary extends React.Component {
@@ -1711,7 +1711,7 @@
 
     After that use it as a regular component:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     <ErrorBoundary>
@@ -1776,7 +1776,7 @@
 
     For example, you generally run a Node-based web server like Express, Hapi, or Koa, and you call `renderToString` to render your root component to a string, which you then send as response.
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```javascript
     // using Express
@@ -1803,7 +1803,7 @@
 
     In this example MyComponent uses `dangerouslySetInnerHTML` attribute for setting HTML markup:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     function createMarkup() {
@@ -1824,7 +1824,7 @@
 
     The `style` attribute accepts a JavaScript object with camelCased properties rather than a CSS string. This is consistent with the DOM style JavaScript property, is more efficient, and prevents XSS security holes.
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     const divStyle = {
@@ -1867,7 +1867,7 @@
 
     In the below code snippet each element's key will be based on ordering, rather than tied to the data that is being represented. This limits the optimizations that React can do.
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     {todos.map((todo, index) =>
@@ -1882,7 +1882,7 @@
 
     If you use element data for unique key, assuming todo.id is unique to this list and stable, React would be able to reorder elements without needing to reevaluate them as much.
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     {todos.map((todo) =>
@@ -1900,7 +1900,7 @@
 
     It is recommended to avoid async initialization in `componentWillMount()` lifecycle method. `componentWillMount()` is invoked immediately before mounting occurs. It is called before `render()`, therefore setting state in this method will not trigger a re-render. Avoid introducing any side-effects or subscriptions in this method. We need to make sure async calls for component initialization happened in `componentDidMount()` instead of `componentWillMount()`.
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     componentDidMount() {
@@ -1924,7 +1924,7 @@
 
     The below component won't display the updated input value:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     class MyComponent extends React.Component {
@@ -1947,7 +1947,7 @@
 
     Using props inside render method will update the value:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     class MyComponent extends React.Component {
@@ -1974,7 +1974,7 @@
 
     In some cases you want to render different components depending on some state. JSX does not render `false` or `undefined`, so you can use conditional *short-circuiting* to render a given part of your component only if a certain condition is true.
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     const MyComponent = ({ name, address }) => (
@@ -1991,7 +1991,7 @@
 
     If you need an `if-else` condition then use *ternary operator*.
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     const MyComponent = ({ name, address }) => (
@@ -2014,7 +2014,7 @@
 
     When we *spread props* we run into the risk of adding unknown HTML attributes, which is a bad practice. Instead we can use prop destructuring with `...rest` operator, so it will add only required props. For example,
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     const ComponentA = () =>
@@ -2033,7 +2033,7 @@
 
     You can *decorate* your *class* components, which is the same as passing the component into a function. **Decorators** are flexible and readable way of modifying component functionality.
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     @setTitle('Profile')
@@ -2070,7 +2070,7 @@
 
     There are memoize libraries available which can be used on function components. For example `moize` library can memoize the component in another component.
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     import moize from 'moize'
@@ -2107,7 +2107,7 @@
 
     React is already equipped to handle rendering on Node servers. A special version of the DOM renderer is available, which follows the same pattern as on the client side.
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     import ReactDOMServer from 'react-dom/server'
@@ -2193,7 +2193,7 @@
 
     The new static `getDerivedStateFromProps()` lifecycle method is invoked after a component is instantiated as well as before it is re-rendered. It can return an object to update state, or `null` to indicate that the new props do not require any state updates.
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```javascript
     class MyComponent extends React.Component {
@@ -2214,7 +2214,7 @@
 
     The new `getSnapshotBeforeUpdate()` lifecycle method is called right before DOM updates. The return value from this method will be passed as the third parameter to `componentDidUpdate()`.
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```javascript
     class MyComponent extends React.Component {
@@ -2244,7 +2244,7 @@
 
     Using `displayName` for naming component:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```javascript
     export default React.createClass({
@@ -2257,7 +2257,7 @@
 
     The **recommended** approach:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```javascript
     export default class TodoApp extends React.Component {
@@ -2298,7 +2298,7 @@
 
     For example, a switching component to display different pages based on `page` prop:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     import HomePage from './HomePage'
@@ -2336,7 +2336,7 @@
 
     Let's say the initial count value is zero. After three consecutive increment operations, the value is going to be incremented only by one.
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```javascript
     // assuming this.state.count === 0
@@ -2350,7 +2350,7 @@
 
     If we pass a function to `setState()`, the count gets incremented correctly.
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```javascript
     this.setState((prevState, props) => ({
@@ -2368,7 +2368,7 @@
 
     `React.StrictMode` is a useful component for highlighting potential problems in an application. Just like `<Fragment>`, `<StrictMode>` does not render any extra DOM elements. It activates additional checks and warnings for its descendants. These checks apply for *development mode* only.
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     import React from 'react'
@@ -2402,7 +2402,7 @@
 
     One of the most commonly used mixins is `PureRenderMixin`. You might be using it in some components to prevent unnecessary re-renders when the props and state are shallowly equal to the previous props and state:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```javascript
     const PureRenderMixin = require('react-addons-pure-render-mixin')
@@ -2423,7 +2423,7 @@
 
     The primary use case for `isMounted()` is to avoid calling `setState()` after a component has been unmounted, because it will emit a warning.
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```javascript
     if (this.isMounted()) {
@@ -2463,7 +2463,7 @@
 87. ### Why should component names start with capital letter?
 
     If you are rendering your component using JSX, the name of that component has to begin with a capital letter otherwise React will throw an error as unrecognized tag. This convention is because only HTML elements and SVG tags can begin with a lowercase letter.
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     class SomeComponent extends Component {
@@ -2474,7 +2474,7 @@
     </p>
     You can define component class which name starts with lowercase letter, but when it's imported it should have capital letter. Here lowercase is fine:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     class myComponent extends Component {
@@ -2490,7 +2490,7 @@
 
     While when imported in another file it should start with capital letter:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     import MyComponent from './MyComponent'
@@ -2505,7 +2505,7 @@
 
     Yes. In the past, React used to ignore unknown DOM attributes. If you wrote JSX with an attribute that React doesn't recognize, React would just skip it. For example, this:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     <div mycustomattribute={'something'} />
@@ -2515,7 +2515,7 @@
 
     Would render an empty div to the DOM with React v15:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```html
     <div />
@@ -2525,7 +2525,7 @@
 
     In React v16 any unknown attributes will end up in the DOM:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```html
     <div mycustomattribute='something' />
@@ -2544,7 +2544,7 @@
 
     Using ES6 classes:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```javascript
     class MyComponent extends React.Component {
@@ -2559,7 +2559,7 @@
 
     Using `React.createClass()`:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```javascript
     const MyComponent = React.createClass({
@@ -2580,7 +2580,7 @@
 
     By default, when your component's state or props change, your component will re-render. If your `render()` method depends on some other data, you can tell React that the component needs re-rendering by calling `forceUpdate()`.
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```javascript
     component.forceUpdate(callback)
@@ -2599,7 +2599,7 @@
 
     Using `super(props)`:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```javascript
     class MyComponent extends React.Component {
@@ -2614,7 +2614,7 @@
 
     Using `super()`:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```javascript
     class MyComponent extends React.Component {
@@ -2636,7 +2636,7 @@
 
     You can simply use `Array.prototype.map` with ES6 *arrow function* syntax. For example, the `items` array of objects is mapped into an array of components:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     <tbody>
@@ -2648,7 +2648,7 @@
 
     You can't iterate using `for` loop:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     <tbody>
@@ -2669,7 +2669,7 @@
 
     React (or JSX) doesn't support variable interpolation inside an attribute value. The below representation won't work:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     <img className='image' src='images/{this.props.image}' />
@@ -2679,7 +2679,7 @@
 
     But you can put any JS expression inside curly braces as the entire attribute value. So the below expression works:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     <img className='image' src={'images/' + this.props.image} />
@@ -2689,7 +2689,7 @@
 
     Using *template strings* will also work:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     <img className='image' src={`images/${this.props.image}`} />
@@ -2704,7 +2704,7 @@
 
     If you want to pass an array of objects to a component with a particular shape then use `React.PropTypes.shape()` as an argument to `React.PropTypes.arrayOf()`.
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```javascript
     ReactComponent.propTypes = {
@@ -2724,7 +2724,7 @@
 
     You shouldn't use curly braces inside quotes because it is going to be evaluated as a string.
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     <div className="btn-panel {this.props.visible ? 'show' : 'hidden'}">
@@ -2734,7 +2734,7 @@
 
     Instead you need to move curly braces outside (don't forget to include spaces between class names):
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     <div className={'btn-panel ' + (this.props.visible ? 'show' : 'hidden')}>
@@ -2744,7 +2744,7 @@
 
     *Template strings* will also work:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     <div className={`btn-panel ${this.props.visible ? 'show' : 'hidden'}`}>
@@ -2773,7 +2773,7 @@
 
     If you try to render a `<label>` element bound to a text input using the standard `for` attribute, then it produces HTML missing that attribute and prints a warning to the console.
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     <label for={'user'}>{'User'}</label>
@@ -2784,7 +2784,7 @@
 
     Since `for` is a reserved keyword in JavaScript, use `htmlFor` instead.
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     <label htmlFor={'user'}>{'User'}</label>
@@ -2800,7 +2800,7 @@
 
     You can use *spread operator* in regular React:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
      <button style={{...styles.panel.button, ...styles.panel.submitButton}}>{'Submit'}</button>
@@ -2810,7 +2810,7 @@
 
     If you're using React Native then you can use the array notation:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
     <button style={[styles.panel.button, styles.panel.submitButton]}>{'Submit'}</button>
@@ -2825,7 +2825,7 @@
 
      You can listen to the `resize` event in `componentDidMount()` and then update the dimensions (`width` and `height`). You should remove the listener in `componentWillUnmount()` method.
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      class WindowDimensions extends React.Component {
@@ -2889,7 +2889,7 @@
 
      For example, let's create a `removeItem()` method for updating the state.
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      removeItem(index) {
@@ -2908,7 +2908,7 @@
 
      It is possible with latest version (>=16.2). Below are the possible options:
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
      render() {
@@ -2918,7 +2918,7 @@
    
     </p>
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
      render() {
@@ -2928,7 +2928,7 @@
    
     </p>
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
      render() {
@@ -2938,7 +2938,7 @@
    
     </p>
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
      render() {
@@ -2948,7 +2948,7 @@
    
     </p>
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
      render() {
@@ -2967,7 +2967,7 @@
 
      We can use `<pre>` tag so that the formatting of the `JSON.stringify()` is retained:
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
      const data = { name: 'John', age: 42 }
@@ -3001,7 +3001,7 @@
 
      You can do it by creating *ref* for `input` element and using it in `componentDidMount()`:
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
      class App extends React.Component{
@@ -3038,7 +3038,7 @@
 
          * Using `Object.assign()` to create a copy of the object:
 
-             <p dir="ltr">
+             <p style="direction: ltr; text-align: left;">
 
     ```javascript
              const user = Object.assign({}, this.state.user, { age: 42 })
@@ -3049,7 +3049,7 @@
 
          * Using *spread operator*:
 
-             <p dir="ltr">
+             <p style="direction: ltr; text-align: left;">
 
     ```javascript
              const user = { ...this.state.user, age: 42 }
@@ -3060,7 +3060,7 @@
 
      2. **Calling `setState()` with a function:**
 
-         <p dir="ltr">
+         <p style="direction: ltr; text-align: left;">
 
     ```javascript
          this.setState(prevState => ({
@@ -3082,7 +3082,7 @@
 
      This counter example will fail to update as expected:
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      // Wrong
@@ -3095,7 +3095,7 @@
 
      The preferred approach is to call `setState()` with function rather than object. That function will receive the previous state as the first argument, and the props at the time the update is applied as the second argument.
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      // Correct
@@ -3113,7 +3113,7 @@
 
      You can use `React.version` to get the version.
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
      const REACT_VERSION = React.version
@@ -3135,7 +3135,7 @@
 
          Create a file called (something like) `polyfills.js` and import it into root `index.js` file. Run `npm install core-js` or `yarn add core-js` and import your specific required features.
 
-         <p dir="ltr">
+         <p style="direction: ltr; text-align: left;">
 
     ```javascript
          import 'core-js/fn/array/find'
@@ -3149,7 +3149,7 @@
 
          Use the polyfill.io CDN to retrieve custom, browser-specific polyfills by adding this line to `index.html`:
 
-         <p dir="ltr">
+         <p style="direction: ltr; text-align: left;">
 
     ```html
          <script src='https://cdn.polyfill.io/v2/polyfill.min.js?features=default,Array.prototype.includes'></script>
@@ -3200,7 +3200,7 @@
 
      Add a listener on the `history` object to record each page view:
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      history.listen(function (location) {
@@ -3218,7 +3218,7 @@
 
      You need to use `setInterval()` to trigger the change, but you also need to clear the timer when the component unmounts to prevent errors and memory leaks.
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      componentDidMount() {
@@ -3239,7 +3239,7 @@
 
      React *does not* apply *vendor prefixes* automatically. You need to add vendor prefixes manually.
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
      <div style={{
@@ -3258,7 +3258,7 @@
 
      You should use default for exporting the components
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
      import React from 'react'
@@ -3286,7 +3286,7 @@
 
      The component names should start with a uppercase letter but there are few exceptions on this convention. The lowercase tag names with a dot (property accessors) are still considered as valid component names.
      For example the below tag can be compiled to a valid component,
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      render(){
@@ -3311,7 +3311,7 @@
 
      You can use ES7 `static` field to define constant.
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      class MyComponent extends React.Component {
@@ -3332,7 +3332,7 @@
 
      1. Create ref in render method:
 
-         <p dir="ltr">
+         <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
          <input ref={input => this.inputElement = input} />
@@ -3342,7 +3342,7 @@
 
      2. Apply click event in your event handler:
 
-         <p dir="ltr">
+         <p style="direction: ltr; text-align: left;">
 
     ```javascript
          this.inputElement.click()
@@ -3433,7 +3433,7 @@
 
      For example, these styles could be extracted into a separate component:
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      export const colors = {
@@ -3455,7 +3455,7 @@
 
      And then imported individually in other components:
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      import { space, colors } from './styles'
@@ -3479,7 +3479,7 @@
 
      For example, the employees list fetched from API and set local state:
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
      class MyComponent extends React.Component {
@@ -3534,7 +3534,7 @@
 
      **Render Props** is a simple technique for sharing code between components using a prop whose value is a function. The below component uses render prop which returns a React element.
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
      <DataProvider render={data => (
@@ -3598,7 +3598,7 @@
 
          The `withRouter()` higher-order function will inject the history object as a prop of the component. This object provides `push()` and `replace()` methods to avoid the usage of context.
 
-         <p dir="ltr">
+         <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
          import { withRouter } from 'react-router-dom' // this also works with 'react-router-native'
@@ -3619,7 +3619,7 @@
 
          The `<Route>` component passes the same props as `withRouter()`, so you will be able to access the history methods through the history prop.
 
-         <p dir="ltr">
+         <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
          import { Route } from 'react-router-dom'
@@ -3642,7 +3642,7 @@
 
          This option is not recommended and treated as unstable API.
 
-         <p dir="ltr">
+         <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
          const Button = (props, context) => (
@@ -3672,7 +3672,7 @@
 
      The ability to parse query strings was taken out of React Router v4 because there have been user requests over the years to support different implementation. So the decision has been given to users to choose the implementation they like. The recommended approach is to use query strings library.
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      const queryString = require('query-string');
@@ -3683,7 +3683,7 @@
 
      You can also use `URLSearchParams` if you want something native:
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      const params = new URLSearchParams(props.location.search)
@@ -3703,7 +3703,7 @@
 
      At first you need to add `Switch` to your imports:
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      import { Switch, Router, Route } from 'react-router'
@@ -3713,7 +3713,7 @@
 
      Then define the routes within `<Switch>` block:
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
      <Router>
@@ -3733,7 +3733,7 @@
 
      While navigating you can pass props to the `history` object:
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      this.props.history.push({
@@ -3754,7 +3754,7 @@
 
      A `<Switch>` renders the first child `<Route>` that matches. A `<Route>` with no path always matches. So you just need to simply drop path attribute as below
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
      <Switch>
@@ -3775,7 +3775,7 @@
 
          For example, create `history.js` file:
 
-         <p dir="ltr">
+         <p style="direction: ltr; text-align: left;">
 
     ```javascript
          import { createBrowserHistory } from 'history'
@@ -3789,7 +3789,7 @@
 
      2. You should use the `<Router>` component instead of built-in routers. Imported the above `history.js` inside `index.js` file:
 
-         <p dir="ltr">
+         <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
          import { Router } from 'react-router-dom'
@@ -3807,7 +3807,7 @@
 
      3. You can also use push method of `history` object similar to built-in history object:
 
-         <p dir="ltr">
+         <p style="direction: ltr; text-align: left;">
 
     ```javascript
          // some-other-file.js
@@ -3825,7 +3825,7 @@
 
      The `react-router` package provides `<Redirect>` component in React Router. Rendering a `<Redirect>` will navigate to a new location. Like server-side redirects, the new location will override the current location in the history stack.
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      import React, { Component } from 'react'
@@ -3873,7 +3873,7 @@
 
      The library provides two ways to format strings, numbers, and dates: react components or an API.
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
      <FormattedMessage
@@ -3884,7 +3884,7 @@
    
     </p>
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      const messages = defineMessages({
@@ -3906,7 +3906,7 @@
 
      The `<Formatted... />` components from `react-intl` return elements, not plain text, so they can't be used for placeholders, alt text, etc. In that case, you should use lower level API `formatMessage()`. You can inject the `intl` object into your component using `injectIntl()` higher-order component and then format the message using `formatMessage()` available on that object.
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
      import React from 'react'
@@ -3933,7 +3933,7 @@
 
      You can get the current locale in any component of your application using `injectIntl()`:
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
      import { injectIntl, intlShape } from 'react-intl'
@@ -3958,7 +3958,7 @@
 
      The `injectIntl()` higher-order component will give you access to the `formatDate()` method via the props in your component. The method is used internally by instances of `FormattedDate` and it returns the string representation of the formatted date.
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
      import { injectIntl, intlShape } from 'react-intl'
@@ -3993,7 +3993,7 @@
 
      For example, if you have the following component:
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      function MyComponent() {
@@ -4010,7 +4010,7 @@
 
      Then you can assert as follows:
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
      import ShallowRenderer from 'react-test-renderer/shallow'
@@ -4037,7 +4037,7 @@
 
      This package provides a renderer that can be used to render components to pure JavaScript objects, without depending on the DOM or a native mobile environment. This package makes it easy to grab a snapshot of the platform view hierarchy (similar to a DOM tree) rendered by a ReactDOM or React Native without using a browser or `jsdom`.
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
      import TestRenderer from 'react-test-renderer'
@@ -4092,7 +4092,7 @@
 
      Let's write a test for a function that adds two numbers in `sum.js` file:
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      const sum = (a, b) => a + b
@@ -4104,7 +4104,7 @@
 
      Create a file named `sum.test.js` which contains actual test:
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      import sum from './sum'
@@ -4189,7 +4189,7 @@
 
      `mapStateToProps()` is a utility which helps your component get updated state (which is updated by some other components):
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      const mapStateToProps = (state) => {
@@ -4203,7 +4203,7 @@
 
      `mapDispatchToProps()` is a utility which will help your component to fire an action event (dispatching action which may cause change of application state):
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      const mapDispatchToProps = (dispatch) => {
@@ -4221,7 +4221,7 @@
         
      Redux wrap it in another function that looks like (…args) => dispatch(onTodoClick(…args)), and pass that wrapper function as a prop to your component.
       
-      <p dir="ltr">
+      <p style="direction: ltr; text-align: left;">
 
     ```javascript
        const mapDispatchToProps = ({
@@ -4245,7 +4245,7 @@
 
      You just need to export the store from the module where it created with `createStore()`. Also, it shouldn't pollute the global window object.
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      store = createStore(myReducer)
@@ -4281,7 +4281,7 @@
 
      You can dispatch an action in `componentDidMount()` method and in `render()` method you can verify the data.
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      class App extends Component {
@@ -4317,7 +4317,7 @@
      1. **Use `mapStateToProps()`:** It maps the state variables from your store to the props that you specify.
      2. **Connect the above props to your container:** The object returned by the `mapStateToProps` function is connected to the container. You can import `connect()` from `react-redux`.
 
-         <p dir="ltr">
+         <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
          import React from 'react'
@@ -4347,7 +4347,7 @@
 
      For example, let us take `rootReducer()` to return the initial state after `USER_LOGOUT` action. As we know, reducers are supposed to return the initial state when they are called with `undefined` as the first argument, no matter the action.
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      const appReducer = combineReducers({
@@ -4367,7 +4367,7 @@
 
      In case of using `redux-persist`, you may also need to clean your storage. `redux-persist` keeps a copy of your state in a storage engine. First, you need to import the appropriate storage engine and then, to parse the state before setting it to undefined and clean each storage state key.
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      const appReducer = combineReducers({
@@ -4400,7 +4400,7 @@
 
      * **Without decorator:**
 
-         <p dir="ltr">
+         <p style="direction: ltr; text-align: left;">
 
     ```javascript
          import React from 'react'
@@ -4427,7 +4427,7 @@
 
      * **With decorator:**
 
-         <p dir="ltr">
+         <p style="direction: ltr; text-align: left;">
 
     ```javascript
          import React from 'react'
@@ -4476,7 +4476,7 @@
 
      Let's take an example of fetching specific account as an AJAX call using *fetch API*:
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      export function fetchAccount(id) {
@@ -4516,7 +4516,7 @@
 
      Let's take an example of `<FilterLink>` component using connect:
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      import { connect } from 'react-redux'
@@ -4543,7 +4543,7 @@
 
      Due to it having quite a few performance optimizations and generally being less likely to cause bugs, the Redux developers almost always recommend using `connect()` over accessing the store directly (using context API).
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      class MyComponent {
@@ -4573,7 +4573,7 @@
 
      Normally we will save them in a single file (`constants.js` or `actionTypes.js`).
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      export const ADD_TODO = 'ADD_TODO'
@@ -4592,7 +4592,7 @@
 
          Let's take `actions.js`:
 
-         <p dir="ltr">
+         <p style="direction: ltr; text-align: left;">
 
     ```javascript
          import { ADD_TODO } from './actionTypes';
@@ -4608,7 +4608,7 @@
 
          Let's create `reducer.js`:
 
-         <p dir="ltr">
+         <p style="direction: ltr; text-align: left;">
 
     ```javascript
          import { ADD_TODO } from './actionTypes'
@@ -4638,7 +4638,7 @@
 
      There are a few ways of binding *action creators* to `dispatch()` in `mapDispatchToProps()`. Below are the possible options:
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      const mapDispatchToProps = (dispatch) => ({
@@ -4648,7 +4648,7 @@
    
     </p>
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      const mapDispatchToProps = (dispatch) => ({
@@ -4658,7 +4658,7 @@
    
     </p>
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      const mapDispatchToProps = { action }
@@ -4675,7 +4675,7 @@
 
      If the `ownProps` parameter is specified, React Redux will pass the props that were passed to the component into your *connect* functions. So, if you use a connected component:
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
      import ConnectedComponent from './containers/ConnectedComponent';
@@ -4687,7 +4687,7 @@
 
      The `ownProps` inside your `mapStateToProps()` and `mapDispatchToProps()` functions will be an object:
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      { user: 'john' }
@@ -4744,7 +4744,7 @@
 
      Let's take example of how these effects work for fetching particular user data.
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      function* fetchUserSaga(action) {
@@ -4803,7 +4803,7 @@
 
      For example, to get user details from the state:
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      const getUserData = state => state.user.data
@@ -4836,7 +4836,7 @@
 
      For example, you can add `redux-thunk` and `logger` passing them as arguments to `applyMiddleware()`:
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      import { createStore, applyMiddleware } from 'redux'
@@ -4852,7 +4852,7 @@
 
      You need to pass initial state as second argument to createStore:
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      const rootReducer = combineReducers({
@@ -4968,7 +4968,7 @@
 
      2. Import `font-awesome` in your `index.js` file:
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      import 'font-awesome/css/font-awesome.min.css'
@@ -4978,7 +4978,7 @@
 
      3. Add Font Awesome classes in `className`:
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      render() {
@@ -5014,7 +5014,7 @@
 
      1. Create a Polymer element:
 
-         <p dir="ltr">
+         <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
          <link rel='import' href='../../bower_components/polymer/polymer.html' />
@@ -5030,7 +5030,7 @@
 
      2. Create the Polymer component HTML tag by importing it in a HTML document, e.g. import it in the `index.html` of your React application:
 
-         <p dir="ltr">
+         <p style="direction: ltr; text-align: left;">
 
     ```html
          <link rel='import' href='./src/polymer-components/calender-element.html'>
@@ -5040,7 +5040,7 @@
 
          3. Use that element in the JSX file:
 
-         <p dir="ltr">
+         <p style="direction: ltr; text-align: left;">
 
     ```javascript
          import React from 'react'
@@ -5104,7 +5104,7 @@
 
      Lets create `<Title>` and `<Wrapper>` components with specific styles for each.
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      import React from 'react'
@@ -5128,7 +5128,7 @@
 
      These two variables, `Title` and `Wrapper`, are now components that you can render just like any other react component.
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
      <Wrapper>
@@ -5198,7 +5198,7 @@
 
      Let's take calculations and different amounts of a shipment order with the simplified usage of Reselect:
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      import { createSelector } from 'reselect'
@@ -5266,7 +5266,7 @@
 
      No, `statics` only works with `React.createClass()`:
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      someComponent= React.createClass({
@@ -5282,7 +5282,7 @@
 
      But you can write statics inside ES6+ classes or writing them outside class as below,
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      class Component extends React.Component {
@@ -5297,7 +5297,7 @@
     ```
    
     </p>
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      class Component extends React.Component {
@@ -5331,7 +5331,7 @@
 
      You need to add `enableReinitialize : true` setting.
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      const InitializeFromStateForm = reduxForm({
@@ -5353,7 +5353,7 @@
 
      For example, the height property can be defined with either `string` or `number` type as below:
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      Component.PropTypes = {
@@ -5373,7 +5373,7 @@
 
      You can import SVG directly as component instead of loading it as a file. This feature is available with `react-scripts@2.0.0` and higher.
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```jsx harmony
      import { ReactComponent as Logo } from './logo.svg'
@@ -5397,7 +5397,7 @@
 
      If the ref callback is defined as an inline function, it will get called twice during updates, first with null and then again with the DOM element. This is because a new instance of the function is created with each render, so React needs to clear the old ref and set up the new one.
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```jsx 
      class UserForm extends Component {
@@ -5423,7 +5423,7 @@
 
      But our expectation is for the ref callback to get called once, when the component mounts. One quick fix is to use the ES7 class property syntax to define the function
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```jsx 
      class UserForm extends Component {
@@ -5467,7 +5467,7 @@
 
      In this approach, the render method of the HOC returns a React Element of the type of the WrappedComponent. We also pass through the props that the HOC receives, hence the name **Props Proxy**.
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```jsx 
 
@@ -5485,7 +5485,7 @@
 
      In this approach, the returned HOC class (Enhancer) extends the WrappedComponent. It is called Inheritance Inversion because instead of the WrappedComponent extending some Enhancer class, it is passively extended by the Enhancer. In this way the relationship between them seems **inverse**.
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```jsx 
      function iiHOC(WrappedComponent) {
@@ -5505,7 +5505,7 @@
 
      You should be passing the numbers via curly braces({}) where as strings inn quotes
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```jsx 
         React.render(<User age={30} department={"IT"} />, document.getElementById('container'));
@@ -5532,7 +5532,7 @@
 
      React creates a service worker for you without any configuration by default. The service worker is a web API that helps you cache your assets and other files so that when the user is offline or on slow network, he/she can still see results on the screen, as such, it helps you build a better user experience, that's what you should know about service worker's for now. It's all about adding offline capabilities to your site.
 
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```jsx 
         import React from 'react';
@@ -5551,7 +5551,7 @@
 221. ### What is React memo function?
 
      Class components can be restricted from rendering when their input props are the same using **PureComponent or shouldComponentUpdate**. Now you can do the same with function components by wrapping them in **React.memo**.
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```jsx 
      const MyComponent = React.memo(function MyComponent(props) {
@@ -5565,7 +5565,7 @@
     
 222. ### What is React lazy function?
      The React.lazy function lets you render an dynamic import as a regular component. It will automatically load the bundle containing the OtherComponent when the component gets rendered. This must return a Promise which resolves to a module with a default export containing a React component.
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```jsx 
      const OtherComponent = React.lazy(() => import('./OtherComponent'));
@@ -5587,7 +5587,7 @@
     
 223. ### How to prevent unnecessary updates using setState?
      You can compare current value of the state with an existing state value and decide whether to rerender the page or not. If the values are same then you need to return **null** to stop rerendering otherwise return the latest state value. For example, the user profile information is conditionally rendered as follows,
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```jsx 
      getUserProfile = user => {
@@ -5608,7 +5608,7 @@
     
 224. ### How do you render Array, Strings and Numbers in React 16 Version?
      **Arrays**: Unlike older releases, you don't need to make sure **render** method return a single element in React16. You are able to return multiple sibling elements without a wrapping element by returning an array. For example, let us take the below list of developers,
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```jsx 
      const ReactJSDevs = () => {
@@ -5622,7 +5622,7 @@
    
     </p>
      You can also merge this array of items in another array component
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```jsx 
      const JSDevs = () => {
@@ -5639,7 +5639,7 @@
    
     </p>
      **Strings and Numbers:** You can also return string and number type from the render method
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```jsx 
      render() {
@@ -5657,7 +5657,7 @@
     
 225. ### How to use class field declarations syntax in React classes?
      React Class Components can be made much more concise using the class field declarations. You can initialize local state without using the constructor and declare class methods by using arrow functions without the extra need to bind them. Let's take a counter example to demonstrate class field declarations for state without using constructor and methods without binding,
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```jsx 
      class Counter extends Component {
@@ -5694,7 +5694,7 @@
     
 226. ### What are hooks?
      Hooks is a new feature that lets you use state and other React features without writing a class. Let's see an example of useState hook example,
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```jsx 
      import { useState } from 'react';
@@ -5729,7 +5729,7 @@
     
 228. ### How to ensure hooks followed the rules in your project?
      React team released an ESLint plugin called **eslint-plugin-react-hooks** that enforces these two rules. You can add this plugin to your project using the below command,
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      npm install eslint-plugin-react-hooks@next
@@ -5737,7 +5737,7 @@
    
     </p>
      And apply the below config in your ESLint config file,
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      // Your ESLint configuration
@@ -5787,7 +5787,7 @@
      2. info: - An object with a componentStack key contains the information about which component threw the error.
 
      The method structure would be as follows
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      componentDidCatch(error, info)
@@ -5809,7 +5809,7 @@
 233. ### Why do not you need error boundaries for event handlers?
      Error boundaries do not catch errors inside event handlers. Event handlers don't happened or invoked during rendering time unlike render method or lifecycle methods. So React knows how to recover these kind of errors in event handlers.
      If still you need to catch an error inside event handler, use the regular JavaScript try / catch statement as below
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      class MyComponent extends React.Component {
@@ -5843,7 +5843,7 @@
 234. ### What is the difference between try catch block and error boundaries?
      Try catch block works with imperative code whereas error boundaries are meant for declarative code to render on the screen.
      For example, the try catch block used for below imperative code
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      try {
@@ -5855,7 +5855,7 @@
    
     </p>
      Whereas error boundaries wrap declarative code as below,
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      <ErrorBoundary>
@@ -5910,7 +5910,7 @@
      1. To initialize local state by assigning object to this.state
      2. For binding event handler methods to the instance
      For example, the below code covers both the above cases,
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      constructor(props) {
@@ -5932,7 +5932,7 @@
     
 242. ### What are default props?
      The defaultProps are defined as a property on the component class to set the default props for the class. This is used for undefined props, but not for null props. For example, let us create color default prop for the button component,
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      class MyButton extends React.Component {
@@ -5947,7 +5947,7 @@
     </p>
 
      If props.color is not provided then it will set the default value to 'red'. i.e, Whenever you try to access the color prop it uses default value
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      render() {
@@ -5967,7 +5967,7 @@
     
 244. ### What is the purpose of getDerivedStateFromError?
      This lifecycle method is invoked after an error has been thrown by a descendant component. It receives the error that was thrown as a parameter and should return a value to update state. The signature of the lifecycle method is as follows,
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      static getDerivedStateFromError(error)
@@ -5975,7 +5975,7 @@
    
     </p>
      Let us take error boundary use case with the above lifecycle method for demonistration purpose,
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      class ErrorBoundary extends React.Component {
@@ -6025,7 +6025,7 @@
 247. ### What is the purpose of displayName class property?
      The displayName string is used in debugging messages. Usually, you don’t need to set it explicitly because it’s inferred from the name of the function or class that defines the component. You might want to set it explicitly if you want to display a different name for debugging purposes or when you create a higher-order component.
      For example, To ease debugging, choose a display name that communicates that it’s the result of a withSubscription HOC.
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      function withSubscription(WrappedComponent) {
@@ -6050,7 +6050,7 @@
 249. ### What is the purpose of unmountComponentAtNode method?
      This method is available from react-dom package and it removes a mounted React component from the DOM and clean up its event handlers and state. If no component was mounted in the container, calling this function does nothing. Returns true if a component was unmounted and false if there was no component to unmount.
      The method signature would be as follows,
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      ReactDOM.unmountComponentAtNode(container)
@@ -6064,7 +6064,7 @@
      Code-Splitting is a feature supported by bundlers like Webpack and Browserify which can create multiple bundles that can be dynamically loaded at runtime. The react project supports code splitting via dynamic import() feature.
      For example, in the below code snippets, it will make moduleA.js and all its unique dependencies as a separate chunk that only loads after the user clicks the 'Load' button.
      **moduleA.js**
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      const moduleA = 'Hello';
@@ -6074,7 +6074,7 @@
    
     </p>
      **App.js**
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      import React, { Component } from 'react';
@@ -6119,7 +6119,7 @@
     
 252. ### What are Keyed Fragments?
      The Fragments declared with the explicit <React.Fragment> syntax may have keys. The general usecase is mapping a collection to an array of fragments as below,
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      function Glossary(props) {
@@ -6144,7 +6144,7 @@
     
 253. ### Does React support all HTML attributes?
      As of React 16, both standard or custom DOM attributes are fully supported. Since React components often take both custom and DOM-related props, React uses the camelCase convention just like the DOM APIs. Let us take few props with respect to standard HTML attributes,
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      <div tabIndex="-1" />      // Just like node.tabIndex DOM API
@@ -6162,7 +6162,7 @@
      Higher-order components come with a few caveats apart from its benefits. Below are the few listed in an order
      1. **Don’t Use HOCs Inside the render Method:**
         It is not recommended to apply a HOC to a component within the render method of a component.
-        <p dir="ltr">
+        <p style="direction: ltr; text-align: left;">
 
     ```javascript
         render() {
@@ -6178,7 +6178,7 @@
         The above code impact performance by remounting a component that causes the state of that component and all of its children to be lost. Instead, apply HOCs outside the component definition so that the resulting component is created only once
      2. **Static Methods Must Be Copied Over:**
         When you apply a HOC to a component the new component does not have any of the static methods of the original component
-        <p dir="ltr">
+        <p style="direction: ltr; text-align: left;">
 
     ```javascript
         // Define a static method
@@ -6192,7 +6192,7 @@
    
     </p>
         You can overcome this by copying the methods onto the container before returning it
-        <p dir="ltr">
+        <p style="direction: ltr; text-align: left;">
 
     ```javascript
         function enhance(WrappedComponent) {
@@ -6212,7 +6212,7 @@
 255. ### How to debug forwardRefs in DevTools?
 
      **React.forwardRef** accepts a render function as parameter and DevTools uses this function to determine what to display for the ref forwarding component. For example, If you don't name the render function or not using displayName property then it will appear as ”ForwardRef” in the DevTools,
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      const WrappedComponent = React.forwardRef((props, ref) => {
@@ -6222,7 +6222,7 @@
    
     </p>
      But If you name the render function then it will appear as **”ForwardRef(myFunction)”**
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      const WrappedComponent = React.forwardRef(
@@ -6234,7 +6234,7 @@
    
     </p>
      As an alternative, You can also set displayName property for forwardRef function,
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      function logProps(Component) {
@@ -6261,7 +6261,7 @@
     
 256. ### When component props defaults to true?
      If you pass no value for a prop, it defaults to true. This behavior is available so that it matches the behavior of HTML. For example, below expressions are equivalent,
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      <MyInput autocomplete />
@@ -6299,7 +6299,7 @@
     
 259. ### Is it good to use arrow functions in render methods?
      Yes, You can use. It is often the easiest way to pass parameters to callback functions. But you need to optimize the performance while using it.
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      class Foo extends Component {
@@ -6327,7 +6327,7 @@
     
 261. ### How JSX prevents Injection Attacks?
      React DOM escapes any values embedded in JSX before rendering them. Thus it ensures that you can never inject anything that’s not explicitly written in your application. Everything is converted to a string before being rendered. For example, you can embed user input as below,
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      const name = response.potentiallyMaliciousInput;
@@ -6341,7 +6341,7 @@
     
 262. ### How do you update rendered elements?
      You can update UI(represented by rendered element) by passing the newly created element to ReactDOM's render method. For example, lets take a ticking clock example, where it updates the time by calling render method multiple times,
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      function tick() {
@@ -6363,7 +6363,7 @@
     
 263. ### How do you say that props are read only?
      When you declare a component as a function or a class, it must never modify its own props. Let us take a below capital function,
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      function capital(amount, interest) {
@@ -6378,7 +6378,7 @@
     
 264. ### How do you say that state updates are merged?
      When you call setState() in the component, React merges the object you provide into the current state. For example, let us take a facebook user with posts and comments details as state variables,
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
        constructor(props) {
@@ -6392,7 +6392,7 @@
    
     </p>
      Now you can update them independently with separate setState() calls as below,
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
       componentDidMount() {
@@ -6417,7 +6417,7 @@
     
 265. ### How do you pass arguments to an event handler?
      During iterations or loops, it is common to pass an extra parameter to an event handler. This can be achieved through arrow functions or bind method. Let us take an example of user details updated in a grid,
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      <button onClick={(e) => this.updateUser(userId, e)}>Update User details</button>
@@ -6431,7 +6431,7 @@
     
 266. ### How to prevent component from rendering?
      You can prevent component from rendering by returning null based on specific condition. This way it can conditionally render component.
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      function Greeting(props) {
@@ -6448,7 +6448,7 @@
     ```
    
     </p>
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      class User extends React.Component {
@@ -6484,7 +6484,7 @@
     
 268. ### Is it keys should be globally unique?
      Keys used within arrays should be unique among their siblings but they don’t need to be globally unique. i.e, You can use the same keys withtwo different arrays. For example, the below book component uses two arrays with different arrays,
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      function Book(props) {
@@ -6546,7 +6546,7 @@
     
 272. ### Can I use web components in react application?
      Yes, you can use web components in a react application. Even though many developers won't use this combination, it may require especially if you are using third-party UI components that are written using Web Components. For example, let us  use Vaadin date picker web component as below,
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      import React, { Component } from 'react';
@@ -6571,7 +6571,7 @@
 273. ### What is dynamic import?
      The dynamic import() syntax is a ECMAScript proposal not currently part of the language standard. It is expected to be accepted in the near future. You can achieve code-splitting into your app using dynamic import(). Let's take an example of addition,
      1. **Normal Import**
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      import { add } from './math';
@@ -6580,7 +6580,7 @@
    
     </p>
      2. **Dynamic Import**
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      import("./math").then(math => {
@@ -6594,7 +6594,7 @@
     
 274. ### What are loadable components?
      If you want to do code-splitting in a server rendered app, it is recommend to use Loadable Components because React.lazy and Suspense is not yet available for server-side rendering. Loadable lets you render a dynamic import as a regular component. Lets take an example,
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      import loadable from '@loadable/component'
@@ -6617,7 +6617,7 @@
     
 275. ### What is suspense component?
      If the module containing the dynamic import is not yet loaded by the time parent component renders, you must show some fallback content while you’re waiting for it to load using a loading indicator. This can be done using **Suspense** component. For example, the below code uses suspense component,
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      const OtherComponent = React.lazy(() => import('./OtherComponent'));
@@ -6640,7 +6640,7 @@
     
 276. ### What is route based code splitting?
      One of the best place to do code splitting is with routes. The entire page is going to re-render at once so users are unlikely to interact with other elements in the page at the same time. Due to this, the user experience won't be disturbed. Let us take an example of route based website using libraries like React Router with React.lazy,
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -6668,7 +6668,7 @@
     
 277. ### Give an example on How to use context?
      **Context** is designed to share data that can be considered **global** for a tree of React components.  For example, in the code below lets manually thread through a “theme” prop in order to style the Button component.
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      //Lets create a context with a default theme value "luna"
@@ -6706,7 +6706,7 @@
     
 278. ### What is the purpose of default value in context?
      The defaultValue argument is only used when a component does not have a matching Provider above it in the tree. This can be helpful for testing components in isolation without wrapping them. Below code snippet provides default theme value as Luna.
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      const MyContext = React.createContext(defaultValue);
@@ -6721,7 +6721,7 @@
      1. **contextType as property of class:**
      The contextType property on a class can be assigned a Context object created by React.createContext(). After that, you can consume the nearest current value of that Context type using this.context in any of the lifecycle methods and render function.
      Lets assign contextType property on MyClass as below,
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      class MyClass extends React.Component {
@@ -6748,7 +6748,7 @@
     </p>
      2. **Static field**
      You can use a static class field to initialize your contextType using public class field syntax.
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      class MyClass extends React.Component {
@@ -6766,7 +6766,7 @@
     
 280. ### What is a consumer?
      A Consumer is a React component that subscribes to context changes. It requires a function as a child which receives current context value as argument and returns a react node. The value argument passed to the function will be equal to the value prop of the closest Provider for this context above in the tree. Lets take a simple example,
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      <MyContext.Consumer>
@@ -6780,7 +6780,7 @@
     
 281. ### How do you solve performance corner cases while using context?
      The context uses reference identity to determine when to re-render, there are some gotchas that could trigger unintentional renders in consumers when a provider’s parent re-renders. For example, the code below will re-render all consumers every time the Provider re-renders because a new object is always created for value.
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      class App extends React.Component {
@@ -6796,7 +6796,7 @@
    
     </p>
      This can be solved by lifting up the value to parent state,
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      class App extends React.Component {
@@ -6824,7 +6824,7 @@
 282. ### What is the purpose of forward ref in HOCs?
      Refs will not get passed through because ref is not a prop. It handled differently by React just like **key**. If you add a ref to a HOC, the ref will refer to the outermost container component, not the wrapped component. In this case, you can use Forward Ref API. For example, we can explicitly forward refs to the inner FancyButton component using the React.forwardRef API.
      The below HOC logs all props,
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      function logProps(Component) {
@@ -6850,7 +6850,7 @@
    
     </p>
      Let's use this HOC to log all props that get passed to our “fancy button” component,
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      class FancyButton extends React.Component {
@@ -6865,7 +6865,7 @@
    
     </p>
      Now lets create a ref and pass it to FancyButton component. In this case, you can set focus to button element.
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      import FancyButton from './FancyButton';
@@ -6895,7 +6895,7 @@
     
 285. ### How to create react class components without ES6?
      If you don’t use ES6 then you may need to use the create-react-class module instead. For default props, you need to define getDefaultProps() as a function on the passed object. Whereas for initial state, you have to provide a separate getInitialState method that returns the initial state.
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      var Greeting = createReactClass({
@@ -6923,7 +6923,7 @@
     
 286. ### Is it possible to use react without JSX?
      Yes, JSX is not mandatory for using React. Actually it is convenient when you don’t want to set up compilation in your build environment. Each JSX element is just syntactic sugar for calling React.createElement(component, props, ...children). For example, let us take a greeting example with JSX,
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      class Greeting extends React.Component {
@@ -6940,7 +6940,7 @@
    
     </p>
      You can write the same code without JSX as below,
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      class Greeting extends React.Component {
@@ -6973,7 +6973,7 @@
         Whenever the root elements have different types, React will tear down the old tree and build the new tree from scratch. For example,  elements <a> to <img>, or from <Article> to <Comment> of different types lead a full rebuild.
      2. **DOM Elements Of The Same Type:**
         When comparing two React DOM elements of the same type, React looks at the attributes of both, keeps the same underlying DOM node, and only updates the changed attributes. Lets take an example with same DOM elements except className attribute,
-        <p dir="ltr">
+        <p style="direction: ltr; text-align: left;">
 
     ```javascript
         <div className="show" title="ReactJS" />
@@ -6986,7 +6986,7 @@
         When a component updates, the instance stays the same, so that state is maintained across renders. React updates the props of the underlying component instance to match the new element, and calls componentWillReceiveProps() and componentWillUpdate() on the underlying instance. After that, the render() method is called and the diff algorithm recurses on the previous result and the new result.
      4. **Recursing On Children:**
         when recursing on the children of a DOM node, React just iterates over both lists of children at the same time and generates a mutation whenever there’s a difference. For example, when adding an element at the end of the children, converting between these two trees works well.
-        <p dir="ltr">
+        <p style="direction: ltr; text-align: left;">
 
     ```javascript
         <ul>
@@ -7004,7 +7004,7 @@
     </p>
      5. **Handling keys:**
      React supports a key attribute. When children have keys, React uses the key to match children in the original tree with children in the subsequent tree. For example, adding a key can make the tree conversion efficient,
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      <ul>
@@ -7033,7 +7033,7 @@
     
 290. ### Is it prop must be named as render for render props?
      Even though the pattern named render props, you don’t have to use a prop named render to use this pattern. i.e,  Any prop that is a function that a component uses to know what to render is technically a “render prop”. Lets take an example with the children prop for render props,
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      <Mouse children={mouse => (
@@ -7043,7 +7043,7 @@
    
     </p>
      Actually children prop doesn’t need to be named in the list of “attributes” in JSX element. Instead, you can keep it directly inside element,
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      <Mouse>
@@ -7055,7 +7055,7 @@
    
     </p>
      While using this above technique(without any name), explicitly state that children should be a function in your propTypes.
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      Mouse.propTypes = {
@@ -7074,7 +7074,7 @@
     
 292. ### How do you create HOC using render props?
      You can implement most higher-order components (HOC) using a regular component with a render prop. For example, if you would prefer to have a withMouse HOC instead of a <Mouse> component, you could easily create one using a regular <Mouse> with a render prop.
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      function withMouse(Component) {
@@ -7102,7 +7102,7 @@
     
 294. ### How do you print falsy values in JSX?
      The falsy values such as false, null, undefined, and true are valid children but they don't render anything. If you still want to display them then you need to convert it to string. Let's take an example on how to convert to a string,
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      <div>
@@ -7121,7 +7121,7 @@
     
 296. ### How do you set default value for uncontrolled component?
      In React, the value attribute on form elements will override the value in the DOM. With an uncontrolled component, you might want React to specify the initial value, but leave subsequent updates uncontrolled. To handle this case, you can specify a **defaultValue** attribute instead of **value**.
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      render() {
@@ -7171,7 +7171,7 @@
         This is the easiest way to add bootstrap. Add both bootstrap CSS and JS resources in a head tag.
      2. Bootstrap as Dependency:
         If you are using a build tool or a module bundler such as Webpack, then this is the preferred option for adding Bootstrap to your React application
-        <p dir="ltr">
+        <p style="direction: ltr; text-align: left;">
 
     ```javascript
         npm install bootstrap
@@ -7214,7 +7214,7 @@
 303. ### How to fetch data with React Hooks?
      The effect hook called `useEffect` is used to fetch the data with axios from the API and to set the data in the local state of the component with the state hook’s update function.
      Let's take an example in which it fetches list of react articles from the API
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      import React, { useState, useEffect } from 'react';
@@ -7267,7 +7267,7 @@
 306. ### Why do we use array destructuring (square brackets notation) in `useState`?
      When we declare a state variable with `useState`, it returns a pair — an array with two items. The first item is the current value, and the second is a function that updates the value. Using [0] and [1] to access them is a bit confusing because they have a specific meaning. This is why we use array destructuring instead.
      For example, the array index access would look as follows:
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
       var userStateVariable = useState('userProfile'); // Returns an array pair
@@ -7277,7 +7277,7 @@
    
     </p>
      Whereas with array destructuring the variables can be accessed as follows:
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      const [user, setUser] = useState('userProfile');
@@ -7382,7 +7382,7 @@
      No, you don’t have to learn es2015/es6 to learn react. But you may find many resources or React ecosystem uses ES6 extensively. Let's see some of the frequently used ES6 features,
      1. Destructuring: To get props and use them in a component
      
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      // in es 5
@@ -7397,7 +7397,7 @@
     
      2. Spread operator: Helps in passing props down into a component
      
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      // in es 5
@@ -7411,7 +7411,7 @@
     
      3. Arrow functions: Makes compact syntax
      
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      // es 5
@@ -7429,7 +7429,7 @@
 319. ### What is Concurrent Rendering?
      The Concurrent rendering makes React apps to be more responsive by rendering component trees without blocking the main UI thread. It allows React to interrupt a long-running render to handle a high-priority event. i.e, When you enabled concurrent Mode, React will keep an eye on other tasks that need to be done, and if there's something with a higher priority it will pause what it is currently rendering and let the other task finish first. You can enable this in two ways,
      
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      // 1. Part of an app by wrapping with ConcurrentMode
@@ -7454,7 +7454,7 @@
      Yes, you can use javascript: URLs but it will log a warning in the console. Because URLs starting with javascript: are dangerous by including unsanitized output in a tag like `<a href>`
      and create a security hole.
      
-     <p dir="ltr">
+     <p style="direction: ltr; text-align: left;">
 
     ```javascript
      const companyProfile = {
@@ -7482,7 +7482,7 @@
     Imagine a simple UI component, such as a "Like" button. When you tap it, it turns blue if it was previously grey, and grey if it was previously blue.
     The imperative way of doing this would be:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```javascript
     if( user.likes() ) {
@@ -7502,7 +7502,7 @@
 
     In contrast, the declarative approach would be:
 
-    <p dir="ltr">
+    <p style="direction: ltr; text-align: left;">
 
     ```javascript
     if( this.state.liked ) {
