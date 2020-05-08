@@ -362,9 +362,9 @@
     اصلی‌ترین ویژگی‌های ری‌اکت اینا هستن:
     
     * از **VirtualDOM** به جای RealDOM استفاده میکنه چون هزینه تغییرات RealDOM زیاده(یعنی پیدا کردن DOM Element و حذف یا به روز رسانی با سرعت کمتری انجام میشه) 
-    * از **SSR(server side rendering)** پشتیبانی میکند
+    * از **SSR(server side rendering)** پشتیبانی میکنه
     * از جریان داده ها یا data binding به صورت **یک طرفه (unidirectional)** پیروی میکنه 
-    * برای توسعه view از UI کامپوننت‌های ‌**reusable/composable** استفاده میکند
+    * برای توسعه view از UI کامپوننت‌های ‌**reusable/composable** استفاده میکنه
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -392,11 +392,11 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-4. ### What is the difference between Element and Component?
+4. ### تفاوت‌های Element و Component چیه؟?
 
-    An *Element* is a plain object describing what you want to appear on the screen in terms of the DOM nodes or other components. *Elements* can contain other *Elements* in their props. Creating a React element is cheap. Once an element is created, it is never mutated.
+    *Element* یک شی ساده است که که وظیفه داره اون چیزی که روی صفحه نمایش داده میشه رو توصیف کنه حالا ممکنه به صورت یک DOM node باشه یه به صورت componentهای دیگه.*Elements* میتونن شامل *Elements* دیگه به عنوان props باشند. ساختن یک Element در React کار ساده و کم دردسریه اما وقتی که ساخته شد هیچ وقت نمیشه تغییرش داد. 
 
-    The object representation of React Element would be as follows:
+    تو مثال زیر یک شی که توسط React Element ساخته شده رو میبینیم :
 
     <span align="left" dir="ltr">
 
@@ -410,7 +410,7 @@
    
      </span>
 
-    The above `React.createElement()` function returns an object:
+    تابع `()React.createElement` که توی قطعه کد بالا میبینید  یه object شبیه به این برمیگردونه:
 
     <span align="left" dir="ltr">
 
@@ -425,8 +425,8 @@
      ```
    
      </span>
-
-    And finally it renders to the DOM using `ReactDOM.render()`:
+    
+    و آخرش هم با استفاده از `()ReactDOM.render` میتونیم توی DOM , Render کنیم
 
     <span align="left" dir="ltr">
 
@@ -436,7 +436,7 @@
    
      </span>
 
-    Whereas a **component** can be declared in several different ways. It can be a class with a `render()` method. Alternatively, in simple cases, it can be defined as a function. In either case, it takes props as an input, and returns a JSX tree as the output:
+    درحالیکه یه **component** میتونه به روشهای مختلفی ساخته بشه. میتونه یه class باشه با یه متد `()render`. یا حتی به عنوان یه جایگزین ساده‌تر به صورت یک تابع تعریف بشه. در هر دو حالت کامپوننت ساخته شده props رو به عنوان ورودی دریافت میکنه و یه خروجی رو به صورت یه JSX tree برمیگردونه. به مثال زیر دقت کنید که چطور با استفاده از یه تابع و JSX یک کامپوننت ساخته میشه:  
 
     <span align="left" dir="ltr">
 
@@ -446,8 +446,8 @@
      ```
    
      </span>
-
-    Then JSX gets transpiled to a `React.createElement()` function tree:
+     
+     JSX به `()React.createElement` transplie میشه : 
 
     <span align="left" dir="ltr">
 
