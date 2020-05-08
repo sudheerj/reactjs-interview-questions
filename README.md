@@ -16,7 +16,7 @@
 | --- | --------- |
 |   | **هسته ری‌اکت** |
 |1  | [ری‌اکت چیه؟](#what-is-react) |
-|2  | [اصلی‌ترین ویژگی‌های ری‌اکت چیه؟](#what-are-the-major-features-of-react) |
+|2  | [اصلی‌ترین ویژگی‌های ری‌اکت چیا هستن؟](#what-are-the-major-features-of-react) |
 |3  | [JSX چیه؟](#what-is-jsx) |
 |4  | [تفاوت‌های Element و Component چیه؟](#what-is-the-difference-between-element-and-component) |
 |5  | [تو ری‌اکت چطوری کامپوننت می‌سازیم؟](#how-to-create-components-in-react) |
@@ -27,37 +27,37 @@
 |10 | [تفاوت state و props چیه؟](#what-is-the-difference-between-state-and-props) |
 |11 | [چرا نباید state رو مستقیما آپدیت کنیم؟](#why-should-we-not-update-the-state-directly) |
 |12 | [هدف از متدهای callback توی استفاده از setState چیه؟](#what-is-the-purpose-of-callback-function-as-an-argument-of-setstate)
-|13 | [What is the difference between HTML and React event handling?](#what-is-the-difference-between-html-and-react-event-handling) |
-|14 | [How to bind methods or event handlers in JSX callbacks?](#how-to-bind-methods-or-event-handlers-in-jsx-callbacks) |
-|15 | [How to pass a parameter to an event handler or callback?](#how-to-pass-a-parameter-to-an-event-handler-or-callback) |
-|16 | [What are synthetic events in React?](#what-are-synthetic-events-in-react) |
-|17 | [What is inline conditional expressions?](#what-is-inline-conditional-expressions) |
-|18 | [What are "key" props and what is the benefit of using them in arrays of elements?](#what-are-key-props-and-what-is-the-benefit-of-using-them-in-arrays-of-elements) |
-|19 | [What is the use of refs?](#what-is-the-use-of-refs) |
+|13 | [تفاوت بین نحوه مدیریت رویداد HTML و React چیه؟](#what-is-the-difference-between-html-and-react-event-handling) |
+|14 | [چطوری متد یا event رو به تابع callback توی JSX bind کنیم؟](#how-to-bind-methods-or-event-handlers-in-jsx-callbacks) |
+|15 | [چطوری میشه یک مقدار رو به یه تابع callback یا eventHandler پاس بدیم؟](#how-to-pass-a-parameter-to-an-event-handler-or-callback) |
+|16 | [Synthetic events(رویدادهای مصنوعی) تو ری‌اکت چیا هستن؟](#what-are-synthetic-events-in-react) |
+|17 | [عبارات شرطی درون خطی چیه؟](#what-is-inline-conditional-expressions) |
+|18 | [props های "key" چی هستن و مزایای استفاده از آنها در آرایه عناصر چیه؟](#what-are-key-props-and-what-is-the-benefit-of-using-them-in-arrays-of-elements) |
+|19 | [کاربرد refها چیه؟](#what-is-the-use-of-refs) |
 |20 | [چطوری از ref استفاده کنیم؟](#how-to-create-refs)
 |21 | [forward ref چیه؟](#what-are-forward-refs) |
-|22 | [Which is preferred option with in callback refs and findDOMNode()?](#which-is-preferred-option-with-in-callback-refs-and-finddomnode) |
-|23 | [Why are String Refs legacy?](#why-are-string-refs-legacy) |
+|22 | [بین callback refs و تابع findDOMNode کدوم رو ترجیح میدی؟](#which-is-preferred-option-with-in-callback-refs-and-finddomnode) |
+|23 | [چرا Refهای متنی منقضی محسوب می‌شوند؟](#why-are-string-refs-legacy) |
 |24 | [Virtual DOM چیه؟](#what-is-virtual-dom) |
-|25 | [How Virtual DOM works?](#how-virtual-dom-works) |
-|26 | [What is the difference between Shadow DOM and Virtual DOM?](#what-is-the-difference-between-shadow-dom-and-virtual-dom) |
-|27 | [What is React Fiber?](#what-is-react-fiber) |
-|28 | [What is the main goal of React Fiber?](#what-is-the-main-goal-of-react-fiber) |
-|29 | [What are controlled components?](#what-are-controlled-components) |
-|30 | [What are uncontrolled components?](#what-are-uncontrolled-components) |
-|31 | [What is the difference between createElement and cloneElement?](#what-is-the-difference-between-createelement-and-cloneelement) |
-|32 | [What is Lifting State Up in React?](#what-is-lifting-state-up-in-react) |
-|33 | [What are the different phases of component lifecycle?](#what-are-the-different-phases-of-component-lifecycle) |
-|34 | [What are the lifecycle methods of React?](#what-are-the-lifecycle-methods-of-react) |
-|35 | [What are Higher-Order components?](#what-are-higher-order-components) |
-|36 | [How to create props proxy for HOC component?](#how-to-create-props-proxy-for-hoc-component) |
-|37 | [What is context?](#what-is-context) |
-|38 | [What is children prop?](#what-is-children-prop) |
-|39 | [How to write comments in React?](#how-to-write-comments-in-react) |
-|40 | [What is the purpose of using super constructor with props argument?](#what-is-the-purpose-of-using-super-constructor-with-props-argument) |
-|41 | [What is reconciliation?](#what-is-reconciliation) |
-|42 | [How to set state with a dynamic key name?](#how-to-set-state-with-a-dynamic-key-name) |
-|43 | [What would be the common mistake of function being called every time the component renders?](#what-would-be-the-common-mistake-of-function-being-called-every-time-the-component-renders) |
+|25 | [Virtual DOM چطوری کار می‌کنه؟](#how-virtual-dom-works) |
+|26 | [تفاوت بین Shadow DOM و Virtual DOM چیه؟](#what-is-the-difference-between-shadow-dom-and-virtual-dom) |
+|27 | [React Fiber چیه؟](#what-is-react-fiber) |
+|28 | [هدف اصلی React Fiber چیه؟](#what-is-the-main-goal-of-react-fiber) |
+|29 | [کامپوننت‌های کنترل شده چی هستن؟](#what-are-controlled-components) |
+|30 | [کامپوننت‌های کنترل نشده چی هستن؟](#what-are-uncontrolled-components) |
+|31 | [تفاوت‌های بین createElement و cloneElement چیا هستن؟](#what-is-the-difference-between-createelement-and-cloneelement) |
+|32 | [مفهوم lift state up یا مدیریت state در لول بالاتر رو توضیح میدی؟](#what-is-lifting-state-up-in-react) |
+|33 | [فازهای مختلف از lifecycle کامپوننت چیا هستن؟](#what-are-the-different-phases-of-component-lifecycle) |
+|34 | [متدهای lifecycle کامپوننت چیا هستن؟](#what-are-the-lifecycle-methods-of-react) |
+|35 | [کامپوننت‌های Higher-Order چی هستن؟](#what-are-higher-order-components) |
+|36 | [چطوری می‌تونیم props proxy برای کامپوننت‌های HOC ایجاد کنیم؟](#how-to-create-props-proxy-for-hoc-component) |
+|37 | [context چیه؟](#what-is-context) |
+|38 | [children prop چیه؟](#what-is-children-prop) |
+|39 | [چطوری میشه تو React کامنت نوشت؟](#how-to-write-comments-in-react) |
+|40 | [چرا توی کامپوننت‌های کلاس باید توی constructor تابع super رو با مقدار props صدا بزنیم؟](#what-is-the-purpose-of-using-super-constructor-with-props-argument) |
+|41 | [reconciliation چیه؟](#what-is-reconciliation) |
+|42 | [چطوری با یه اسم داینامیک set state کنیم؟](#how-to-set-state-with-a-dynamic-key-name) |
+|43 | [یه اشتباه رایج برای مدیریت توابع eventها که باعث میشه با هر رندر توابع مجدد ساخته بشن چی هستش؟](#what-would-be-the-common-mistake-of-function-being-called-every-time-the-component-renders) |
 |44 | [Is lazy function supports named exports??](#is-lazy-function-supports-named-exports) |
 |45 | [Why React uses className over class attribute?](#why-react-uses-classname-over-class-attribute) |
 |46 | [What are fragments?](#what-are-fragments) |
@@ -211,7 +211,7 @@
 |189| [How to test React Native apps?](#how-to-test-react-native-apps) |
 |190| [How to do logging in React Native?](#how-to-do-logging-in-react-native) |
 |191| [How to debug your React Native?](#how-to-debug-your-react-native) |
-|   | **React supported libraries and Integration** |
+|   | **کتابخانه‌های مورد استفاده با ری‌اکت** |
 |192| [What is reselect and how it works?](#what-is-reselect-and-how-it-works) |
 |193| [What is Flow?](#what-is-flow) |
 |194| [What is the difference between Flow and PropTypes?](#what-is-the-difference-between-flow-and-proptypes) |
@@ -1923,9 +1923,9 @@
         }
       </div>
     )
-     ```
+    ```
    
-     </span>
+    </span>
 
     If you need an `if-else` condition then use *ternary operator*.
 
@@ -1941,9 +1941,9 @@
         }
       </div>
     )
-     ```
+    ```
    
-     </span>
+    </span>
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
