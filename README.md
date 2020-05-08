@@ -6429,6 +6429,7 @@
     
 276. ### What is route based code splitting?
      One of the best place to do code splitting is with routes. The entire page is going to re-render at once so users are unlikely to interact with other elements in the page at the same time. Due to this, the user experience won't be disturbed. Let us take an example of route based website using libraries like React Router with React.lazy,
+     
      <span align="left" dir="ltr">
 
      ```jsx
@@ -6457,9 +6458,10 @@
     
 277. ### Give an example on How to use context?
      **Context** is designed to share data that can be considered **global** for a tree of React components.  For example, in the code below lets manually thread through a “theme” prop in order to style the Button component.
+     
      <span align="left" dir="ltr">
 
-     ```javascript
+     ```jsx
      //Lets create a context with a default theme value "luna"
      const ThemeContext = React.createContext('luna');
      // Create App component where it uses provider to pass theme value in the tree
@@ -6495,6 +6497,7 @@
     
 278. ### What is the purpose of default value in context?
      The defaultValue argument is only used when a component does not have a matching Provider above it in the tree. This can be helpful for testing components in isolation without wrapping them. Below code snippet provides default theme value as Luna.
+     
      <span align="left" dir="ltr">
 
      ```javascript
@@ -6510,6 +6513,7 @@
      1. **contextType as property of class:**
      The contextType property on a class can be assigned a Context object created by React.createContext(). After that, you can consume the nearest current value of that Context type using this.context in any of the lifecycle methods and render function.
      Lets assign contextType property on MyClass as below,
+     
      <span align="left" dir="ltr">
 
      ```javascript
@@ -6537,6 +6541,7 @@
      </span>
      2. **Static field**
      You can use a static class field to initialize your contextType using public class field syntax.
+     
      <span align="left" dir="ltr">
 
      ```javascript
@@ -6555,6 +6560,7 @@
     
 280. ### What is a consumer?
      A Consumer is a React component that subscribes to context changes. It requires a function as a child which receives current context value as argument and returns a react node. The value argument passed to the function will be equal to the value prop of the closest Provider for this context above in the tree. Lets take a simple example,
+     
      <span align="left" dir="ltr">
 
      ```jsx
@@ -6569,9 +6575,10 @@
     
 281. ### How do you solve performance corner cases while using context?
      The context uses reference identity to determine when to re-render, there are some gotchas that could trigger unintentional renders in consumers when a provider’s parent re-renders. For example, the code below will re-render all consumers every time the Provider re-renders because a new object is always created for value.
+     
      <span align="left" dir="ltr">
 
-     ```javascript
+     ```jsx
      class App extends React.Component {
        render() {
          return (
@@ -6585,9 +6592,10 @@
    
      </span>
      This can be solved by lifting up the value to parent state,
+     
      <span align="left" dir="ltr">
 
-     ```javascript
+     ```jsx
      class App extends React.Component {
        constructor(props) {
          super(props);
@@ -6613,9 +6621,10 @@
 282. ### What is the purpose of forward ref in HOCs?
      Refs will not get passed through because ref is not a prop. It handled differently by React just like **key**. If you add a ref to a HOC, the ref will refer to the outermost container component, not the wrapped component. In this case, you can use Forward Ref API. For example, we can explicitly forward refs to the inner FancyButton component using the React.forwardRef API.
      The below HOC logs all props,
+     
      <span align="left" dir="ltr">
 
-     ```javascript
+     ```jsx
      function logProps(Component) {
        class LogProps extends React.Component {
          componentDidUpdate(prevProps) {
@@ -6654,6 +6663,7 @@
    
      </span>
      Now lets create a ref and pass it to FancyButton component. In this case, you can set focus to button element.
+     
      <span align="left" dir="ltr">
 
      ```jsx
@@ -6684,9 +6694,10 @@
     
 285. ### How to create react class components without ES6?
      If you don’t use ES6 then you may need to use the create-react-class module instead. For default props, you need to define getDefaultProps() as a function on the passed object. Whereas for initial state, you have to provide a separate getInitialState method that returns the initial state.
+     
      <span align="left" dir="ltr">
 
-     ```javascript
+     ```jsx
      var Greeting = createReactClass({
        getDefaultProps: function() {
            return {
@@ -6712,9 +6723,10 @@
     
 286. ### Is it possible to use react without JSX?
      Yes, JSX is not mandatory for using React. Actually it is convenient when you don’t want to set up compilation in your build environment. Each JSX element is just syntactic sugar for calling React.createElement(component, props, ...children). For example, let us take a greeting example with JSX,
+     
      <span align="left" dir="ltr">
 
-     ```javascript
+     ```jsx
      class Greeting extends React.Component {
        render() {
          return <div>Hello {this.props.message}</div>;
@@ -6729,6 +6741,7 @@
    
      </span>
      You can write the same code without JSX as below,
+     
      <span align="left" dir="ltr">
 
      ```javascript
@@ -6762,6 +6775,7 @@
         Whenever the root elements have different types, React will tear down the old tree and build the new tree from scratch. For example,  elements <a> to <img>, or from <Article> to <Comment> of different types lead a full rebuild.
      2. **DOM Elements Of The Same Type:**
         When comparing two React DOM elements of the same type, React looks at the attributes of both, keeps the same underlying DOM node, and only updates the changed attributes. Lets take an example with same DOM elements except className attribute,
+     
      <span align="left" dir="ltr">
 
      ```javascript
@@ -6775,6 +6789,7 @@
         When a component updates, the instance stays the same, so that state is maintained across renders. React updates the props of the underlying component instance to match the new element, and calls componentWillReceiveProps() and componentWillUpdate() on the underlying instance. After that, the render() method is called and the diff algorithm recurses on the previous result and the new result.
      4. **Recursing On Children:**
         when recursing on the children of a DOM node, React just iterates over both lists of children at the same time and generates a mutation whenever there’s a difference. For example, when adding an element at the end of the children, converting between these two trees works well.
+     
      <span align="left" dir="ltr">
 
      ```html
@@ -6793,6 +6808,7 @@
      </span>
      5. **Handling keys:**
      React supports a key attribute. When children have keys, React uses the key to match children in the original tree with children in the subsequent tree. For example, adding a key can make the tree conversion efficient,
+     
      <span align="left" dir="ltr">
 
      ```html
@@ -6822,6 +6838,7 @@
     
 290. ### Is it prop must be named as render for render props?
      Even though the pattern named render props, you don’t have to use a prop named render to use this pattern. i.e,  Any prop that is a function that a component uses to know what to render is technically a “render prop”. Lets take an example with the children prop for render props,
+     
      <span align="left" dir="ltr">
 
      ```jsx
@@ -6844,6 +6861,7 @@
    
      </span>
      While using this above technique(without any name), explicitly state that children should be a function in your propTypes.
+     
      <span align="left" dir="ltr">
 
      ```javascript
@@ -6863,6 +6881,7 @@
     
 292. ### How do you create HOC using render props?
      You can implement most higher-order components (HOC) using a regular component with a render prop. For example, if you would prefer to have a withMouse HOC instead of a <Mouse> component, you could easily create one using a regular <Mouse> with a render prop.
+     
      <span align="left" dir="ltr">
 
      ```jsx
@@ -6891,6 +6910,7 @@
     
 294. ### How do you print falsy values in JSX?
      The falsy values such as false, null, undefined, and true are valid children but they don't render anything. If you still want to display them then you need to convert it to string. Let's take an example on how to convert to a string,
+     
      <span align="left" dir="ltr">
 
      ```jsx
@@ -6910,9 +6930,10 @@
     
 296. ### How do you set default value for uncontrolled component?
      In React, the value attribute on form elements will override the value in the DOM. With an uncontrolled component, you might want React to specify the initial value, but leave subsequent updates uncontrolled. To handle this case, you can specify a **defaultValue** attribute instead of **value**.
+     
      <span align="left" dir="ltr">
 
-     ```javascript
+     ```jsx harmony
      render() {
        return (
          <form onSubmit={this.handleSubmit}>
@@ -6930,6 +6951,7 @@
      ```
    
      </span>
+     
      The same applies for `select` and `textArea` inputs. But you need to use **defaultChecked** for `checkbox` and `radio` inputs.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -6959,6 +6981,7 @@
         This is the easiest way to add bootstrap. Add both bootstrap CSS and JS resources in a head tag.
      2. Bootstrap as Dependency:
         If you are using a build tool or a module bundler such as Webpack, then this is the preferred option for adding Bootstrap to your React application
+     
      <span align="left" dir="ltr">
 
      ```bash
@@ -6966,6 +6989,7 @@
      ```
    
      </span>
+     
      3. React Bootstrap Package:
         In this case, you can add Bootstrap to our React app is by using a package that has rebuilt Bootstrap components to work particularly as React components. Below packages are popular in this category,
         1. react-bootstrap
@@ -7002,9 +7026,10 @@
 303. ### How to fetch data with React Hooks?
      The effect hook called `useEffect` is used to fetch the data with axios from the API and to set the data in the local state of the component with the state hook’s update function.
      Let's take an example in which it fetches list of react articles from the API
+     
      <span align="left" dir="ltr">
 
-     ```javascript
+     ```jsx
      import React, { useState, useEffect } from 'react';
      import axios from 'axios';
 
@@ -7034,6 +7059,7 @@
      ```
    
      </span>
+     
      Remember we provided an empty array as second argument to the effect hook to avoid activating it on component updates but only for the mounting of the component. i.e, It fetches only for component mount.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -7055,6 +7081,7 @@
 306. ### Why do we use array destructuring (square brackets notation) in `useState`?
      When we declare a state variable with `useState`, it returns a pair — an array with two items. The first item is the current value, and the second is a function that updates the value. Using [0] and [1] to access them is a bit confusing because they have a specific meaning. This is why we use array destructuring instead.
      For example, the array index access would look as follows:
+     
      <span align="left" dir="ltr">
 
      ```javascript
@@ -7064,7 +7091,9 @@
      ```
    
      </span>
+     
      Whereas with array destructuring the variables can be accessed as follows:
+     
      <span align="left" dir="ltr">
 
      ```javascript
