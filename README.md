@@ -370,7 +370,7 @@
     
 3. ### JSX چیه؟
 
-    *JSX* یه افزونه با سینتکسی شبیه به XML  برای ECMAScript است ( مخفف *Javascript XML* ) . اگه بخوایم ساده بگیم وظیفه اش اینه که سینتکسی ساده تر از `React.createElement()` دراختیارتون قرار میده, شما میتونید Javascript رو در کنار ساختاری شبیه به HTML داشته باشید.
+    *JSX* یه افزونه با سینتکسی شبیه به XML  برای ECMAScript است ( مخفف *Javascript XML* ) . اگه بخوایم ساده بگیم وظیفه اش اینه که سینتکسی ساده تر از `React.createElement` دراختیارتون قرار میده, شما میتونید Javascript رو در کنار ساختاری شبیه به HTML داشته باشید.
     
     تو مثال زیر می‌بینید که نوشته داخل تگ h1 مثل یک تابع Javascript  به تابع render تحویل داده میشه.
 
@@ -392,9 +392,9 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-4. ### تفاوت‌های Element و Component چیه؟?
+4. ### تفاوت‌های Element و Component چیه؟
 
-    *Element* یک شی ساده است که که وظیفه داره اون چیزی که روی صفحه نمایش داده میشه رو توصیف کنه حالا ممکنه به صورت یک DOM node باشه یه به صورت componentهای دیگه.*Elements* میتونن شامل *Elements* دیگه به عنوان props باشند. ساختن یک Element در React کار ساده و کم دردسریه اما وقتی که ساخته شد هیچ وقت نمیشه تغییرش داد. 
+    *Element* یک شی ساده است که وظیفه داره اون چیزی که روی صفحه نمایش داده میشه رو توصیف کنه حالا ممکنه به صورت یک DOM node باشه یه به صورت componentهای دیگه.*Elements* میتونن شامل *Elements* دیگه به عنوان props باشند. ساختن یک Element در React کار ساده و کم دردسریه اما وقتی که ساخته شد هیچ وقت نمیشه تغییرش داد. 
 
     تو مثال زیر یک شی که توسط React Element ساخته شده رو میبینیم :
 
@@ -410,7 +410,7 @@
    
      </span>
 
-    تابع `()React.createElement` که توی قطعه کد بالا میبینید  یه object شبیه به این برمیگردونه:
+    تابع `React.createElement` که توی قطعه کد بالا میبینید  یه object شبیه به این برمیگردونه:
 
     <span align="left" dir="ltr">
 
@@ -426,7 +426,7 @@
    
      </span>
     
-    و آخرش هم با استفاده از `()ReactDOM.render` میتونیم توی DOM , Render کنیم
+    و آخرش هم با استفاده از `ReactDOM.render` میتونیم توی DOM , Render کنیم
 
     <span align="left" dir="ltr">
 
@@ -436,7 +436,7 @@
    
      </span>
 
-    درحالیکه یه **component** میتونه به روشهای مختلفی ساخته بشه. میتونه یه class باشه با یه متد `()render`. یا حتی به عنوان یه جایگزین ساده‌تر به صورت یک تابع تعریف بشه. در هر دو حالت کامپوننت ساخته شده props رو به عنوان ورودی دریافت میکنه و یه خروجی رو به صورت یه JSX tree برمیگردونه. به مثال زیر دقت کنید که چطور با استفاده از یه تابع و JSX یک کامپوننت ساخته میشه:  
+    درحالیکه یه **component** میتونه به روشهای مختلفی ساخته بشه. میتونه یه class باشه با یه متد `render`. یا حتی به عنوان یه جایگزین ساده‌تر به صورت یک تابع تعریف بشه. در هر دو حالت کامپوننت ساخته شده props رو به عنوان ورودی دریافت میکنه و یه خروجی رو به صورت یه JSX tree برمیگردونه. به مثال زیر دقت کنید که چطور با استفاده از یه تابع و JSX یک کامپوننت ساخته میشه:  
 
     <span align="left" dir="ltr">
 
@@ -447,7 +447,7 @@
    
      </span>
      
-     JSX به `React.createElement()` transplie میشه : 
+     JSX به `React.createElement` transplie میشه : 
 
     <span align="left" dir="ltr">
 
@@ -463,11 +463,10 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-5. ### How to create components in React?
+5. ### تو ری‌اکت چطوری کاپوننت میسازیم؟
 
-    There are two possible ways to create a component.
-
-    1. **Function Components:** This is the simplest way to create a component. Those are pure JavaScript functions that accept props object as first parameter and return React elements:
+    تو سوال قبل یه اشاره کوچیک کردیم که دوتا راه برای ساختن کامپوننت وجود داره.
+   ۱. **Function Components**: این ساده‌ترین راه برای ساختن یه کامپوننته. یه  *Pure Javascript Function* رو در نظر بگیرید که Props که خودش یه object هست رو به عنوان پارامتر ورودی میگیره و یه React Element به عنوان خروجی برمیگردونه مثل همین مثال پایین: 
 
     <span align="left" dir="ltr">
 
@@ -479,7 +478,7 @@
    
      </span>
 
-    2. **Class Components:** You can also use ES6 class to define a component. The above function component can be written as:
+    ۲. **Class Components:** شما میتونید از class که در ES6 به جاوااسکریپت اضافه شده برای این کار استفاده کنید. کامپوننت مثال قبلی رو اگه بخواییم با class پیاده سازی کنیم اینجوری میشه:
 
     <span align="left" dir="ltr">
 
@@ -492,6 +491,8 @@
      ```
    
      </span>
+     
+     فقط یادتون نره تو این روش متد`render` یه جورایی required میشه.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
