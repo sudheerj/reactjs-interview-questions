@@ -2,7 +2,7 @@
 
 # مجموعه سوالات استخدامی ری‌اکت 
 
-> اگه خوشتون اومد روی :star: کلیک کنید. اگر هم قصد مشارکت داشتید خیلی خوشحال می‌شم :)
+> اگه خوشتون اومد روی :star: کلیک کنید. اگر هم قصد مشارکت داشتید خیلی خوشحال می‌شیم :)
 
 
 ## دانلود کتاب به فرمت‌های PDF/Epub 
@@ -361,7 +361,7 @@
 
     اصلی‌ترین ویژگی‌های ری‌اکت اینا هستن:
     
-    * از **VirtualDOM** به جای RealDOM استفاده میکنه چون هزینه تغییرات RealDOM زیاده(یعنی پیدا کردن DOM Element و حدف یا به روز رسانی با سرعت کمتری انجام میشه) 
+    * از **VirtualDOM** به جای RealDOM استفاده میکنه چون هزینه تغییرات RealDOM زیاده(یعنی پیدا کردن DOM Element و حذف یا به روز رسانی با سرعت کمتری انجام میشه) 
     * از **SSR(server side rendering)** پشتیبانی میکند
     * از جریان داده ها یا data binding به صورت **یک طرفه (unidirectional)** پیروی میکنه 
     * برای توسعه view از UI کامپوننت‌های ‌**reusable/composable** استفاده میکند
@@ -370,9 +370,9 @@
     
 3. ### JSX چیه؟
 
-    *JSX* is a XML-like syntax extension to ECMAScript (the acronym stands for *JavaScript XML*). Basically it just provides syntactic sugar for the `React.createElement()` function, giving us expressiveness of JavaScript along with HTML like template syntax.
-
-    In the example below text inside `<h1>` tag return as JavaScript function to the render function.
+    *JSX* یه افزونه با سینتکسی شبیه به XML  برای ECMAScript است ( مخفف *Javascript XML* ) . اگه بخوایم ساده بگیم وظیفه اش اینه که سینتکسی ساده تر از `React.createElement()` دراختیارتون قرار میده, شما میتونید Javascript رو در کنار ساختاری شبیه به HTML داشته باشید.
+    
+    تو مثال زیر می‌بینید که نوشته داخل تگ h1 مثل یک تابع Javascript  به تابع render تحویل داده میشه.
 
     <span align="left" dir="ltr">
 
