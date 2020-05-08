@@ -360,11 +360,11 @@
 2. ### اصلی‌ترین ویژگی‌های ری‌اکت چیه؟ 
 
     اصلی‌ترین ویژگی‌های ری‌اکت اینا هستن:
-
-    * It uses **VirtualDOM** instead RealDOM considering that RealDOM manipulations are expensive.
-    * Supports **server-side rendering**.
-    * Follows **Unidirectional** data flow or data binding.
-    * Uses **reusable/composable** UI components to develop the view.
+    
+    * از **VirtualDOM** به جای RealDOM استفاده میکنه چون هزینه تغییرات RealDOM زیاده(یعنی پیدا کردن DOM Element و حدف یا به روز رسانی با سرعت کمتری انجام میشه) 
+    * از **SSR(server side rendering)** پشتیبانی میکند
+    * از جریان داده ها یا data binding به صورت **یک طرفه (unidirectional)** پیروی میکنه 
+    * برای توسعه view از UI کامپوننت‌های ‌**reusable/composable** استفاده میکند
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
