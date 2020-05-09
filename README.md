@@ -2,7 +2,7 @@
 
 # مجموعه سوالات استخدامی ری‌اکت 
 
-> اگه خوشتون اومد روی :star: کلیک کنید. اگر هم قصد مشارکت داشتید خیلی خوشحال می‌شم :)
+> اگه خوشتون اومد روی :star: کلیک کنید. اگر هم قصد مشارکت داشتید خیلی خوشحال می‌شیم :)
 
 
 ## دانلود کتاب به فرمت‌های PDF/Epub 
@@ -360,19 +360,19 @@
 2. ### اصلی‌ترین ویژگی‌های ری‌اکت چیه؟ 
 
     اصلی‌ترین ویژگی‌های ری‌اکت اینا هستن:
-
-    * It uses **VirtualDOM** instead RealDOM considering that RealDOM manipulations are expensive.
-    * Supports **server-side rendering**.
-    * Follows **Unidirectional** data flow or data binding.
-    * Uses **reusable/composable** UI components to develop the view.
+    
+    * از **VirtualDOM** به جای RealDOM استفاده میکنه چون هزینه تغییرات RealDOM زیاده(یعنی پیدا کردن DOM Element و حذف یا به روز رسانی با سرعت کمتری انجام میشه) 
+    * از **SSR(server side rendering)** پشتیبانی میکنه
+    * از جریان داده ها یا data binding به صورت **یک طرفه (unidirectional)** پیروی میکنه 
+    * برای توسعه view از UI کامپوننت‌های ‌**reusable/composable** استفاده میکنه
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
 3. ### JSX چیه؟
 
-    *JSX* is a XML-like syntax extension to ECMAScript (the acronym stands for *JavaScript XML*). Basically it just provides syntactic sugar for the `React.createElement()` function, giving us expressiveness of JavaScript along with HTML like template syntax.
-
-    In the example below text inside `<h1>` tag return as JavaScript function to the render function.
+    *JSX* یه افزونه با سینتکسی شبیه به XML  برای ECMAScript است ( مخفف *Javascript XML* ) . اگه بخوایم ساده بگیم وظیفه اش اینه که سینتکسی ساده تر از `React.createElement` دراختیارتون قرار میده, شما میتونید Javascript رو در کنار ساختاری شبیه به HTML داشته باشید.
+    
+    تو مثال زیر می‌بینید که نوشته داخل تگ h1 مثل یک تابع Javascript  به تابع render تحویل داده میشه.
 
     <span align="left" dir="ltr">
 
@@ -392,11 +392,11 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-4. ### What is the difference between Element and Component?
+4. ### تفاوت‌های Element و Component چیه؟
 
-    An *Element* is a plain object describing what you want to appear on the screen in terms of the DOM nodes or other components. *Elements* can contain other *Elements* in their props. Creating a React element is cheap. Once an element is created, it is never mutated.
+    *Element* یک شی ساده است که وظیفه داره اون چیزی که روی صفحه نمایش داده میشه رو توصیف کنه حالا ممکنه به صورت یک DOM node باشه یه به صورت componentهای دیگه.*Elements* میتونن شامل *Elements* دیگه به عنوان props باشند. ساختن یک Element در React کار ساده و کم دردسریه اما وقتی که ساخته شد هیچ وقت نمیشه تغییرش داد. 
 
-    The object representation of React Element would be as follows:
+    تو مثال زیر یک شی که توسط React Element ساخته شده رو میبینیم :
 
     <span align="left" dir="ltr">
 
@@ -410,7 +410,7 @@
    
      </span>
 
-    The above `React.createElement()` function returns an object:
+    تابع `React.createElement` که توی قطعه کد بالا میبینید  یه object شبیه به این برمیگردونه:
 
     <span align="left" dir="ltr">
 
@@ -425,8 +425,8 @@
      ```
    
      </span>
-
-    And finally it renders to the DOM using `ReactDOM.render()`:
+    
+    و آخرش هم با استفاده از `ReactDOM.render` میتونیم توی DOM , Render کنیم
 
     <span align="left" dir="ltr">
 
@@ -436,7 +436,7 @@
    
      </span>
 
-    Whereas a **component** can be declared in several different ways. It can be a class with a `render()` method. Alternatively, in simple cases, it can be defined as a function. In either case, it takes props as an input, and returns a JSX tree as the output:
+    درحالیکه یه **component** میتونه به روشهای مختلفی ساخته بشه. میتونه یه class باشه با یه متد `render`. یا حتی به عنوان یه جایگزین ساده‌تر به صورت یک تابع تعریف بشه. در هر دو حالت کامپوننت ساخته شده props رو به عنوان ورودی دریافت میکنه و یه خروجی رو به صورت یه JSX tree برمیگردونه. به مثال زیر دقت کنید که چطور با استفاده از یه تابع و JSX یک کامپوننت ساخته میشه:  
 
     <span align="left" dir="ltr">
 
@@ -446,8 +446,8 @@
      ```
    
      </span>
-
-    Then JSX gets transpiled to a `React.createElement()` function tree:
+     
+     JSX به `React.createElement` transplie میشه : 
 
     <span align="left" dir="ltr">
 
@@ -463,11 +463,10 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-5. ### How to create components in React?
+5. ### تو ری‌اکت چطوری کامپوننت میسازیم؟
 
-    There are two possible ways to create a component.
-
-    1. **Function Components:** This is the simplest way to create a component. Those are pure JavaScript functions that accept props object as first parameter and return React elements:
+    تو سوال قبل یه اشاره کوچیک کردیم که دوتا راه برای ساختن کامپوننت وجود داره.
+   ۱. **Function Components**: این ساده‌ترین راه برای ساختن یه کامپوننته. یه  *Pure Javascript Function* رو در نظر بگیرید که Props که خودش یه object هست رو به عنوان پارامتر ورودی میگیره و یه React Element به عنوان خروجی برمیگردونه مثل همین مثال پایین: 
 
     <span align="left" dir="ltr">
 
@@ -479,7 +478,7 @@
    
      </span>
 
-    2. **Class Components:** You can also use ES6 class to define a component. The above function component can be written as:
+    ۲. **Class Components:** شما میتونید از class که در ES6 به جاوااسکریپت اضافه شده برای این کار استفاده کنید. کامپوننت مثال قبلی رو اگه بخواییم با class پیاده سازی کنیم اینجوری میشه:
 
     <span align="left" dir="ltr">
 
@@ -492,6 +491,8 @@
      ```
    
      </span>
+     
+     فقط یادتون نره تو این روش متد`render` یه جورایی required میشه.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
