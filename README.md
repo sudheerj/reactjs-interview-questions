@@ -6303,7 +6303,7 @@ You can download the PDF and Epub version of this repository from the latest run
      if( this.state.liked ) {
          return <blueLike />;
      } else {
-         return <greyLidke />;
+         return <greyLike />;
      }
      ```
 
