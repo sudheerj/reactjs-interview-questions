@@ -58,16 +58,16 @@
 |41 | [reconciliation چیه؟](#what-is-reconciliation) |
 |42 | [چطوری با یه اسم داینامیک set state کنیم؟](#how-to-set-state-with-a-dynamic-key-name) |
 |43 | [یه اشتباه رایج برای مدیریت توابع eventها که باعث میشه با هر رندر توابع مجدد ساخته بشن چی هستش؟](#what-would-be-the-common-mistake-of-function-being-called-every-time-the-component-renders) |
-|44 | [Is lazy function supports named exports??](#is-lazy-function-supports-named-exports) |
-|45 | [Why React uses className over class attribute?](#why-react-uses-classname-over-class-attribute) |
-|46 | [What are fragments?](#what-are-fragments) |
-|47 | [Why fragments are better than container divs?](#why-fragments-are-better-than-container-divs) |
-|48 | [What are portals in React?](#what-are-portals-in-react) |
-|49 | [What are stateless components?](#what-are-stateless-components) |
-|50 | [What are stateful components?](#what-are-stateful-components) |
-|51 | [How to apply validation on props in React?](#how-to-apply-validation-on-props-in-react) |
-|52 | [What are the advantages of React?](#what-are-the-advantages-of-react) |
-|53 | [What are the limitations of React?](#what-are-the-limitations-of-react) |
+|44 | [تابع lazy که برای lazy load استفاده میشه رو می‌تونیم به صورت name export خروجی بگیریم؟](#is-lazy-function-supports-named-exports) |
+|45 | [چرا ری‌اکت از className بجای class استفاده می‌کنه؟](#why-react-uses-classname-over-class-attribute) |
+|46 | [fragmentها چی هستن؟](#what-are-fragments) |
+|47 | [چرا fragmentها از تگ‌های div بهترن؟](#why-fragments-are-better-than-container-divs) |
+|48 | [توی ری‌اکت portal‌ها چیکار می‌کنن؟](#what-are-portals-in-react) |
+|49 | [کامپوننت stateless چیه؟](#what-are-stateless-components) |
+|50 | [کامپوننت stateful چیه؟](#what-are-stateful-components) |
+|51 | [چطوری prop‌های کامپوننت رو اعتبارسنجی کنیم؟](#how-to-apply-validation-on-props-in-react) |
+|52 | [مزایای React چیه؟](#what-are-the-advantages-of-react) |
+|53 | [محدودیت های React چیه؟](#what-are-the-limitations-of-react) |
 |54 | [What are error boundaries in React v16](#what-are-error-boundaries-in-react-v16) |
 |55 | [How error boundaries handled in React v15?](#how-error-boundaries-handled-in-react-v15) |
 |56 | [What are the recommended ways for static type checking?](#what-are-the-recommended-ways-for-static-type-checking) |
