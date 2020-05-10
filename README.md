@@ -15,60 +15,60 @@
 | ردیف. | سوال |
 | --- | --------- |
 |   | **هسته ری‌اکت** |
-|1  | [ری‌اکت چیه؟](#ری‌اکت-چیه؟) |
-|2  | [اصلی‌ترین ویژگی‌های ری‌اکت چیا هستن؟](#اصلی‌ترین-ویژگی‌های-ری‌اکت-چیا-هستن؟) |
-|3  | [JSX چیه؟](#JSX-چیه؟) |
-|4  | [تفاوت‌های Element و Component چیه؟](#تفاوت‌های-Element-و-Component-چیه؟) |
-|5  | [تو ری‌اکت چطوری کامپوننت می‌سازیم؟](#تو-ری‌اکت-چطوری-کامپوننت-می‌سازیم؟) |
-|6  | [کی باید از Class Component بجای Function Component استفاده کنیم؟](#کی-باید-از-Class-Component-بجای-Function-Component-استفاده-کنیم؟) |
-|7  | [Pure Components چیه؟](#Pure-Components-چیه؟) |
-|8  | [state تو ری‌اکت چیکار می‌کنه؟](#state-تو-ری‌اکت-چیکار-می‌کنه؟) |
-|9  | [props تو ری‌اکت چیکار می‌کنه؟](#props-تو-ری‌اکت-چیکار-می‌کنه؟) |
-|10 | [تفاوت state و props چیه؟](#تفاوت-state-و-props-چیه؟) |
-|11 | [چرا نباید state رو مستقیما آپدیت کنیم؟](#چرا-نباید-state-رو-مستقیما-آپدیت-کنیم؟) |
-|12 | [هدف از متدهای callback توی استفاده از setState چیه؟](#هدف-از-متدهای-callback-توی-استفاده-از-setState-چیه؟)
-|13 | [تفاوت بین نحوه مدیریت رویداد HTML و React چیه؟](#تفاوت-بین-نحوه-مدیریت-رویداد-HTML-و-React-چیه؟) |
-|14 | [چطوری متد یا event رو به تابع callback توی JSX bind کنیم؟](#چطوری-متد-یا-event-رو-به-تابع-callback-توی-JSX-bind-کنیم؟) |
-|15 | [چطوری میشه یک مقدار رو به یه تابع callback یا eventHandler پاس بدیم؟](#چطوری-میشه-یک-مقدار-رو-به-یه-تابع-callback-یا-eventHandler-پاس-بدیم؟) |
-|16 | [Synthetic events(رویدادهای مصنوعی) تو ری‌اکت چیا هستن؟](#Synthetic-events(رویدادهای-مصنوعی)-تو-ری‌اکت-چیا-هستن؟) |
-|17 | [عبارات شرطی درون خطی چیه؟](#عبارات-شرطی-درون-خطی-چیه؟) |
-|18 | [props های "key" چی هستن و مزایای استفاده از آنها در آرایه عناصر چیه؟](#props-های-"key"-چی-هستن-و-مزایای-استفاده-از-آنها-در-آرایه-عناصر-چیه؟) |
-|19 | [کاربرد refها چیه؟](#کاربرد-refها-چیه؟) |
-|20 | [چطوری از ref استفاده کنیم؟](#چطوری-از-ref-استفاده-کنیم؟)
-|21 | [forward ref چیه؟](#forward-ref-چیه؟) |
-|22 | [بین callback refs و تابع findDOMNode کدوم رو ترجیح میدی؟](#بین-callback-refs-و-تابع-findDOMNode-کدوم-رو-ترجیح-میدی؟) |
-|23 | [چرا Refهای متنی منقضی محسوب می‌شوند؟](#چرا-Refهای-متنی-منقضی-محسوب-می‌شوند؟) |
-|24 | [Virtual DOM چیه؟](#Virtual-DOM-چیه؟) |
-|25 | [Virtual DOM چطوری کار می‌کنه؟](#Virtual-DOM-چطوری-کار-می‌کنه؟) |
-|26 | [تفاوت بین Shadow DOM و Virtual DOM چیه؟](#تفاوت-بین-Shadow-DOM-و-Virtual-DOM-چیه؟) |
-|27 | [React Fiber چیه؟](#React-Fiber-چیه؟) |
-|28 | [هدف اصلی React Fiber چیه؟](#هدف-اصلی-React-Fiber-چیه؟) |
-|29 | [کامپوننت‌های کنترل شده چی هستن؟](#کامپوننت‌های-کنترل-شده-چی-هستن؟) |
-|30 | [کامپوننت‌های کنترل نشده چی هستن؟](#کامپوننت‌های-کنترل-نشده-چی-هستن؟) |
-|31 | [تفاوت‌های بین createElement و cloneElement چیا هستن؟](#تفاوت‌های-بین-createElement-و-cloneElement-چیا-هستن؟) |
-|32 | [مفهوم lift state up یا مدیریت state در لول بالاتر رو توضیح میدی؟](#مفهوم-lift-state-up-یا-مدیریت-state-در-لول-بالاتر-رو-توضیح-میدی؟) |
-|33 | [فازهای مختلف از lifecycle کامپوننت چیا هستن؟](#فازهای-مختلف-از-lifecycle-کامپوننت-چیا-هستن؟) |
-|34 | [متدهای lifecycle کامپوننت چیا هستن؟](#متدهای-lifecycle-کامپوننت-چیا-هستن؟) |
-|35 | [کامپوننت‌های Higher-Order چی هستن؟](#کامپوننت‌های-Higher-Order-چی-هستن؟) |
-|36 | [چطوری می‌تونیم props proxy برای کامپوننت‌های HOC ایجاد کنیم؟](#چطوری-می‌تونیم-props-proxy-برای-کامپوننت‌های-HOC-ایجاد-کنیم؟) |
-|37 | [context چیه؟](#context-چیه؟) |
-|38 | [children prop چیه؟](#children-prop-چیه؟) |
-|39 | [چطوری میشه تو React کامنت نوشت؟](#چطوری-میشه-تو-React-کامنت-نوشت؟) |
-|40 | [چرا توی کامپوننت‌های کلاس باید توی constructor تابع super رو با مقدار props صدا بزنیم؟](#چرا-توی-کامپوننت‌های-کلاس-باید-توی-constructor-تابع-super-رو-با-مقدار-props-صدا-بزنیم؟) |
-|41 | [reconciliation چیه؟](#reconciliation-چیه؟) |
-|42 | [چطوری با یه اسم داینامیک set state کنیم؟](#چطوری-با-یه-اسم-داینامیک-set-state-کنیم؟) |
-|43 | [یه اشتباه رایج برای مدیریت توابع eventها که باعث میشه با هر رندر توابع مجدد ساخته بشن چی هستش؟](#یه-اشتباه-رایج-برای-مدیریت-توابع-eventها-که-باعث-میشه-با-هر-رندر-توابع-مجدد-ساخته-بشن-چی-هستش؟) |
-|44 | [تابع lazy که برای lazy load استفاده میشه رو می‌تونیم به صورت name export خروجی بگیریم؟](#تابع-lazy-که-برای-lazy-load-استفاده-میشه-رو-می‌تونیم-به-صورت-name-export-خروجی-بگیریم؟) |
-|45 | [چرا ری‌اکت از className بجای class استفاده می‌کنه؟](#چرا-ری‌اکت-از-className-بجای-class-استفاده-می‌کنه؟) |
-|46 | [fragmentها چی هستن؟](#fragmentها-چی-هستن؟) |
-|47 | [چرا fragmentها از تگ‌های div بهترن؟](#چرا-fragmentها-از-تگ‌های-div-بهترن؟) |
-|48 | [توی ری‌اکت portal‌ها چیکار می‌کنن؟](#توی-ری‌اکت-portal‌ها-چیکار-می‌کنن؟) |
-|49 | [کامپوننت stateless چیه؟](#کامپوننت-stateless-چیه؟) |
-|50 | [کامپوننت stateful چیه؟](#کامپوننت-stateful-چیه؟) |
-|51 | [چطوری prop‌های کامپوننت رو اعتبارسنجی کنیم؟](#چطوری-prop‌های-کامپوننت-رو-اعتبارسنجی-کنیم؟) |
-|52 | [مزایای React چیه؟](#مزایای-React-چیه؟) |
-|53 | [محدودیت های React چیه؟](#محدودیت-های-React-چیه؟) |
-|54 | [error boundaryها توی ری‌اکت نسخه 16 چیکار می‌کنن؟](#error-boundaryها-توی-ری‌اکت-نسخه-16-چیکار-می‌کنن؟) |
+|1  | [ری‌اکت چیه؟](#ری‌اکت-چیه) |
+|2  | [اصلی‌ترین ویژگی‌های ری‌اکت چیا هستن؟](#اصلی‌ترین-ویژگی‌های-ری‌اکت-چیا-هستن) |
+|3  | [JSX چیه؟](#JSX-چیه) |
+|4  | [تفاوت‌های Element و Component چیه؟](#تفاوت‌های-Element-و-Component-چیه) |
+|5  | [تو ری‌اکت چطوری کامپوننت می‌سازیم؟](#تو-ری‌اکت-چطوری-کامپوننت-می‌سازیم) |
+|6  | [کی باید از Class Component بجای Function Component استفاده کنیم؟](#کی-باید-از-Class-Component-بجای-Function-Component-استفاده-کنیم) |
+|7  | [Pure Components چیه؟](#Pure-Components-چیه) |
+|8  | [state تو ری‌اکت چیکار می‌کنه؟](#state-تو-ری‌اکت-چیکار-می‌کنه) |
+|9  | [props تو ری‌اکت چیکار می‌کنه؟](#props-تو-ری‌اکت-چیکار-می‌کنه) |
+|10 | [تفاوت state و props چیه؟](#تفاوت-state-و-props-چیه) |
+|11 | [چرا نباید state رو مستقیما آپدیت کنیم؟](#چرا-نباید-state-رو-مستقیما-آپدیت-کنیم) |
+|12 | [هدف از متدهای callback توی استفاده از setState چیه؟](#هدف-از-متدهای-callback-توی-استفاده-از-setState-چیه)
+|13 | [تفاوت بین نحوه مدیریت رویداد HTML و React چیه؟](#تفاوت-بین-نحوه-مدیریت-رویداد-HTML-و-React-چیه) |
+|14 | [چطوری متد یا event رو به تابع callback توی JSX bind کنیم؟](#چطوری-متد-یا-event-رو-به-تابع-callback-توی-JSX-bind-کنیم) |
+|15 | [چطوری میشه یک مقدار رو به یه تابع callback یا eventHandler پاس بدیم؟](#چطوری-میشه-یک-مقدار-رو-به-یه-تابع-callback-یا-eventHandler-پاس-بدیم) |
+|16 | [Synthetic events(رویدادهای مصنوعی) تو ری‌اکت چیا هستن؟](#Synthetic-events(رویدادهای-مصنوعی)-تو-ری‌اکت-چیا-هستن(رویدادهای-مصنوعی)-تو-ری‌اکت-چیا-هستن؟) |
+|17 | [عبارات شرطی درون خطی چیه؟](#عبارات-شرطی-درون-خطی-چیه) |
+|18 | [props های "key" چی هستن و مزایای استفاده از آنها در آرایه عناصر چیه؟](#props-های-"key"-چی-هستن-و-مزایای-استفاده-از-آنها-در-آرایه-عناصر-چیه"key"-چی-هستن-و-مزایای-استفاده-از-آنها-در-آرایه-عناصر-چیه؟) |
+|19 | [کاربرد refها چیه؟](#کاربرد-refها-چیه) |
+|20 | [چطوری از ref استفاده کنیم؟](#چطوری-از-ref-استفاده-کنیم)
+|21 | [forward ref چیه؟](#forward-ref-چیه) |
+|22 | [بین callback refs و تابع findDOMNode کدوم رو ترجیح میدی؟](#بین-callback-refs-و-تابع-findDOMNode-کدوم-رو-ترجیح-میدی) |
+|23 | [چرا Refهای متنی منقضی محسوب می‌شوند؟](#چرا-Refهای-متنی-منقضی-محسوب-می‌شوند) |
+|24 | [Virtual DOM چیه؟](#Virtual-DOM-چیه) |
+|25 | [Virtual DOM چطوری کار می‌کنه؟](#Virtual-DOM-چطوری-کار-می‌کنه) |
+|26 | [تفاوت بین Shadow DOM و Virtual DOM چیه؟](#تفاوت-بین-Shadow-DOM-و-Virtual-DOM-چیه) |
+|27 | [React Fiber چیه؟](#React-Fiber-چیه) |
+|28 | [هدف اصلی React Fiber چیه؟](#هدف-اصلی-React-Fiber-چیه) |
+|29 | [کامپوننت‌های کنترل شده چی هستن؟](#کامپوننت‌های-کنترل-شده-چی-هستن) |
+|30 | [کامپوننت‌های کنترل نشده چی هستن؟](#کامپوننت‌های-کنترل-نشده-چی-هستن) |
+|31 | [تفاوت‌های بین createElement و cloneElement چیا هستن؟](#تفاوت‌های-بین-createElement-و-cloneElement-چیا-هستن) |
+|32 | [مفهوم lift state up یا مدیریت state در لول بالاتر رو توضیح میدی؟](#مفهوم-lift-state-up-یا-مدیریت-state-در-لول-بالاتر-رو-توضیح-میدی) |
+|33 | [فازهای مختلف از lifecycle کامپوننت چیا هستن؟](#فازهای-مختلف-از-lifecycle-کامپوننت-چیا-هستن) |
+|34 | [متدهای lifecycle کامپوننت چیا هستن؟](#متدهای-lifecycle-کامپوننت-چیا-هستن) |
+|35 | [کامپوننت‌های Higher-Order چی هستن؟](#کامپوننت‌های-Higher-Order-چی-هستن) |
+|36 | [چطوری می‌تونیم props proxy برای کامپوننت‌های HOC ایجاد کنیم؟](#چطوری-می‌تونیم-props-proxy-برای-کامپوننت‌های-HOC-ایجاد-کنیم) |
+|37 | [context چیه؟](#context-چیه) |
+|38 | [children prop چیه؟](#children-prop-چیه) |
+|39 | [چطوری میشه تو React کامنت نوشت؟](#چطوری-میشه-تو-React-کامنت-نوشت) |
+|40 | [چرا توی کامپوننت‌های کلاس باید توی constructor تابع super رو با مقدار props صدا بزنیم؟](#چرا-توی-کامپوننت‌های-کلاس-باید-توی-constructor-تابع-super-رو-با-مقدار-props-صدا-بزنیم) |
+|41 | [reconciliation چیه؟](#reconciliation-چیه) |
+|42 | [چطوری با یه اسم داینامیک set state کنیم؟](#چطوری-با-یه-اسم-داینامیک-set-state-کنیم) |
+|43 | [یه اشتباه رایج برای مدیریت توابع eventها که باعث میشه با هر رندر توابع مجدد ساخته بشن چی هستش؟](#یه-اشتباه-رایج-برای-مدیریت-توابع-eventها-که-باعث-میشه-با-هر-رندر-توابع-مجدد-ساخته-بشن-چی-هستش) |
+|44 | [تابع lazy که برای lazy load استفاده میشه رو می‌تونیم به صورت name export خروجی بگیریم؟](#تابع-lazy-که-برای-lazy-load-استفاده-میشه-رو-می‌تونیم-به-صورت-name-export-خروجی-بگیریم) |
+|45 | [چرا ری‌اکت از className بجای class استفاده می‌کنه؟](#چرا-ری‌اکت-از-className-بجای-class-استفاده-می‌کنه) |
+|46 | [fragmentها چی هستن؟](#fragmentها-چی-هستن) |
+|47 | [چرا fragmentها از تگ‌های div بهترن؟](#چرا-fragmentها-از-تگ‌های-div-بهترن) |
+|48 | [توی ری‌اکت portal‌ها چیکار می‌کنن؟](#توی-ری‌اکت-portal‌ها-چیکار-می‌کنن) |
+|49 | [کامپوننت stateless چیه؟](#کامپوننت-stateless-چیه) |
+|50 | [کامپوننت stateful چیه؟](#کامپوننت-stateful-چیه) |
+|51 | [چطوری prop‌های کامپوننت رو اعتبارسنجی کنیم؟](#چطوری-prop‌های-کامپوننت-رو-اعتبارسنجی-کنیم) |
+|52 | [مزایای React چیه؟](#مزایای-React-چیه) |
+|53 | [محدودیت های React چیه؟](#محدودیت-های-React-چیه) |
+|54 | [error boundaryها توی ری‌اکت نسخه 16 چیکار می‌کنن؟]() |
 |55 | [How error boundaries handled in React v15?](#how-error-boundaries-handled-in-react-v15) |
 |56 | [What are the recommended ways for static type checking?](#what-are-the-recommended-ways-for-static-type-checking) |
 |57 | [What is the use of react-dom package?](#what-is-the-use-of-react-dom-package) |
@@ -368,8 +368,9 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-3. ### JSX چیه؟     ؟ 
-   *JSX* یه افزونه با سینتکسی شبیه به XML  برای ECMAScript است ( مخفف *Javascript XML* ) . اگه بخوایم ساده بگیم وظیفه اش اینه که سینتکسی ساده تر از `React.createElement` دراختیارتون قرار میده, شما میتونید Javascript رو در کنار ساختاری شبیه به HTML داشته باشید.
+3. ### JSX چیه؟ 
+
+    *JSX* یه افزونه با سینتکسی شبیه به XML  برای ECMAScript است ( مخفف *Javascript XML* ) . اگه بخوایم ساده بگیم وظیفه اش اینه که سینتکسی ساده تر از `React.createElement` دراختیارتون قرار میده, شما میتونید Javascript رو در کنار ساختاری شبیه به HTML داشته باشید.
     
     تو مثال زیر می‌بینید که نوشته داخل تگ h1 مثل یک تابع Javascript  به تابع render تحویل داده میشه.
 
@@ -502,13 +503,15 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-7. ### Pure Components چیه؟     ؟ 
-   *`React.PureComponent`* is exactly the same as *`React.Component`* except that it handles the `shouldComponentUpdate()` method for you. When props or state changes, *PureComponent* will do a shallow comparison on both props and state. *Component* on the other hand won't compare current props and state to next out of the box. Thus, the component will re-render by default whenever `shouldComponentUpdate` is called.
+7. ### Pure Components چیه؟ 
+
+    *`React.PureComponent`* is exactly the same as *`React.Component`* except that it handles the `shouldComponentUpdate()` method for you. When props or state changes, *PureComponent* will do a shallow comparison on both props and state. *Component* on the other hand won't compare current props and state to next out of the box. Thus, the component will re-render by default whenever `shouldComponentUpdate` is called.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-8. ### state تو ری‌اکت چیکار می‌کنه؟                        ؟ 
-   *State* of a component is an object that holds some information that may change over the lifetime of the component. We should always try to make our state as simple as possible and minimize the number of stateful components. Let's create an user component with message state,
+8. ### state تو ری‌اکت چیکار می‌کنه؟ 
+
+    *State* of a component is an object that holds some information that may change over the lifetime of the component. We should always try to make our state as simple as possible and minimize the number of stateful components. Let's create an user component with message state,
 
 
     <span align="left" dir="ltr">
@@ -541,8 +544,9 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-9. ### props تو ری‌اکت چیکار می‌کنه؟                        ؟ 
-   *Props* are inputs to components. They are single values or objects containing a set of values that are passed to components on creation using a naming convention similar to HTML-tag attributes. They are data passed down from a parent component to a child component.
+9. ### props تو ری‌اکت چیکار می‌کنه؟ 
+
+    *Props* are inputs to components. They are single values or objects containing a set of values that are passed to components on creation using a naming convention similar to HTML-tag attributes. They are data passed down from a parent component to a child component.
 
     The primary purpose of props in React is to provide following component functionality:
 
@@ -768,8 +772,9 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-16. ### Synthetic events(رویدادهای مصنوعی) تو ری‌اکت چیا هستن؟                    ؟ 
-   `SyntheticEvent` is a cross-browser wrapper around the browser's native event. It's API is same as the browser's native event, including `stopPropagation()` and `preventDefault()`, except the events work identically across all browsers.
+16. ### Synthetic events(رویدادهای مصنوعی) تو ری‌اکت چیا هستن؟ 
+
+    `SyntheticEvent` is a cross-browser wrapper around the browser's native event. It's API is same as the browser's native event, including `stopPropagation()` and `preventDefault()`, except the events work identically across all browsers.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -797,8 +802,9 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-18. ### props های "key" چی هستن و مزایای استفاده از آنها در آرایه عناصر چیه؟                                                     ؟ 
-   A `key` is a special string attribute you **should** include when creating arrays of elements. *Keys* help React identify which items have changed, are added, or are removed.
+18. ### props های "key" چی هستن و مزایای استفاده از آنها در آرایه عناصر چیه؟ 
+
+    A `key` is a special string attribute you **should** include when creating arrays of elements. *Keys* help React identify which items have changed, are added, or are removed.
 
     Most often we use IDs from our data as *keys*:
 
@@ -896,8 +902,9 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-21. ### forward ref چیه؟     ؟ 
-   *Ref forwarding* is a feature that lets some components take a *ref* they receive, and pass it further down to a child.
+21. ### forward ref چیه؟ 
+
+    *Ref forwarding* is a feature that lets some components take a *ref* they receive, and pass it further down to a child.
 
     <span align="left" dir="ltr">
 
@@ -994,13 +1001,15 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-24. ### Virtual DOM چیه؟     ؟ 
-   The *Virtual DOM* (VDOM) is an in-memory representation of *Real DOM*. The representation of a UI is kept in memory and synced with the "real" DOM. It's a step that happens between the render function being called and the displaying of elements on the screen. This entire process is called *reconciliation*.
+24. ### Virtual DOM چیه؟ 
+
+    The *Virtual DOM* (VDOM) is an in-memory representation of *Real DOM*. The representation of a UI is kept in memory and synced with the "real" DOM. It's a step that happens between the render function being called and the displaying of elements on the screen. This entire process is called *reconciliation*.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-25. ### Virtual DOM چطوری کار می‌کنه؟                  ؟ 
-   The *Virtual DOM* works in three simple steps.
+25. ### Virtual DOM چطوری کار می‌کنه؟ 
+
+    The *Virtual DOM* works in three simple steps.
 
     1. Whenever any underlying data changes, the entire UI is re-rendered in Virtual DOM representation.
 
@@ -1022,8 +1031,9 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-27. ### React Fiber چیه؟     ؟ 
-   Fiber is the new *reconciliation* engine or reimplementation of core algorithm in React v16. The goal of React Fiber is to increase its suitability for areas like animation, layout, gestures, ability to pause, abort, or reuse work and assign priority to different types of updates; and new concurrency primitives.
+27. ### React Fiber چیه؟ 
+
+    Fiber is the new *reconciliation* engine or reimplementation of core algorithm in React v16. The goal of React Fiber is to increase its suitability for areas like animation, layout, gestures, ability to pause, abort, or reuse work and assign priority to different types of updates; and new concurrency primitives.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -1205,8 +1215,9 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-37. ### context چیه؟     ؟ 
-   *Context* provides a way to pass data through the component tree without having to pass props down manually at every level. For example, authenticated user, locale preference, UI theme need to be accessed in the application by many components.
+37. ### context چیه؟ 
+
+    *Context* provides a way to pass data through the component tree without having to pass props down manually at every level. For example, authenticated user, locale preference, UI theme need to be accessed in the application by many components.
 
     <span align="left" dir="ltr">
 
@@ -1218,8 +1229,9 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-38. ### children prop چیه؟     ؟ 
-   *Children* is a prop (`this.prop.children`) that allow you to pass components as data to other components, just like any other prop you use. Component tree put between component's opening and closing tag will be passed to that component as `children` prop.
+38. ### children prop چیه؟ 
+
+    *Children* is a prop (`this.prop.children`) that allow you to pass components as data to other components, just like any other prop you use. Component tree put between component's opening and closing tag will be passed to that component as `children` prop.
 
     There are a number of methods available in the React API to work with this prop. These include `React.Children.map`, `React.Children.forEach`, `React.Children.count`, `React.Children.only`, `React.Children.toArray`.
     A simple usage of children prop looks as below,
@@ -1327,8 +1339,9 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-41. ### reconciliation چیه؟     ؟ 
-   When a component's props or state change, React decides whether an actual DOM update is necessary by comparing the newly returned element with the previously rendered one. When they are not equal, React will update the DOM. This process is called *reconciliation*.
+41. ### reconciliation چیه؟ 
+
+    When a component's props or state change, React decides whether an actual DOM update is necessary by comparing the newly returned element with the previously rendered one. When they are not equal, React will update the DOM. This process is called *reconciliation*.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
@@ -1429,8 +1442,9 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-46. ### fragmentها چی هستن؟            ؟ 
-   It's common pattern in React which is used for a component to return multiple elements. *Fragments* let you group a list of children without adding extra nodes to the DOM.
+46. ### fragmentها چی هستن؟ 
+
+    It's common pattern in React which is used for a component to return multiple elements. *Fragments* let you group a list of children without adding extra nodes to the DOM.
 
     <span align="left" dir="ltr">
 
