@@ -80,49 +80,49 @@
 |63 | [اگه توی constructor بیاییم و setState کنیم چی میشه؟](#what-will-happen-if-you-use-setstate-in-constructor) |
 |64 | [تاثیر استفاده از اینرکس به عنوان key چیه؟](#what-is-the-impact-of-indexes-as-keys) |
 |65 | [نظرت راجع به استفاده از setState توی متد componentWillMount چیه؟](#is-it-good-to-use-setstate-in-componentwillmount-method) |
-|66 | [What will happen if you use props in initial state?](#what-will-happen-if-you-use-props-in-initial-state) |
-|67 | [How do you conditionally render components?](#how-do-you-conditionally-render-components)
-|68 | [Why we need to be careful when spreading props on DOM elements??](#why-we-need-to-be-careful-when-spreading-props-on-dom-elements) |
-|69 | [How you use decorators in React?](#how-you-use-decorators-in-react) |
-|70 | [How do you memoize a component?](#how-do-you-memoize-a-component) |
-|71 | [How you implement Server-Side Rendering or SSR?](#how-you-implement-server-side-rendering-or-ssr) |
-|72 | [How to enable production mode in React?](#how-to-enable-production-mode-in-react) |
-|73 | [What is CRA and its benefits?](#what-is-cra-and-its-benefits) |
-|74 | [What is the lifecycle methods order in mounting?](#what-is-the-lifecycle-methods-order-in-mounting) |
-|75 | [What are the lifecycle methods going to be deprecated in React v16?](#what-are-the-lifecycle-methods-going-to-be-deprecated-in-react-v16) |
-|76 | [What is the purpose of getDerivedStateFromProps() lifecycle method?](#what-is-the-purpose-of-getderivedstatefromprops-lifecycle-method) |
-|77 | [What is the purpose of getSnapshotBeforeUpdate() lifecycle method?](#what-is-the-purpose-of-getsnapshotbeforeupdate-lifecycle-method) |
-|78 | [Do Hooks replace render props and higher order components?](#do-hooks-replace-render-props-and-higher-order-components) |
-|79 | [What is the recommended way for naming components?](#what-is-the-recommended-way-for-naming-components) |
-|80 | [What is the recommended ordering of methods in component class?](#what-is-the-recommended-ordering-of-methods-in-component-class) |
-|81 | [What is a switching component?](#what-is-a-switching-component) |
-|82 | [Why we need to pass a function to setState()?](#why-we-need-to-pass-a-function-to-setstate) |
-|83 | [What is strict mode in React?](#what-is-strict-mode-in-react) |
-|84 | [What are React Mixins?](#what-are-react-mixins) |
-|85 | [Why is isMounted() an anti-pattern and what is the proper solution?](#why-is-ismounted-an-anti-pattern-and-what-is-the-proper-solution) |
-|86 | [What are the Pointer Events supported in React?](#what-are-the-pointer-events-supported-in-react) |
-|87 | [Why should component names start with capital letter?](#why-should-component-names-start-with-capital-letter) |
-|88 | [Are custom DOM attributes supported in React v16?](#are-custom-dom-attributes-supported-in-react-v16) |
-|89 | [What is the difference between constructor and getInitialState?](#what-is-the-difference-between-constructor-and-getinitialstate) |
-|90 | [Can you force a component to re-render without calling setState?](#can-you-force-a-component-to-re-render-without-calling-setstate) |
-|91 | [What is the difference between super() and super(props) in React using ES6 classes?](#what-is-the-difference-between-super-and-superprops-in-react-using-es6-classes) |
-|92 | [How to loop inside JSX?](#how-to-loop-inside-jsx) |
-|93 | [How do you access props in attribute quotes?](#how-do-you-access-props-in-attribute-quotes) |
-|94 | [What is React PropType array with shape?](#what-is-react-proptype-array-with-shape) |
-|95 | [How to conditionally apply class attributes?](#how-to-conditionally-apply-class-attributes) |
-|96 | [What is the difference between React and ReactDOM?](#what-is-the-difference-between-react-and-reactdom) |
-|97 | [Why ReactDOM is separated from React?](#why-reactdom-is-separated-from-react) |
-|98 | [How to use React label element?](#how-to-use-react-label-element) |
-|99 | [How to combine multiple inline style objects?](#how-to-combine-multiple-inline-style-objects) |
-|100| [How to re-render the view when the browser is resized?](#how-to-re-render-the-view-when-the-browser-is-resized)
-|101| [What is the difference between setState and replaceState methods?](#what-is-the-difference-between-setstate-and-replacestate-methods) |
-|102| [How to listen to state changes?](#how-to-listen-to-state-changes) |
-|103| [What is the recommended approach of removing an array element in react state?](#what-is-the-recommended-approach-of-removing-an-array-element-in-react-state) |
-|104| [Is it possible to use React without rendering HTML?](#is-it-possible-to-use-react-without-rendering-html) |
-|105| [How to pretty print JSON with React?](#how-to-pretty-print-json-with-react) |
-|106| [Why you can't update props in React?](#why-you-cant-update-props-in-react) |
-|107| [How to focus an input element on page load?](#how-to-focus-an-input-element-on-page-load) |
-|108| [What are the possible ways of updating objects in state?](#what-are-the-possible-ways-of-updating-objects-in-state) |
+|66 | [اگه از prop توی مقداردهی اولیه state استفاده کنیم چی میشه؟](#what-will-happen-if-you-use-props-in-initial-state) |
+|67 | [چطوری کامپوننت رو با بررسی یه شریط رندر می‌کنیم؟](#how-do-you-conditionally-render-components)
+|68 | [چرا وقتی propها رو روی یه DOM Elemnt می‌آییم spread می‌کنیم باید مراقب باشیم؟](#why-we-need-to-be-careful-when-spreading-props-on-dom-elements) |
+|69 | [چطوری از decoratorها توی ری‌اکت استفاده کنیم؟](#how-you-use-decorators-in-react) |
+|70 | [چطوری یه کامپوننت رو memoize می‌کنیم؟](#how-do-you-memoize-a-component) |
+|71 | [چطوری باید Server-Side Rendering یا SSR رو توی ری‌اکت پیاده کنیم؟](#how-you-implement-server-side-rendering-or-ssr) |
+|72 | [چطوری حالت production رو برای ری‌اکت فعال کنیم؟](#how-to-enable-production-mode-in-react) |
+|73 | [CRA چیه و چه مزایایی داره؟](#what-is-cra-and-its-benefits) |
+|74 | [ترتیب اجرا شدن متد‌های life cycle چطوریه؟](#what-is-the-lifecycle-methods-order-in-mounting) |
+|75 | [کدوم متد‌های life cycle توی نسخه 16 ری‌اکت منسوخ شدن؟](#what-are-the-lifecycle-methods-going-to-be-deprecated-in-react-v16) |
+|76 | [کاربرد متد getDerivedStateFromProps چیه؟](#what-is-the-purpose-of-getderivedstatefromprops-lifecycle-method) |
+|77 | [کاربرد متد getSnapshotBeforeUpdate() چیه؟](#what-is-the-purpose-of-getsnapshotbeforeupdate-lifecycle-method) |
+|78 | [آیا هوک‌ها جای render props و HOC رو می‌گیرن؟](#do-hooks-replace-render-props-and-higher-order-components) |
+|79 | [روش توضیه شده برای نام‌گذاری کامپوننت‌ها چیه؟](#what-is-the-recommended-way-for-naming-components) |
+|80 | [روش توصیه شده برای ترتیب متدها در کلاس کامپوننت‌ها چیه؟](#what-is-the-recommended-ordering-of-methods-in-component-class) |
+|81 | [کامپوننت تعویض کننده یا switching چیه؟](#what-is-a-switching-component) |
+|82 | [چرت نیاز میشه به تایع setState یه فانکشن callback پاس بدیم؟](#why-we-need-to-pass-a-function-to-setstate) |
+|83 | [حالت strict توی ری‌اکت چیکار می‌کنه؟](#what-is-strict-mode-in-react) |
+|84 | [Mixin‌های ری‌اکت چی هستن؟](#what-are-react-mixins) |
+|85 | [چرا isMounted آنتی پترن هست و روش بهتر انجامش چیه؟](#why-is-ismounted-an-anti-pattern-and-what-is-the-proper-solution) |
+|86 | [پشتیبانی ری‌اکت از pointer eventها چطوریه؟](#what-are-the-pointer-events-supported-in-react) |
+|87 | [چرا باید اسم کامپوننت با حرف بزرگ شروع بشه؟](#why-should-component-names-start-with-capital-letter) |
+|88 | [آیا propهای custom توی ری‌اکت پشتیبانی میشن؟](#are-custom-dom-attributes-supported-in-react-v16) |
+|89 | [تفاوت‌های  constructor و getInitialState چیه؟](#what-is-the-difference-between-constructor-and-getinitialstate) |
+|90 | [می‌تونیم یه کامپوننت رو بدون setState ری‌رندر کنیم؟](#can-you-force-a-component-to-re-render-without-calling-setstate) |
+|91 | [تفاوت‌های فراخوانی super() و super(props) توی کلاس کامپوننت‌های ری‌اکت چیه؟](#what-is-the-difference-between-super-and-superprops-in-react-using-es6-classes) |
+|92 | [چطوری توی JSX حلقه یا همون لوپ رو داشته باشیم؟](#how-to-loop-inside-jsx) |
+|93 | [توی attributeها چطوری به prop دسترسی داشته باشیم؟](#how-do-you-access-props-in-attribute-quotes) |
+|94 | [چطوری یه PropType برای ‌آرایه‌ای از objectها با shape داشته باشیم؟](#what-is-react-proptype-array-with-shape) |
+|95 | [چطوری classهای یه المنت رو به صورت شرطی رندر کنیم؟](#how-to-conditionally-apply-class-attributes) |
+|96 | [تفاوت‌های React و ReactDOM چیه؟](#what-is-the-difference-between-react-and-reactdom) |
+|97 | [چرا ReactDOM رو از React جدا کردن؟](#why-reactdom-is-separated-from-react) |
+|98 | [چطوری از label تو ری‌اکت استفاده کنیم؟](#how-to-use-react-label-element) |
+|99 | [چطوری می‌تونیم چندتا object از استایل‌های درون خطی رو با هم ترکیب کنیم؟](#how-to-combine-multiple-inline-style-objects) |
+|100| [چطوری با resize شدن مرورگر یه ویو رو ری‌رندر کنیم؟](#how-to-re-render-the-view-when-the-browser-is-resized)
+|101| [تفاوت متدهای setState و replaceState چیه؟](#what-is-the-difference-between-setstate-and-replacestate-methods) |
+|102| [چطوری به تغییرات state گوش بدیم؟](#how-to-listen-to-state-changes) |
+|103| [روش تووصیه شده برای حذف یک عنصر از آرایه توی state چیه؟](#what-is-the-recommended-approach-of-removing-an-array-element-in-react-state) |
+|104| [امکانش هست که ری‌اکت رو بدون رندر کردن HTML استفاده کنیم؟](#is-it-possible-to-use-react-without-rendering-html) |
+|105| [چطوری میشه با ری‌اکت یه JSON به شکل beautify شده نشون داد؟](#how-to-pretty-print-json-with-react) |
+|106| [چرا نمی‌تونیم prop رو آپدیت کنیم؟](#why-you-cant-update-props-in-react) |
+|107| [چطوری می‌تونیم موقع لود صفحه روی یه input فوکوس کنیم؟](#how-to-focus-an-input-element-on-page-load) |
+|108| [روش‌های ممکن برای آپدیت کردن object توی state چیا هستن؟](#what-are-the-possible-ways-of-updating-objects-in-state) |
 |109| [Why function is preferred over object for setState?](#why-function-is-preferred-over-object-for-setstate) |
 |110| [How can we find the version of React at runtime in the browser?](#how-can-we-find-the-version-of-react-at-runtime-in-the-browser) |
 |111| [What are the approaches to include polyfills in your create-react-app?](#what-are-the-approaches-to-include-polyfills-in-your-create-react-app) |
@@ -144,7 +144,7 @@
 |127| [How to make AJAX call and In which component lifecycle methods should I make an AJAX call?](#how-to-make-ajax-call-and-in-which-component-lifecycle-methods-should-i-make-an-ajax-call) |
 |128| [render props چیه؟](#what-are-render-props) |
 |   | **React Router** |
-|129| [What is React Router?](#what-is-react-router) |
+|129| [React Router چیه؟](#what-is-react-router) |
 |130| [How React Router is different from history library?](#how-react-router-is-different-from-history-library) |
 |131| [What are the \<Router> components of React Router v4?](#what-are-the-router-components-of-react-router-v4) |
 |132| [What is the purpose of push and replace methods of history?](#what-is-the-purpose-of-push-and-replace-methods-of-history) |
@@ -161,7 +161,7 @@
 |142| [What are the two ways of formatting in React Intl?](#what-are-the-two-ways-of-formatting-in-react-intl) |
 |143| [How to use FormattedMessage as placeholder using React Intl?](#how-to-use-formattedmessage-as-placeholder-using-react-intl) |
 |144| [How to access current locale with React Intl](#how-to-access-current-locale-with-react-intl) |
-|145| [How to format date using React Intl?](#how-to-format-date-using-react-intl) |
+|145| [چطوری با استفاده از React Intl یه تاریخ رو فرمت‌بندی کنیم؟](#how-to-format-date-using-react-intl) |
 |   | **React Testing** |
 |146| [What is Shallow Renderer in React testing?](#what-is-shallow-renderer-in-react-testing) |
 |147| [What is TestRenderer package in React?](#what-is-testrenderer-package-in-react) |
@@ -337,7 +337,7 @@
 |313| [What is react scripts?](#what-is-react-scripts)|
 |314| [What are the features of create react app?](#what-are-the-features-of-create-react-app)|
 |315| [What is the purpose of renderToNodeStream method?](#what-is-the-purpose-of-rendertonodestream-method)|
-|316| [What is MobX?](#what-is-mobx)|
+|316| [MobX چیه؟](#what-is-mobx)|
 |317| [What are the differences between Redux and MobX?](#what-are-the-differences-between-redux-and-mobx)|
 |318| [Should I learn ES6 before learning ReactJS?](#should-i-learn-es6-before-learning-reactjs)|
 |319| [What is Concurrent Rendering?](#what-is-concurrent-rendering)|
