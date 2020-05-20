@@ -69,17 +69,17 @@
 |52 | [مزایای React چیه؟](#مزایای-React-چیه) |
 |53 | [محدودیت های React چیه؟](#محدودیت-های-React-چیه) |
 |54 | [error boundaryها توی ری‌اکت نسخه 16 چیکار می‌کنن؟]() |
-|55 | [How error boundaries handled in React v15?](#how-error-boundaries-handled-in-react-v15) |
-|56 | [What are the recommended ways for static type checking?](#what-are-the-recommended-ways-for-static-type-checking) |
-|57 | [What is the use of react-dom package?](#what-is-the-use-of-react-dom-package) |
-|58 | [What is the purpose of render method of react-dom?](#what-is-the-purpose-of-render-method-of-react-dom) |
-|59 | [What is ReactDOMServer?](#what-is-reactdomserver) |
-|60 | [How to use InnerHtml in React?](#how-to-use-innerhtml-in-react) |
-|61 | [How to use styles in React?](#how-to-use-styles-in-react) |
-|62 | [How events are different in React?](#how-events-are-different-in-react) |
-|63 | [What will happen if you use setState in constructor?](#what-will-happen-if-you-use-setstate-in-constructor) |
-|64 | [What is the impact of indexes as keys?](#what-is-the-impact-of-indexes-as-keys) |
-|65 | [Is it good to use setState() in componentWillMount() method?](#is-it-good-to-use-setstate-in-componentwillmount-method) |
+|55 | [چطوری از error boundaryها توی نسخه ۱۵ ریکت مدیریت شدن؟](#how-error-boundaries-handled-in-react-v15) |
+|56 | [روش‌های پیشنهادی برای type checking چیه؟](#what-are-the-recommended-ways-for-static-type-checking) |
+|57 | [کاربرد پکیج react-dom چیه؟](#what-is-the-use-of-react-dom-package) |
+|58 | [کاربرد متد render از پکیج react-dom چیه؟](#what-is-the-purpose-of-render-method-of-react-dom) |
+|59 | [ReactDOMServer چیه؟](#what-is-reactdomserver) |
+|60 | [چطوری از InnerHtml توی ری‌اکت استفاده کنیم؟](#how-to-use-innerhtml-in-react) |
+|61 | [چطوری توی ری‌اکت استایل‌دهی می‌کنیم؟](#how-to-use-styles-in-react) |
+|62 | [تفاوت eventهای ری‌اکت چیه؟](#how-events-are-different-in-react) |
+|63 | [اگه توی constructor بیاییم و setState کنیم چی میشه؟](#what-will-happen-if-you-use-setstate-in-constructor) |
+|64 | [تاثیر استفاده از اینرکس به عنوان key چیه؟](#what-is-the-impact-of-indexes-as-keys) |
+|65 | [نظرت راجع به استفاده از setState توی متد componentWillMount چیه؟](#is-it-good-to-use-setstate-in-componentwillmount-method) |
 |66 | [What will happen if you use props in initial state?](#what-will-happen-if-you-use-props-in-initial-state) |
 |67 | [How do you conditionally render components?](#how-do-you-conditionally-render-components)
 |68 | [Why we need to be careful when spreading props on DOM elements??](#why-we-need-to-be-careful-when-spreading-props-on-dom-elements) |
