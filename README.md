@@ -7335,7 +7335,7 @@
      1. Calls to Hooks are either inside a PascalCase function (assumed to be a component) or another useSomething function (assumed to be a custom Hook).
      2. Hooks are called in the same order on every render.
 
-     **[⬆ Back to Top](#table-of-contents)**
+     **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 323. ### What is the difference between Imperative and Declarative in React?
 
