@@ -498,8 +498,8 @@
     
 6. ### کی باید از Class Component بجای Function Component استفاده کنیم؟ 
 
-    If the component needs *state or lifecycle methods* then use class component otherwise use function component.
-    *However, from React 16.8 with the addition of Hooks, you could use state , lifecycle  methods and other features that were only available in class component right in your function component.*
+     اگه کامپوننت نیاز به *state یا lifecycle methods* داشت از کلاس کامپوننت‌ها استفاده میکنیم در غیر این صورت میریم سراغ فانکسن کامپوننتها.
+     *با این حال از ورژن 16.8 ری‌اکت به بعد و با اضافه شدن هوکها به فانکشن کامپوننت ها، شما میتونید از state یا lifecycle methodها یا تمامی فیچرهایی که قبلا فقط در کلاس کامپوننت ‌ها قابل استفاده بود توی فانکشن کامپوننتتون استفاده کنید*
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
