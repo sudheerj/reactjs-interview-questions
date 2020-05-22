@@ -505,14 +505,14 @@
     
 7. ### Pure Components چیه؟ 
 
-    *`React.PureComponent`* is exactly the same as *`React.Component`* except that it handles the `shouldComponentUpdate()` method for you. When props or state changes, *PureComponent* will do a shallow comparison on both props and state. *Component* on the other hand won't compare current props and state to next out of the box. Thus, the component will re-render by default whenever `shouldComponentUpdate` is called.
+    *`React.PureComponent`* دقیقا مثل *`React.Component`* میمونه فقط تنها تفاوتی که داره اینه که برخلاف *`Component`* خودش به صورت خودکار متد *`shouldComponentUpdate()`* رو هندل میکنه. 
+    وقتی که props یا state در کامپوننت تغییر میکنه، *`PureComponent`* یه مقایسه سطحی روی props و state انجام میده (shallow comparison) در حالیکه *Component* این مقایسه رو به صورت خودکار انجام نمیده و به طور پیش‌فرض کامپوننت هربار که `shouldCompnentUpdate` فراخوانی بشه re-render میشه. بنابراین توی Component باید این متد override بشه.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
 8. ### state تو ری‌اکت چیکار می‌کنه؟ 
 
-    *State* of a component is an object that holds some information that may change over the lifetime of the component. We should always try to make our state as simple as possible and minimize the number of stateful components. Let's create an user component with message state,
-
+   *State* در هر کامپوننت یه آبجکته که یه سری اطلاعات که در طول عمر کامپوننت ما ممکنه تغییر کنه رو در خودش ذخیره میکنه.  ما باید تمام تلاشمون رو بکنیم که state‌مون در ساده ترین حالت ممکن باشه و تاجایی که میتونیم تعداد کامپوننت هایی که stateful هستن رو کاهش بدیم. به عنوان مثال بیایید یه کامپوننت User رو که یه state داره بسازیم: 
 
     <span align="left" dir="ltr">
 
@@ -540,7 +540,7 @@
 
     ![state](images/state.jpg)
 
-    State is similar to props, but it is private and fully controlled by the component. i.e, It is not accessible to any component other than the one that owns and sets it.
+   State و Props بهم شبیه هستن  ولی State کاملا در کنترل کامپوننت هستن و فقط مختص به همون کامپوننت هستن(private). یعنی state‌ها در هیچ کامپوننتی به غیر از اونی که مالکstate هست در دسترس نخواهند بود.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
