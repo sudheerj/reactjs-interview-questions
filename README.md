@@ -546,15 +546,15 @@
     
 9. ### props تو ری‌اکت چیکار می‌کنه؟ 
 
-    *Props* are inputs to components. They are single values or objects containing a set of values that are passed to components on creation using a naming convention similar to HTML-tag attributes. They are data passed down from a parent component to a child component.
+    *Props* ورودی کامپوننتها هستن. میتونن یه مقدار ساده یا یه شی شامل یه مجموعه مقدار باشن که به کامپوننت ها در لحظه ایجاد کامپوننت و بر اساس یه یه قاعده نام گذاری که خیلی شبیه به HTML-tag attributes هست، به کامپوننت پاس داده میشن. در واقع اینها داده‌هایی هستن که از کامپوننت پدر به فرزند تحویل داده میشن.
+    
+    هدف اصلی وجود Props در ری‌اکت ایجاد ساختارهای زیر در یک کامپوننته:
 
-    The primary purpose of props in React is to provide following component functionality:
+    ۱- پاس دادن مقادیر به کامپوننت شما
+    ۲- trigger کردن یک متد در زمان تغییر state
+    ۳- استفاده از مقادیر داخل متد render (`this.props.reactProps`)
 
-    1. Pass custom data to your component.
-    2. Trigger state changes.
-    3. Use via `this.props.reactProp` inside component's `render()` method.
-
-    For example, let us create an element with `reactProp` property:
+    به عنوان مثال ، یه کامپوننت با استفاده از`reactProps` میسازیم:
 
     <span align="left" dir="ltr">
 
@@ -564,13 +564,16 @@
    
      </span>
 
-    This `reactProp` (or whatever you came up with) name then becomes a property attached to React's native props object which originally already exists on all components created using React library.
+    این `reactProps` (یا هرچیزی که شما اسمشو میزارید)  در نهایت تبدیل به یک property خواهد شد که داخل props object ،که داخل تمامی کامپوننت های react از ابتدا وجود داره ، قرار میگیره. و به شکل زیر قابل دسترس هست
 
     <span align="left" dir="ltr">
 
     ```
     props.reactProp
      ```
+    ```
+    this.props.reactProp
+    ```
    
      </span>
      
