@@ -546,13 +546,15 @@
     
 9. ### props تو ری‌اکت چیکار می‌کنه؟ 
 
-    *Props* ورودی کامپوننتها هستن. میتونن یه مقدار ساده یا یه شی شامل یه مجموعه مقدار باشن که به کامپوننت ها در لحظه ایجاد کامپوننت و بر اساس یه یه قاعده نام گذاری که خیلی شبیه به HTML-tag attributes هست، به کامپوننت پاس داده میشن. در واقع اینها داده‌هایی هستن که از کامپوننت پدر به فرزند تحویل داده میشن.
+    *Props* ورودی کامپوننتها هستن. میتونن یه مقدار ساده یا یه شی شامل یه مجموعه مقدار باشن که در لحظه ایجاد کامپوننت و بر اساس یه یه قاعده نام گذاری که خیلی شبیه به HTML-tag attributes هست، به کامپوننت پاس داده میشن. در واقع اینها داده‌هایی هستن که از کامپوننت پدر به فرزند تحویل داده میشن.
     
     هدف اصلی وجود Props در ری‌اکت ایجاد ساختارهای زیر در یک کامپوننته:
 
-    ۱- پاس دادن مقادیر به کامپوننت شما
-    ۲- trigger کردن یک متد در زمان تغییر state
-    ۳- استفاده از مقادیر داخل متد render (`this.props.reactProps`)
+    1 - پاس دادن مقادیر به کامپوننت شما
+    
+    2 - trigger کردن یک متد در زمان تغییر state
+    
+    3 - استفاده از مقادیر داخل متد render (`this.props.reactProps`)
 
     به عنوان مثال ، یه کامپوننت با استفاده از`reactProps` میسازیم:
 
@@ -580,8 +582,8 @@
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
 10. ### تفاوت state و props چیه؟ 
-
-    Both *props* and *state* are plain JavaScript objects. While both of them hold information that influences the output of render, they are different in their functionality with respect to component. Props get passed to the component similar to function parameters whereas state is managed within the component similar to variables declared within a function.
+    
+    هردو javascript plain object  هستن . هردو وظیفه دارن مقادیری که روی render تاثیر گذار هست رو نگه داری کنن اما عملکردشون با توجه به کامپوننت متفاوت خواهد بود. Props شبیه به پارامتری ورودی یک فانکشن به کامپونتت پاس داده میشن در حالیکه state شبیه به متغییرهایی که داخل فانکشن ساخته شدن ، توسط خود کامپوننت ایجاد و مدیریت میشه.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
