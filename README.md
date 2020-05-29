@@ -589,7 +589,7 @@
     
 11. ### چرا نباید state رو مستقیما آپدیت کنیم؟ 
 
-    If you try to update state directly then it won't re-render the component.
+    اگه یه بار تلاش کنید که مستقیما state رو آپدیت کنید متوجه میشید که کامپوننت شما مجددا render نمیشه.
 
     <span align="left" dir="ltr">
 
@@ -599,8 +599,7 @@
      ```
    
      </span>
-
-    Instead use `setState()` method. It schedules an update to a component's state object. When state changes, the component responds by re-rendering.
+    به جای اینکه مستقیما state رو آپدیت کنیم میتونیم از متد `setState` در `Class Components` و از `useState` در `Function Components` استفاده کنیم. این متدها یک آپدیت در شی state رو برنامه ریزی و مدیریت میکنن و وقتی تغییر انجام شد کامپوننت شما re-render خواهد شد.
 
     <span align="left" dir="ltr">
 
@@ -608,10 +607,15 @@
     //Correct
     this.setState({ message: 'Hello World' })
      ```
-   
+     
+    ```javascript
+    const [message, setMessage] = React.useState('Hello world')
+
+    setMessage("New Hello world")
+    ```
      </span>
 
-    **Note:** You can directly assign to the state object either in *constructor* or using latest javascript's class field declaration syntax.
+    **نکته مهم:** شما میتونید در سازنده کلاس یا در ورژن جدید جاوااسکریپت به عنوان فیلد کلاس هر چیزی رو به شی state خودتون assign کنید.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
