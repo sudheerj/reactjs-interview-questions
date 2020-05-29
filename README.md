@@ -622,6 +622,7 @@
 12. ### هدف از متدهای callback توی استفاده از setState چیه؟ 
 
     callback function زمانی که setState تموم شد و کامپوننت مجددا render شد فراخوانی میشه. از اونجایی که `setState()` **asynchronous** یا همون غیرهمزمانه از callback برای کارهایی استفاده میشه که بعد از تابع setState قراره اجرا بشن.
+    
     **نکته مهم:** بهتره که به جای callback از lifecycle method ها استفاده کنیم. 
 
     <span align="left" dir="ltr">
