@@ -599,7 +599,7 @@
      ```
    
      </span>
-    به جای اینکه مستقیما state رو آپدیت کنیم میتونیم از متد `setState`  در `Class Component`  و از `useState`  در `Function Components`  استفاده کنیم. این متدها یک آپدیت در شی state رو برنامه ریزی و مدیریت میکنن و وقتی تغییر انجام شد کامپوننت شما re-render خواهد شد.
+    به جای اینکه مستقیما state رو آپدیت کنیم میتونیم از متد setState  در Class Component  و از useState  در Function Components  استفاده کنیم. این متدها یک آپدیت در شی state رو برنامه ریزی و مدیریت میکنن و وقتی تغییر انجام شد کامپوننت شما re-render خواهد شد.
 
     <span align="left" dir="ltr">
 
