@@ -182,48 +182,48 @@
 |161| [چطوری میشه یه اکشن رو موقع لود dispatch کرد؟](#how-to-dispatch-an-action-on-load) |
 |162| [چطوری از متد connect از پکیج react-redux استفاده می‌کنیم؟](#how-to-use-connect-from-react-redux) |
 |163| [چطوری میشه state ریداکس رو ریست کرد؟](#how-to-reset-state-in-redux) |
-|164| [Whats the purpose of at symbol in the redux connect decorator?](#whats-the-purpose-of-at-symbol-in-the-redux-connect-decorator) |
-|165| [What is the difference between React context and React Redux?](#what-is-the-difference-between-react-context-and-react-redux) |
-|166| [Why are Redux state functions called reducers?](#why-are-redux-state-functions-called-reducers) |
+|164| [هدف از کاراکتر @ توی decorator متد connect چیه؟](#whats-the-purpose-of-at-symbol-in-the-redux-connect-decorator) |
+|165| [تفاوت‌های context و React Redux چیه؟](#what-is-the-difference-between-react-context-and-react-redux) |
+|166| [چرا به توابع state ریداکس reducer میگن؟](#why-are-redux-state-functions-called-reducers) |
 |167| [توی redux چطوری میشه api request زد؟](#how-to-make-ajax-request-in-redux) |
-|168| [Should I keep all component's state in Redux store?](#should-i-keep-all-components-state-in-redux-store) |
-|169| [What is the proper way to access Redux store?](#what-is-the-proper-way-to-access-redux-store) |
-|170| [What is the difference between component and container in React Redux?](#what-is-the-difference-between-component-and-container-in-react-redux) |
-|171| [What is the purpose of the constants in Redux? ](#what-is-the-purpose-of-the-constants-in-redux) |
-|172| [What are the different ways to write mapDispatchToProps()?](#what-are-the-different-ways-to-write-mapdispatchtoprops) |
-|173| [What is the use of the ownProps parameter in mapStateToProps() and mapDispatchToProps()?](#what-is-the-use-of-the-ownprops-parameter-in-mapstatetoprops-and-mapdispatchtoprops) |
+|168| [آیا لازمه همه state همه کامپوننت‌هامونو توی ریداکس نگهداری کنیم؟](#should-i-keep-all-components-state-in-redux-store) |
+|169| [روش صحیح برای دسترسی به store ریداکس چیه؟](#what-is-the-proper-way-to-access-redux-store) |
+|170| [تفاوت‌های component و container توی ریداکس چی هست؟](#what-is-the-difference-between-component-and-container-in-react-redux) |
+|171| [هدف از constantها تا typeها توی ریداکس چیه؟](#what-is-the-purpose-of-the-constants-in-redux) |
+|172| [روش‌های مختلف برای نوشتن mapDispatchToProps چیه؟](#what-are-the-different-ways-to-write-mapdispatchtoprops) |
+|173| [کاربرد پارامتر ownProps توی mapStateToProps و mapDispatchToProps چیه؟](#what-is-the-use-of-the-ownprops-parameter-in-mapstatetoprops-and-mapdispatchtoprops) |
 |174| [How to structure Redux top level directories?](#how-to-structure-redux-top-level-directories) |
 |175| [redux-saga جیه؟](#what-is-redux-saga) |
 |176| [What is the mental model of redux-saga?](#what-is-the-mental-model-of-redux-saga) |
-|177| [What are the differences between call and put in redux-saga](#what-are-the-differences-between-call-and-put-in-redux-saga) |
+|177| [تفاوت افکت‌های call و put توی redux-saga چی هست؟](#what-are-the-differences-between-call-and-put-in-redux-saga) |
 |178| [Redux Thunk چیه؟](#what-is-redux-thunk) |
-|179| [What are the differences between redux-saga and redux-thunk](#what-are-the-differences-between-redux-saga-and-redux-thunk) |
-|180| [What is Redux DevTools?](#what-is-redux-devtools) |
-|181| [What are the features of Redux DevTools?](#what-are-the-features-of-redux-devtools) |
-|182| [What are Redux selectors and Why to use them?](#what-are-redux-selectors-and-why-to-use-them) |
-|183| [What is Redux Form?](#what-is-redux-form) |
-|184| [What are the main features of Redux Form?](#what-are-the-main-features-of-redux-form) |
-|185| [How to add multiple middlewares to Redux?](#how-to-add-multiple-middlewares-to-redux) |
-|186| [How to set initial state in Redux?](#how-to-set-initial-state-in-redux) |
+|179| [تفاوت‌های redux-saga و redux-thunk جیا هستن؟](#what-are-the-differences-between-redux-saga-and-redux-thunk) |
+|180| [Redux DevTools چیه؟](#what-is-redux-devtools) |
+|181| [ویژگی‌های Redux DevTools چیا هستن؟](#what-are-the-features-of-redux-devtools) |
+|182| [سلکتورهای ریداکس چی هستن و چرا باید ازشون استفاده کنیم؟](#what-are-redux-selectors-and-why-to-use-them) |
+|183| [Redux Form چیه؟](#what-is-redux-form) |
+|184| [اصلی‌ترین ویژگی‌های Redux Form چیه؟](#what-are-the-main-features-of-redux-form) |
+|185| [چطوری میشه چندتا middleware به ریداکس اضافه کرد؟](#how-to-add-multiple-middlewares-to-redux) |
+|186| [چطوری میشه توی ریداکس initial state تعریف کرد؟](#how-to-set-initial-state-in-redux) |
 |187| [تفاوت‌های Relay با Redux چیا هستن؟](#how-relay-is-different-from-redux) |
 |   | **React Native** |
-|188| [What is the difference between React Native and React?](#what-is-the-difference-between-react-native-and-react) |
-|189| [How to test React Native apps?](#how-to-test-react-native-apps) |
-|190| [How to do logging in React Native?](#how-to-do-logging-in-react-native) |
-|191| [How to debug your React Native?](#how-to-debug-your-react-native) |
+|188| [تفاوت‌های React Native و React چیا هستن؟](#what-is-the-difference-between-react-native-and-react) |
+|189| [چطوری میشه برنامه React Native رو تست کرد؟](#how-to-test-react-native-apps) |
+|190| [چطوری میشه توی React Native لاگ کرد؟](#how-to-do-logging-in-react-native) |
+|191| [چطوری میشه React Native رو دیباگ کرد؟](#how-to-debug-your-react-native) |
 |   | **کتابخانه‌های مورد استفاده با ری‌اکت** |
 |192| [What is reselect and how it works?](#what-is-reselect-and-how-it-works) |
 |193| [Flow چیه؟](#what-is-flow) |
 |194| [What is the difference between Flow and PropTypes?](#what-is-the-difference-between-flow-and-proptypes) |
 |195| [How to use font-awesome icons in React?](#how-to-use-font-awesome-icons-in-react) |
-|196| [What is React Dev Tools?](#what-is-react-dev-tools) |
+|196| [React Dev Tools چیه؟](#what-is-react-dev-tools) |
 |197| [Why is DevTools not loading in Chrome for local files?](#why-is-devtools-not-loading-in-chrome-for-local-files) |
 |198| [How to use Polymer in React?](#how-to-use-polymer-in-react) |
 |199| [What are the advantages of React over Vue.js?](#what-are-the-advantages-of-react-over-vuejs) |
 |200| [What is the difference between React and Angular?](#what-is-the-difference-between-react-and-angular) |
 |201| [Why React tab is not showing up in DevTools?](#why-react-tab-is-not-showing-up-in-devtools) |
-|202| [What are styled components?](#what-are-styled-components) |
-|203| [Give an example of Styled Components?](#give-an-example-of-styled-components) |
+|202| [Styled components چیه؟](#what-are-styled-components) |
+|203| [یه مثال از Styled Components می‌تونی بگی؟](#give-an-example-of-styled-components) |
 |204| [Relay چیه؟](#what-is-relay) |
 |205| [How to use TypeScript in create-react-app application?](#how-to-use-typescript-in-create-react-app-application) |
 |   | **متفرقه** |
