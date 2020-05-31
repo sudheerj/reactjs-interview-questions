@@ -225,7 +225,7 @@
 |202| [Styled components چیه؟](#what-are-styled-components) |
 |203| [یه مثال از Styled Components می‌تونی بگی؟](#give-an-example-of-styled-components) |
 |204| [Relay چیه؟](#what-is-relay) |
-|205| [How to use TypeScript in create-react-app application?](#how-to-use-typescript-in-create-react-app-application) |
+|205| [چطوری میشه از تایپ اسکریپت توی create-react-app استفاده کرد؟](#how-to-use-typescript-in-create-react-app-application) |
 |   | **متفرقه** |
 |206| [What are the main features of reselect library?](#what-are-the-main-features-of-reselect-library) |
 |207| [Give an example of reselect usage?](#give-an-example-of-reselect-usage) |
@@ -235,7 +235,7 @@
 |211| [Do you need to have a particular build tool to use Redux?](#do-you-need-to-have-a-particular-build-tool-to-use-redux) |
 |212| [How Redux Form initialValues get updated from state?](#how-redux-form-initialvalues-get-updated-from-state) |
 |213| [How React PropTypes allow different type for one prop?](#how-react-proptypes-allow-different-types-for-one-prop) |
-|214| [Can I import an SVG file as react component?](#can-i-import-an-svg-file-as-react-component) |
+|214| [می‌تونیم فایل svg رو به عنوان کامپوننت import کنیم؟](#can-i-import-an-svg-file-as-react-component) |
 |215| [Why are inline ref callbacks or functions not recommended?](#why-are-inline-ref-callbacks-or-functions-not-recommended)|
 |216| [What is render hijacking in React?](#what-is-render-hijacking-in-react)|
 |217| [What are HOC factory implementations?](#what-are-hoc-factory-implementations)|
@@ -343,9 +343,9 @@
 |319| [What is Concurrent Rendering?](#what-is-concurrent-rendering)|
 |320| [What is the difference between async mode and concurrent mode?](#what-is-the-difference-between-async-mode-and-concurrent-mode)|
 |321| [Can I use javascript urls in react16.9?](#can-i-use-javascript-urls-in-react169)|
-|322| [What is the purpose of eslint plugin for hooks?](#what-is-the-purpose-of-eslint-plugin-for-hooks)|
-|323| [What is the difference between Imperative and Declarative in React?](#what-is-the-difference-between-imperative-and-declarative-in-react)|
-|324| [What are the benefits of using typescript with reactjs?](#what-are-the-benefits-of-using-typescript-with-reactjs)|
+|322| [هدف از پلاگین eslint برای هوک‌ها چیه؟](#what-is-the-purpose-of-eslint-plugin-for-hooks)|
+|323| [تفاوت‌های Imperative و Declarative توی ری‌اکت چیه؟](#what-is-the-difference-between-imperative-and-declarative-in-react)|
+|324| [مزایای استفاده از تایپ اسکریپت با ری‌اکت چیه؟](#what-are-the-benefits-of-using-typescript-with-reactjs)|
 
 ## Core React
 
