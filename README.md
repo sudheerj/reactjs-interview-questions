@@ -123,69 +123,69 @@
 |106| [چرا نمی‌تونیم prop رو آپدیت کنیم؟](#why-you-cant-update-props-in-react) |
 |107| [چطوری می‌تونیم موقع لود صفحه روی یه input فوکوس کنیم؟](#how-to-focus-an-input-element-on-page-load) |
 |108| [روش‌های ممکن برای آپدیت کردن object توی state چیا هستن؟](#what-are-the-possible-ways-of-updating-objects-in-state) |
-|109| [Why function is preferred over object for setState?](#why-function-is-preferred-over-object-for-setstate) |
-|110| [How can we find the version of React at runtime in the browser?](#how-can-we-find-the-version-of-react-at-runtime-in-the-browser) |
-|111| [What are the approaches to include polyfills in your create-react-app?](#what-are-the-approaches-to-include-polyfills-in-your-create-react-app) |
-|112| [How to use https instead of http in create-react-app?](#how-to-use-https-instead-of-http-in-create-react-app) |
-|113| [How to avoid using relative path imports in create-react-app?](#how-to-avoid-using-relative-path-imports-in-create-react-app) |
-|114| [How to add Google Analytics for react-router?](#how-to-add-google-analytics-for-react-router) |
-|115| [How to update a component every second?](#how-to-update-a-component-every-second) |
-|116| [How do you apply vendor prefixes to inline styles in React?](#how-do-you-apply-vendor-prefixes-to-inline-styles-in-react) |
-|117| [How to import and export components using react and ES6?](#how-to-import-and-export-components-using-react-and-es6) |
-|118| [What are the exceptions on React component naming?](#what-are-the-exceptions-on-react-component-naming) |
-|119| [Why is a component constructor called only once?](#why-is-a-component-constructor-called-only-once) |
-|120| [How to define constants in React?](#how-to-define-constants-in-react) |
-|121| [How to programmatically trigger click event in React?](#how-to-programmatically-trigger-click-event-in-react) |
-|122| [Is it possible to use async/await in plain React?](#is-it-possible-to-use-asyncawait-in-plain-react) |
-|123| [What are the common folder structures for React?](#what-are-the-common-folder-structures-for-react) |
-|124| [What are the popular packages for animation?](#what-are-the-popular-packages-for-animation) |
-|125| [What is the benefit of styles modules?](#what-is-the-benefit-of-styles-modules) |
-|126| [What are the popular React-specific linters?](#what-are-the-popular-react-specific-linters) |
-|127| [How to make AJAX call and In which component lifecycle methods should I make an AJAX call?](#how-to-make-ajax-call-and-in-which-component-lifecycle-methods-should-i-make-an-ajax-call) |
+|109| [چرا توابع به جای object در setState ترجیح داده می‌شوند؟](#why-function-is-preferred-over-object-for-setstate) |
+|110| [چطوری می‌‌تونیم نسخه ری‌اکت جاری رو توی محیط اجرایی بفهمیم؟](#how-can-we-find-the-version-of-react-at-runtime-in-the-browser) |
+|111| [روش‌های لود کردن polyfill توی CRA چیا هستن؟](#what-are-the-approaches-to-include-polyfills-in-your-create-react-app) |
+|112| [توی CRA چطوری از https به‌جای http استفاده کنیم؟](#how-to-use-https-instead-of-http-in-create-react-app) |
+|113| [توی CRA چطوری میشه از مسیر‌های طولانی برای ایمپورت جلوگیری کرد؟](#how-to-avoid-using-relative-path-imports-in-create-react-app) |
+|114| [چطوری میشه Google Analytics رو به react-router اضافه کرد؟](#how-to-add-google-analytics-for-react-router) |
+|115| [چطوری یه کامپوننت رو هر ثانیه به روز کنیم؟](#how-to-update-a-component-every-second) |
+|116| [برای استایل‌دهی‌های درون خطی چطوری باید پیشوند‌های مخصوص مرورگرها رو اضافه کرد؟](#how-do-you-apply-vendor-prefixes-to-inline-styles-in-react) |
+|117| [چطوری کامپوننت‌های ری‌اکت رو با es6 می‌تونیم import و export کنیم؟](#how-to-import-and-export-components-using-react-and-es6) |
+|118| [استثنایی که برای نام‌گذاری کامپوننت اجازه استفاده از حرف کوچک رو میده چیه؟](#what-are-the-exceptions-on-react-component-naming) |
+|119| [چرا تابع سازنده کلاس کامپوننت یکبار صدا زده میشه؟](#why-is-a-component-constructor-called-only-once) |
+|120| [توی ری‌اکت چطوری مقدار ثابت تعریف کنیم؟](#how-to-define-constants-in-react) |
+|121| [چطوری توی برنامه event کلیک شدن رو trigger کنیم؟](#how-to-programmatically-trigger-click-event-in-react) |
+|122| [آیا استفاده از async/await توی ری‌اکت ممکنه؟](#is-it-possible-to-use-asyncawait-in-plain-react) |
+|123| [ساختار پوشه‌بندی معروف برا ری‌اکت چطوریه؟](#what-are-the-common-folder-structures-for-react) |
+|124| [پکیج‌های مشهور برای انیمیشن چیا هستن؟](#what-are-the-popular-packages-for-animation) |
+|125| [مزایای ماژول‌های style چیه؟](#what-is-the-benefit-of-styles-modules) |
+|126| [معروف‌ترین linterهای ری‌اکت کدوما هستن؟](#what-are-the-popular-react-specific-linters) |
+|127| [چطوری باید توی کامپوننت درخواست api call بزنیم؟](#how-to-make-ajax-call-and-in-which-component-lifecycle-methods-should-i-make-an-ajax-call) |
 |128| [render props چیه؟](#what-are-render-props) |
 |   | **React Router** |
 |129| [React Router چیه؟](#what-is-react-router) |
-|130| [How React Router is different from history library?](#how-react-router-is-different-from-history-library) |
-|131| [What are the \<Router> components of React Router v4?](#what-are-the-router-components-of-react-router-v4) |
-|132| [What is the purpose of push and replace methods of history?](#what-is-the-purpose-of-push-and-replace-methods-of-history) |
-|133| [How do you programmatically navigate using React router v4?](#how-do-you-programmatically-navigate-using-react-router-v4) |
-|134| [How to get query parameters in React Router v4](#how-to-get-query-parameters-in-react-router-v4) |
-|135| [Why you get "Router may have only one child element" warning?](#why-you-get-router-may-have-only-one-child-element-warning) |
-|136| [How to pass params to history.push method in React Router v4?](#how-to-pass-params-to-historypush-method-in-react-router-v4) |
-|137| [How to implement default or NotFound page?](#how-to-implement-default-or-notfound-page) |
-|138| [How to get history on React Router v4?](#how-to-get-history-on-react-router-v4) |
-|139| [How to perform automatic redirect after login?](#how-to-perform-automatic-redirect-after-login) |
+|130| [ارتباط React Router و کتابخونه history چیه؟](#how-react-router-is-different-from-history-library) |
+|131| [کامپوننت‌های router توی نسخه۴ چیا هستن؟](#what-are-the-router-components-of-react-router-v4) |
+|132| [هدف از متدهای push و replace توی history چیه؟](#what-is-the-purpose-of-push-and-replace-methods-of-history) |
+|133| [چطوری توی برنامه به route خاص جابجا بشیم؟](#how-do-you-programmatically-navigate-using-react-router-v4) |
+|134| [چطوری میشه query پارامترها رو توی ری‌اکت روتر نسخه۴ گرفت؟](#how-to-get-query-parameters-in-react-router-v4) |
+|135| [دلیل خطای "Router may have only one child element" چیه؟](#why-you-get-router-may-have-only-one-child-element-warning) |
+|136| [چطوری میشه به متد history.push پارامتر اضافه کرد؟](#how-to-pass-params-to-historypush-method-in-react-router-v4) |
+|137| [چطوری میشه صفحه ۴۰۴ ساخت؟](#how-to-implement-default-or-notfound-page) |
+|138| [توی ری‌اکت روتر نسخه۴ چطوری میشه history رو گرفت؟](#how-to-get-history-on-react-router-v4) |
+|139| [چطوری بعد از لاگین به شکل خودکار ریدایرکت کنیم؟](#how-to-perform-automatic-redirect-after-login) |
 |   | **React Internationalization** |
-|140| [What is React-Intl?](#what-is-react-intl) |
-|141| [What are the main features of React Intl?](#what-are-the-main-features-of-react-intl) |
-|142| [What are the two ways of formatting in React Intl?](#what-are-the-two-ways-of-formatting-in-react-intl) |
-|143| [How to use FormattedMessage as placeholder using React Intl?](#how-to-use-formattedmessage-as-placeholder-using-react-intl) |
-|144| [How to access current locale with React Intl](#how-to-access-current-locale-with-react-intl) |
+|140| [React-Intl چیه؟](#what-is-react-intl) |
+|141| [اصلی‌ترین ویژگی‌های React Intl چیا هستن؟](#what-are-the-main-features-of-react-intl) |
+|142| [دو روش فرمت کردن توی React Intl چیا هستن؟](#what-are-the-two-ways-of-formatting-in-react-intl) |
+|143| [چطوری از FormattedMessage به عنوان یه placeholder میشه استفاده کرد؟](#how-to-use-formattedmessage-as-placeholder-using-react-intl) |
+|144| [چطوری میشه localeفعلی رو توی React Intl بدست آورد؟](#how-to-access-current-locale-with-react-intl) |
 |145| [چطوری با استفاده از React Intl یه تاریخ رو فرمت‌بندی کنیم؟](#how-to-format-date-using-react-intl) |
 |   | **React Testing** |
-|146| [What is Shallow Renderer in React testing?](#what-is-shallow-renderer-in-react-testing) |
-|147| [What is TestRenderer package in React?](#what-is-testrenderer-package-in-react) |
-|148| [What is the purpose of ReactTestUtils package?](#what-is-the-purpose-of-reacttestutils-package) |
-|149| [What is Jest?](#what-is-jest) |
-|150| [What are the advantages of Jest over Jasmine?](#what-are-the-advantages-of-jest-over-jasmine) |
-|151| [Give a simple example of Jest test case](#give-a-simple-example-of-jest-test-case) |
+|146| [توی تست ری‌اکت Shallow Renderer چیه؟](#what-is-shallow-renderer-in-react-testing) |
+|147| [پکیج TestRenderer توی ری‌اکت چیه؟](#what-is-testrenderer-package-in-react) |
+|148| [هدف از پکیج ReactTestUtils چیه؟](#what-is-the-purpose-of-reacttestutils-package) |
+|149| [Jest چیه؟](#what-is-jest) |
+|150| [مزایای jest نسبت به jasmine چیا هستن؟](#what-are-the-advantages-of-jest-over-jasmine) |
+|151| [یه مثال ساده از تست با jest بزن؟](#give-a-simple-example-of-jest-test-case) |
 |   | **React Redux** |
-|152| [What is Flux?](#what-is-flux) |
-|153| [What is Redux?](#what-is-redux) |
-|154| [What are the core principles of Redux?](#what-are-the-core-principles-of-redux) |
-|155| [What are the downsides of Redux compared to Flux?](#what-are-the-downsides-of-redux-compared-to-flux) |
-|156| [What is the difference between mapStateToProps() and mapDispatchToProps()?](#what-is-the-difference-between-mapstatetoprops-and-mapdispatchtoprops) |
-|157| [Can I dispatch an action in reducer?](#can-i-dispatch-an-action-in-reducer) |
-|158| [How to access Redux store outside a component?](#how-to-access-redux-store-outside-a-component) |
-|159| [What are the drawbacks of MVW pattern](#what-are-the-drawbacks-of-mvw-pattern) |
-|160| [Are there any similarities between Redux and RxJS?](#are-there-any-similarities-between-redux-and-rxjs) |
-|161| [How to dispatch an action on load?](#how-to-dispatch-an-action-on-load) |
-|162| [How to use connect from React Redux?](#how-to-use-connect-from-react-redux) |
-|163| [How to reset state in Redux?](#how-to-reset-state-in-redux) |
+|152| [Flux چیه؟](#what-is-flux) |
+|153| [Redux چیه؟](#what-is-redux) |
+|154| [مبانی اصلی ریداکس چیا هستن؟](#what-are-the-core-principles-of-redux) |
+|155| [کاستی‌های redux نسبت به flux چیا هستن؟](#what-are-the-downsides-of-redux-compared-to-flux) |
+|156| [تفاوت‌های mapStateToProps() و mapDispatchToProps() چی هست؟](#what-is-the-difference-between-mapstatetoprops-and-mapdispatchtoprops) |
+|157| [توی ریدیوسر می‌تونیم یه actionی رو dispatch کنیم؟](#can-i-dispatch-an-action-in-reducer) |
+|158| [چطوری میشه خارج از کامپوننت میشه store ریداکس دسترسی داشت؟](#how-to-access-redux-store-outside-a-component) |
+|159| [اشکالات پترن MVW چیا هستن؟](#what-are-the-drawbacks-of-mvw-pattern) |
+|160| [تشابهی بین Redux و RxJS هست؟](#are-there-any-similarities-between-redux-and-rxjs) |
+|161| [چطوری میشه یه اکشن رو موقع لود dispatch کرد؟](#how-to-dispatch-an-action-on-load) |
+|162| [چطوری از متد connect از پکیج react-redux استفاده می‌کنیم؟](#how-to-use-connect-from-react-redux) |
+|163| [چطوری میشه state ریداکس رو ریست کرد؟](#how-to-reset-state-in-redux) |
 |164| [Whats the purpose of at symbol in the redux connect decorator?](#whats-the-purpose-of-at-symbol-in-the-redux-connect-decorator) |
 |165| [What is the difference between React context and React Redux?](#what-is-the-difference-between-react-context-and-react-redux) |
 |166| [Why are Redux state functions called reducers?](#why-are-redux-state-functions-called-reducers) |
-|167| [How to make AJAX request in Redux?](#how-to-make-ajax-request-in-redux) |
+|167| [توی redux چطوری میشه api request زد؟](#how-to-make-ajax-request-in-redux) |
 |168| [Should I keep all component's state in Redux store?](#should-i-keep-all-components-state-in-redux-store) |
 |169| [What is the proper way to access Redux store?](#what-is-the-proper-way-to-access-redux-store) |
 |170| [What is the difference between component and container in React Redux?](#what-is-the-difference-between-component-and-container-in-react-redux) |
@@ -193,10 +193,10 @@
 |172| [What are the different ways to write mapDispatchToProps()?](#what-are-the-different-ways-to-write-mapdispatchtoprops) |
 |173| [What is the use of the ownProps parameter in mapStateToProps() and mapDispatchToProps()?](#what-is-the-use-of-the-ownprops-parameter-in-mapstatetoprops-and-mapdispatchtoprops) |
 |174| [How to structure Redux top level directories?](#how-to-structure-redux-top-level-directories) |
-|175| [What is redux-saga?](#what-is-redux-saga) |
+|175| [redux-saga جیه؟](#what-is-redux-saga) |
 |176| [What is the mental model of redux-saga?](#what-is-the-mental-model-of-redux-saga) |
 |177| [What are the differences between call and put in redux-saga](#what-are-the-differences-between-call-and-put-in-redux-saga) |
-|178| [What is Redux Thunk?](#what-is-redux-thunk) |
+|178| [Redux Thunk چیه؟](#what-is-redux-thunk) |
 |179| [What are the differences between redux-saga and redux-thunk](#what-are-the-differences-between-redux-saga-and-redux-thunk) |
 |180| [What is Redux DevTools?](#what-is-redux-devtools) |
 |181| [What are the features of Redux DevTools?](#what-are-the-features-of-redux-devtools) |
@@ -205,7 +205,7 @@
 |184| [What are the main features of Redux Form?](#what-are-the-main-features-of-redux-form) |
 |185| [How to add multiple middlewares to Redux?](#how-to-add-multiple-middlewares-to-redux) |
 |186| [How to set initial state in Redux?](#how-to-set-initial-state-in-redux) |
-|187| [How Relay is different from Redux?](#how-relay-is-different-from-redux) |
+|187| [تفاوت‌های Relay با Redux چیا هستن؟](#how-relay-is-different-from-redux) |
 |   | **React Native** |
 |188| [What is the difference between React Native and React?](#what-is-the-difference-between-react-native-and-react) |
 |189| [How to test React Native apps?](#how-to-test-react-native-apps) |
@@ -213,7 +213,7 @@
 |191| [How to debug your React Native?](#how-to-debug-your-react-native) |
 |   | **کتابخانه‌های مورد استفاده با ری‌اکت** |
 |192| [What is reselect and how it works?](#what-is-reselect-and-how-it-works) |
-|193| [What is Flow?](#what-is-flow) |
+|193| [Flow چیه؟](#what-is-flow) |
 |194| [What is the difference between Flow and PropTypes?](#what-is-the-difference-between-flow-and-proptypes) |
 |195| [How to use font-awesome icons in React?](#how-to-use-font-awesome-icons-in-react) |
 |196| [What is React Dev Tools?](#what-is-react-dev-tools) |
@@ -224,7 +224,7 @@
 |201| [Why React tab is not showing up in DevTools?](#why-react-tab-is-not-showing-up-in-devtools) |
 |202| [What are styled components?](#what-are-styled-components) |
 |203| [Give an example of Styled Components?](#give-an-example-of-styled-components) |
-|204| [What is Relay?](#what-is-relay) |
+|204| [Relay چیه؟](#what-is-relay) |
 |205| [How to use TypeScript in create-react-app application?](#how-to-use-typescript-in-create-react-app-application) |
 |   | **متفرقه** |
 |206| [What are the main features of reselect library?](#what-are-the-main-features-of-reselect-library) |
