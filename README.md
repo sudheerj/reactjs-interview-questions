@@ -192,9 +192,9 @@
 |171| [هدف از constantها تا typeها توی ریداکس چیه؟](#what-is-the-purpose-of-the-constants-in-redux) |
 |172| [روش‌های مختلف برای نوشتن mapDispatchToProps چیه؟](#what-are-the-different-ways-to-write-mapdispatchtoprops) |
 |173| [کاربرد پارامتر ownProps توی mapStateToProps و mapDispatchToProps چیه؟](#what-is-the-use-of-the-ownprops-parameter-in-mapstatetoprops-and-mapdispatchtoprops) |
-|174| [How to structure Redux top level directories?](#how-to-structure-redux-top-level-directories) |
+|174| [ساختار پوشه‌بندی ریشه ریداکس اکثرا چطوریه؟](#how-to-structure-redux-top-level-directories) |
 |175| [redux-saga جیه؟](#what-is-redux-saga) |
-|176| [What is the mental model of redux-saga?](#what-is-the-mental-model-of-redux-saga) |
+|176| [مدل ذهنی redux-saga چطوریه؟](#what-is-the-mental-model-of-redux-saga) |
 |177| [تفاوت افکت‌های call و put توی redux-saga چی هست؟](#what-are-the-differences-between-call-and-put-in-redux-saga) |
 |178| [Redux Thunk چیه؟](#what-is-redux-thunk) |
 |179| [تفاوت‌های redux-saga و redux-thunk جیا هستن؟](#what-are-the-differences-between-redux-saga-and-redux-thunk) |
@@ -212,7 +212,7 @@
 |190| [چطوری میشه توی React Native لاگ کرد؟](#how-to-do-logging-in-react-native) |
 |191| [چطوری میشه React Native رو دیباگ کرد؟](#how-to-debug-your-react-native) |
 |   | **کتابخانه‌های مورد استفاده با ری‌اکت** |
-|192| [What is reselect and how it works?](#what-is-reselect-and-how-it-works) |
+|192| [کتابخونه reselect چیه و چطوری کار می‌کنه؟](#what-is-reselect-and-how-it-works) |
 |193| [Flow چیه؟](#what-is-flow) |
 |194| [What is the difference between Flow and PropTypes?](#what-is-the-difference-between-flow-and-proptypes) |
 |195| [How to use font-awesome icons in React?](#how-to-use-font-awesome-icons-in-react) |
