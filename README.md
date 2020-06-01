@@ -143,7 +143,7 @@
 |126| [معروف‌ترین linterهای ری‌اکت کدوما هستن؟](#what-are-the-popular-react-specific-linters) |
 |127| [چطوری باید توی کامپوننت درخواست api call بزنیم؟](#how-to-make-ajax-call-and-in-which-component-lifecycle-methods-should-i-make-an-ajax-call) |
 |128| [render props چیه؟](#what-are-render-props) |
-|   | **React Router** |
+|   | **رووتر ری‌اکت** |
 |129| [React Router چیه؟](#what-is-react-router) |
 |130| [ارتباط React Router و کتابخونه history چیه؟](#how-react-router-is-different-from-history-library) |
 |131| [کامپوننت‌های router توی نسخه۴ چیا هستن؟](#what-are-the-router-components-of-react-router-v4) |
@@ -155,14 +155,14 @@
 |137| [چطوری میشه صفحه ۴۰۴ ساخت؟](#how-to-implement-default-or-notfound-page) |
 |138| [توی ری‌اکت روتر نسخه۴ چطوری میشه history رو گرفت؟](#how-to-get-history-on-react-router-v4) |
 |139| [چطوری بعد از لاگین به شکل خودکار ریدایرکت کنیم؟](#how-to-perform-automatic-redirect-after-login) |
-|   | **React Internationalization** |
+|   | **چند زبانگی در ری‌اکت** |
 |140| [React-Intl چیه؟](#what-is-react-intl) |
 |141| [اصلی‌ترین ویژگی‌های React Intl چیا هستن؟](#what-are-the-main-features-of-react-intl) |
 |142| [دو روش فرمت کردن توی React Intl چیا هستن؟](#what-are-the-two-ways-of-formatting-in-react-intl) |
 |143| [چطوری از FormattedMessage به عنوان یه placeholder میشه استفاده کرد؟](#how-to-use-formattedmessage-as-placeholder-using-react-intl) |
 |144| [چطوری میشه localeفعلی رو توی React Intl بدست آورد؟](#how-to-access-current-locale-with-react-intl) |
 |145| [چطوری با استفاده از React Intl یه تاریخ رو فرمت‌بندی کنیم؟](#how-to-format-date-using-react-intl) |
-|   | **React Testing** |
+|   | **تست کردن ری‌اکت** |
 |146| [توی تست ری‌اکت Shallow Renderer چیه؟](#what-is-shallow-renderer-in-react-testing) |
 |147| [پکیج TestRenderer توی ری‌اکت چیه؟](#what-is-testrenderer-package-in-react) |
 |148| [هدف از پکیج ReactTestUtils چیه؟](#what-is-the-purpose-of-reacttestutils-package) |
@@ -214,22 +214,22 @@
 |   | **کتابخانه‌های مورد استفاده با ری‌اکت** |
 |192| [کتابخونه reselect چیه و چطوری کار می‌کنه؟](#what-is-reselect-and-how-it-works) |
 |193| [Flow چیه؟](#what-is-flow) |
-|194| [What is the difference between Flow and PropTypes?](#what-is-the-difference-between-flow-and-proptypes) |
-|195| [How to use font-awesome icons in React?](#how-to-use-font-awesome-icons-in-react) |
+|194| [تفاوت‌های Flow و PropTypes چیا هستن؟](#what-is-the-difference-between-flow-and-proptypes) |
+|195| [چطوری از آیکون‌های font-awesome توی ری‌اکت استفاده کنیم؟](#how-to-use-font-awesome-icons-in-react) |
 |196| [React Dev Tools چیه؟](#what-is-react-dev-tools) |
-|197| [Why is DevTools not loading in Chrome for local files?](#why-is-devtools-not-loading-in-chrome-for-local-files) |
-|198| [How to use Polymer in React?](#how-to-use-polymer-in-react) |
-|199| [What are the advantages of React over Vue.js?](#what-are-the-advantages-of-react-over-vuejs) |
-|200| [What is the difference between React and Angular?](#what-is-the-difference-between-react-and-angular) |
+|197| [چرا توی کروم devtools برای فایل‌های local لود نمیشه؟](#why-is-devtools-not-loading-in-chrome-for-local-files) |
+|198| [چطوری از Polymer توی React استفاده کنیم؟](#how-to-use-polymer-in-react) |
+|199| [مزایای React نسبت به Vue.js چیا هستن؟](#what-are-the-advantages-of-react-over-vuejs) |
+|200| [تفاوت‌های React و Angular چیا هستن؟](#what-is-the-difference-between-react-and-angular) |
 |201| [Why React tab is not showing up in DevTools?](#why-react-tab-is-not-showing-up-in-devtools) |
 |202| [Styled components چیه؟](#what-are-styled-components) |
 |203| [یه مثال از Styled Components می‌تونی بگی؟](#give-an-example-of-styled-components) |
 |204| [Relay چیه؟](#what-is-relay) |
 |205| [چطوری میشه از تایپ اسکریپت توی create-react-app استفاده کرد؟](#how-to-use-typescript-in-create-react-app-application) |
 |   | **متفرقه** |
-|206| [What are the main features of reselect library?](#what-are-the-main-features-of-reselect-library) |
-|207| [Give an example of reselect usage?](#give-an-example-of-reselect-usage) |
-|208| [What is an action in Redux?](#what-is-an-action-in-redux) |
+|206| [اصلی‌ترین ویژگی‌های کتابخونه reselect چیا هستن؟](#what-are-the-main-features-of-reselect-library) |
+|207| [یه مثال از کارکرد کتابخونهreselect بزن؟](#give-an-example-of-reselect-usage) |
+|208| [توی Redux اکشن چیکار می‌کنه؟](#what-is-an-action-in-redux) |
 |209| [Does the statics object work with ES6 classes in React?](#does-the-statics-object-work-with-es6-classes-in-react) |
 |210| [Can Redux only be used with React?](#can-redux-only-be-used-with-react) |
 |211| [Do you need to have a particular build tool to use Redux?](#do-you-need-to-have-a-particular-build-tool-to-use-redux) |
@@ -308,7 +308,7 @@
 |284| [Why do you need additional care for component libraries while using forward refs?](#why-do-you-need-additional-care-for-component-libraries-while-using-forward-refs)|
 |285| [How to create react class components without ES6?](#how-to-create-react-class-components-without-es6)|
 |286| [Is it possible to use react without JSX?](#is-it-possible-to-use-react-without-jsx)|
-|287| [What is diffing algorithm?](#what-is-diffing-algorithm)|
+|287| [الگوریتم‌های diffing ری‌اکت چی هستن؟](#what-is-diffing-algorithm)|
 |288| [What are the rules covered by diffing algorithm?](#what-are-the-rules-covered-by-diffing-algorithm)|
 |289| [When do you need to use refs?](#when-do-you-need-to-use-refs)|
 |290| [Is it prop must be named as render for render props?](#is-it-prop-must-be-named-as-render-for-render-props)|
@@ -324,13 +324,13 @@
 |300| [Can you list down top websites or applications using react as front end framework?](#can-you-list-down-top-websites-or-applications-using-react-as-front-end-framework)|
 |301| [Is it recommended to use CSS In JS technique in React?](#is-it-recommended-to-use-css-in-js-technique-in-react)|
 |302| [Do I need to rewrite all my class components with hooks?](#do-i-need-to-rewrite-all-my-class-components-with-hooks)|
-|303| [How to fetch data with React Hooks?](#how-to-fetch-data-with-react-hooks)|
+|303| [چطوری میشه با هوک‌های ری‌اکت دیتا fetch کرد؟](#how-to-fetch-data-with-react-hooks)|
 |304| [Is Hooks cover all use cases for classes?](#is-hooks-cover-all-use-cases-for-classes)|
 |305| [What is the stable release for hooks support?](#what-is-the-stable-release-for-hooks-support)|
 |306| [Why do we use array destructuring (square brackets notation) in useState?](#why-do-we-use-array-destructuring-square-brackets-notation-in-usestate)|
 |307| [What are the sources used for introducing hooks?](#what-are-the-sources-used-for-introducing-hooks)|
 |308| [How do you access imperative API of web components?](#how-do-you-access-imperative-api-of-web-components)|
-|309| [What is formik?](#what-is-formik)|
+|309| [formik چیه؟](#what-is-formik)|
 |310| [What are typical middleware choices for handling asynchronous calls in Redux?](#what-are-typical-middleware-choices-for-handling-asynchronous-calls-in-redux)|
 |311| [Do browsers understand JSX code?](#do-browsers-understand-jsx-code)|
 |312| [Describe about data flow in react?](#describe-about-data-flow-in-react)|
