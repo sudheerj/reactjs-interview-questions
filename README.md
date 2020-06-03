@@ -482,7 +482,9 @@ You can download the PDF and Epub version of this repository from the latest run
     
 8. ### What is state in React?
 
-    *State* of a component is an object that holds some information that may change over the lifetime of the component. We should always try to make our state as simple as possible and minimize the number of stateful components. Let's create an user component with message state,
+    *State* of a component is an object that holds some information that may change over the lifetime of the component. We should always try to make our state as simple as possible and minimize the number of stateful components.
+
+    Let's create an user component with message state,
 
 
     ```jsx harmony
@@ -579,36 +581,37 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 13. ### What is the difference between HTML and React event handling?
+    Below are some of the main differences between HTML and React event handling,
 
     1. In HTML, the event name should be in *lowercase*:
 
-    ```html
-    <button onclick='activateLasers()'>
-    ```
+        ```html
+        <button onclick='activateLasers()'>
+        ```
 
-    Whereas in React it follows *camelCase* convention:
+       Whereas in React it follows *camelCase* convention:
 
-    ```jsx harmony
-    <button onClick={activateLasers}>
-    ```
+        ```jsx harmony
+        <button onClick={activateLasers}>
+        ```
 
     2. In HTML, you can return `false` to prevent default behavior:
 
-    ```html
-    <a href='#' onclick='console.log("The link was clicked."); return false;' />
-    ```
+        ```html
+        <a href='#' onclick='console.log("The link was clicked."); return false;' />
+        ```
 
-    Whereas in React you must call `preventDefault()` explicitly:
+       Whereas in React you must call `preventDefault()` explicitly:
 
-    ```javascript
-    function handleClick(event) {
-      event.preventDefault()
-      console.log('The link was clicked.')
-    }
-    ```
+        ```javascript
+        function handleClick(event) {
+          event.preventDefault()
+          console.log('The link was clicked.')
+        }
+        ```
 
     3. In HTML, you need to invoke the function by appending `()`
-    Whereas in react you should not append `()` with the function name. (refer "activateLasers" function in the first point for example)
+       Whereas in react you should not append `()` with the function name. (refer "activateLasers" function in the first point for example)
 
 
    **[⬆ Back to Top](#table-of-contents)**
@@ -619,40 +622,40 @@ You can download the PDF and Epub version of this repository from the latest run
 
     1.	**Binding in Constructor:** In JavaScript classes, the methods are not bound by default. The same thing applies for React event handlers defined as class methods. Normally we bind them in constructor.
 
-    ```javascript
-    class Component extends React.Componenet {
-      constructor(props) {
-        super(props)
-        this.handleClick = this.handleClick.bind(this)
-      }
+        ```javascript
+        class Component extends React.Componenet {
+          constructor(props) {
+            super(props)
+            this.handleClick = this.handleClick.bind(this)
+          }
 
-      handleClick() {
-        // ...
-      }
-    }
-    ```
+          handleClick() {
+            // ...
+          }
+        }
+        ```
 
     2. **Public class fields syntax:** If you don't like to use bind approach then *public class fields syntax* can be used to correctly bind callbacks.
 
-    ```jsx harmony
-    handleClick = () => {
-      console.log('this is:', this)
-    }
-    ```
+        ```jsx harmony
+        handleClick = () => {
+          console.log('this is:', this)
+        }
+        ```
 
-    ```jsx harmony
-    <button onClick={this.handleClick}>
-      {'Click me'}
-    </button>
-    ```
+        ```jsx harmony
+        <button onClick={this.handleClick}>
+          {'Click me'}
+        </button>
+        ```
 
     3. **Arrow functions in callbacks:** You can use *arrow functions* directly in the callbacks.
 
-    ```jsx harmony
-    <button onClick={(event) => this.handleClick(event)}>
-      {'Click me'}
-    </button>
-    ```
+        ```jsx harmony
+        <button onClick={(event) => this.handleClick(event)}>
+          {'Click me'}
+        </button>
+        ```
 
     **Note:** If the callback is passed as prop to child components, those components might do an extra re-rendering. In those cases, it is preferred to go with `.bind()` or *public class fields syntax* approach considering performance.
 
@@ -756,41 +759,41 @@ You can download the PDF and Epub version of this repository from the latest run
     There are two approaches
     1. This is a recently added approach. *Refs* are created using `React.createRef()` method and attached to React elements via the `ref` attribute. In order to use *refs* throughout the component, just assign the *ref* to the instance property within constructor.
 
-    ```jsx harmony
-    class MyComponent extends React.Component {
-      constructor(props) {
-        super(props)
-        this.myRef = React.createRef()
-      }
-      render() {
-        return <div ref={this.myRef} />
-      }
-    }
-    ```
-    2. You can also use ref callbacks approach regardless of React version. For example, the search bar component's input element accessed as follows,
-    ```jsx harmony
-    class SearchBar extends Component {
-       constructor(props) {
-          super(props);
-          this.txtSearch = null;
-          this.state = { term: '' };
-          this.setInputSearchRef = e => {
-             this.txtSearch = e;
+        ```jsx harmony
+        class MyComponent extends React.Component {
+          constructor(props) {
+            super(props)
+            this.myRef = React.createRef()
           }
-       }
-       onInputChange(event) {
-          this.setState({ term: this.txtSearch.value });
-       }
-       render() {
-          return (
-             <input
-                value={this.state.term}
-                onChange={this.onInputChange.bind(this)}
-                ref={this.setInputSearchRef} />
-          );
-       }
-    }
-    ```
+          render() {
+            return <div ref={this.myRef} />
+          }
+        }
+        ```
+    2. You can also use ref callbacks approach regardless of React version. For example, the search bar component's input element accessed as follows,
+        ```jsx harmony
+        class SearchBar extends Component {
+           constructor(props) {
+              super(props);
+              this.txtSearch = null;
+              this.state = { term: '' };
+              this.setInputSearchRef = e => {
+                 this.txtSearch = e;
+              }
+           }
+           onInputChange(event) {
+              this.setState({ term: this.txtSearch.value });
+           }
+           render() {
+              return (
+                 <input
+                    value={this.state.term}
+                    onChange={this.onInputChange.bind(this)}
+                    ref={this.setInputSearchRef} />
+              );
+           }
+        }
+        ```
 
     You can also use *refs* in function components using **closures**.
     **Note**: You can also use inline ref callbacks even though it is not a recommended approach
@@ -1027,16 +1030,7 @@ You can download the PDF and Epub version of this repository from the latest run
     
 34. ### What are the lifecycle methods of React?
 
-    React 16.3+
-
-    - **getDerivedStateFromProps:** Invoked right before calling `render()` and is invoked on *every* render. This exists for rare use cases where you need derived state. Worth reading [if you need derived state](https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html).
-    - **componentDidMount:** Executed after first rendering and here all AJAX requests, DOM or state updates, and set up event listeners should occur.
-    - **shouldComponentUpdate:** Determines if the component will be updated or not. By default it returns `true`. If you are sure that the component doesn't need to render after state or props are updated, you can return false value. It is a great place to improve performance as it allows you to prevent a re-render if component receives new prop.
-    - **getSnapshotBeforeUpdate:** Executed right before rendered output is committed to the DOM. Any value returned by this will be passed into `componentDidUpdate()`. This is useful to capture information from the DOM i.e. scroll position.
-    - **componentDidUpdate:** Mostly it is used to update the DOM in response to prop or state changes. This will not fire if `shouldComponentUpdate()` returns `false`.
-    - **componentWillUnmount** It will be used to cancel any outgoing network requests, or remove all event listeners associated with the component.
-
-    Before 16.3
+    Before React 16.3
 
     - **componentWillMount:** Executed before rendering and is used for App level configuration in your root component.
     - **componentDidMount:** Executed after first rendering and here all AJAX requests, DOM or state updates, and set up event listeners should occur.
@@ -1045,6 +1039,15 @@ You can download the PDF and Epub version of this repository from the latest run
     - **componentWillUpdate:** Executed before re-rendering the component when there are props & state changes confirmed by `shouldComponentUpdate()` which returns true.
     - **componentDidUpdate:** Mostly it is used to update the DOM in response to prop or state changes.
     - **componentWillUnmount:** It will be used to cancel any outgoing network requests, or remove all event listeners associated with the component.
+
+    React 16.3+
+
+    - **getDerivedStateFromProps:** Invoked right before calling `render()` and is invoked on *every* render. This exists for rare use cases where you need derived state. Worth reading [if you need derived state](https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html).
+    - **componentDidMount:** Executed after first rendering and here all AJAX requests, DOM or state updates, and set up event listeners should occur.
+    - **shouldComponentUpdate:** Determines if the component will be updated or not. By default it returns `true`. If you are sure that the component doesn't need to render after state or props are updated, you can return false value. It is a great place to improve performance as it allows you to prevent a re-render if component receives new prop.
+    - **getSnapshotBeforeUpdate:** Executed right before rendered output is committed to the DOM. Any value returned by this will be passed into `componentDidUpdate()`. This is useful to capture information from the DOM i.e. scroll position.
+    - **componentDidUpdate:** Mostly it is used to update the DOM in response to prop or state changes. This will not fire if `shouldComponentUpdate()` returns `false`.
+    - **componentWillUnmount** It will be used to cancel any outgoing network requests, or remove all event listeners associated with the component.
 
 
    **[⬆ Back to Top](#table-of-contents)**
@@ -1095,7 +1098,9 @@ You can download the PDF and Epub version of this repository from the latest run
     
 37. ### What is context?
 
-    *Context* provides a way to pass data through the component tree without having to pass props down manually at every level. For example, authenticated user, locale preference, UI theme need to be accessed in the application by many components.
+    *Context* provides a way to pass data through the component tree without having to pass props down manually at every level.
+
+    For example, authenticated user, locale preference, UI theme need to be accessed in the application by many components.
 
     ```javascript
     const {Provider, Consumer} = React.createContext(defaultValue)
@@ -1109,6 +1114,7 @@ You can download the PDF and Epub version of this repository from the latest run
     *Children* is a prop (`this.prop.children`) that allow you to pass components as data to other components, just like any other prop you use. Component tree put between component's opening and closing tag will be passed to that component as `children` prop.
 
     There are a number of methods available in the React API to work with this prop. These include `React.Children.map`, `React.Children.forEach`, `React.Children.count`, `React.Children.only`, `React.Children.toArray`.
+
     A simple usage of children prop looks as below,
 
     ```jsx harmony
@@ -1308,6 +1314,7 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 47. ### Why fragments are better than container divs?
+    Below are the list of reasons,
 
     1. Fragments are a bit faster and use less memory by not creating an extra DOM node. This only has a real benefit on very large and deep trees.
     2. Some CSS mechanisms like *Flexbox* and *CSS Grid* have a special parent-child relationships, and adding divs in the middle makes it hard to keep the desired layout.
@@ -1353,21 +1360,22 @@ You can download the PDF and Epub version of this repository from the latest run
     }
     ```
     **React 16.8 Update:**
-    Hooks let you use state and other React features without writing classes.
 
-    *The Equivalent Functional Component*
+     Hooks let you use state and other React features without writing classes.
 
-    ```javascript
-    import React, {useState} from 'react';
+     *The Equivalent Functional Component*
 
-    const App = (props) => {
-      const [count, setCount] = useState(0);
+       ```javascript
+        import React, {useState} from 'react';
 
-      return (
-        // JSX
-      )
-    }
-    ```
+        const App = (props) => {
+          const [count, setCount] = useState(0);
+
+          return (
+            // JSX
+          )
+        }
+       ```
 
 
 
@@ -1419,6 +1427,7 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 52. ### What are the advantages of React?
+    Below are the list of main advantages of React,
 
     1. Increases the application's performance with *Virtual DOM*.
     2. JSX makes code easy to read and write.
@@ -1430,6 +1439,7 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 53. ### What are the limitations of React?
+    Apart from the advantages, there are few limitations of React too,
 
     1. React is just a view library, not a full framework.
     2. There is a learning curve for beginners who are new to web development.
@@ -1729,7 +1739,9 @@ You can download the PDF and Epub version of this repository from the latest run
     
 68. ### Why we need to be careful when spreading props on DOM elements?
 
-    When we *spread props* we run into the risk of adding unknown HTML attributes, which is a bad practice. Instead we can use prop destructuring with `...rest` operator, so it will add only required props. For example,
+    When we *spread props* we run into the risk of adding unknown HTML attributes, which is a bad practice. Instead we can use prop destructuring with `...rest` operator, so it will add only required props.
+
+    For example,
 
     ```jsx harmony
     const ComponentA = () =>
@@ -1777,7 +1789,9 @@ You can download the PDF and Epub version of this repository from the latest run
     
 70. ### How do you memoize a component?
 
-    There are memoize libraries available which can be used on function components. For example `moize` library can memoize the component in another component.
+    There are memoize libraries available which can be used on function components.
+
+    For example `moize` library can memoize the component in another component.
 
     ```jsx harmony
     import moize from 'moize'
@@ -2146,7 +2160,9 @@ You can download the PDF and Epub version of this repository from the latest run
     
 88. ### Are custom DOM attributes supported in React v16?
 
-    Yes. In the past, React used to ignore unknown DOM attributes. If you wrote JSX with an attribute that React doesn't recognize, React would just skip it. For example, this:
+    Yes. In the past, React used to ignore unknown DOM attributes. If you wrote JSX with an attribute that React doesn't recognize, React would just skip it.
+
+    For example, let's take a look at the below attribute:
 
     ```jsx harmony
     <div mycustomattribute={'something'} />
@@ -2173,7 +2189,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
     You should initialize state in the constructor when using ES6 classes, and `getInitialState()` method when using `React.createClass()`.
 
-    Using ES6 classes:
+    **Using ES6 classes:**
 
     ```javascript
     class MyComponent extends React.Component {
@@ -2184,7 +2200,7 @@ You can download the PDF and Epub version of this repository from the latest run
     }
     ```
 
-    Using `React.createClass()`:
+    **Using `React.createClass()`:**
 
     ```javascript
     const MyComponent = React.createClass({
@@ -2216,7 +2232,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
     When you want to access `this.props` in `constructor()` then you should pass props to `super()` method.
 
-    Using `super(props)`:
+    **Using `super(props)`:**
 
     ```javascript
     class MyComponent extends React.Component {
@@ -2227,7 +2243,7 @@ You can download the PDF and Epub version of this repository from the latest run
     }
     ```
 
-    Using `super()`:
+    **Using `super()`:**
 
     ```javascript
     class MyComponent extends React.Component {
@@ -2245,7 +2261,9 @@ You can download the PDF and Epub version of this repository from the latest run
     
 92. ### How to loop inside JSX?
 
-    You can simply use `Array.prototype.map` with ES6 *arrow function* syntax. For example, the `items` array of objects is mapped into an array of components:
+    You can simply use `Array.prototype.map` with ES6 *arrow function* syntax.
+
+    For example, the `items` array of objects is mapped into an array of components:
 
     ```jsx harmony
     <tbody>
@@ -2253,7 +2271,7 @@ You can download the PDF and Epub version of this repository from the latest run
     </tbody>
     ```
 
-    You can't iterate using `for` loop:
+    But you can't iterate using `for` loop:
 
     ```jsx harmony
     <tbody>
@@ -2339,7 +2357,9 @@ You can download the PDF and Epub version of this repository from the latest run
     
 97. ### Why ReactDOM is separated from React?
 
-    The React team worked on extracting all DOM-related features into a separate library called *ReactDOM*. React v0.14 is the first release in which the libraries are split. By looking at some of the packages, `react-native`, `react-art`, `react-canvas`, and `react-three`, it has become clear that the beauty and essence of React has nothing to do with browsers or the DOM. To build more environments that React can render to, React team planned to split the main React package into two: `react` and `react-dom`. This paves the way to writing components that can be shared between the web version of React and React Native.
+    The React team worked on extracting all DOM-related features into a separate library called *ReactDOM*. React v0.14 is the first release in which the libraries are split. By looking at some of the packages, `react-native`, `react-art`, `react-canvas`, and `react-three`, it has become clear that the beauty and essence of React has nothing to do with browsers or the DOM.
+
+    To build more environments that React can render to, React team planned to split the main React package into two: `react` and `react-dom`. This paves the way to writing components that can be shared between the web version of React and React Native.
 
 
    **[⬆ Back to Top](#table-of-contents)**
@@ -2627,6 +2647,8 @@ You can download the PDF and Epub version of this repository from the latest run
     
 111. ### What are the approaches to include polyfills in your `create-react-app`?
 
+     There are approaches to include polyfills in create-react-app,
+
      1. **Manual import from `core-js`:**
 
          Create a file called (something like) `polyfills.js` and import it into root `index.js` file. Run `npm install core-js` or `yarn add core-js` and import your specific required features.
@@ -2751,6 +2773,7 @@ You can download the PDF and Epub version of this repository from the latest run
 118. ### What are the exceptions on React component naming?
 
      The component names should start with a uppercase letter but there are few exceptions on this convention. The lowercase tag names with a dot (property accessors) are still considered as valid component names.
+
      For example the below tag can be compiled to a valid component,
      ```javascript
      render(){
@@ -2786,7 +2809,9 @@ You can download the PDF and Epub version of this repository from the latest run
     
 121. ### How to programmatically trigger click event in React?
 
-     You could use the ref prop to acquire a reference to the underlying `HTMLInputElement` object through a callback, store the reference as a class property, then use that reference to later trigger a click from your event handlers using the `HTMLElement.click` method. This can be done in two steps:
+     You could use the ref prop to acquire a reference to the underlying `HTMLInputElement` object through a callback, store the reference as a class property, then use that reference to later trigger a click from your event handlers using the `HTMLElement.click` method.
+
+     This can be done in two steps:
 
      1. Create ref in render method:
 
@@ -2904,7 +2929,9 @@ You can download the PDF and Epub version of this repository from the latest run
     
 126. ### What are the popular React-specific linters?
 
-     ESLint is a popular JavaScript linter. There are plugins available that analyse specific code styles. One of the most common for React is an npm package called `eslint-plugin-react`. By default, it will check a number of best practices, with rules checking things from keys in iterators to a complete set of prop types. Another popular plugin is `eslint-plugin-jsx-a11y`, which will help fix common issues with accessibility. As JSX offers slightly different syntax to regular HTML, issues with `alt` text and `tabindex`, for example, will not be picked up by regular plugins.
+     ESLint is a popular JavaScript linter. There are plugins available that analyse specific code styles. One of the most common for React is an npm package called `eslint-plugin-react`. By default, it will check a number of best practices, with rules checking things from keys in iterators to a complete set of prop types.
+
+     Another popular plugin is `eslint-plugin-jsx-a11y`, which will help fix common issues with accessibility. As JSX offers slightly different syntax to regular HTML, issues with `alt` text and `tabindex`, for example, will not be picked up by regular plugins.
 
 
    **[⬆ Back to Top](#table-of-contents)**
@@ -3162,6 +3189,7 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 138. ### How to get history on React Router v4?
+     Below are the list of steps to get history object on React Router v4,
 
      1. Create a module that exports a `history` object and import this module across the project.
 
@@ -3233,39 +3261,44 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 141. ### What are the main features of React Intl?
+     Below are the main features of React Intl,
 
-     1. Display numbers with separators.
-     2. Display dates and times correctly.
-     3. Display dates relative to "now".
-     4. Pluralize labels in strings.
-     5. Support for 150+ languages.
-     6. Runs in the browser and Node.
-     7. Built on standards.
+        1. Display numbers with separators.
+        2. Display dates and times correctly.
+        3. Display dates relative to "now".
+        4. Pluralize labels in strings.
+        5. Support for 150+ languages.
+        6. Runs in the browser and Node.
+        7. Built on standards.
 
 
    **[⬆ Back to Top](#table-of-contents)**
     
 142. ### What are the two ways of formatting in React Intl?
 
-     The library provides two ways to format strings, numbers, and dates: react components or an API.
+     The library provides two ways to format strings, numbers, and dates:
 
-     ```jsx harmony
-     <FormattedMessage
-       id={'account'}
-       defaultMessage={'The amount is less than minimum balance.'}
-     />
-     ```
+     1. **Using react components:**
 
-     ```javascript
-     const messages = defineMessages({
-       accountMessage: {
-         id: 'account',
-         defaultMessage: 'The amount is less than minimum balance.',
-       }
-     })
+         ```jsx harmony
+         <FormattedMessage
+           id={'account'}
+           defaultMessage={'The amount is less than minimum balance.'}
+         />
+         ```
 
-     formatMessage(messages.accountMessage)
-     ```
+    2. **Using an API:**
+
+         ```javascript
+         const messages = defineMessages({
+           accountMessage: {
+             id: 'account',
+             defaultMessage: 'The amount is less than minimum balance.',
+           }
+         })
+
+         formatMessage(messages.accountMessage)
+         ```
 
 
    **[⬆ Back to Top](#table-of-contents)**
@@ -3748,7 +3781,9 @@ You can download the PDF and Epub version of this repository from the latest run
     
 165. ### What is the difference between React context and React Redux?
 
-     You can use **Context** in your application directly and is going to be great for passing down data to deeply nested components which what it was designed for. Whereas **Redux** is much more powerful and provides a large number of features that the Context API doesn't provide. Also, React Redux uses context internally but it doesn't expose this fact in the public API.
+     You can use **Context** in your application directly and is going to be great for passing down data to deeply nested components which what it was designed for.
+
+     Whereas **Redux** is much more powerful and provides a large number of features that the Context API doesn't provide. Also, React Redux uses context internally but it doesn't expose this fact in the public API.
 
 
    **[⬆ Back to Top](#table-of-contents)**
@@ -3860,7 +3895,7 @@ You can download the PDF and Epub version of this repository from the latest run
      export const CLEAR_COMPLETED = 'CLEAR_COMPLETED'
      ```
 
-     In Redux you use them in two places:
+     In Redux, you use them in two places:
 
      1. **During action creation:**
 
@@ -3902,7 +3937,9 @@ You can download the PDF and Epub version of this repository from the latest run
     
 172. ### What are the different ways to write `mapDispatchToProps()`?
 
-     There are a few ways of binding *action creators* to `dispatch()` in `mapDispatchToProps()`. Below are the possible options:
+     There are a few ways of binding *action creators* to `dispatch()` in `mapDispatchToProps()`.
+
+     Below are the possible options:
 
      ```javascript
      const mapDispatchToProps = (dispatch) => ({
@@ -4026,12 +4063,13 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 181. ### What are the features of Redux DevTools?
+     Some of the main features of Redux DevTools are below,
 
-     1. Lets you inspect every state and action payload.
-     2. Lets you go back in time by *cancelling* actions.
-     3. If you change the reducer code, each *staged* action will be re-evaluated.
-     4. If the reducers throw, you will see during which action this happened, and what the error was.
-     5. With `persistState()` store enhancer, you can persist debug sessions across page reloads.
+        1. Lets you inspect every state and action payload.
+        2. Lets you go back in time by *cancelling* actions.
+        3. If you change the reducer code, each *staged* action will be re-evaluated.
+        4. If the reducers throw, you will see during which action this happened, and what the error was.
+        5. With `persistState()` store enhancer, you can persist debug sessions across page reloads.
 
 
    **[⬆ Back to Top](#table-of-contents)**
@@ -4057,6 +4095,7 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 184. ### What are the main features of Redux Form?
+     Some of the main features of Redux Form are:
 
        1. Field values persistence via Redux store.
        2. Validation (sync/async) and submission.
@@ -4172,7 +4211,9 @@ You can download the PDF and Epub version of this repository from the latest run
     
 194. ### What is the difference between Flow and PropTypes?
 
-     Flow is a *static analysis tool* (static checker) which uses a superset of the language, allowing you to add type annotations to all of your code and catch an entire class of bugs at compile time. PropTypes is a *basic type checker* (runtime checker) which has been patched onto React. It can't check anything other than the types of the props being passed to a given component. If you want more flexible typechecking for your entire project Flow/TypeScript are appropriate choices.
+     Flow is a *static analysis tool* (static checker) which uses a superset of the language, allowing you to add type annotations to all of your code and catch an entire class of bugs at compile time.
+
+     PropTypes is a *basic type checker* (runtime checker) which has been patched onto React. It can't check anything other than the types of the props being passed to a given component. If you want more flexible typechecking for your entire project Flow/TypeScript are appropriate choices.
 
 
    **[⬆ Back to Top](#table-of-contents)**
@@ -4183,23 +4224,23 @@ You can download the PDF and Epub version of this repository from the latest run
 
      1. Install `font-awesome`:
 
-     ```console
-     $ npm install --save font-awesome
-     ```
+         ```console
+         $ npm install --save font-awesome
+         ```
 
      2. Import `font-awesome` in your `index.js` file:
 
-     ```javascript
-     import 'font-awesome/css/font-awesome.min.css'
-     ```
+         ```javascript
+         import 'font-awesome/css/font-awesome.min.css'
+         ```
 
      3. Add Font Awesome classes in `className`:
 
-     ```javascript
-     render() {
-       return <div><i className={'fa fa-spinner'} /></div>
-     }
-     ```
+         ```javascript
+         render() {
+           return <div><i className={'fa fa-spinner'} /></div>
+         }
+         ```
 
 
    **[⬆ Back to Top](#table-of-contents)**
@@ -4224,6 +4265,7 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 198. ### How to use Polymer in React?
+     You need to follow below steps to use Polymer in React,
 
      1. Create a Polymer element:
 
@@ -4243,7 +4285,7 @@ You can download the PDF and Epub version of this repository from the latest run
          <link rel='import' href='./src/polymer-components/calender-element.html'>
          ```
 
-         3. Use that element in the JSX file:
+     3. Use that element in the JSX file:
 
          ```javascript
          import React from 'react'
@@ -4272,9 +4314,11 @@ You can download the PDF and Epub version of this repository from the latest run
      4. More information and solutions available.
 
    **Note:** The above list of advantages are purely opinionated and it vary based on the professional experience. But they are helpful as base parameters.
+
    **[⬆ Back to Top](#table-of-contents)**
     
 200. ### What is the difference between React and Angular?
+     Let's see the difference between React and Angular in a table format.
 
      | React | Angular |
      | ----- | ------- |
@@ -4285,6 +4329,7 @@ You can download the PDF and Epub version of this repository from the latest run
      | In React, data flows only in one way and hence debugging is easy | In Angular, data flows both way i.e it has two-way data binding between children and parent and hence debugging is often difficult |
 
    **Note:** The above list of differences are purely opinionated and it vary based on the professional experience. But they are helpful as base parameters.
+
    **[⬆ Back to Top](#table-of-contents)**
     
 201. ### Why React tab is not showing up in DevTools?
@@ -4376,6 +4421,8 @@ You can download the PDF and Epub version of this repository from the latest run
     
 206. ### What are the main features of Reselect library?
 
+     Let's see the main features of Reselect library,
+
        1. Selectors can compute derived data, allowing Redux to store the minimal possible state.
        2. Selectors are efficient. A selector is not recomputed unless one of its arguments changes.
        3. Selectors are composable. They can be used as input to other selectors.
@@ -4429,7 +4476,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
      *Actions* are plain JavaScript objects or payloads of information that send data from your application to your store. They are the only source of information for the store. Actions must have a type property that indicates the type of action being performed.
 
-     For example an example action which represents adding a new todo item:
+     For example, let's take an action which represents adding a new todo item:
 
      ```
      {
@@ -4608,7 +4655,12 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 217. ### What are HOC factory implementations?
-     There are two main ways of implementing HOCs in React. 1. Props Proxy (PP) and 2. Inheritance Inversion (II). They follow different approaches for manipulating the *WrappedComponent*.
+     There are two main ways of implementing HOCs in React.
+
+     1. Props Proxy (PP) and
+     2. Inheritance Inversion (II).
+
+     But they follow different approaches for manipulating the *WrappedComponent*.
 
      **Props Proxy**
 
@@ -4642,7 +4694,7 @@ You can download the PDF and Epub version of this repository from the latest run
     
 218. ### How to pass numbers to React component?
 
-     You should be passing the numbers via curly braces({}) where as strings inn quotes
+     You should be passing the numbers via curly braces({}) where as strings in quotes
 
      ```jsx
         React.render(<User age={30} department={"IT"} />, document.getElementById('container'));
@@ -4658,7 +4710,7 @@ You can download the PDF and Epub version of this repository from the latest run
      2. Do you need to be able to create further derived data based on this original data?
      3. Is the same data being used to drive multiple components?
      4. Is there value to you in being able to restore this state to a given point in time (ie, time travel debugging)?
-     5. Do you want to cache the data (ie, use what's in state if it's already there instead of re-requesting it)?
+     5. Do you want to cache the data (i.e, use what's in state if it's already there instead of re-requesting it)?
 
 
    **[⬆ Back to Top](#table-of-contents)**
@@ -4691,7 +4743,7 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 222. ### What is React lazy function?
-     The React.lazy function lets you render an dynamic import as a regular component. It will automatically load the bundle containing the OtherComponent when the component gets rendered. This must return a Promise which resolves to a module with a default export containing a React component.
+     The `React.lazy` function lets you render an dynamic import as a regular component. It will automatically load the bundle containing the OtherComponent when the component gets rendered. This must return a Promise which resolves to a module with a default export containing a React component.
      ```jsx
      const OtherComponent = React.lazy(() => import('./OtherComponent'));
 
@@ -4709,7 +4761,9 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 223. ### How to prevent unnecessary updates using setState?
-     You can compare current value of the state with an existing state value and decide whether to rerender the page or not. If the values are same then you need to return **null** to stop rerendering otherwise return the latest state value. For example, the user profile information is conditionally rendered as follows,
+     You can compare current value of the state with an existing state value and decide whether to rerender the page or not. If the values are same then you need to return **null** to stop re-rendering otherwise return the latest state value.
+
+     For example, the user profile information is conditionally rendered as follows,
      ```jsx
      getUserProfile = user => {
        const latestAddress = user.address;
@@ -4726,7 +4780,10 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 224. ### How do you render Array, Strings and Numbers in React 16 Version?
-     **Arrays**: Unlike older releases, you don't need to make sure **render** method return a single element in React16. You are able to return multiple sibling elements without a wrapping element by returning an array. For example, let us take the below list of developers,
+     **Arrays**: Unlike older releases, you don't need to make sure **render** method return a single element in React16. You are able to return multiple sibling elements without a wrapping element by returning an array.
+
+     For example, let us take the below list of developers,
+
      ```jsx
      const ReactJSDevs = () => {
        return [
@@ -4736,7 +4793,7 @@ You can download the PDF and Epub version of this repository from the latest run
        ];
      }
      ```
-     You can also merge this array of items in another array component
+     You can also merge this array of items in another array component.
      ```jsx
      const JSDevs = () => {
        return (
@@ -4749,7 +4806,8 @@ You can download the PDF and Epub version of this repository from the latest run
        );
      }
      ```
-     **Strings and Numbers:** You can also return string and number type from the render method
+     **Strings and Numbers:** You can also return string and number type from the render method.
+
      ```jsx
      render() {
       return 'Welcome to ReactJS questions';
@@ -4763,7 +4821,9 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 225. ### How to use class field declarations syntax in React classes?
-     React Class Components can be made much more concise using the class field declarations. You can initialize local state without using the constructor and declare class methods by using arrow functions without the extra need to bind them. Let's take a counter example to demonstrate class field declarations for state without using constructor and methods without binding,
+     React Class Components can be made much more concise using the class field declarations. You can initialize local state without using the constructor and declare class methods by using arrow functions without the extra need to bind them.
+
+     Let's take a counter example to demonstrate class field declarations for state without using constructor and methods without binding,
      ```jsx
      class Counter extends Component {
        state = { value: 0 };
@@ -4796,7 +4856,9 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 226. ### What are hooks?
-     Hooks is a new feature that lets you use state and other React features without writing a class. Let's see an example of useState hook example,
+     Hooks is a new feature that lets you use state and other React features without writing a class.
+
+     Let's see an example of useState hook example,
      ```jsx
      import { useState } from 'react';
 
@@ -4866,8 +4928,9 @@ You can download the PDF and Epub version of this repository from the latest run
     
 230. ### What are the benefits of React Router V4?
      Below are the main benefits of React Router V4 module,
-     1. In React Router v4(version 4), the API is completely about components. A router can be visualized as a single component(<BrowserRouter>) which wraps specific child router components(<Route>).
-     2. You don't need to manually set history. The router module will take care history by wrapping routes with  <BrowserRouter> component.
+
+     1. In React Router v4(version 4), the API is completely about components. A router can be visualized as a single component(`<BrowserRouter>`) which wraps specific child router components(`<Route>`).
+     2. You don't need to manually set history. The router module will take care history by wrapping routes with  `<BrowserRouter>` component.
      3. The application size is reduced by adding only the specific router module(Web, core, or native)
 
    **[⬆ Back to Top](#table-of-contents)**
@@ -4885,7 +4948,8 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 232. ### In which scenarios error boundaries do not catch errors?
-     Below are the cases in which error boundaries doesn't work
+     Below are the cases in which error boundaries doesn't work,
+
      1. Inside Event handlers
      2. Asynchronous code using **setTimeout or requestAnimationFrame** callbacks
      3. During Server side rendering
@@ -4896,6 +4960,7 @@ You can download the PDF and Epub version of this repository from the latest run
 233. ### Why do not you need error boundaries for event handlers?
      Error boundaries do not catch errors inside event handlers. Event handlers don't happened or invoked during rendering time unlike render method or lifecycle methods. So React knows how to recover these kind of errors in event handlers.
      If still you need to catch an error inside event handler, use the regular JavaScript try / catch statement as below
+
      ```javascript
      class MyComponent extends React.Component {
        constructor(props) {
@@ -4925,6 +4990,7 @@ You can download the PDF and Epub version of this repository from the latest run
     
 234. ### What is the difference between try catch block and error boundaries?
      Try catch block works with imperative code whereas error boundaries are meant for declarative code to render on the screen.
+
      For example, the try catch block used for below imperative code
      ```javascript
      try {
@@ -4957,7 +5023,9 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 237. ### What is the benefit of component stack trace from error boundary?
-     Apart from error messages and javascript stack, React16 will display the component stack trace with file names and line numbers using error boundary concept. For example, BuggyCounter component displays the component stack trace as below,
+     Apart from error messages and javascript stack, React16 will display the component stack trace with file names and line numbers using error boundary concept.
+
+     For example, BuggyCounter component displays the component stack trace as below,
 
      ![stacktrace](images/error_boundary.png)
 
@@ -4965,12 +5033,13 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 238. ### What is the required method to be defined for a class component?
-     The render() method is the only required method in a class component. i.e, All methods other than render method are optional for a class component.
+     The `render()` method is the only required method in a class component. i.e, All methods other than render method are optional for a class component.
 
    **[⬆ Back to Top](#table-of-contents)**
     
 239. ### What are the possible return types of render method?
      Below are the list of following types used and return from render method,
+
      1. **React elements:** Elements that instruct React to render a DOM node. It includes html elements such as `<div/>` and user defined elements.
      2. **Arrays and fragments:** Return multiple elements to render as Arrays and Fragments to wrap multiple elements
      3. **Portals:** Render children into a different DOM subtree.
@@ -4982,6 +5051,7 @@ You can download the PDF and Epub version of this repository from the latest run
     
 240. ### What is the main purpose of constructor?
      The constructor is mainly used for two purposes,
+
      1. To initialize local state by assigning object to this.state
      2. For binding event handler methods to the instance
      For example, the below code covers both the above cases,
@@ -5002,7 +5072,10 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 242. ### What are default props?
-     The defaultProps are defined as a property on the component class to set the default props for the class. This is used for undefined props, but not for null props. For example, let us create color default prop for the button component,
+     The defaultProps are defined as a property on the component class to set the default props for the class. This is used for undefined props, but not for null props.
+
+     For example, let us create color default prop for the button component,
+
      ```javascript
      class MyButton extends React.Component {
        // ...
@@ -5025,12 +5098,14 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 243. ### Why should not call setState in componentWillUnmount?
-     You should not call setState() in componentWillUnmount() because Once a component instance is unmounted, it will never be mounted again.
+     You should not call `setState()` in `componentWillUnmount()` because once a component instance is unmounted, it will never be mounted again.
 
    **[⬆ Back to Top](#table-of-contents)**
     
 244. ### What is the purpose of getDerivedStateFromError?
-     This lifecycle method is invoked after an error has been thrown by a descendant component. It receives the error that was thrown as a parameter and should return a value to update state. The signature of the lifecycle method is as follows,
+     This lifecycle method is invoked after an error has been thrown by a descendant component. It receives the error that was thrown as a parameter and should return a value to update state.
+
+     The signature of the lifecycle method is as follows,
      ```javascript
      static getDerivedStateFromError(error)
      ```
@@ -5062,6 +5137,7 @@ You can download the PDF and Epub version of this repository from the latest run
     
 245. ### What is the methods order when component re-rendered?
      An update can be caused by changes to props or state. The below methods are called in the following order when a component is being re-rendered.
+
      1. static getDerivedStateFromProps()
      2. shouldComponentUpdate()
      3. render()
@@ -5073,6 +5149,7 @@ You can download the PDF and Epub version of this repository from the latest run
     
 246. ### What are the methods invoked during error handling?
      Below methods are called when there is an error during rendering, in a lifecycle method, or in the constructor of any child component.
+
      1. static getDerivedStateFromError()
      2. componentDidCatch()
 
@@ -5080,7 +5157,9 @@ You can download the PDF and Epub version of this repository from the latest run
     
 247. ### What is the purpose of displayName class property?
      The displayName string is used in debugging messages. Usually, you don’t need to set it explicitly because it’s inferred from the name of the function or class that defines the component. You might want to set it explicitly if you want to display a different name for debugging purposes or when you create a higher-order component.
+
      For example, To ease debugging, choose a display name that communicates that it’s the result of a withSubscription HOC.
+
      ```javascript
      function withSubscription(WrappedComponent) {
        class WithSubscription extends React.Component {/* ... */}
@@ -5101,6 +5180,7 @@ You can download the PDF and Epub version of this repository from the latest run
     
 249. ### What is the purpose of unmountComponentAtNode method?
      This method is available from react-dom package and it removes a mounted React component from the DOM and clean up its event handlers and state. If no component was mounted in the container, calling this function does nothing. Returns true if a component was unmounted and false if there was no component to unmount.
+
      The method signature would be as follows,
      ```javascript
      ReactDOM.unmountComponentAtNode(container)
@@ -5110,6 +5190,7 @@ You can download the PDF and Epub version of this repository from the latest run
     
 250. ### What is code-splitting?
      Code-Splitting is a feature supported by bundlers like Webpack and Browserify which can create multiple bundles that can be dynamically loaded at runtime. The react project supports code splitting via dynamic import() feature.
+
      For example, in the below code snippets, it will make moduleA.js and all its unique dependencies as a separate chunk that only loads after the user clicks the 'Load' button.
      **moduleA.js**
      ```javascript
@@ -5159,7 +5240,8 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 252. ### What are Keyed Fragments?
-     The Fragments declared with the explicit <React.Fragment> syntax may have keys. The general usecase is mapping a collection to an array of fragments as below,
+     The Fragments declared with the explicit <React.Fragment> syntax may have keys. The general use case is mapping a collection to an array of fragments as below,
+
      ```javascript
      function Glossary(props) {
        return (
@@ -5175,12 +5257,16 @@ You can download the PDF and Epub version of this repository from the latest run
        );
      }
      ```
+
      **Note:** key is the only attribute that can be passed to Fragment. In the future, there might be a support for additional attributes, such as event handlers.
 
    **[⬆ Back to Top](#table-of-contents)**
     
 253. ### Does React support all HTML attributes?
-     As of React 16, both standard or custom DOM attributes are fully supported. Since React components often take both custom and DOM-related props, React uses the camelCase convention just like the DOM APIs. Let us take few props with respect to standard HTML attributes,
+     As of React 16, both standard or custom DOM attributes are fully supported. Since React components often take both custom and DOM-related props, React uses the camelCase convention just like the DOM APIs.
+
+     Let us take few props with respect to standard HTML attributes,
+
      ```javascript
      <div tabIndex="-1" />      // Just like node.tabIndex DOM API
      <div className="Button" /> // Just like node.className DOM API
@@ -5192,8 +5278,8 @@ You can download the PDF and Epub version of this repository from the latest run
     
 254. ### What are the limitations with HOCs?
 
-     Higher-order components come with a few caveats apart from its benefits. Below are the few listed in an order
-     1. **Don’t Use HOCs Inside the render Method:**
+     Higher-order components come with a few caveats apart from its benefits. Below are the few listed in an order,
+     1. **Don’t use HOCs inside the render method:**
         It is not recommended to apply a HOC to a component within the render method of a component.
         ```javascript
         render() {
@@ -5204,8 +5290,9 @@ You can download the PDF and Epub version of this repository from the latest run
           return <EnhancedComponent />;
         }
         ```
-        The above code impact performance by remounting a component that causes the state of that component and all of its children to be lost. Instead, apply HOCs outside the component definition so that the resulting component is created only once
-     2. **Static Methods Must Be Copied Over:**
+        The above code impact performance by remounting a component that causes the state of that component and all of its children to be lost. Instead, apply HOCs outside the component definition so that the resulting component is created only once.
+
+     2. **Static methods must be copied over:**
         When you apply a HOC to a component the new component does not have any of the static methods of the original component
         ```javascript
         // Define a static method
@@ -5216,7 +5303,8 @@ You can download the PDF and Epub version of this repository from the latest run
         // The enhanced component has no static method
         typeof EnhancedComponent.staticMethod === 'undefined' // true
         ```
-        You can overcome this by copying the methods onto the container before returning it
+        You can overcome this by copying the methods onto the container before returning it,
+
         ```javascript
         function enhance(WrappedComponent) {
           class Enhance extends React.Component {/*...*/}
@@ -5225,20 +5313,25 @@ You can download the PDF and Epub version of this repository from the latest run
           return Enhance;
         }
         ```
-     3. **Refs Aren’t Passed Through:**
+     3. **Refs aren’t passed through:**
         For HOCs you need to pass through all props to the wrapped component but this does not work for refs. This is because ref is not really a prop similar to key. In this case you need to use the React.forwardRef API
 
    **[⬆ Back to Top](#table-of-contents)**
     
 255. ### How to debug forwardRefs in DevTools?
 
-     **React.forwardRef** accepts a render function as parameter and DevTools uses this function to determine what to display for the ref forwarding component. For example, If you don't name the render function or not using displayName property then it will appear as ”ForwardRef” in the DevTools,
+     **React.forwardRef** accepts a render function as parameter and DevTools uses this function to determine what to display for the ref forwarding component.
+
+     For example, If you don't name the render function or not using displayName property then it will appear as ”ForwardRef” in the DevTools,
+
      ```javascript
      const WrappedComponent = React.forwardRef((props, ref) => {
        return <LogProps {...props} forwardedRef={ref} />;
      });
      ```
+
      But If you name the render function then it will appear as **”ForwardRef(myFunction)”**
+
      ```javascript
      const WrappedComponent = React.forwardRef(
        function myFunction(props, ref) {
@@ -5246,7 +5339,9 @@ You can download the PDF and Epub version of this repository from the latest run
        }
      );
      ```
+
      As an alternative, You can also set displayName property for forwardRef function,
+
      ```javascript
      function logProps(Component) {
        class LogProps extends React.Component {
@@ -5269,18 +5364,22 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 256. ### When component props defaults to true?
-     If you pass no value for a prop, it defaults to true. This behavior is available so that it matches the behavior of HTML. For example, below expressions are equivalent,
+     If you pass no value for a prop, it defaults to true. This behavior is available so that it matches the behavior of HTML.
+
+     For example, below expressions are equivalent,
+
      ```javascript
      <MyInput autocomplete />
 
      <MyInput autocomplete={true} />
      ```
-     **Note:** It is not recommend using this approach because it can be confused with the ES6 object shorthand (example, {name} which is short for {name: name})
+     **Note:** It is not recommended to use this approach because it can be confused with the ES6 object shorthand (example, `{name}` which is short for `{name: name}`)
 
    **[⬆ Back to Top](#table-of-contents)**
     
 257. ### What is NextJS and major features of it?
      Next.js is a popular and lightweight framework for static and server‑rendered applications built with React. It also provides styling and routing solutions. Below are the major features provided by NextJS,
+
      1. Server-rendered by default
      2. Automatic code splitting for faster page loads
      3. Simple client-side routing (page based)
@@ -5292,7 +5391,8 @@ You can download the PDF and Epub version of this repository from the latest run
     
 258. ### How do you pass an event handler to a component?
      You can pass event handlers and other functions as props to child components. It can be used in child component as  below,
-     ```
+
+     ```html
      <button onClick={this.handleClick}>
      ```
 
@@ -5300,6 +5400,7 @@ You can download the PDF and Epub version of this repository from the latest run
     
 259. ### Is it good to use arrow functions in render methods?
      Yes, You can use. It is often the easiest way to pass parameters to callback functions. But you need to optimize the performance while using it.
+
      ```javascript
      class Foo extends Component {
        handleClick() {
@@ -5310,12 +5411,14 @@ You can download the PDF and Epub version of this repository from the latest run
        }
      }
      ```
+
      **Note:** Using an arrow function in render method creates a new function each time the component renders, which may have performance implications
 
    **[⬆ Back to Top](#table-of-contents)**
     
 260. ### How to prevent a function from being called multiple times?
      If you use an event handler such as **onClick or onScroll** and want to prevent the callback from being fired too quickly, then you can limit the rate at which callback is executed. This can be achieved in the below possible ways,
+
      1. **Throttling:** Changes based on a time based frequency. For example, it can be used using _.throttle lodash function
      2. **Debouncing:** Publish changes after a period of inactivity. For example, it can be used using _.debounce lodash function
      3. **RequestAnimationFrame throttling:** Changes based on requestAnimationFrame. For example, it can be used using raf-schd lodash function
@@ -5323,7 +5426,10 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 261. ### How JSX prevents Injection Attacks?
-     React DOM escapes any values embedded in JSX before rendering them. Thus it ensures that you can never inject anything that’s not explicitly written in your application. Everything is converted to a string before being rendered. For example, you can embed user input as below,
+     React DOM escapes any values embedded in JSX before rendering them. Thus it ensures that you can never inject anything that’s not explicitly written in your application. Everything is converted to a string before being rendered.
+
+     For example, you can embed user input as below,
+
      ```javascript
      const name = response.potentiallyMaliciousInput;
      const element = <h1>{name}</h1>;
@@ -5333,7 +5439,10 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 262. ### How do you update rendered elements?
-     You can update UI(represented by rendered element) by passing the newly created element to ReactDOM's render method. For example, lets take a ticking clock example, where it updates the time by calling render method multiple times,
+     You can update UI(represented by rendered element) by passing the newly created element to ReactDOM's render method.
+
+     For example, lets take a ticking clock example, where it updates the time by calling render method multiple times,
+
      ```javascript
      function tick() {
        const element = (
@@ -5351,7 +5460,10 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 263. ### How do you say that props are read only?
-     When you declare a component as a function or a class, it must never modify its own props. Let us take a below capital function,
+     When you declare a component as a function or a class, it must never modify its own props.
+
+     Let us take a below capital function,
+
      ```javascript
      function capital(amount, interest) {
         return amount + interest;
@@ -5362,7 +5474,10 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 264. ### How do you say that state updates are merged?
-     When you call setState() in the component, React merges the object you provide into the current state. For example, let us take a facebook user with posts and comments details as state variables,
+     When you call setState() in the component, React merges the object you provide into the current state.
+
+     For example, let us take a facebook user with posts and comments details as state variables,
+
      ```javascript
        constructor(props) {
          super(props);
@@ -5372,7 +5487,9 @@ You can download the PDF and Epub version of this repository from the latest run
          };
        }
      ```
-     Now you can update them independently with separate setState() calls as below,
+
+     Now you can update them independently with separate `setState()` calls as below,
+
      ```javascript
       componentDidMount() {
          fetchPosts().then(response => {
@@ -5388,12 +5505,15 @@ You can download the PDF and Epub version of this repository from the latest run
          });
        }
      ```
-     As mentioned in the above code snippets, this.setState({comments}) updates only comments variable without modifying or replacing posts variable.
+     As mentioned in the above code snippets, `this.setState({comments})` updates only comments variable without modifying or replacing posts variable.
 
    **[⬆ Back to Top](#table-of-contents)**
     
 265. ### How do you pass arguments to an event handler?
-     During iterations or loops, it is common to pass an extra parameter to an event handler. This can be achieved through arrow functions or bind method. Let us take an example of user details updated in a grid,
+     During iterations or loops, it is common to pass an extra parameter to an event handler. This can be achieved through arrow functions or bind method.
+
+     Let us take an example of user details updated in a grid,
+
      ```javascript
      <button onClick={(e) => this.updateUser(userId, e)}>Update User details</button>
      <button onClick={this.updateUser.bind(this, userId)}>Update User details</button>
@@ -5404,6 +5524,7 @@ You can download the PDF and Epub version of this repository from the latest run
     
 266. ### How to prevent component from rendering?
      You can prevent component from rendering by returning null based on specific condition. This way it can conditionally render component.
+
      ```javascript
      function Greeting(props) {
        if (!props.loggedIn) {
@@ -5440,6 +5561,7 @@ You can download the PDF and Epub version of this repository from the latest run
     
 267. ### What are the conditions to safely use the index as a key?
      There are three conditions to make sure, it is safe use the index as a key.
+
      1. The list and items are static– they are not computed and do not change
      2. The items in the list have no ids
      3. The list is never reordered or filtered.
@@ -5448,7 +5570,10 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 268. ### Is it keys should be globally unique?
-     Keys used within arrays should be unique among their siblings but they don’t need to be globally unique. i.e, You can use the same keys withtwo different arrays. For example, the below book component uses two arrays with different arrays,
+     Keys used within arrays should be unique among their siblings but they don’t need to be globally unique. i.e, You can use the same keys with two different arrays.
+
+     For example, the below book component uses two arrays with different arrays,
+
      ```javascript
      function Book(props) {
        const index = (
@@ -5480,7 +5605,9 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 269. ### What is the popular choice for form handling?
-     Formik is a form library for react which provides solutions such as validation, keeping track of the visited fields, and handling form submission. In detail, You can categorize them as follows,
+     `Formik` is a form library for react which provides solutions such as validation, keeping track of the visited fields, and handling form submission.
+
+     In detail, You can categorize them as follows,
 
      1. Getting values in and out of form state
      2. Validation and error messages
@@ -5491,7 +5618,8 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 270. ### What are the advantages of formik over redux form library?
-     Below are the main reasons to recommend formik over redux form library
+     Below are the main reasons to recommend formik over redux form library,
+
      1. The form state is inherently short-term and local, so tracking it in Redux (or any kind of Flux library) is unnecessary.
      2. Redux-Form calls your entire top-level Redux reducer multiple times ON EVERY SINGLE KEYSTROKE. This way it increases input latency for large apps.
      3. Redux-Form is 22.5 kB minified gzipped whereas Formik is 12.7 kB
@@ -5506,7 +5634,10 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 272. ### Can I use web components in react application?
-     Yes, you can use web components in a react application. Even though many developers won't use this combination, it may require especially if you are using third-party UI components that are written using Web Components. For example, let us  use Vaadin date picker web component as below,
+     Yes, you can use web components in a react application. Even though many developers won't use this combination, it may require especially if you are using third-party UI components that are written using Web Components.
+
+     For example, let us use `Vaadin` date picker web component as below,
+
      ```javascript
      import React, { Component } from 'react';
      import './App.css';
@@ -5526,7 +5657,10 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 273. ### What is dynamic import?
-     The dynamic import() syntax is a ECMAScript proposal not currently part of the language standard. It is expected to be accepted in the near future. You can achieve code-splitting into your app using dynamic import(). Let's take an example of addition,
+     The dynamic import() syntax is a ECMAScript proposal not currently part of the language standard. It is expected to be accepted in the near future. You can achieve code-splitting into your app using dynamic import.
+
+     Let's take an example of addition,
+
      1. **Normal Import**
      ```javascript
      import { add } from './math';
@@ -5542,7 +5676,10 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 274. ### What are loadable components?
-     If you want to do code-splitting in a server rendered app, it is recommend to use Loadable Components because React.lazy and Suspense is not yet available for server-side rendering. Loadable lets you render a dynamic import as a regular component. Lets take an example,
+     If you want to do code-splitting in a server rendered app, it is recommend to use Loadable Components because React.lazy and Suspense is not yet available for server-side rendering. Loadable lets you render a dynamic import as a regular component.
+
+     Lets take an example,
+
      ```javascript
      import loadable from '@loadable/component'
 
@@ -5561,7 +5698,10 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 275. ### What is suspense component?
-     If the module containing the dynamic import is not yet loaded by the time parent component renders, you must show some fallback content while you’re waiting for it to load using a loading indicator. This can be done using **Suspense** component. For example, the below code uses suspense component,
+     If the module containing the dynamic import is not yet loaded by the time parent component renders, you must show some fallback content while you’re waiting for it to load using a loading indicator. This can be done using **Suspense** component.
+
+     For example, the below code uses suspense component,
+
      ```javascript
      const OtherComponent = React.lazy(() => import('./OtherComponent'));
 
@@ -5580,7 +5720,10 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 276. ### What is route based code splitting?
-     One of the best place to do code splitting is with routes. The entire page is going to re-render at once so users are unlikely to interact with other elements in the page at the same time. Due to this, the user experience won't be disturbed. Let us take an example of route based website using libraries like React Router with React.lazy,
+     One of the best place to do code splitting is with routes. The entire page is going to re-render at once so users are unlikely to interact with other elements in the page at the same time. Due to this, the user experience won't be disturbed.
+
+     Let us take an example of route based website using libraries like React Router with React.lazy,
+
      ```javascript
      import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
      import React, { Suspense, lazy } from 'react';
@@ -5604,7 +5747,10 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 277. ### Give an example on How to use context?
-     **Context** is designed to share data that can be considered **global** for a tree of React components.  For example, in the code below lets manually thread through a “theme” prop in order to style the Button component.
+     **Context** is designed to share data that can be considered **global** for a tree of React components.
+
+     For example, in the code below lets manually thread through a “theme” prop in order to style the Button component.
+
      ```javascript
      //Lets create a context with a default theme value "luna"
      const ThemeContext = React.createContext('luna');
@@ -5638,7 +5784,10 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 278. ### What is the purpose of default value in context?
-     The defaultValue argument is only used when a component does not have a matching Provider above it in the tree. This can be helpful for testing components in isolation without wrapping them. Below code snippet provides default theme value as Luna.
+     The defaultValue argument is only used when a component does not have a matching Provider above it in the tree. This can be helpful for testing components in isolation without wrapping them.
+
+     Below code snippet provides default theme value as Luna.
+
      ```javascript
      const MyContext = React.createContext(defaultValue);
      ```
@@ -5647,46 +5796,54 @@ You can download the PDF and Epub version of this repository from the latest run
     
 279. ### How do you use contextType?
      ContextType is used to consume the context object. The contextType property can be used in two ways,
+
      1. **contextType as property of class:**
-     The contextType property on a class can be assigned a Context object created by React.createContext(). After that, you can consume the nearest current value of that Context type using this.context in any of the lifecycle methods and render function.
-     Lets assign contextType property on MyClass as below,
-     ```javascript
-     class MyClass extends React.Component {
-       componentDidMount() {
-         let value = this.context;
-         /* perform a side-effect at mount using the value of MyContext */
-       }
-       componentDidUpdate() {
-         let value = this.context;
-         /* ... */
-       }
-       componentWillUnmount() {
-         let value = this.context;
-         /* ... */
-       }
-       render() {
-         let value = this.context;
-         /* render something based on the value of MyContext */
-       }
-     }
-     MyClass.contextType = MyContext;
-     ```
+         The contextType property on a class can be assigned a Context object created by React.createContext(). After that, you can consume the nearest current value of that Context type using this.context in any of the lifecycle methods and render function.
+
+         Lets assign contextType property on MyClass as below,
+
+         ```javascript
+         class MyClass extends React.Component {
+           componentDidMount() {
+             let value = this.context;
+             /* perform a side-effect at mount using the value of MyContext */
+           }
+           componentDidUpdate() {
+             let value = this.context;
+             /* ... */
+           }
+           componentWillUnmount() {
+             let value = this.context;
+             /* ... */
+           }
+           render() {
+             let value = this.context;
+             /* render something based on the value of MyContext */
+           }
+         }
+         MyClass.contextType = MyContext;
+         ```
+
      2. **Static field**
-     You can use a static class field to initialize your contextType using public class field syntax.
-     ```javascript
-     class MyClass extends React.Component {
-       static contextType = MyContext;
-       render() {
-         let value = this.context;
-         /* render something based on the value */
-       }
-     }
-     ```
+         You can use a static class field to initialize your contextType using public class field syntax.
+
+         ```javascript
+         class MyClass extends React.Component {
+           static contextType = MyContext;
+           render() {
+             let value = this.context;
+             /* render something based on the value */
+           }
+         }
+         ```
 
    **[⬆ Back to Top](#table-of-contents)**
     
 280. ### What is a consumer?
-     A Consumer is a React component that subscribes to context changes. It requires a function as a child which receives current context value as argument and returns a react node. The value argument passed to the function will be equal to the value prop of the closest Provider for this context above in the tree. Lets take a simple example,
+     A Consumer is a React component that subscribes to context changes. It requires a function as a child which receives current context value as argument and returns a react node. The value argument passed to the function will be equal to the value prop of the closest Provider for this context above in the tree.
+
+     Lets take a simple example,
+
      ```javascript
      <MyContext.Consumer>
        {value => /* render something based on the context value */}
@@ -5696,7 +5853,10 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 281. ### How do you solve performance corner cases while using context?
-     The context uses reference identity to determine when to re-render, there are some gotchas that could trigger unintentional renders in consumers when a provider’s parent re-renders. For example, the code below will re-render all consumers every time the Provider re-renders because a new object is always created for value.
+     The context uses reference identity to determine when to re-render, there are some gotchas that could trigger unintentional renders in consumers when a provider’s parent re-renders.
+
+     For example, the code below will re-render all consumers every time the Provider re-renders because a new object is always created for value.
+
      ```javascript
      class App extends React.Component {
        render() {
@@ -5708,7 +5868,9 @@ You can download the PDF and Epub version of this repository from the latest run
        }
      }
      ```
+
      This can be solved by lifting up the value to parent state,
+
      ```javascript
      class App extends React.Component {
        constructor(props) {
@@ -5732,51 +5894,57 @@ You can download the PDF and Epub version of this repository from the latest run
     
 282. ### What is the purpose of forward ref in HOCs?
      Refs will not get passed through because ref is not a prop. It handled differently by React just like **key**. If you add a ref to a HOC, the ref will refer to the outermost container component, not the wrapped component. In this case, you can use Forward Ref API. For example, we can explicitly forward refs to the inner FancyButton component using the React.forwardRef API.
+
      The below HOC logs all props,
-     ```javascript
-     function logProps(Component) {
-       class LogProps extends React.Component {
-         componentDidUpdate(prevProps) {
-           console.log('old props:', prevProps);
-           console.log('new props:', this.props);
+
+         ```javascript
+         function logProps(Component) {
+           class LogProps extends React.Component {
+             componentDidUpdate(prevProps) {
+               console.log('old props:', prevProps);
+               console.log('new props:', this.props);
+             }
+
+             render() {
+               const {forwardedRef, ...rest} = this.props;
+
+               // Assign the custom prop "forwardedRef" as a ref
+               return <Component ref={forwardedRef} {...rest} />;
+             }
+           }
+
+           return React.forwardRef((props, ref) => {
+             return <LogProps {...props} forwardedRef={ref} />;
+           });
          }
+         ```
 
-         render() {
-           const {forwardedRef, ...rest} = this.props;
-
-           // Assign the custom prop "forwardedRef" as a ref
-           return <Component ref={forwardedRef} {...rest} />;
-         }
-       }
-
-       return React.forwardRef((props, ref) => {
-         return <LogProps {...props} forwardedRef={ref} />;
-       });
-     }
-     ```
      Let's use this HOC to log all props that get passed to our “fancy button” component,
-     ```javascript
-     class FancyButton extends React.Component {
-       focus() {
-         // ...
-       }
 
-       // ...
-     }
-     export default logProps(FancyButton);
-     ```
+         ```javascript
+         class FancyButton extends React.Component {
+           focus() {
+             // ...
+           }
+
+           // ...
+         }
+         export default logProps(FancyButton);
+         ```
+
      Now lets create a ref and pass it to FancyButton component. In this case, you can set focus to button element.
-     ```javascript
-     import FancyButton from './FancyButton';
 
-     const ref = React.createRef();
-     ref.current.focus();
-     <FancyButton
-       label="Click Me"
-       handleClick={handleClick}
-       ref={ref}
-     />;
-     ```
+         ```javascript
+         import FancyButton from './FancyButton';
+
+         const ref = React.createRef();
+         ref.current.focus();
+         <FancyButton
+           label="Click Me"
+           handleClick={handleClick}
+           ref={ref}
+         />;
+         ```
 
    **[⬆ Back to Top](#table-of-contents)**
     
@@ -5792,6 +5960,7 @@ You can download the PDF and Epub version of this repository from the latest run
     
 285. ### How to create react class components without ES6?
      If you don’t use ES6 then you may need to use the create-react-class module instead. For default props, you need to define getDefaultProps() as a function on the passed object. Whereas for initial state, you have to provide a separate getInitialState method that returns the initial state.
+
      ```javascript
      var Greeting = createReactClass({
        getDefaultProps: function() {
@@ -5810,12 +5979,15 @@ You can download the PDF and Epub version of this repository from the latest run
        }
      });
      ```
-     **Note:** If you use createReactClass then autobinding is available for all methods. i.e, You don't need to use .bind(this) with in constructor for event handlers.
+     **Note:** If you use createReactClass then auto binding is available for all methods. i.e, You don't need to use `.bind(this)` with in constructor for event handlers.
 
    **[⬆ Back to Top](#table-of-contents)**
     
 286. ### Is it possible to use react without JSX?
-     Yes, JSX is not mandatory for using React. Actually it is convenient when you don’t want to set up compilation in your build environment. Each JSX element is just syntactic sugar for calling React.createElement(component, props, ...children). For example, let us take a greeting example with JSX,
+     Yes, JSX is not mandatory for using React. Actually it is convenient when you don’t want to set up compilation in your build environment. Each JSX element is just syntactic sugar for calling `React.createElement(component, props, ...children)`.
+
+     For example, let us take a greeting example with JSX,
+
      ```javascript
      class Greeting extends React.Component {
        render() {
@@ -5828,7 +6000,9 @@ You can download the PDF and Epub version of this repository from the latest run
        document.getElementById('root')
      );
      ```
+
      You can write the same code without JSX as below,
+
      ```javascript
      class Greeting extends React.Component {
        render() {
@@ -5846,7 +6020,9 @@ You can download the PDF and Epub version of this repository from the latest run
     
 287. ### What is diffing algorithm?
      React needs to use algorithms to find out how to efficiently update the UI to match the most recent tree. The diffing algorithms is generating the minimum number of operations to transform one tree into another. However, the algorithms have a complexity in the order of O(n3) where n is the number of elements in the tree.
+
      In this case, for displaying 1000 elements would require in the order of one billion comparisons. This is far too expensive. Instead, React implements a heuristic O(n) algorithm based on two assumptions:
+
      1. Two elements of different types will produce different trees.
      2. The developer can hint at which child elements may be stable across different renders with a key prop.
 
@@ -5854,6 +6030,7 @@ You can download the PDF and Epub version of this repository from the latest run
     
 288. ### What are the rules covered by diffing algorithm?
      When diffing two trees, React first compares the two root elements. The behavior is different depending on the types of the root elements. It covers the below rules during reconciliation algorithm,
+
      1. **Elements Of Different Types:**
         Whenever the root elements have different types, React will tear down the old tree and build the new tree from scratch. For example,  elements <a> to <img>, or from <Article> to <Comment> of different types lead a full rebuild.
      2. **DOM Elements Of The Same Type:**
@@ -5898,7 +6075,8 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 289. ### When do you need to use refs?
-     There are few use cases to go for refs
+     There are few use cases to go for refs,
+
      1. Managing focus, text selection, or media playback.
      2. Triggering imperative animations.
      3. Integrating with third-party DOM libraries.
@@ -5907,12 +6085,15 @@ You can download the PDF and Epub version of this repository from the latest run
     
 290. ### Is it prop must be named as render for render props?
      Even though the pattern named render props, you don’t have to use a prop named render to use this pattern. i.e,  Any prop that is a function that a component uses to know what to render is technically a “render prop”. Lets take an example with the children prop for render props,
+
      ```javascript
      <Mouse children={mouse => (
        <p>The mouse position is {mouse.x}, {mouse.y}</p>
      )}/>
      ```
+
      Actually children prop doesn’t need to be named in the list of “attributes” in JSX element. Instead, you can keep it directly inside element,
+
      ```javascript
      <Mouse>
        {mouse => (
@@ -5920,7 +6101,9 @@ You can download the PDF and Epub version of this repository from the latest run
        )}
      </Mouse>
      ```
+
      While using this above technique(without any name), explicitly state that children should be a function in your propTypes.
+
      ```javascript
      Mouse.propTypes = {
        children: PropTypes.func.isRequired
@@ -5936,6 +6119,7 @@ You can download the PDF and Epub version of this repository from the latest run
     
 292. ### How do you create HOC using render props?
      You can implement most higher-order components (HOC) using a regular component with a render prop. For example, if you would prefer to have a withMouse HOC instead of a <Mouse> component, you could easily create one using a regular <Mouse> with a render prop.
+
      ```javascript
      function withMouse(Component) {
        return class extends React.Component {
@@ -5949,6 +6133,7 @@ You can download the PDF and Epub version of this repository from the latest run
        }
      }
      ```
+
      This way render props gives the flexibility of using either pattern.
 
    **[⬆ Back to Top](#table-of-contents)**
@@ -5960,6 +6145,7 @@ You can download the PDF and Epub version of this repository from the latest run
     
 294. ### How do you print falsy values in JSX?
      The falsy values such as false, null, undefined, and true are valid children but they don't render anything. If you still want to display them then you need to convert it to string. Let's take an example on how to convert to a string,
+
      ```javascript
      <div>
        My JavaScript variable is {String(myVariable)}.
@@ -5969,12 +6155,15 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 295. ### What is the typical use case of portals?
-     React portals are very useful when a parent component has overflow: hidden or has properties that affect the stacking context(z-index,position,opacity etc styles) and you need to visually “break out” of its container. For example, dialogs, global message notifications, hovercards, and tooltips.
+     React portals are very useful when a parent component has overflow: hidden or has properties that affect the stacking context(z-index,position,opacity etc styles) and you need to visually “break out” of its container.
+
+     For example, dialogs, global message notifications, hovercards, and tooltips.
 
    **[⬆ Back to Top](#table-of-contents)**
     
 296. ### How do you set default value for uncontrolled component?
      In React, the value attribute on form elements will override the value in the DOM. With an uncontrolled component, you might want React to specify the initial value, but leave subsequent updates uncontrolled. To handle this case, you can specify a **defaultValue** attribute instead of **value**.
+
      ```javascript
      render() {
        return (
@@ -6016,7 +6205,8 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 299. ### How to add Bootstrap to a react application?
-     Bootstrap can be added to your React app in a three possible ways
+     Bootstrap can be added to your React app in a three possible ways,
+
      1. Using the Bootstrap CDN:
         This is the easiest way to add bootstrap. Add both bootstrap CSS and JS resources in a head tag.
      2. Bootstrap as Dependency:
@@ -6059,7 +6249,9 @@ You can download the PDF and Epub version of this repository from the latest run
     
 303. ### How to fetch data with React Hooks?
      The effect hook called `useEffect` is used to fetch the data with axios from the API and to set the data in the local state of the component with the state hook’s update function.
+
      Let's take an example in which it fetches list of react articles from the API
+
      ```javascript
      import React, { useState, useEffect } from 'react';
      import axios from 'axios';
@@ -6088,6 +6280,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
      export default App;
      ```
+
      Remember we provided an empty array as second argument to the effect hook to avoid activating it on component updates but only for the mounting of the component. i.e, It fetches only for component mount.
 
    **[⬆ Back to Top](#table-of-contents)**
@@ -6099,6 +6292,7 @@ You can download the PDF and Epub version of this repository from the latest run
     
 305. ### What is the stable release for hooks support?
      React includes a stable implementation of React Hooks in 16.8 release for below packages
+
      1. React DOM
      2. React DOM Server
      3. React Test Renderer
@@ -6108,7 +6302,9 @@ You can download the PDF and Epub version of this repository from the latest run
     
 306. ### Why do we use array destructuring (square brackets notation) in `useState`?
      When we declare a state variable with `useState`, it returns a pair — an array with two items. The first item is the current value, and the second is a function that updates the value. Using [0] and [1] to access them is a bit confusing because they have a specific meaning. This is why we use array destructuring instead.
+
      For example, the array index access would look as follows:
+
      ```javascript
       var userStateVariable = useState('userProfile'); // Returns an array pair
       var user = userStateVariable[0]; // Access first item
@@ -6123,6 +6319,7 @@ You can download the PDF and Epub version of this repository from the latest run
     
 307. ### What are the sources used for introducing hooks?
      Hooks got the ideas from several different sources. Below are some of them,
+
      1. Previous experiments with functional APIs in the react-future repository
      2. Community experiments with render prop APIs such as Reactions Component
      3. State variables and state cells in DisplayScript.
@@ -6138,6 +6335,7 @@ You can download the PDF and Epub version of this repository from the latest run
     
 309. ### What is formik?
      Formik is a small react form library that helps you with the three major problems,
+
      1. Getting values in and out of form state
      2. Validation and error messages
      3. Handling form submission
@@ -6167,6 +6365,7 @@ You can download the PDF and Epub version of this repository from the latest run
     
 314. ### What are the features of create react app?
      Below are the list of some of the features provided by create react app.
+
      1. React, JSX, ES6, Typescript and Flow syntax support.
      2. Autoprefixed CSS
      3. CSS Reset/Normalize  
@@ -6210,37 +6409,39 @@ You can download the PDF and Epub version of this repository from the latest run
     
 318. ### Should I learn ES6 before learning ReactJS?
      No, you don’t have to learn es2015/es6 to learn react. But you may find many resources or React ecosystem uses ES6 extensively. Let's see some of the frequently used ES6 features,
-     1. Destructuring: To get props and use them in a component
-     ```javascript
-     // in es 5
-      var someData = this.props.someData
-      var dispatch = this.props.dispatch
 
-     // in es6
-     const { someData, dispatch } = this.props
-     ```
+     1. **Destructuring:** To get props and use them in a component
+         ```javascript
+         // in es 5
+          var someData = this.props.someData
+          var dispatch = this.props.dispatch
+
+         // in es6
+         const { someData, dispatch } = this.props
+         ```
      2. Spread operator: Helps in passing props down into a component
-     ```javascript
-     // in es 5
-     <SomeComponent someData={this.props.someData} dispatch={this.props.dispatch} />
+         ```javascript
+         // in es 5
+         <SomeComponent someData={this.props.someData} dispatch={this.props.dispatch} />
 
-     // in es6
-     <SomeComponent {...this.props} />
-     ```
+         // in es6
+         <SomeComponent {...this.props} />
+         ```
      3. Arrow functions: Makes compact syntax
-     ```javascript
-     // es 5
-     var users = usersList.map(function (user) {
-      return <li>{user.name}</li>
-     })
-     // es 6
-     const users = usersList.map(user => <li>{user.name}</li>);
-     ```
+         ```javascript
+         // es 5
+         var users = usersList.map(function (user) {
+          return <li>{user.name}</li>
+         })
+         // es 6
+         const users = usersList.map(user => <li>{user.name}</li>);
+         ```
 
    **[⬆ Back to Top](#table-of-contents)**
     
 319. ### What is Concurrent Rendering?
      The Concurrent rendering makes React apps to be more responsive by rendering component trees without blocking the main UI thread. It allows React to interrupt a long-running render to handle a high-priority event. i.e, When you enabled concurrent Mode, React will keep an eye on other tasks that need to be done, and if there's something with a higher priority it will pause what it is currently rendering and let the other task finish first. You can enable this in two ways,
+
      ```javascript
      // 1. Part of an app by wrapping with ConcurrentMode
      <React.unstable_ConcurrentMode>
@@ -6260,6 +6461,7 @@ You can download the PDF and Epub version of this repository from the latest run
     
 321. ### Can I use javascript urls in react16.9?
      Yes, you can use javascript: URLs but it will log a warning in the console. Because URLs starting with javascript: are dangerous by including unsanitized output in a tag like ```<a href>``` and create a security hole.
+
      ```javascript
      const companyProfile = {
        website: "javascript: alert('Your website is hacked')",
@@ -6273,6 +6475,7 @@ You can download the PDF and Epub version of this repository from the latest run
    
 322. ### What is the purpose of eslint plugin for hooks?
      The ESLint plugin enforces rules of Hooks to avoid bugs. It assumes that any function starting with ”use” and a capital letter right after it is a Hook. In particular, the rule enforces that,
+
      1. Calls to Hooks are either inside a PascalCase function (assumed to be a component) or another useSomething function (assumed to be a custom Hook).
      2. Hooks are called in the same order on every render.
 
@@ -6313,6 +6516,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
 324. ### What are the benefits of using typescript with reactjs?
      Below are some of the benefits of using typescript with Reactjs,
+
      1. It is possible to use latest JavaScript features
      2. Use of interfaces for complex type definitions
      3. IDEs such as VS Code was made for TypeScript
