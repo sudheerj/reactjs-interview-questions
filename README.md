@@ -370,7 +370,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
     *JSX* is a XML-like syntax extension to ECMAScript (the acronym stands for *JavaScript XML*). Basically it just provides syntactic sugar for the `React.createElement()` function, giving us expressiveness of JavaScript along with HTML like template syntax.
 
-    In the example below text inside `<h1>` tag return as JavaScript function to the render function.
+    In the example below text inside `<h1>` tag is returned as JavaScript function to the render function.
 
     ```jsx harmony
     class App extends React.Component {
