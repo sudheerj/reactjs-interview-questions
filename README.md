@@ -221,7 +221,7 @@
 |198| [چطوری از Polymer توی React استفاده کنیم؟](#how-to-use-polymer-in-react) |
 |199| [مزایای React نسبت به Vue.js چیا هستن؟](#what-are-the-advantages-of-react-over-vuejs) |
 |200| [تفاوت‌های React و Angular چیا هستن؟](#what-is-the-difference-between-react-and-angular) |
-|201| [Why React tab is not showing up in DevTools?](#why-react-tab-is-not-showing-up-in-devtools) |
+|201| [چرا تب React در DevTools نشان داده نمی‌شود؟](#why-react-tab-is-not-showing-up-in-devtools) |
 |202| [Styled components چیه؟](#what-are-styled-components) |
 |203| [یه مثال از Styled Components می‌تونی بگی؟](#give-an-example-of-styled-components) |
 |204| [Relay چیه؟](#what-is-relay) |
@@ -230,9 +230,9 @@
 |206| [اصلی‌ترین ویژگی‌های کتابخونه reselect چیا هستن؟](#what-are-the-main-features-of-reselect-library) |
 |207| [یه مثال از کارکرد کتابخونهreselect بزن؟](#give-an-example-of-reselect-usage) |
 |208| [توی Redux اکشن چیکار می‌کنه؟](#what-is-an-action-in-redux) |
-|209| [Does the statics object work with ES6 classes in React?](#does-the-statics-object-work-with-es6-classes-in-react) |
-|210| [Can Redux only be used with React?](#can-redux-only-be-used-with-react) |
-|211| [Do you need to have a particular build tool to use Redux?](#do-you-need-to-have-a-particular-build-tool-to-use-redux) |
+|209| [استاتیک شی با کلاس های ES6 در React کار می کنه؟](#does-the-statics-object-work-with-es6-classes-in-react) |
+|210| [ریداکس رو قفط با ری‌اکت میشه استفاده کرد؟](#can-redux-only-be-used-with-react) |
+|211| [برای استفاده از Redux به ابزار build خاصی احتیاج داریم؟](#do-you-need-to-have-a-particular-build-tool-to-use-redux) |
 |212| [How Redux Form initialValues get updated from state?](#how-redux-form-initialvalues-get-updated-from-state) |
 |213| [How React PropTypes allow different type for one prop?](#how-react-proptypes-allow-different-types-for-one-prop) |
 |214| [می‌تونیم فایل svg رو به عنوان کامپوننت import کنیم؟](#can-i-import-an-svg-file-as-react-component) |
@@ -263,7 +263,7 @@
 |239| [What are the possible return types of render method?](#what-are-the-possible-return-types-of-render-method)|
 |240| [What is the main purpose of constructor?](#what-is-the-main-purpose-of-constructor)|
 |241| [Is it mandatory to define constructor for React component?](#is-it-mandatory-to-define-constructor-for-react-component)|
-|242| [What are default props?](#what-are-default-props)|
+|242| [Default propها چی هستن؟](#what-are-default-props)|
 |243| [Why should not call setState in componentWillUnmount?](#why-should-not-call-setstate-in-componentwillunmount)|
 |244| [What is the purpose of getDerivedStateFromError?](#what-is-the-purpose-of-getderivedstatefromerror)|
 |245| [What is the methods order when component re-rendered?](#what-is-the-methods-order-when-component-re-rendered)|
@@ -271,10 +271,10 @@
 |247| [What is the purpose of displayName class property?](#what-is-the-purpose-of-displayname-class-property)|
 |248| [What is the browser support for react applications?](#what-is-the-browser-support-for-react-applications)|
 |249| [What is the purpose of unmountComponentAtNode method?](#what-is-the-purpose-of-unmountcomponentatnode-method)|
-|250| [What is code-splitting?](#what-is-code-splitting)|
-|251| [What is the benefit of strict mode?](#what-is-the-benefit-of-strict-mode)|
-|252| [What are Keyed Fragments?](#what-are-keyed-fragments)|
-|253| [Does React support all HTML attributes?](#does-react-support-all-html-attributes)|
+|250| [code-splitting چیه؟](#what-is-code-splitting)|
+|251| [مزایای حالت strict چیه؟](#what-is-the-benefit-of-strict-mode)|
+|252| [Fragmentهای دارای key هستن؟](#what-are-keyed-fragments)|
+|253| [آیا ری‌اکت از همه‌ی attributeهای HTML پشتیبانی می‌کنه؟](#does-react-support-all-html-attributes)|
 |254| [What are the limitations with HOCs?](#what-are-the-limitations-with-hocs)|
 |255| [How to debug forwardRefs in DevTools?](#how-to-debug-forwardrefs-in-devtools)|
 |256| [When component props defaults to true?](#when-component-props-defaults-to-true)|
@@ -294,55 +294,55 @@
 |270| [What are the advantages of formik over redux form library?](#what-are-the-advantages-of-formik-over-redux-form-library)|
 |271| [Why do you not required to use inheritance?](#why-do-you-not-required-to-use-inheritance)|
 |272| [Can I use web components in react application?](#can-i-use-web-components-in-react-application)|
-|273| [What is dynamic import?](#what-is-dynamic-import)|
+|273| [dynamic import چیه؟](#what-is-dynamic-import)|
 |274| [What are loadable components?](#what-are-loadable-components)|
 |275| [What is suspense component?](#what-is-suspense-component)|
 |276| [What is route based code splitting?](#what-is-route-based-code-splitting)|
 |277| [Give an example on How to use context?](#give-an-example-on-how-to-use-context)|
 |278| [What is the purpose of default value in context?](#what-is-the-purpose-of-default-value-in-context)|
 |279| [How do you use contextType?](#how-do-you-use-contexttype)|
-|280| [What is a consumer?](#what-is-a-consumer)|
+|280| [consumer چیه؟](#what-is-a-consumer)|
 |281| [How do you solve performance corner cases while using context?](#how-do-you-solve-performance-corner-cases-while-using-context)|
-|282| [What is the purpose of forward ref in HOCs?](#what-is-the-purpose-of-forward-ref-in-hocs)|
+|282| [هدف از forward ref توی HOCها چیه؟](#what-is-the-purpose-of-forward-ref-in-hocs)|
 |283| [Is it ref argument available for all functions or class components?](#is-it-ref-argument-available-for-all-functions-or-class-components)|
-|284| [Why do you need additional care for component libraries while using forward refs?](#why-do-you-need-additional-care-for-component-libraries-while-using-forward-refs)|
-|285| [How to create react class components without ES6?](#how-to-create-react-class-components-without-es6)|
-|286| [Is it possible to use react without JSX?](#is-it-possible-to-use-react-without-jsx)|
+|284| [چرا در هنگام استفاده از ForwardRefها نیاز به احتیاط بیشتری در استفاده از کتابخانه های جانبی دارید؟](#why-do-you-need-additional-care-for-component-libraries-while-using-forward-refs)|
+|285| [چطوری بدون استفاده از ES6 کلاس کامپوننت بسازیم؟](#how-to-create-react-class-components-without-es6)|
+|286| [استفاده از ری‌اکت بدون JSX ممکن است؟](#is-it-possible-to-use-react-without-jsx)|
 |287| [الگوریتم‌های diffing ری‌اکت چی هستن؟](#what-is-diffing-algorithm)|
-|288| [What are the rules covered by diffing algorithm?](#what-are-the-rules-covered-by-diffing-algorithm)|
-|289| [When do you need to use refs?](#when-do-you-need-to-use-refs)|
-|290| [Is it prop must be named as render for render props?](#is-it-prop-must-be-named-as-render-for-render-props)|
-|291| [What are the problems of using render props with pure components?](#what-are-the-problems-of-using-render-props-with-pure-components)|
-|292| [How do you create HOC using render props?](#how-do-you-create-hoc-using-render-props)|
-|293| [What is windowing technique?](#what-is-windowing-technique)|
-|294| [How do you print falsy values in JSX?](#how-do-you-print-falsy-values-in-jsx)|
-|295| [What is the typical use case of portals?](#what-is-the-typical-use-case-of-portals?)|
-|296| [How do you set default value for uncontrolled component?](#how-do-you-set-default-value-for-uncontrolled-component)|
-|297| [What is your favorite React stack?](#what-is-your-favorite-react-stack)|
-|298| [What is the difference between Real DOM and Virtual DOM?](#what-is-the-difference-between-real-dom-and-virtual-dom)|
-|299| [How to add Bootstrap to a react application?](#how-to-add-bootstrap-to-a-react-application)|
-|300| [Can you list down top websites or applications using react as front end framework?](#can-you-list-down-top-websites-or-applications-using-react-as-front-end-framework)|
-|301| [Is it recommended to use CSS In JS technique in React?](#is-it-recommended-to-use-css-in-js-technique-in-react)|
-|302| [Do I need to rewrite all my class components with hooks?](#do-i-need-to-rewrite-all-my-class-components-with-hooks)|
+|288| [قوانینی که توسط الگوریتم‌های diffing پوشش داده می‌شوند کدام هستند؟](#what-are-the-rules-covered-by-diffing-algorithm)|
+|289| [چه موقعی نیاز هست که از refها استفاده کنیم؟](#when-do-you-need-to-use-refs)|
+|290| [برای استفاده از render propها لازمه که اسم prop رو render بزاریم؟](#is-it-prop-must-be-named-as-render-for-render-props)|
+|291| [مشکل استفاده از render props با pure componentها چیه؟](#what-are-the-problems-of-using-render-props-with-pure-components)|
+|292| [چطوری با استفاده از render props می‌تونیم HOC ایجاد کنیم؟](#how-do-you-create-hoc-using-render-props)|
+|293| [تکنیک windowing چیه؟](#what-is-windowing-technique)|
+|294| [توی JSX یه مقدار falsy رو چطوری چاپ کنیم؟](#how-do-you-print-falsy-values-in-jsx)|
+|295| [یه مورد استفاده معمول از portals مثال میزنی؟](#what-is-the-typical-use-case-of-portals?)|
+|296| [توی کامپوننت‌های کنترل نشده چطوری مقداری پیش فرض اضافه کنیم؟](#how-do-you-set-default-value-for-uncontrolled-compon?ent)|
+|297| [stack موردعلاقه شما برای کانفیگ پروژه ری‌اکت چیه؟](#what-is-your-favorite-react-stack)|
+|298| [تفاوت‌ DOM واقعی و  Virtual DOM چیه؟](#what-is-the-difference-between-real-dom-and-virtual-dom)|
+|299| [چطوری Bootstrap رو به یه برنامه ری‌اکتی اضافه کنیم؟](#how-to-add-bootstrap-to-a-react-application)|
+|300| [می‌تونی یه لیسستی از معروف‌ترین وب‌سایت‌هایی که از ری‌اکت استفاده می‌کنن رو بگی؟](#can-you-list-down-top-websites-or-applications-using-react-as-front-end-framework)|
+|301| [استفاده از تکنیک  CSS In JS تو ری‌اکت توصیه میشه؟](#is-it-recommended-to-use-css-in-js-technique-in-react)|
+|302| [لازمه همه کلاس کامپوننت‌ها رو تبدیل کنیم به هوک؟](#do-i-need-to-rewrite-all-my-class-components-with-hooks)|
 |303| [چطوری میشه با هوک‌های ری‌اکت دیتا fetch کرد؟](#how-to-fetch-data-with-react-hooks)|
-|304| [Is Hooks cover all use cases for classes?](#is-hooks-cover-all-use-cases-for-classes)|
-|305| [What is the stable release for hooks support?](#what-is-the-stable-release-for-hooks-support)|
-|306| [Why do we use array destructuring (square brackets notation) in useState?](#why-do-we-use-array-destructuring-square-brackets-notation-in-usestate)|
-|307| [What are the sources used for introducing hooks?](#what-are-the-sources-used-for-introducing-hooks)|
-|308| [How do you access imperative API of web components?](#how-do-you-access-imperative-api-of-web-components)|
+|304| [هوک‌ها همه موارد کاربرد کلاس‌ها رو پوشش میده؟](#is-hooks-cover-all-use-cases-for-classes)|
+|305| [نسخه پایدار ری‌اکت که از هوک پشتیبانی می‌کنه کدومه؟](#what-is-the-stable-release-for-hooks-support)|
+|306| [چرا از حالت  destructuring آرایه برای useState استفاده می‌کنیم؟](#why-do-we-use-array-destructuring-square-brackets-notation-in-usestate)|
+|307| [منابعی که برای معرفی هوک استفاده می‌شود چیه؟](#what-are-the-sources-used-for-introducing-hooks)|
+|308| [چطوری به APIهای ضروری اجزای وب دسترسی پیدا کنیم؟](#how-do-you-access-imperative-api-of-web-components)|
 |309| [formik چیه؟](#what-is-formik)|
-|310| [What are typical middleware choices for handling asynchronous calls in Redux?](#what-are-typical-middleware-choices-for-handling-asynchronous-calls-in-redux)|
-|311| [Do browsers understand JSX code?](#do-browsers-understand-jsx-code)|
-|312| [Describe about data flow in react?](#describe-about-data-flow-in-react)|
-|313| [What is react scripts?](#what-is-react-scripts)|
-|314| [What are the features of create react app?](#what-are-the-features-of-create-react-app)|
-|315| [What is the purpose of renderToNodeStream method?](#what-is-the-purpose-of-rendertonodestream-method)|
+|310| [middlewareهای مرسوم برای مدیریت ارتباط‌های asynchronous توی Redux چیا هستن؟](#what-are-typical-middleware-choices-for-handling-asynchronous-calls-in-redux)|
+|311| [مرورگرها کد JSX رو متوجه میشن؟](#do-browsers-understand-jsx-code)|
+|312| [Data flow یا جریان داده ری‌اکت رو توضیح میدی؟?](#describe-about-data-flow-in-react)|
+|313| [react scripts چیه؟](#what-is-react-scripts)|
+|314| [ویژگی‌های  create react app چیه؟](#what-are-the-features-of-create-react-app)|
+|315| [هدف از متد renderToNodeStream چیه؟](#what-is-the-purpose-of-rendertonodestream-method)|
 |316| [MobX چیه؟](#what-is-mobx)|
-|317| [What are the differences between Redux and MobX?](#what-are-the-differences-between-redux-and-mobx)|
-|318| [Should I learn ES6 before learning ReactJS?](#should-i-learn-es6-before-learning-reactjs)|
-|319| [What is Concurrent Rendering?](#what-is-concurrent-rendering)|
-|320| [What is the difference between async mode and concurrent mode?](#what-is-the-difference-between-async-mode-and-concurrent-mode)|
-|321| [Can I use javascript urls in react16.9?](#can-i-use-javascript-urls-in-react169)|
+|317| [تفاوت‌های بین Redux و MobX چیا هستن؟](#what-are-the-differences-between-redux-and-mobx)|
+|318| [لازمه قبل از شروع ری‌اکت ES6 رو یاد گرفت؟](#should-i-learn-es6-before-learning-reactjs)|
+|319| [Concurrent Rendering چیه؟](#what-is-concurrent-rendering)|
+|320| [تفاوت بین حالت  async و concurrent چیه؟](#what-is-the-difference-between-async-mode-and-concurrent-mode)|
+|321| [می تونیم از آدرس‌های دارای url جاواسکریپت در ری‌اکت 16.9 استفاده کرد؟](#can-i-use-javascript-urls-in-react169)|
 |322| [هدف از پلاگین eslint برای هوک‌ها چیه؟](#what-is-the-purpose-of-eslint-plugin-for-hooks)|
 |323| [تفاوت‌های Imperative و Declarative توی ری‌اکت چیه؟](#what-is-the-difference-between-imperative-and-declarative-in-react)|
 |324| [مزایای استفاده از تایپ اسکریپت با ری‌اکت چیه؟](#what-are-the-benefits-of-using-typescript-with-reactjs)|
