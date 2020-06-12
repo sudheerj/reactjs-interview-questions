@@ -242,12 +242,12 @@
 |218| [How to pass numbers to React component?](#how-to-pass-numbers-to-react-component)|
 |219| [Do I need to keep all my state into Redux? Should I ever use react internal state?](#do-i-need-to-keep-all-my-state-into-redux-should-i-ever-use-react-internal-state)|
 |220| [What is the purpose of registerServiceWorker in React?](#what-is-the-purpose-of-registerserviceworker-in-react)|
-|221| [What is React memo function?](#what-is-react-memo-function)|
+|221| [تابع memo ری‌اکت چیه؟](#what-is-react-memo-function)|
 |222| [What is React lazy function?](#what-is-react-lazy-function)|
 |223| [How to prevent unnecessary updates using setState?](#how-to-prevent-unnecessary-updates-using-setstate)|
 |224| [How do you render Array, Strings and Numbers in React 16 Version?](#how-do-you-render-array-strings-and-numbers-in-react-16-version)|
 |225| [How to use class field declarations syntax in React classes?](#how-to-use-class-field-declarations-syntax-in-react-classes)|
-|226| [What are hooks?](#what-are-hooks)|
+|226| [hookها چی هستن؟](#what-are-hooks)|
 |227| [What are the rules needs to follow for hooks?](#what-are-the-rules-needs-to-follow-for-hooks)|
 |228| [How to ensure hooks followed the rules in your project?](#how-to-ensure-hooks-followed-the-rules-in-your-project)|
 |229| [What are the differences between Flux and Redux?](#what-are-the-differences-between-flux-and-redux)|
@@ -259,33 +259,33 @@
 |235| [What is the behavior of uncaught errors in react 16?](#what-is-the-behavior-of-uncaught-errors-in-react-16)|
 |236| [What is the proper placement for error boundaries?](#what-is-the-proper-placement-for-error-boundaries)|
 |237| [What is the benefit of component stack trace from error boundary?](#what-is-the-benefit-of-component-stack-trace-from-error-boundary)|
-|238| [What is the required method to be defined for a class component?](#what-is-the-required-method-to-be-defined-for-a-class-component)|
-|239| [What are the possible return types of render method?](#what-are-the-possible-return-types-of-render-method)|
-|240| [What is the main purpose of constructor?](#what-is-the-main-purpose-of-constructor)|
-|241| [Is it mandatory to define constructor for React component?](#is-it-mandatory-to-define-constructor-for-react-component)|
+|238| [متدی که در تعریف کامپوننت‌های class الزامیه؟](#what-is-the-required-method-to-be-defined-for-a-class-component)|
+|239| [نوع‌های ممکن برای مقدار بازگشتی متد render چیا هستن؟](#what-are-the-possible-return-types-of-render-method)|
+|240| [هدف اصلی از متد constructor چیه؟](#what-is-the-main-purpose-of-constructor)|
+|241| [آیا تعریف متد سازنده توی ری‌اکت الزامیه؟](#is-it-mandatory-to-define-constructor-for-react-component)|
 |242| [Default propها چی هستن؟](#what-are-default-props)|
-|243| [Why should not call setState in componentWillUnmount?](#why-should-not-call-setstate-in-componentwillunmount)|
-|244| [What is the purpose of getDerivedStateFromError?](#what-is-the-purpose-of-getderivedstatefromerror)|
-|245| [What is the methods order when component re-rendered?](#what-is-the-methods-order-when-component-re-rendered)|
-|246| [What are the methods invoked during error handling?](#what-are-the-methods-invoked-during-error-handling)|
-|247| [What is the purpose of displayName class property?](#what-is-the-purpose-of-displayname-class-property)|
-|248| [What is the browser support for react applications?](#what-is-the-browser-support-for-react-applications)|
-|249| [What is the purpose of unmountComponentAtNode method?](#what-is-the-purpose-of-unmountcomponentatnode-method)|
+|243| [چرا نباید تابع setState رو توی متد componentWillUnmount فراخوانی کرد؟](#why-should-not-call-setstate-in-componentwillunmount)|
+|244| [کاربرد متد getDerivedStateFromError چیه؟](#what-is-the-purpose-of-getderivedstatefromerror)|
+|245| [کدوم متدها و به چه ترتیبی در طول ری‌رندر فراخوانی میشن؟](#what-is-the-methods-order-when-component-re-rendered)|
+|246| [کدوم متد‌ها موقع error handling فراخوانی میشن؟](#what-are-the-methods-invoked-during-error-handling)|
+|247| [کارکرد ویژگی displayName چیه؟](#what-is-the-purpose-of-displayname-class-property)|
+|248| [ساپورت مرورگرها برای برنامه ری‌اکتی چطوریه؟](#what-is-the-browser-support-for-react-applications)|
+|249| [هدف از متد unmountComponentAtNode چیه؟](#what-is-the-purpose-of-unmountcomponentatnode-method)|
 |250| [code-splitting چیه؟](#what-is-code-splitting)|
 |251| [مزایای حالت strict چیه؟](#what-is-the-benefit-of-strict-mode)|
 |252| [Fragmentهای دارای key هستن؟](#what-are-keyed-fragments)|
 |253| [آیا ری‌اکت از همه‌ی attributeهای HTML پشتیبانی می‌کنه؟](#does-react-support-all-html-attributes)|
 |254| [محدودیت‌های HOCها چی هستن؟](#what-are-the-limitations-with-hocs)|
-|255| [How to debug forwardRefs in DevTools?](#how-to-debug-forwardrefs-in-devtools)|
-|256| [When component props defaults to true?](#when-component-props-defaults-to-true)|
-|257| [What is NextJS and major features of it?](#what-is-nextjs-and-major-features-of-it)|
-|258| [How do you pass an event handler to a component?](#how-do-you-pass-an-event-handler-to-a-component)|
-|259| [Is it good to use arrow functions in render methods?](#is-it-good-to-use-arrow-functions-in-render-methods)|
-|260| [How to prevent a function from being called multiple times?](#how-to-prevent-a-function-from-being-called-multiple-times)|
-|261| [How JSX prevents Injection Attacks?](#how-jsx-prevents-injection-attacks)|
-|262| [How do you update rendered elements?](#how-do-you-update-rendered-elements)|
-|263| [How do you say that props are read only?](#how-do-you-say-that-props-are-read-only)|
-|264| [How do you say that state updates are merged?](#how-do-you-say-that-state-updates-are-merged)|
+|255| [چطوری میشه forwardRefs رو توی DevTools دیباگ کرد؟](#how-to-debug-forwardrefs-in-devtools)|
+|256| [مقدار یه props کامپوننت کی true میشه؟](#when-component-props-defaults-to-true)|
+|257| [NextJS چیه و ویژگی‌های اصلیش چیا هستن؟](#what-is-nextjs-and-major-features-of-it)|
+|258| [چط،وی کی‌تونیم یه تابع event handler رو به یه کامپوننت پاس بدیم؟](#how-do-you-pass-an-event-handler-to-a-component)|
+|259| [استفاده از توابع arrow برای متدهای render خوبه؟](#is-it-good-to-use-arrow-functions-in-render-methods)|
+|260| [چطوری از اجرای چندباره یه تابع جلوگیری کنیم؟](#how-to-prevent-a-function-from-being-called-multiple-times)|
+|261| [JSX چطوری از حمله‌های Injection جلوگیری می‌کنه؟](#how-jsx-prevents-injection-attacks)|
+|262| [چطوری elementهای رندر شده رو آپدیت کنیم؟](#how-do-you-update-rendered-elements)|
+|263| [چرا propها read only هستن؟](#how-do-you-say-that-props-are-read-only)|
+|264| [چرا میگیم تابع setState از طریق merge کردن state را مدیریت می‌کند؟](#how-do-you-say-that-state-updates-are-merged)|
 |265| [چطوری می‌تونیم به متد event handler پارامتر پاس بدیم؟](#how-do-you-pass-arguments-to-an-event-handler)|
 |266| [چطوری از رندر مجدد کامپوننت‌ها جلوگیری کنیم؟](#how-to-prevent-component-from-rendering)|
 |267| [شرایطی که بدون مشکل پرفورمنس بتونیم از ایندکس به عنوان key استفاده کنیم چی هست؟](#what-are-the-conditions-to-safely-use-the-index-as-a-key)|
