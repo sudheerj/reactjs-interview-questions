@@ -257,8 +257,8 @@
 |233| [Why do not you need error boundaries for event handlers?](#why-do-not-you-need-error-boundaries-for-event-handlers)|
 |234| [What is the difference between try catch block and error boundaries?](#what-is-the-difference-between-try-catch-block-and-error-boundaries)|
 |235| [What is the behavior of uncaught errors in react 16?](#what-is-the-behavior-of-uncaught-errors-in-react-16)|
-|236| [What is the proper placement for error boundaries?](#what-is-the-proper-placement-for-error-boundaries)|
-|237| [What is the benefit of component stack trace from error boundary?](#what-is-the-benefit-of-component-stack-trace-from-error-boundary)|
+|236| [محل مناسب برای قرار دادن error boundaries کجاست؟](#what-is-the-proper-placement-for-error-boundaries)|
+|237| [مزیت چاپ شدن stack trace کامپوننت‌ها توی متن ارور boundary ری‌اکت چیه؟](#what-is-the-benefit-of-component-stack-trace-from-error-boundary)|
 |238| [متدی که در تعریف کامپوننت‌های class الزامیه؟](#what-is-the-required-method-to-be-defined-for-a-class-component)|
 |239| [نوع‌های ممکن برای مقدار بازگشتی متد render چیا هستن؟](#what-are-the-possible-return-types-of-render-method)|
 |240| [هدف اصلی از متد constructor چیه؟](#what-is-the-main-purpose-of-constructor)|
@@ -5660,6 +5660,7 @@
      ```
    
      </span>
+     
      Whereas error boundaries wrap declarative code as below,
      
      <span align="left" dir="ltr">
@@ -5671,6 +5672,7 @@
      ```
    
      </span>
+     
      So if an error occurs in a **componentDidUpdate** method caused by a **setState** somewhere deep in the tree, it will still correctly propagate to the closest error boundary.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
