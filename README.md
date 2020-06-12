@@ -275,7 +275,7 @@
 |251| [مزایای حالت strict چیه؟](#what-is-the-benefit-of-strict-mode)|
 |252| [Fragmentهای دارای key هستن؟](#what-are-keyed-fragments)|
 |253| [آیا ری‌اکت از همه‌ی attributeهای HTML پشتیبانی می‌کنه؟](#does-react-support-all-html-attributes)|
-|254| [What are the limitations with HOCs?](#what-are-the-limitations-with-hocs)|
+|254| [محدودیت‌های HOCها چی هستن؟](#what-are-the-limitations-with-hocs)|
 |255| [How to debug forwardRefs in DevTools?](#how-to-debug-forwardrefs-in-devtools)|
 |256| [When component props defaults to true?](#when-component-props-defaults-to-true)|
 |257| [What is NextJS and major features of it?](#what-is-nextjs-and-major-features-of-it)|
@@ -286,23 +286,23 @@
 |262| [How do you update rendered elements?](#how-do-you-update-rendered-elements)|
 |263| [How do you say that props are read only?](#how-do-you-say-that-props-are-read-only)|
 |264| [How do you say that state updates are merged?](#how-do-you-say-that-state-updates-are-merged)|
-|265| [How do you pass arguments to an event handler?](#how-do-you-pass-arguments-to-an-event-handler)|
-|266| [How to prevent component from rendering?](#how-to-prevent-component-from-rendering)|
-|267| [What are the conditions to safely use the index as a key?](#what-are-the-conditions-to-safely-use-the-index-as-a-key)|
-|268| [Is it keys should be globally unique?](#is-it-keys-should-be-globally-unique)|
-|269| [What is the popular choice for form handling?](#what-is-the-popular-choice-for-form-handling)|
-|270| [What are the advantages of formik over redux form library?](#what-are-the-advantages-of-formik-over-redux-form-library)|
-|271| [Why do you not required to use inheritance?](#why-do-you-not-required-to-use-inheritance)|
-|272| [Can I use web components in react application?](#can-i-use-web-components-in-react-application)|
+|265| [چطوری می‌تونیم به متد event handler پارامتر پاس بدیم؟](#how-do-you-pass-arguments-to-an-event-handler)|
+|266| [چطوری از رندر مجدد کامپوننت‌ها جلوگیری کنیم؟](#how-to-prevent-component-from-rendering)|
+|267| [شرایطی که بدون مشکل پرفورمنس بتونیم از ایندکس به عنوان key استفاده کنیم چی هست؟](#what-are-the-conditions-to-safely-use-the-index-as-a-key)|
+|268| [keyهای ری‌اکت باید به صورت عمومی منحصر بفرد باشن؟](#is-it-keys-should-be-globally-unique)|
+|269| [گزینه‌های محبوب برای مدیریت فرم‌ا توی ری‌اکت چیا هستن؟](#what-is-the-popular-choice-for-form-handling)|
+|270| [مزایای کتابخانه فرمیک نبست به redux form چیه؟](#what-are-the-advantages-of-formik-over-redux-form-library)|
+|271| [چرا اجباری برای استفاده از ارث‌بری توی ری‌اکت نیست؟ مزیتی داره؟](#why-do-you-not-required-to-use-inheritance)|
+|272| [می‌تونیم از web components توی برنامه ری‌اکت استفاده کنیم؟](#can-i-use-web-components-in-react-application)|
 |273| [dynamic import چیه؟](#what-is-dynamic-import)|
-|274| [What are loadable components?](#what-are-loadable-components)|
-|275| [What is suspense component?](#what-is-suspense-component)|
-|276| [What is route based code splitting?](#what-is-route-based-code-splitting)|
-|277| [Give an example on How to use context?](#give-an-example-on-how-to-use-context)|
-|278| [What is the purpose of default value in context?](#what-is-the-purpose-of-default-value-in-context)|
-|279| [How do you use contextType?](#how-do-you-use-contexttype)|
+|274| [loadable componentها چی هستن؟](#what-are-loadable-components)|
+|275| [کامپوننت suspense چیه؟](#what-is-suspense-component)|
+|276| [چطوری به ازای route می‌تونیم code splitting داشته باشیم؟](#what-is-route-based-code-splitting)|
+|277| [یه مثال از نحوه استفاده از context میزنی؟](#give-an-example-on-how-to-use-context)|
+|278| [هدف از مقدار پیش‌فرض توی context چیه؟](#what-is-the-purpose-of-default-value-in-context)|
+|279| [چظوری از contextType استفاده می‌کنین؟](#how-do-you-use-contexttype)|
 |280| [consumer چیه؟](#what-is-a-consumer)|
-|281| [How do you solve performance corner cases while using context?](#how-do-you-solve-performance-corner-cases-while-using-context)|
+|281| [چطوری مسائل مربوط به پرفورمنس با context رو حل می‌کنین؟](#how-do-you-solve-performance-corner-cases-while-using-context)|
 |282| [هدف از forward ref توی HOCها چیه؟](#what-is-the-purpose-of-forward-ref-in-hocs)|
 |283| [توی کامپوننت‌ها می‌تونیم پراپ ref داشته باشیم؟](#is-it-ref-argument-available-for-all-functions-or-class-components)|
 |284| [چرا در هنگام استفاده از ForwardRefها نیاز به احتیاط بیشتری در استفاده از کتابخانه های جانبی دارید؟](#why-do-you-need-additional-care-for-component-libraries-while-using-forward-refs)|
