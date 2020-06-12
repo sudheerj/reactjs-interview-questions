@@ -304,7 +304,7 @@
 |280| [consumer چیه؟](#what-is-a-consumer)|
 |281| [How do you solve performance corner cases while using context?](#how-do-you-solve-performance-corner-cases-while-using-context)|
 |282| [هدف از forward ref توی HOCها چیه؟](#what-is-the-purpose-of-forward-ref-in-hocs)|
-|283| [Is it ref argument available for all functions or class components?](#is-it-ref-argument-available-for-all-functions-or-class-components)|
+|283| [توی کامپوننت‌ها می‌تونیم پراپ ref داشته باشیم؟](#is-it-ref-argument-available-for-all-functions-or-class-components)|
 |284| [چرا در هنگام استفاده از ForwardRefها نیاز به احتیاط بیشتری در استفاده از کتابخانه های جانبی دارید؟](#why-do-you-need-additional-care-for-component-libraries-while-using-forward-refs)|
 |285| [چطوری بدون استفاده از ES6 کلاس کامپوننت بسازیم؟](#how-to-create-react-class-components-without-es6)|
 |286| [استفاده از ری‌اکت بدون JSX ممکن است؟](#is-it-possible-to-use-react-without-jsx)|
