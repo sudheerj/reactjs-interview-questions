@@ -249,10 +249,10 @@
 |225| [How to use class field declarations syntax in React classes?](#how-to-use-class-field-declarations-syntax-in-react-classes)|
 |226| [hookها چی هستن؟](#what-are-hooks)|
 |227| [What are the rules needs to follow for hooks?](#what-are-the-rules-needs-to-follow-for-hooks)|
-|228| [How to ensure hooks followed the rules in your project?](#how-to-ensure-hooks-followed-the-rules-in-your-project)|
-|229| [What are the differences between Flux and Redux?](#what-are-the-differences-between-flux-and-redux)|
-|230| [What are the benefits of React Router V4?](#what-are-the-benefits-of-react-router-v4)|
-|231| [Can you describe about componentDidCatch lifecycle method signature?](#can-you-describe-about-componentdidcatch-lifecycle-method-signature)|
+|228| [چطوری میشه از استفاده درست هوک‌ها اطمینان حاصل کرد؟](#how-to-ensure-hooks-followed-the-rules-in-your-project)|
+|229| [تفاوت‌های Flux و Redux چیا هستن؟](#what-are-the-differences-between-flux-and-redux)|
+|230| [مزایای ری‌اکت روتر نسخه۴ چیه؟](#what-are-the-benefits-of-react-router-v4)|
+|231| [می‌تونی راجع به متد componentDidCatch توضیح بدی؟](#can-you-describe-about-componentdidcatch-lifecycle-method-signature)|
 |232| [در چه سناریویی error boundary خطا رو catch نمی‌کنه؟?](#in-which-scenarios-error-boundaries-do-not-catch-errors)|
 |233| [چرا نیازی به error boundaries برای event handlerها نیست؟](#why-do-not-you-need-error-boundaries-for-event-handlers)|
 |234| [تفاوت بلوک try catch و error boundaryها چیه؟](#what-is-the-difference-between-try-catch-block-and-error-boundaries)|
