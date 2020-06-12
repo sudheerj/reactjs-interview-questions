@@ -253,11 +253,11 @@
 |229| [What are the differences between Flux and Redux?](#what-are-the-differences-between-flux-and-redux)|
 |230| [What are the benefits of React Router V4?](#what-are-the-benefits-of-react-router-v4)|
 |231| [Can you describe about componentDidCatch lifecycle method signature?](#can-you-describe-about-componentdidcatch-lifecycle-method-signature)|
-|232| [In which scenarios error boundaries do not catch errors?](#in-which-scenarios-error-boundaries-do-not-catch-errors)|
-|233| [Why do not you need error boundaries for event handlers?](#why-do-not-you-need-error-boundaries-for-event-handlers)|
-|234| [What is the difference between try catch block and error boundaries?](#what-is-the-difference-between-try-catch-block-and-error-boundaries)|
-|235| [What is the behavior of uncaught errors in react 16?](#what-is-the-behavior-of-uncaught-errors-in-react-16)|
-|236| [محل مناسب برای قرار دادن error boundaries کجاست؟](#what-is-the-proper-placement-for-error-boundaries)|
+|232| [در چه سناریویی error boundary خطا رو catch نمی‌کنه؟?](#in-which-scenarios-error-boundaries-do-not-catch-errors)|
+|233| [چرا نیازی به error boundaries برای event handlerها نیست؟](#why-do-not-you-need-error-boundaries-for-event-handlers)|
+|234| [تفاوت بلوک try catch و error boundaryها چیه؟](#what-is-the-difference-between-try-catch-block-and-error-boundaries)|
+|235| [رفتار خطاهای uncaught در ری‌اکت 16 چیه؟](#what-is-the-behavior-of-uncaught-errors-in-react-16)|
+|236| [محل مناسب برای قرار دادن error boundary کجاست؟](#what-is-the-proper-placement-for-error-boundaries)|
 |237| [مزیت چاپ شدن stack trace کامپوننت‌ها توی متن ارور boundary ری‌اکت چیه؟](#what-is-the-benefit-of-component-stack-trace-from-error-boundary)|
 |238| [متدی که در تعریف کامپوننت‌های class الزامیه؟](#what-is-the-required-method-to-be-defined-for-a-class-component)|
 |239| [نوع‌های ممکن برای مقدار بازگشتی متد render چیا هستن؟](#what-are-the-possible-return-types-of-render-method)|
