@@ -1,6 +1,8 @@
-name: Advanced Usage
+name: Documentation
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [ master ]
 
 env:
   FILE_NAME: react-interview-questions

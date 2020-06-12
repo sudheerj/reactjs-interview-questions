@@ -45,8 +45,8 @@ You can download the PDF and Epub version of this repository from the latest run
 |14 | [How to bind methods or event handlers in JSX callbacks?](#how-to-bind-methods-or-event-handlers-in-jsx-callbacks) |
 |15 | [How to pass a parameter to an event handler or callback?](#how-to-pass-a-parameter-to-an-event-handler-or-callback) |
 |16 | [What are synthetic events in React?](#what-are-synthetic-events-in-react) |
-|17 | [What is inline conditional expressions?](#what-is-inline-conditional-expressions) |
-|18 | [What are "key" props and what is the benefit of using them in arrays of elements?](#what-are-key-props-and-what-is-the-benefit-of-using-them-in-arrays-of-elements) |
+|17 | [What are inline conditional expressions?](#what-are-inline-conditional-expressions) |
+|18 | [What is "key" prop and what is the benefit of using it in arrays of elements?](#what-is-key-prop-and-what-is-the-benefit-of-using-it-in-arrays-of-elements) |
 |19 | [What is the use of refs?](#what-is-the-use-of-refs) |
 |20 | [How to create refs?](#how-to-create-refs)
 |21 | [What are forward refs?](#what-are-forward-refs) |
@@ -72,7 +72,7 @@ You can download the PDF and Epub version of this repository from the latest run
 |41 | [What is reconciliation?](#what-is-reconciliation) |
 |42 | [How to set state with a dynamic key name?](#how-to-set-state-with-a-dynamic-key-name) |
 |43 | [What would be the common mistake of function being called every time the component renders?](#what-would-be-the-common-mistake-of-function-being-called-every-time-the-component-renders) |
-|44 | [Is lazy function supports named exports??](#is-lazy-function-supports-named-exports) |
+|44 | [Is lazy function supports named exports?](#is-lazy-function-supports-named-exports) |
 |45 | [Why React uses className over class attribute?](#why-react-uses-classname-over-class-attribute) |
 |46 | [What are fragments?](#what-are-fragments) |
 |47 | [Why fragments are better than container divs?](#why-fragments-are-better-than-container-divs) |
@@ -137,7 +137,6 @@ You can download the PDF and Epub version of this repository from the latest run
 |106| [Why you can't update props in React?](#why-you-cant-update-props-in-react) |
 |107| [How to focus an input element on page load?](#how-to-focus-an-input-element-on-page-load) |
 |108| [What are the possible ways of updating objects in state?](#what-are-the-possible-ways-of-updating-objects-in-state) |
-|109| [Why function is preferred over object for setState?](#why-function-is-preferred-over-object-for-setstate) |
 |110| [How can we find the version of React at runtime in the browser?](#how-can-we-find-the-version-of-react-at-runtime-in-the-browser) |
 |111| [What are the approaches to include polyfills in your create-react-app?](#what-are-the-approaches-to-include-polyfills-in-your-create-react-app) |
 |112| [How to use https instead of http in create-react-app?](#how-to-use-https-instead-of-http-in-create-react-app) |
@@ -220,6 +219,7 @@ You can download the PDF and Epub version of this repository from the latest run
 |185| [How to add multiple middlewares to Redux?](#how-to-add-multiple-middlewares-to-redux) |
 |186| [How to set initial state in Redux?](#how-to-set-initial-state-in-redux) |
 |187| [How Relay is different from Redux?](#how-relay-is-different-from-redux) |
+|188| [What is an action in Redux?](#what-is-an-action-in-redux) |
 |   | **React Native** |
 |188| [What is the difference between React Native and React?](#what-is-the-difference-between-react-native-and-react) |
 |189| [How to test React Native apps?](#how-to-test-react-native-apps) |
@@ -243,7 +243,6 @@ You can download the PDF and Epub version of this repository from the latest run
 |   | **Miscellaneous** |
 |206| [What are the main features of reselect library?](#what-are-the-main-features-of-reselect-library) |
 |207| [Give an example of reselect usage?](#give-an-example-of-reselect-usage) |
-|208| [What is an action in Redux?](#what-is-an-action-in-redux) |
 |209| [Does the statics object work with ES6 classes in React?](#does-the-statics-object-work-with-es6-classes-in-react) |
 |210| [Can Redux only be used with React?](#can-redux-only-be-used-with-react) |
 |211| [Do you need to have a particular build tool to use Redux?](#do-you-need-to-have-a-particular-build-tool-to-use-redux) |
@@ -376,7 +375,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
     The major features of React are:
 
-    * It uses **VirtualDOM** instead RealDOM considering that RealDOM manipulations are expensive.
+    * It uses **VirtualDOM** instead of RealDOM considering that RealDOM manipulations are expensive.
     * Supports **server-side rendering**.
     * Follows **Unidirectional** data flow or data binding.
     * Uses **reusable/composable** UI components to develop the view.
@@ -711,7 +710,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
    **[⬆ Back to Top](#table-of-contents)**
     
-17. ### What is inline conditional expressions?
+17. ### What are inline conditional expressions?
 
     You can use either *if statements* or *ternary expressions* which are available from JS to conditionally render expressions. Apart from these approaches, you can also embed any expressions in JSX by wrapping them in curly braces and then followed by JS logical operator `&&`.
 
@@ -732,11 +731,11 @@ You can download the PDF and Epub version of this repository from the latest run
 
    **[⬆ Back to Top](#table-of-contents)**
     
-18. ### What are "key" props and what is the benefit of using them in arrays of elements?
+18. ### What is "key" prop and what is the benefit of using it in arrays of elements?
 
-    A `key` is a special string attribute you **should** include when creating arrays of elements. *Keys* help React identify which items have changed, are added, or are removed.
+    A `key` is a special string attribute you **should** include when creating arrays of elements. *Key* prop helps React identify which items have changed, are added, or are removed.
 
-    Most often we use IDs from our data as *keys*:
+    Most often we use ID from our data as *key*:
 
     ```jsx harmony
     const todoItems = todos.map((todo) =>
@@ -2060,6 +2059,34 @@ You can download the PDF and Epub version of this repository from the latest run
     // this.state.count === 3 as expected
     ```
 
+    **(OR)**
+
+    ### Why function is preferred over object for `setState()`?
+
+     React may batch multiple `setState()` calls into a single update for performance. Because `this.props` and `this.state` may be updated asynchronously, you should not rely on their values for calculating the next state.
+
+     This counter example will fail to update as expected:
+
+     ```javascript
+     // Wrong
+     this.setState({
+       counter: this.state.counter + this.props.increment,
+     })
+     ```
+
+     The preferred approach is to call `setState()` with function rather than object. That function will receive the previous state as the first argument, and the props at the time the update is applied as the second argument.
+
+     ```javascript
+     // Correct
+     this.setState((prevState, props) => ({
+       counter: prevState.counter + props.increment
+     }))
+     ```
+
+
+   **[⬆ Back to Top](#table-of-contents)**
+
+
 
    **[⬆ Back to Top](#table-of-contents)**
     
@@ -2173,6 +2200,21 @@ You can download the PDF and Epub version of this repository from the latest run
     import MyComponent from './MyComponent'
     ```
 
+
+   **[⬆ Back to Top](#table-of-contents)**
+
+88. ### What are the exceptions on React component naming?
+
+     The component names should start with a uppercase letter but there are few exceptions on this convention. The lowercase tag names with a dot (property accessors) are still considered as valid component names.
+
+     For example the below tag can be compiled to a valid component,
+     ```javascript
+     render(){
+        return (
+            <obj.component /> // `React.createElement(obj.component)`
+           )
+     }
+     ```
 
    **[⬆ Back to Top](#table-of-contents)**
     
@@ -2463,13 +2505,13 @@ You can download the PDF and Epub version of this repository from the latest run
     
 102. ### How to listen to state changes?
 
-     The following lifecycle methods will be called when state changes. You can compare provided state and props values with current state and props to determine if something meaningful changed.
+     The `componentDidUpdate` lifecycle method will be called when state changes. You can compare provided state and props values with current state and props to determine if something meaningful changed.
 
      ```
-     componentWillUpdate(object nextProps, object nextState)
      componentDidUpdate(object prevProps, object prevState)
      ```
 
+     **Note:** The previous releases of ReactJS also uses `componentWillUpdate(object nextProps, object nextState)` for state changes. It has been deprecated in latest releases.
 
    **[⬆ Back to Top](#table-of-contents)**
     
@@ -2622,31 +2664,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
    **[⬆ Back to Top](#table-of-contents)**
     
-109. ### Why function is preferred over object for `setState()`?
 
-     React may batch multiple `setState()` calls into a single update for performance. Because `this.props` and `this.state` may be updated asynchronously, you should not rely on their values for calculating the next state.
-
-     This counter example will fail to update as expected:
-
-     ```javascript
-     // Wrong
-     this.setState({
-       counter: this.state.counter + this.props.increment,
-     })
-     ```
-
-     The preferred approach is to call `setState()` with function rather than object. That function will receive the previous state as the first argument, and the props at the time the update is applied as the second argument.
-
-     ```javascript
-     // Correct
-     this.setState((prevState, props) => ({
-       counter: prevState.counter + props.increment
-     }))
-     ```
-
-
-   **[⬆ Back to Top](#table-of-contents)**
-    
 110. ### How can we find the version of React at runtime in the browser?
 
      You can use `React.version` to get the version.
@@ -2785,21 +2803,6 @@ You can download the PDF and Epub version of this repository from the latest run
 
      With the export specifier, the MyProfile is going to be the member and exported to this module and the same can be imported without mentioning the name in other components.
 
-
-   **[⬆ Back to Top](#table-of-contents)**
-    
-118. ### What are the exceptions on React component naming?
-
-     The component names should start with a uppercase letter but there are few exceptions on this convention. The lowercase tag names with a dot (property accessors) are still considered as valid component names.
-
-     For example the below tag can be compiled to a valid component,
-     ```javascript
-     render(){
-        return (
-            <obj.component /> // `React.createElement(obj.component)`
-           )
-     }
-     ```
 
    **[⬆ Back to Top](#table-of-contents)**
     
@@ -4102,6 +4105,11 @@ You can download the PDF and Epub version of this repository from the latest run
      const getUserData = state => state.user.data
      ```
 
+     These selectors have two main benefits,
+
+     1. The selector can compute derived data, allowing Redux to store the minimal possible state
+     2. The selector is not recomputed unless one of its arguments changes
+
 
    **[⬆ Back to Top](#table-of-contents)**
     
@@ -4162,6 +4170,22 @@ You can download the PDF and Epub version of this repository from the latest run
 187. ### How Relay is different from Redux?
 
      Relay is similar to Redux in that they both use a single store. The main difference is that relay only manages state originated from the server, and all access to the state is used via *GraphQL* queries (for reading data) and mutations (for changing data). Relay caches the data for you and optimizes data fetching for you, by fetching only changed data and nothing more.
+
+188. ### What is an action in Redux?
+
+     *Actions* are plain JavaScript objects or payloads of information that send data from your application to your store. They are the only source of information for the store. Actions must have a type property that indicates the type of action being performed.
+
+     For example, let's take an action which represents adding a new todo item:
+
+     ```
+     {
+       type: ADD_TODO,
+       text: 'Add todo item'
+     }
+     ```
+
+
+   **[⬆ Back to Top](#table-of-contents)**
 
 ## React Native
 
@@ -4405,7 +4429,7 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 205. ### How to use TypeScript in `create-react-app` application?
-     Starting from react-scripts@2.1.0 or higher, there is a built-in support for typescript. You can just pass `--typescript` option as below
+     Starting from react-scripts@2.1.0 or higher, there is a built-in support for typescript. i.e, `create-react-app` now supports typescript natively. You can just pass `--typescript` option as below
      ```bash
      npx create-react-app my-app --typescript
 
@@ -4490,22 +4514,6 @@ You can download the PDF and Epub version of this repository from the latest run
 
    **[⬆ Back to Top](#table-of-contents)**
     
-208. ### What is an action in Redux?
-
-     *Actions* are plain JavaScript objects or payloads of information that send data from your application to your store. They are the only source of information for the store. Actions must have a type property that indicates the type of action being performed.
-
-     For example, let's take an action which represents adding a new todo item:
-
-     ```
-     {
-       type: ADD_TODO,
-       text: 'Add todo item'
-     }
-     ```
-
-
-   **[⬆ Back to Top](#table-of-contents)**
-    
 209. ### Does the statics object work with ES6 classes in React?
 
      No, `statics` only works with `React.createClass()`:
@@ -4520,7 +4528,7 @@ You can download the PDF and Epub version of this repository from the latest run
      })
      ```
 
-     But you can write statics inside ES6+ classes or writing them outside class as below,
+     But you can write statics inside ES6+ classes as below,
 
      ```javascript
      class Component extends React.Component {
@@ -4533,6 +4541,9 @@ You can download the PDF and Epub version of this repository from the latest run
        }
      }
      ```
+
+     or writing them outside class as below,
+
      ```javascript
      class Component extends React.Component {
         ....
@@ -4662,7 +4673,7 @@ You can download the PDF and Epub version of this repository from the latest run
      }
      ```
 
-
+    **Note:** In React v16.3,
    **[⬆ Back to Top](#table-of-contents)**
     
 216. ### What is render hijacking in react?
@@ -4874,7 +4885,7 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 226. ### What are hooks?
-     Hooks is a new feature that lets you use state and other React features without writing a class.
+     Hooks is a new feature(React 16.8) that lets you use state and other React features without writing a class.
 
      Let's see an example of useState hook example,
      ```jsx
