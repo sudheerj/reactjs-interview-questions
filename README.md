@@ -233,22 +233,22 @@
 |209| [استاتیک شی با کلاس های ES6 در React کار می کنه؟](#does-the-statics-object-work-with-es6-classes-in-react) |
 |210| [ریداکس رو قفط با ری‌اکت میشه استفاده کرد؟](#can-redux-only-be-used-with-react) |
 |211| [برای استفاده از Redux به ابزار build خاصی احتیاج داریم؟](#do-you-need-to-have-a-particular-build-tool-to-use-redux) |
-|212| [How Redux Form initialValues get updated from state?](#how-redux-form-initialvalues-get-updated-from-state) |
-|213| [How React PropTypes allow different type for one prop?](#how-react-proptypes-allow-different-types-for-one-prop) |
+|212| [مقادیر پیش‌فرض ریداکس فرم چطوری تغییرات رو از state می‌گیرن؟](#how-redux-form-initialvalues-get-updated-from-state) |
+|213| [توی PropTypeهای ری‌اکت چطوری میشه برای یه prop چند نوع داده مجاز مشخص کرد؟](#how-react-proptypes-allow-different-types-for-one-prop) |
 |214| [می‌تونیم فایل svg رو به عنوان کامپوننت import کنیم؟](#can-i-import-an-svg-file-as-react-component) |
-|215| [Why are inline ref callbacks or functions not recommended?](#why-are-inline-ref-callbacks-or-functions-not-recommended)|
-|216| [What is render hijacking in React?](#what-is-render-hijacking-in-react)|
-|217| [What are HOC factory implementations?](#what-are-hoc-factory-implementations)|
-|218| [How to pass numbers to React component?](#how-to-pass-numbers-to-react-component)|
-|219| [Do I need to keep all my state into Redux? Should I ever use react internal state?](#do-i-need-to-keep-all-my-state-into-redux-should-i-ever-use-react-internal-state)|
-|220| [What is the purpose of registerServiceWorker in React?](#what-is-the-purpose-of-registerserviceworker-in-react)|
+|215| [چرا استفاده از توابع ref callback درون خطی توصیه نمیشه؟](#why-are-inline-ref-callbacks-or-functions-not-recommended)|
+|216| [render hijacking توی ری‌اکت چیه؟](#what-is-render-hijacking-in-react)|
+|217| [پیاده‌سازی factory یا سازنده HOC چطوریه؟](#what-are-hoc-factory-implementations)|
+|218| [چطوری به یه کامپوننت ری‌اکت عدد پاس بدیم؟](#how-to-pass-numbers-to-react-component)|
+|219| [لازمه همه stateها رو توی ریداکس مدیریت کنیم؟ لزومی به استفاده از state داخلی داریم؟](#do-i-need-to-keep-all-my-state-into-redux-should-i-ever-use-react-internal-state)|
+|220| [هدف از متد registerServiceWorker توی ری‌اکت چیه؟?](#what-is-the-purpose-of-registerserviceworker-in-react)|
 |221| [تابع memo ری‌اکت چیه؟](#what-is-react-memo-function)|
-|222| [What is React lazy function?](#what-is-react-lazy-function)|
-|223| [How to prevent unnecessary updates using setState?](#how-to-prevent-unnecessary-updates-using-setstate)|
-|224| [How do you render Array, Strings and Numbers in React 16 Version?](#how-do-you-render-array-strings-and-numbers-in-react-16-version)|
-|225| [How to use class field declarations syntax in React classes?](#how-to-use-class-field-declarations-syntax-in-react-classes)|
+|222| [تابع lazy ری‌اکت چیه؟](#what-is-react-lazy-function)|
+|223| [چطوری با استفاده از تابع setState از رندر غیرضروری جلوگیری کنیم؟](#how-to-prevent-unnecessary-updates-using-setstate)|
+|224| [توی نسخه ۱۶ ری‌اکت چطوری میشه آرایه، Strings و یا عدد رو رندر کنیم؟](#how-do-you-render-array-strings-and-numbers-in-react-16-version)|
+|225| [چطوری میشه از تعریف ویژگی در کلاس کامپوننت استفاده کرد؟](#how-to-use-class-field-declarations-syntax-in-react-classes)|
 |226| [hookها چی هستن؟](#what-are-hooks)|
-|227| [What are the rules needs to follow for hooks?](#what-are-the-rules-needs-to-follow-for-hooks)|
+|227| [چه قوانینی برای هوک‌ها باید رعایت بشن؟](#what-are-the-rules-needs-to-follow-for-hooks)|
 |228| [چطوری میشه از استفاده درست هوک‌ها اطمینان حاصل کرد؟](#how-to-ensure-hooks-followed-the-rules-in-your-project)|
 |229| [تفاوت‌های Flux و Redux چیا هستن؟](#what-are-the-differences-between-flux-and-redux)|
 |230| [مزایای ری‌اکت روتر نسخه۴ چیه؟](#what-are-the-benefits-of-react-router-v4)|
