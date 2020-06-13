@@ -69,283 +69,283 @@
 |52 | [مزایای React چیه؟](#مزایای-React-چیه) |
 |53 | [محدودیت های React چیه؟](#محدودیت-های-React-چیه) |
 |54 | [error boundaryها توی ری‌اکت نسخه 16 چیکار می‌کنن؟]() |
-|55 | [چطوری از error boundaryها توی نسخه ۱۵ ریکت مدیریت شدن؟](#how-error-boundaries-handled-in-react-v15) |
-|56 | [روش‌های پیشنهادی برای type checking چیه؟](#what-are-the-recommended-ways-for-static-type-checking) |
-|57 | [کاربرد پکیج react-dom چیه؟](#what-is-the-use-of-react-dom-package) |
-|58 | [کاربرد متد render از پکیج react-dom چیه؟](#what-is-the-purpose-of-render-method-of-react-dom) |
-|59 | [ReactDOMServer چیه؟](#what-is-reactdomserver) |
-|60 | [چطوری از InnerHtml توی ری‌اکت استفاده کنیم؟](#how-to-use-innerhtml-in-react) |
-|61 | [چطوری توی ری‌اکت استایل‌دهی می‌کنیم؟](#how-to-use-styles-in-react) |
-|62 | [تفاوت eventهای ری‌اکت چیه؟](#how-events-are-different-in-react) |
-|63 | [اگه توی constructor بیاییم و setState کنیم چی میشه؟](#what-will-happen-if-you-use-setstate-in-constructor) |
-|64 | [تاثیر استفاده از اینرکس به عنوان key چیه؟](#what-is-the-impact-of-indexes-as-keys) |
-|65 | [نظرت راجع به استفاده از setState توی متد componentWillMount چیه؟](#is-it-good-to-use-setstate-in-componentwillmount-method) |
-|66 | [اگه از prop توی مقداردهی اولیه state استفاده کنیم چی میشه؟](#what-will-happen-if-you-use-props-in-initial-state) |
-|67 | [چطوری کامپوننت رو با بررسی یه شریط رندر می‌کنیم؟](#how-do-you-conditionally-render-components)
-|68 | [چرا وقتی propها رو روی یه DOM Elemnt می‌آییم spread می‌کنیم باید مراقب باشیم؟](#why-we-need-to-be-careful-when-spreading-props-on-dom-elements) |
-|69 | [چطوری از decoratorها توی ری‌اکت استفاده کنیم؟](#how-you-use-decorators-in-react) |
-|70 | [چطوری یه کامپوننت رو memoize می‌کنیم؟](#how-do-you-memoize-a-component) |
-|71 | [چطوری باید Server-Side Rendering یا SSR رو توی ری‌اکت پیاده کنیم؟](#how-you-implement-server-side-rendering-or-ssr) |
-|72 | [چطوری حالت production رو برای ری‌اکت فعال کنیم؟](#how-to-enable-production-mode-in-react) |
-|73 | [CRA چیه و چه مزایایی داره؟](#what-is-cra-and-its-benefits) |
-|74 | [ترتیب اجرا شدن متد‌های life cycle چطوریه؟](#what-is-the-lifecycle-methods-order-in-mounting) |
-|75 | [کدوم متد‌های life cycle توی نسخه 16 ری‌اکت منسوخ شدن؟](#what-are-the-lifecycle-methods-going-to-be-deprecated-in-react-v16) |
-|76 | [کاربرد متد getDerivedStateFromProps چیه؟](#what-is-the-purpose-of-getderivedstatefromprops-lifecycle-method) |
-|77 | [کاربرد متد getSnapshotBeforeUpdate() چیه؟](#what-is-the-purpose-of-getsnapshotbeforeupdate-lifecycle-method) |
-|78 | [آیا هوک‌ها جای render props و HOC رو می‌گیرن؟](#do-hooks-replace-render-props-and-higher-order-components) |
-|79 | [روش توضیه شده برای نام‌گذاری کامپوننت‌ها چیه؟](#what-is-the-recommended-way-for-naming-components) |
-|80 | [روش توصیه شده برای ترتیب متدها در کلاس کامپوننت‌ها چیه؟](#what-is-the-recommended-ordering-of-methods-in-component-class) |
-|81 | [کامپوننت تعویض کننده یا switching چیه؟](#what-is-a-switching-component) |
-|82 | [چرت نیاز میشه به تایع setState یه فانکشن callback پاس بدیم؟](#why-we-need-to-pass-a-function-to-setstate) |
-|83 | [حالت strict توی ری‌اکت چیکار می‌کنه؟](#what-is-strict-mode-in-react) |
-|84 | [Mixin‌های ری‌اکت چی هستن؟](#what-are-react-mixins) |
-|85 | [چرا isMounted آنتی پترن هست و روش بهتر انجامش چیه؟](#why-is-ismounted-an-anti-pattern-and-what-is-the-proper-solution) |
-|86 | [پشتیبانی ری‌اکت از pointer eventها چطوریه؟](#what-are-the-pointer-events-supported-in-react) |
-|87 | [چرا باید اسم کامپوننت با حرف بزرگ شروع بشه؟](#why-should-component-names-start-with-capital-letter) |
-|88 | [آیا propهای custom توی ری‌اکت پشتیبانی میشن؟](#are-custom-dom-attributes-supported-in-react-v16) |
-|89 | [تفاوت‌های  constructor و getInitialState چیه؟](#what-is-the-difference-between-constructor-and-getinitialstate) |
-|90 | [می‌تونیم یه کامپوننت رو بدون setState ری‌رندر کنیم؟](#can-you-force-a-component-to-re-render-without-calling-setstate) |
-|91 | [تفاوت‌های فراخوانی super() و super(props) توی کلاس کامپوننت‌های ری‌اکت چیه؟](#what-is-the-difference-between-super-and-superprops-in-react-using-es6-classes) |
-|92 | [چطوری توی JSX حلقه یا همون لوپ رو داشته باشیم؟](#how-to-loop-inside-jsx) |
-|93 | [توی attributeها چطوری به prop دسترسی داشته باشیم؟](#how-do-you-access-props-in-attribute-quotes) |
-|94 | [چطوری یه PropType برای ‌آرایه‌ای از objectها با shape داشته باشیم؟](#what-is-react-proptype-array-with-shape) |
-|95 | [چطوری classهای یه المنت رو به صورت شرطی رندر کنیم؟](#how-to-conditionally-apply-class-attributes) |
-|96 | [تفاوت‌های React و ReactDOM چیه؟](#what-is-the-difference-between-react-and-reactdom) |
-|97 | [چرا ReactDOM رو از React جدا کردن؟](#why-reactdom-is-separated-from-react) |
-|98 | [چطوری از label تو ری‌اکت استفاده کنیم؟](#how-to-use-react-label-element) |
-|99 | [چطوری می‌تونیم چندتا object از استایل‌های درون خطی رو با هم ترکیب کنیم؟](#how-to-combine-multiple-inline-style-objects) |
-|100| [چطوری با resize شدن مرورگر یه ویو رو ری‌رندر کنیم؟](#how-to-re-render-the-view-when-the-browser-is-resized)
-|101| [تفاوت متدهای setState و replaceState چیه؟](#what-is-the-difference-between-setstate-and-replacestate-methods) |
-|102| [چطوری به تغییرات state گوش بدیم؟](#how-to-listen-to-state-changes) |
-|103| [روش تووصیه شده برای حذف یک عنصر از آرایه توی state چیه؟](#what-is-the-recommended-approach-of-removing-an-array-element-in-react-state) |
-|104| [امکانش هست که ری‌اکت رو بدون رندر کردن HTML استفاده کنیم؟](#is-it-possible-to-use-react-without-rendering-html) |
-|105| [چطوری میشه با ری‌اکت یه JSON به شکل beautify شده نشون داد؟](#how-to-pretty-print-json-with-react) |
-|106| [چرا نمی‌تونیم prop رو آپدیت کنیم؟](#why-you-cant-update-props-in-react) |
-|107| [چطوری می‌تونیم موقع لود صفحه روی یه input فوکوس کنیم؟](#how-to-focus-an-input-element-on-page-load) |
-|108| [روش‌های ممکن برای آپدیت کردن object توی state چیا هستن؟](#what-are-the-possible-ways-of-updating-objects-in-state) |
-|109| [چرا توابع به جای object در setState ترجیح داده می‌شوند؟](#why-function-is-preferred-over-object-for-setstate) |
-|110| [چطوری می‌‌تونیم نسخه ری‌اکت جاری رو توی محیط اجرایی بفهمیم؟](#how-can-we-find-the-version-of-react-at-runtime-in-the-browser) |
-|111| [روش‌های لود کردن polyfill توی CRA چیا هستن؟](#what-are-the-approaches-to-include-polyfills-in-your-create-react-app) |
-|112| [توی CRA چطوری از https به‌جای http استفاده کنیم؟](#how-to-use-https-instead-of-http-in-create-react-app) |
-|113| [توی CRA چطوری میشه از مسیر‌های طولانی برای ایمپورت جلوگیری کرد؟](#how-to-avoid-using-relative-path-imports-in-create-react-app) |
-|114| [چطوری میشه Google Analytics رو به react-router اضافه کرد؟](#how-to-add-google-analytics-for-react-router) |
-|115| [چطوری یه کامپوننت رو هر ثانیه به روز کنیم؟](#how-to-update-a-component-every-second) |
-|116| [برای استایل‌دهی‌های درون خطی چطوری باید پیشوند‌های مخصوص مرورگرها رو اضافه کرد؟](#how-do-you-apply-vendor-prefixes-to-inline-styles-in-react) |
-|117| [چطوری کامپوننت‌های ری‌اکت رو با es6 می‌تونیم import و export کنیم؟](#how-to-import-and-export-components-using-react-and-es6) |
-|118| [استثنایی که برای نام‌گذاری کامپوننت اجازه استفاده از حرف کوچک رو میده چیه؟](#what-are-the-exceptions-on-react-component-naming) |
-|119| [چرا تابع سازنده کلاس کامپوننت یکبار صدا زده میشه؟](#why-is-a-component-constructor-called-only-once) |
-|120| [توی ری‌اکت چطوری مقدار ثابت تعریف کنیم؟](#how-to-define-constants-in-react) |
-|121| [چطوری توی برنامه event کلیک شدن رو trigger کنیم؟](#how-to-programmatically-trigger-click-event-in-react) |
-|122| [آیا استفاده از async/await توی ری‌اکت ممکنه؟](#is-it-possible-to-use-asyncawait-in-plain-react) |
-|123| [ساختار پوشه‌بندی معروف برا ری‌اکت چطوریه؟](#what-are-the-common-folder-structures-for-react) |
-|124| [پکیج‌های مشهور برای انیمیشن چیا هستن؟](#what-are-the-popular-packages-for-animation) |
-|125| [مزایای ماژول‌های style چیه؟](#what-is-the-benefit-of-styles-modules) |
-|126| [معروف‌ترین linterهای ری‌اکت کدوما هستن؟](#what-are-the-popular-react-specific-linters) |
-|127| [چطوری باید توی کامپوننت درخواست api call بزنیم؟](#how-to-make-ajax-call-and-in-which-component-lifecycle-methods-should-i-make-an-ajax-call) |
-|128| [render props چیه؟](#what-are-render-props) |
+|55 | [چطوری از error boundaryها توی نسخه ۱۵ ریکت مدیریت شدن؟]() |
+|56 | [روش‌های پیشنهادی برای type checking چیه؟]() |
+|57 | [کاربرد پکیج react-dom چیه؟]() |
+|58 | [کاربرد متد render از پکیج react-dom چیه؟]() |
+|59 | [ReactDOMServer چیه؟]() |
+|60 | [چطوری از InnerHtml توی ری‌اکت استفاده کنیم؟]() |
+|61 | [چطوری توی ری‌اکت استایل‌دهی می‌کنیم؟]() |
+|62 | [تفاوت eventهای ری‌اکت چیه؟]() |
+|63 | [اگه توی constructor بیاییم و setState کنیم چی میشه؟]() |
+|64 | [تاثیر استفاده از اینرکس به عنوان key چیه؟]() |
+|65 | [نظرت راجع به استفاده از setState توی متد componentWillMount چیه؟]() |
+|66 | [اگه از prop توی مقداردهی اولیه state استفاده کنیم چی میشه؟]() |
+|67 | [چطوری کامپوننت رو با بررسی یه شریط رندر می‌کنیم؟]()
+|68 | [چرا وقتی propها رو روی یه DOM Elemnt می‌آییم spread می‌کنیم باید مراقب باشیم؟]() |
+|69 | [چطوری از decoratorها توی ری‌اکت استفاده کنیم؟]() |
+|70 | [چطوری یه کامپوننت رو memoize می‌کنیم؟]() |
+|71 | [چطوری باید Server-Side Rendering یا SSR رو توی ری‌اکت پیاده کنیم؟]() |
+|72 | [چطوری حالت production رو برای ری‌اکت فعال کنیم؟]() |
+|73 | [CRA چیه و چه مزایایی داره؟]() |
+|74 | [ترتیب اجرا شدن متد‌های life cycle چطوریه؟]() |
+|75 | [کدوم متد‌های life cycle توی نسخه 16 ری‌اکت منسوخ شدن؟]() |
+|76 | [کاربرد متد getDerivedStateFromProps چیه؟]() |
+|77 | [کاربرد متد getSnapshotBeforeUpdate() چیه؟]() |
+|78 | [آیا هوک‌ها جای render props و HOC رو می‌گیرن؟]() |
+|79 | [روش توضیه شده برای نام‌گذاری کامپوننت‌ها چیه؟]() |
+|80 | [روش توصیه شده برای ترتیب متدها در کلاس کامپوننت‌ها چیه؟]() |
+|81 | [کامپوننت تعویض کننده یا switching چیه؟]() |
+|82 | [چرت نیاز میشه به تایع setState یه فانکشن callback پاس بدیم؟]() |
+|83 | [حالت strict توی ری‌اکت چیکار می‌کنه؟]() |
+|84 | [Mixin‌های ری‌اکت چی هستن؟]() |
+|85 | [چرا isMounted آنتی پترن هست و روش بهتر انجامش چیه؟]() |
+|86 | [پشتیبانی ری‌اکت از pointer eventها چطوریه؟]() |
+|87 | [چرا باید اسم کامپوننت با حرف بزرگ شروع بشه؟]() |
+|88 | [آیا propهای custom توی ری‌اکت پشتیبانی میشن؟]() |
+|89 | [تفاوت‌های  constructor و getInitialState چیه؟]() |
+|90 | [می‌تونیم یه کامپوننت رو بدون setState ری‌رندر کنیم؟]() |
+|91 | [تفاوت‌های فراخوانی super() و super(props) توی کلاس کامپوننت‌های ری‌اکت چیه؟]() |
+|92 | [چطوری توی JSX حلقه یا همون لوپ رو داشته باشیم؟]() |
+|93 | [توی attributeها چطوری به prop دسترسی داشته باشیم؟]() |
+|94 | [چطوری یه PropType برای ‌آرایه‌ای از objectها با shape داشته باشیم؟]() |
+|95 | [چطوری classهای یه المنت رو به صورت شرطی رندر کنیم؟]() |
+|96 | [تفاوت‌های React و ReactDOM چیه؟]() |
+|97 | [چرا ReactDOM رو از React جدا کردن؟]() |
+|98 | [چطوری از label تو ری‌اکت استفاده کنیم؟]() |
+|99 | [چطوری می‌تونیم چندتا object از استایل‌های درون خطی رو با هم ترکیب کنیم؟]() |
+|100| [چطوری با resize شدن مرورگر یه ویو رو ری‌رندر کنیم؟]()
+|101| [تفاوت متدهای setState و replaceState چیه؟]() |
+|102| [چطوری به تغییرات state گوش بدیم؟]() |
+|103| [روش تووصیه شده برای حذف یک عنصر از آرایه توی state چیه؟]() |
+|104| [امکانش هست که ری‌اکت رو بدون رندر کردن HTML استفاده کنیم؟]() |
+|105| [چطوری میشه با ری‌اکت یه JSON به شکل beautify شده نشون داد؟]() |
+|106| [چرا نمی‌تونیم prop رو آپدیت کنیم؟]() |
+|107| [چطوری می‌تونیم موقع لود صفحه روی یه input فوکوس کنیم؟]() |
+|108| [روش‌های ممکن برای آپدیت کردن object توی state چیا هستن؟]() |
+|109| [چرا توابع به جای object در setState ترجیح داده می‌شوند؟]() |
+|110| [چطوری می‌‌تونیم نسخه ری‌اکت جاری رو توی محیط اجرایی بفهمیم؟]() |
+|111| [روش‌های لود کردن polyfill توی CRA چیا هستن؟]() |
+|112| [توی CRA چطوری از https به‌جای http استفاده کنیم؟]() |
+|113| [توی CRA چطوری میشه از مسیر‌های طولانی برای ایمپورت جلوگیری کرد؟]() |
+|114| [چطوری میشه Google Analytics رو به react-router اضافه کرد؟]() |
+|115| [چطوری یه کامپوننت رو هر ثانیه به روز کنیم؟]() |
+|116| [برای استایل‌دهی‌های درون خطی چطوری باید پیشوند‌های مخصوص مرورگرها رو اضافه کرد؟]() |
+|117| [چطوری کامپوننت‌های ری‌اکت رو با es6 می‌تونیم import و export کنیم؟]() |
+|118| [استثنایی که برای نام‌گذاری کامپوننت اجازه استفاده از حرف کوچک رو میده چیه؟]() |
+|119| [چرا تابع سازنده کلاس کامپوننت یکبار صدا زده میشه؟]() |
+|120| [توی ری‌اکت چطوری مقدار ثابت تعریف کنیم؟]() |
+|121| [چطوری توی برنامه event کلیک شدن رو trigger کنیم؟]() |
+|122| [آیا استفاده از async/await توی ری‌اکت ممکنه؟]() |
+|123| [ساختار پوشه‌بندی معروف برا ری‌اکت چطوریه؟]() |
+|124| [پکیج‌های مشهور برای انیمیشن چیا هستن؟]() |
+|125| [مزایای ماژول‌های style چیه؟]() |
+|126| [معروف‌ترین linterهای ری‌اکت کدوما هستن؟]() |
+|127| [چطوری باید توی کامپوننت درخواست api call بزنیم؟]() |
+|128| [render props چیه؟]() |
 |   | **رووتر ری‌اکت** |
-|129| [React Router چیه؟](#what-is-react-router) |
-|130| [ارتباط React Router و کتابخونه history چیه؟](#how-react-router-is-different-from-history-library) |
-|131| [کامپوننت‌های router توی نسخه۴ چیا هستن؟](#what-are-the-router-components-of-react-router-v4) |
-|132| [هدف از متدهای push و replace توی history چیه؟](#what-is-the-purpose-of-push-and-replace-methods-of-history) |
-|133| [چطوری توی برنامه به route خاص جابجا بشیم؟](#how-do-you-programmatically-navigate-using-react-router-v4) |
-|134| [چطوری میشه query پارامترها رو توی ری‌اکت روتر نسخه۴ گرفت؟](#how-to-get-query-parameters-in-react-router-v4) |
-|135| [دلیل خطای "Router may have only one child element" چیه؟](#why-you-get-router-may-have-only-one-child-element-warning) |
-|136| [چطوری میشه به متد history.push پارامتر اضافه کرد؟](#how-to-pass-params-to-historypush-method-in-react-router-v4) |
-|137| [چطوری میشه صفحه ۴۰۴ ساخت؟](#how-to-implement-default-or-notfound-page) |
-|138| [توی ری‌اکت روتر نسخه۴ چطوری میشه history رو گرفت؟](#how-to-get-history-on-react-router-v4) |
-|139| [چطوری بعد از لاگین به شکل خودکار ریدایرکت کنیم؟](#how-to-perform-automatic-redirect-after-login) |
+|129| [React Router چیه؟]() |
+|130| [ارتباط React Router و کتابخونه history چیه؟]() |
+|131| [کامپوننت‌های router توی نسخه۴ چیا هستن؟]() |
+|132| [هدف از متدهای push و replace توی history چیه؟]() |
+|133| [چطوری توی برنامه به route خاص جابجا بشیم؟]() |
+|134| [چطوری میشه query پارامترها رو توی ری‌اکت روتر نسخه۴ گرفت؟]() |
+|135| [دلیل خطای "Router may have only one child element" چیه؟]() |
+|136| [چطوری میشه به متد history.push پارامتر اضافه کرد؟]() |
+|137| [چطوری میشه صفحه ۴۰۴ ساخت؟]() |
+|138| [توی ری‌اکت روتر نسخه۴ چطوری میشه history رو گرفت؟]() |
+|139| [چطوری بعد از لاگین به شکل خودکار ریدایرکت کنیم؟]() |
 |   | **چند زبانگی در ری‌اکت** |
-|140| [React-Intl چیه؟](#what-is-react-intl) |
-|141| [اصلی‌ترین ویژگی‌های React Intl چیا هستن؟](#what-are-the-main-features-of-react-intl) |
-|142| [دو روش فرمت کردن توی React Intl چیا هستن؟](#what-are-the-two-ways-of-formatting-in-react-intl) |
-|143| [چطوری از FormattedMessage به عنوان یه placeholder میشه استفاده کرد؟](#how-to-use-formattedmessage-as-placeholder-using-react-intl) |
-|144| [چطوری میشه localeفعلی رو توی React Intl بدست آورد؟](#how-to-access-current-locale-with-react-intl) |
-|145| [چطوری با استفاده از React Intl یه تاریخ رو فرمت‌بندی کنیم؟](#how-to-format-date-using-react-intl) |
+|140| [React-Intl چیه؟]() |
+|141| [اصلی‌ترین ویژگی‌های React Intl چیا هستن؟]() |
+|142| [دو روش فرمت کردن توی React Intl چیا هستن؟]() |
+|143| [چطوری از FormattedMessage به عنوان یه placeholder میشه استفاده کرد؟]() |
+|144| [چطوری میشه localeفعلی رو توی React Intl بدست آورد؟]() |
+|145| [چطوری با استفاده از React Intl یه تاریخ رو فرمت‌بندی کنیم؟]() |
 |   | **تست کردن ری‌اکت** |
-|146| [توی تست ری‌اکت Shallow Renderer چیه؟](#what-is-shallow-renderer-in-react-testing) |
-|147| [پکیج TestRenderer توی ری‌اکت چیه؟](#what-is-testrenderer-package-in-react) |
-|148| [هدف از پکیج ReactTestUtils چیه؟](#what-is-the-purpose-of-reacttestutils-package) |
-|149| [Jest چیه؟](#what-is-jest) |
-|150| [مزایای jest نسبت به jasmine چیا هستن؟](#what-are-the-advantages-of-jest-over-jasmine) |
-|151| [یه مثال ساده از تست با jest بزن؟](#give-a-simple-example-of-jest-test-case) |
+|146| [توی تست ری‌اکت Shallow Renderer چیه؟]() |
+|147| [پکیج TestRenderer توی ری‌اکت چیه؟]() |
+|148| [هدف از پکیج ReactTestUtils چیه؟]() |
+|149| [Jest چیه؟]() |
+|150| [مزایای jest نسبت به jasmine چیا هستن؟]() |
+|151| [یه مثال ساده از تست با jest بزن؟]() |
 |   | **React Redux** |
-|152| [Flux چیه؟](#what-is-flux) |
-|153| [Redux چیه؟](#what-is-redux) |
-|154| [مبانی اصلی ریداکس چیا هستن؟](#what-are-the-core-principles-of-redux) |
-|155| [کاستی‌های redux نسبت به flux چیا هستن؟](#what-are-the-downsides-of-redux-compared-to-flux) |
-|156| [تفاوت‌های mapStateToProps() و mapDispatchToProps() چی هست؟](#what-is-the-difference-between-mapstatetoprops-and-mapdispatchtoprops) |
-|157| [توی ریدیوسر می‌تونیم یه actionی رو dispatch کنیم؟](#can-i-dispatch-an-action-in-reducer) |
-|158| [چطوری میشه خارج از کامپوننت میشه store ریداکس دسترسی داشت؟](#how-to-access-redux-store-outside-a-component) |
-|159| [اشکالات پترن MVW چیا هستن؟](#what-are-the-drawbacks-of-mvw-pattern) |
-|160| [تشابهی بین Redux و RxJS هست؟](#are-there-any-similarities-between-redux-and-rxjs) |
-|161| [چطوری میشه یه اکشن رو موقع لود dispatch کرد؟](#how-to-dispatch-an-action-on-load) |
-|162| [چطوری از متد connect از پکیج react-redux استفاده می‌کنیم؟](#how-to-use-connect-from-react-redux) |
-|163| [چطوری میشه state ریداکس رو ریست کرد؟](#how-to-reset-state-in-redux) |
-|164| [هدف از کاراکتر @ توی decorator متد connect چیه؟](#whats-the-purpose-of-at-symbol-in-the-redux-connect-decorator) |
-|165| [تفاوت‌های context و React Redux چیه؟](#what-is-the-difference-between-react-context-and-react-redux) |
-|166| [چرا به توابع state ریداکس reducer میگن؟](#why-are-redux-state-functions-called-reducers) |
-|167| [توی redux چطوری میشه api request زد؟](#how-to-make-ajax-request-in-redux) |
-|168| [آیا لازمه همه state همه کامپوننت‌هامونو توی ریداکس نگهداری کنیم؟](#should-i-keep-all-components-state-in-redux-store) |
-|169| [روش صحیح برای دسترسی به store ریداکس چیه؟](#what-is-the-proper-way-to-access-redux-store) |
-|170| [تفاوت‌های component و container توی ریداکس چی هست؟](#what-is-the-difference-between-component-and-container-in-react-redux) |
-|171| [هدف از constantها تا typeها توی ریداکس چیه؟](#what-is-the-purpose-of-the-constants-in-redux) |
-|172| [روش‌های مختلف برای نوشتن mapDispatchToProps چیه؟](#what-are-the-different-ways-to-write-mapdispatchtoprops) |
-|173| [کاربرد پارامتر ownProps توی mapStateToProps و mapDispatchToProps چیه؟](#what-is-the-use-of-the-ownprops-parameter-in-mapstatetoprops-and-mapdispatchtoprops) |
-|174| [ساختار پوشه‌بندی ریشه ریداکس اکثرا چطوریه؟](#how-to-structure-redux-top-level-directories) |
-|175| [redux-saga جیه؟](#what-is-redux-saga) |
-|176| [مدل ذهنی redux-saga چطوریه؟](#what-is-the-mental-model-of-redux-saga) |
-|177| [تفاوت افکت‌های call و put توی redux-saga چی هست؟](#what-are-the-differences-between-call-and-put-in-redux-saga) |
-|178| [Redux Thunk چیه؟](#what-is-redux-thunk) |
-|179| [تفاوت‌های redux-saga و redux-thunk جیا هستن؟](#what-are-the-differences-between-redux-saga-and-redux-thunk) |
-|180| [Redux DevTools چیه؟](#what-is-redux-devtools) |
-|181| [ویژگی‌های Redux DevTools چیا هستن؟](#what-are-the-features-of-redux-devtools) |
-|182| [سلکتورهای ریداکس چی هستن و چرا باید ازشون استفاده کنیم؟](#what-are-redux-selectors-and-why-to-use-them) |
-|183| [Redux Form چیه؟](#what-is-redux-form) |
-|184| [اصلی‌ترین ویژگی‌های Redux Form چیه؟](#what-are-the-main-features-of-redux-form) |
-|185| [چطوری میشه چندتا middleware به ریداکس اضافه کرد؟](#how-to-add-multiple-middlewares-to-redux) |
-|186| [چطوری میشه توی ریداکس initial state تعریف کرد؟](#how-to-set-initial-state-in-redux) |
-|187| [تفاوت‌های Relay با Redux چیا هستن؟](#how-relay-is-different-from-redux) |
+|152| [Flux چیه؟]() |
+|153| [Redux چیه؟]() |
+|154| [مبانی اصلی ریداکس چیا هستن؟]() |
+|155| [کاستی‌های redux نسبت به flux چیا هستن؟]() |
+|156| [تفاوت‌های mapStateToProps() و mapDispatchToProps() چی هست؟]() |
+|157| [توی ریدیوسر می‌تونیم یه actionی رو dispatch کنیم؟]() |
+|158| [چطوری میشه خارج از کامپوننت میشه store ریداکس دسترسی داشت؟]() |
+|159| [اشکالات پترن MVW چیا هستن؟]() |
+|160| [تشابهی بین Redux و RxJS هست؟]() |
+|161| [چطوری میشه یه اکشن رو موقع لود dispatch کرد؟]() |
+|162| [چطوری از متد connect از پکیج react-redux استفاده می‌کنیم؟]() |
+|163| [چطوری میشه state ریداکس رو ریست کرد؟]() |
+|164| [هدف از کاراکتر @ توی decorator متد connect چیه؟]() |
+|165| [تفاوت‌های context و React Redux چیه؟]() |
+|166| [چرا به توابع state ریداکس reducer میگن؟]() |
+|167| [توی redux چطوری میشه api request زد؟]() |
+|168| [آیا لازمه همه state همه کامپوننت‌هامونو توی ریداکس نگهداری کنیم؟]() |
+|169| [روش صحیح برای دسترسی به store ریداکس چیه؟]() |
+|170| [تفاوت‌های component و container توی ریداکس چی هست؟]() |
+|171| [هدف از constantها تا typeها توی ریداکس چیه؟]() |
+|172| [روش‌های مختلف برای نوشتن mapDispatchToProps چیه؟]() |
+|173| [کاربرد پارامتر ownProps توی mapStateToProps و mapDispatchToProps چیه؟]() |
+|174| [ساختار پوشه‌بندی ریشه ریداکس اکثرا چطوریه؟]() |
+|175| [redux-saga جیه؟]() |
+|176| [مدل ذهنی redux-saga چطوریه؟]() |
+|177| [تفاوت افکت‌های call و put توی redux-saga چی هست؟]() |
+|178| [Redux Thunk چیه؟]() |
+|179| [تفاوت‌های redux-saga و redux-thunk جیا هستن؟]() |
+|180| [Redux DevTools چیه؟]() |
+|181| [ویژگی‌های Redux DevTools چیا هستن؟]() |
+|182| [سلکتورهای ریداکس چی هستن و چرا باید ازشون استفاده کنیم؟]() |
+|183| [Redux Form چیه؟]() |
+|184| [اصلی‌ترین ویژگی‌های Redux Form چیه؟]() |
+|185| [چطوری میشه چندتا middleware به ریداکس اضافه کرد؟]() |
+|186| [چطوری میشه توی ریداکس initial state تعریف کرد؟]() |
+|187| [تفاوت‌های Relay با Redux چیا هستن؟]() |
 |   | **React Native** |
-|188| [تفاوت‌های React Native و React چیا هستن؟](#what-is-the-difference-between-react-native-and-react) |
-|189| [چطوری میشه برنامه React Native رو تست کرد؟](#how-to-test-react-native-apps) |
-|190| [چطوری میشه توی React Native لاگ کرد؟](#how-to-do-logging-in-react-native) |
-|191| [چطوری میشه React Native رو دیباگ کرد؟](#how-to-debug-your-react-native) |
+|188| [تفاوت‌های React Native و React چیا هستن؟]() |
+|189| [چطوری میشه برنامه React Native رو تست کرد؟]() |
+|190| [چطوری میشه توی React Native لاگ کرد؟]() |
+|191| [چطوری میشه React Native رو دیباگ کرد؟]() |
 |   | **کتابخانه‌های مورد استفاده با ری‌اکت** |
-|192| [کتابخونه reselect چیه و چطوری کار می‌کنه؟](#what-is-reselect-and-how-it-works) |
-|193| [Flow چیه؟](#what-is-flow) |
-|194| [تفاوت‌های Flow و PropTypes چیا هستن؟](#what-is-the-difference-between-flow-and-proptypes) |
-|195| [چطوری از آیکون‌های font-awesome توی ری‌اکت استفاده کنیم؟](#how-to-use-font-awesome-icons-in-react) |
-|196| [React Dev Tools چیه؟](#what-is-react-dev-tools) |
-|197| [چرا توی کروم devtools برای فایل‌های local لود نمیشه؟](#why-is-devtools-not-loading-in-chrome-for-local-files) |
-|198| [چطوری از Polymer توی React استفاده کنیم؟](#how-to-use-polymer-in-react) |
-|199| [مزایای React نسبت به Vue.js چیا هستن؟](#what-are-the-advantages-of-react-over-vuejs) |
-|200| [تفاوت‌های React و Angular چیا هستن؟](#what-is-the-difference-between-react-and-angular) |
-|201| [چرا تب React در DevTools نشان داده نمی‌شود؟](#why-react-tab-is-not-showing-up-in-devtools) |
-|202| [Styled components چیه؟](#what-are-styled-components) |
-|203| [یه مثال از Styled Components می‌تونی بگی؟](#give-an-example-of-styled-components) |
-|204| [Relay چیه؟](#what-is-relay) |
-|205| [چطوری میشه از تایپ اسکریپت توی create-react-app استفاده کرد؟](#how-to-use-typescript-in-create-react-app-application) |
+|192| [کتابخونه reselect چیه و چطوری کار می‌کنه؟]() |
+|193| [Flow چیه؟]() |
+|194| [تفاوت‌های Flow و PropTypes چیا هستن؟]() |
+|195| [چطوری از آیکون‌های font-awesome توی ری‌اکت استفاده کنیم؟]() |
+|196| [React Dev Tools چیه؟]() |
+|197| [چرا توی کروم devtools برای فایل‌های local لود نمیشه؟]() |
+|198| [چطوری از Polymer توی React استفاده کنیم؟]() |
+|199| [مزایای React نسبت به Vue.js چیا هستن؟]() |
+|200| [تفاوت‌های React و Angular چیا هستن؟]() |
+|201| [چرا تب React در DevTools نشان داده نمی‌شود؟]() |
+|202| [Styled components چیه؟]() |
+|203| [یه مثال از Styled Components می‌تونی بگی؟]() |
+|204| [Relay چیه؟]() |
+|205| [چطوری میشه از تایپ اسکریپت توی create-react-app استفاده کرد؟]() |
 |   | **متفرقه** |
-|206| [اصلی‌ترین ویژگی‌های کتابخونه reselect چیا هستن؟](#what-are-the-main-features-of-reselect-library) |
-|207| [یه مثال از کارکرد کتابخونهreselect بزن؟](#give-an-example-of-reselect-usage) |
-|208| [توی Redux اکشن چیکار می‌کنه؟](#what-is-an-action-in-redux) |
-|209| [استاتیک شی با کلاس های ES6 در React کار می کنه؟](#does-the-statics-object-work-with-es6-classes-in-react) |
-|210| [ریداکس رو قفط با ری‌اکت میشه استفاده کرد؟](#can-redux-only-be-used-with-react) |
-|211| [برای استفاده از Redux به ابزار build خاصی احتیاج داریم؟](#do-you-need-to-have-a-particular-build-tool-to-use-redux) |
-|212| [مقادیر پیش‌فرض ریداکس فرم چطوری تغییرات رو از state می‌گیرن؟](#how-redux-form-initialvalues-get-updated-from-state) |
-|213| [توی PropTypeهای ری‌اکت چطوری میشه برای یه prop چند نوع داده مجاز مشخص کرد؟](#how-react-proptypes-allow-different-types-for-one-prop) |
-|214| [می‌تونیم فایل svg رو به عنوان کامپوننت import کنیم؟](#can-i-import-an-svg-file-as-react-component) |
-|215| [چرا استفاده از توابع ref callback درون خطی توصیه نمیشه؟](#why-are-inline-ref-callbacks-or-functions-not-recommended)|
-|216| [render hijacking توی ری‌اکت چیه؟](#what-is-render-hijacking-in-react)|
-|217| [پیاده‌سازی factory یا سازنده HOC چطوریه؟](#what-are-hoc-factory-implementations)|
-|218| [چطوری به یه کامپوننت ری‌اکت عدد پاس بدیم؟](#how-to-pass-numbers-to-react-component)|
-|219| [لازمه همه stateها رو توی ریداکس مدیریت کنیم؟ لزومی به استفاده از state داخلی داریم؟](#do-i-need-to-keep-all-my-state-into-redux-should-i-ever-use-react-internal-state)|
-|220| [هدف از متد registerServiceWorker توی ری‌اکت چیه؟?](#what-is-the-purpose-of-registerserviceworker-in-react)|
-|221| [تابع memo ری‌اکت چیه؟](#what-is-react-memo-function)|
-|222| [تابع lazy ری‌اکت چیه؟](#what-is-react-lazy-function)|
-|223| [چطوری با استفاده از تابع setState از رندر غیرضروری جلوگیری کنیم؟](#how-to-prevent-unnecessary-updates-using-setstate)|
-|224| [توی نسخه ۱۶ ری‌اکت چطوری میشه آرایه، Strings و یا عدد رو رندر کنیم؟](#how-do-you-render-array-strings-and-numbers-in-react-16-version)|
-|225| [چطوری میشه از تعریف ویژگی در کلاس کامپوننت استفاده کرد؟](#how-to-use-class-field-declarations-syntax-in-react-classes)|
-|226| [hookها چی هستن؟](#what-are-hooks)|
-|227| [چه قوانینی برای هوک‌ها باید رعایت بشن؟](#what-are-the-rules-needs-to-follow-for-hooks)|
-|228| [چطوری میشه از استفاده درست هوک‌ها اطمینان حاصل کرد؟](#how-to-ensure-hooks-followed-the-rules-in-your-project)|
-|229| [تفاوت‌های Flux و Redux چیا هستن؟](#what-are-the-differences-between-flux-and-redux)|
-|230| [مزایای ری‌اکت روتر نسخه۴ چیه؟](#what-are-the-benefits-of-react-router-v4)|
-|231| [می‌تونی راجع به متد componentDidCatch توضیح بدی؟](#can-you-describe-about-componentdidcatch-lifecycle-method-signature)|
-|232| [در چه سناریویی error boundary خطا رو catch نمی‌کنه؟?](#in-which-scenarios-error-boundaries-do-not-catch-errors)|
-|233| [چرا نیازی به error boundaries برای event handlerها نیست؟](#why-do-not-you-need-error-boundaries-for-event-handlers)|
-|234| [تفاوت بلوک try catch و error boundaryها چیه؟](#what-is-the-difference-between-try-catch-block-and-error-boundaries)|
-|235| [رفتار خطاهای uncaught در ری‌اکت 16 چیه؟](#what-is-the-behavior-of-uncaught-errors-in-react-16)|
-|236| [محل مناسب برای قرار دادن error boundary کجاست؟](#what-is-the-proper-placement-for-error-boundaries)|
-|237| [مزیت چاپ شدن stack trace کامپوننت‌ها توی متن ارور boundary ری‌اکت چیه؟](#what-is-the-benefit-of-component-stack-trace-from-error-boundary)|
-|238| [متدی که در تعریف کامپوننت‌های class الزامیه؟](#what-is-the-required-method-to-be-defined-for-a-class-component)|
-|239| [نوع‌های ممکن برای مقدار بازگشتی متد render چیا هستن؟](#what-are-the-possible-return-types-of-render-method)|
-|240| [هدف اصلی از متد constructor چیه؟](#what-is-the-main-purpose-of-constructor)|
-|241| [آیا تعریف متد سازنده توی ری‌اکت الزامیه؟](#is-it-mandatory-to-define-constructor-for-react-component)|
-|242| [Default propها چی هستن؟](#what-are-default-props)|
-|243| [چرا نباید تابع setState رو توی متد componentWillUnmount فراخوانی کرد؟](#why-should-not-call-setstate-in-componentwillunmount)|
-|244| [کاربرد متد getDerivedStateFromError چیه؟](#what-is-the-purpose-of-getderivedstatefromerror)|
-|245| [کدوم متدها و به چه ترتیبی در طول ری‌رندر فراخوانی میشن؟](#what-is-the-methods-order-when-component-re-rendered)|
-|246| [کدوم متد‌ها موقع error handling فراخوانی میشن؟](#what-are-the-methods-invoked-during-error-handling)|
-|247| [کارکرد ویژگی displayName چیه؟](#what-is-the-purpose-of-displayname-class-property)|
-|248| [ساپورت مرورگرها برای برنامه ری‌اکتی چطوریه؟](#what-is-the-browser-support-for-react-applications)|
-|249| [هدف از متد unmountComponentAtNode چیه؟](#what-is-the-purpose-of-unmountcomponentatnode-method)|
-|250| [code-splitting چیه؟](#what-is-code-splitting)|
-|251| [مزایای حالت strict چیه؟](#what-is-the-benefit-of-strict-mode)|
-|252| [Fragmentهای دارای key هستن؟](#what-are-keyed-fragments)|
-|253| [آیا ری‌اکت از همه‌ی attributeهای HTML پشتیبانی می‌کنه؟](#does-react-support-all-html-attributes)|
-|254| [محدودیت‌های HOCها چی هستن؟](#what-are-the-limitations-with-hocs)|
-|255| [چطوری میشه forwardRefs رو توی DevTools دیباگ کرد؟](#how-to-debug-forwardrefs-in-devtools)|
-|256| [مقدار یه props کامپوننت کی true میشه؟](#when-component-props-defaults-to-true)|
-|257| [NextJS چیه و ویژگی‌های اصلیش چیا هستن؟](#what-is-nextjs-and-major-features-of-it)|
-|258| [چط،وی کی‌تونیم یه تابع event handler رو به یه کامپوننت پاس بدیم؟](#how-do-you-pass-an-event-handler-to-a-component)|
-|259| [استفاده از توابع arrow برای متدهای render خوبه؟](#is-it-good-to-use-arrow-functions-in-render-methods)|
-|260| [چطوری از اجرای چندباره یه تابع جلوگیری کنیم؟](#how-to-prevent-a-function-from-being-called-multiple-times)|
-|261| [JSX چطوری از حمله‌های Injection جلوگیری می‌کنه؟](#how-jsx-prevents-injection-attacks)|
-|262| [چطوری elementهای رندر شده رو آپدیت کنیم؟](#how-do-you-update-rendered-elements)|
-|263| [چرا propها read only هستن؟](#how-do-you-say-that-props-are-read-only)|
-|264| [چرا میگیم تابع setState از طریق merge کردن state را مدیریت می‌کند؟](#how-do-you-say-that-state-updates-are-merged)|
-|265| [چطوری می‌تونیم به متد event handler پارامتر پاس بدیم؟](#how-do-you-pass-arguments-to-an-event-handler)|
-|266| [چطوری از رندر مجدد کامپوننت‌ها جلوگیری کنیم؟](#how-to-prevent-component-from-rendering)|
-|267| [شرایطی که بدون مشکل پرفورمنس بتونیم از ایندکس به عنوان key استفاده کنیم چی هست؟](#what-are-the-conditions-to-safely-use-the-index-as-a-key)|
-|268| [keyهای ری‌اکت باید به صورت عمومی منحصر بفرد باشن؟](#is-it-keys-should-be-globally-unique)|
-|269| [گزینه‌های محبوب برای مدیریت فرم‌ا توی ری‌اکت چیا هستن؟](#what-is-the-popular-choice-for-form-handling)|
-|270| [مزایای کتابخانه فرمیک نبست به redux form چیه؟](#what-are-the-advantages-of-formik-over-redux-form-library)|
-|271| [چرا اجباری برای استفاده از ارث‌بری توی ری‌اکت نیست؟ مزیتی داره؟](#why-do-you-not-required-to-use-inheritance)|
-|272| [می‌تونیم از web components توی برنامه ری‌اکت استفاده کنیم؟](#can-i-use-web-components-in-react-application)|
-|273| [dynamic import چیه؟](#what-is-dynamic-import)|
-|274| [loadable componentها چی هستن؟](#what-are-loadable-components)|
-|275| [کامپوننت suspense چیه؟](#what-is-suspense-component)|
-|276| [چطوری به ازای route می‌تونیم code splitting داشته باشیم؟](#what-is-route-based-code-splitting)|
-|277| [یه مثال از نحوه استفاده از context میزنی؟](#give-an-example-on-how-to-use-context)|
-|278| [هدف از مقدار پیش‌فرض توی context چیه؟](#what-is-the-purpose-of-default-value-in-context)|
-|279| [چظوری از contextType استفاده می‌کنین؟](#how-do-you-use-contexttype)|
-|280| [consumer چیه؟](#what-is-a-consumer)|
-|281| [چطوری مسائل مربوط به پرفورمنس با context رو حل می‌کنین؟](#how-do-you-solve-performance-corner-cases-while-using-context)|
-|282| [هدف از forward ref توی HOCها چیه؟](#what-is-the-purpose-of-forward-ref-in-hocs)|
-|283| [توی کامپوننت‌ها می‌تونیم پراپ ref داشته باشیم؟](#is-it-ref-argument-available-for-all-functions-or-class-components)|
-|284| [چرا در هنگام استفاده از ForwardRefها نیاز به احتیاط بیشتری در استفاده از کتابخانه های جانبی دارید؟](#why-do-you-need-additional-care-for-component-libraries-while-using-forward-refs)|
-|285| [چطوری بدون استفاده از ES6 کلاس کامپوننت بسازیم؟](#how-to-create-react-class-components-without-es6)|
-|286| [استفاده از ری‌اکت بدون JSX ممکن است؟](#is-it-possible-to-use-react-without-jsx)|
-|287| [الگوریتم‌های diffing ری‌اکت چی هستن؟](#what-is-diffing-algorithm)|
-|288| [قوانینی که توسط الگوریتم‌های diffing پوشش داده می‌شوند کدام هستند؟](#what-are-the-rules-covered-by-diffing-algorithm)|
-|289| [چه موقعی نیاز هست که از refها استفاده کنیم؟](#when-do-you-need-to-use-refs)|
-|290| [برای استفاده از render propها لازمه که اسم prop رو render بزاریم؟](#is-it-prop-must-be-named-as-render-for-render-props)|
-|291| [مشکل استفاده از render props با pure componentها چیه؟](#what-are-the-problems-of-using-render-props-with-pure-components)|
-|292| [چطوری با استفاده از render props می‌تونیم HOC ایجاد کنیم؟](#how-do-you-create-hoc-using-render-props)|
-|293| [تکنیک windowing چیه؟](#what-is-windowing-technique)|
-|294| [توی JSX یه مقدار falsy رو چطوری چاپ کنیم؟](#how-do-you-print-falsy-values-in-jsx)|
-|295| [یه مورد استفاده معمول از portals مثال میزنی؟](#what-is-the-typical-use-case-of-portals?)|
-|296| [توی کامپوننت‌های کنترل نشده چطوری مقداری پیش فرض اضافه کنیم؟](#how-do-you-set-default-value-for-uncontrolled-compon?ent)|
-|297| [stack موردعلاقه شما برای کانفیگ پروژه ری‌اکت چیه؟](#what-is-your-favorite-react-stack)|
-|298| [تفاوت‌ DOM واقعی و  Virtual DOM چیه؟](#what-is-the-difference-between-real-dom-and-virtual-dom)|
-|299| [چطوری Bootstrap رو به یه برنامه ری‌اکتی اضافه کنیم؟](#how-to-add-bootstrap-to-a-react-application)|
-|300| [می‌تونی یه لیسستی از معروف‌ترین وب‌سایت‌هایی که از ری‌اکت استفاده می‌کنن رو بگی؟](#can-you-list-down-top-websites-or-applications-using-react-as-front-end-framework)|
-|301| [استفاده از تکنیک  CSS In JS تو ری‌اکت توصیه میشه؟](#is-it-recommended-to-use-css-in-js-technique-in-react)|
-|302| [لازمه همه کلاس کامپوننت‌ها رو تبدیل کنیم به هوک؟](#do-i-need-to-rewrite-all-my-class-components-with-hooks)|
-|303| [چطوری میشه با هوک‌های ری‌اکت دیتا fetch کرد؟](#how-to-fetch-data-with-react-hooks)|
-|304| [هوک‌ها همه موارد کاربرد کلاس‌ها رو پوشش میده؟](#is-hooks-cover-all-use-cases-for-classes)|
-|305| [نسخه پایدار ری‌اکت که از هوک پشتیبانی می‌کنه کدومه؟](#what-is-the-stable-release-for-hooks-support)|
-|306| [چرا از حالت  destructuring آرایه برای useState استفاده می‌کنیم؟](#why-do-we-use-array-destructuring-square-brackets-notation-in-usestate)|
-|307| [منابعی که برای معرفی هوک استفاده می‌شود چیه؟](#what-are-the-sources-used-for-introducing-hooks)|
-|308| [چطوری به APIهای ضروری اجزای وب دسترسی پیدا کنیم؟](#how-do-you-access-imperative-api-of-web-components)|
-|309| [formik چیه؟](#what-is-formik)|
-|310| [middlewareهای مرسوم برای مدیریت ارتباط‌های asynchronous توی Redux چیا هستن؟](#what-are-typical-middleware-choices-for-handling-asynchronous-calls-in-redux)|
-|311| [مرورگرها کد JSX رو متوجه میشن؟](#do-browsers-understand-jsx-code)|
-|312| [Data flow یا جریان داده ری‌اکت رو توضیح میدی؟?](#describe-about-data-flow-in-react)|
-|313| [react scripts چیه؟](#what-is-react-scripts)|
-|314| [ویژگی‌های  create react app چیه؟](#what-are-the-features-of-create-react-app)|
-|315| [هدف از متد renderToNodeStream چیه؟](#what-is-the-purpose-of-rendertonodestream-method)|
-|316| [MobX چیه؟](#what-is-mobx)|
-|317| [تفاوت‌های بین Redux و MobX چیا هستن؟](#what-are-the-differences-between-redux-and-mobx)|
-|318| [لازمه قبل از شروع ری‌اکت ES6 رو یاد گرفت؟](#should-i-learn-es6-before-learning-reactjs)|
-|319| [Concurrent Rendering چیه؟](#what-is-concurrent-rendering)|
-|320| [تفاوت بین حالت  async و concurrent چیه؟](#what-is-the-difference-between-async-mode-and-concurrent-mode)|
-|321| [می تونیم از آدرس‌های دارای url جاواسکریپت در ری‌اکت 16.9 استفاده کرد؟](#can-i-use-javascript-urls-in-react169)|
-|322| [هدف از پلاگین eslint برای هوک‌ها چیه؟](#what-is-the-purpose-of-eslint-plugin-for-hooks)|
-|323| [تفاوت‌های Imperative و Declarative توی ری‌اکت چیه؟](#what-is-the-difference-between-imperative-and-declarative-in-react)|
-|324| [مزایای استفاده از تایپ اسکریپت با ری‌اکت چیه؟](#what-are-the-benefits-of-using-typescript-with-reactjs)|
+|206| [اصلی‌ترین ویژگی‌های کتابخونه reselect چیا هستن؟]() |
+|207| [یه مثال از کارکرد کتابخونهreselect بزن؟]() |
+|208| [توی Redux اکشن چیکار می‌کنه؟]() |
+|209| [استاتیک شی با کلاس های ES6 در React کار می کنه؟]() |
+|210| [ریداکس رو قفط با ری‌اکت میشه استفاده کرد؟]() |
+|211| [برای استفاده از Redux به ابزار build خاصی احتیاج داریم؟]() |
+|212| [مقادیر پیش‌فرض ریداکس فرم چطوری تغییرات رو از state می‌گیرن؟]() |
+|213| [توی PropTypeهای ری‌اکت چطوری میشه برای یه prop چند نوع داده مجاز مشخص کرد؟]() |
+|214| [می‌تونیم فایل svg رو به عنوان کامپوننت import کنیم؟]() |
+|215| [چرا استفاده از توابع ref callback درون خطی توصیه نمیشه؟]()|
+|216| [render hijacking توی ری‌اکت چیه؟]()|
+|217| [پیاده‌سازی factory یا سازنده HOC چطوریه؟]()|
+|218| [چطوری به یه کامپوننت ری‌اکت عدد پاس بدیم؟]()|
+|219| [لازمه همه stateها رو توی ریداکس مدیریت کنیم؟ لزومی به استفاده از state داخلی داریم؟]()|
+|220| [هدف از متد registerServiceWorker توی ری‌اکت چیه؟?]()|
+|221| [تابع memo ری‌اکت چیه؟]()|
+|222| [تابع lazy ری‌اکت چیه؟]()|
+|223| [چطوری با استفاده از تابع setState از رندر غیرضروری جلوگیری کنیم؟]()|
+|224| [توی نسخه ۱۶ ری‌اکت چطوری میشه آرایه، Strings و یا عدد رو رندر کنیم؟]()|
+|225| [چطوری میشه از تعریف ویژگی در کلاس کامپوننت استفاده کرد؟]()|
+|226| [hookها چی هستن؟]()|
+|227| [چه قوانینی برای هوک‌ها باید رعایت بشن؟]()|
+|228| [چطوری میشه از استفاده درست هوک‌ها اطمینان حاصل کرد؟]()|
+|229| [تفاوت‌های Flux و Redux چیا هستن؟]()|
+|230| [مزایای ری‌اکت روتر نسخه۴ چیه؟]()|
+|231| [می‌تونی راجع به متد componentDidCatch توضیح بدی؟]()|
+|232| [در چه سناریویی error boundary خطا رو catch نمی‌کنه؟?]()|
+|233| [چرا نیازی به error boundaries برای event handlerها نیست؟]()|
+|234| [تفاوت بلوک try catch و error boundaryها چیه؟]()|
+|235| [رفتار خطاهای uncaught در ری‌اکت 16 چیه؟]()|
+|236| [محل مناسب برای قرار دادن error boundary کجاست؟]()|
+|237| [مزیت چاپ شدن stack trace کامپوننت‌ها توی متن ارور boundary ری‌اکت چیه؟]()|
+|238| [متدی که در تعریف کامپوننت‌های class الزامیه؟]()|
+|239| [نوع‌های ممکن برای مقدار بازگشتی متد render چیا هستن؟]()|
+|240| [هدف اصلی از متد constructor چیه؟]()|
+|241| [آیا تعریف متد سازنده توی ری‌اکت الزامیه؟]()|
+|242| [Default propها چی هستن؟]()|
+|243| [چرا نباید تابع setState رو توی متد componentWillUnmount فراخوانی کرد؟]()|
+|244| [کاربرد متد getDerivedStateFromError چیه؟]()|
+|245| [کدوم متدها و به چه ترتیبی در طول ری‌رندر فراخوانی میشن؟]()|
+|246| [کدوم متد‌ها موقع error handling فراخوانی میشن؟]()|
+|247| [کارکرد ویژگی displayName چیه؟]()|
+|248| [ساپورت مرورگرها برای برنامه ری‌اکتی چطوریه؟]()|
+|249| [هدف از متد unmountComponentAtNode چیه؟]()|
+|250| [code-splitting چیه؟]()|
+|251| [مزایای حالت strict چیه؟]()|
+|252| [Fragmentهای دارای key هستن؟]()|
+|253| [آیا ری‌اکت از همه‌ی attributeهای HTML پشتیبانی می‌کنه؟]()|
+|254| [محدودیت‌های HOCها چی هستن؟]()|
+|255| [چطوری میشه forwardRefs رو توی DevTools دیباگ کرد؟]()|
+|256| [مقدار یه props کامپوننت کی true میشه؟]()|
+|257| [NextJS چیه و ویژگی‌های اصلیش چیا هستن؟]()|
+|258| [چط،وی کی‌تونیم یه تابع event handler رو به یه کامپوننت پاس بدیم؟]()|
+|259| [استفاده از توابع arrow برای متدهای render خوبه؟]()|
+|260| [چطوری از اجرای چندباره یه تابع جلوگیری کنیم؟]()|
+|261| [JSX چطوری از حمله‌های Injection جلوگیری می‌کنه؟]()|
+|262| [چطوری elementهای رندر شده رو آپدیت کنیم؟]()|
+|263| [چرا propها read only هستن؟]()|
+|264| [چرا میگیم تابع setState از طریق merge کردن state را مدیریت می‌کند؟]()|
+|265| [چطوری می‌تونیم به متد event handler پارامتر پاس بدیم؟]()|
+|266| [چطوری از رندر مجدد کامپوننت‌ها جلوگیری کنیم؟]()|
+|267| [شرایطی که بدون مشکل پرفورمنس بتونیم از ایندکس به عنوان key استفاده کنیم چی هست؟]()|
+|268| [keyهای ری‌اکت باید به صورت عمومی منحصر بفرد باشن؟]()|
+|269| [گزینه‌های محبوب برای مدیریت فرم‌ا توی ری‌اکت چیا هستن؟]()|
+|270| [مزایای کتابخانه فرمیک نبست به redux form چیه؟]()|
+|271| [چرا اجباری برای استفاده از ارث‌بری توی ری‌اکت نیست؟ مزیتی داره؟]()|
+|272| [می‌تونیم از web components توی برنامه ری‌اکت استفاده کنیم؟]()|
+|273| [dynamic import چیه؟]()|
+|274| [loadable componentها چی هستن؟]()|
+|275| [کامپوننت suspense چیه؟]()|
+|276| [چطوری به ازای route می‌تونیم code splitting داشته باشیم؟]()|
+|277| [یه مثال از نحوه استفاده از context میزنی؟]()|
+|278| [هدف از مقدار پیش‌فرض توی context چیه؟]()|
+|279| [چظوری از contextType استفاده می‌کنین؟]()|
+|280| [consumer چیه؟]()|
+|281| [چطوری مسائل مربوط به پرفورمنس با context رو حل می‌کنین؟]()|
+|282| [هدف از forward ref توی HOCها چیه؟]()|
+|283| [توی کامپوننت‌ها می‌تونیم پراپ ref داشته باشیم؟]()|
+|284| [چرا در هنگام استفاده از ForwardRefها نیاز به احتیاط بیشتری در استفاده از کتابخانه های جانبی دارید؟]()|
+|285| [چطوری بدون استفاده از ES6 کلاس کامپوننت بسازیم؟]()|
+|286| [استفاده از ری‌اکت بدون JSX ممکن است؟]()|
+|287| [الگوریتم‌های diffing ری‌اکت چی هستن؟]()|
+|288| [قوانینی که توسط الگوریتم‌های diffing پوشش داده می‌شوند کدام هستند؟]()|
+|289| [چه موقعی نیاز هست که از refها استفاده کنیم؟]()|
+|290| [برای استفاده از render propها لازمه که اسم prop رو render بزاریم؟]()|
+|291| [مشکل استفاده از render props با pure componentها چیه؟]()|
+|292| [چطوری با استفاده از render props می‌تونیم HOC ایجاد کنیم؟]()|
+|293| [تکنیک windowing چیه؟]()|
+|294| [توی JSX یه مقدار falsy رو چطوری چاپ کنیم؟]()|
+|295| [یه مورد استفاده معمول از portals مثال میزنی؟]()|
+|296| [توی کامپوننت‌های کنترل نشده چطوری مقداری پیش فرض اضافه کنیم؟]()|
+|297| [stack موردعلاقه شما برای کانفیگ پروژه ری‌اکت چیه؟]()|
+|298| [تفاوت‌ DOM واقعی و  Virtual DOM چیه؟]()|
+|299| [چطوری Bootstrap رو به یه برنامه ری‌اکتی اضافه کنیم؟]()|
+|300| [می‌تونی یه لیسستی از معروف‌ترین وب‌سایت‌هایی که از ری‌اکت استفاده می‌کنن رو بگی؟]()|
+|301| [استفاده از تکنیک  CSS In JS تو ری‌اکت توصیه میشه؟]()|
+|302| [لازمه همه کلاس کامپوننت‌ها رو تبدیل کنیم به هوک؟]()|
+|303| [چطوری میشه با هوک‌های ری‌اکت دیتا fetch کرد؟]()|
+|304| [هوک‌ها همه موارد کاربرد کلاس‌ها رو پوشش میده؟]()|
+|305| [نسخه پایدار ری‌اکت که از هوک پشتیبانی می‌کنه کدومه؟]()|
+|306| [چرا از حالت  destructuring آرایه برای useState استفاده می‌کنیم؟]()|
+|307| [منابعی که برای معرفی هوک استفاده می‌شود چیه؟]()|
+|308| [چطوری به APIهای ضروری اجزای وب دسترسی پیدا کنیم؟]()|
+|309| [formik چیه؟]()|
+|310| [middlewareهای مرسوم برای مدیریت ارتباط‌های asynchronous توی Redux چیا هستن؟]()|
+|311| [مرورگرها کد JSX رو متوجه میشن؟]()|
+|312| [Data flow یا جریان داده ری‌اکت رو توضیح میدی؟?]()|
+|313| [react scripts چیه؟]()|
+|314| [ویژگی‌های  create react app چیه؟]()|
+|315| [هدف از متد renderToNodeStream چیه؟]()|
+|316| [MobX چیه؟]()|
+|317| [تفاوت‌های بین Redux و MobX چیا هستن؟]()|
+|318| [لازمه قبل از شروع ری‌اکت ES6 رو یاد گرفت؟]()|
+|319| [Concurrent Rendering چیه؟]()|
+|320| [تفاوت بین حالت  async و concurrent چیه؟]()|
+|321| [می تونیم از آدرس‌های دارای url جاواسکریپت در ری‌اکت 16.9 استفاده کرد؟]()|
+|322| [هدف از پلاگین eslint برای هوک‌ها چیه؟]()|
+|323| [تفاوت‌های Imperative و Declarative توی ری‌اکت چیه؟]()|
+|324| [مزایای استفاده از تایپ اسکریپت با ری‌اکت چیه؟]()|
 
 ## Core React
 
