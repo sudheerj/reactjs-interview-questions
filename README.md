@@ -7184,17 +7184,17 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-312. ### Describe about data flow in react?
+312. ### Data flow یا جریان داده ری‌اکت رو توضیح میدی؟?
      React implements one-way reactive data flow using props which reduce boilerplate and is easier to understand than traditional two-way data binding.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-313. ### What is react scripts?
+313. ### react scripts چیه؟
      The `react-scripts` package is a set of scripts from the create-react-app starter pack which helps you kick off projects without configuring. The `react-scripts start` command sets up the development environment and starts a server, as well as hot module reloading.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-314. ### What are the features of create react app?
+314. ### ویژگی‌های create react app چیه؟ 
      Below are the list of some of the features provided by create react app.
      1. React, JSX, ES6, Typescript and Flow syntax support.
      2. Autoprefixed CSS
@@ -7206,13 +7206,13 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-315. ### What is the purpose of renderToNodeStream method?
+315. ### هدف از متد renderToNodeStream چیه؟ 
      The `ReactDOMServer#renderToNodeStream` method is used to generate HTML on the server and send the markup down on the initial request for faster page loads. It also helps search engines to crawl your pages easily for SEO purposes.
      **Note:** Remember this method is not available in the browser but only server.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-316. ### What is MobX?
+316. ### MobX چیه؟    
      MobX is a simple, scalable and battle tested state management solution for applying functional reactive programming (TFRP). For reactJs application, you need to install below packages,
      
      <span align="left" dir="ltr">
@@ -7226,7 +7226,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-317. ### What are the differences between Redux and MobX?
+317. ### تفاوت‌های بین Redux و MobX چیا هستن؟ 
      Below are the main differences between Redux and MobX,
 
      | Topic | Redux | MobX |
@@ -7240,7 +7240,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-318. ### Should I learn ES6 before learning ReactJS?
+318. ### لازمه قبل از شروع ری‌اکت ES6 رو یاد گرفت؟ 
      No, you don’t have to learn es2015/es6 to learn react. But you may find many resources or React ecosystem uses ES6 extensively. Let's see some of the frequently used ES6 features,
      1. Destructuring: To get props and use them in a component
      
@@ -7288,7 +7288,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-319. ### What is Concurrent Rendering?
+319. ### Concurrent Rendering چیه؟    
      The Concurrent rendering makes React apps to be more responsive by rendering component trees without blocking the main UI thread. It allows React to interrupt a long-running render to handle a high-priority event. i.e, When you enabled concurrent Mode, React will keep an eye on other tasks that need to be done, and if there's something with a higher priority it will pause what it is currently rendering and let the other task finish first. You can enable this in two ways,
      
      <span align="left" dir="ltr">
@@ -7307,12 +7307,12 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-320. ### What is the difference between async mode and concurrent mode?
+320. ### تفاوت بین حالت async و concurrent چیه؟ 
      Both refers the same thing. Previously concurrent Mode being referred to as "Async Mode" by React team. The name has been changed to highlight React’s ability to perform work on different priority levels. So it avoids the confusion from other approaches to Async Rendering.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-321. ### Can I use javascript urls in react16.9?
+321. ### می تونیم از آدرس‌های دارای url جاواسکریپت در ری‌اکت 16.9 استفاده کرد؟ 
      Yes, you can use javascript: URLs but it will log a warning in the console. Because URLs starting with javascript: are dangerous by including unsanitized output in a tag like `<a href>`
      and create a security hole.
      
@@ -7332,14 +7332,14 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
    
-322. ### What is the purpose of eslint plugin for hooks?
+322. ### هدف از پلاگین eslint برای هوک‌ها چیه؟ 
      The ESLint plugin enforces rules of Hooks to avoid bugs. It assumes that any function starting with ”use” and a capital letter right after it is a Hook. In particular, the rule enforces that,
      1. Calls to Hooks are either inside a PascalCase function (assumed to be a component) or another useSomething function (assumed to be a custom Hook).
      2. Hooks are called in the same order on every render.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
-323. ### What is the difference between Imperative and Declarative in React?
+323. ### تفاوت‌های Imperative و Declarative توی ری‌اکت چیه؟ 
 
      Imagine a simple UI component, such as a "Like" button. When you tap it, it turns blue if it was previously grey, and grey if it was previously blue.
      The imperative way of doing this would be:
@@ -7380,7 +7380,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
-324. ### What are the benefits of using typescript with reactjs?
+324. ### مزایای استفاده از تایپ اسکریپت با ری‌اکت چیه؟ 
      Below are some of the benefits of using typescript with Reactjs,
      1. It is possible to use latest JavaScript features
      2. Use of interfaces for complex type definitions
