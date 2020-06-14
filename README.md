@@ -1623,7 +1623,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-54. ### What are error boundaries in React v16?
+54. ### error boundaryها توی ری‌اکت نسخه 16 چیکار می‌کنن؟                        
 
     *Error boundaries* are components that catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI instead of the component tree that crashed.
 
@@ -1674,19 +1674,19 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-55. ### How error boundaries handled in React v15?
+55. ### چطوری از error boundaryها توی نسخه ۱۵ ریکت مدیریت شدن؟ 
 
     React v15 provided very basic support for *error boundaries* using `unstable_handleError` method. It has been renamed to `componentDidCatch` in React v16.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-56. ### What are the recommended ways for static type checking?
+56. ### روش‌های پیشنهادی برای type checking چیه؟ 
 
     Normally we use *PropTypes library* (`React.PropTypes` moved to a `prop-types` package since React v15.5) for *type checking* in the React applications. For large code bases, it is recommended to use *static type checkers* such as Flow or TypeScript, that perform type checking at compile time and provide auto-completion features.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-57. ### What is the use of `react-dom` package?
+57. ### کاربرد پکیج react-dom چیه؟ 
 
     The `react-dom` package provides *DOM-specific methods* that can be used at the top level of your app. Most of the components are not required to use this module. Some of the methods of this package are:
 
@@ -1698,7 +1698,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-58. ### What is the purpose of render method of `react-dom`?
+58. ### کاربرد متد render از پکیج react-dom چیه؟ 
 
     This method is used to render a React element into the DOM in the supplied container and return a reference to the component. If the React element was previously rendered into container, it will perform an update on it and only mutate the DOM as necessary to reflect the latest changes.
     
@@ -1714,7 +1714,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-59. ### What is ReactDOMServer?
+59. ### ReactDOMServer چیه؟    
 
     The `ReactDOMServer` object enables you to render components to static markup (typically used on node server). This object is mainly used for *server-side rendering* (SSR). The following methods can be used in both the server and browser environments:
 
@@ -1743,7 +1743,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-60. ### How to use innerHTML in React?
+60. ### چطوری از InnerHtml توی ری‌اکت استفاده کنیم؟ 
 
     The `dangerouslySetInnerHTML` attribute is React's replacement for using `innerHTML` in the browser DOM. Just like `innerHTML`, it is risky to use this attribute considering cross-site scripting (XSS) attacks. You just need to pass a `__html` object as key and HTML text as value.
 
@@ -1765,7 +1765,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-61. ### How to use styles in React?
+61. ### چطوری توی ری‌اکت استایل‌دهی می‌کنیم؟ 
 
     The `style` attribute accepts a JavaScript object with camelCased properties rather than a CSS string. This is consistent with the DOM style JavaScript property, is more efficient, and prevents XSS security holes.
 
@@ -1788,7 +1788,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-62. ### How events are different in React?
+62. ### تفاوت eventهای ری‌اکت چیه؟ 
 
     Handling events in React elements has some syntactic differences:
 
@@ -1797,13 +1797,13 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-63. ### What will happen if you use `setState()` in constructor?
+63. ### اگه توی constructor بیاییم و setState کنیم چی میشه؟ 
 
     When you use `setState()`, then apart from assigning to the object state React also re-renders the component and all its children. You would get error like this: *Can only update a mounted or mounting component.* So we need to use `this.state` to initialize variables inside constructor.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-64. ### What is the impact of indexes as keys?
+64. ### تاثیر استفاده از اینرکس به عنوان key چیه؟ 
 
     Keys should be stable, predictable, and unique so that React can keep track of elements.
 
@@ -1837,7 +1837,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-65. ### Is it good to use `setState()` in `componentWillMount()` method?
+65. ### نظرت راجع به استفاده از setState توی متد componentWillMount چیه؟ 
 
     It is recommended to avoid async initialization in `componentWillMount()` lifecycle method. `componentWillMount()` is invoked immediately before mounting occurs. It is called before `render()`, therefore setting state in this method will not trigger a re-render. Avoid introducing any side-effects or subscriptions in this method. We need to make sure async calls for component initialization happened in `componentDidMount()` instead of `componentWillMount()`.
 
@@ -1858,7 +1858,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-66. ### What will happen if you use props in initial state?
+66. ### اگه از prop توی مقداردهی اولیه state استفاده کنیم چی میشه؟ 
 
     If the props on the component are changed without the component being refreshed, the new prop value will never be displayed because the constructor function will never update the current state of the component. The initialization of state from props only runs when the component is first created.
 
@@ -1909,7 +1909,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-67. ### How do you conditionally render components?
+67. ### چطوری کامپوننت رو با بررسی یه شریط رندر می‌کنیم؟ 
 
     In some cases you want to render different components depending on some state. JSX does not render `false` or `undefined`, so you can use conditional *short-circuiting* to render a given part of your component only if a certain condition is true.
 
@@ -1948,7 +1948,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-68. ### Why we need to be careful when spreading props on DOM elements?
+68. ### چرا وقتی propها رو روی یه DOM Elemnt می‌آییم spread می‌کنیم باید مراقب باشیم؟ 
 
     When we *spread props* we run into the risk of adding unknown HTML attributes, which is a bad practice. Instead we can use prop destructuring with `...rest` operator, so it will add only required props. For example,
 
@@ -1966,7 +1966,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-69. ### How you use decorators in React?
+69. ### چطوری از decoratorها توی ری‌اکت استفاده کنیم؟ 
 
     You can *decorate* your *class* components, which is the same as passing the component into a function. **Decorators** are flexible and readable way of modifying component functionality.
 
@@ -2002,7 +2002,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-70. ### How do you memoize a component?
+70. ### چطوری یه کامپوننت رو memoize می‌کنیم؟ 
 
     There are memoize libraries available which can be used on function components. For example `moize` library can memoize the component in another component.
 
@@ -2040,7 +2040,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-71. ### How you implement Server Side Rendering or SSR?
+71. ### چطوری باید Server-Side Rendering یا SSR رو توی ری‌اکت پیاده کنیم؟ 
 
     React is already equipped to handle rendering on Node servers. A special version of the DOM renderer is available, which follows the same pattern as on the client side.
 
@@ -2059,13 +2059,13 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-72. ### How to enable production mode in React?
+72. ### چطوری حالت production رو برای ری‌اکت فعال کنیم؟ 
 
     You should use Webpack's `DefinePlugin` method to set `NODE_ENV` to `production`, by which it strip out things like propType validation and extra warnings. Apart from this, if you minify the code, for example, Uglify's dead-code elimination to strip out development only code and comments, it will drastically reduce the size of your bundle.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-73. ### What is CRA and its benefits?
+73. ### CRA چیه و چه مزایایی داره؟         
 
     The `create-react-app` CLI tool allows you to quickly create & run React applications with no configuration step.
 
@@ -2099,7 +2099,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-74. ### What is the lifecycle methods order in mounting?
+74. ### ترتیب اجرا شدن متد‌های life cycle چطوریه؟ 
 
     The lifecycle methods are called in the following order when an instance of a component is being created and inserted into the DOM.
 
@@ -2110,7 +2110,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-75. ### What are the lifecycle methods going to be deprecated in React v16?
+75. ### کدوم متد‌های life cycle توی نسخه 16 ری‌اکت منسوخ شدن؟ 
 
     The following lifecycle methods going to be unsafe coding practices and will be more problematic with async rendering.
 
@@ -2122,7 +2122,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-76. ### What is the purpose of `getDerivedStateFromProps()` lifecycle method?
+76. ### کاربرد متد getDerivedStateFromProps چیه؟ 
 
     The new static `getDerivedStateFromProps()` lifecycle method is invoked after a component is instantiated as well as before it is re-rendered. It can return an object to update state, or `null` to indicate that the new props do not require any state updates.
 
@@ -2142,7 +2142,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-77. ### What is the purpose of `getSnapshotBeforeUpdate()` lifecycle method?
+77. ### کاربرد متد getSnapshotBeforeUpdate() چیه؟ 
 
     The new `getSnapshotBeforeUpdate()` lifecycle method is called right before DOM updates. The return value from this method will be passed as the third parameter to `componentDidUpdate()`.
 
@@ -2162,13 +2162,13 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-78. ### Do Hooks replace render props and higher order components?
+78. ### آیا هوک‌ها جای render props و HOC رو می‌گیرن؟ 
 
     Both render props and higher-order components render only a single child but in most of the cases Hooks are a simpler way to serve this by reducing nesting in your tree.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-79. ### What is the recommended way for naming components?
+79. ### روش توضیه شده برای نام‌گذاری کامپوننت‌ها چیه؟ 
 
     It is recommended to name the component by reference instead of using `displayName`.
 
@@ -2199,7 +2199,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-80. ### What is the recommended ordering of methods in component class?
+80. ### روش توصیه شده برای ترتیب متدها در کلاس کامپوننت‌ها چیه؟ 
 
     *Recommended* ordering of methods from *mounting* to *render stage*:
 
@@ -2220,7 +2220,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-81. ### What is a switching component?
+81. ### کامپوننت تعویض کننده یا switching چیه؟ 
 
     A *switching component* is a component that renders one of many components. We need to use object to map prop values to components.
 
@@ -2257,7 +2257,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-82. ### Why we need to pass a function to setState()?
+82. ### چرت نیاز میشه به تایع setState یه فانکشن callback پاس بدیم؟ 
 
     The reason behind for this is that `setState()` is an asynchronous operation. React batches state changes for performance reasons, so the state may not change immediately after `setState()` is called. That means you should not rely on the current state when calling `setState()` since you can't be sure what that state will be. The solution is to  pass a function to `setState()`, with the previous state as an argument. By doing this you can avoid issues with the user getting the old state value on access due to the asynchronous nature of `setState()`.
 
@@ -2290,7 +2290,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-83. ### What is strict mode in React?
+83. ### حالت strict توی ری‌اکت چیکار می‌کنه؟ 
 
     `React.StrictMode` is a useful component for highlighting potential problems in an application. Just like `<Fragment>`, `<StrictMode>` does not render any extra DOM elements. It activates additional checks and warnings for its descendants. These checks apply for *development mode* only.
 
@@ -2321,7 +2321,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-84. ### What are React Mixins?
+84. ### Mixin‌های ری‌اکت چی هستن؟
 
     *Mixins* are a way to totally separate components to have a common functionality. Mixins **should not be used** and can be replaced with *higher-order components* or *decorators*.
 
@@ -2343,7 +2343,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-85. ### Why is `isMounted()` an anti-pattern and what is the proper solution?
+85. ### چرا isMounted آنتی پترن هست و روش بهتر انجامش چیه؟ 
 
     The primary use case for `isMounted()` is to avoid calling `setState()` after a component has been unmounted, because it will emit a warning.
 
@@ -2363,7 +2363,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-86. ### What are the Pointer Events supported in React?
+86. ### پشتیبانی ری‌اکت از pointer eventها چطوریه؟ 
 
     *Pointer Events* provide a unified way of handling all input events. In the old days we had a mouse and respective event listeners to handle them but nowadays we have many devices which don't correlate to having a mouse, like phones with touch surface or pens. We need to remember that these events will only work in browsers that support the *Pointer Events* specification.
 
@@ -2382,7 +2382,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-87. ### Why should component names start with capital letter?
+87. ### چرا باید اسم کامپوننت با حرف بزرگ شروع بشه؟ 
 
     If you are rendering your component using JSX, the name of that component has to begin with a capital letter otherwise React will throw an error as unrecognized tag. This convention is because only HTML elements and SVG tags can begin with a lowercase letter.
     <span align="left" dir="ltr">
@@ -2422,7 +2422,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-88. ### Are custom DOM attributes supported in React v16?
+88. ### آیا propهای custom توی ری‌اکت پشتیبانی میشن؟ 
 
     Yes. In the past, React used to ignore unknown DOM attributes. If you wrote JSX with an attribute that React doesn't recognize, React would just skip it. For example, this:
 
@@ -2458,7 +2458,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-89. ### What is the difference between constructor and getInitialState?
+89. ### تفاوت‌های constructor و getInitialState چیه؟ 
 
     You should initialize state in the constructor when using ES6 classes, and `getInitialState()` method when using `React.createClass()`.
 
@@ -2495,7 +2495,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-90. ### Can you force a component to re-render without calling setState?
+90. ### می‌تونیم یه کامپوننت رو بدون setState ری‌رندر کنیم؟ 
 
     By default, when your component's state or props change, your component will re-render. If your `render()` method depends on some other data, you can tell React that the component needs re-rendering by calling `forceUpdate()`.
 
@@ -2511,7 +2511,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-91. ### What is the difference between `super()` and `super(props)` in React using ES6 classes?
+91. ### تفاوت‌های فراخوانی super() و super(props) توی کلاس کامپوننت‌های ری‌اکت چیه؟ 
 
     When you want to access `this.props` in `constructor()` then you should pass props to `super()` method.
 
@@ -2549,7 +2549,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-92. ### How to loop inside JSX?
+92. ### چطوری توی JSX حلقه یا همون لوپ رو داشته باشیم؟ 
 
     You can simply use `Array.prototype.map` with ES6 *arrow function* syntax. For example, the `items` array of objects is mapped into an array of components:
 
@@ -2581,7 +2581,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-93. ### How do you access props in attribute quotes?
+93. ### توی attributeها چطوری به prop دسترسی داشته باشیم؟ 
 
     React (or JSX) doesn't support variable interpolation inside an attribute value. The below representation won't work:
 
@@ -2615,7 +2615,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-94. ### What is React proptype array with shape?
+94. ### چطوری یه PropType برای ‌آرایه‌ای از objectها با shape داشته باشیم؟ 
 
     If you want to pass an array of objects to a component with a particular shape then use `React.PropTypes.shape()` as an argument to `React.PropTypes.arrayOf()`.
 
@@ -2634,7 +2634,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-95. ### How to conditionally apply class attributes?
+95. ### چطوری classهای یه المنت رو به صورت شرطی رندر کنیم؟ 
 
     You shouldn't use curly braces inside quotes because it is going to be evaluated as a string.
 
@@ -2668,19 +2668,19 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-96. ### What is the difference between React and ReactDOM?
+96. ### تفاوت‌های React و ReactDOM چیه؟ 
 
     The `react` package contains `React.createElement()`, `React.Component`, `React.Children`, and other helpers related to elements and component classes. You can think of these as the isomorphic or universal helpers that you need to build components. The `react-dom` package contains `ReactDOM.render()`, and in `react-dom/server` we have *server-side rendering* support with `ReactDOMServer.renderToString()` and `ReactDOMServer.renderToStaticMarkup()`.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-97. ### Why ReactDOM is separated from React?
+97. ### چرا ReactDOM رو از React جدا کردن؟ 
 
     The React team worked on extracting all DOM-related features into a separate library called *ReactDOM*. React v0.14 is the first release in which the libraries are split. By looking at some of the packages, `react-native`, `react-art`, `react-canvas`, and `react-three`, it has become clear that the beauty and essence of React has nothing to do with browsers or the DOM. To build more environments that React can render to, React team planned to split the main React package into two: `react` and `react-dom`. This paves the way to writing components that can be shared between the web version of React and React Native.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-98. ### How to use React label element?
+98. ### چطوری از label تو ری‌اکت استفاده کنیم؟ 
 
     If you try to render a `<label>` element bound to a text input using the standard `for` attribute, then it produces HTML missing that attribute and prints a warning to the console.
 
@@ -2706,7 +2706,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-99. ### How to combine multiple inline style objects?
+99. ### چطوری می‌تونیم چندتا object از استایل‌های درون خطی رو با هم ترکیب کنیم؟ 
 
     You can use *spread operator* in regular React:
 
@@ -2730,7 +2730,7 @@
      
     **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-100. ### How to re-render the view when the browser is resized?
+100. ### چطوری با resize شدن مرورگر یه ویو رو ری‌رندر کنیم؟ 
 
      You can listen to the `resize` event in `componentDidMount()` and then update the dimensions (`width` and `height`). You should remove the listener in `componentWillUnmount()` method.
 
@@ -2769,13 +2769,13 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-101. ### What is the difference between `setState()` and `replaceState()` methods?
+101. ### تفاوت متدهای setState و replaceState چیه؟ 
 
      When you use `setState()` the current and previous states are merged. `replaceState()` throws out the current state, and replaces it with only what you provide. Usually `setState()` is used unless you really need to remove all previous keys for some reason. You can also set state to `false`/`null` in `setState()` instead of using `replaceState()`.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-102. ### How to listen to state changes?
+102. ### چطوری به تغییرات state گوش بدیم؟ 
 
      The following lifecycle methods will be called when state changes. You can compare provided state and props values with current state and props to determine if something meaningful changed.
     
@@ -2790,7 +2790,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-103. ### What is the recommended approach of removing an array element in React state?
+103. ### روش تووصیه شده برای حذف یک عنصر از آرایه توی state چیه؟ 
 
      The better approach is to use `Array.prototype.filter()` method.
 
@@ -2810,7 +2810,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-104. ### Is it possible to use React without rendering HTML?
+104. ### امکانش هست که ری‌اکت رو بدون رندر کردن HTML استفاده کنیم؟ 
 
      It is possible with latest version (>=16.2). Below are the possible options:
 
@@ -2868,7 +2868,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-105. ### How to pretty print JSON with React?
+105. ### چطوری میشه با ری‌اکت یه JSON به شکل beautify شده نشون داد؟ 
 
      We can use `<pre>` tag so that the formatting of the `JSON.stringify()` is retained:
 
@@ -2894,14 +2894,14 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-106. ### Why you can't update props in React?
+106. ### چرا نمی‌تونیم prop رو آپدیت کنیم؟ 
 
      The React philosophy is that props should be *immutable* and *top-down*. This means that a parent can send any prop values to a child, but the child can't modify received props.
 
 
      **[⬆ برگشت به فهرست](#جدول-محتوا)**
     
-107. ### How to focus an input element on page load?
+107. ### چطوری می‌تونیم موقع لود صفحه روی یه input فوکوس کنیم؟ 
 
      You can do it by creating *ref* for `input` element and using it in `componentDidMount()`:
 
@@ -2935,7 +2935,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-108. ### What are the possible ways of updating objects in state?
+108. ### روش‌های ممکن برای آپدیت کردن object توی state چیا هستن؟ 
 
      1. **Calling `setState()` with an object to merge with state:**
 
@@ -2978,7 +2978,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-109. ### Why function is preferred over object for `setState()`?
+109. ### چرا توابع به جای object در setState ترجیح داده می‌شوند؟ 
 
      React may batch multiple `setState()` calls into a single update for performance. Because `this.props` and `this.state` may be updated asynchronously, you should not rely on their values for calculating the next state.
 
@@ -3010,7 +3010,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-110. ### How can we find the version of React at runtime in the browser?
+110. ### چطوری می‌‌تونیم نسخه ری‌اکت جاری رو توی محیط اجرایی بفهمیم؟ 
 
      You can use `React.version` to get the version.
 
@@ -3029,7 +3029,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-111. ### What are the approaches to include polyfills in your `create-react-app`?
+111. ### روش‌های لود کردن polyfill توی CRA چیا هستن؟ 
 
      1. **Manual import from `core-js`:**
 
@@ -3061,7 +3061,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-112. ### How to use https instead of http in create-react-app?
+112. ### توی CRA چطوری از https به‌جای http استفاده کنیم؟ 
 
      You just need to use `HTTPS=true` configuration. You can edit your `package.json` scripts section:
      
@@ -3079,7 +3079,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-113. ### How to avoid using relative path imports in create-react-app?
+113. ### توی CRA چطوری میشه از مسیر‌های طولانی برای ایمپورت جلوگیری کرد؟ 
 
      Create a file called `.env` in the project root and write the import path:
      
@@ -3095,7 +3095,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-114. ### How to add Google Analytics for React Router?
+114. ### چطوری میشه Google Analytics رو به react-router اضافه کرد؟ 
 
      Add a listener on the `history` object to record each page view:
 
@@ -3112,7 +3112,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-115. ### How to update a component every second?
+115. ### چطوری یه کامپوننت رو هر ثانیه به روز کنیم؟ 
 
      You need to use `setInterval()` to trigger the change, but you also need to clear the timer when the component unmounts to prevent errors and memory leaks.
 
@@ -3132,7 +3132,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-116. ### How do you apply vendor prefixes to inline styles in React?
+116. ### برای استایل‌دهی‌های درون خطی چطوری باید پیشوند‌های مخصوص مرورگرها رو اضافه کرد؟ 
 
      React *does not* apply *vendor prefixes* automatically. You need to add vendor prefixes manually.
 
@@ -3150,7 +3150,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-117. ### How to import and export components using React and ES6?
+117. ### چطوری کامپوننت‌های ری‌اکت رو با es6 می‌تونیم import و export کنیم؟ 
 
      You should use default for exporting the components
 
@@ -3177,7 +3177,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-118. ### What are the exceptions on React component naming?
+118. ### استثنایی که برای نام‌گذاری کامپوننت اجازه استفاده از حرف کوچک رو میده چیه؟ 
 
      The component names should start with a uppercase letter but there are few exceptions on this convention. The lowercase tag names with a dot (property accessors) are still considered as valid component names.
      For example the below tag can be compiled to a valid component,
@@ -3196,13 +3196,13 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-119. ### Why is a component constructor called only once?
+119. ### چرا تابع سازنده کلاس کامپوننت یکبار صدا زده میشه؟ 
 
      React's *reconciliation* algorithm assumes that without any information to the contrary, if a custom component appears in the same place on subsequent renders, it's the same component as before, so reuses the previous instance rather than creating a new one.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-120. ### How to define constants in React?
+120. ### توی ری‌اکت چطوری مقدار ثابت تعریف کنیم؟ 
 
      You can use ES7 `static` field to define constant.
 
@@ -3220,7 +3220,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-121. ### How to programmatically trigger click event in React?
+121. ### چطوری توی برنامه event کلیک شدن رو trigger کنیم؟ 
 
      You could use the ref prop to acquire a reference to the underlying `HTMLInputElement` object through a callback, store the reference as a class property, then use that reference to later trigger a click from your event handlers using the `HTMLElement.click` method. This can be done in two steps:
 
@@ -3246,13 +3246,13 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-122. ### Is it possible to use async/await in plain React?
+122. ### آیا استفاده از async/await توی ری‌اکت ممکنه؟ 
 
      If you want to use `async`/`await` in React, you will need *Babel* and [transform-async-to-generator](https://babeljs.io/docs/en/babel-plugin-transform-async-to-generator) plugin. React Native ships with Babel and a set of transforms.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-123. ### What are the common folder structures for React?
+123. ### ساختار پوشه‌بندی معروف برا ری‌اکت چطوریه؟ 
 
      There are two common practices for React project file structure.
 
@@ -3313,13 +3313,13 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-124. ### What are the popular packages for animation?
+124. ### پکیج‌های مشهور برای انیمیشن چیا هستن؟ 
 
      *React Transition Group* and *React Motion* are popular animation packages in React ecosystem.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-125. ### What is the benefit of styles modules?
+125. ### مزایای ماژول‌های style چیه؟ 
 
      It is recommended to avoid hard coding style values in components. Any values that are likely to be used across different UI components should be extracted into their own modules.
 
@@ -3357,13 +3357,13 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-126. ### What are the popular React-specific linters?
+126. ### معروف‌ترین linterهای ری‌اکت کدوما هستن؟ 
 
      ESLint is a popular JavaScript linter. There are plugins available that analyse specific code styles. One of the most common for React is an npm package called `eslint-plugin-react`. By default, it will check a number of best practices, with rules checking things from keys in iterators to a complete set of prop types. Another popular plugin is `eslint-plugin-jsx-a11y`, which will help fix common issues with accessibility. As JSX offers slightly different syntax to regular HTML, issues with `alt` text and `tabindex`, for example, will not be picked up by regular plugins.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-127. ### How to make AJAX call and in which component lifecycle methods should I make an AJAX call?
+127. ### چطوری باید توی کامپوننت درخواست api call بزنیم؟ 
 
      You can use AJAX libraries such as Axios, jQuery AJAX, and the browser built-in `fetch`. You should fetch data in the `componentDidMount()` lifecycle method. This is so you can use `setState()` to update your component when the data is retrieved.
 
@@ -3419,7 +3419,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-128. ### What are render props?
+128. ### render props چیه؟    
 
      **Render Props** is a simple technique for sharing code between components using a prop whose value is a function. The below component uses render prop which returns a React element.
 
@@ -3437,19 +3437,19 @@
 
 ## React Router
          
-129. ### What is React Router?
+129. ### React Router چیه؟    
 
      React Router is a powerful routing library built on top of React that helps you add new screens and flows to your application incredibly quickly, all while keeping the URL in sync with what's being displayed on the page.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-130. ### How React Router is different from history library?
+130. ### ارتباط React Router و کتابخونه history چیه؟ 
 
      React Router is a wrapper around the `history` library which handles interaction with the browser's `window.history` with its browser and hash histories. It also provides memory history which is useful for environments that don't have global history, such as mobile app development (React Native) and unit testing with Node.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-131. ### What are the `<Router>` components of React Router v4?
+131. ### کامپوننت‌های router توی نسخه۴ چیا هستن؟ 
 
      React Router v4 provides below 3 `<Router>` components:
 
@@ -3461,7 +3461,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-132. ### What is the purpose of `push()` and `replace()` methods of `history`?
+132. ### هدف از متدهای push و replace توی history چیه؟ 
 
      A history instance has two methods for navigation purpose.
 
@@ -3472,7 +3472,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-133. ### How do you programmatically navigate using React Router v4?
+133. ### چطوری توی برنامه به route خاص جابجا بشیم؟ 
 
      There are three different ways to achieve programmatic routing/navigation within components.
 
@@ -3549,7 +3549,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-134. ### How to get query parameters in React Router v4?
+134. ### چطوری میشه query پارامترها رو توی ری‌اکت روتر نسخه۴ گرفت؟ 
 
      The ability to parse query strings was taken out of React Router v4 because there have been user requests over the years to support different implementation. So the decision has been given to users to choose the implementation they like. The recommended approach is to use query strings library.
 
@@ -3577,7 +3577,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-135. ### Why you get "Router may have only one child element" warning?
+135. ### دلیل خطای "Router may have only one child element" چیه؟ 
 
      You have to wrap your Route's in a `<Switch>` block because `<Switch>` is unique in that it renders a route exclusively.
 
@@ -3608,7 +3608,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-136. ### How to pass params to `history.push` method in React Router v4?
+136. ### چطوری میشه به متد history.push پارامتر اضافه کرد؟ 
 
      While navigating you can pass props to the `history` object:
 
@@ -3628,7 +3628,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-137. ### How to implement *default* or *NotFound* page?
+137. ### چطوری میشه صفحه ۴۰۴ ساخت؟ 
 
      A `<Switch>` renders the first child `<Route>` that matches. A `<Route>` with no path always matches. So you just need to simply drop path attribute as below
 
@@ -3646,7 +3646,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-138. ### How to get history on React Router v4?
+138. ### توی ری‌اکت روتر نسخه۴ چطوری میشه history رو گرفت؟ 
 
      1. Create a module that exports a `history` object and import this module across the project.
 
@@ -3697,7 +3697,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-139. ### How to perform automatic redirect after login?
+139. ### چطوری بعد از لاگین به شکل خودکار ریدایرکت کنیم؟ 
 
      The `react-router` package provides `<Redirect>` component in React Router. Rendering a `<Redirect>` will navigate to a new location. Like server-side redirects, the new location will override the current location in the history stack.
 
@@ -3722,13 +3722,13 @@
 
 ## React Internationalization
          
-140. ### What is React Intl?
+140. ### React-Intl چیه؟    
 
      The *React Intl* library makes internalization in React straightforward, with off-the-shelf components and an API that can handle everything from formatting strings, dates, and numbers, to pluralization. React Intl is part of *FormatJS* which provides bindings to React via its components and API.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-141. ### What are the main features of React Intl?
+141. ### اصلی‌ترین ویژگی‌های React Intl چیا هستن؟ 
 
      1. Display numbers with separators.
      2. Display dates and times correctly.
@@ -3740,7 +3740,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-142. ### What are the two ways of formatting in React Intl?
+142. ### دو روش فرمت کردن توی React Intl چیا هستن؟ 
 
      The library provides two ways to format strings, numbers, and dates: react components or an API.
 
@@ -3772,7 +3772,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-143. ### How to use `<FormattedMessage>` as placeholder using React Intl?
+143. ### چطوری از FormattedMessage به عنوان یه placeholder میشه استفاده کرد؟ 
 
      The `<Formatted... />` components from `react-intl` return elements, not plain text, so they can't be used for placeholders, alt text, etc. In that case, you should use lower level API `formatMessage()`. You can inject the `intl` object into your component using `injectIntl()` higher-order component and then format the message using `formatMessage()` available on that object.
 
@@ -3798,7 +3798,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-144. ### How to access current locale with React Intl?
+144. ### چطوری میشه localeفعلی رو توی React Intl بدست آورد؟ 
 
      You can get the current locale in any component of your application using `injectIntl()`:
 
@@ -3822,7 +3822,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-145. ### How to format date using React Intl?
+145. ### چطوری با استفاده از React Intl یه تاریخ رو فرمت‌بندی کنیم؟ 
 
      The `injectIntl()` higher-order component will give you access to the `formatDate()` method via the props in your component. The method is used internally by instances of `FormattedDate` and it returns the string representation of the formatted date.
 
@@ -3852,7 +3852,7 @@
 
 ## React Testing
          
-146. ### What is Shallow Renderer in React testing?
+146. ### توی تست ری‌اکت Shallow Renderer چیه؟ 
 
      *Shallow rendering* is useful for writing unit test cases in React. It lets you render a component *one level deep* and assert facts about what its render method returns, without worrying about the behavior of child components, which are not instantiated or rendered.
 
@@ -3897,7 +3897,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-147. ### What is `TestRenderer` package in React?
+147. ### پکیج TestRenderer توی ری‌اکت چیه؟ 
 
      This package provides a renderer that can be used to render components to pure JavaScript objects, without depending on the DOM or a native mobile environment. This package makes it easy to grab a snapshot of the platform view hierarchy (similar to a DOM tree) rendered by a ReactDOM or React Native without using a browser or `jsdom`.
 
@@ -3924,19 +3924,19 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-148. ### What is the purpose of ReactTestUtils package?
+148. ### هدف از پکیج ReactTestUtils چیه؟ 
 
      *ReactTestUtils* are provided in the `with-addons` package and allow you to perform actions against a simulated DOM for the purpose of unit testing.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-149. ### What is Jest?
+149. ### Jest چیه؟    
 
      *Jest* is a JavaScript unit testing framework created by Facebook based on Jasmine and provides automated mock creation and a `jsdom` environment. It's often used for testing components.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-150. ### What are the advantages of Jest over Jasmine?
+150. ### مزایای jest نسبت به jasmine چیا هستن؟ 
 
      There are couple of advantages compared to Jasmine:
 
@@ -3948,7 +3948,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-151. ### Give a simple example of Jest test case
+151. ### یه مثال ساده از تست با jest بزن؟ 
 
      Let's write a test for a function that adds two numbers in `sum.js` file:
 
@@ -4004,7 +4004,7 @@
 
 ## React Redux
          
-152. ### What is flux?
+152. ### Flux چیه؟    
 
      *Flux* is an *application design paradigm* used as a replacement for the more traditional MVC pattern. It is not a framework or a library but a new kind of architecture that complements React and the concept of Unidirectional Data Flow. Facebook uses this pattern internally when working with React.
 
@@ -4014,13 +4014,13 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-153. ### What is Redux?
+153. ### Redux چیه؟    
 
      *Redux* is a predictable state container for JavaScript apps based on the *Flux design pattern*. Redux can be used together with React, or with any other view library. It is tiny (about 2kB) and has no dependencies.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-154. ### What are the core principles of Redux?
+154. ### مبانی اصلی ریداکس چیا هستن؟ 
 
      Redux follows three fundamental principles:
 
@@ -4030,7 +4030,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-155. ### What are the downsides of Redux compared to Flux?
+155. ### کاستی‌های redux نسبت به flux چیا هستن؟ 
 
      Instead of saying downsides we can say that there are few compromises of using Redux over Flux. Those are as follows:
 
@@ -4040,7 +4040,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-156. ### What is the difference between `mapStateToProps()` and `mapDispatchToProps()`?
+156. ### تفاوت‌های mapStateToProps() و mapDispatchToProps() چی هست؟ 
 
      `mapStateToProps()` is a utility which helps your component get updated state (which is updated by some other components):
 
@@ -4088,13 +4088,13 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-157. ### Can I dispatch an action in reducer?
+157. ### توی ریدیوسر می‌تونیم یه actionی رو dispatch کنیم؟ 
 
      Dispatching an action within a reducer is an **anti-pattern**. Your reducer should be *without side effects*, simply digesting the action payload and returning a new state object. Adding listeners and dispatching actions within the reducer can lead to chained actions and other side effects.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-158. ### How to access Redux store outside a component?
+158. ### چطوری میشه خارج از کامپوننت میشه store ریداکس دسترسی داشت؟ 
 
      You just need to export the store from the module where it created with `createStore()`. Also, it shouldn't pollute the global window object.
 
@@ -4110,7 +4110,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-159. ### What are the drawbacks of MVW pattern?
+159. ### اشکالات پترن MVW چیا هستن؟ 
 
      1. DOM manipulation is very expensive which causes applications to behave slow and inefficient.
      3. Due to circular dependencies, a complicated model was created around models and views.
@@ -4119,7 +4119,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-160. ### Are there any similarities between Redux and RxJS?
+160. ### تشابهی بین Redux و RxJS هست؟ 
 
      These libraries are very different for very different purposes, but there are some vague similarities.
 
@@ -4127,7 +4127,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-161. ### How to dispatch an action on load?
+161. ### چطوری میشه یه اکشن رو موقع لود dispatch کرد؟ 
 
      You can dispatch an action in `componentDidMount()` method and in `render()` method you can verify the data.
 
@@ -4159,7 +4159,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-162. ### How to use `connect()` from React Redux?
+162. ### چطوری از متد connect از پکیج react-redux استفاده می‌کنیم؟ 
 
      You need to follow two steps to use your store in your container:
 
@@ -4189,7 +4189,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-163. ### How to reset state in Redux?
+163. ### چطوری میشه state ریداکس رو ریست کرد؟ 
 
      You need to write a *root reducer* in your application which delegate handling the action to the reducer generated by `combineReducers()`.
 
@@ -4239,7 +4239,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-164. ### Whats the purpose of `at` symbol in the Redux connect decorator?
+164. ### هدف از کاراکتر @ توی decorator متد connect چیه؟ 
 
      The **@** symbol is in fact a JavaScript expression used to signify decorators. *Decorators* make it possible to annotate and modify classes and properties at design time.
 
@@ -4302,19 +4302,19 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-165. ### What is the difference between React context and React Redux?
+165. ### تفاوت‌های context و React Redux چیه؟ 
 
      You can use **Context** in your application directly and is going to be great for passing down data to deeply nested components which what it was designed for. Whereas **Redux** is much more powerful and provides a large number of features that the Context API doesn't provide. Also, React Redux uses context internally but it doesn't expose this fact in the public API.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-166. ### Why are Redux state functions called reducers?
+166. ### چرا به توابع state ریداکس reducer میگن؟ 
 
      Reducers always return the accumulation of the state (based on all previous and current actions). Therefore, they act as a reducer of state. Each time a Redux reducer is called, the state and action are passed as parameters. This state is then reduced (or accumulated) based on the action, and then the next state is returned. You could *reduce* a collection of actions and an initial state (of the store) on which to perform these actions to get the resulting final state.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-167. ### How to make AJAX request in Redux?
+167. ### توی redux چطوری میشه api request زد؟ 
 
      You can use `redux-thunk` middleware which allows you to define async actions.
 
@@ -4346,13 +4346,13 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-168. ### Should I keep all component's state in Redux store?
+168. ### آیا لازمه همه state همه کامپوننت‌هامونو توی ریداکس نگهداری کنیم؟ 
 
       Keep your data in the Redux store, and the UI related state internally in the component.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-169. ### What is the proper way to access Redux store?
+169. ### روش صحیح برای دسترسی به store ریداکس چیه؟ 
 
      The best way to access your store in a component is to use the `connect()` function, that creates a new component that wraps around your existing one. This pattern is called *Higher-Order Components*, and is generally the preferred way of extending a component's functionality in React. This allows you to map state and action creators to your component, and have them passed in automatically as your store updates.
 
@@ -4399,7 +4399,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-170. ### What is the difference between component and container in React Redux?
+170. ### تفاوت‌های component و container توی ریداکس چی هست؟ 
 
      **Component** is a class or function component that describes the presentational part of your application.
 
@@ -4407,7 +4407,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-171. ### What is the purpose of the constants in Redux?
+171. ### هدف از constantها تا typeها توی ریداکس چیه؟ 
 
      Constants allows you to easily find all usages of that specific functionality across the project when you use an IDE. It also prevents you from introducing silly bugs caused by typos – in which case, you will get a `ReferenceError` immediately.
 
@@ -4473,7 +4473,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-172. ### What are the different ways to write `mapDispatchToProps()`?
+172. ### روش‌های مختلف برای نوشتن mapDispatchToProps چیه؟ 
 
      There are a few ways of binding *action creators* to `dispatch()` in `mapDispatchToProps()`. Below are the possible options:
 
@@ -4509,7 +4509,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-173. ### What is the use of the `ownProps` parameter in `mapStateToProps()` and `mapDispatchToProps()`?
+173. ### کاربرد پارامتر ownProps توی mapStateToProps و mapDispatchToProps چیه؟ 
 
      If the `ownProps` parameter is specified, React Redux will pass the props that were passed to the component into your *connect* functions. So, if you use a connected component:
 
@@ -4537,7 +4537,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-174. ### How to structure Redux top level directories?
+174. ### ساختار پوشه‌بندی ریشه ریداکس اکثرا چطوریه؟ 
 
      Most of the applications has several top-level directories as below:
 
@@ -4551,7 +4551,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-175. ### What is redux-saga?
+175. ### redux-saga جیه؟    
 
      `redux-saga` is a library that aims to make side effects (asynchronous things like data fetching and impure things like accessing the browser cache) in React/Redux applications easier and better.
 
@@ -4567,13 +4567,13 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-176. ### What is the mental model of redux-saga?
+176. ### مدل ذهنی redux-saga چطوریه؟ 
 
      *Saga* is like a separate thread in your application, that's solely responsible for side effects. `redux-saga` is a redux *middleware*, which means this thread can be started, paused and cancelled from the main application with normal Redux actions, it has access to the full Redux application state and it can dispatch Redux actions as well.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-177. ### What are the differences between `call()` and `put()` in redux-saga?
+177. ### تفاوت افکت‌های call و put توی redux-saga چی هست؟ 
 
      Both `call()` and `put()` are effect creator functions. `call()` function is used to create effect description, which instructs middleware to call the promise. `put()` function creates an effect, which instructs middleware to dispatch an action to the store.
 
@@ -4599,25 +4599,25 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-178. ### What is Redux Thunk?
+178. ### Redux Thunk چیه؟    
 
      *Redux Thunk* middleware allows you to write action creators that return a function instead of an action. The thunk can be used to delay the dispatch of an action, or to dispatch only if a certain condition is met. The inner function receives the store methods `dispatch()` and `getState()` as parameters.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-179. ### What are the differences between `redux-saga` and `redux-thunk`?
+179. ### تفاوت‌های redux-saga و redux-thunk جیا هستن؟ 
 
      Both *Redux Thunk* and *Redux Saga* take care of dealing with side effects. In most of the scenarios, Thunk uses *Promises* to deal with them, whereas Saga uses *Generators*. Thunk is simple to use and Promises are familiar to many developers, Sagas/Generators are more powerful but you will need to learn them. But both middleware can coexist, so you can start with Thunks and introduce Sagas when/if you need them.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-180. ### What is Redux DevTools?
+180. ### Redux DevTools چیه؟    
 
      *Redux DevTools* is a live-editing time travel environment for Redux with hot reloading, action replay, and customizable UI. If you don't want to bother with installing Redux DevTools and integrating it into your project, consider using Redux DevTools Extension for Chrome and Firefox.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-181. ### What are the features of Redux DevTools?
+181. ### ویژگی‌های Redux DevTools چیا هستن؟ 
 
      1. Lets you inspect every state and action payload.
      2. Lets you go back in time by *cancelling* actions.
@@ -4627,7 +4627,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-182. ### What are Redux selectors and why to use them?
+182. ### سلکتورهای ریداکس چی هستن و چرا باید ازشون استفاده کنیم؟ 
 
      *Selectors* are functions that take Redux state as an argument and return some data to pass to the component.
 
@@ -4643,13 +4643,13 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-183. ### What is Redux Form?
+183. ### Redux Form چیه؟    
 
      *Redux Form* works with React and Redux to enable a form in React to use Redux to store all of its state. Redux Form can be used with raw HTML5 inputs, but it also works very well with common UI frameworks like Material UI, React Widgets and React Bootstrap.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-184. ### What are the main features of Redux Form?
+184. ### اصلی‌ترین ویژگی‌های Redux Form چیه؟ 
 
        1. Field values persistence via Redux store.
        2. Validation (sync/async) and submission.
@@ -4657,7 +4657,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-185. ### How to add multiple middlewares to Redux?
+185. ### چطوری میشه چندتا middleware به ریداکس اضافه کرد؟ 
 
      You can use `applyMiddleware()`.
 
@@ -4674,7 +4674,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-186. ### How to set initial state in Redux?
+186. ### چطوری میشه توی ریداکس initial state تعریف کرد؟ 
 
      You need to pass initial state as second argument to createStore:
 
@@ -4700,13 +4700,13 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-187. ### How Relay is different from Redux?
+187. ### تفاوت‌های Relay با Redux چیا هستن؟ 
 
      Relay is similar to Redux in that they both use a single store. The main difference is that relay only manages state originated from the server, and all access to the state is used via *GraphQL* queries (for reading data) and mutations (for changing data). Relay caches the data for you and optimizes data fetching for you, by fetching only changed data and nothing more.
 
 ## React Native
     
-188. ### What is the difference between React Native and React?
+188. ### تفاوت‌های React Native و React چیا هستن؟ 
 
      **React** is a JavaScript library, supporting both front end web and being run on the server, for building user interfaces and web applications.
 
@@ -4714,13 +4714,13 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-189. ### How to test React Native apps?
+189. ### چطوری میشه برنامه React Native رو تست کرد؟ 
 
      React Native can be tested only in mobile simulators like iOS and Android. You can run the app in your mobile using expo app (https://expo.io) Where it syncs using QR code, your mobile and computer should be in same wireless network.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-190. ### How to do logging in React Native?
+190. ### چطوری میشه توی React Native لاگ کرد؟ 
 
      You can use `console.log`, `console.warn`, etc. As of React Native v0.29 you can simply run the following to see logs in the console:
      
@@ -4735,7 +4735,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-191. ### How to debug your React Native?
+191. ### چطوری میشه React Native رو دیباگ کرد؟ 
 
      Follow the below steps to debug React Native app:
 
@@ -4747,7 +4747,7 @@
 
 ## React supported libraries & Integration
     
-192. ### What is reselect and how it works?
+192. ### کتابخونه reselect چیه و چطوری کار می‌کنه؟ 
 
      *Reselect* is a **selector library** (for Redux) which uses *memoization* concept. It was originally written to compute derived data from Redux-like applications state, but it can't be tied to any architecture or library.
 
@@ -4755,19 +4755,19 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-193. ### What is Flow?
+193. ### Flow چیه؟    
 
      *Flow* is a *static type checker* designed to find type errors in JavaScript. Flow types can express much more fine-grained distinctions than traditional type systems. For example, Flow helps you catch errors involving `null`, unlike most type systems.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-194. ### What is the difference between Flow and PropTypes?
+194. ### تفاوت‌های Flow و PropTypes چیا هستن؟ 
 
      Flow is a *static analysis tool* (static checker) which uses a superset of the language, allowing you to add type annotations to all of your code and catch an entire class of bugs at compile time. PropTypes is a *basic type checker* (runtime checker) which has been patched onto React. It can't check anything other than the types of the props being passed to a given component. If you want more flexible typechecking for your entire project Flow/TypeScript are appropriate choices.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-195. ### How to use Font Awesome icons in React?
+195. ### چطوری از آیکون‌های font-awesome توی ری‌اکت استفاده کنیم؟ 
 
      The below steps followed to include Font Awesome in React:
 
@@ -4805,7 +4805,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-196. ### What is React Dev Tools?
+196. ### React Dev Tools چیه؟    
 
      *React Developer Tools* let you inspect the component hierarchy, including component props and state. It exists both as a browser extension (for Chrome and Firefox), and as a standalone app (works with other environments including Safari, IE, and React Native).
 
@@ -4816,13 +4816,13 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-197. ### Why is DevTools not loading in Chrome for local files?
+197. ### چرا توی کروم devtools برای فایل‌های local لود نمیشه؟ 
 
      If you opened a local HTML file in your browser (`file://...`) then you must first open *Chrome Extensions* and check `Allow access to file URLs`.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-198. ### How to use Polymer in React?
+198. ### چطوری از Polymer توی React استفاده کنیم؟ 
 
      1. Create a Polymer element:
 
@@ -4872,7 +4872,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-199. ### What are the advantages of React over Vue.js?
+199. ### مزایای React نسبت به Vue.js چیا هستن؟ 
 
      React has the following advantages over Vue.js:
 
@@ -4884,7 +4884,7 @@
    **نکته:** لیست موارد فوق صرفاً اظهار نظر شخصی بوده و براساس تجربه حرفه‌ای ممکن است متفاوت باشد. اما به عنوان پارامترهای پایه مفید هستند 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-200. ### What is the difference between React and Angular?
+200. ### تفاوت‌های React و Angular چیا هستن؟ 
 
      | React | Angular |
      | ----- | ------- |
@@ -4897,19 +4897,19 @@
    **نکته:** لیست موارد فوق صرفاً اظهار نظر شخصی بوده و براساس تجربه حرفه‌ای ممکن است متفاوت باشد. اما به عنوان پارامترهای پایه مفید هستند
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-201. ### Why React tab is not showing up in DevTools?
+201. ### چرا تب React در DevTools نشان داده نمی‌شود؟ 
 
      When the page loads, *React DevTools* sets a global named `__REACT_DEVTOOLS_GLOBAL_HOOK__`, then React communicates with that hook during initialization. If the website is not using React or if React fails to communicate with DevTools then it won't show up the tab.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-202. ### What are Styled Components?
+202. ### Styled components چیه؟    
 
      `styled-components` is a JavaScript library for styling React applications. It removes the mapping between styles and components, and lets you write actual CSS augmented with JavaScript.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-203. ### Give an example of Styled Components?
+203. ### یه مثال از Styled Components می‌تونی بگی؟ 
 
      Lets create `<Title>` and `<Wrapper>` components with specific styles for each.
 
@@ -4949,13 +4949,13 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-204. ### What is Relay?
+204. ### Relay چیه؟    
 
      Relay is a JavaScript framework for providing a data layer and client-server communication to web applications using the React view layer.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-205. ### How to use TypeScript in `create-react-app` application?
+205. ### چطوری میشه از تایپ اسکریپت توی create-react-app استفاده کرد؟ 
      Starting from react-scripts@2.1.0 or higher, there is a built-in support for typescript. You can just pass `--typescript` option as below
      
      <span dir="ltr" align="left">
@@ -4994,13 +4994,13 @@
 
 ## متفرقه 
          
-206. ### What are the main features of Reselect library?
+206. ### اصلی‌ترین ویژگی‌های کتابخونه reselect چیا هستن؟ 
 
      1. Selectors can compute derived data, allowing Redux to store the minimal possible state.
      2. Selectors are efficient. A selector is not recomputed unless one of its arguments changes.
      3. Selectors are composable. They can be used as input to other selectors.
 
-207. #### Give an example of Reselect usage?
+207. #### یه مثال از کارکرد کتابخونهreselect بزن؟ 
 
      Let's take calculations and different amounts of a shipment order with the simplified usage of Reselect:
 
@@ -5048,7 +5048,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-208. ### What is an action in Redux?
+208. ### توی Redux اکشن چیکار می‌کنه؟ 
 
      *Actions* are plain JavaScript objects or payloads of information that send data from your application to your store. They are the only source of information for the store. Actions must have a type property that indicates the type of action being performed.
 
@@ -5067,7 +5067,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-209. ### Does the statics object work with ES6 classes in React?
+209. ### استاتیک شی با کلاس های ES6 در React کار می کنه؟ 
 
      No, `statics` only works with `React.createClass()`:
 
@@ -5117,19 +5117,19 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-210. ### Can Redux only be used with React?
+210. ### ریداکس رو قفط با ری‌اکت میشه استفاده کرد؟ 
 
      Redux can be used as a data store for any UI layer. The most common usage is with React and React Native, but there are bindings available for Angular, Angular 2, Vue, Mithril, and more. Redux simply provides a subscription mechanism which can be used by any other code.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-211. ### Do you need to have a particular build tool to use Redux?
+211. ### برای استفاده از Redux به ابزار build خاصی احتیاج داریم؟ 
 
      Redux is originally written in ES6 and transpiled for production into ES5 with Webpack and Babel. You should be able to use it regardless of your JavaScript build process. Redux also offers a UMD build that can be used directly without any build process at all.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-212. ### How Redux Form `initialValues` get updated from state?
+212. ### مقادیر پیش‌فرض ریداکس فرم چطوری تغییرات رو از state می‌گیرن؟ 
 
      You need to add `enableReinitialize : true` setting.
 
@@ -5148,7 +5148,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-213. ### How React PropTypes allow different types for one prop?
+213. ### توی PropTypeهای ری‌اکت چطوری میشه برای یه prop چند نوع داده مجاز مشخص کرد؟ 
 
      You can use `oneOfType()` method of `PropTypes`.
 
@@ -5169,7 +5169,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-214. ### Can I import an SVG file as react component?
+214. ### می‌تونیم فایل svg رو به عنوان کامپوننت import کنیم؟ 
 
      You can import SVG directly as component instead of loading it as a file. This feature is available with `react-scripts@2.0.0` and higher.
 
@@ -5192,7 +5192,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-215. ### Why are inline ref callbacks or functions not recommended?
+215. ### چرا استفاده از توابع ref callback درون خطی توصیه نمیشه؟ 
 
      If the ref callback is defined as an inline function, it will get called twice during updates, first with null and then again with the DOM element. This is because a new instance of the function is created with each render, so React needs to clear the old ref and set up the new one.
 
@@ -5251,13 +5251,13 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-216. ### What is render hijacking in react?
+216. ### render hijacking توی ری‌اکت چیه؟    
 
      The concept of render hijacking is the ability to control what a component will output from another component. It actually means that you decorate your component by wrapping it into a Higher-Order component. By wrapping you can inject additional props or make other changes, which can cause changing logic of rendering. It does not actually enables hijacking, but by using HOC you make your component behave in different way.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-217. ### What are HOC factory implementations?
+217. ### پیاده‌سازی factory یا سازنده HOC چطوریه؟ 
      There are two main ways of implementing HOCs in React. 1. Props Proxy (PP) and 2. Inheritance Inversion (II). They follow different approaches for manipulating the *WrappedComponent*.
 
      **Props Proxy**
@@ -5298,7 +5298,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-218. ### How to pass numbers to React component?
+218. ### چطوری به یه کامپوننت ری‌اکت عدد پاس بدیم؟ 
 
      You should be passing the numbers via curly braces({}) where as strings inn quotes
 
@@ -5312,7 +5312,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-219. ### Do I need to keep all my state into Redux? Should I ever use react internal state?
+219. ### لازمه همه stateها رو توی ریداکس مدیریت کنیم؟ لزومی به استفاده از state داخلی داریم؟ 
      It is up to developer decision. i.e, It is developer job to determine what kinds of state make up your application, and where each piece of state should live. Some users prefer to keep every single piece of data in Redux, to maintain a fully serializable and controlled version of their application at all times. Others prefer to keep non-critical or UI state, such as “is this dropdown currently open”, inside a component's internal state.
 
      Below are the thumb rules to determine what kind of data should be put into Redux
@@ -5324,7 +5324,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-220. ### What is the purpose of registerServiceWorker in React?
+220. ### هدف از متد registerServiceWorker توی ری‌اکت چیه؟?                                                 
 
      React creates a service worker for you without any configuration by default. The service worker is a web API that helps you cache your assets and other files so that when the user is offline or on slow network, he/she can still see results on the screen, as such, it helps you build a better user experience, that's what you should know about service worker's for now. It's all about adding offline capabilities to your site.
 
@@ -5344,7 +5344,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-221. ### What is React memo function?
+221. ### تابع memo ری‌اکت چیه؟ 
 
      Class components can be restricted from rendering when their input props are the same using **PureComponent or shouldComponentUpdate**. Now you can do the same with function components by wrapping them in **React.memo**.
     
@@ -5360,7 +5360,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-222. ### What is React lazy function?
+222. ### تابع lazy ری‌اکت چیه؟ 
      The React.lazy function lets you render an dynamic import as a regular component. It will automatically load the bundle containing the OtherComponent when the component gets rendered. This must return a Promise which resolves to a module with a default export containing a React component.
     
      <span align="left" dir="ltr">
@@ -5383,7 +5383,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-223. ### How to prevent unnecessary updates using setState?
+223. ### چطوری با استفاده از تابع setState از رندر غیرضروری جلوگیری کنیم؟ 
      You can compare current value of the state with an existing state value and decide whether to rerender the page or not. If the values are same then you need to return **null** to stop rerendering otherwise return the latest state value. For example, the user profile information is conditionally rendered as follows,
      
      <span align="left" dir="ltr">
@@ -5405,7 +5405,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-224. ### How do you render Array, Strings and Numbers in React 16 Version?
+224. ### توی نسخه ۱۶ ری‌اکت چطوری میشه آرایه، Strings و یا عدد رو رندر کنیم؟ 
      **Arrays**: Unlike older releases, you don't need to make sure **render** method return a single element in React16. You are able to return multiple sibling elements without a wrapping element by returning an array. For example, let us take the below list of developers,
     
      <span align="left" dir="ltr">
@@ -5457,7 +5457,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-225. ### How to use class field declarations syntax in React classes?
+225. ### چطوری میشه از تعریف ویژگی در کلاس کامپوننت استفاده کرد؟ 
      React Class Components can be made much more concise using the class field declarations. You can initialize local state without using the constructor and declare class methods by using arrow functions without the extra need to bind them. Let's take a counter example to demonstrate class field declarations for state without using constructor and methods without binding,
      
      <span align="left" dir="ltr">
@@ -5495,7 +5495,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-226. ### What are hooks?
+226. ### hookها چی هستن؟           
      Hooks is a new feature that lets you use state and other React features without writing a class. Let's see an example of useState hook example,
     
      <span align="left" dir="ltr">
@@ -5522,7 +5522,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-227. ### What are the rules needs to follow for hooks?
+227. ### چه قوانینی برای هوک‌ها باید رعایت بشن؟ 
 
      You need to follow two rules inorder to use hooks
      1. Call Hooks only at the top level of your react functions. i.e, You shouldn’t call Hooks inside loops, conditions, or nested functions. This will ensure that Hooks are called in the same order each time a component renders and it preserves the state of Hooks between multiple useState and useEffect calls.
@@ -5530,7 +5530,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-228. ### How to ensure hooks followed the rules in your project?
+228. ### چطوری میشه از استفاده درست هوک‌ها اطمینان حاصل کرد؟ 
      React team released an ESLint plugin called **eslint-plugin-react-hooks** that enforces these two rules. You can add this plugin to your project using the below command,
      
      <span align="left" dir="ltr">
@@ -5563,7 +5563,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-229. ### What are the differences between Flux and Redux?
+229. ### تفاوت‌های Flux و Redux چیا هستن؟ 
      Below are the major differences between Flux and Redux
 
      | Flux | Redux |
@@ -5577,7 +5577,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-230. ### What are the benefits of React Router V4?
+230. ### مزایای ری‌اکت روتر نسخه۴ چیه؟ 
      Below are the main benefits of React Router V4 module,
      1. In React Router v4(version 4), the API is completely about components. A router can be visualized as a single component(<BrowserRouter>) which wraps specific child router components(<Route>).
      2. You don't need to manually set history. The router module will take care history by wrapping routes with  <BrowserRouter> component.
@@ -5585,7 +5585,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-231. ### Can you describe about componentDidCatch lifecycle method signature?
+231. ### می‌تونی راجع به متد componentDidCatch توضیح بدی؟ 
      The **componentDidCatch** lifecycle method is invoked after an error has been thrown by a descendant component. The method receives two parameters,
      1. error: - The error object which was thrown
      2. info: - An object with a componentStack key contains the information about which component threw the error.
@@ -5601,7 +5601,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-232. ### In which scenarios error boundaries do not catch errors?
+232. ### در چه سناریویی error boundary خطا رو catch نمی‌کنه؟?                                                    
      Below are the cases in which error boundaries doesn't work
      1. Inside Event handlers
      2. Asynchronous code using **setTimeout or requestAnimationFrame** callbacks
@@ -5610,7 +5610,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-233. ### Why do not you need error boundaries for event handlers?
+233. ### چرا نیازی به error boundaries برای event handlerها نیست؟ 
      Error boundaries do not catch errors inside event handlers. Event handlers don't happened or invoked during rendering time unlike render method or lifecycle methods. So React knows how to recover these kind of errors in event handlers.
      If still you need to catch an error inside event handler, use the regular JavaScript try / catch statement as below
      
@@ -5645,7 +5645,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-234. ### What is the difference between try catch block and error boundaries?
+234. ### تفاوت بلوک try catch و error boundaryها چیه؟ 
      Try catch block works with imperative code whereas error boundaries are meant for declarative code to render on the screen.
      For example, the try catch block used for below imperative code
      
@@ -5677,31 +5677,31 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-235. ### What is the behavior of uncaught errors in react 16?
+235. ### رفتار خطاهای uncaught در ری‌اکت 16 چیه؟ 
      In React 16, errors that were not caught by any error boundary will result in unmounting of the whole React component tree. The reason behind this decision is that it is worse to leave corrupted UI in place than to completely remove it. For example, it is worse for a payments app to display a wrong amount than to render nothing.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-236. ### What is the proper placement for error boundaries?
+236. ### محل مناسب برای قرار دادن error boundary کجاست؟ 
      The granularity of error boundaries usage is up to the developer based on project needs. You can follow either of these approaches,
      1. You can wrap top-level route components to display a generic error message for the entire application.
      2. You can also wrap individual components in an error boundary to protect them from crashing the rest of the application.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-237. ### What is the benefit of component stack trace from error boundary?
+237. ### مزیت چاپ شدن stack trace کامپوننت‌ها توی متن ارور boundary ری‌اکت چیه؟ 
      Apart from error messages and javascript stack, React16 will display the component stack trace with file names and line numbers using error boundary concept. For example, BuggyCounter component displays the component stack trace as below,
 
      ![stacktrace](images/error_boundary.png)
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-238. ### What is the required method to be defined for a class component?
+238. ### متدی که در تعریف کامپوننت‌های class الزامیه؟ 
      The render() method is the only required method in a class component. i.e, All methods other than render method are optional for a class component.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-239. ### What are the possible return types of render method?
+239. ### نوع‌های ممکن برای مقدار بازگشتی متد render چیا هستن؟ 
      Below are the list of following types used and return from render method,
      1. **React elements:** Elements that instruct React to render a DOM node. It includes html elements such as `<div/>` and user defined elements.
      2. **Arrays and fragments:** Return multiple elements to render as Arrays and Fragments to wrap multiple elements
@@ -5711,7 +5711,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-240. ### What is the main purpose of constructor?
+240. ### هدف اصلی از متد constructor چیه؟ 
      The constructor is mainly used for two purposes,
      1. To initialize local state by assigning object to this.state
      2. For binding event handler methods to the instance
@@ -5731,12 +5731,12 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-241. ### Is it mandatory to define constructor for React component?
+241. ### آیا تعریف متد سازنده توی ری‌اکت الزامیه؟ 
      No, it is not mandatory. i.e, If you don’t initialize state and you don’t bind methods, you don’t need to implement a constructor for your React component.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-242. ### What are default props?
+242. ### Default propها چی هستن؟           
      The defaultProps are defined as a property on the component class to set the default props for the class. This is used for undefined props, but not for null props. For example, let us create color default prop for the button component,
      
      <span align="left" dir="ltr">
@@ -5768,12 +5768,12 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-243. ### Why should not call setState in componentWillUnmount?
+243. ### چرا نباید تابع setState رو توی متد componentWillUnmount فراخوانی کرد؟ 
      You should not call setState() in componentWillUnmount() because Once a component instance is unmounted, it will never be mounted again.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-244. ### What is the purpose of getDerivedStateFromError?
+244. ### کاربرد متد getDerivedStateFromError چیه؟ 
      This lifecycle method is invoked after an error has been thrown by a descendant component. It receives the error that was thrown as a parameter and should return a value to update state. The signature of the lifecycle method is as follows,
      
      <span align="left" dir="ltr">
@@ -5814,7 +5814,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-245. ### What is the methods order when component re-rendered?
+245. ### کدوم متدها و به چه ترتیبی در طول ری‌رندر فراخوانی میشن؟ 
      An update can be caused by changes to props or state. The below methods are called in the following order when a component is being re-rendered.
      1. static getDerivedStateFromProps()
      2. shouldComponentUpdate()
@@ -5824,14 +5824,14 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-246. ### What are the methods invoked during error handling?
+246. ### کدوم متد‌ها موقع error handling فراخوانی میشن؟ 
      Below methods are called when there is an error during rendering, in a lifecycle method, or in the constructor of any child component.
      1. static getDerivedStateFromError()
      2. componentDidCatch()
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-247. ### What is the purpose of displayName class property?
+247. ### کارکرد ویژگی displayName چیه؟ 
      The displayName string is used in debugging messages. Usually, you don’t need to set it explicitly because it’s inferred from the name of the function or class that defines the component. You might want to set it explicitly if you want to display a different name for debugging purposes or when you create a higher-order component.
      For example, To ease debugging, choose a display name that communicates that it’s the result of a withSubscription HOC.
      
@@ -5852,12 +5852,12 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-248. ### What is the browser support for react applications?
+248. ### ساپورت مرورگرها برای برنامه ری‌اکتی چطوریه؟ 
      React supports all popular browsers, including Internet Explorer 9 and above, although some polyfills are required for older browsers such as IE 9 and IE 10. If you use  **es5-shim and es5-sham** polyfill then it even support old browsers that doesn't support ES5 methods.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-249. ### What is the purpose of unmountComponentAtNode method?
+249. ### هدف از متد unmountComponentAtNode چیه؟ 
      This method is available from react-dom package and it removes a mounted React component from the DOM and clean up its event handlers and state. If no component was mounted in the container, calling this function does nothing. Returns true if a component was unmounted and false if there was no component to unmount.
      The method signature would be as follows,
      
@@ -5871,7 +5871,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-250. ### What is code-splitting?
+250. ### code-splitting چیه؟    
      Code-Splitting is a feature supported by bundlers like Webpack and Browserify which can create multiple bundles that can be dynamically loaded at runtime. The react project supports code splitting via dynamic import() feature.
      For example, in the below code snippets, it will make moduleA.js and all its unique dependencies as a separate chunk that only loads after the user clicks the 'Load' button.
      **moduleA.js**
@@ -5919,7 +5919,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-251. ### What is the benefit of strict mode?
+251. ### مزایای حالت strict چیه؟ 
      The <StrictMode> will be  helpful in the below cases
 
      1. Identifying components with **unsafe lifecycle methods**.
@@ -5930,7 +5930,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-252. ### What are Keyed Fragments?
+252. ### Fragmentهای دارای key هستن؟     
      The Fragments declared with the explicit <React.Fragment> syntax may have keys. The general usecase is mapping a collection to an array of fragments as below,
      
      <span align="left" dir="ltr">
@@ -5956,7 +5956,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-253. ### Does React support all HTML attributes?
+253. ### آیا ری‌اکت از همه‌ی attributeهای HTML پشتیبانی می‌کنه؟ 
      As of React 16, both standard or custom DOM attributes are fully supported. Since React components often take both custom and DOM-related props, React uses the camelCase convention just like the DOM APIs. Let us take few props with respect to standard HTML attributes,
     
      <span align="left" dir="ltr">
@@ -5972,7 +5972,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-254. ### What are the limitations with HOCs?
+254. ### محدودیت‌های HOCها چی هستن؟ 
 
      Higher-order components come with a few caveats apart from its benefits. Below are the few listed in an order
      1. **Don’t Use HOCs Inside the render Method:**
@@ -6027,7 +6027,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-255. ### How to debug forwardRefs in DevTools?
+255. ### چطوری میشه forwardRefs رو توی DevTools دیباگ کرد؟ 
 
      **React.forwardRef** accepts a render function as parameter and DevTools uses this function to determine what to display for the ref forwarding component. For example, If you don't name the render function or not using displayName property then it will appear as ”ForwardRef” in the DevTools,
      
@@ -6080,7 +6080,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-256. ### When component props defaults to true?
+256. ### مقدار یه props کامپوننت کی true میشه؟ 
      If you pass no value for a prop, it defaults to true. This behavior is available so that it matches the behavior of HTML. For example, below expressions are equivalent,
      
      <span align="left" dir="ltr">
@@ -6096,7 +6096,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-257. ### What is NextJS and major features of it?
+257. ### NextJS چیه و ویژگی‌های اصلیش چیا هستن؟                    
      Next.js is a popular and lightweight framework for static and server‑rendered applications built with React. It also provides styling and routing solutions. Below are the major features provided by NextJS,
      1. Server-rendered by default
      2. Automatic code splitting for faster page loads
@@ -6107,7 +6107,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-258. ### How do you pass an event handler to a component?
+258. ### چط،وی کی‌تونیم یه تابع event handler رو به یه کامپوننت پاس بدیم؟ 
      You can pass event handlers and other functions as props to child components. It can be used in child component as  below,
      
      <span align="left" dir="ltr">
@@ -6120,7 +6120,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-259. ### Is it good to use arrow functions in render methods?
+259. ### استفاده از توابع arrow برای متدهای render خوبه؟ 
      Yes, You can use. It is often the easiest way to pass parameters to callback functions. But you need to optimize the performance while using it.
      
      <span align="left" dir="ltr">
@@ -6141,7 +6141,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-260. ### How to prevent a function from being called multiple times?
+260. ### چطوری از اجرای چندباره یه تابع جلوگیری کنیم؟ 
      If you use an event handler such as **onClick or onScroll** and want to prevent the callback from being fired too quickly, then you can limit the rate at which callback is executed. This can be achieved in the below possible ways,
      1. **Throttling:** Changes based on a time based frequency. For example, it can be used using _.throttle lodash function
      2. **Debouncing:** Publish changes after a period of inactivity. For example, it can be used using _.debounce lodash function
@@ -6149,7 +6149,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-261. ### How JSX prevents Injection Attacks?
+261. ### JSX چطوری از حمله‌های Injection جلوگیری می‌کنه؟    
      React DOM escapes any values embedded in JSX before rendering them. Thus it ensures that you can never inject anything that’s not explicitly written in your application. Everything is converted to a string before being rendered. For example, you can embed user input as below,
      
      <span align="left" dir="ltr">
@@ -6164,7 +6164,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-262. ### How do you update rendered elements?
+262. ### چطوری elementهای رندر شده رو آپدیت کنیم؟ 
      You can update UI(represented by rendered element) by passing the newly created element to ReactDOM's render method. For example, lets take a ticking clock example, where it updates the time by calling render method multiple times,
      
      <span align="left" dir="ltr">
@@ -6187,7 +6187,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-263. ### How do you say that props are read only?
+263. ### چرا propها read only هستن؟ 
      When you declare a component as a function or a class, it must never modify its own props. Let us take a below capital function,
      
      <span align="left" dir="ltr">
@@ -6203,7 +6203,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-264. ### How do you say that state updates are merged?
+264. ### چرا میگیم تابع setState از طریق merge کردن state را مدیریت می‌کند؟ 
      When you call setState() in the component, React merges the object you provide into the current state. For example, let us take a facebook user with posts and comments details as state variables,
      
      <span align="left" dir="ltr">
@@ -6244,7 +6244,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-265. ### How do you pass arguments to an event handler?
+265. ### چطوری می‌تونیم به متد event handler پارامتر پاس بدیم؟ 
      During iterations or loops, it is common to pass an extra parameter to an event handler. This can be achieved through arrow functions or bind method. Let us take an example of user details updated in a grid,
      <span align="left" dir="ltr">
 
@@ -6259,7 +6259,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-266. ### How to prevent component from rendering?
+266. ### چطوری از رندر مجدد کامپوننت‌ها جلوگیری کنیم؟ 
      You can prevent component from rendering by returning null based on specific condition. This way it can conditionally render component.
      
      <span align="left" dir="ltr">
@@ -6305,7 +6305,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-267. ### What are the conditions to safely use the index as a key?
+267. ### شرایطی که بدون مشکل پرفورمنس بتونیم از ایندکس به عنوان key استفاده کنیم چی هست؟ 
      There are three conditions to make sure, it is safe use the index as a key.
      1. The list and items are static– they are not computed and do not change
      2. The items in the list have no ids
@@ -6313,7 +6313,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-268. ### Is it keys should be globally unique?
+268. ### keyهای ری‌اکت باید به صورت عمومی منحصر بفرد باشن؟                                   
      Keys used within arrays should be unique among their siblings but they don’t need to be globally unique. i.e, You can use the same keys withtwo different arrays. For example, the below book component uses two arrays with different arrays,
      
      <span align="left" dir="ltr">
@@ -6350,7 +6350,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-269. ### What is the popular choice for form handling?
+269. ### گزینه‌های محبوب برای مدیریت فرم‌ا توی ری‌اکت چیا هستن؟ 
      Formik is a form library for react which provides solutions such as validation, keeping track of the visited fields, and handling form submission. In detail, You can categorize them as follows,
 
      1. Getting values in and out of form state
@@ -6361,7 +6361,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-270. ### What are the advantages of formik over redux form library?
+270. ### مزایای کتابخانه فرمیک نبست به redux form چیه؟ 
      Below are the main reasons to recommend formik over redux form library
      1. The form state is inherently short-term and local, so tracking it in Redux (or any kind of Flux library) is unnecessary.
      2. Redux-Form calls your entire top-level Redux reducer multiple times ON EVERY SINGLE KEYSTROKE. This way it increases input latency for large apps.
@@ -6369,13 +6369,13 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-271. ### Why do you not required to use inheritance?
+271. ### چرا اجباری برای استفاده از ارث‌بری توی ری‌اکت نیست؟ مزیتی داره؟ 
      In React, it is recommend using composition instead of inheritance to reuse code between components. Both Props and composition give you all the flexibility you need to customize a component’s look and behavior in an explicit and safe way.
      Whereas, If you want to reuse non-UI functionality between components, it is suggested to extracting it into a separate JavaScript module. Later components import it and use that function, object, or a class, without extending it.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-272. ### Can I use web components in react application?
+272. ### می‌تونیم از web components توی برنامه ری‌اکت استفاده کنیم؟ 
      Yes, you can use web components in a react application. Even though many developers won't use this combination, it may require especially if you are using third-party UI components that are written using Web Components. For example, let us  use Vaadin date picker web component as below,
      
      <span align="left" dir="ltr">
@@ -6400,7 +6400,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-273. ### What is dynamic import?
+273. ### dynamic import چیه؟    
      The dynamic import() syntax is a ECMAScript proposal not currently part of the language standard. It is expected to be accepted in the near future. You can achieve code-splitting into your app using dynamic import(). Let's take an example of addition,
      1. **Normal Import**
      
@@ -6426,7 +6426,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-274. ### What are loadable components?
+274. ### loadable componentها چی هستن؟           
      If you want to do code-splitting in a server rendered app, it is recommend to use Loadable Components because React.lazy and Suspense is not yet available for server-side rendering. Loadable lets you render a dynamic import as a regular component. Lets take an example,
      
      <span align="left" dir="ltr">
@@ -6450,7 +6450,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-275. ### What is suspense component?
+275. ### کامپوننت suspense چیه؟ 
      If the module containing the dynamic import is not yet loaded by the time parent component renders, you must show some fallback content while you’re waiting for it to load using a loading indicator. This can be done using **Suspense** component. For example, the below code uses suspense component,
      
      <span align="left" dir="ltr">
@@ -6474,7 +6474,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-276. ### What is route based code splitting?
+276. ### چطوری به ازای route می‌تونیم code splitting داشته باشیم؟ 
      One of the best place to do code splitting is with routes. The entire page is going to re-render at once so users are unlikely to interact with other elements in the page at the same time. Due to this, the user experience won't be disturbed. Let us take an example of route based website using libraries like React Router with React.lazy,
      
      <span align="left" dir="ltr">
@@ -6503,7 +6503,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-277. ### Give an example on How to use context?
+277. ### یه مثال از نحوه استفاده از context میزنی؟ 
      **Context** is designed to share data that can be considered **global** for a tree of React components.  For example, in the code below lets manually thread through a “theme” prop in order to style the Button component.
      
      <span align="left" dir="ltr">
@@ -6542,7 +6542,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-278. ### What is the purpose of default value in context?
+278. ### هدف از مقدار پیش‌فرض توی context چیه؟ 
      The defaultValue argument is only used when a component does not have a matching Provider above it in the tree. This can be helpful for testing components in isolation without wrapping them. Below code snippet provides default theme value as Luna.
      
      <span align="left" dir="ltr">
@@ -6555,7 +6555,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-279. ### How do you use contextType?
+279. ### چظوری از contextType استفاده می‌کنین؟ 
      ContextType is used to consume the context object. The contextType property can be used in two ways,
      1. **contextType as property of class:**
      The contextType property on a class can be assigned a Context object created by React.createContext(). After that, you can consume the nearest current value of that Context type using this.context in any of the lifecycle methods and render function.
@@ -6605,7 +6605,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-280. ### What is a consumer?
+280. ### consumer چیه؟    
      A Consumer is a React component that subscribes to context changes. It requires a function as a child which receives current context value as argument and returns a react node. The value argument passed to the function will be equal to the value prop of the closest Provider for this context above in the tree. Lets take a simple example,
      
      <span align="left" dir="ltr">
@@ -6620,7 +6620,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-281. ### How do you solve performance corner cases while using context?
+281. ### چطوری مسائل مربوط به پرفورمنس با context رو حل می‌کنین؟ 
      The context uses reference identity to determine when to re-render, there are some gotchas that could trigger unintentional renders in consumers when a provider’s parent re-renders. For example, the code below will re-render all consumers every time the Provider re-renders because a new object is always created for value.
      
      <span align="left" dir="ltr">
@@ -6665,7 +6665,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-282. ### What is the purpose of forward ref in HOCs?
+282. ### هدف از forward ref توی HOCها چیه؟ 
      Refs will not get passed through because ref is not a prop. It handled differently by React just like **key**. If you add a ref to a HOC, the ref will refer to the outermost container component, not the wrapped component. In this case, you can use Forward Ref API. For example, we can explicitly forward refs to the inner FancyButton component using the React.forwardRef API.
      The below HOC logs all props,
      
@@ -6729,17 +6729,17 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-283. ### Is it ref argument available for all functions or class components?
+283. ### توی کامپوننت‌ها می‌تونیم پراپ ref داشته باشیم؟ 
      Regular function or class components don’t receive the ref argument, and ref is not available in props either. The second ref argument only exists when you define a component with React.forwardRef call.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-284. ### Why do you need additional care for component libraries while using forward refs?
+284. ### چرا در هنگام استفاده از ForwardRefها نیاز به احتیاط بیشتری در استفاده از کتابخانه های جانبی دارید؟ 
      When you start using forwardRef in a component library, you should treat it as a breaking change and release a new major version of your library. This is because your library likely has a different behavior such as what refs get assigned to, and what types are exported. These changes can break apps and other libraries that depend on the old behavior.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-285. ### How to create react class components without ES6?
+285. ### چطوری بدون استفاده از ES6 کلاس کامپوننت بسازیم؟ 
      If you don’t use ES6 then you may need to use the create-react-class module instead. For default props, you need to define getDefaultProps() as a function on the passed object. Whereas for initial state, you have to provide a separate getInitialState method that returns the initial state.
      
      <span align="left" dir="ltr">
@@ -6768,7 +6768,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-286. ### Is it possible to use react without JSX?
+286. ### استفاده از ری‌اکت بدون JSX ممکن است؟ 
      Yes, JSX is not mandatory for using React. Actually it is convenient when you don’t want to set up compilation in your build environment. Each JSX element is just syntactic sugar for calling React.createElement(component, props, ...children). For example, let us take a greeting example with JSX,
      
      <span align="left" dir="ltr">
@@ -6808,7 +6808,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-287. ### What is diffing algorithm?
+287. ### الگوریتم‌های diffing ری‌اکت چی هستن؟ 
      React needs to use algorithms to find out how to efficiently update the UI to match the most recent tree. The diffing algorithms is generating the minimum number of operations to transform one tree into another. However, the algorithms have a complexity in the order of O(n3) where n is the number of elements in the tree.
      In this case, for displaying 1000 elements would require in the order of one billion comparisons. This is far too expensive. Instead, React implements a heuristic O(n) algorithm based on two assumptions:
      1. Two elements of different types will produce different trees.
@@ -6816,7 +6816,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-288. ### What are the rules covered by diffing algorithm?
+288. ### قوانینی که توسط الگوریتم‌های diffing پوشش داده می‌شوند کدام هستند؟ 
      When diffing two trees, React first compares the two root elements. The behavior is different depending on the types of the root elements. It covers the below rules during reconciliation algorithm,
      1. **Elements Of Different Types:**
         Whenever the root elements have different types, React will tear down the old tree and build the new tree from scratch. For example,  elements <a> to <img>, or from <Article> to <Comment> of different types lead a full rebuild.
@@ -6875,7 +6875,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-289. ### When do you need to use refs?
+289. ### چه موقعی نیاز هست که از refها استفاده کنیم؟ 
      There are few use cases to go for refs
      1. Managing focus, text selection, or media playback.
      2. Triggering imperative animations.
@@ -6883,7 +6883,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-290. ### Is it prop must be named as render for render props?
+290. ### برای استفاده از render propها لازمه که اسم prop رو render بزاریم؟ 
      Even though the pattern named render props, you don’t have to use a prop named render to use this pattern. i.e,  Any prop that is a function that a component uses to know what to render is technically a “render prop”. Lets take an example with the children prop for render props,
      
      <span align="left" dir="ltr">
@@ -6921,12 +6921,12 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-291. ### What are the problems of using render props with pure components?
+291. ### مشکل استفاده از render props با pure componentها چیه؟ 
      If you create a function inside a render method, it negates the purpose of pure component. Because the shallow prop comparison will always return false for new props, and each render in this case will generate a new value for the render prop. You can solve this issue by defining the render function as instance method.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-292. ### How do you create HOC using render props?
+292. ### چطوری با استفاده از render props می‌تونیم HOC ایجاد کنیم؟ 
      You can implement most higher-order components (HOC) using a regular component with a render prop. For example, if you would prefer to have a withMouse HOC instead of a <Mouse> component, you could easily create one using a regular <Mouse> with a render prop.
      
      <span align="left" dir="ltr">
@@ -6950,12 +6950,12 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-293. ### What is windowing technique?
+293. ### تکنیک windowing چیه؟ 
      Windowing is a technique that only renders a small subset of your rows at any given time, and can dramatically reduce the time it takes to re-render the components as well as the number of DOM nodes created. If your application renders long lists of data then this technique is recommended. Both react-window and react-virtualized are popular windowing libraries which provides several reusable components for displaying lists, grids, and tabular data.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-294. ### How do you print falsy values in JSX?
+294. ### توی JSX یه مقدار falsy رو چطوری چاپ کنیم؟ 
      The falsy values such as false, null, undefined, and true are valid children but they don't render anything. If you still want to display them then you need to convert it to string. Let's take an example on how to convert to a string,
      
      <span align="left" dir="ltr">
@@ -6970,12 +6970,12 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-295. ### What is the typical use case of portals?
+295. ### یه مورد استفاده معمول از portals مثال میزنی؟ 
      React portals are very useful when a parent component has overflow: hidden or has properties that affect the stacking context(z-index,position,opacity etc styles) and you need to visually “break out” of its container. For example, dialogs, global message notifications, hovercards, and tooltips.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-296. ### How do you set default value for uncontrolled component?
+296. ### توی کامپوننت‌های کنترل نشده چطوری مقداری پیش فرض اضافه کنیم؟ 
      In React, the value attribute on form elements will override the value in the DOM. With an uncontrolled component, you might want React to specify the initial value, but leave subsequent updates uncontrolled. To handle this case, you can specify a **defaultValue** attribute instead of **value**.
      
      <span align="left" dir="ltr">
@@ -7003,13 +7003,13 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-297. ### What is your favorite React stack?
+297. ### stack موردعلاقه شما برای کانفیگ پروژه ری‌اکت چیه؟                                
      Even though the tech stack varies from developer to developer, the most popular stack is used in react boilerplate project code. It mainly uses Redux and redux-saga for state management and asynchronous side-effects, react-router for routing purpose, styled-components for styling react components, axios for invoking REST api, and other supported stack such as webpack, reselect, ESNext, Babel.
      You can clone the project https://github.com/react-boilerplate/react-boilerplate and start working on any new react project.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-298. ### What is the difference between Real DOM and Virtual DOM?
+298. ### تفاوت‌ DOM واقعی و Virtual DOM چیه؟ 
      Below are the main differences between Real DOM and Virtual DOM,
 
      | Real DOM | Virtual DOM |
@@ -7022,7 +7022,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-299. ### How to add Bootstrap to a react application?
+299. ### چطوری Bootstrap رو به یه برنامه ری‌اکتی اضافه کنیم؟ 
      Bootstrap can be added to your React app in a three possible ways
      1. Using the Bootstrap CDN:
         This is the easiest way to add bootstrap. Add both bootstrap CSS and JS resources in a head tag.
@@ -7044,7 +7044,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-300. ### Can you list down top websites or applications using react as front end framework?
+300. ### می‌تونی یه لیسستی از معروف‌ترین وب‌سایت‌هایی که از ری‌اکت استفاده می‌کنن رو بگی؟ 
      Below are the `top 10 websites` using React as their front-end framework,
 
      1. Facebook
@@ -7060,17 +7060,17 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-301. ### Is it recommended to use CSS In JS technique in React?
+301. ### استفاده از تکنیک CSS In JS تو ری‌اکت توصیه میشه؟ 
      React does not have any opinion about how styles are defined but if you are a beginner then good starting point is to define your styles in a separate *.css file as usual and refer to them using className. This functionality is not part of React but came from third-party libraries. But If you want to try a different approach(CSS-In-JS) then styled-components library is a good option.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-302. ### Do I need to rewrite all my class components with hooks?
+302. ### لازمه همه کلاس کامپوننت‌ها رو تبدیل کنیم به هوک؟ 
      No. But you can try Hooks in a few components(or new components) without rewriting any existing code. Because there are no plans to remove classes in ReactJS.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-303. ### How to fetch data with React Hooks?
+303. ### چطوری میشه با هوک‌های ری‌اکت دیتا fetch کرد؟ 
      The effect hook called `useEffect` is used to fetch the data with axios from the API and to set the data in the local state of the component with the state hook’s update function.
      Let's take an example in which it fetches list of react articles from the API
      
@@ -7111,12 +7111,12 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-304. ### Is Hooks cover all use cases for classes?
+304. ### هوک‌ها همه موارد کاربرد کلاس‌ها رو پوشش میده؟ 
      Hooks doesn't cover all use cases of classes but there is a plan to add them soon. Currently there are no Hook equivalents to the uncommon **getSnapshotBeforeUpdate** and **componentDidCatch** lifecycles yet.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-305. ### What is the stable release for hooks support?
+305. ### نسخه پایدار ری‌اکت که از هوک پشتیبانی می‌کنه کدومه؟ 
      React includes a stable implementation of React Hooks in 16.8 release for below packages
      1. React DOM
      2. React DOM Server
@@ -7125,7 +7125,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-306. ### Why do we use array destructuring (square brackets notation) in `useState`?
+306. ### چرا از حالت destructuring آرایه برای useState استفاده می‌کنیم؟ 
      When we declare a state variable with `useState`, it returns a pair — an array with two items. The first item is the current value, and the second is a function that updates the value. Using [0] and [1] to access them is a bit confusing because they have a specific meaning. This is why we use array destructuring instead.
      For example, the array index access would look as follows:
      
@@ -7151,7 +7151,7 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-307. ### What are the sources used for introducing hooks?
+307. ### منابعی که برای معرفی هوک استفاده می‌شود چیه؟ 
      Hooks got the ideas from several different sources. Below are some of them,
      1. Previous experiments with functional APIs in the react-future repository
      2. Community experiments with render prop APIs such as Reactions Component
@@ -7161,12 +7161,12 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-308. ### How do you access imperative API of web components?
+308. ### چطوری به APIهای ضروری اجزای وب دسترسی پیدا کنیم؟ 
      Web Components often expose an imperative API to implement its functions. You will need to use a **ref** to interact with the DOM node directly if you want to access imperative API of a web component. But if you are using third-party Web Components, the best solution is to write a React component that behaves as a **wrapper** for your Web Component.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-309. ### What is formik?
+309. ### formik چیه؟    
      Formik is a small react form library that helps you with the three major problems,
      1. Getting values in and out of form state
      2. Validation and error messages
@@ -7174,12 +7174,12 @@
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-310. ### What are typical middleware choices for handling asynchronous calls in Redux?
+310. ### middlewareهای مرسوم برای مدیریت ارتباط‌های asynchronous توی Redux چیا هستن؟         
      Some of the popular middleware choices for handling asynchronous calls in Redux eco system are `Redux Thunk, Redux Promise, Redux Saga`.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
     
-311. ### Do browsers understand JSX code?
+311. ### مرورگرها کد JSX رو متوجه میشن؟ 
      No, browsers can't understand JSX code. You need a transpiler to convert your JSX to regular Javascript that browsers can understand. The most widely used transpiler right now is Babel.
      
      **[⬆ برگشت به بالا](#جدول-محتوا)**
