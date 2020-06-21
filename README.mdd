@@ -3442,15 +3442,15 @@
 126. ### معروف‌ترین linterهای ری‌اکت کدوما هستن؟
 
      ESLint یه linter برای JavaScript هستش۰. یه سری کتابخونه برای کمک به کدنویسی تو سبک‌های مشخص و استاندارد برای eslint وجود داره. یکی از معروف‌ترین پلاگین‌های موجود `eslint-plugin-react` هست.
-     به صورت پیش‌فرض این پلاگین یه سری از best practiceها رو برای کدهای نوشته شده بررسی می‌کنه. با مجموعه‌ای از قوانین برای . Another popular plugin is `eslint-plugin-jsx-a11y`, which will help fix common issues with accessibility. As JSX offers slightly different syntax to regular HTML, issues with `alt` text and `tabindex`, for example, will not be picked up by regular plugins.
+     به صورت پیش‌فرض این پلاگین یه سری از best practiceها رو برای کدهای نوشته شده بررسی می‌کنه. با مجموعه‌ای از قوانین برای . پلاگین مشهور دیگه `eslint-plugin-jsx-a11y` هستش، که برای مسائل معروف در زمینه accessibility کمک میکنه. چرا که JSX یه سینتکس متفاوت‌تری از HTML ارائه می‌کنه، مشکلاتی که ممکنه مثلا با `alt` و `tabindex` پیش میاد رو با این پلاگین میشه متوجه شد.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 127. ### چطوری باید توی کامپوننت درخواست api call بزنیم؟
 
-     You can use AJAX libraries such as Axios, jQuery AJAX, and the browser built-in `fetch`. You should fetch data in the `componentDidMount()` lifecycle method. This is so you can use `setState()` to update your component when the data is retrieved.
+     می‌تونیم از کتابخونه‌های AJAX مثل Axios یا حتی از  `fetch` که به صورت پیش‌فرض تو مرورگر وجود داره استفاده کنیم. لازمه که توی `Mount` درخواست API رو انجام بدیم و برای به روز کردن کامپوننت می‌تونیم از `setState()` استفاده کنیم تا داده بدست اومده رو توی کامپوننت نشون بدیم.
 
-     For example, the employees list fetched from API and set local state:
+     برای مثال، لیست کارمندان از API گرفته میشه و توی state نگهداری میشه:
 
      <span align="left" dir="ltr">
 
@@ -3499,12 +3499,45 @@
      ```
 
      </span>
+     ```jsx harmony
+     const MyComponent = () => {
+       const [employees, setEmployees] = useState([]);
+       const [error, setError] = useState(null);
+
+       useEffect(() => {
+         fetch('https://api.example.com/items')
+           .then(res => res.json())
+           .then(
+             (result) => {
+               setEmployees(result.employees);
+             },
+             (error) => {
+               setError(error)
+             }
+           )
+       }, []);
+
+       return ((error) ?
+         <div>Error: {error.message}</div>
+         :
+         <ul>
+           {employees.map(employee => (
+             <li key={employee.name}>
+               {employee.name}-{employee.experience}
+             </li>
+           ))}
+         </ul>
+       );
+     }
+     ```
+
+     </span>
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 128. ### render props چیه؟
 
-     **Render Props** is a simple technique for sharing code between components using a prop whose value is a function. The below component uses render prop which returns a React element.
+     **Render Props** یه تکنیک ساده برای به اشتراک گذاری کد بین کامپوننت‌هاست که با استفاده از یه prop که یه تابع رو بهش دادیم انجام میشه. کامپوننت زیر از همین روش برای پاس دادن یه React element استفاده می‌کنه.
 
      <span align="left" dir="ltr">
 
@@ -3516,31 +3549,31 @@
 
      </span>
 
-     Libraries such as React Router and DownShift are using this pattern.
+     کتابخونه‌هایی مثل React Router و DownShift از این پترن استفاده می‌کنن.
 
 ## React Router
 
 129. ### React Router چیه؟
 
-     React Router is a powerful routing library built on top of React that helps you add new screens and flows to your application incredibly quickly, all while keeping the URL in sync with what's being displayed on the page.
+     React Router یه کتابخونه قدرتمند برای جابجایی سریع بین صفحات و flowهای مختلفه که برپایه ری‌اکت نوشته شده و امکان sync کردن آدرس وارد شده با صفحات رو توی محیط‌های مختلف فراهم می‌کنه.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 130. ### ارتباط React Router و کتابخونه history چیه؟
 
-     React Router is a wrapper around the `history` library which handles interaction with the browser's `window.history` with its browser and hash histories. It also provides memory history which is useful for environments that don't have global history, such as mobile app development (React Native) and unit testing with Node.
+     React Router یک wrapper روی کتابخونه `history` هستش که اعمال اجرایی بر روی `window.history` رو با استفاده از ابجکت‌های hash و browser مدیریت می‌کنه. البته این کتابخونه یک نوع دیگه از historyها به اسم memory history رو هم معرفی می‌کنه که برای محیط‌هایی که به صورت عمومی از history پشتیبانی نمی‌کنن کاربرد داره. مثل محیط توسعه برنامه موبایل با (React Native) یا محیط‌های unit test و Nodejs.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 131. ### کامپوننت‌های router توی نسخه۴ چیا هستن؟
 
-     React Router v4 provides below 3 `<Router>` components:
+     React Router v4 سه نوع مختلف از کامپوننت رووتر(`<Router>`) رو معرفی میکنه :
 
      1. `<BrowserRouter>`
      2. `<HashRouter>`
      3. `<MemoryRouter>`
 
-     The above components will create *browser*, *hash*, and *memory* history instances. React Router v4 makes the properties and methods of the `history` instance associated with your router available through the context in the `router` object.
+     کامپوننت‌های فوق به ترتیب *browser*، *hash*، و *memory* history درست می‌کنن. React Router v4 ساخت `history` instance associated with your router available through the context in the `router` object.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 

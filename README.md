@@ -3303,7 +3303,8 @@
 
 121. ### چطوری توی برنامه event کلیک شدن رو trigger کنیم؟
 
-     You could use the ref prop to acquire a reference to the underlying `HTMLInputElement` object through a callback, store the reference as a class property, then use that reference to later trigger a click from your event handlers using the `HTMLElement.click` method. This can be done in two steps:
+     می‌تونیم از ref برای بدست آوردن رفرنس `HTMLInputElement` مورد نظر استفاده کنیم و object بدست اومده رو توی یه متغیر یا property نگهداری کنیم، بعدش از اون رفرنس می‌تونیم برای اعمال رخداد کلیک استفاده کنیم
+     که `HTMLElement.click` رو فراخوانی می‌کنه. این فرآیند توی دو گام قابل انجام هستش:
 
      1. ایجاد ref توی متد render:
 
@@ -3329,17 +3330,17 @@
 
 122. ### آیا استفاده از async/await توی ری‌اکت ممکنه؟
 
-     If you want to use `async`/`await` in React, you will need *Babel* and [transform-async-to-generator](https://babeljs.io/docs/en/babel-plugin-transform-async-to-generator) plugin. React Native ships with Babel and a set of transforms.
+     اگه بخواییم از `async`/`await` توی ری‌اکن استفاده کنیم، لازمه که *Babel* و پلاگین [transform-async-to-generator](https://babeljs.io/docs/en/babel-plugin-transform-async-to-generator) رو استفاده کنیم. توی React Native اینکار با Babel و یه سری transformها انجام میشه.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 123. ### ساختار پوشه‌بندی معروف برا ری‌اکت چطوریه؟
 
-     There are two common practices for React project file structure.
+     دو روش معروف برای پوشه‌های ری‌اکت وجود داره:
 
-     1. **Grouping by features or routes:**
+     1. **گروه بندی براساس وپژگی یا route:**
 
-         One common way to structure projects is locate CSS, JS, and tests together, grouped by feature or route.
+         یک روش معروف قراردادن فایل‌های CSS، JS و تست‌ها کنارهم به ازای هر ویژگی یا route هست
 
      <span align="left" dir="ltr">
 
@@ -3366,9 +3367,9 @@
 
      </span>
 
-     2. **Grouping by file type:**
+     2. **گروه‌بندی بر اساس ماهیت فایل:**
 
-         Another popular way to structure projects is to group similar files together.
+         یک سبک مشهور دیگر گروه‌بندی فایل‌ها براساس ماهیت اونهاست
 
      <span align="left" dir="ltr">
 
@@ -3396,15 +3397,15 @@
 
 124. ### پکیج‌های مشهور برای انیمیشن چیا هستن؟
 
-     *React Transition Group* and *React Motion* are popular animation packages in React ecosystem.
+     *React Transition Group*، *React Spring* و *React Motion* پکیج‌های مشهور برای انیمیشن برای ری‌اکت هستن.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 125. ### مزایای ماژول‌های style چیه؟
 
-     It is recommended to avoid hard coding style values in components. Any values that are likely to be used across different UI components should be extracted into their own modules.
+     خیلی توصیه میشه که از استایل‌دهی‌های سخت و مستقیم برای کامپوننت‌ها پرهیز کنیم. هرمقداری که فقط در یک کامپوننت خاصی مورد استفاده قرار می‌گیره، بهتره که درون همون فایل لود بشه.
 
-     For example, these styles could be extracted into a separate component:
+     برای مثال، این استایل‌ها می‌تونن تو یه فایل دیگه انتقال پیدا کنن:
 
      <span align="left" dir="ltr">
 
@@ -3426,7 +3427,7 @@
 
      </span>
 
-     And then imported individually in other components:
+     و توی موقعی که نیاز داریم از اون فایل مشخص لود کنیمشون:
 
      <span align="left" dir="ltr">
 
@@ -3440,15 +3441,16 @@
 
 126. ### معروف‌ترین linterهای ری‌اکت کدوما هستن؟
 
-     ESLint is a popular JavaScript linter. There are plugins available that analyse specific code styles. One of the most common for React is an npm package called `eslint-plugin-react`. By default, it will check a number of best practices, with rules checking things from keys in iterators to a complete set of prop types. Another popular plugin is `eslint-plugin-jsx-a11y`, which will help fix common issues with accessibility. As JSX offers slightly different syntax to regular HTML, issues with `alt` text and `tabindex`, for example, will not be picked up by regular plugins.
+     ESLint یه linter برای JavaScript هستش۰. یه سری کتابخونه برای کمک به کدنویسی تو سبک‌های مشخص و استاندارد برای eslint وجود داره. یکی از معروف‌ترین پلاگین‌های موجود `eslint-plugin-react` هست.
+     به صورت پیش‌فرض این پلاگین یه سری از best practiceها رو برای کدهای نوشته شده بررسی می‌کنه. با مجموعه‌ای از قوانین برای . پلاگین مشهور دیگه `eslint-plugin-jsx-a11y` هستش، که برای مسائل معروف در زمینه accessibility کمک میکنه. چرا که JSX یه سینتکس متفاوت‌تری از HTML ارائه می‌کنه، مشکلاتی که ممکنه مثلا با `alt` و `tabindex` پیش میاد رو با این پلاگین میشه متوجه شد.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 127. ### چطوری باید توی کامپوننت درخواست api call بزنیم؟
 
-     You can use AJAX libraries such as Axios, jQuery AJAX, and the browser built-in `fetch`. You should fetch data in the `componentDidMount()` lifecycle method. This is so you can use `setState()` to update your component when the data is retrieved.
+     می‌تونیم از کتابخونه‌های AJAX مثل Axios یا حتی از  `fetch` که به صورت پیش‌فرض تو مرورگر وجود داره استفاده کنیم. لازمه که توی `Mount` درخواست API رو انجام بدیم و برای به روز کردن کامپوننت می‌تونیم از `setState()` استفاده کنیم تا داده بدست اومده رو توی کامپوننت نشون بدیم.
 
-     For example, the employees list fetched from API and set local state:
+     برای مثال، لیست کارمندان از API گرفته میشه و توی state نگهداری میشه:
 
      <span align="left" dir="ltr">
 
@@ -3497,12 +3499,45 @@
      ```
 
      </span>
+     ```jsx harmony
+     const MyComponent = () => {
+       const [employees, setEmployees] = useState([]);
+       const [error, setError] = useState(null);
+
+       useEffect(() => {
+         fetch('https://api.example.com/items')
+           .then(res => res.json())
+           .then(
+             (result) => {
+               setEmployees(result.employees);
+             },
+             (error) => {
+               setError(error)
+             }
+           )
+       }, []);
+
+       return ((error) ?
+         <div>Error: {error.message}</div>
+         :
+         <ul>
+           {employees.map(employee => (
+             <li key={employee.name}>
+               {employee.name}-{employee.experience}
+             </li>
+           ))}
+         </ul>
+       );
+     }
+     ```
+
+     </span>
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 128. ### render props چیه؟
 
-     **Render Props** is a simple technique for sharing code between components using a prop whose value is a function. The below component uses render prop which returns a React element.
+     **Render Props** یه تکنیک ساده برای به اشتراک گذاری کد بین کامپوننت‌هاست که با استفاده از یه prop که یه تابع رو بهش دادیم انجام میشه. کامپوننت زیر از همین روش برای پاس دادن یه React element استفاده می‌کنه.
 
      <span align="left" dir="ltr">
 
@@ -3514,31 +3549,31 @@
 
      </span>
 
-     Libraries such as React Router and DownShift are using this pattern.
+     کتابخونه‌هایی مثل React Router و DownShift از این پترن استفاده می‌کنن.
 
 ## React Router
 
 129. ### React Router چیه؟
 
-     React Router is a powerful routing library built on top of React that helps you add new screens and flows to your application incredibly quickly, all while keeping the URL in sync with what's being displayed on the page.
+     React Router یه کتابخونه قدرتمند برای جابجایی سریع بین صفحات و flowهای مختلفه که برپایه ری‌اکت نوشته شده و امکان sync کردن آدرس وارد شده با صفحات رو توی محیط‌های مختلف فراهم می‌کنه.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 130. ### ارتباط React Router و کتابخونه history چیه؟
 
-     React Router is a wrapper around the `history` library which handles interaction with the browser's `window.history` with its browser and hash histories. It also provides memory history which is useful for environments that don't have global history, such as mobile app development (React Native) and unit testing with Node.
+     React Router یک wrapper روی کتابخونه `history` هستش که اعمال اجرایی بر روی `window.history` رو با استفاده از ابجکت‌های hash و browser مدیریت می‌کنه. البته این کتابخونه یک نوع دیگه از historyها به اسم memory history رو هم معرفی می‌کنه که برای محیط‌هایی که به صورت عمومی از history پشتیبانی نمی‌کنن کاربرد داره. مثل محیط توسعه برنامه موبایل با (React Native) یا محیط‌های unit test و Nodejs.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 131. ### کامپوننت‌های router توی نسخه۴ چیا هستن؟
 
-     React Router v4 provides below 3 `<Router>` components:
+     React Router v4 سه نوع مختلف از کامپوننت رووتر(`<Router>`) رو معرفی میکنه :
 
      1. `<BrowserRouter>`
      2. `<HashRouter>`
      3. `<MemoryRouter>`
 
-     The above components will create *browser*, *hash*, and *memory* history instances. React Router v4 makes the properties and methods of the `history` instance associated with your router available through the context in the `router` object.
+     کامپوننت‌های فوق به ترتیب *browser*، *hash*، و *memory* history درست می‌کنن. React Router v4 ساخت `history` instance associated with your router available through the context in the `router` object.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
