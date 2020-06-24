@@ -498,21 +498,21 @@
 
 6. ### کی باید از Class Component بجای Function Component استفاده کنیم؟
 
-    If the component needs *state or lifecycle methods* then use class component otherwise use function component.
-    *However, from React 16.8 with the addition of Hooks, you could use state , lifecycle  methods and other features that were only available in class component right in your function component.*
+     اگه کامپوننت نیاز به *state یا lifecycle methods* داشت از کلاس کامپوننت‌ها استفاده میکنیم در غیر این صورت میریم سراغ فانکسن کامپوننتها.
+     *با این حال از ورژن 16.8 ری‌اکت به بعد و با اضافه شدن هوکها به فانکشن کامپوننت ها، شما میتونید از state یا lifecycle methodها یا تمامی فیچرهایی که قبلا فقط در کلاس کامپوننت ‌ها قابل استفاده بود توی فانکشن کامپوننتتون استفاده کنید*
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 7. ### Pure Components چیه؟
 
-    *`React.PureComponent`* is exactly the same as *`React.Component`* except that it handles the `shouldComponentUpdate()` method for you. When props or state changes, *PureComponent* will do a shallow comparison on both props and state. *Component* on the other hand won't compare current props and state to next out of the box. Thus, the component will re-render by default whenever `shouldComponentUpdate` is called.
+    *`React.PureComponent`* دقیقا مثل *`React.Component`* میمونه فقط تنها تفاوتی که داره اینه که برخلاف *`Component`* خودش به صورت خودکار متد *`shouldComponentUpdate()`* رو هندل میکنه.
+    وقتی که props یا state در کامپوننت تغییر میکنه، *`PureComponent`* یه مقایسه سطحی روی props و state انجام میده (shallow comparison) در حالیکه *Component* این مقایسه رو به صورت خودکار انجام نمیده و به طور پیش‌فرض کامپوننت هربار که `shouldCompnentUpdate` فراخوانی بشه re-render میشه. بنابراین توی Component باید این متد override بشه.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 8. ### state تو ری‌اکت چیکار می‌کنه؟
 
-    *State* of a component is an object that holds some information that may change over the lifetime of the component. We should always try to make our state as simple as possible and minimize the number of stateful components. Let's create an user component with message state,
-
+   *State* در هر کامپوننت یه آبجکته که یه سری اطلاعات که در طول عمر کامپوننت ما ممکنه تغییر کنه رو در خودش ذخیره میکنه.  ما باید تمام تلاشمون رو بکنیم که state‌مون در ساده ترین حالت ممکن باشه و تاجایی که میتونیم تعداد کامپوننت هایی که stateful هستن رو کاهش بدیم. به عنوان مثال بیایید یه کامپوننت User رو که یه state داره بسازیم:
 
     <span align="left" dir="ltr">
 
@@ -540,21 +540,23 @@
 
     ![state](images/state.jpg)
 
-    State is similar to props, but it is private and fully controlled by the component. i.e, It is not accessible to any component other than the one that owns and sets it.
+   State و Props بهم شبیه هستن  ولی State کاملا در کنترل کامپوننت هستن و فقط مختص به همون کامپوننت هستن(private). یعنی state‌ها در هیچ کامپوننتی به غیر از اونی که مالکstate هست در دسترس نخواهند بود.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 9. ### props تو ری‌اکت چیکار می‌کنه؟
 
-    *Props* are inputs to components. They are single values or objects containing a set of values that are passed to components on creation using a naming convention similar to HTML-tag attributes. They are data passed down from a parent component to a child component.
+    *Props* ورودی کامپوننتها هستن. میتونن یه مقدار ساده یا یه شی شامل یه مجموعه مقدار باشن که در لحظه ایجاد کامپوننت و بر اساس یه یه قاعده نام گذاری که خیلی شبیه به HTML-tag attributes هست، به کامپوننت پاس داده میشن. در واقع اینها داده‌هایی هستن که از کامپوننت پدر به فرزند تحویل داده میشن.
 
-    The primary purpose of props in React is to provide following component functionality:
+    هدف اصلی وجود Props در ری‌اکت ایجاد ساختارهای زیر در یک کامپوننته:
 
-    1. Pass custom data to your component.
-    2. Trigger state changes.
-    3. Use via `this.props.reactProp` inside component's `render()` method.
+    1 - پاس دادن مقادیر به کامپوننت شما
 
-    For example, let us create an element with `reactProp` property:
+    2 - trigger کردن یک متد در زمان تغییر state
+
+    3 - استفاده از مقادیر داخل متد render (`this.props.reactProps`)
+
+    به عنوان مثال ، یه کامپوننت با استفاده از`reactProps` میسازیم:
 
     <span align="left" dir="ltr">
 
@@ -564,13 +566,16 @@
 
      </span>
 
-    This `reactProp` (or whatever you came up with) name then becomes a property attached to React's native props object which originally already exists on all components created using React library.
+    این `reactProps` (یا هرچیزی که شما اسمشو میزارید)  در نهایت تبدیل به یک property خواهد شد که داخل props object ،که داخل تمامی کامپوننت های react از ابتدا وجود داره ، قرار میگیره. و به شکل زیر قابل دسترس هست
 
     <span align="left" dir="ltr">
 
     ```
     props.reactProp
      ```
+    ```
+    this.props.reactProp
+    ```
 
      </span>
 
@@ -578,13 +583,13 @@
 
 10. ### تفاوت state و props چیه؟
 
-    Both *props* and *state* are plain JavaScript objects. While both of them hold information that influences the output of render, they are different in their functionality with respect to component. Props get passed to the component similar to function parameters whereas state is managed within the component similar to variables declared within a function.
+    هردو javascript plain object  هستن . هردو وظیفه دارن مقادیری که روی render تاثیر گذار هست رو نگه داری کنن اما عملکردشون با توجه به کامپوننت متفاوت خواهد بود. Props شبیه به پارامترهای ورودی یک فانکشن، به کامپوننت پاس داده میشن در حالیکه state شبیه به متغییرهایی که داخل فانکشن ساخته شدن ، توسط خود کامپوننت ایجاد و مدیریت میشه.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 11. ### چرا نباید state رو مستقیما آپدیت کنیم؟
 
-    If you try to update state directly then it won't re-render the component.
+    اگه یه بار تلاش کنید که مستقیما state رو آپدیت کنید متوجه میشید که کامپوننت شما مجددا render نمیشه.
 
     <span align="left" dir="ltr">
 
@@ -594,8 +599,7 @@
      ```
 
      </span>
-
-    Instead use `setState()` method. It schedules an update to a component's state object. When state changes, the component responds by re-rendering.
+    به جای اینکه مستقیما state رو آپدیت کنیم میتونیم از متد setState  در Class Component  و از useState  در Function Components  استفاده کنیم. این متدها یک آپدیت در شی state رو برنامه ریزی و مدیریت میکنن و وقتی تغییر انجام شد کامپوننت شما re-render خواهد شد.
 
     <span align="left" dir="ltr">
 
@@ -604,17 +608,22 @@
     this.setState({ message: 'Hello World' })
      ```
 
+    ```javascript
+    const [message, setMessage] = React.useState('Hello world')
+
+    setMessage("New Hello world")
+    ```
      </span>
 
-    **Note:** You can directly assign to the state object either in *constructor* or using latest javascript's class field declaration syntax.
+    **نکته مهم:** شما میتونید در سازنده کلاس یا در ورژن جدید جاوااسکریپت به عنوان فیلد کلاس هر چیزی رو به شی state خودتون assign کنید.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 12. ### هدف از متدهای callback توی استفاده از setState چیه؟
 
-    The callback function is invoked when setState finished and the component gets rendered. Since `setState()` is **asynchronous** the callback function is used for any post action.
+    callback function زمانی که setState تموم شد و کامپوننت مجددا render شد فراخوانی میشه. از اونجایی که `setState()` **asynchronous** یا همون غیرهمزمانه از callback برای کارهایی استفاده میشه که بعد از تابع setState قراره اجرا بشن.
 
-    **Note:** It is recommended to use lifecycle method rather than this callback function.
+    **نکته مهم:** بهتره که به جای callback از lifecycle method ها استفاده کنیم.
 
     <span align="left" dir="ltr">
 
@@ -3745,7 +3754,7 @@
 
 136. ### چطوری میشه به متد history.push پارامتر اضافه کرد؟
 
-     While navigating you can pass props to the `history` object:
+     موقع جابجایی می‌تونیم یه object به `history` پاس بدیم که یه سری گزینه‌ها رو برامون قابل کانفیگ می‌کنه:
 
      <span align="left" dir="ltr">
 
@@ -3759,13 +3768,13 @@
 
      </span>
 
-     The `search` property is used to pass query params in `push()` method.
+      این کانفیگ‌ها یکیش search هست که می‌تونه پارامتر موردنظر ما رو به مسیر مورد نظر بفرسته.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 137. ### چطوری میشه صفحه ۴۰۴ ساخت؟
 
-     A `<Switch>` renders the first child `<Route>` that matches. A `<Route>` with no path always matches. So you just need to simply drop path attribute as below
+     کامپوننت `<Switch>` اولین فرزند `<Route>`ای که با درخواست موجود تطابق داشته باشه رو رندر می‌کنه. از اونجایی که یه `<Route>` بدون path یا با path * همیشه مطابق با درخواست است، پس هنگام خطای ۴۰۴ این مورد برای رندر استفاده میشه.
 
      <span align="left" dir="ltr">
 
@@ -3783,9 +3792,9 @@
 
 138. ### توی ری‌اکت روتر نسخه۴ چطوری میشه history رو گرفت؟
 
-     1. Create a module that exports a `history` object and import this module across the project.
+     1. می‌تونیم یه ماژول درست کنیم که object `history` رو میده و هرجایی خواستیم از این فایل استفاده کنیم.
 
-         For example, create `history.js` file:
+         برای مثال فایل `history.js` رو ایجاد کنید:
 
      <span align="left" dir="ltr">
 
@@ -3799,7 +3808,7 @@
 
      </span>
 
-     2. You should use the `<Router>` component instead of built-in routers. Imported the above `history.js` inside `index.js` file:
+     2. می‌تونیم از کامپوننت `<Router>` بجای رووترهای پیش‌فرض استفاده کنیم. فایل `history.js` بالا رو توی فایل `index.js` لود می‌کنیم:
 
      <span align="left" dir="ltr">
 
@@ -3817,15 +3826,15 @@
 
      </span>
 
-     3. You can also use push method of `history` object similar to built-in history object:
+     3. البته میشه از متد push مثل آبجکت پیش‌فرض history استفاده کنیم:
 
      <span align="left" dir="ltr">
 
      ```javascript
-         // some-other-file.js
-         import history from './history'
+     // some-other-file.js
+     import history from './history'
 
-         history.push('/go-here')
+     history.push('/go-here');
      ```
 
      </span>
@@ -3834,7 +3843,7 @@
 
 139. ### چطوری بعد از لاگین به شکل خودکار ریدایرکت کنیم؟
 
-     The `react-router` package provides `<Redirect>` component in React Router. Rendering a `<Redirect>` will navigate to a new location. Like server-side redirects, the new location will override the current location in the history stack.
+     پکیج `react-router` مکان استفاده از کامپوننت `<Redirect>` رو توی React Router میده. رندر کردن `<Redirect>` باعث جابجایی به مسیر پاس داده شده بهش میشه. مثل ریدایرکت سرور-ساید، مسیر جدید با path فعلی جایگزین می‌شه.
 
      <span align="left" dir="ltr">
 
@@ -3855,11 +3864,11 @@
 
      </span>
 
-## React Internationalization
+## چندزبانگی ری‌اکت
 
 140. ### React-Intl چیه؟
 
-     The *React Intl* library makes internalization in React straightforward, with off-the-shelf components and an API that can handle everything from formatting strings, dates, and numbers, to pluralization. React Intl is part of *FormatJS* which provides bindings to React via its components and API.
+     *React Intl* library makes internalization in React straightforward, with off-the-shelf components and an API that can handle everything from formatting strings, dates, and numbers, to pluralization. React Intl is part of *FormatJS* which provides bindings to React via its components and API.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
