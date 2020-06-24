@@ -285,7 +285,7 @@
 |261| [JSX چطوری از حمله‌های Injection جلوگیری می‌کنه؟](#JSX-چطوری-از-حملههای-Injection-جلوگیری-میکنه)|
 |262| [چطوری elementهای رندر شده رو آپدیت کنیم؟](#چطوری-elementهای-رندر-شده-رو-آپدیت-کنیم)|
 |263| [چرا propها read only هستن؟](#چرا-propها-read-only-هستن)|
-|264| [چرا میگیم تابع setState از طریق merge کردن state را مدیریت می‌کند؟](#چرا-میگیم-تابع-setState-از-طریق-merge-کردن-state-را-مدیریت-میکند)|
+|264| [چرا میگیم تابع setState از طریق merge کردن state را مدیریت می‌کنه؟](#چرا-میگیم-تابع-setState-از-طریق-merge-کردن-state-را-مدیریت-میکند)|
 |265| [چطوری می‌تونیم به متد event handler پارامتر پاس بدیم؟](#چطوری-میتونیم-به-متد-event-handler-پارامتر-پاس-بدیم)|
 |266| [چطوری از رندر مجدد کامپوننت‌ها جلوگیری کنیم؟](#چطوری-از-رندر-مجدد-کامپوننتها-جلوگیری-کنیم)|
 |267| [شرایطی که بدون مشکل پرفورمنس بتونیم از ایندکس به عنوان key استفاده کنیم چی هست؟](#شرایطی-که-بدون-مشکل-پرفورمنس-بتونیم-از-ایندکس-به-عنوان-key-استفاده-کنیم-چی-هست)|
@@ -3499,6 +3499,10 @@
      ```
 
      </span>
+
+
+     <span align="left" dir="ltr">
+
      ```jsx harmony
      const MyComponent = () => {
        const [employees, setEmployees] = useState([]);
@@ -3579,22 +3583,22 @@
 
 132. ### هدف از متدهای push و replace توی history چیه؟
 
-     A history instance has two methods for navigation purpose.
+     هر شئ از history دو متد برای جابجایی ارائه می‌دهد.
 
      1. `push()`
      2. `replace()`
 
-     If you think of the history as an array of visited locations, `push()` will add a new location to the array and `replace()` will replace the current location in the array with the new one.
+     اگر به history به عنوان یک آرایه از مسیرهای بازدید شده نگاه کنیم، `push()` یک جابجایی جدید به مسیر اضافه می‌کنه و `replace()` مسیر فعلی را با یک مسیر جدید جابجا می‌کنه.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 133. ### چطوری توی برنامه به route خاص جابجا بشیم؟
 
-     There are three different ways to achieve programmatic routing/navigation within components.
+     روش‌های مختلفی برای جابجایی در برنامه و توسط کد وجود دارد.
 
-     1. **Using the `withRouter()` higher-order function:**
+     1. **استفاده از تابع مرتبه بالاتر(higher-order) `withRouter()` :**
 
-         The `withRouter()` higher-order function will inject the history object as a prop of the component. This object provides `push()` and `replace()` methods to avoid the usage of context.
+         متد `withRouter()` آبجکت history o را به عنوان یک prop به کامپوننت اضافه می‌کنه. در این prop دسترسی به متدهای `push()` و `replace()` بسادگی می‌تونه مسیریابی بین کامپوننت رو فراهم کنه و نیاز به context رو رفع کنه.
 
      <span align="left" dir="ltr">
 
@@ -3613,9 +3617,9 @@
 
      </span>
 
-     2. **Using `<Route>` component and render props pattern:**
+     2. **استفاده از کامپوننت `<Route>` و پترن render props :**
 
-         The `<Route>` component passes the same props as `withRouter()`, so you will be able to access the history methods through the history prop.
+         کامپوننت `<Route>` همون prop که متد `withRouter()` به کامپوننت میده رو به کامپوننت میده.
 
      <span align="left" dir="ltr">
 
@@ -3636,9 +3640,9 @@
 
      </span>
 
-     3. **Using context:**
+     3. **استفاده از context:**
 
-         This option is not recommended and treated as unstable API.
+         استفاده از این مورد توصیه نمی‌شه و ممکنه به زودی deprecate شود.
 
      <span align="left" dir="ltr">
 
@@ -3663,41 +3667,56 @@
 
      </span>
 
+     4. **استفاده از هوک‌های موجود:**
+
+         هوک‌هایی برای دسترسی به history و params در این کتابخونه وجود داره مثل useHistory:
+
+     <span align="left" dir="ltr">
+
+     ```jsx harmony
+         const Page = (props, context) => {
+            const history = useHistory();
+            const location = useLocation();
+            const { slug } = useParams();
+
+            return (
+              <button
+                type='button'
+                onClick={() => {
+                  history.push('/new-location')
+                }}
+              >
+                {'Click Me!'}
+              </button>
+            );
+         }
+     ```
+
+     </span>
+
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 134. ### چطوری میشه query پارامترها رو توی ری‌اکت روتر نسخه۴ گرفت؟
 
-     The ability to parse query strings was taken out of React Router v4 because there have been user requests over the years to support different implementation. So the decision has been given to users to choose the implementation they like. The recommended approach is to use query strings library.
+		 ساده راه برای دسترسی به paramهای آدرس استفاده از هوک useParams هست.
 
      <span align="left" dir="ltr">
 
      ```javascript
-     const queryString = require('query-string');
-     const parsed = queryString.parse(props.location.search);
+     const { slug } = useParams();
+
+     console.log(`slug query param`, slug);
      ```
 
      </span>
-
-     You can also use `URLSearchParams` if you want something native:
-
-     <span align="left" dir="ltr">
-
-     ```javascript
-     const params = new URLSearchParams(props.location.search)
-     const foo = params.get('name')
-     ```
-
-     </span>
-
-     You should use a *polyfill* for IE11.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 135. ### دلیل خطای "Router may have only one child element" چیه؟
 
-     You have to wrap your Route's in a `<Switch>` block because `<Switch>` is unique in that it renders a route exclusively.
+     باید کامپوننت Route رو توی بلاک `<Switch>` قرار بدیم چون `<Switch>` چون Switch باعث میشه که منحصرا یک کامپوننت در صفحه لود بشه.
 
-     At first you need to add `Switch` to your imports:
+     اولش لازمه که `Switch` رو import کنیم:
 
      <span align="left" dir="ltr">
 
@@ -3707,7 +3726,7 @@
 
      </span>
 
-     Then define the routes within `<Switch>` block:
+     بعدش رووت‌ها رو توی بلاک `<Switch>` تعریف می‌کنیم:
 
      <span align="left" dir="ltr">
 
@@ -6319,7 +6338,7 @@
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
-264. ### چرا میگیم تابع setState از طریق merge کردن state را مدیریت می‌کند؟
+264. ### چرا میگیم تابع setState از طریق merge کردن state را مدیریت می‌کنه؟
      When you call setState() in the component, React merges the object you provide into the current state. For example, let us take a facebook user with posts and comments details as state variables,
 
      <span align="left" dir="ltr">
