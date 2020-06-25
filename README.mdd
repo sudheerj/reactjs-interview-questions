@@ -3586,7 +3586,7 @@
      2. `<HashRouter>`
      3. `<MemoryRouter>`
 
-     کامپوننت‌های فوق به ترتیب *browser*، *hash*، و *memory* history درست می‌کنن. React Router v4 ساخت `history` instance associated with your router available through the context in the `router` object.
+     کامپوننت‌های فوق به ترتیب *browser*، *hash*، و *memory* history درست می‌کنن. React Router v4 ساخت `history` را براساس context ارائه شده به آبجکت router انجام می‌دهد.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
@@ -3594,10 +3594,10 @@
 
      هر شئ از history دو متد برای جابجایی ارائه می‌دهد.
 
-     1. `push()`
-     2. `replace()`
+     1. `push`
+     2. `replace`
 
-     اگر به history به عنوان یک آرایه از مسیرهای بازدید شده نگاه کنیم، `push()` یک جابجایی جدید به مسیر اضافه می‌کنه و `replace()` مسیر فعلی را با یک مسیر جدید جابجا می‌کنه.
+     اگر به history به عنوان یک آرایه از مسیرهای بازدید شده نگاه کنیم، `push` یک جابجایی جدید به مسیر اضافه می‌کنه و `replace` مسیر فعلی را با یک مسیر جدید جابجا می‌کنه.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
@@ -3605,7 +3605,7 @@
 
      روش‌های مختلفی برای جابجایی در برنامه و توسط کد وجود دارد.
 
-     1. **استفاده از تابع مرتبه بالاتر(higher-order) `withRouter()` :**
+     1. **استفاده از تابع مرتبه بالاتر(higher-order) `withRouter` :**
 
          متد `withRouter()` آبجکت history o را به عنوان یک prop به کامپوننت اضافه می‌کنه. در این prop دسترسی به متدهای `push()` و `replace()` بسادگی می‌تونه مسیریابی بین کامپوننت رو فراهم کنه و نیاز به context رو رفع کنه.
 
@@ -3628,7 +3628,7 @@
 
      2. **استفاده از کامپوننت `<Route>` و پترن render props :**
 
-         کامپوننت `<Route>` همون prop که متد `withRouter()` به کامپوننت میده رو به کامپوننت میده.
+         کامپوننت `<Route>` همون prop که متد `withRouter` به کامپوننت میده رو به کامپوننت میده.
 
      <span align="left" dir="ltr">
 
@@ -3683,22 +3683,22 @@
      <span align="left" dir="ltr">
 
      ```jsx harmony
-         const Page = (props, context) => {
-            const history = useHistory();
-            const location = useLocation();
-            const { slug } = useParams();
+     const Page = (props, context) => {
+        const history = useHistory();
+        const location = useLocation();
+        const { slug } = useParams();
 
-            return (
-              <button
-                type='button'
-                onClick={() => {
-                  history.push('/new-location')
-                }}
-              >
-                {'Click Me!'}
-              </button>
-            );
-         }
+        return (
+          <button
+            type='button'
+            onClick={() => {
+              history.push('/new-location')
+            }}
+          >
+            {'Click Me!'}
+          </button>
+        );
+     }
      ```
 
      </span>
@@ -3707,7 +3707,7 @@
 
 134. ### چطوری میشه query پارامترها رو توی ری‌اکت روتر نسخه۴ گرفت؟
 
-		 ساده راه برای دسترسی به paramهای آدرس استفاده از هوک useParams هست.
+ساده‌ترین راه برای دسترسی به paramهای آدرس استفاده از هوک useParams هست.
 
      <span align="left" dir="ltr">
 
@@ -4240,7 +4240,7 @@
 
 158. ### چطوری میشه خارج از کامپوننت میشه store ریداکس دسترسی داشت؟
 
-     You just need to export the store from the module where it created with `createStore()`. Also, it shouldn't pollute the global window object.
+     لازمه که store from the module where it created with `createStore()`. Also, it shouldn't pollute the global window object.
 
      <span align="left" dir="ltr">
 
