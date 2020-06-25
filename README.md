@@ -496,23 +496,23 @@
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
-6. ### کی باید از Class Component بجای Function Component استفاده کنیم؟ 
+6. ### کی باید از Class Component بجای Function Component استفاده کنیم؟
 
      اگه کامپوننت نیاز به *state یا lifecycle methods* داشت از کلاس کامپوننت‌ها استفاده میکنیم در غیر این صورت میریم سراغ فانکسن کامپوننتها.
      *با این حال از ورژن 16.8 ری‌اکت به بعد و با اضافه شدن هوکها به فانکشن کامپوننت ها، شما میتونید از state یا lifecycle methodها یا تمامی فیچرهایی که قبلا فقط در کلاس کامپوننت ‌ها قابل استفاده بود توی فانکشن کامپوننتتون استفاده کنید*
-     
-     **[⬆ برگشت به بالا](#جدول-محتوا)**
-    
-7. ### Pure Components چیه؟ 
 
-    *`React.PureComponent`* دقیقا مثل *`React.Component`* میمونه فقط تنها تفاوتی که داره اینه که برخلاف *`Component`* خودش به صورت خودکار متد *`shouldComponentUpdate()`* رو هندل میکنه. 
+     **[⬆ برگشت به بالا](#جدول-محتوا)**
+
+7. ### Pure Components چیه؟
+
+    *`React.PureComponent`* دقیقا مثل *`React.Component`* میمونه فقط تنها تفاوتی که داره اینه که برخلاف *`Component`* خودش به صورت خودکار متد *`shouldComponentUpdate()`* رو هندل میکنه.
     وقتی که props یا state در کامپوننت تغییر میکنه، *`PureComponent`* یه مقایسه سطحی روی props و state انجام میده (shallow comparison) در حالیکه *Component* این مقایسه رو به صورت خودکار انجام نمیده و به طور پیش‌فرض کامپوننت هربار که `shouldCompnentUpdate` فراخوانی بشه re-render میشه. بنابراین توی Component باید این متد override بشه.
-     
-     **[⬆ برگشت به بالا](#جدول-محتوا)**
-    
-8. ### state تو ری‌اکت چیکار می‌کنه؟ 
 
-   *State* در هر کامپوننت یه آبجکته که یه سری اطلاعات که در طول عمر کامپوننت ما ممکنه تغییر کنه رو در خودش ذخیره میکنه.  ما باید تمام تلاشمون رو بکنیم که state‌مون در ساده ترین حالت ممکن باشه و تاجایی که میتونیم تعداد کامپوننت هایی که stateful هستن رو کاهش بدیم. به عنوان مثال بیایید یه کامپوننت User رو که یه state داره بسازیم: 
+     **[⬆ برگشت به بالا](#جدول-محتوا)**
+
+8. ### state تو ری‌اکت چیکار می‌کنه؟
+
+   *State* در هر کامپوننت یه آبجکته که یه سری اطلاعات که در طول عمر کامپوننت ما ممکنه تغییر کنه رو در خودش ذخیره میکنه.  ما باید تمام تلاشمون رو بکنیم که state‌مون در ساده ترین حالت ممکن باشه و تاجایی که میتونیم تعداد کامپوننت هایی که stateful هستن رو کاهش بدیم. به عنوان مثال بیایید یه کامپوننت User رو که یه state داره بسازیم:
 
     <span align="left" dir="ltr">
 
@@ -535,25 +535,25 @@
       }
     }
     ```
-   
+
      </span>
 
     ![state](images/state.jpg)
 
    State و Props بهم شبیه هستن  ولی State کاملا در کنترل کامپوننت هستن و فقط مختص به همون کامپوننت هستن(private). یعنی state‌ها در هیچ کامپوننتی به غیر از اونی که مالکstate هست در دسترس نخواهند بود.
-     
+
      **[⬆ برگشت به بالا](#جدول-محتوا)**
-    
-9. ### props تو ری‌اکت چیکار می‌کنه؟ 
+
+9. ### props تو ری‌اکت چیکار می‌کنه؟
 
     *Props* ورودی کامپوننتها هستن. میتونن یه مقدار ساده یا یه شی شامل یه مجموعه مقدار باشن که در لحظه ایجاد کامپوننت و بر اساس یه یه قاعده نام گذاری که خیلی شبیه به HTML-tag attributes هست، به کامپوننت پاس داده میشن. در واقع اینها داده‌هایی هستن که از کامپوننت پدر به فرزند تحویل داده میشن.
-    
+
     هدف اصلی وجود Props در ری‌اکت ایجاد ساختارهای زیر در یک کامپوننته:
 
     1 - پاس دادن مقادیر به کامپوننت شما
-    
+
     2 - trigger کردن یک متد در زمان تغییر state
-    
+
     3 - استفاده از مقادیر داخل متد render (`this.props.reactProps`)
 
     به عنوان مثال ، یه کامپوننت با استفاده از`reactProps` میسازیم:
@@ -563,7 +563,7 @@
     ```jsx harmony
     <Element reactProp={'1'} />
      ```
-   
+
      </span>
 
     این `reactProps` (یا هرچیزی که شما اسمشو میزارید)  در نهایت تبدیل به یک property خواهد شد که داخل props object ،که داخل تمامی کامپوننت های react از ابتدا وجود داره ، قرار میگیره. و به شکل زیر قابل دسترس هست
@@ -576,18 +576,18 @@
     ```
     this.props.reactProp
     ```
-   
+
      </span>
-     
+
      **[⬆ برگشت به بالا](#جدول-محتوا)**
-    
-10. ### تفاوت state و props چیه؟ 
-    
+
+10. ### تفاوت state و props چیه؟
+
     هردو javascript plain object  هستن . هردو وظیفه دارن مقادیری که روی render تاثیر گذار هست رو نگه داری کنن اما عملکردشون با توجه به کامپوننت متفاوت خواهد بود. Props شبیه به پارامترهای ورودی یک فانکشن، به کامپوننت پاس داده میشن در حالیکه state شبیه به متغییرهایی که داخل فانکشن ساخته شدن ، توسط خود کامپوننت ایجاد و مدیریت میشه.
-     
+
      **[⬆ برگشت به بالا](#جدول-محتوا)**
-    
-11. ### چرا نباید state رو مستقیما آپدیت کنیم؟ 
+
+11. ### چرا نباید state رو مستقیما آپدیت کنیم؟
 
     اگه یه بار تلاش کنید که مستقیما state رو آپدیت کنید متوجه میشید که کامپوننت شما مجددا render نمیشه.
 
@@ -597,7 +597,7 @@
     //Wrong
     this.state.message = 'Hello world'
      ```
-   
+
      </span>
     به جای اینکه مستقیما state رو آپدیت کنیم میتونیم از متد setState  در Class Component  و از useState  در Function Components  استفاده کنیم. این متدها یک آپدیت در شی state رو برنامه ریزی و مدیریت میکنن و وقتی تغییر انجام شد کامپوننت شما re-render خواهد شد.
 
@@ -607,7 +607,7 @@
     //Correct
     this.setState({ message: 'Hello World' })
      ```
-     
+
     ```javascript
     const [message, setMessage] = React.useState('Hello world')
 
@@ -616,25 +616,25 @@
      </span>
 
     **نکته مهم:** شما میتونید در سازنده کلاس یا در ورژن جدید جاوااسکریپت به عنوان فیلد کلاس هر چیزی رو به شی state خودتون assign کنید.
-     
+
      **[⬆ برگشت به بالا](#جدول-محتوا)**
-    
-12. ### هدف از متدهای callback توی استفاده از setState چیه؟ 
+
+12. ### هدف از متدهای callback توی استفاده از setState چیه؟
 
     callback function زمانی که setState تموم شد و کامپوننت مجددا render شد فراخوانی میشه. از اونجایی که `setState()` **asynchronous** یا همون غیرهمزمانه از callback برای کارهایی استفاده میشه که بعد از تابع setState قراره اجرا بشن.
-    
-    **نکته مهم:** بهتره که به جای callback از lifecycle method ها استفاده کنیم. 
+
+    **نکته مهم:** بهتره که به جای callback از lifecycle method ها استفاده کنیم.
 
     <span align="left" dir="ltr">
 
     ```javascript
     setState({ name: 'John' }, () => console.log('The name has updated and component re-rendered'))
      ```
-   
+
      </span>
-     
+
      **[⬆ برگشت به بالا](#جدول-محتوا)**
-     
+
 13. ### تفاوت بین نحوه مدیریت رویداد HTML و React چیه؟
 
     1. In HTML, the event name should be in *lowercase*:
@@ -3868,25 +3868,25 @@
 
 140. ### React-Intl چیه؟
 
-     *React Intl* library makes internalization in React straightforward, with off-the-shelf components and an API that can handle everything from formatting strings, dates, and numbers, to pluralization. React Intl is part of *FormatJS* which provides bindings to React via its components and API.
+     *React Intl* یه کتابخونه برای راحت کردن کار با برنامه‌های چند زبانه‌ست. این کتابخونه از مجموعه‌ای از کامپوننت‌ها و APIها برای فرمت‌بندی string، date و اعداد برای سهولت چندزبانگی استفاده می‌کنه. React Intl بخشی از *FormatJS* هست که امکان اتصال به ری‌اکت رو با کامپوننت‌های خودش فراهم می‌کنه.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 141. ### اصلی‌ترین ویژگی‌های React Intl چیا هستن؟
 
-     1. Display numbers with separators.
-     2. Display dates and times correctly.
-     3. Display dates relative to "now".
-     4. Pluralize labels in strings.
-     5. Support for 150+ languages.
-     6. Runs in the browser and Node.
-     7. Built on standards.
+     1. نمایش اعداد با جداکننده‌های مشخص
+     2. نمایش تاریخ و ساعت با فرمت درست
+     3. نمایش تاریخ بر اساس زمان حال
+     4. امکان استفاده از لیبل‌ها توی string
+     5. پشتیبانی از بیش از ۱۵۰ زبان
+     6. اجرا توی محیط مرورگر و node
+     7. دارا بودن استانداردهای داخلی
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 142. ### دو روش فرمت کردن توی React Intl چیا هستن؟
 
-     The library provides two ways to format strings, numbers, and dates: react components or an API.
+     این کتابخونه از دو روش برای فرمت‌بندی رشته‌ها، اعداد و تاریخ استفاده می‌کنه: کامپوننت‌های ری‌اکتی و API.
 
      <span align="left" dir="ltr">
 
@@ -3918,7 +3918,7 @@
 
 143. ### چطوری از FormattedMessage به عنوان یه placeholder میشه استفاده کرد؟
 
-     The `<Formatted... />` components from `react-intl` return elements, not plain text, so they can't be used for placeholders, alt text, etc. In that case, you should use lower level API `formatMessage()`. You can inject the `intl` object into your component using `injectIntl()` higher-order component and then format the message using `formatMessage()` available on that object.
+     کامپوننت `<Formatted... />` از `react-intl` بجای بازگرداندن string یه المنت برگشت میده و به همین دلیل نمیشه ازش به عنوان placeholder یا alt و... استفاده کرد. اگه جایی لازم شد یه پیامی رو اینجور جاها استفاده کنیم باید از `formatMessage()` استفاده کنیم. می‌تونیم شي `intl` رو با استفاده از HOC `injectIntl()` به کامپوننت موردنظر inject کنیم و بعدشم می‌تونیم از متد `formatMessage()` روی این شي استفاده کنید.
 
      <span align="left" dir="ltr">
 
@@ -3944,7 +3944,7 @@
 
 144. ### چطوری میشه locale فعلی رو توی React Intl بدست آورد؟
 
-     You can get the current locale in any component of your application using `injectIntl()`:
+     می‌تونیم با استفاده از `injectIntl()` locale فعلی رو بگیریم:
 
      <span align="left" dir="ltr">
 
@@ -3968,7 +3968,7 @@
 
 145. ### چطوری با استفاده از React Intl یه تاریخ رو فرمت‌بندی کنیم؟
 
-     The `injectIntl()` higher-order component will give you access to the `formatDate()` method via the props in your component. The method is used internally by instances of `FormattedDate` and it returns the string representation of the formatted date.
+     با استفاده از HOC `injectIntl()` می‌تونیم به متد `formatDate()` توی کامپوننت خودمون دسترسی داشته باشیم. این متد به صورت داخلی توسط `FormattedDate` استفاده میشه و مقدار string تاریخ فرمت بندی شده رو برمی‌گردونه.
 
      <span align="left" dir="ltr">
 
@@ -3994,13 +3994,13 @@
 
      </span>
 
-## React Testing
+## تست ری‌اکت
 
 146. ### توی تست ری‌اکت Shallow Renderer چیه؟
 
-     *Shallow rendering* is useful for writing unit test cases in React. It lets you render a component *one level deep* and assert facts about what its render method returns, without worrying about the behavior of child components, which are not instantiated or rendered.
+     *Shallow rendering* برای نوشتن یونیت تست توی ری‌اکت کاربرد داره. این روش بهمون این امکان رو میده که *به عمق یک مرتبه* کامپوننت موردنظرمون رو رندر کنیم و مقدار بازگردانی شده رو بدون اینکه نگران عملکرد کامپوننت‌های فرزند باشیم، ارزیابی کنیم.
 
-     For example, if you have the following component:
+     برای مثال، اگه کامپوننتی به شکل زیر داشته باشیم:
 
      <span align="left" dir="ltr">
 
@@ -4017,7 +4017,7 @@
 
      </span>
 
-     Then you can assert as follows:
+     می‌تونیم انتظار اجرا به شکل زیر رو داشته باشیم:
 
      <span align="left" dir="ltr">
 
@@ -4043,7 +4043,7 @@
 
 147. ### پکیج TestRenderer توی ری‌اکت چیه؟
 
-     This package provides a renderer that can be used to render components to pure JavaScript objects, without depending on the DOM or a native mobile environment. This package makes it easy to grab a snapshot of the platform view hierarchy (similar to a DOM tree) rendered by a ReactDOM or React Native without using a browser or `jsdom`.
+     این پکیج یه renderer معرفی می‌کنه که می‌تونیم ازش برای رندر کردن کامپوننت‌ها و تبدیل اونا به یه آبجکت pure JavaScript استفاده کنیم بدون اینکه وابستگی به DOM یا محیط اجرایی موبایلی داشته باشیم. این پکیج گرفتن snapshot از سلسله مرتب view(یه چیزی شبیه به درخت DOM) که توسط ReactDOM یا React Native درست میشه رو بدون نیاز به مرورگو یا `jsdom` فراهم می‌کنه.
 
      <span align="left" dir="ltr">
 
@@ -4070,31 +4070,31 @@
 
 148. ### هدف از پکیج ReactTestUtils چیه؟
 
-     *ReactTestUtils* are provided in the `with-addons` package and allow you to perform actions against a simulated DOM for the purpose of unit testing.
+     پکیج *ReactTestUtils* توی پکیج `with-addons` ارائه شده و اجازه اجرای یه سری عملیات روی DOMهای شبیه‌سازی شده رو برای انجام یونیت‌ تست‌ها ارائه می‌ده.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 149. ### Jest چیه؟
 
-     *Jest* is a JavaScript unit testing framework created by Facebook based on Jasmine and provides automated mock creation and a `jsdom` environment. It's often used for testing components.
+     *Jest* یه فریم‌ورک برای یونیت تست کردن جاواسکریپت هستش که توسط فیس بوک و براساس Jasmine ساخته شده. Jest امکان ایجاد اتوماتیک mock(دیتا یا مقدار ثابت برای تست) و محیط `jsdom` رو فراهم می‌کنه و اکثرا برای تست کامپوننت‌ها استفاده میشه.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 150. ### مزایای jest نسبت به jasmine چیا هستن؟
 
-     There are couple of advantages compared to Jasmine:
+     یه سری برتری‌هایی نسبت بهJasmine داره :
 
-     - Automatically finds tests to execute in your source code.
-     - Automatically mocks dependencies when running your tests.
-     - Allows you to test asynchronous code synchronously.
-     - Runs your tests with a fake DOM implementation (via `jsdom`) so that your tests can be run on the command line.
-     - Runs tests in parallel processes so that they finish sooner.
+     - می‌تونه به صورت اتوماتیک تست‌ها رو توی سورس کد پیدا و اجرا کنه
+     - به صورت اتوماتیک می‌تونه وابستگی‌هایی که داریم رو mock کنه
+     - امکان تست کد asynchronous رو به شکل synchronously فراهم می‌کنه
+     - تست ها رو با استفاده از یه پیاده‌سازی مصنوعی از DOM(jsdom) اجرا می‌کنه و بواسطه اون تست‌ها قابلیت اجرا توسط cli رو دارن
+     - تست‌ها به شکل موازی اجرا می‌شن و می‌تونن توی مدت زمان زودتری تموم شن
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 151. ### یه مثال ساده از تست با jest بزن؟
 
-     Let's write a test for a function that adds two numbers in `sum.js` file:
+     خب بیایین یه تست برای تابعی که جمع دو عدد رو توی فایل `sum.js` برامون انجام میده بنویسیم:
 
      <span align="left" dir="ltr">
 
@@ -4106,7 +4106,7 @@
 
      </span>
 
-     Create a file named `sum.test.js` which contains actual test:
+     یه فایل به اسم `sum.test.js` ایحاد می‌کنیم که تست‌هامون رو توش بنویسیم:
 
      <span align="left" dir="ltr">
 
@@ -4120,7 +4120,7 @@
 
      </span>
 
-     And then add the following section to your `package.json`:
+     و بعدش به فایل `package.json` بخش پایین رو اضافه می‌کنیم:
 
      <span align="left" dir="ltr">
 
@@ -4134,7 +4134,7 @@
 
      </span>
 
-     Finally, run `yarn test` or `npm test` and Jest will print a result:
+     در آخر، دستور `yarn test` یا `npm test` اجرا می‌کنیم و Jest نتیجه تست رو برامون چاپ می‌کنه:
 
      <span align="left" dir="ltr">
 
@@ -4150,9 +4150,9 @@
 
 152. ### Flux چیه؟
 
-     *Flux* is an *application design paradigm* used as a replacement for the more traditional MVC pattern. It is not a framework or a library but a new kind of architecture that complements React and the concept of Unidirectional Data Flow. Facebook uses this pattern internally when working with React.
+     *Flux* یه *الگوی طراحی برنامه* است که به عنوان جایگزینی برای اکثر پترن‌های MVC سنتی به کار میره. در حقیقت یه کتابخونه یا فریم‌ورک نیست و یه معماری برای تکمیل کارکرد ری‌اکت با مفهوم جریان داده یک طرفه(Unidirectional Data Flow) به کار میره. فیس‌بوک از این پترن به شکل داخلی برای توسعه ری‌اکت بهره می‌گیره.
 
-     The workflow between dispatcher, stores and views components with distinct inputs and outputs as follows:
+     جریان کار بین dispatcher، store‌ها و viewهای کامپوننت‌ها با ورودی و خروجی مشخص به شکل زیر خواهد بود:
 
      ![flux](images/flux.png)
 
@@ -4160,33 +4160,33 @@
 
 153. ### Redux چیه؟
 
-     *Redux* is a predictable state container for JavaScript apps based on the *Flux design pattern*. Redux can be used together with React, or with any other view library. It is tiny (about 2kB) and has no dependencies.
+     *Redux* یه state manager(مدیریت کننده حالت) قابل پیش‌بینی برای برنامه‌های جاواسکریپتیه که برپایه دیزاین پترن *Flux* ایجاد شده. Redux می‌تونه با ری‌اکت یا هر کتابخونه دیگه‌ای استفاده بشه. کم حجمه (حدود 2کیلوبایت) و هیچ وابستگی به کتابخونه دیگه‌ای نداره.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 154. ### مبانی اصلی ریداکس چیا هستن؟
 
-     Redux follows three fundamental principles:
+     Redux از سه اصل بنیادی پیروی می‌کنه:
 
-     1. **Single source of truth:** The state of your whole application is stored in an object tree within a single store. The single state tree makes it easier to keep track of changes over time and debug or inspect the application.
-     2. **State is read-only:** The only way to change the state is to emit an action, an object describing what happened. This ensures that neither the views nor the network callbacks will ever write directly to the state.
-     3. **Changes are made with pure functions:** To specify how the state tree is transformed by actions, you write reducers. Reducers are just pure functions that take the previous state and an action as parameters, and return the next state.
+     1. **یک مرجع کامل و همواره درست:** حالت موجود برا کل برنامه در یک درخت object و توی یه store نگهداری میشه. این یکی بودن store باعث میشه دنبال کردن تغییرات در طول زمان و حتی دیباگ کردن برنامه ساده‌تر باشه.
+     2. **State فقط قابل خواندن است:** تنها روش ایجاد تغییر در store استفاده از action هستش و نتیجه اجرای این action یک object خواهد بود که رخداد پیش اومده رو توصیف می‌کنه. به این ترتیب مطمئن میشیم که تغییرات فقط با action انجام میشن و هر دیتایی توی store باشه توسط خودمون پر شده.
+     3. **تغییرات با یه سری تابع pure انجام میشن:** برای مشخص کردن نحوه انجام تغییرات در store باید reducer بنویسیم. Reducerها فقط یه سری توابع pure هستند که حالت قبلی و action رو به عنوان پارامتر می‌گیرن و حالت بعدی رو برگشت میدن.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 155. ### کاستی‌های redux نسبت به flux چیا هستن؟
 
-     Instead of saying downsides we can say that there are few compromises of using Redux over Flux. Those are as follows:
+     بجای گفتن کاستی‌ها بیایین مواردی که می‌دونیم موقع استفاده از Redux بجای Flux داریم رو بگیم:
 
-     1. **You will need to learn to avoid mutations:** Flux is un-opinionated about mutating data, but Redux doesn't like mutations and many packages complementary to Redux assume you never mutate the state. You can enforce this with dev-only packages like `redux-immutable-state-invariant`, Immutable.js, or instructing your team to write non-mutating code.
-     2. **You're going to have to carefully pick your packages:** While Flux explicitly doesn't try to solve problems such as undo/redo, persistence, or forms, Redux has extension points such as middleware and store enhancers, and it has spawned a rich ecosystem.
-     3. **There is no nice Flow integration yet:** Flux currently lets you do very impressive static type checks which Redux doesn't support yet.
+     1. **باید یاد بگیریم که mutation انجام ندیم:** Flux در مورد mutate کردن داده نظری نمی‌دهد، ولی Redux از mutate کردن داده جلوگیری می‌کنه و پکیج‌های مکمل زیادی برای مطمئن شدن از mutate نشدن state توسط برنامه‌نویس ایجاد شده‌اند. این مورد رو میشه فقط برای محیط توسعه با پکیجی مثل `redux-immutable-state-invariant`، Immutable.js یا آموزش تیم برای نوشتن کد بدون mutate دیتا محقق کرد.
+     2. **باید توی انتخاب پکیج‌ها محتاطانه عمل کنید:** Flux به شکل خاص کاری برای حل مشکلاتی مثل undo/redo، persist کردن داده یا مدیریت فرم‌ها انجام نداده است. در عوض Redux کلی middleware و مکمل store برای محقق ساختن همچین نیاز‌های داره.
+     3. **شاید هنوز یه جریان داده خوشگل نداشته باشه** در حال حاضر Flux بهمون اجازه یه type check استاتیک خوب رو میده ولی Redux هنوز پشتیبانی خوبی نداره براش.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 156. ### تفاوت‌های mapStateToProps() و mapDispatchToProps() چی هست؟
 
-     `mapStateToProps()` is a utility which helps your component get updated state (which is updated by some other components):
+     `mapStateToProps()` یه ابزار برای دریافت به روزشدن‌های stateها توی کامپوننت هستش (که توسط یه کامپوننت دیگه به روز شده):
 
      <span align="left" dir="ltr">
 
@@ -4200,7 +4200,7 @@
 
      </span>
 
-     `mapDispatchToProps()` is a utility which will help your component to fire an action event (dispatching action which may cause change of application state):
+     `mapDispatchToProps()` یه ابزار برای آوردن action برای فراخوانی تو کامپوننت ارائه میده (actionای که می‌خواییم dispatch کنیم و ممکنه state رو عوض کنه):
 
      <span align="left" dir="ltr">
 
@@ -4216,9 +4216,9 @@
 
      </span>
 
-     Recommend always using the “object shorthand” form for the `mapDispatchToProps`
+     توصیه میشه که همیشه از روش “object shorthand” برای دسترسی به `mapDispatchToProps` استفاده بشه
 
-     Redux wrap it in another function that looks like (…args) => dispatch(onTodoClick(…args)), and pass that wrapper function as a prop to your component.
+     Redux این action رو توی یه تابع دیگه قرار میده که تقریبا میشه یه چیزی مثل (…args) => dispatch(onTodoClick(…args)) و تابعی که خودش به عنوان wrapper ساخته  رو به کامپوننت مورد نظر ما میده.
 
       <span align="left" dir="ltr">
 
@@ -4234,7 +4234,7 @@
 
 157. ### توی ریدیوسر می‌تونیم یه actionی رو dispatch کنیم؟
 
-     Dispatching an action within a reducer is an **anti-pattern**. Your reducer should be *without side effects*, simply digesting the action payload and returning a new state object. Adding listeners and dispatching actions within the reducer can lead to chained actions and other side effects.
+     Dispatch کردن action توی reducer یه **آنتی پترن** محسوب میشه. reducer *نباید هیچ ساید‌افکتی* داشته باشه، فقط باید خیلی ساده state قبلی و action فعلی رو بگیره و state جدید رو بده. این‌کار رو اگه با افزودن یه سری listeners و dispatch کردن با تغییرات reducer هم انجام بدیم باز باعث ایجاد actionهای تودرتو میشه و می‌تونه ساید افکت داشته باشه، 
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
