@@ -3586,7 +3586,7 @@
      2. `<HashRouter>`
      3. `<MemoryRouter>`
 
-     کامپوننت‌های فوق به ترتیب *browser*، *hash*، و *memory* history درست می‌کنن. React Router v4 ساخت `history` instance associated with your router available through the context in the `router` object.
+     کامپوننت‌های فوق به ترتیب *browser*، *hash*، و *memory* history درست می‌کنن. React Router v4 ساخت `history` را براساس context ارائه شده به آبجکت router انجام می‌دهد.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
@@ -3594,10 +3594,10 @@
 
      هر شئ از history دو متد برای جابجایی ارائه می‌دهد.
 
-     1. `push()`
-     2. `replace()`
+     1. `push`
+     2. `replace`
 
-     اگر به history به عنوان یک آرایه از مسیرهای بازدید شده نگاه کنیم، `push()` یک جابجایی جدید به مسیر اضافه می‌کنه و `replace()` مسیر فعلی را با یک مسیر جدید جابجا می‌کنه.
+     اگر به history به عنوان یک آرایه از مسیرهای بازدید شده نگاه کنیم، `push` یک جابجایی جدید به مسیر اضافه می‌کنه و `replace` مسیر فعلی را با یک مسیر جدید جابجا می‌کنه.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
@@ -3605,7 +3605,7 @@
 
      روش‌های مختلفی برای جابجایی در برنامه و توسط کد وجود دارد.
 
-     1. **استفاده از تابع مرتبه بالاتر(higher-order) `withRouter()` :**
+     1. **استفاده از تابع مرتبه بالاتر(higher-order) `withRouter` :**
 
          متد `withRouter()` آبجکت history o را به عنوان یک prop به کامپوننت اضافه می‌کنه. در این prop دسترسی به متدهای `push()` و `replace()` بسادگی می‌تونه مسیریابی بین کامپوننت رو فراهم کنه و نیاز به context رو رفع کنه.
 
@@ -3628,7 +3628,7 @@
 
      2. **استفاده از کامپوننت `<Route>` و پترن render props :**
 
-         کامپوننت `<Route>` همون prop که متد `withRouter()` به کامپوننت میده رو به کامپوننت میده.
+         کامپوننت `<Route>` همون prop که متد `withRouter` به کامپوننت میده رو به کامپوننت میده.
 
      <span align="left" dir="ltr">
 
@@ -3683,22 +3683,22 @@
      <span align="left" dir="ltr">
 
      ```jsx harmony
-         const Page = (props, context) => {
-            const history = useHistory();
-            const location = useLocation();
-            const { slug } = useParams();
+     const Page = (props, context) => {
+        const history = useHistory();
+        const location = useLocation();
+        const { slug } = useParams();
 
-            return (
-              <button
-                type='button'
-                onClick={() => {
-                  history.push('/new-location')
-                }}
-              >
-                {'Click Me!'}
-              </button>
-            );
-         }
+        return (
+          <button
+            type='button'
+            onClick={() => {
+              history.push('/new-location')
+            }}
+          >
+            {'Click Me!'}
+          </button>
+        );
+     }
      ```
 
      </span>
@@ -3707,7 +3707,7 @@
 
 134. ### چطوری میشه query پارامترها رو توی ری‌اکت روتر نسخه۴ گرفت؟
 
-		 ساده راه برای دسترسی به paramهای آدرس استفاده از هوک useParams هست.
+ساده‌ترین راه برای دسترسی به paramهای آدرس استفاده از هوک useParams هست.
 
      <span align="left" dir="ltr">
 
@@ -4234,18 +4234,18 @@
 
 157. ### توی ریدیوسر می‌تونیم یه actionی رو dispatch کنیم؟
 
-     Dispatch کردن action توی reducer یه **آنتی پترن** محسوب میشه. reducer *نباید هیچ ساید‌افکتی* داشته باشه، فقط باید خیلی ساده state قبلی و action فعلی رو بگیره و state جدید رو بده. این‌کار رو اگه با افزودن یه سری listeners و dispatch کردن با تغییرات reducer هم انجام بدیم باز باعث ایجاد actionهای تودرتو میشه و می‌تونه ساید افکت داشته باشه، 
+     Dispatch کردن action توی reducer یه **آنتی پترن** محسوب میشه. reducer *نباید هیچ ساید‌افکتی* داشته باشه، فقط باید خیلی ساده state قبلی و action فعلی رو بگیره و state جدید رو بده. این‌کار رو اگه با افزودن یه سری listeners و dispatch کردن با تغییرات reducer هم انجام بدیم باز باعث ایجاد actionهای تودرتو میشه و می‌تونه ساید افکت داشته باشه،
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 158. ### چطوری میشه خارج از کامپوننت میشه store ریداکس دسترسی داشت؟
 
-     You just need to export the store from the module where it created with `createStore()`. Also, it shouldn't pollute the global window object.
+     لازمه که store رو از یه ماژول که با `createStore` ایجاد شده بارگذاری کنیم. البته حواسمون باشه برای انجام این مورد نباید اثری روی window به شکل global ایجاد کنیم.
 
      <span align="left" dir="ltr">
 
      ```javascript
-     store = createStore(myReducer)
+     const store = createStore(myReducer)
 
      export default store
      ```
@@ -4256,38 +4256,35 @@
 
 159. ### اشکالات پترن MVW چیا هستن؟
 
-     1. DOM manipulation is very expensive which causes applications to behave slow and inefficient.
-     3. Due to circular dependencies, a complicated model was created around models and views.
-     3. Lot of data changes happens for collaborative applications(like Google Docs).
-     4. No way to do undo (travel back in time) easily without adding so much extra code.
+     1. مدیریت DOM خیلی هزینه‌بر هست و می‌تونه باعث کندی و ناکارآمد شدن برنامه بشه.
+     3. بخاطر circular dependencies(وابستگی چرخشی) یه مدل پیچیده بین modelها و viewها ایجاد میشه.
+     3. بخاطر تعامل زیاد برنامه تغییرات خیلی زیادی رخ میده(مثل Google Docs).
+     4. هیچ روشی ساده‌ و بدون دردسری برای undo کردن(برگشت به عقب) نیست.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 160. ### تشابهی بین Redux و RxJS هست؟
 
-     These libraries are very different for very different purposes, but there are some vague similarities.
+     این دو کتابخونه خیلی متفاوتن و برای اهداف متفاوتی استفاده میشن، ولی یه سری تشابه‌های ریزی دارن.
 
-     Redux is a tool for managing state throughout the application. It is usually used as an architecture for UIs. Think of it as an alternative to (half of) Angular. RxJS is a reactive programming library. It is usually used as a tool to accomplish asynchronous tasks in JavaScript. Think of it as an alternative to Promises. Redux uses the Reactive paradigm because the Store is reactive. The Store observes actions from a distance, and changes itself. RxJS also uses the Reactive paradigm, but instead of being an architecture, it gives you basic building blocks, Observables, to accomplish this pattern.
-
+     Redux یه ابزار برای مدیریت state توی کل برنامه‌ست. اکثرا هم به عنوان یه معماری برای ایجاد رابط کاربری استفاده میشه. RxJS یه کتابخونه برای برنامه‌نویسی reactive(کنش گرا) هستش. اکثرا هم برای انجام تسک‌های asynchronous توی جاواسکریپت به کار میره. می‌تونیم بهش به عنوان یه معماری بجای Promise نگاه کنیم. Redux هم از الگوی Reactive استفاده می‌کنه چون Store ریداکس reactive هستش. Store میاد actionها رو از دور می‌بینه و تغییرات لازم رو توی خودش ایجاد می‌کنه. RxJS هم از الگوی Reactive پیروی می‌کنه، ولی بجای اینکه خودش این architecture رو بسازه میاد به شما یه سری بلاک‌های سازنده به اسمObservable میده که باهاش بتونید الگوی reactive رو اجرا کنید.
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 161. ### چطوری میشه یه اکشن رو موقع لود dispatch کرد؟
 
-     You can dispatch an action in `componentDidMount()` method and in `render()` method you can verify the data.
+     خیلی ساده میشه اون action رو موقع `mount` اجرا کرد و موقع `render` دیتای مورد نیاز رو داشت.
 
      <span align="left" dir="ltr">
 
      ```javascript
-     class App extends Component {
-       componentDidMount() {
-         this.props.fetchData()
-       }
+     const App = props => {
+       useEffect(() => {
+         props.fetchData()
+       }, []);
 
-       render() {
-         return this.props.isLoaded
-           ? <div>{'Loaded'}</div>
-           : <div>{'Not Loaded'}</div>
-       }
+       return props.isLoaded
+         ? <div>{'Loaded'}</div>
+         : <div>{'Not Loaded'}</div>;
      }
 
      const mapStateToProps = (state) => ({
@@ -4305,28 +4302,28 @@
 
 162. ### چطوری از متد connect از پکیج react-redux استفاده می‌کنیم؟
 
-     You need to follow two steps to use your store in your container:
+     برای دسترسی به دیتای نگهداری شده توی ریداکس باید دو گام زیر رو طی کنیم:
 
-     1. **Use `mapStateToProps()`:** It maps the state variables from your store to the props that you specify.
-     2. **Connect the above props to your container:** The object returned by the `mapStateToProps` function is connected to the container. You can import `connect()` from `react-redux`.
+     1. **از متد `mapStateToProps` استفاده می‌کنیم** و متغیرهای state که از store می‌خواییم لود کنیم رو مشخص می‌کنیم.
+     2. ** با استفاده از متد connect دیتا رو به props میدیم**، چون دیتایی که این HOC میاره به عنوان props به کامپوننت داده میشه. متد `connect` رو هم از پکیج `react-redux` باید بارگذاری کنیم.
 
-         <span align="left" dir="ltr">
+     <span align="left" dir="ltr">
 
      ```jsx harmony
-         import React from 'react'
-         import { connect } from 'react-redux'
+     import React from 'react';
+     import { connect } from 'react-redux';
 
-         class App extends React.Component {
-           render() {
-             return <div>{this.props.containerData}</div>
-           }
-         }
+     const App = props => {
+       render() {
+         return <div>{props.containerData}</div>
+       }
+     };
 
-         function mapStateToProps(state) {
-           return { containerData: state.data }
-         }
+     const mapStateToProps = state => {
+       return { containerData: state.data }
+     };
 
-         export default connect(mapStateToProps)(App)
+     export default connect(mapStateToProps)(App);
      ```
 
      </span>
@@ -4335,9 +4332,9 @@
 
 163. ### چطوری میشه state ریداکس رو ریست کرد؟
 
-     You need to write a *root reducer* in your application which delegate handling the action to the reducer generated by `combineReducers()`.
+     لازمه که توی برنامه یه *root reducer* تعریف کنیم که وظیفه  which delegate handling the action to the reducer generated by `combineReducers`.
 
-     For example, let us take `rootReducer()` to return the initial state after `USER_LOGOUT` action. As we know, reducers are supposed to return the initial state when they are called with `undefined` as the first argument, no matter the action.
+     مثلا, let us take `rootReducer()` to return the initial state after `USER_LOGOUT` action. As we know, reducers are supposed to return the initial state when they are called with `undefined` as the first argument, no matter the action.
 
      <span align="left" dir="ltr">
 
@@ -4357,7 +4354,7 @@
 
      </span>
 
-     In case of using `redux-persist`, you may also need to clean your storage. `redux-persist` keeps a copy of your state in a storage engine. First, you need to import the appropriate storage engine and then, to parse the state before setting it to undefined and clean each storage state key.
+     اگه از پکیج `redux-persist` استفاده می‌کنین، احتمالا لازمه که storage رو هم خالی کنین. `redux-persist` یه کپی از دیتای موجود در store رو توی localstorage نگهداری می‌کنه. اولش، لازمه که یه موتور مناسب برای storage بارگذاری کنیم و to parse the state before setting it to undefined and clean each storage state key.
 
      <span align="left" dir="ltr">
 
