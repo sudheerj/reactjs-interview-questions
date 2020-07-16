@@ -7456,7 +7456,7 @@
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 321. ### می تونیم از آدرس‌های دارای url جاواسکریپت در ری‌اکت 16.9 استفاده کرد؟
-     Yes, you can use javascript: URLs but it will log a warning in the console. Because URLs starting with javascript: are dangerous by including unsanitized output in a tag like `<a href>`
+     آره، میشه از javascript: استفاده کرد ولی یه warning توی کنسول برامون نشون داده میشه. چون آدرس‌هایی که با javascript: شروغ میشن خطرناکن  by including unsanitized output in a tag like `<a href>`
      and create a security hole.
 
      <span align="left" dir="ltr">
@@ -7476,16 +7476,16 @@
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 322. ### هدف از پلاگین eslint برای هوک‌ها چیه؟
-     The ESLint plugin enforces rules of Hooks to avoid bugs. It assumes that any function starting with ”use” and a capital letter right after it is a Hook. In particular, the rule enforces that,
-     1. Calls to Hooks are either inside a PascalCase function (assumed to be a component) or another useSomething function (assumed to be a custom Hook).
-     2. Hooks are called in the same order on every render.
+     پلاگین ESLint میاد یه‌سری قوانین برای درست نوشت هوک‌ها رو توی برنامه الزامی می‌کنه. روش تشخیص دادن هوک‌ها هم اینطوریه که میگه اگه اسم تابعی با ”use” شروع بشه و درست بعد اون یه حرف بزرگ بیاد پس اون تابع هوک هستش. این پلاگین در حالت پایه این دوتا شرط رو الزام می‌کنه:
+     1. فراخوانی هوک‌ها یا باید داخل یه تابع که عنوانش PascalCase هست (منظور یه کامپوننته) یا یه تابع دیگه که مثلا useSomething هست (custom هوک) انجام بشه.
+     2. هوک‌ها باید توی همه رندرها با یه ترتیب مشخص اجرا بشن.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 323. ### تفاوت‌های Imperative و Declarative توی ری‌اکت چیه؟
 
-     Imagine a simple UI component, such as a "Like" button. When you tap it, it turns blue if it was previously grey, and grey if it was previously blue.
-     The imperative way of doing this would be:
+     یه کامپوننت ساده UI رو تصور کنین، مثلا یه دکمه "لایک". وقتی که روش کلیک می‌کنین رنگ از خاکستری به آبی تغییر پیدا می‌کنه و اگه دوباره کلیک کنید باز خاکستری میشه.
+     رویش imperative برای انجام این کار اینطوریه:
 
      <span align="left" dir="ltr">
 
@@ -7503,9 +7503,9 @@
 
      </span>
 
-     Basically, you have to check what is currently on the screen and handle all the changes necessary to redraw it with the current state, including undoing the changes from the previous state. You can imagine how complex this could be in a real-world scenario.
+     لازمه اول بررسی کنیم که چه چیزی رو توی اسکرین داریم نمایش می‌دیم و بعدش بیایم state رو عوض کنیم به حالتی که می‌خواییم برامون نمایش انجام بشه، توی برنامه‌های بزرگ و واقعی مدیریت این حالت‌ها خیلی می‌تونه سخت باشه.
 
-     In contrast, the declarative approach would be:
+     در حالت مقابل، روش declarative می‌تونه اینطوری باشه:
 
      <span align="left" dir="ltr">
 
@@ -7519,16 +7519,16 @@
 
      </span>
 
-     Because the declarative approach separates concerns, this part of it only needs to handle how the UI should look in a sepecific state, and is therefore much simpler to understand.
+     چون روش declarative حالت‌ها رو جدا در نظر می‌گیره، این بخش از کد براساس state فقط تصمیم می‌گیره که چه ظاهری رو نمایش بده و به همین دلیل درک کردنش ساده‌تره.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 324. ### مزایای استفاده از تایپ اسکریپت با ری‌اکت چیه؟
-     Below are some of the benefits of using typescript with Reactjs,
-     1. It is possible to use latest JavaScript features
-     2. Use of interfaces for complex type definitions
-     3. IDEs such as VS Code was made for TypeScript
-     4. Avoid bugs with the ease of readability and Validation
+     یه سری از مزایای استفاده از typescript با Reactjs اینا هستن:
+     1. می‌تونیم از آخرین ویژگی‌های جاواسکریپت استفاده کنیم
+     2. از interfaceها برای تعریف نوع‌های دلخواه و پیچیده استفاده کنیم
+     3. IDEهایی مثل VS Code برای TypeScript ساخته شدن
+     4. با افزایش خوانایی و Validation از خطاهای ناخواسته جلوگیری کنیم
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
