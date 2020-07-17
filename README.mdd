@@ -637,7 +637,7 @@
 
 13. ### تفاوت بین نحوه مدیریت رویداد HTML و React چیه؟
 
-    1. In HTML, the event name should be in *lowercase*:
+    1. توی HTML، عنوان رخداد حتما باید با حرف کوچیک شروع بشه یا اصطلاحا *lowercase* باشه:
 
     <span align="left" dir="ltr">
 
@@ -647,7 +647,7 @@
 
      </span>
 
-    Whereas in React it follows *camelCase* convention:
+    ولی توی ری‌اکت از *camelCase* پیروی می‌کنه:
 
     <span align="left" dir="ltr">
 
@@ -657,7 +657,7 @@
 
      </span>
 
-    2. In HTML, you can return `false` to prevent default behavior:
+    2. توی HTML می‌تونیم برای جلوگیری از اجرای رفتار پیش‌فرض(preventDefault) یه مقدار `false` برگرودونیم:
 
     <span align="left" dir="ltr">
 
@@ -667,7 +667,7 @@
 
      </span>
 
-    Whereas in React you must call `preventDefault()` explicitly:
+    ولی توی ری‌اکت برای انجام این مورد حتما باید از `preventDefault` استفاده بشه :
 
     <span align="left" dir="ltr">
 
@@ -680,16 +680,16 @@
 
      </span>
 
-    3. In HTML, you need to invoke the function by appending `()`
-    Whereas in react you should not append `()` with the function name. (refer "activateLasers" function in the first point for example)
+    3. توی HTML برای اجرای تابع حتما باید اونو با گذاشتن پرانتزهایی که بعد اسمش میزاریم invoke کنیم`()`
+    ولی توی ری‌اکت اجباری به گذاشتن `()` جلوی اسم تابع نیست.(برای مثال به کد اول و تابع "activateLasers" دقت کنید)
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 14. ### چطوری متد یا event رو به تابع callback توی JSX bind کنیم؟
 
-    There are 3 possible ways to achieve this:
+    سه روش مختلف برای انجام این مورد هست:
 
-    1.	**Binding in Constructor:** In JavaScript classes, the methods are not bound by default. The same thing applies for React event handlers defined as class methods. Normally we bind them in constructor.
+    1.	**Bind کردن توی Constructor:** توی کلاس‌های جاواسکریپتی متدها به صورت پیش‌فرض bound نمیشن. همین موضوع توی کلاس کامپوننت‌های ری‌اکتی برای متدهای موجود هم رخ میده که اکثرا توی متد سازنده یا همون constructor می‌آییم bind می‌کنیم.
 
     <span align="left" dir="ltr">
 
@@ -708,7 +708,7 @@
 
      </span>
 
-    2. **Public class fields syntax:** If you don't like to use bind approach then *public class fields syntax* can be used to correctly bind callbacks.
+    2. **استفاده از فیلد عمومی کلاس(public):** اگه از روش اول خوشتون نمیاد این روش هم می‌تونه context درست رو موقع callbackها براتون فراهم کنه.
 
     <span align="left" dir="ltr">
 
@@ -730,7 +730,7 @@
 
      </span>
 
-    3. **Arrow functions in callbacks:** You can use *arrow functions* directly in the callbacks.
+    3. **توابع arrow توی callback:** می‌تونین از توابع فلش به شکل مستقیم توی callbackها استفاده کنین.
 
     <span align="left" dir="ltr">
 
@@ -742,13 +742,13 @@
 
      </span>
 
-    **Note:** If the callback is passed as prop to child components, those components might do an extra re-rendering. In those cases, it is preferred to go with `.bind()` or *public class fields syntax* approach considering performance.
+    **نکته:** اگه متد‌های callback به عنوان prop به کامپوننت‌های فرزندشون پاس داده بشن، ممکنه اون کامپوننت‌ها re-renderingهای ناخواسته‌ای داشته باشن. توی اینگونه موارد روش توصیه شده استفاده از `.bind()` یا *فیلد عمومی کلاس* برای مدیریت پرفورمنس هستش.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 15. ### چطوری میشه یک مقدار رو به یه تابع callback یا eventHandler پاس بدیم؟
 
-    You can use an *arrow function* to wrap around an *event handler* and pass parameters:
+    می‌تونیم از *توابع arrow* استفاده کنیم که با wrap کردن دور *event handler* و پاس دادن مقدار بهش نیاز مورد نظرمونو انجام بدیم:
 
     <span align="left" dir="ltr">
 
@@ -758,7 +758,8 @@
 
      </span>
 
-    This is an equivalent to calling `.bind`:
+
+    این حالت دقیقا مثل فراخوانی `.bind` هستش:
 
     <span align="left" dir="ltr">
 
@@ -767,7 +768,11 @@
      ```
 
      </span>
-    Apart from these two approaches, you can also pass arguments to a function which is defined as array function
+
+
+    جدا از این روش‌ها، میشه با ایجاد یه curry، یه تابع دیگه دور تابع هندلر خودمون wrap کنیم و پارامتر رو به اون پاس بدیم:
+
+
     <span align="left" dir="ltr">
 
     ```jsx harmony
@@ -779,17 +784,18 @@
 
      </span>
 
+
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 16. ### Synthetic events(رویدادهای مصنوعی) تو ری‌اکت چیا هستن؟
 
-    `SyntheticEvent` is a cross-browser wrapper around the browser's native event. It's API is same as the browser's native event, including `stopPropagation()` and `preventDefault()`, except the events work identically across all browsers.
+    `SyntheticEvent` یه رخداد cross-browser هست که به‌عنوان یه wrapper دور eventهای اصلی مرورگر هستش. رابط API برای کارکردن با اون عینا مثل رخداد native مرورگرهاست که شامل `stopPropagation()` و `preventDefault()` میشه، با این تفاوت که این رخداد‌ها بر روی همه مرورگرها کار می‌کنن.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 17. ### عبارات شرطی درون خطی چیه؟
 
-    You can use either *if statements* or *ternary expressions* which are available from JS to conditionally render expressions. Apart from these approaches, you can also embed any expressions in JSX by wrapping them in curly braces and then followed by JS logical operator `&&`.
+    می‌تونیم از *عبارت شرطی if* یا *عبارات شرطی سه‌تایی* که به صورت پیش‌فرض توسط جاواسکریپت و رندر شدن عبارات پشتیبانی میشه. جدا از این روش‌ها میشه هر عباراتی که می‌خواهیم پردازش کنیم و شامل شرط‌ها هم هست، رو داخل بلوک قرار بدیم و پردازش کنیم:
 
     <span align="left" dir="ltr">
 
@@ -843,7 +849,7 @@
 
      </span>
 
-    **Note:**
+    **نکته:**
 
     1. Using *indexes* for *keys* is **not recommended** if the order of items may change. This can negatively impact performance and may cause issues with component state.
     2. If you extract list item as separate component then apply *keys* on list component instead of `li` tag.
@@ -859,7 +865,7 @@
 
 20. ### چطوری از ref استفاده کنیم؟
 
-    There are two approaches
+    دو روش برای انجام این کار وجود داره
     1. This is a recently added approach. *Refs* are created using `React.createRef()` method and attached to React elements via the `ref` attribute. In order to use *refs* throughout the component, just assign the *ref* to the instance property within constructor.
 
     <span align="left" dir="ltr">
@@ -1608,7 +1614,7 @@
 
      </span>
 
-    **Note:** In React v15.5 *PropTypes* were moved from `React.PropTypes` to `prop-types` library.
+    **نکته:** In React v15.5 *PropTypes* were moved from `React.PropTypes` to `prop-types` library.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
@@ -2007,7 +2013,7 @@
 
      </span>
 
-    **Note:** Decorators are a feature that didn't make it into ES7, but are currently a *stage 2 proposal*.
+    **نکته:** Decorators are a feature that didn't make it into ES7, but are currently a *stage 2 proposal*.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
@@ -2500,7 +2506,7 @@
 
      </span>
 
-    **Note:** `React.createClass()` is deprecated and removed in React v16. Use plain JavaScript classes instead.
+    **نکته:** `React.createClass()` is deprecated and removed in React v16. Use plain JavaScript classes instead.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
@@ -5521,7 +5527,7 @@
      ```
 
      </span>
-     **Note:**
+     **نکته:**
      React.lazy and Suspense is not yet available for server-side rendering. If you want to do code-splitting in a server rendered app, we still recommend React Loadable.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -5702,7 +5708,7 @@
      ```
 
      </span>
-     **Note:** This plugin is intended to use in Create React App by default.
+     **نکته:** This plugin is intended to use in Create React App by default.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
@@ -5907,7 +5913,7 @@
      ```
 
      </span>
-     **Note:** If you provide null value then it remains null value.
+     **نکته:** If you provide null value then it remains null value.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
@@ -6095,7 +6101,7 @@
      ```
 
      </span>
-     **Note:** key is the only attribute that can be passed to Fragment. In the future, there might be a support for additional attributes, such as event handlers.
+     **نکته:** key is the only attribute that can be passed to Fragment. In the future, there might be a support for additional attributes, such as event handlers.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
@@ -6235,7 +6241,7 @@
      ```
 
      </span>
-     **Note:** It is not recommend using this approach because it can be confused with the ES6 object shorthand (example, {name} which is short for {name: name})
+     **نکته:** It is not recommend using this approach because it can be confused with the ES6 object shorthand (example, {name} which is short for {name: name})
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
@@ -6280,7 +6286,7 @@
      ```
 
      </span>
-     **Note:** Using an arrow function in render method creates a new function each time the component renders, which may have performance implications
+     **نکته:** Using an arrow function in render method creates a new function each time the component renders, which may have performance implications
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
@@ -6907,7 +6913,7 @@
      ```
 
      </span>
-     **Note:** If you use createReactClass then autobinding is available for all methods. i.e, You don't need to use .bind(this) with in constructor for event handlers.
+     **نکته:** If you use createReactClass then autobinding is available for all methods. i.e, You don't need to use .bind(this) with in constructor for event handlers.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
@@ -7318,7 +7324,10 @@
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 310. ### middlewareهای مرسوم برای مدیریت ارتباط‌های asynchronous توی Redux چیا هستن؟
-     یه سری از میان‌افزارهای(middleware) معروف برای مدیریت فراخوانی actionهایی که به شکل asynchronous توی Redux فراخوانی میشن اینا هستن: **Redux Thunk، Redux Promise و Redux Saga**.
+     یه سری از میان‌افزارهای(middleware) معروف برای مدیریت فراخوانی actionهایی که به شکل asynchronous توی Redux فراخوانی میشن اینا هستن:
+     1. Redux Thunk
+     2. Redux Saga
+     3. Redux Promise
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
@@ -7351,7 +7360,7 @@
 
 315. ### هدف از متد renderToNodeStream چیه؟
      متد `ReactDOMServer#renderToNodeStream` برای تولید HTML روی سرور و ارسال اون به درخواست initial کاربر استفاده می‌شه که باعث میشه صفحات سریع‌تر لود بشن. البته علاوه بر سرعت، به موتورهای جستجو این امکان رو میده که وبسایت شما رو به سادگی crawl کنن و SEO سایت بهتر بشه.
-     **Note:** البته یادتون باشه که این متد توی مرورگر قابل اجرا نیست و فقط روی سرور کار می‌کنه.
+     **نکته:** البته یادتون باشه که این متد توی مرورگر قابل اجرا نیست و فقط روی سرور کار می‌کنه.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
@@ -7432,9 +7441,10 @@
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 319. ### Concurrent Rendering چیه؟
-     Concurrent rendering باعث میشه برنامه ری‌اکتی بتونه توی رندر کردن درخت کامپوننت‌ها به شکل مسئولانه‌تری عمل کنه و انجام این رندر رو بدون بلاک کردن thread اصلی مرورگر انجام بده. این امر به ری‌اکت این اجازه رو میده که بتونه اجرا شدن یه رندر طولانی رو به بخش‌های مرتب شده بر اساس اولویت تقسیم کنه و توی پیک‌های مختلف رندر رو انجام بده. برای مثال وقتی حالت concurrent فعال باشه، ری‌اکت یه نیم نگاهی هم به بقیه تسک‌هایی که هنوز انجام نشدن داره و اگه تسک با اولویت دیگه‌ای رو ببینه، حالت فعلی که داشت رندر می‌کرد رو متوقف می‌کنه و به انجام کار با اولویت‌تر می‌رسه. این حالت رو به دو روش میشه فعال کرد:
+     Concurrent rendering باعث میشه برنامه ری‌اکتی بتونه توی رندر کردن درخت کامپوننت‌ها به شکل مسئولانه‌تری عمل کنه و انجام این رندر رو بدون بلاک کردن thread اصلی مرورگر انجام بده. این امر به ری‌اکت این اجازه رو میده که بتونه اجرا شدن یه رندر طولانی رو به بخش‌های مرتب شده بر اساس اولویت تقسیم کنه و توی پیک‌های مختلف رندر رو انجام بده. برای مثال وقتی حالت concurrent فعال باشه، ری‌اکت یه نیم نگاهی هم به بقیه تسک‌هایی که هنوز انجام نشدن داره و اگه تسک با اولویت دیگه‌ای رو ببینه، حالت فعلی که داشت رندر می‌کرد رو متوقف می‌کنه و به انجام کار با اولویت‌تر می‌رسه. این حالت رو به دو روش میشه فعال کرد :
 
-		 ۱. برای **یه بخش از برنامه** با wrap کردن کامپوننت توی تگ concurrent :
+		 1. برای **یه بخش از برنامه** با wrap کردن کامپوننت توی تگ concurrent :
+
 
      <span align="left" dir="ltr">
 
@@ -7447,7 +7457,8 @@
      </span>
 
 
-     ۲. برای **کل برنامه** با استفاده از createRoot موقع رندر
+     2. برای **کل برنامه** با استفاده از createRoot موقع رندر
+
 
      <span align="left" dir="ltr">
 
