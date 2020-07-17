@@ -7188,7 +7188,7 @@
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 300. ### می‌تونی یه لیسستی از معروف‌ترین وب‌سایت‌هایی که از ری‌اکت استفاده می‌کنن رو بگی؟
-     Below are the `top 10 websites` using React as their front-end framework,
+     این زیر یه لیست از `10 وب‌سایت‌ مشهور` که از ری‌اکت برای فرانت‌اندشون استفاده می‌کنن رو لیست می‌کنیم:
 
      1. Facebook
      2. Uber
@@ -7204,18 +7204,18 @@
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 301. ### استفاده از تکنیک CSS In JS تو ری‌اکت توصیه میشه؟
-     React does not have any opinion about how styles are defined but if you are a beginner then good starting point is to define your styles in a separate *.css file as usual and refer to them using className. This functionality is not part of React but came from third-party libraries. But If you want to try a different approach(CSS-In-JS) then styled-components library is a good option.
+     ری‌اکت هیچ‌ ایده‌ای راجع به اینکه استایل‌ها چطوری تعریف شدن نداره اما اگه تازه کار باشین می‌تونین از یه فایل جداگانه *.css که مث قبلا توی پروژه‌های ساده استفاده می‌شد کمک بگیرین و با استفاده از className از استایل‌ها استفاده کنین. CSS In Js یه بخش از خود ری‌اکت نیست و توسط کتابخونه‌های third-party بهش اضافه شده اما اگه می‌خوایین. ازش(CSS-In-JS) استفاده کنین کتابخونه styled-components می‌تونه گزینه خوبی باشه.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 302. ### لازمه همه کلاس کامپوننت‌ها رو تبدیل کنیم به هوک؟
-     No. But you can try Hooks in a few components(or new components) without rewriting any existing code. Because there are no plans to remove classes in ReactJS.
+     نه. ولی می‌تونین از هوک‌ها توی بعضی از کامپوننت‌های قدیمی یا جدید استفاده کنین و سعی کنین باهاش راحت باشین البته برنامه‌ای برای حذف classes از ری‌اکت هنوز وجود نداره.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 303. ### چطوری میشه با هوک‌های ری‌اکت دیتا fetch کرد؟
-     The effect hook called `useEffect` is used to fetch the data with axios from the API and to set the data in the local state of the component with the state hook’s update function.
-     Let's take an example in which it fetches list of react articles from the API
+     هوک این افکت اسمش `useEffect` هستش و  میشه خیلی ساده ازش برای فراخوانی API با استفاده از axios استفاده کرد. نتیجه درخواست رو هم خیلی ساده میشه ریخت تو یه state داخلی از component که وظیفه این ثبت شدن داده رو هم تابع setter از useState به عهده می‌گیره.
+      خب بزارین یه مثال بزنیم که لیست مقالات رو از یه API می‌گیره:
 
      <span align="left" dir="ltr">
 
@@ -7250,12 +7250,12 @@
 
      </span>
 
-     Remember we provided an empty array as second argument to the effect hook to avoid activating it on component updates but only for the mounting of the component. i.e, It fetches only for component mount.
+     دقت کنین که یه آرایه خالی به عنوان پارامتر دوم به هوک effect دادیم که فقط موقع mount شدن درخواست رو بفرسته و لازم نباشه با هر بار رندر درخواست زده بشه، اگ لازم بود با تغییرات یه مقدار(مثلا شناسه مقاله) درخواست API رو مجددا بزنیم، می‌تونستیم عنوان متغیر رو توی اون آرایه قرار بدیمش و با هر تغییر اون متغیر افکت مجددا اجرا بشه.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 304. ### هوک‌ها همه موارد کاربرد کلاس‌ها رو پوشش میده؟
-     Hooks doesn't cover all use cases of classes but there is a plan to add them soon. Currently there are no Hook equivalents to the uncommon **getSnapshotBeforeUpdate** and **componentDidCatch** lifecycles yet.
+     هوک‌ها همه موارد کارکدی of classes but there is a plan to add them soon. Currently there are no Hook equivalents to the uncommon **getSnapshotBeforeUpdate** and **componentDidCatch** lifecycles yet.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
@@ -7451,13 +7451,12 @@
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 320. ### تفاوت بین حالت async و concurrent چیه؟
-     Both refers the same thing. Previously concurrent Mode being referred to as "Async Mode" by React team. The name has been changed to highlight React’s ability to perform work on different priority levels. So it avoids the confusion from other approaches to Async Rendering.
+     هر دوتاشون به یه چیز اشاره می‌کنن. قبلا حالت concurrent با عنوان "Async Mode" توسط تیم ری‌اکت معرفی می‌شد. عنوان این قابلیت به این دلیل تغییر پیدا کرد که قابلیت ری‌اکت برای کار روی مرحله‌های با اولویت متفاوت رو نشون بده. همین موضوع جلوی اشتباهات در مورد طرز تفکر راجع به رندر کردن async رو می‌گیره.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 321. ### می تونیم از آدرس‌های دارای url جاواسکریپت در ری‌اکت 16.9 استفاده کرد؟
-     آره، میشه از javascript: استفاده کرد ولی یه warning توی کنسول برامون نشون داده میشه. چون آدرس‌هایی که با javascript: شروغ میشن خطرناکن  by including unsanitized output in a tag like `<a href>`
-     and create a security hole.
+     آره، میشه از javascript: استفاده کرد ولی یه warning توی کنسول برامون نشون داده میشه. چون آدرس‌هایی که با javascript: شروغ میشن خطرناکن و می‌تونن باعث ایجاد باگ امنیتی توی برنامه بشن.
 
      <span align="left" dir="ltr">
 
@@ -7471,7 +7470,7 @@
 
      </span>
 
-     Remember that the future versions will throw an error for javascript URLs.
+     البته بخاطر داشته باشین که نسخه‌های بعدی ری‌اکت قراره بجای warning یه ارور برای این مورد throw کنن.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
