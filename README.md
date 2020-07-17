@@ -328,7 +328,7 @@
 |304| [هوک‌ها همه موارد کاربرد کلاس‌ها رو پوشش میده؟](#هوکها-همه-موارد-کاربرد-کلاسها-رو-پوشش-میده)|
 |305| [نسخه پایدار ری‌اکت که از هوک پشتیبانی می‌کنه کدومه؟](#نسخه-پایدار-ریاکت-که-از-هوک-پشتیبانی-میکنه-کدومه)|
 |306| [چرا از حالت  destructuring آرایه برای useState استفاده می‌کنیم؟](#چرا-از-حالت-destructuring-آرایه-برای-useState-استفاده-میکنیم)|
-|307| [منابعی که برای معرفی هوک استفاده می‌شود چیه؟](#منابعی-که-برای-معرفی-هوک-استفاده-میشود-چیه)|
+|307| [منابعی که باعث معرفی ایده هوک‌ها شدن چیا بودن؟](#منابعی-که-باعث-معرفی-هوکها-شدن-چیا-بودن)|
 |308| [چطوری به APIهای ضروری اجزای وب دسترسی پیدا کنیم؟](#چطوری-به-APIهای-ضروری-اجزای-وب-دسترسی-پیدا-کنیم)|
 |309| [formik چیه؟](#formik-چیه)|
 |310| [middlewareهای مرسوم برای مدیریت ارتباط‌های asynchronous توی Redux چیا هستن؟](#middlewareهای-مرسوم-برای-مدیریت-ارتباطهای-asynchronous-توی-Redux-چیا-هستن)|
@@ -7255,12 +7255,12 @@
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 304. ### هوک‌ها همه موارد کاربرد کلاس‌ها رو پوشش میده؟
-     هوک‌ها همه موارد کارکدی of classes but there is a plan to add them soon. Currently there are no Hook equivalents to the uncommon **getSnapshotBeforeUpdate** and **componentDidCatch** lifecycles yet.
+     هوک‌ها میشه گفت همه موارد کارکردی کلاس‌ها رو پوشش نمیدن ولی با اضافه شدن هوک‌های جدید برنامه‌های خوبی برای آینده هوک‌ها پیش‌بینی میشه. در حال حاضر هیچ هوکی وجود نداره که کارکرد متد‌های **getSnapshotBeforeUpdate** و **componentDidCatch** رو محقق کنه.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 305. ### نسخه پایدار ری‌اکت که از هوک پشتیبانی می‌کنه کدومه؟
-     React includes a stable implementation of React Hooks in 16.8 release for below packages
+     ری‌اکت حالت پایداری از هوک‌ها رو توی نسخه 16.8 برای پکیج‌های زیر منتشر کرد:
      1. React DOM
      2. React DOM Server
      3. React Test Renderer
@@ -7269,8 +7269,8 @@
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 306. ### چرا از حالت destructuring آرایه برای useState استفاده می‌کنیم؟
-     When we declare a state variable with `useState`, it returns a pair — an array with two items. The first item is the current value, and the second is a function that updates the value. Using [0] and [1] to access them is a bit confusing because they have a specific meaning. This is why we use array destructuring instead.
-     For example, the array index access would look as follows:
+     وقتی که با استفاده از هوک `useState` یه state رو معرفی می‌کنیم، یه آرایه دوتایی برمی‌گردونه که اندیس اولش متغیر مورد نظر برای دسترسی به state هست و اندیس درم متد setter یا تغییر دهنده اون state. یه روش اینه که با استفاده از اندیس‌های آرایه و [0] و [1] بهشون دسترسی پیدا کنیم ولی یه کم ممکنه گیچ کننده باشه. ولی با استفاده از حالت destructuring خیلی ساده‌تر میشه این کار رو انجام داد.
+     برای مثال دسترسی به state با اندیس‌های آرایه این شکلی میشد:
 
      <span align="left" dir="ltr">
 
@@ -7282,7 +7282,7 @@
 
      </span>
 
-     Whereas with array destructuring the variables can be accessed as follows:
+     ولی همون کد با استفاده از destructuring آرایه‌ها به شکل پایین درمیاد:
 
      <span align="left" dir="ltr">
 
@@ -7294,69 +7294,69 @@
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
-307. ### منابعی که برای معرفی هوک استفاده می‌شود چیه؟
-     Hooks got the ideas from several different sources. Below are some of them,
-     1. Previous experiments with functional APIs in the react-future repository
-     2. Community experiments with render prop APIs such as Reactions Component
-     3. State variables and state cells in DisplayScript.
-     4. Subscriptions in Rx.
-     5. Reducer components in ReasonReact.
+307. ### منابعی که باعث معرفی ایده هوک‌ها شدن چیا بودن؟
+     ایده معرفی هوک از منابع مختلفی به وجود اومد. این پایین یه لیستی ازشون رو میاریم:
+     1. تجربه قبلی که با functional API توی پکیج react-future داشتن
+     2. تجربه انجمن ری‌اکت با پراپ render مثل کامپوننت‌های Reaction
+     3. متغیرهای state و سلول‌های state توی DisplayScript.
+     4. Subscriptionهای موجود توی Rxjs.
+     5. کامپوننت‌های reducer توی ReasonReact.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 308. ### چطوری به APIهای ضروری اجزای وب دسترسی پیدا کنیم؟
-     Web Components often expose an imperative API to implement its functions. You will need to use a **ref** to interact with the DOM node directly if you want to access imperative API of a web component. But if you are using third-party Web Components, the best solution is to write a React component that behaves as a **wrapper** for your Web Component.
+     کامپوننت‌های web اکثرا به عنوان APIهای imperative برای اجرای یه وظیفه خاص قلمداد می‌شن. برای استفاده ازشون باید با استفاده از **ref** که امکان کار با DOM را فراهم می‌کنه بیاییم یه کامپوننت که به شکل imperative کار می‌کنه ایجاد کنیم. ولی اگه از وب کامپوننت‌های کاستوم یا همون third-party استفاده می‌کنیم، بهترین کار نوشتن یه کامپوننت **wrapper** برای استفاده از اون وب کامپوننت هست.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 309. ### formik چیه؟
-     Formik is a small react form library that helps you with the three major problems,
-     1. Getting values in and out of form state
-     2. Validation and error messages
-     3. Handling form submission
+     Formik یه کتابخونه ری‌اکت هست که امکان حل سه مشکل اساسی رو فراهم می‌کنه:
+     1. دریافت و مدیریت مقادیر از state
+     2. اعتبارسنجی و مدیریت خطا‌ها
+     3. مدیریت ثبت فرم‌ها
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 310. ### middlewareهای مرسوم برای مدیریت ارتباط‌های asynchronous توی Redux چیا هستن؟
-     Some of the popular middleware choices for handling asynchronous calls in Redux eco system are `Redux Thunk, Redux Promise, Redux Saga`.
+     یه سری از میان‌افزارهای(middleware) معروف برای مدیریت فراخوانی actionهایی که به شکل asynchronous توی Redux فراخوانی میشن اینا هستن: **Redux Thunk، Redux Promise و Redux Saga**.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 311. ### مرورگرها کد JSX رو متوجه میشن؟
-     No, browsers can't understand JSX code. You need a transpiler to convert your JSX to regular Javascript that browsers can understand. The most widely used transpiler right now is Babel.
+     نه، مرورگرها نمی‌تونن کد  JSX رو متوجه بشن. مجبوریم که از یه transpiler برای تبدیل کد JSX به کد جاواسکریپت عادی که مرورگرها متوجه میشن تبدیل کنیم.  مشهورترین transpiler در حال حاضر Babel هست که برای اینکار استفاده میشه.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 312. ### Data flow یا جریان داده ری‌اکت رو توضیح میدی؟
-     React implements one-way reactive data flow using props which reduce boilerplate and is easier to understand than traditional two-way data binding.
+     ری‌اکت از روش جربان داده یک طرفه استفاده می‌کنه. استفاده از prop باعث میشه از تکرار موارد بدیهی جلوگیری بشه و درک کردنش ساده‌تر از روش سنتی data-binding دو طرفه باشه.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 313. ### react scripts چیه؟
-     The `react-scripts` package is a set of scripts from the create-react-app starter pack which helps you kick off projects without configuring. The `react-scripts start` command sets up the development environment and starts a server, as well as hot module reloading.
+     پکیج `react-scripts` یه مجموعه از اسکریپت‌هاست که توی create-react-app برای ایجاد سریع و ساده پروژه ری‌اکتی ازشون استفاده میشه. دستور `react-scripts start` محیط توسعه کد رو ایجاد میکنه و یه سرور براتون استارت می‌کنه که از لود درلحظه و داغ ماژول‌ها پشتیبانی می‌کنه.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 314. ### ویژگی‌های create react app چیه؟
-     Below are the list of some of the features provided by create react app.
-     1. React, JSX, ES6, Typescript and Flow syntax support.
+     این پایین به یه سری از ویژگی‌های create-react-app رو لیست می‌کنیم.
+     1. ساپورت کامل از React، JSX، ES6، Typescript و Flow
      2. Autoprefixed CSS
      3. CSS Reset/Normalize
-     4. A live development server
-     5. A fast interactive unit test runner with built-in support for coverage reporting
-     6. A build script to bundle JS, CSS, and images for production, with hashes and sourcemaps
-     7. An offline-first service worker and a web app manifest, meeting all the Progressive Web App criteria.
+     4. سرور live development
+     5. یه اجرا کننده unit-test که ساپورت built-in برای گزارش coverage داره
+     6. یه اسکریپت build برای bundle کردن فایل‌های JS، CSS و تصاویر که برای استفاده production با قابلیت hash و sourcemap عمل می‌کنه
+     7. یه سرویس ورکر برای استفاده به صورت offline-first که قابلیت استفاده به صورت web-app و pwa رو فراهم می‌کنه
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 315. ### هدف از متد renderToNodeStream چیه؟
-     The `ReactDOMServer#renderToNodeStream` method is used to generate HTML on the server and send the markup down on the initial request for faster page loads. It also helps search engines to crawl your pages easily for SEO purposes.
-     **Note:** Remember this method is not available in the browser but only server.
+     متد `ReactDOMServer#renderToNodeStream` برای تولید HTML روی سرور و ارسال اون به درخواست initial کاربر استفاده می‌شه که باعث میشه صفحات سریع‌تر لود بشن. البته علاوه بر سرعت، به موتورهای جستجو این امکان رو میده که وبسایت شما رو به سادگی crawl کنن و SEO سایت بهتر بشه.
+     **Note:** البته یادتون باشه که این متد توی مرورگر قابل اجرا نیست و فقط روی سرور کار می‌کنه.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 316. ### MobX چیه؟
-     MobX is a simple, scalable and battle tested state management solution for applying functional reactive programming (TFRP). For reactJs application, you need to install below packages,
+     MobX یه راه‌حل ساده، scalable برای مدیریت state هست که خیلی قوی تست شده. این روش برای برنامه‌نویسی تابعی کنش‌گرا(TFRP) استفاده می‌شه. برای برنامه‌های ری‌اکتی لازمه که پکیج‌های زیر رو نصب کنین:
 
      <span align="left" dir="ltr">
 
@@ -7370,22 +7370,22 @@
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 317. ### تفاوت‌های بین Redux و MobX چیا هستن؟
-     Below are the main differences between Redux and MobX,
+     این پایین یه سری از اصلی‌ترین تفاوت‌های Redux و MobX رو میگیم:
 
-     | Topic | Redux | MobX |
+     | موضوع | Redux | MobX |
      | ----- | ------- | -------
-     | Definition| It is a javascript library for managing the application state | It is a library for reactively managing the state of your applications |
-     | Programming | It is mainly written in ES6 | It is written in JavaScript(ES5) |
-     | Data Store | There is only one large store exist for data storage | There is more than one store for storage |
-     | Usage | Mainly used for large and complex applications | Used for simple applications |
-     | Performance | Need to be improved | Provides better performance |
-     | How it stores | Uses JS Object to store | Uses observable to store the data |
+     | تعریف | یه کتابخونه جاواسکریپتی هستش که امکان مدیریت state رو فراهم می‌کنه | یه کتابخونه جاواسکریپتی هستش که امکان مدیریت state به صورت کنش‌گرا رو فراهم می‌کنه |
+     | برنامه‌نویسی | به صورت پایه‌ای با ES6 نوشته شده | به صورت پایه‌ای با ES5 نوشته بشه |
+     | Store دیتا | فقط یه store برای مدیریت همه داده‌ها وجود داره | بیش از یه store برای ذخیره و مدیریت داده وجود داره |
+     | کاربرد | به شکل اساسی برای برنامه‌های پیچیده و بزرگ استفاده میشه | برای برنامه‌های ساده بیشتر کاربرد داره |
+     | پرفورمنس | نیاز به یه سری بهبودها داره | پرفورمنس بهتری ارائه میده |
+     | چگونگی ذخیره داده | از آبجکت جاواسکریپت به عنوان store استفاده می‌کنه | از observable برای نگهداری داده استفاده می‌کنه |
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 318. ### لازمه قبل از شروع ری‌اکت ES6 رو یاد گرفت؟
-     No, you don’t have to learn es2015/es6 to learn react. But you may find many resources or React ecosystem uses ES6 extensively. Let's see some of the frequently used ES6 features,
-     1. Destructuring: To get props and use them in a component
+     نه، اجبار برای یاد‌گرفتن es2015/es6 برای کار با ری‌اکت وجود نداره. ولی توصیه شدیدی میشه که یاد بگیریدش چون منابع خیلی زیادی هستن که به شکل پیش‌فرض با es6 کار شدن. بزارین یه نگاه کلی به مواردی که الزاما با es6 کارشدن رو ذکر کنیم:
+     1. Destructuring: برای گرفتن مقادیر prop و استفاده از اونا توی کامپوننت
 
      <span align="left" dir="ltr">
 
@@ -7400,7 +7400,7 @@
 
      </span>
 
-     2. Spread operator: Helps in passing props down into a component
+     2. عملگر spread: به پاس دادن propها به پایین برای کامپوننت‌های فرزند کمک میکنه
 
      <span align="left" dir="ltr">
 
@@ -7414,7 +7414,7 @@
 
      </span>
 
-     3. Arrow functions: Makes compact syntax
+     3. توابع arrow: کدها رو کم حجم‌تر می‌کنه
 
      <span align="left" dir="ltr">
 
@@ -7432,21 +7432,31 @@
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 319. ### Concurrent Rendering چیه؟
-     The Concurrent rendering makes React apps to be more responsive by rendering component trees without blocking the main UI thread. It allows React to interrupt a long-running render to handle a high-priority event. i.e, When you enabled concurrent Mode, React will keep an eye on other tasks that need to be done, and if there's something with a higher priority it will pause what it is currently rendering and let the other task finish first. You can enable this in two ways,
+     Concurrent rendering باعث میشه برنامه ری‌اکتی بتونه توی رندر کردن درخت کامپوننت‌ها به شکل مسئولانه‌تری عمل کنه و انجام این رندر رو بدون بلاک کردن thread اصلی مرورگر انجام بده. این امر به ری‌اکت این اجازه رو میده که بتونه اجرا شدن یه رندر طولانی رو به بخش‌های مرتب شده بر اساس اولویت تقسیم کنه و توی پیک‌های مختلف رندر رو انجام بده. برای مثال وقتی حالت concurrent فعال باشه، ری‌اکت یه نیم نگاهی هم به بقیه تسک‌هایی که هنوز انجام نشدن داره و اگه تسک با اولویت دیگه‌ای رو ببینه، حالت فعلی که داشت رندر می‌کرد رو متوقف می‌کنه و به انجام کار با اولویت‌تر می‌رسه. این حالت رو به دو روش میشه فعال کرد:
+
+		 ۱. برای **یه بخش از برنامه** با wrap کردن کامپوننت توی تگ concurrent :
 
      <span align="left" dir="ltr">
 
      ```javascript
-     // 1. Part of an app by wrapping with ConcurrentMode
      <React.unstable_ConcurrentMode>
        <Something />
      </React.unstable_ConcurrentMode>
-
-     // 2. Whole app using createRoot
-     ReactDOM.unstable_createRoot(domNode).render(<App />);
      ```
 
      </span>
+
+
+     ۲. برای **کل برنامه** با استفاده از createRoot موقع رندر
+
+     <span align="left" dir="ltr">
+
+     ```javascript
+     ReactDOM.unstable_createRoot(domNode).render(<App />);
+		 ```
+
+		 </span>
+
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 

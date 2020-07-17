@@ -7432,21 +7432,31 @@
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 319. ### Concurrent Rendering چیه؟
-     Concurrent rendering باعث میشه برنامه ری‌اکتی بتونه توی رندر کردن درخت کامپوننت‌ها به شکل مسئولانه‌تری عمل کنه و انجام این رندر رو بدون بلاک کردن thread اصلی مرورگر انجام بده. این امر به ری‌اکت این اجازه رو میده long-running render to handle a high-priority event. i.e, When you enabled concurrent Mode, React will keep an eye on other tasks that need to be done, and if there's something with a higher priority it will pause what it is currently rendering and let the other task finish first. You can enable this in two ways,
+     Concurrent rendering باعث میشه برنامه ری‌اکتی بتونه توی رندر کردن درخت کامپوننت‌ها به شکل مسئولانه‌تری عمل کنه و انجام این رندر رو بدون بلاک کردن thread اصلی مرورگر انجام بده. این امر به ری‌اکت این اجازه رو میده که بتونه اجرا شدن یه رندر طولانی رو به بخش‌های مرتب شده بر اساس اولویت تقسیم کنه و توی پیک‌های مختلف رندر رو انجام بده. برای مثال وقتی حالت concurrent فعال باشه، ری‌اکت یه نیم نگاهی هم به بقیه تسک‌هایی که هنوز انجام نشدن داره و اگه تسک با اولویت دیگه‌ای رو ببینه، حالت فعلی که داشت رندر می‌کرد رو متوقف می‌کنه و به انجام کار با اولویت‌تر می‌رسه. این حالت رو به دو روش میشه فعال کرد:
+
+		 ۱. برای **یه بخش از برنامه** با wrap کردن کامپوننت توی تگ concurrent :
 
      <span align="left" dir="ltr">
 
      ```javascript
-     // 1. Part of an app by wrapping with ConcurrentMode
      <React.unstable_ConcurrentMode>
        <Something />
      </React.unstable_ConcurrentMode>
-
-     // 2. Whole app using createRoot
-     ReactDOM.unstable_createRoot(domNode).render(<App />);
      ```
 
      </span>
+
+
+     ۲. برای **کل برنامه** با استفاده از createRoot موقع رندر
+
+     <span align="left" dir="ltr">
+
+     ```javascript
+     ReactDOM.unstable_createRoot(domNode).render(<App />);
+		 ```
+
+		 </span>
+
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
