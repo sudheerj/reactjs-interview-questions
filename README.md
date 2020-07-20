@@ -640,7 +640,7 @@ You can download the PDF and Epub version of this repository from the latest run
     1.	**Binding in Constructor:** In JavaScript classes, the methods are not bound by default. The same thing applies for React event handlers defined as class methods. Normally we bind them in constructor.
 
         ```javascript
-        class Component extends React.Componenet {
+        class Component extends React.Component {
           constructor(props) {
             super(props)
             this.handleClick = this.handleClick.bind(this)
