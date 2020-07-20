@@ -359,6 +359,7 @@ You can download the PDF and Epub version of this repository from the latest run
 |322| [What is the purpose of eslint plugin for hooks?](#what-is-the-purpose-of-eslint-plugin-for-hooks)|
 |323| [What is the difference between Imperative and Declarative in React?](#what-is-the-difference-between-imperative-and-declarative-in-react)|
 |324| [What are the benefits of using typescript with reactjs?](#what-are-the-benefits-of-using-typescript-with-reactjs)|
+|325| [How do you make sure that user remains authenticated on page refresh while using Context API State Management?](#how-do-you-make-sure-that-user-remains-authenticated-on-page-refresh-while-using-Context-API-State-Management?)|
 
 ## Core React
 
@@ -6551,3 +6552,75 @@ You can download the PDF and Epub version of this repository from the latest run
      2. Use of interfaces for complex type definitions
      3. IDEs such as VS Code was made for TypeScript
      4. Avoid bugs with the ease of readability and Validation
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+325. ### How do you make sure that user remains authenticated on page refresh while using Context API State Management?
+When a user logs in and reload, to persist the state generally we add the load user action in the useEffect hooks in the main App.js. While using Redux, loadUser action can be easily accessed.
+
+**App.js**
+
+```js
+import {lodUser}  from '../actions/auth';
+store.dispatch(loadUser());
+```
+
+* But while using **Context API**, to access context in App.js, wrap the AuthState in index.js so that App.js can access the auth context. Now whenever the page reloads, no matter what route you are on, the user will be authenticated as **loadUser** action will be triggered on each re-render.
+
+**index.js**
+
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import AuthState from './context/auth/AuthState'
+
+ReactDOM.render(
+  <React.StrictMode>
+    <AuthState>
+      <App />
+    </AuthState>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+```
+**App.js**
+
+```js
+  const authContext = useContext(AuthContext);
+
+  const { loadUser } = authContext;
+
+  useEffect(() => {
+    loadUser();
+  },[])
+```
+
+**loadUser**
+
+```js
+    const loadUser = async () => {
+        const token = sessionStorage.getItem('token');
+
+        if(!token){
+            dispatch({
+                type: ERROR
+            })
+        }
+        setAuthToken(token);
+
+        try {
+            const res = await axios('/api/auth'); 
+
+            dispatch({
+                type: USER_LOADED,
+                payload: res.data.data
+            })
+            
+        } catch (err) {
+           console.error(err); 
+        }
+    }
+```
+
+  **[⬆ Back to Top](#table-of-contents)**
