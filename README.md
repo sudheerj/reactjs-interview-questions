@@ -637,7 +637,7 @@
 
 13. ### تفاوت بین نحوه مدیریت رویداد HTML و React چیه؟
 
-    1. In HTML, the event name should be in *lowercase*:
+    1. توی HTML، عنوان رخداد حتما باید با حرف کوچیک شروع بشه یا اصطلاحا *lowercase* باشه:
 
     <span align="left" dir="ltr">
 
@@ -647,7 +647,7 @@
 
      </span>
 
-    Whereas in React it follows *camelCase* convention:
+    ولی توی ری‌اکت از *camelCase* پیروی می‌کنه:
 
     <span align="left" dir="ltr">
 
@@ -657,7 +657,7 @@
 
      </span>
 
-    2. In HTML, you can return `false` to prevent default behavior:
+    2. توی HTML می‌تونیم برای جلوگیری از اجرای رفتار پیش‌فرض(preventDefault) یه مقدار `false` برگرودونیم:
 
     <span align="left" dir="ltr">
 
@@ -667,7 +667,7 @@
 
      </span>
 
-    Whereas in React you must call `preventDefault()` explicitly:
+    ولی توی ری‌اکت برای انجام این مورد حتما باید از `preventDefault` استفاده بشه :
 
     <span align="left" dir="ltr">
 
@@ -680,16 +680,16 @@
 
      </span>
 
-    3. In HTML, you need to invoke the function by appending `()`
-    Whereas in react you should not append `()` with the function name. (refer "activateLasers" function in the first point for example)
+    3. توی HTML برای اجرای تابع حتما باید اونو با گذاشتن پرانتزهایی که بعد اسمش میزاریم invoke کنیم`()`
+    ولی توی ری‌اکت اجباری به گذاشتن `()` جلوی اسم تابع نیست.(برای مثال به کد اول و تابع "activateLasers" دقت کنید)
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 14. ### چطوری متد یا event رو به تابع callback توی JSX bind کنیم؟
 
-    There are 3 possible ways to achieve this:
+    سه روش مختلف برای انجام این مورد هست:
 
-    1.	**Binding in Constructor:** In JavaScript classes, the methods are not bound by default. The same thing applies for React event handlers defined as class methods. Normally we bind them in constructor.
+    1.	**Bind کردن توی Constructor:** توی کلاس‌های جاواسکریپتی متدها به صورت پیش‌فرض bound نمیشن. همین موضوع توی کلاس کامپوننت‌های ری‌اکتی برای متدهای موجود هم رخ میده که اکثرا توی متد سازنده یا همون constructor می‌آییم bind می‌کنیم.
 
     <span align="left" dir="ltr">
 
@@ -708,7 +708,7 @@
 
      </span>
 
-    2. **Public class fields syntax:** If you don't like to use bind approach then *public class fields syntax* can be used to correctly bind callbacks.
+    2. **استفاده از فیلد عمومی کلاس(public):** اگه از روش اول خوشتون نمیاد این روش هم می‌تونه context درست رو موقع callbackها براتون فراهم کنه.
 
     <span align="left" dir="ltr">
 
@@ -730,7 +730,7 @@
 
      </span>
 
-    3. **Arrow functions in callbacks:** You can use *arrow functions* directly in the callbacks.
+    3. **توابع arrow توی callback:** می‌تونین از توابع فلش به شکل مستقیم توی callbackها استفاده کنین.
 
     <span align="left" dir="ltr">
 
@@ -742,13 +742,13 @@
 
      </span>
 
-    **Note:** If the callback is passed as prop to child components, those components might do an extra re-rendering. In those cases, it is preferred to go with `.bind()` or *public class fields syntax* approach considering performance.
+    **نکته:** اگه متد‌های callback به عنوان prop به کامپوننت‌های فرزندشون پاس داده بشن، ممکنه اون کامپوننت‌ها re-renderingهای ناخواسته‌ای داشته باشن. توی اینگونه موارد روش توصیه شده استفاده از `.bind()` یا *فیلد عمومی کلاس* برای مدیریت پرفورمنس هستش.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 15. ### چطوری میشه یک مقدار رو به یه تابع callback یا eventHandler پاس بدیم؟
 
-    You can use an *arrow function* to wrap around an *event handler* and pass parameters:
+    می‌تونیم از *توابع arrow* استفاده کنیم که با wrap کردن دور *event handler* و پاس دادن مقدار بهش نیاز مورد نظرمونو انجام بدیم:
 
     <span align="left" dir="ltr">
 
@@ -758,7 +758,8 @@
 
      </span>
 
-    This is an equivalent to calling `.bind`:
+
+    این حالت دقیقا مثل فراخوانی `.bind` هستش:
 
     <span align="left" dir="ltr">
 
@@ -767,7 +768,11 @@
      ```
 
      </span>
-    Apart from these two approaches, you can also pass arguments to a function which is defined as array function
+
+
+    جدا از این روش‌ها، میشه با ایجاد یه curry، یه تابع دیگه دور تابع هندلر خودمون wrap کنیم و پارامتر رو به اون پاس بدیم:
+
+
     <span align="left" dir="ltr">
 
     ```jsx harmony
@@ -779,11 +784,12 @@
 
      </span>
 
+
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 16. ### Synthetic events(رویدادهای مصنوعی) تو ری‌اکت چیا هستن؟
 
-    `SyntheticEvent` is a cross-browser wrapper around the browser's native event. It's API is same as the browser's native event, including `stopPropagation()` and `preventDefault()`, except the events work identically across all browsers.
+    `SyntheticEvent` یه رخداد cross-browser هست که به‌عنوان یه wrapper دور eventهای اصلی مرورگر هستش. رابط API برای کارکردن با اون عینا مثل رخداد native مرورگرهاست که شامل `stopPropagation()` و `preventDefault()` میشه، با این تفاوت که این رخداد‌ها بر روی همه مرورگرها کار می‌کنن.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
@@ -1523,7 +1529,8 @@
 
 50. ### کامپوننت stateful چیه؟
 
-    If the behaviour of a component is dependent on the *state* of the component then it can be termed as stateful component. These *stateful components* are always *class components* and have a state that gets initialized in the `constructor`.
+    اگه رفتار یه کامپوننتی به *state* اون کامپوننت وابسته باشه، می‌تونیم بهش عنوان یه کامپوننت statefull رو بدیم.
+    مثلا به *کلاس کامپوننت ها* پایین یه نگاهی بندازین:
 
     <span align="left" dir="ltr">
 
@@ -1540,11 +1547,13 @@
     }
      ```
 
-     </span>
-    **React 16.8 Update:**
-    Hooks let you use state and other React features without writing classes.
+    </span>
 
-    *The Equivalent Functional Component*
+
+    **نسخه 16.8 ری‌اکت:**
+    هوک‌ها این امکان رو بهمون میدن که بدون نوشتن کلاس ها بتونیم از state و ویژگی‌های دیگه ری‌اکت استفاده کنیم.
+
+    *کامپوننت‌های Equivalent Functional*
 
     <span align="left" dir="ltr">
 
@@ -1566,9 +1575,8 @@
 
 51. ### چطوری prop‌های کامپوننت رو اعتبارسنجی کنیم؟
 
-    When the application is running in *development mode*, React will automatically check all props that we set on components to make sure they have *correct type*. If the type is incorrect, React will generate warning messages in the console. It's disabled in *production mode* due to performance impact. The mandatory props are defined with `isRequired`.
-
-    The set of predefined prop types:
+   وقتی برنامه توی حالت *development* یا توسعه هست، ری‌اکت به شکل خودکار تمام propهایی که ما توی کامپوننت استفاده کردیم رو چک می‌کنه تا مطمئن بشه همه‌شون type درستی دارن. اگه هر کدوم از propها *type درستی* نداشته باشن توی کنسول بهمون یه warning نشون میده، البته توی حالت *production* این حالت غیر فعاله.
+    prop‌های اجباری با پراپرتی isRequired مشخص میشن، همچنین یه‌سری انواع prop پیش‌فرض وجود دارن که پایین میاریمشون:
 
     1. `PropTypes.number`
     2. `PropTypes.string`
@@ -1581,7 +1589,7 @@
     9. `PropTypes.symbol`
     10. `PropTypes.any`
 
-    We can define `propTypes` for `User` component as below:
+    ‍`PropType`ها رو برای یه کامپوننت تستی به اسم `User` اینطوری میشه تعریف کرد :
 
     <span align="left" dir="ltr">
 
@@ -1608,27 +1616,27 @@
 
      </span>
 
-    **Note:** In React v15.5 *PropTypes* were moved from `React.PropTypes` to `prop-types` library.
+    **نکته:** در ورژن 15.5 ری‌اکت *propType*ها از ‍`React.PropType` به کتابخونه `prop-types` انتقال پیدا کردن.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 52. ### مزایای React چیه؟
 
-    1. Increases the application's performance with *Virtual DOM*.
-    2. JSX makes code easy to read and write.
-    3. It renders both on client and server side (*SSR*).
-    4. Easy to integrate with frameworks (Angular, Backbone) since it is only a view library.
-    5. Easy to write unit and integration tests with tools such as Jest.
+    1. افزایش عملکرد برنامه با *Virtual DOM*.
+    2. خوندن و نوشتن راحتتر کد ها با JSX.
+    3. رندر کردن در هر دو سمت کاربر و سرور (*SSR*).
+    4. ادغام راحت با فریم ورک ها (Angular, Backbone).
+    5. امکان نوشتن تست‌های واحد یا ادغام شده از طریق ابزارهایی مثل Jest.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
-53. ### محدودیت های React چیه؟
+53. ### محدودیت‌های React چیه؟
 
-    1. React is just a view library, not a full framework.
-    2. There is a learning curve for beginners who are new to web development.
-    3. Integrating React into a traditional MVC framework requires some additional configuration.
-    4. The code complexity increases with inline templating and JSX.
-    5. Too many smaller components leading to over engineering or boilerplate.
+    1. ری‌اکت یک کتابخونه برای ساخت لایه view هستش نه یک فریمورک کامل.
+    2. وجود یک منحنی یادگیری(سختی یادگیری) برای کسانی که به تازگی می خوان برنامه نویسی وب رو یاد بگیرن.
+    3. یکپارچه‌سازی ری‌اکت در فریمورک‌های مبتنی بر MVC به یه کانفیگ اضافه‌ای نیاز داره.
+    4. پیچیدگی کد با inline templating و JSX افزایش پیدا میکنه.
+    5. خیلی کامپوننت‌های کوچیک یا boilerplateهای کوچیک براش ساخته شدن و ممکنه کمی گیج کننده باشه.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
@@ -1685,19 +1693,22 @@
 
 55. ### چطوری از error boundaryها توی نسخه ۱۵ ریکت مدیریت شدن؟
 
-    React v15 provided very basic support for *error boundaries* using `unstable_handleError` method. It has been renamed to `componentDidCatch` in React v16.
+    ری‌اکت توی نسخه 15 با استفاده از متد `unstabled_handleError` *error boundary*ها رو مدیریت کرده .
+    این متد توی نسخه 16 به ‍‍`componentDidCatch` تغییر کرده.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 56. ### روش‌های پیشنهادی برای type checking چیه؟
 
-    Normally we use *PropTypes library* (`React.PropTypes` moved to a `prop-types` package since React v15.5) for *type checking* in the React applications. For large code bases, it is recommended to use *static type checkers* such as Flow or TypeScript, that perform type checking at compile time and provide auto-completion features.
+    به طور معمول ما از کتابخانه propTypes ها (در ورژن ۱۵.۵ ری‌اکت `‍Rect.propTypes` به پکیج `react-types` انتقال پیدا کرده) برای چک کردن نوع prop در برنامه‌های ری‌اکت استفاده می‌کنیم . برای برنامه ایی با کد‌های بیشتر توصیه میشه از *static type checker* هایی مثل flow یا typeScript استفاده بشه که چک کردن رو در زمان کامپایل انجام میده ویژگی‌های مثل auto-completion ‌رو ارائه میده.
+
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 57. ### کاربرد پکیج react-dom چیه؟
 
-    The `react-dom` package provides *DOM-specific methods* that can be used at the top level of your app. Most of the components are not required to use this module. Some of the methods of this package are:
+    پکیج `react-dom` متدهای DOM-specific یا مخصوص DOM رو ارائه میده که میتونه توی سطوح بالای برنامه شما استفاده بشه.
+    اکثر کامپوننت ها نیازی به استفاده از این ماژول‌ها ندارن. تعدادی از متد‌های این پکیج این‌ها هستند :
 
     1. `render()`
     2. `hydrate()`
@@ -1725,7 +1736,7 @@
 
 59. ### ReactDOMServer چیه؟
 
-    The `ReactDOMServer` object enables you to render components to static markup (typically used on node server). This object is mainly used for *server-side rendering* (SSR). The following methods can be used in both the server and browser environments:
+    `ReactDOMServer` این امکان رو بهمون میده که کامپوننت‌ها رو به صورت استاتیک رندر کنیم (معمولا روی node server  استفاده میشه). ReactDOMServer عمدتا برای پیاده سازی سمت سرور استفاده میشه (SSR).
 
     1. `renderToString()`
     2. `renderToStaticMarkup()`
@@ -1754,9 +1765,10 @@
 
 60. ### چطوری از InnerHtml توی ری‌اکت استفاده کنیم؟
 
-    The `dangerouslySetInnerHTML` attribute is React's replacement for using `innerHTML` in the browser DOM. Just like `innerHTML`, it is risky to use this attribute considering cross-site scripting (XSS) attacks. You just need to pass a `__html` object as key and HTML text as value.
+    ویژگی `dangerouslySetInnerHTML` جایگزین ری‌اکت واسه استفاده از `innerHTML` توی DOM مرورگره و کارکردش درست مثل `innerHTML` هستش، استفاده از این ویژگی به خاطر حملات cross-site-scripting(XSS) ریسک بالایی داره.
+    برای این‌کار باید یه آبجکت `innerHTML` به عنوان key و یه متن html به عنوان value به این prop بفرستیم(یا شاید همون پاس بدیم).
 
-    In this example MyComponent uses `dangerouslySetInnerHTML` attribute for setting HTML markup:
+    توی مثال پایینی کامپوننت از ویژگی `dangerouslySetInnerHTML` برای قرار دادن HTML استفاده کرده.
 
     <span align="left" dir="ltr">
 
@@ -1799,24 +1811,24 @@
 
 62. ### تفاوت eventهای ری‌اکت چیه؟
 
-    Handling events in React elements has some syntactic differences:
+    رویداد‌های handling در المان‌های ری‌اکت یه سری تفاوت‌های نحوی دارن :
 
-    1. React event handlers are named using camelCase, rather than lowercase.
-    2. With JSX you pass a function as the event handler, rather than a string.
+    1. event handler‌های ری‌اکت یه جای حروف کوچیک به صورت حروف بزرگ نامگذاری شدن.
+    2. با JSX ما یه تابع رو به جای رشته به عنوان event handler پاس میدیم.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 63. ### اگه توی constructor بیاییم و setState کنیم چی میشه؟
 
-    When you use `setState()`, then apart from assigning to the object state React also re-renders the component and all its children. You would get error like this: *Can only update a mounted or mounting component.* So we need to use `this.state` to initialize variables inside constructor.
+    وقتی از `setState()` استفاده می‌کنیم, جدا از اینکه به یه آبجکت استیتی اختصاص داده میشه ری‌اکت اون کامپوننت و تمام فرزندان اون کامپوننت رو دوباره رندر میکنه. ممکنه این ارور رو بگیرین : *شما فقط می تونید کامپوننت mount شده یا در حال mount رو به روز رسانی کنید.* پس باید از `this.state` برای ساخت یه متغیر توی constructor استفاده کنیم.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 64. ### تاثیر استفاده از اینرکس به عنوان key چیه؟
 
-    Keys should be stable, predictable, and unique so that React can keep track of elements.
+    key ها باید پایدار، قابل پیش بینی و منحصر به فرد باشن تا React بتونن المان‌ها رو قابل رهگیری کنن.
+    تو کد زیر key هر عنصر براساس ترتیبی که توی لیست داره مقدار قرار می گیره و به داده هایی که میگیرن ربطی نداره. این کار بهینه سازی هایی که می‌تونه توسط ری‌اکت انجام بشه رو محدود میکنه.
 
-    In the below code snippet each element's key will be based on ordering, rather than tied to the data that is being represented. This limits the optimizations that React can do.
 
     <span align="left" dir="ltr">
 
@@ -1831,7 +1843,7 @@
 
      </span>
 
-    If you use element data for unique key, assuming todo.id is unique to this list and stable, React would be able to reorder elements without needing to reevaluate them as much.
+   اگه از داده‌های همون element به عنوان کلید بخوایم استفاده کنیم، فرض کنین todo.id. چونکه همه ویژگی‌هایی که یه کلید باید داشته باشه رو داره، هم استیبله و هم منحصر به فرد، توی این حالت ری‌اکت می‌تونه بدون اینکه لازم باشه دوباره همه اونا رو ارزیابی کنه element هارو مجددا مرتب کنه.
 
     <span align="left" dir="ltr">
 
@@ -1848,7 +1860,8 @@
 
 65. ### نظرت راجع به استفاده از setState توی متد componentWillMount چیه؟
 
-    It is recommended to avoid async initialization in `componentWillMount()` lifecycle method. `componentWillMount()` is invoked immediately before mounting occurs. It is called before `render()`, therefore setting state in this method will not trigger a re-render. Avoid introducing any side-effects or subscriptions in this method. We need to make sure async calls for component initialization happened in `componentDidMount()` instead of `componentWillMount()`.
+    توصیه میشه که از مقدار دهی اولیه غیر هم زمان در متد `componentWillMount()` استفاده نشه. `componentWillMount()` درست قبل از mount شدن اجرا میشه و قبل از متد `render()` صدا زده میشه بنابراین setState کردن توی این متد باعث re-render شدن نمیشه. باید از ایجاد هر ساید افکتی توی این متد خودداری کنیم و دقت کنیم که اگه مقدار دهی اولیه غیر هم زمانی داریم این کار رو توی متد `componentDidMount()` انجام بدیم نه در متد `componentWillMount()`.
+
 
     <span align="left" dir="ltr">
 
@@ -1869,9 +1882,8 @@
 
 66. ### اگه از prop توی مقداردهی اولیه state استفاده کنیم چی میشه؟
 
-    If the props on the component are changed without the component being refreshed, the new prop value will never be displayed because the constructor function will never update the current state of the component. The initialization of state from props only runs when the component is first created.
-
-    The below component won't display the updated input value:
+    اگه prop‌های یه کامپوننت بدون اینکه اون کامپوننت رفرش بشه تغییر کنه، مقدار جدید اون prop نمایش داده نمیشه چون تابع state ،constructor جاری اون کامپوننت رو به روز رسانی نمیکنه، مقدار دهی اولیه state از prop ها فقط زمانی که کامپوننت برای بار اول ساخته شده اجرا میشه.
+    کامپوننت زیر مقدار به روزرسانی شده رو نشون نمیده :
 
     <span align="left" dir="ltr">
 
@@ -1894,7 +1906,7 @@
 
      </span>
 
-    Using props inside render method will update the value:
+    استفاده از prop ها توی متد render مقدار رو به روز رسانی میکنه :
 
     <span align="left" dir="ltr">
 
@@ -1918,9 +1930,9 @@
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
-67. ### چطوری کامپوننت رو با بررسی یه شریط رندر می‌کنیم؟
+67. ### چطوری کامپوننت رو با بررسی یه شرط رندر می‌کنیم؟
 
-    In some cases you want to render different components depending on some state. JSX does not render `false` or `undefined`, so you can use conditional *short-circuiting* to render a given part of your component only if a certain condition is true.
+    بعضی وقتا ما می خوایم کامپوننت‌های مختلفی رو بسته به بعضی state ها رندر کنیم. JSX مقدار `false` یا `undefined` رو رندر نمیکنه، بنابراین ما میتونیم از *short-circuiting* شرطی برای رندر کردن بخش مشخصی از کامپوننتتون استفاده کنیم در صورتی که اون شرط مقدار true رو برگردونده باشه.
 
     <span align="left" dir="ltr">
 
@@ -1937,7 +1949,7 @@
 
     </span>
 
-    If you need an `if-else` condition then use *ternary operator*.
+    اگه به یه شرط `if-else` نیاز دارین از *ternary operator* استفاده کنین.
 
     <span align="left" dir="ltr">
 
@@ -1959,7 +1971,7 @@
 
 68. ### چرا وقتی propها رو روی یه DOM Elemnt می‌آییم spread می‌کنیم باید مراقب باشیم؟
 
-    When we *spread props* we run into the risk of adding unknown HTML attributes, which is a bad practice. Instead we can use prop destructuring with `...rest` operator, so it will add only required props. For example,
+    وقتی ما prop هارو spread می‌کنیم این کارو با ریسک اضافه کردن اتریبیوت‌های HTML انجام میدیم که این کار خوبی نیست، به جای این کار میتونیم از ...rest استفاده کنیم که فقط prop‌های مورد نیاز رو اضافه میکنه.
 
     <span align="left" dir="ltr">
 
@@ -1977,7 +1989,7 @@
 
 69. ### چطوری از decoratorها توی ری‌اکت استفاده کنیم؟
 
-    You can *decorate* your *class* components, which is the same as passing the component into a function. **Decorators** are flexible and readable way of modifying component functionality.
+    می تونیم *کلاس کامپوننت ها* رو *decorate* کنید، که درست مثل پاس دادن کامپوننت ها به تابع هستش. **Decorator** ها روش قابل خواندن و انعطاف پذیرتری برای تغییر فانکشنالیتی کامپوننت‌ها هستن.
 
     <span align="left" dir="ltr">
 
@@ -2007,13 +2019,13 @@
 
      </span>
 
-    **Note:** Decorators are a feature that didn't make it into ES7, but are currently a *stage 2 proposal*.
+    **نکته:** Decorator ها ویژگی هایی هستن که اونو به ES7 تبدیل نکردن، اما در حال حاضر پیشنهاد *stage 2* هستن.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 70. ### چطوری یه کامپوننت رو memoize می‌کنیم؟
 
-    There are memoize libraries available which can be used on function components. For example `moize` library can memoize the component in another component.
+     در حال حاظر کتابخانه هایی وجود داره که memoize هستن و میتونن توی کامپوننت‌های تابع استفاده بشن، به عنوان مثال کتابخونه `moize` میتونه یه کامپوننت رو توی بقیه کامپوننت ها memoize کنه.
 
     <span align="left" dir="ltr">
 
@@ -2033,7 +2045,7 @@
 
     </span>
 
-    **Update:** Since React v16.6.0, we have a `React.memo`. It provides a higher order component which memoizes component unless the props change. To use it, simply wrap the component using React.memo before you use it.
+    **به روز رسانی:** توی ورژن 16.6.0 ری‌اکت ،`React.memo` رو داریم که کارش اینه که یه کامپوننت با الویت بالاتر فراهم میکنه که کامپوننت رو تا زمانی که prop ها تغییر کنن memoize میکنه. برای استفاده ازش کافیه زمان ساخت کامپوننت از React.memo استفاده کنیم.
 
     <span align="left" dir="ltr">
 
@@ -2047,11 +2059,11 @@
 
     </span>
 
-     **[⬆ برگشت به بالا](#جدول-محتوا)**
+    **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 71. ### چطوری باید Server-Side Rendering یا SSR رو توی ری‌اکت پیاده کنیم؟
 
-    React is already equipped to handle rendering on Node servers. A special version of the DOM renderer is available, which follows the same pattern as on the client side.
+    ری‌اکت در حال حاضر به رندر سمت نود سرور مجهزه، یه ورژن خاصی از DOM رندر در دسترسه که دقیقا از همون الگوی سمت کاربر پیروی می‌کنه.
 
     <span align="left" dir="ltr">
 
@@ -2064,7 +2076,9 @@
 
      </span>
 
-    This method will output the regular HTML as a string, which can be then placed inside a page body as part of the server response. On the client side, React detects the pre-rendered content and seamlessly picks up where it left off.
+    خروجی این روش یه HTML معمولی به عنوان رشته ست که داخل body صفحه به عنوان ریسپانس سرور قرار می‌گیره.
+    در سمت کاربر، ری‌اکت محتوای از قبل رندر شده رو تشخیص میده و به صورت یکپارچه اونا رو انتخاب می‌کنه.
+
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
@@ -2076,9 +2090,9 @@
 
 73. ### CRA چیه و چه مزایایی داره؟
 
-    The `create-react-app` CLI tool allows you to quickly create & run React applications with no configuration step.
+    ابزار CLI `create-react-app` این امکان رو بهمون میده که برنامه‌های ری‌اکت رو سریع و بدون مراحل پیکربندی بسازیم و اجرا کنیم.
 
-    Let's create Todo App using *CRA*:
+    حالا بیاین برنامه Todo رو با استفاده از *CRA* بسازیم :
 
     <span align="left" dir="ltr">
 
@@ -2097,20 +2111,20 @@
      ```
 
      </span>
-    It includes everything we need to build a React app:
+    این شامل همه اون چیزیه که ما واسه ساختن یه برنامه ری‌اکت لازم داریم :
 
-    1. React, JSX, ES6, and Flow syntax support.
+    1. React، JSX، ES6 و روند پشتیبانی syntax.
     2. Language extras beyond ES6 like the object spread operator.
-    3. Autoprefixed CSS, so you don’t need -webkit- or other prefixes.
-    4. A fast interactive unit test runner with built-in support for coverage reporting.
-    5. A live development server that warns about common mistakes.
-    6. A build script to bundle JS, CSS, and images for production, with hashes and sourcemaps.
+    3. Autoprefixed CSS، بنابراین نیازی به -webkit- یا پیشوند‌های دیگه ای نداریم.
+    4. یه اجرا کننده تست تعاملی با پشتیبانی داخلی برای coveraage reporting.
+    5. یه سرور live development که اشتباهات معمول رو بهمون هشدار میده.
+    6. یه بیلد اسکریپت برای باندل کردن css، js و تصاویر برای production همراه با hash ها و sourcemap ها.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 74. ### ترتیب اجرا شدن متد‌های life cycle چطوریه؟
 
-    The lifecycle methods are called in the following order when an instance of a component is being created and inserted into the DOM.
+    وقتی یه نمونه ای از کامپوننت ساخته میشه و داخل DOM اضافه میشه، متد‌های lifecycle به ترتیب زیر صدا زده میشن.
 
     1. `constructor()`
     2. `static getDerivedStateFromProps()`
@@ -2121,19 +2135,21 @@
 
 75. ### کدوم متد‌های life cycle توی نسخه 16 ری‌اکت منسوخ شدن؟
 
-    The following lifecycle methods going to be unsafe coding practices and will be more problematic with async rendering.
+    متد‌های lifecycle روش‌های ناامن کدنویسی هستن و با رندر async مشکل بیشتری پیدا میکنن.
 
     1. `componentWillMount()`
     2. `componentWillReceiveProps()`
     3. `componentWillUpdate()`
 
-    Starting with React v16.3 these methods are aliased with `UNSAFE_` prefix, and the unprefixed version will be removed in React v17.
+    تو ورژن 16.3 ری‌اکت این متدها با پیشوند `UNSAFE_` متمایز شدن و نسخه اصلاح نشده تو ورژن 17 ری‌اکت حذف میشه.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 76. ### کاربرد متد getDerivedStateFromProps چیه؟
 
-    The new static `getDerivedStateFromProps()` lifecycle method is invoked after a component is instantiated as well as before it is re-rendered. It can return an object to update state, or `null` to indicate that the new props do not require any state updates.
+    بعد از اینکه یه کامپوننت بلا فاصله به خوبی قبل rerender شد، متد جدید استاتیک `getDerivedStateFromProps()` صدا زده میشه.
+
+این متد یا state آپدیت شده رو به صورت یه آبجکت برمی گردونه یا null رو برمی گردونه که معنیش اینه prop‌های جدید به آپدیت شدن state نیازی ندارن.
 
     <span align="left" dir="ltr">
 
@@ -2147,13 +2163,14 @@
 
      </span>
 
-    This lifecycle method along with `componentDidUpdate()` covers all the use cases of `componentWillReceiveProps()`.
+    متد `componentDidUpdate()` تمام مواردی که توی متد `componentWillReceiveProps()` هست رو پوشش میده.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 77. ### کاربرد متد getSnapshotBeforeUpdate() چیه؟
 
-    The new `getSnapshotBeforeUpdate()` lifecycle method is called right before DOM updates. The return value from this method will be passed as the third parameter to `componentDidUpdate()`.
+    متد جدید `getSnapshotBeforeUpdate()` بعد از آپدیت‌های DOM صدا زده میشه.
+    مقدار برگشتی این متد به عنوان پارامتر سوم به متد `componentDidUpdate()` پاس داده میشه.
 
     <span align="left" dir="ltr">
 
@@ -2167,21 +2184,21 @@
 
      </span>
 
-    This lifecycle method along with `componentDidUpdate()` covers all the use cases of `componentWillUpdate()`.
+    متد `componentDidUpdate()` تمام مواردی که توی متد `componentWillUpdate()` استفاده میشه رو پوشش میده.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 78. ### آیا هوک‌ها جای render props و HOC رو می‌گیرن؟
 
-    Both render props and higher-order components render only a single child but in most of the cases Hooks are a simpler way to serve this by reducing nesting in your tree.
+    کامپوننت‌های با اولویت بالاتر یا همون هوک ها و render prop ها هر دوشون فقط یه child رو رندر می‌کنن ولی هوک ها روش راحت تری رو ارائه میدن که از تو در تو بودن توی درخت کامپوننت ها جلوگیری می‌کنه.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 79. ### روش توضیه شده برای نام‌گذاری کامپوننت‌ها چیه؟
 
-    It is recommended to name the component by reference instead of using `displayName`.
+    برای نام گذاری کامپوننت ها توصیه میشه که از مرجع به جای `displayName` استفاده کنیم.
 
-    Using `displayName` for naming component:
+    استفاده از `displayName` برای نام گذاری کامپوننت:
 
     <span align="left" dir="ltr">
 
@@ -2194,7 +2211,7 @@
 
      </span>
 
-    The **recommended** approach:
+    روش **توصیه شده**:
 
     <span align="left" dir="ltr">
 
@@ -2210,9 +2227,9 @@
 
 80. ### روش توصیه شده برای ترتیب متدها در کلاس کامپوننت‌ها چیه؟
 
-    *Recommended* ordering of methods from *mounting* to *render stage*:
+    ترتیب *توصیه شده* متد ها از *mounting* تا *render stage*:
 
-    1. `static` methods
+    1. `static` متد های
     2. `constructor()`
     3. `getChildContext()`
     4. `componentWillMount()`
@@ -2222,9 +2239,9 @@
     8. `componentWillUpdate()`
     9. `componentDidUpdate()`
     10. `componentWillUnmount()`
-    11. click handlers or event handlers like `onClickSubmit()` or `onChangeDescription()`
-    12. getter methods for render like `getSelectReason()` or `getFooterContent()`
-    13. optional render methods like `renderNavigation()` or `renderProfilePicture()`
+    11. click handlers یا event handlers مثل `onClickSubmit()` یا `onChangeDescription()`
+    12. متد‌های دریافت کننده برای رندر مثل `getSelectReason()` یا `getFooterContent()`
+    13. متد‌های رندر اختیاری مثل `renderNavigation()` یا `renderProfilePicture()`
     14. `render()`
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
@@ -2268,9 +2285,15 @@
 
 82. ### چرت نیاز میشه به تایع setState یه فانکشن callback پاس بدیم؟
 
-    The reason behind for this is that `setState()` is an asynchronous operation. React batches state changes for performance reasons, so the state may not change immediately after `setState()` is called. That means you should not rely on the current state when calling `setState()` since you can't be sure what that state will be. The solution is to  pass a function to `setState()`, with the previous state as an argument. By doing this you can avoid issues with the user getting the old state value on access due to the asynchronous nature of `setState()`.
+   By doing this you can avoid issues with the user getting the old state value on access due to the asynchronous nature of `setState()`.
+    دلیلش اینه که `setState()` یه عملیات async یا ناهمزمانه.
+    state ها در ری‌اکت به دلایل عملکردی تغییر می‌کنن، بنابراین یه state ممکنه بلافاصله بعد از اینکه `‍setState()` صدا زده شد تغییر نکنه.
+    یعنی اینکه وقتی `setState()` رو صدا می زنیم نباید به state جاری اعتماد کنیم چون نمی تونیم مطمئن باشیم که اون state چی میتونه باشه.
+راه حلش اینه که یه تابع رو با state قبلی به عنوان یه آرگومان به `setState()` پاس بدیم.
 
-    Let's say the initial count value is zero. After three consecutive increment operations, the value is going to be incremented only by one.
+
+
+    بیاین فرض کنیم مقدار اولیه count صفر هستش. بعد از سه عملیات پشت هم، مقدار count فقط یکی افزایش پیدا می‌کنه.
 
     <span align="left" dir="ltr">
 
@@ -2284,7 +2307,7 @@
 
      </span>
 
-    If we pass a function to `setState()`, the count gets incremented correctly.
+    اگه ما یه تایع به `setState()` پاس بدیم، مقدار count به درستی افزایش پیدا می‌کنه.
 
     <span align="left" dir="ltr">
 
@@ -2301,7 +2324,9 @@
 
 83. ### حالت strict توی ری‌اکت چیکار می‌کنه؟
 
-    `React.StrictMode` is a useful component for highlighting potential problems in an application. Just like `<Fragment>`, `<StrictMode>` does not render any extra DOM elements. It activates additional checks and warnings for its descendants. These checks apply for *development mode* only.
+    `React.StrictMode` یه کامپوننت مفید برای هایلایت کردن مشکلات احتمالی توی برنامه ست.
+    `<StrictMode>` درست مثل ‍‍`<Fragment>` هیچ المان DOM اضافه ای رو رندر نمی‌کنه، بلکه warning ها و additional checks رو برای فرزندان اون کامپوننت فعال میکنه.
+    این کار فقط در حالت *development* فعال میشه.
 
     <span align="left" dir="ltr">
 
@@ -2326,15 +2351,17 @@
 
      </span>
 
-    In the example above, the *strict mode* checks apply to `<ComponentOne>` and `<ComponentTwo>` components only.
+    توی مثال بالا، *strict mode* فقط روی دو کامپوننت `<ComponentOne>` و `<ComponentTwo>` اعمال میشه.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 84. ### Mixin‌های ری‌اکت چی هستن؟
 
-    *Mixins* are a way to totally separate components to have a common functionality. Mixins **should not be used** and can be replaced with *higher-order components* or *decorators*.
+    *Mixin* ها روشی برای جدا کردن کامپوننت هایی با عملکرد مشترک هستن.
+    Mixin ها *نباید استفاده بشن* و میتونن با *کامپوننت‌های با اولویت بالا(HOC)* یا *decorator* ها جایگزین بشن.
 
-    One of the most commonly used mixins is `PureRenderMixin`. You might be using it in some components to prevent unnecessary re-renders when the props and state are shallowly equal to the previous props and state:
+
+    یکی از بیشترین کاربرد‌های mixin ها `PureRenderMixin` هستش. ممکنه تو بعضی از کامپوننت ها برای جلوگیری از re-render‌های غیر ضروری وقتی prop ها و state با مقادیر قبلی شون برابر هستن از این mixin ها استفاده کنیم:
 
     <span align="left" dir="ltr">
 
@@ -2374,9 +2401,11 @@
 
 86. ### پشتیبانی ری‌اکت از pointer eventها چطوریه؟
 
-    *Pointer Events* provide a unified way of handling all input events. In the old days we had a mouse and respective event listeners to handle them but nowadays we have many devices which don't correlate to having a mouse, like phones with touch surface or pens. We need to remember that these events will only work in browsers that support the *Pointer Events* specification.
+    *pointer Event* ها یه روش واحدی رو برای هندل کردن همه ی ایونت‌های ورودی ارائه میدن.
+    در زمان‌های قدیم ما از موس استفاده میکردیم و برای هندل کردن ایونت‌های مربوط به اون از event listener ها استفاده میکردیم ولی امروزه دستگاه‌های زیادی داریم که با داشتن موس ارتباطی ندارن، مثل قلم ها یا گوشی‌های صفحه لمسی.
+    باید یادمون باشه که این ایونت ها فقط تو مرورگر هایی کار میکنن که مشخصه *Pointer Events* رو پشتیبانی میکنن.
 
-    The following event types are now available in *React DOM*:
+    ایونت‌های زیر در *React DOM* در دسترس هستند:
 
     1. `onPointerDown`
     2. `onPointerMove`
@@ -2393,7 +2422,8 @@
 
 87. ### چرا باید اسم کامپوننت با حرف بزرگ شروع بشه؟
 
-    If you are rendering your component using JSX, the name of that component has to begin with a capital letter otherwise React will throw an error as unrecognized tag. This convention is because only HTML elements and SVG tags can begin with a lowercase letter.
+    اگه ما با استفاده از JSX کامپوننتمون رو رندر می‌کنیم، اسم کامپوننت باید با حرف بزرگ شروع بشه در غیر این صورت ری‌اکت خطای تگ غیر قابل تشخیص رو میده.
+    این قرارداد به خاطر اینه که فقط عناصر HTML و تگ‌های svg می تونن با حرف کوچیک شروع بشن.
     <span align="left" dir="ltr">
 
     ```jsx harmony
@@ -2403,7 +2433,7 @@
      ```
 
      </span>
-    You can define component class which name starts with lowercase letter, but when it's imported it should have capital letter. Here lowercase is fine:
+    می تونیم کلاس کامپوننت هایی که با حرف کوچیک شروع میشن رو هم تعریف کنیم ولی وقتی داریم ایمپورت می‌کنیم باید شامل حروف بزرگ هم باشن:
 
     <span align="left" dir="ltr">
 
@@ -2419,7 +2449,7 @@
 
      </span>
 
-    While when imported in another file it should start with capital letter:
+    وقتی داریم تو یه فایل دیگه ای ایمپورت می‌کنیم باید با حرف بزرگ شروع بشه:
 
     <span align="left" dir="ltr">
 
@@ -2433,7 +2463,7 @@
 
 88. ### آیا propهای custom توی ری‌اکت پشتیبانی میشن؟
 
-    Yes. In the past, React used to ignore unknown DOM attributes. If you wrote JSX with an attribute that React doesn't recognize, React would just skip it. For example, this:
+    بله. در گذشته ری‌اکت DOM attribute‌های ناشناخته رو نادیده می‌گرفت، اگه JSX رو با یه ویژگی‌ای نوشته بودیم که ری‌اکت تشخیص نمیداد، اونو نادیده می‌گرفت. به عنوان مثال:
 
     <span align="left" dir="ltr">
 
@@ -2443,7 +2473,7 @@
 
      </span>
 
-    Would render an empty div to the DOM with React v15:
+    در ری‌اکت ورژن 15 یه div خالی توی DOM رندر می‌کنیم:
 
     <span align="left" dir="ltr">
 
@@ -2453,7 +2483,7 @@
 
      </span>
 
-    In React v16 any unknown attributes will end up in the DOM:
+    در ری‌اکت ورژن 16 هر attribute ناشناخته ای توی DOM از بین میره:
 
     <span align="left" dir="ltr">
 
@@ -2463,15 +2493,15 @@
 
      </span>
 
-    This is useful for supplying browser-specific non-standard attributes, trying new DOM APIs, and integrating with opinionated third-party libraries.
+    این برای attribute‌های غیر استاندارد مرورگر‌های خاص، DOM API‌های جدید و ادغام با کتابخانه‌های third-party مفیده.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 89. ### تفاوت‌های constructor و getInitialState چیه؟
 
-    You should initialize state in the constructor when using ES6 classes, and `getInitialState()` method when using `React.createClass()`.
+    وقتی داریم از کلاس‌های ES6 استفاده می‌کنیم باید state‌ رو توی constructor مقداردهی اولیه کنیم و وقتی از `React.createClass()` استفاده می‌کنیم باید از متد `getInitialState` استفاده کنیم.
 
-    Using ES6 classes:
+    استفاده از کلاس‌های ES6:
 
     <span align="left" dir="ltr">
 
@@ -2486,7 +2516,7 @@
 
      </span>
 
-    Using `React.createClass()`:
+    استفاده از `React.createClass()`:
 
     <span align="left" dir="ltr">
 
@@ -2500,13 +2530,13 @@
 
      </span>
 
-    **Note:** `React.createClass()` is deprecated and removed in React v16. Use plain JavaScript classes instead.
+    **نکته:** `React.createClass()` در ورژن 16 ری‌اکت حذف شده و به جای اون میشه از کلاس‌های ساده جاوا اسکریپت استفاده کرد.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
 90. ### می‌تونیم یه کامپوننت رو بدون setState ری‌رندر کنیم؟
 
-    By default, when your component's state or props change, your component will re-render. If your `render()` method depends on some other data, you can tell React that the component needs re-rendering by calling `forceUpdate()`.
+       در حالت پیش فرض، وقتی state یا prop کامپوننت تغییر میکنه، کامپوننت دوباره رندر میشه. اگه متد `render()` به داده‌های دیگه ای وابسته باشه، می تونیم با فراخوانی متد `forceUpdate` به ری‌اکت بگیم که این کامپوننت نیازه که دوباره رندر بشه.
 
     <span align="left" dir="ltr">
 
@@ -2516,7 +2546,7 @@
 
      </span>
 
-    It is recommended to avoid all uses of `forceUpdate()` and only read from `this.props` and `this.state` in `render()`.
+    توصیه میشه که از متد ‍‍`forceUpdate` استفاده نکنیم و توی `render()` فقط از `this.props` و `this.state` استفاده کنیم.
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
 
@@ -2714,7 +2744,8 @@
      </span>
 
      **[⬆ برگشت به بالا](#جدول-محتوا)**
-
+     
+     
 99. ### چطوری می‌تونیم چندتا object از استایل‌های درون خطی رو با هم ترکیب کنیم؟
 
     You can use *spread operator* in regular React:
