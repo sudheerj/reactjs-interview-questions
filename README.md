@@ -2089,9 +2089,6 @@ You can download the PDF and Epub version of this repository from the latest run
 
    **[⬆ Back to Top](#table-of-contents)**
 
-
-
-   **[⬆ Back to Top](#table-of-contents)**
     
 83. ### What is strict mode in React?
 
@@ -2204,9 +2201,7 @@ You can download the PDF and Epub version of this repository from the latest run
     ```
 
 
-   **[⬆ Back to Top](#table-of-contents)**
-
-88. ### What are the exceptions on React component naming?
+ #### What are the exceptions on React component naming?
 
      The component names should start with a uppercase letter but there are few exceptions on this convention. The lowercase tag names with a dot (property accessors) are still considered as valid component names.
 
