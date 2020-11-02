@@ -18,12 +18,12 @@ jobs:
           mkdir output  # create output dir          
       
       - name: Create PDF
-        uses: docker://pandoc/latex:2.9              
+        uses: docker://pandoc/latex:2.10
         with:
           args: --pdf-engine=xelatex --output=output/${{env.FILE_NAME}}.pdf README.md
 
       - name: Create epub
-        uses: docker://pandoc/latex:2.9      
+        uses: docker://pandoc/latex:2.10
         with:
           args: --output=output/${{env.FILE_NAME}}.epub README.md
       
