@@ -6558,7 +6558,7 @@ When a user logs in and reload, to persist the state generally we add the load u
 **App.js**
 
 ```js
-import {lodUser}  from '../actions/auth';
+import {loadUser}  from '../actions/auth';
 store.dispatch(loadUser());
 ```
 
