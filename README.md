@@ -1443,6 +1443,26 @@ You can download the PDF and Epub version of this repository from the latest run
 
     **Note:** In React v15.5 *PropTypes* were moved from `React.PropTypes` to `prop-types` library.
 
+    *The Equivalent Functional Component*
+
+    ```jsx harmony
+    import React from 'react'
+    import PropTypes from 'prop-types'
+   
+    function User() {
+      return (
+        <>
+          <h1>{`Welcome, ${this.props.name}`}</h1>
+          <h2>{`Age, ${this.props.age}`}</h2>
+        </>
+      )
+    }
+
+    User.propTypes = {
+        name: PropTypes.string.isRequired,
+        age: PropTypes.number.isRequired
+      }
+    ```
 
    **[⬆ Back to Top](#table-of-contents)**
     
