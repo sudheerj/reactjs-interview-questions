@@ -2226,7 +2226,8 @@ You can download the PDF and Epub version of this repository from the latest run
      The component names should start with a uppercase letter but there are few exceptions on this convention. The lowercase tag names with a dot (property accessors) are still considered as valid component names.
 
      For example the below tag can be compiled to a valid component,
-     ```javascript
+     
+     ```jsx harmony
      render(){
         return (
             <obj.component /> // `React.createElement(obj.component)`
