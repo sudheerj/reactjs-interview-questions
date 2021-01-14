@@ -360,8 +360,9 @@ You can download the PDF and Epub version of this repository from the latest run
 |323| [What is the difference between Imperative and Declarative in React?](#what-is-the-difference-between-imperative-and-declarative-in-react)|
 |324| [What are the benefits of using typescript with reactjs?](#what-are-the-benefits-of-using-typescript-with-reactjs)|
 |325| [How do you make sure that user remains authenticated on page refresh while using Context API State Management?](#how-do-you-make-sure-that-user-remains-authenticated-on-page-refresh-while-using-context-api-state-management)|
-|326| [What are the benefits of new JSX transform?](#what-are-the-benefits-of-new-jsx-transform)
-|327| [How does new JSX transform different from old transform?](#how-does-new-jsx-transform-different-from-old-transform)
+|326| [What are the benefits of new JSX transform?](#what-are-the-benefits-of-new-jsx-transform)|
+|327| [How does new JSX transform different from old transform?](#how-does-new-jsx-transform-different-from-old-transform)|
+|328| [How do you get redux scaffolding using create-react-app?](#how-do-you-get-redux-scaffolding-using-create-react-app)|
 
 ## Core React
 
@@ -6696,6 +6697,24 @@ ReactDOM.render(
      ```
 
      **Note:** You still need to import React to use Hooks.
-
+     
+328. ### How do you get redux scaffolding using create-react-app?
+     Redux team has provided official redux+js or redux+typescript templates for create-react-app project. The generated project setup includes,
+     
+     1. Redux Toolkit and React-Redux dependencies
+     2. Create and configure Redux store
+     3. React-Redux `<Provider>` passing the store to React components
+     4. Small "counter" example to demo how to add redux logic and React-Redux hooks API to interact with the store from components
+     
+     The below commands need to be executed along with template option as below,
+     
+     1. **Javascript template:**
+     ```js
+     npx create-react-app my-app --template redux
+     ```
+     2. **Typescript template:**
+     ```js
+     npx create-react-app my-app --template redux-typescript
+     ````
 
 
