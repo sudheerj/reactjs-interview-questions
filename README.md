@@ -363,6 +363,7 @@ You can download the PDF and Epub version of this repository from the latest run
 |326| [What are the benefits of new JSX transform?](#what-are-the-benefits-of-new-jsx-transform)|
 |327| [How does new JSX transform different from old transform?](#how-does-new-jsx-transform-different-from-old-transform)|
 |328| [How do you get redux scaffolding using create-react-app?](#how-do-you-get-redux-scaffolding-using-create-react-app)|
+|329| [What are React Server components?](#what-are-react-server-components)
 
 ## Core React
 
@@ -6716,5 +6717,7 @@ ReactDOM.render(
      ```js
      npx create-react-app my-app --template redux-typescript
      ````
-
-
+329. ### What are React Server components?
+     React Server Component is a way to write React component that gets rendered in the server-side with the purpose of improving React app performance. These components allow us to load components from the backend. 
+    
+     **Note:** React Server Components is still under development and not recommended for production yet.
