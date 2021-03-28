@@ -270,7 +270,7 @@ You can download the PDF and Epub version of this repository from the latest run
 |230| [What are the benefits of React Router V4?](#what-are-the-benefits-of-react-router-v4)|
 |231| [Can you describe about componentDidCatch lifecycle method signature?](#can-you-describe-about-componentdidcatch-lifecycle-method-signature)|
 |232| [In which scenarios error boundaries do not catch errors?](#in-which-scenarios-error-boundaries-do-not-catch-errors)|
-|233| [Why do not you need error boundaries for event handlers?](#why-do-not-you-need-error-boundaries-for-event-handlers)|
+|233| [Why do you not need error boundaries for event handlers?](#why-do-you-not-need-error-boundaries-for-event-handlers)|
 |234| [What is the difference between try catch block and error boundaries?](#what-is-the-difference-between-try-catch-block-and-error-boundaries)|
 |235| [What is the behavior of uncaught errors in react 16?](#what-is-the-behavior-of-uncaught-errors-in-react-16)|
 |236| [What is the proper placement for error boundaries?](#what-is-the-proper-placement-for-error-boundaries)|
@@ -5011,18 +5011,22 @@ You can download the PDF and Epub version of this repository from the latest run
 
    **[⬆ Back to Top](#table-of-contents)**
     
-233. ### Why do not you need error boundaries for event handlers?
-     Error boundaries do not catch errors inside event handlers. Event handlers don't happened or invoked during rendering time unlike render method or lifecycle methods. So React knows how to recover these kind of errors in event handlers.
-     If still you need to catch an error inside event handler, use the regular JavaScript try / catch statement as below
+233. ### Why do you not need error boundaries for event handlers?
+     Error boundaries do not catch errors inside event handlers.
+     
+     React doesn’t need error boundaries to recover from errors in event handlers. Unlike the render method and lifecycle methods, the event handlers don’t happen during rendering. So if they throw, React still knows what to display on the screen.
+
+     If you need to catch an error inside an event handler, use the regular JavaScript try / catch statement:
 
      ```javascript
      class MyComponent extends React.Component {
        constructor(props) {
          super(props);
          this.state = { error: null };
+         this.handleClick = this.handleClick.bind(this);
        }
 
-       handleClick = () => {
+       handleClick() {
          try {
            // Do something that could throw
          } catch (error) {
@@ -5034,11 +5038,11 @@ You can download the PDF and Epub version of this repository from the latest run
          if (this.state.error) {
            return <h1>Caught an error.</h1>
          }
-         return <div onClick={this.handleClick}>Click Me</div>
+         return <button onClick={this.handleClick}>Click Me</button>
        }
      }
      ```
-     The above code is catching the error using vanilla javascript try/catch block instead of error boundaries.
+     Note that the above example is demonstrating regular JavaScript behavior and doesn’t use error boundaries.
 
    **[⬆ Back to Top](#table-of-contents)**
     
