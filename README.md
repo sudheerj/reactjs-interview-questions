@@ -23,6 +23,8 @@ Learn to code and get hired with <a href="https://zerotomastery.io/?utm_source=g
 
 ---
 
+**Note:** This repository is specific to ReactJS. Please check [Javascript Interview questions](https://github.com/sudheerj/javascript-interview-questions) for core javascript questions.
+
 ## Downloading PDF/Epub formats
 
 You can download the PDF and Epub version of this repository from the latest run on the [actions tab](https://github.com/sudheerj/reactjs-interview-questions/actions).
@@ -608,7 +610,7 @@ You can download the PDF and Epub version of this repository from the latest run
 13. ### What is the difference between HTML and React event handling?
     Below are some of the main differences between HTML and React event handling,
 
-    1. In HTML, the event name should be in *lowercase*:
+    1. In HTML, the event name usually represents in *lowercase* as a convention:
 
         ```html
         <button onclick='activateLasers()'>
@@ -6731,3 +6733,5 @@ ReactDOM.render(
      
 330. ### What is prop drilling?
      Prop Drilling is the process by which you pass data from one component of the React Component tree to another by going through other components that do not need the data but only help in passing it around.
+     
+331. ### What are the different ways to prevent state mutation?
