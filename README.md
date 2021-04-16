@@ -3334,7 +3334,7 @@ You can download the PDF and Epub version of this repository from the latest run
          />
          ```
 
-    2. **Using an API:**
+     2. **Using an API:**
 
          ```javascript
          const messages = defineMessages({
