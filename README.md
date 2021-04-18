@@ -2134,7 +2134,7 @@ You can download the PDF and Epub version of this repository from the latest run
               <ComponentTwo />
             </div>
           </React.StrictMode>
-          <Footer />
+          <Header />
         </div>
       )
     }
