@@ -511,7 +511,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
     *State* of a component is an object that holds some information that may change over the lifetime of the component. We should always try to make our state as simple as possible and minimize the number of stateful components.
 
-    Let's create an user component with message state,
+    Let's create a user component with message state,
 
 
     ```jsx harmony
@@ -536,7 +536,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
     ![state](images/state.jpg)
 
-    State is similar to props, but it is private and fully controlled by the component. i.e, It is not accessible to any component other than the one that owns and sets it.
+    State is similar to props, but it is private and fully controlled by the component. i.e, It is not accessible to any other component til the owner component decides to pass it.
 
 
    **[⬆ Back to Top](#table-of-contents)**
@@ -954,7 +954,15 @@ You can download the PDF and Epub version of this repository from the latest run
 28. ### What is the main goal of React Fiber?
 
     The goal of *React Fiber* is to increase its suitability for areas like animation, layout, and gestures. Its headline feature is **incremental rendering**: the ability to split rendering work into chunks and spread it out over multiple frames.
+    
+    *from documentation*
 
+    Its main goals are:
+      1. Ability to split interruptible work in chunks.
+      2. Ability to prioritize, rebase and reuse work in progress.
+      3. Ability to yield back and forth between parents and children to support layout in React.
+      4. Ability to return multiple elements from render().
+      5. Better support for error boundaries.
 
    **[⬆ Back to Top](#table-of-contents)**
     
