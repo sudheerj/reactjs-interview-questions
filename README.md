@@ -1,3 +1,12 @@
+# 리액트 인터뷰 Q & A 한국어 번역 규칙
+
+- 질문 하나당 feature/QNA-0000
+  - 질문 리스트 번역
+  - 질문 위치 찾아서 번역
+  - PR 생성 
+
+---
+
 # React Interview Questions & Answers
 
 > Click :star:if you like the project. Pull Request are highly appreciated. Follow me [@SudheerJonna](https://twitter.com/SudheerJonna) for technical updates.
