@@ -475,7 +475,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
    **[⬆ Back to Top](#table-of-contents)**
     
-5. ### 리액트에서 components 만드는 법?
+5. ### 리액트 components 만드는 법
 
     component를 만드는 두가지 방법은 다음과 같다.
 
