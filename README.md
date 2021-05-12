@@ -48,7 +48,7 @@ You can download the PDF and Epub version of this repository from the latest run
 |3  | [What is JSX?](#what-is-jsx) |
 |4  | [What is the difference between Element and Component?](#what-is-the-difference-between-element-and-component) |
 |5  | [리액트 components 만드는 법](#리액트-components-만드는-법) |
-|6  | [When to use a Class Component over a Function Component?](#when-to-use-a-class-component-over-a-function-component) |
+|6  | [Functional Component 대신 Class Component를 쓰는 경우](#functional-component-대신-class-component를-쓰는-경우) |
 |7  | [What are Pure Components?](#what-are-pure-components) |
 |8  | [What is state in React?](#what-is-state-in-react) |
 |9  | [What are props in React?](#what-are-props-in-react) |
@@ -501,10 +501,10 @@ You can download the PDF and Epub version of this repository from the latest run
 
    **[⬆ Back to Top](#table-of-contents)**
     
-6. ### When to use a Class Component over a Function Component?
+6. ### Functional Component 대신 Class Component를 쓰는 경우
 
-    If the component needs *state or lifecycle methods* then use class component otherwise use function component.
-    *However, from React 16.8 with the addition of Hooks, you could use state , lifecycle  methods and other features that were only available in class component right in your function component.*
+    *state 나 lifecycle 메소드*가 필요한 component인 경우 functional component보다 class component를 쓰는 것이 낫다.
+    *React 16.8 부터는 functional component도 훅을 이용하면 state나 lifecycle 메소드를 사용할 수 있다.*
 
 
    **[⬆ Back to Top](#table-of-contents)**
