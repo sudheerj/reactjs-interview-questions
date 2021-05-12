@@ -47,7 +47,7 @@ You can download the PDF and Epub version of this repository from the latest run
 |2  | [What are the major features of React?](#what-are-the-major-features-of-react) |
 |3  | [What is JSX?](#what-is-jsx) |
 |4  | [What is the difference between Element and Component?](#what-is-the-difference-between-element-and-component) |
-|5  | [How to create components in React?](#how-to-create-components-in-react) |
+|5  | [리액트에서 components 만드는 법](#리액트에서-components-만드는-법) |
 |6  | [When to use a Class Component over a Function Component?](#when-to-use-a-class-component-over-a-function-component) |
 |7  | [What are Pure Components?](#what-are-pure-components) |
 |8  | [What is state in React?](#what-is-state-in-react) |
@@ -475,11 +475,11 @@ You can download the PDF and Epub version of this repository from the latest run
 
    **[⬆ Back to Top](#table-of-contents)**
     
-5. ### How to create components in React?
+5. ### 리액트에서 components 만드는 법?
 
-    There are two possible ways to create a component.
+    component를 만드는 두가지 방법은 다음과 같다.
 
-    1. **Function Components:** This is the simplest way to create a component. Those are pure JavaScript functions that accept props object as first parameter and return React elements:
+    1. **Function Components:** 이 방법이 가장 간단하다. props 오브젝트를 첫번째 인자로 받고 React elements를 반환하는 javascript 함수로 만든다:
 
         ```jsx harmony
         function Greeting({ message }) {
@@ -488,7 +488,7 @@ You can download the PDF and Epub version of this repository from the latest run
         }
         ```
 
-    2. **Class Components:** You can also use ES6 class to define a component. The above function component can be written as:
+    2. **Class Components:** ES6 클래스를 이용하여 component를 정의하는 방법도 있다. 위의 function component는 이렇게도 쓸 수 있다:
 
         ```jsx harmony
         class Greeting extends React.Component {
