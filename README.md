@@ -44,7 +44,7 @@ You can download the PDF and Epub version of this repository from the latest run
 | --- | --------- |
 |   | **Core React** |
 |1  | [What is React?](#what-is-react) |
-|2  | [What are the major features of React?](#what-are-the-major-features-of-react) |
+|2  | [리액트의 주요 특징은 무엇입니까?](#리액트의-주요-특징은-무엇입니까) |
 |3  | [What is JSX?](#what-is-jsx) |
 |4  | [What is the difference between Element and Component?](#what-is-the-difference-between-element-and-component) |
 |5  | [리액트 components 만드는 법](#리액트-components-만드는-법) |
@@ -390,14 +390,14 @@ You can download the PDF and Epub version of this repository from the latest run
 
    **[⬆ Back to Top](#table-of-contents)**
     
-2. ### What are the major features of React?
+2. ### 리액트의 주요 특징은 무엇입니까?
 
-    The major features of React are:
+    리액트의 주요 특징은 다음과 같습니다:
 
-    * It uses **VirtualDOM** instead of RealDOM considering that RealDOM manipulations are expensive.
-    * Supports **server-side rendering**.
-    * Follows **Unidirectional** data flow or data binding.
-    * Uses **reusable/composable** UI components to develop the view.
+    - RealDOM 조작의 연산 비용이 비싼 것을 고려해 RealDOM 대신 **VirtualDOM**을 사용합니다.
+    - Server-side rendering(SSR)을 지원합니다.
+    - 단방향 data 흐름 혹은 data 바인딩을 따릅니다.
+    - view를 만들기 위해 재사용가능한/합성(조립)가능한 UI 컴포넌트를 사용합니다.
 
 
    **[⬆ Back to Top](#table-of-contents)**
