@@ -43,7 +43,7 @@ You can download the PDF and Epub version of this repository from the latest run
 | No. | Questions |
 | --- | --------- |
 |   | **Core React** |
-|1  | [리액트란 무엇입니까?](#what-is-react) |
+|1  | [리액트란 무엇입니까?](#리액트란-무엇입니까?) |
 |2  | [What are the major features of React?](#what-are-the-major-features-of-react) |
 |3  | [What is JSX?](#what-is-jsx) |
 |4  | [What is the difference between Element and Component?](#what-is-the-difference-between-element-and-component) |
@@ -383,7 +383,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
 
     
-1. ### What is React?
+1. ### 리액트란 무엇입니까?
 
     React is an **open-source frontend JavaScript library** which is used for building user interfaces especially for single page applications. It is used for handling view layer for web and mobile apps. React was created by [Jordan Walke](https://github.com/jordwalke), a software engineer working for Facebook. React was first deployed on Facebook's News Feed in 2011 and on Instagram in 2012.
 
