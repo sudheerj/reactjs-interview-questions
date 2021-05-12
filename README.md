@@ -47,7 +47,7 @@ You can download the PDF and Epub version of this repository from the latest run
 |2  | [What are the major features of React?](#what-are-the-major-features-of-react) |
 |3  | [What is JSX?](#what-is-jsx) |
 |4  | [What is the difference between Element and Component?](#what-is-the-difference-between-element-and-component) |
-|5  | [리액트에서 components 만드는 법](#리액트에서-components-만드는-법) |
+|5  | [리액트 components 만드는 법](#리액트-components-만드는-법) |
 |6  | [When to use a Class Component over a Function Component?](#when-to-use-a-class-component-over-a-function-component) |
 |7  | [What are Pure Components?](#what-are-pure-components) |
 |8  | [What is state in React?](#what-is-state-in-react) |
