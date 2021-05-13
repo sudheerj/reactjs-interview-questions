@@ -45,7 +45,7 @@ You can download the PDF and Epub version of this repository from the latest run
 |   | **Core React** |
 |1  | [What is React?](#what-is-react) |
 |2  | [What are the major features of React?](#what-are-the-major-features-of-react) |
-|3  | [JSX란 무엇인가.](#JSX란 무엇인가.)|
+|3  | [JSX란 무엇인가.](#JSX란-무엇인가.)|
 |4  | [What is the difference between Element and Component?](#what-is-the-difference-between-element-and-component) |
 |5  | [How to create components in React?](#how-to-create-components-in-react) |
 |6  | [When to use a Class Component over a Function Component?](#when-to-use-a-class-component-over-a-function-component) |
