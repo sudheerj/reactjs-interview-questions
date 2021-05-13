@@ -404,7 +404,7 @@ You can download the PDF and Epub version of this repository from the latest run
     
 3. ### JSX란 무엇인가.
 
-    *JSX* 는 XML과 비슷한 ECMAScript 확장 문법 입니다. (the acronym stands for *JavaScript XML*). 기본적으로 `React.createElement()`함수를 쉽게 사용할 수 있도록 문법적인 이점을 제공하는 것이죠. 이 문법적 이점은 우리가  giving us expressiveness of JavaScript along with HTML like template syntax.
+    *JSX* 는 XML과 비슷한 ECMAScript 확장 문법 입니다. (*JavaScript XML*의 약자). 기본적으로 `React.createElement()`함수를 쉽게 사용할 수 있도록 문법적인 이점을 제공하는 것이죠. 이 문법적 이점은 우리가 자바스크립트를 이용해 HTML과 비슷한 template 문법을 표현할 수 있도록 해줍니다. 
 
   아래의 예시에서 `<h1>` tag 내부 문자는 자바스크립트 함수로 render 함수에게 return 됩니다.
 
