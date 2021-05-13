@@ -390,7 +390,7 @@ You can download the PDF and Epub version of this repository from the latest run
     
 1. ### 리액트란 무엇입니까?
 
-    리액트는 UI를 구성하기 위해 사용되는 자바스크립트 오픈소스 라이브러리 입니다. 특히, Single Page Application(SPA)로 구성되어 있는 프로젝트에서 자주 사용되며, 웹과 모바일에서 view 계층을 다루기 위해 사용됩니다. 리액트는 Facebook의 software 엔지니어인 [Jordan Walke](https://github.com/jordwalke)이 만들었습니다. 리액트는 2011년 Facebook 뉴스피드에 처음 배포되었고, 2012년에는 instagram에 반영되었습니다.
+    리액트는 UI를 구성하기 위해 사용되는 오픈소스 프론트엔드 자바스크립트 라이브러리 입니다. 특히, Single Page Application(SPA)로 구성되어 있는 프로젝트에서 자주 사용되며, 웹과 모바일에서 view 계층을 다루기 위해 사용됩니다. 리액트는 Facebook의 소프트웨어 엔지니어인 [Jordan Walke](https://github.com/jordwalke)이 만들었습니다. 리액트는 2011년 Facebook 뉴스피드 기능에 처음 사용되었고, 2012년에는 Instagram에 반영되었습니다.
 
 
    **[⬆ Back to Top](#table-of-contents)**
