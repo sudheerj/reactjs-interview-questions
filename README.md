@@ -44,11 +44,11 @@ You can download the PDF and Epub version of this repository from the latest run
 | --- | --------- |
 |   | **Core React** |
 |1  | [What is React?](#what-is-react) |
-|2  | [What are the major features of React?](#what-are-the-major-features-of-react) |
+|2  | [리액트의 주요 특징은 무엇입니까?](#리액트의-주요-특징은-무엇입니까) |
 |3  | [JSX란 무엇인가.](#JSX란-무엇인가.)|
 |4  | [What is the difference between Element and Component?](#what-is-the-difference-between-element-and-component) |
-|5  | [How to create components in React?](#how-to-create-components-in-react) |
-|6  | [When to use a Class Component over a Function Component?](#when-to-use-a-class-component-over-a-function-component) |
+|5  | [리액트 components 만드는 법](#리액트-components-만드는-법) |
+|6  | [Functional Component 대신 Class Component를 쓰는 경우](#functional-component-대신-class-component를-쓰는-경우) |
 |7  | [What are Pure Components?](#what-are-pure-components) |
 |8  | [What is state in React?](#what-is-state-in-react) |
 |9  | [What are props in React?](#what-are-props-in-react) |
@@ -390,14 +390,14 @@ You can download the PDF and Epub version of this repository from the latest run
 
    **[⬆ Back to Top](#table-of-contents)**
     
-2. ### What are the major features of React?
+2. ### 리액트의 주요 특징은 무엇입니까?
 
-    The major features of React are:
+    리액트의 주요 특징은 다음과 같습니다:
 
-    * It uses **VirtualDOM** instead of RealDOM considering that RealDOM manipulations are expensive.
-    * Supports **server-side rendering**.
-    * Follows **Unidirectional** data flow or data binding.
-    * Uses **reusable/composable** UI components to develop the view.
+    - RealDOM 조작의 연산 비용이 비싼 것을 고려해 RealDOM 대신 **VirtualDOM**을 사용합니다.
+    - Server-side rendering(SSR)을 지원합니다.
+    - 단방향 data 흐름 혹은 data 바인딩을 따릅니다.
+    - view를 만들기 위해 재사용가능한/합성(조립)가능한 UI 컴포넌트를 사용합니다.
 
 
    **[⬆ Back to Top](#table-of-contents)**
@@ -475,11 +475,11 @@ You can download the PDF and Epub version of this repository from the latest run
 
    **[⬆ Back to Top](#table-of-contents)**
     
-5. ### How to create components in React?
+5. ### 리액트 components 만드는 법
 
-    There are two possible ways to create a component.
+    component를 만드는 두가지 방법은 다음과 같다.
 
-    1. **Function Components:** This is the simplest way to create a component. Those are pure JavaScript functions that accept props object as first parameter and return React elements:
+    1. **Function Components:** 이 방법이 가장 간단하다. props 오브젝트를 첫번째 인자로 받고 React elements를 반환하는 javascript 함수로 만든다:
 
         ```jsx harmony
         function Greeting({ message }) {
@@ -488,7 +488,7 @@ You can download the PDF and Epub version of this repository from the latest run
         }
         ```
 
-    2. **Class Components:** You can also use ES6 class to define a component. The above function component can be written as:
+    2. **Class Components:** ES6 클래스를 이용하여 component를 정의하는 방법도 있다. 위의 function component는 이렇게도 쓸 수 있다:
 
         ```jsx harmony
         class Greeting extends React.Component {
@@ -501,10 +501,10 @@ You can download the PDF and Epub version of this repository from the latest run
 
    **[⬆ Back to Top](#table-of-contents)**
     
-6. ### When to use a Class Component over a Function Component?
+6. ### Functional Component 대신 Class Component를 쓰는 경우
 
-    If the component needs *state or lifecycle methods* then use class component otherwise use function component.
-    *However, from React 16.8 with the addition of Hooks, you could use state , lifecycle  methods and other features that were only available in class component right in your function component.*
+    *state 나 lifecycle 메소드*가 필요한 component인 경우 functional component보다 class component를 쓰는 것이 낫다.
+    *React 16.8 부터는 functional component도 훅을 이용하면 state나 lifecycle 메소드를 사용할 수 있다.*
 
 
    **[⬆ Back to Top](#table-of-contents)**
