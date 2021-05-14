@@ -6,9 +6,11 @@
   - PR 생성 
 
 
-- TODO
-  - 용어 통일
-    - ex) 리액트 vs REACT...?
+## 용어 통일
+
+- react: React
+- component(s): 컴포넌트
+- method: 메소드
 
 ---
 
@@ -48,12 +50,12 @@ You can download the PDF and Epub version of this repository from the latest run
 | No. | Questions |
 | --- | --------- |
 |   | **Core React** |
-|1  | [리액트란 무엇입니까?](#리액트란-무엇입니까) |
-|2  | [What are the major features of React?](#what-are-the-major-features-of-react) |
-|3  | [What is JSX?](#what-is-jsx) |
+|1  | [React란 무엇입니까?](#React란-무엇입니까) |
+|2  | [React의 주요 특징은 무엇입니까?](#React의-주요-특징은-무엇입니까) |
+|3  | [JSX란 무엇인가.](#JSX란-무엇인가.)|
 |4  | [What is the difference between Element and Component?](#what-is-the-difference-between-element-and-component) |
-|5  | [How to create components in React?](#how-to-create-components-in-react) |
-|6  | [When to use a Class Component over a Function Component?](#when-to-use-a-class-component-over-a-function-component) |
+|5  | [React components 만드는 법](#React-components-만드는-법) |
+|6  | [Functional Component 대신 Class Component를 쓰는 경우](#functional-component-대신-class-component를-쓰는-경우) |
 |7  | [What are Pure Components?](#what-are-pure-components) |
 |8  | [What is state in React?](#what-is-state-in-react) |
 |9  | [What are props in React?](#what-are-props-in-react) |
@@ -388,30 +390,30 @@ You can download the PDF and Epub version of this repository from the latest run
 
 
     
-1. ### 리액트란 무엇입니까?
+1. ### React란 무엇입니까?
 
-    리액트는 UI를 구성하기 위해 사용되는 오픈소스 프론트엔드 자바스크립트 라이브러리 입니다. 특히, Single Page Application(SPA)로 구성되어 있는 프로젝트에서 자주 사용되며, 웹과 모바일에서 view 계층을 다루기 위해 사용됩니다. 리액트는 Facebook의 소프트웨어 엔지니어인 [Jordan Walke](https://github.com/jordwalke)이 만들었습니다. 리액트는 2011년 Facebook 뉴스피드 기능에 처음 사용되었고, 2012년에는 Instagram에 반영되었습니다.
-
-
-   **[⬆ Back to Top](#table-of-contents)**
-    
-2. ### What are the major features of React?
-
-    The major features of React are:
-
-    * It uses **VirtualDOM** instead of RealDOM considering that RealDOM manipulations are expensive.
-    * Supports **server-side rendering**.
-    * Follows **Unidirectional** data flow or data binding.
-    * Uses **reusable/composable** UI components to develop the view.
+    React는 UI를 구성하기 위해 사용되는 오픈소스 프론트엔드 자바스크립트 라이브러리 입니다. 특히, Single Page Application(SPA)로 구성되어 있는 프로젝트에서 자주 사용되며, 웹과 모바일에서 view 계층을 다루기 위해 사용됩니다. 리액트는 Facebook의 소프트웨어 엔지니어인 [Jordan Walke](https://github.com/jordwalke)이 만들었습니다. 리액트는 2011년 Facebook 뉴스피드 기능에 처음 사용되었고, 2012년에는 Instagram에 반영되었습니다.
 
 
    **[⬆ Back to Top](#table-of-contents)**
     
-3. ### What is JSX?
+2. ### React의 주요 특징은 무엇입니까?
 
-    *JSX* is a XML-like syntax extension to ECMAScript (the acronym stands for *JavaScript XML*). Basically it just provides syntactic sugar for the `React.createElement()` function, giving us expressiveness of JavaScript along with HTML like template syntax.
+    React의 주요 특징은 다음과 같습니다:
 
-    In the example below text inside `<h1>` tag is returned as JavaScript function to the render function.
+    - RealDOM 조작의 연산 비용이 비싼 것을 고려해 RealDOM 대신 **VirtualDOM**을 사용합니다.
+    - Server-side rendering(SSR)을 지원합니다.
+    - 단방향 data 흐름 혹은 data 바인딩을 따릅니다.
+    - view를 만들기 위해 재사용가능한/합성(조립)가능한 UI 컴포넌트를 사용합니다.
+
+
+   **[⬆ Back to Top](#table-of-contents)**
+    
+3. ### JSX란 무엇인가.
+
+        *JSX* 는 ECMAScript에 XML과 비슷한 문법을 사용할 수 있게 해줍니다.(*JavaScript XML*의 약자). 기본적으로 `React.createElement()`함수를 쉽게 사용할 수 있도록 문법적인 이점을 제공하는 것이죠. 이 문법적 이점은 우리가 자바스크립트를 이용해 HTML과 비슷한 template 문법을 표현할 수 있도록 해줍니다. 
+
+  아래의 예시에서 `<h1>` 태그안의 내용은 render 함수 내에서 JavaScript 함수로 반환됩니다.
 
     ```jsx harmony
     class App extends React.Component {
@@ -480,11 +482,11 @@ You can download the PDF and Epub version of this repository from the latest run
 
    **[⬆ Back to Top](#table-of-contents)**
     
-5. ### How to create components in React?
+5. ### React components 만드는 법
 
-    There are two possible ways to create a component.
+    component를 만드는 두가지 방법은 다음과 같다.
 
-    1. **Function Components:** This is the simplest way to create a component. Those are pure JavaScript functions that accept props object as first parameter and return React elements:
+    1. **Function Components:** 이 방법이 가장 간단하다. props 오브젝트를 첫번째 인자로 받고 React elements를 반환하는 javascript 함수로 만든다:
 
         ```jsx harmony
         function Greeting({ message }) {
@@ -493,7 +495,7 @@ You can download the PDF and Epub version of this repository from the latest run
         }
         ```
 
-    2. **Class Components:** You can also use ES6 class to define a component. The above function component can be written as:
+    2. **Class Components:** ES6 클래스를 이용하여 component를 정의하는 방법도 있다. 위의 function component는 이렇게도 쓸 수 있다:
 
         ```jsx harmony
         class Greeting extends React.Component {
@@ -506,10 +508,10 @@ You can download the PDF and Epub version of this repository from the latest run
 
    **[⬆ Back to Top](#table-of-contents)**
     
-6. ### When to use a Class Component over a Function Component?
+6. ### Functional Component 대신 Class Component를 쓰는 경우
 
-    If the component needs *state or lifecycle methods* then use class component otherwise use function component.
-    *However, from React 16.8 with the addition of Hooks, you could use state , lifecycle  methods and other features that were only available in class component right in your function component.*
+    *state 나 lifecycle 메소드*가 필요한 component인 경우 functional component보다 class component를 쓰는 것이 낫다.
+    *React 16.8 부터는 functional component도 훅을 이용하면 state나 lifecycle 메소드를 사용할 수 있다.*
 
 
    **[⬆ Back to Top](#table-of-contents)**
