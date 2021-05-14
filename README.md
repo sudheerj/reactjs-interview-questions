@@ -45,7 +45,7 @@ You can download the PDF and Epub version of this repository from the latest run
 |   | **Core React** |
 |1  | [What is React?](#what-is-react) |
 |2  | [리액트의 주요 특징은 무엇입니까?](#리액트의-주요-특징은-무엇입니까) |
-|3  | [What is JSX?](#what-is-jsx) |
+|3  | [JSX란 무엇인가.](#JSX란-무엇인가.)|
 |4  | [What is the difference between Element and Component?](#what-is-the-difference-between-element-and-component) |
 |5  | [리액트 components 만드는 법](#리액트-components-만드는-법) |
 |6  | [Functional Component 대신 Class Component를 쓰는 경우](#functional-component-대신-class-component를-쓰는-경우) |
@@ -402,11 +402,11 @@ You can download the PDF and Epub version of this repository from the latest run
 
    **[⬆ Back to Top](#table-of-contents)**
     
-3. ### What is JSX?
+3. ### JSX란 무엇인가.
 
-    *JSX* is a XML-like syntax extension to ECMAScript (the acronym stands for *JavaScript XML*). Basically it just provides syntactic sugar for the `React.createElement()` function, giving us expressiveness of JavaScript along with HTML like template syntax.
+        *JSX* 는 ECMAScript에 XML과 비슷한 문법을 사용할 수 있게 해줍니다.(*JavaScript XML*의 약자). 기본적으로 `React.createElement()`함수를 쉽게 사용할 수 있도록 문법적인 이점을 제공하는 것이죠. 이 문법적 이점은 우리가 자바스크립트를 이용해 HTML과 비슷한 template 문법을 표현할 수 있도록 해줍니다. 
 
-    In the example below text inside `<h1>` tag is returned as JavaScript function to the render function.
+  아래의 예시에서 `<h1>` 태그안의 내용은 render 함수 내에서 JavaScript 함수로 반환됩니다.
 
     ```jsx harmony
     class App extends React.Component {
