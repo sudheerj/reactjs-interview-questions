@@ -5,6 +5,13 @@
   - 질문 위치 찾아서 번역
   - PR 생성 
 
+
+## 용어 통일
+
+- react: React
+- component(s): 컴포넌트
+- method: 메소드
+
 ---
 
 # React Interview Questions & Answers
@@ -43,11 +50,11 @@ You can download the PDF and Epub version of this repository from the latest run
 | No. | Questions |
 | --- | --------- |
 |   | **Core React** |
-|1  | [What is React?](#what-is-react) |
-|2  | [리액트의 주요 특징은 무엇입니까?](#리액트의-주요-특징은-무엇입니까) |
+|1  | [React란 무엇입니까?](#React란-무엇입니까) |
+|2  | [React의 주요 특징은 무엇입니까?](#React의-주요-특징은-무엇입니까) |
 |3  | [JSX란 무엇인가.](#JSX란-무엇인가.)|
 |4  | [What is the difference between Element and Component?](#what-is-the-difference-between-element-and-component) |
-|5  | [리액트 components 만드는 법](#리액트-components-만드는-법) |
+|5  | [React components 만드는 법](#React-components-만드는-법) |
 |6  | [Functional Component 대신 Class Component를 쓰는 경우](#functional-component-대신-class-component를-쓰는-경우) |
 |7  | [What are Pure Components?](#what-are-pure-components) |
 |8  | [What is state in React?](#what-is-state-in-react) |
@@ -383,16 +390,16 @@ You can download the PDF and Epub version of this repository from the latest run
 
 
     
-1. ### What is React?
+1. ### React란 무엇입니까?
 
-    React is an **open-source frontend JavaScript library** which is used for building user interfaces especially for single page applications. It is used for handling view layer for web and mobile apps. React was created by [Jordan Walke](https://github.com/jordwalke), a software engineer working for Facebook. React was first deployed on Facebook's News Feed in 2011 and on Instagram in 2012.
+    React는 UI를 구성하기 위해 사용되는 오픈소스 프론트엔드 자바스크립트 라이브러리 입니다. 특히, Single Page Application(SPA)로 구성되어 있는 프로젝트에서 자주 사용되며, 웹과 모바일에서 view 계층을 다루기 위해 사용됩니다. 리액트는 Facebook의 소프트웨어 엔지니어인 [Jordan Walke](https://github.com/jordwalke)이 만들었습니다. 리액트는 2011년 Facebook 뉴스피드 기능에 처음 사용되었고, 2012년에는 Instagram에 반영되었습니다.
 
 
    **[⬆ Back to Top](#table-of-contents)**
     
-2. ### 리액트의 주요 특징은 무엇입니까?
+2. ### React의 주요 특징은 무엇입니까?
 
-    리액트의 주요 특징은 다음과 같습니다:
+    React의 주요 특징은 다음과 같습니다:
 
     - RealDOM 조작의 연산 비용이 비싼 것을 고려해 RealDOM 대신 **VirtualDOM**을 사용합니다.
     - Server-side rendering(SSR)을 지원합니다.
@@ -475,7 +482,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
    **[⬆ Back to Top](#table-of-contents)**
     
-5. ### 리액트 components 만드는 법
+5. ### React components 만드는 법
 
     component를 만드는 두가지 방법은 다음과 같다.
 
