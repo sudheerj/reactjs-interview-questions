@@ -5176,7 +5176,7 @@ You can download the PDF and Epub version of this repository from the latest run
      ```javascript
      static getDerivedStateFromError(error)
      ```
-     Let us take error boundary use case with the above lifecycle method for demonistration purpose,
+     Let us take error boundary use case with the above lifecycle method for demonstration purpose,
      ```javascript
      class ErrorBoundary extends React.Component {
        constructor(props) {
