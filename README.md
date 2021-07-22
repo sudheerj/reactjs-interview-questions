@@ -6326,12 +6326,14 @@ You can download the PDF and Epub version of this repository from the latest run
      function App() {
        const [data, setData] = useState({ hits: [] });
 
-       useEffect(async () => {
-         const result = await axios(
-           'http://hn.algolia.com/api/v1/search?query=react',
-         );
+       useEffect(() => {
+         (async () => {
+           const result = await axios(
+             'http://hn.algolia.com/api/v1/search?query=react',
+           );
 
-         setData(result.data);
+           setData(result.data);
+         })()
        }, []);
 
        return (
