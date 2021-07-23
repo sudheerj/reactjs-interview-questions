@@ -1464,11 +1464,11 @@ You can download the PDF and Epub version of this repository from the latest run
     import React from 'react'
     import PropTypes from 'prop-types'
    
-    function User() {
+    function User({name, age}) {
       return (
         <>
-          <h1>{`Welcome, ${this.props.name}`}</h1>
-          <h2>{`Age, ${this.props.age}`}</h2>
+          <h1>{`Welcome, ${name}`}</h1>
+          <h2>{`Age, ${age}`}</h2>
         </>
       )
     }
@@ -6326,12 +6326,14 @@ You can download the PDF and Epub version of this repository from the latest run
      function App() {
        const [data, setData] = useState({ hits: [] });
 
-       useEffect(async () => {
-         const result = await axios(
-           'http://hn.algolia.com/api/v1/search?query=react',
-         );
+       useEffect(() => {
+         (async () => {
+           const result = await axios(
+             'http://hn.algolia.com/api/v1/search?query=react',
+           );
 
-         setData(result.data);
+           setData(result.data);
+         })()
        }, []);
 
        return (
