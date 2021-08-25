@@ -1317,7 +1317,7 @@ You can download the PDF and Epub version of this repository from the latest run
     
 46. ### What are fragments?
 
-    It's common pattern in React which is used for a component to return multiple elements. *Fragments* let you group a list of children without adding extra nodes to the DOM.
+    It's a common pattern in React which is used for a component to return multiple elements. *Fragments* let you group a list of children without adding extra nodes to the DOM.
 
     ```jsx harmony
     render() {
