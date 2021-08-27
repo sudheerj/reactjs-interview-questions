@@ -575,7 +575,7 @@ You can download the PDF and Epub version of this repository from the latest run
     
 11. ### Why should we not update the state directly?
 
-    If you try to update state directly then it won't re-render the component.
+    If you try to update the state directly then it won't re-render the component.
 
     ```javascript
     //Wrong
