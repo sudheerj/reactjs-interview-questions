@@ -1053,7 +1053,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
     React 16.3+ Phases (or an [interactive version](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/))
 
-    ![phases 16.3+](images/phases16.3.jpg)
+    ![phases 16.4+](images/phases16.4.jpg)
 
     Before React 16.3
 
