@@ -1007,6 +1007,7 @@ You can download the PDF and Epub version of this repository from the latest run
     ```
 
     In most cases, it's recommend to use controlled components to implement forms.
+    controlled components to implement forms. In a controlled component, form data is handled by a React component. The alternative is uncontrolled components, where form         data is handled by the DOM itself.
 
 
    **[⬆ Back to Top](#table-of-contents)**
