@@ -4633,7 +4633,7 @@ You can download the PDF and Epub version of this repository from the latest run
      For example, the height property can be defined with either `string` or `number` type as below:
 
      ```javascript
-     Component.PropTypes = {
+     Component.propTypes = {
        size: PropTypes.oneOfType([
          PropTypes.string,
          PropTypes.number
