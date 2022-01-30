@@ -6346,7 +6346,7 @@ You can download the PDF and Epub version of this repository from the latest run
      export default App;
      ```
 
-     Remember we provided an empty array as second argument to the effect hook to avoid activating it on component updates but only for the mounting of the component. i.e, It fetches only for component mount.
+     Remember we provided an empty array as second argument to the effect hook to avoid activating it on component updates but only on mounting of the component. i.e, It fetches only on component mount.
 
    **[⬆ Back to Top](#table-of-contents)**
     
