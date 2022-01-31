@@ -359,6 +359,8 @@ You can download the PDF and Epub version of this repository from the latest run
 |327| [How does new JSX transform different from old transform?](#how-does-new-jsx-transform-different-from-old-transform)|
 |328| [How do you get redux scaffolding using create-react-app?](#how-do-you-get-redux-scaffolding-using-create-react-app)|
 |329| [What are React Server components?](#what-are-react-server-components)
+|330| [What is prop drilling?](#what-is-prop-drilling)
+|331| [What is state mutation and how to prevent it?](#what-is-state-mutation-and-how-to-prevent-it)
 ## Core React
 
 
@@ -6665,6 +6667,8 @@ ReactDOM.render(
      1. It is possible to use JSX without importing React packages
      2. The compiled output might improve the bundle size in a small amount
      3. The future improvements provides the flexibility to reduce the number of concepts to learn React.
+                 
+  **[⬆ Back to Top](#table-of-contents)**
 
 327. ### How does new JSX transform different from old transform?
      The new JSX transform doesn’t require React to be in scope. i.e, You don't need to import React package for simple scenarios.
@@ -6712,7 +6716,9 @@ ReactDOM.render(
      ```
 
      **Note:** You still need to import React to use Hooks.
-     
+                 
+  **[⬆ Back to Top](#table-of-contents)**
+                 
 328. ### How do you get redux scaffolding using create-react-app?
      Redux team has provided official redux+js or redux+typescript templates for create-react-app project. The generated project setup includes,
      
@@ -6731,15 +6737,21 @@ ReactDOM.render(
      ```js
      npx create-react-app my-app --template redux-typescript
      ````
+  **[⬆ Back to Top](#table-of-contents)**
+                 
 329. ### What are React Server components?
      React Server Component is a way to write React component that gets rendered in the server-side with the purpose of improving React app performance. These components allow us to load components from the backend. 
     
      **Note:** React Server Components is still under development and not recommended for production yet.
+                 
+  **[⬆ Back to Top](#table-of-contents)**
      
 330. ### What is prop drilling?
      Prop Drilling is the process by which you pass data from one component of the React Component tree to another by going through other components that do not need the data but only help in passing it around.
+                 
+  **[⬆ Back to Top](#table-of-contents)**
 
-331. ### What is state mutation and how to prevent it ?
+331. ### What is state mutation and how to prevent it?
                      
         `State mutation` happens when you try to update the state of a component without actually using `setState` function. This can happen when you are trying to do some computations using a state variable and unknowingly save the result in the same state variable. This is the main reason why it is advised to return new instances of state variables from the reducers by using Object.assign({}, ...) or spread syntax.
 
