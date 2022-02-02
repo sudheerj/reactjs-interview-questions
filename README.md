@@ -4916,7 +4916,7 @@ You can download the PDF and Epub version of this repository from the latest run
 226. ### What are hooks?
      Hooks is a new feature(React 16.8) that lets you use state and other React features without writing a class.
 
-     Let's see an example of useState hook example,
+     Let's see an example of useState hook:
      ```jsx
      import { useState } from 'react';
 
