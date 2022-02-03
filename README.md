@@ -2010,7 +2010,13 @@ You can download the PDF and Epub version of this repository from the latest run
       // ...
     }
     ```
-
+    also 
+    ```javascript 
+    const TodoApp = () => {
+     //...
+    }
+    export default TodoApp;
+    ```
 
    **[⬆ Back to Top](#table-of-contents)**
     
