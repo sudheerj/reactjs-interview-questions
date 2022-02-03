@@ -359,6 +359,7 @@ You can download the PDF and Epub version of this repository from the latest run
 |327| [How does new JSX transform different from old transform?](#how-does-new-jsx-transform-different-from-old-transform)|
 |328| [How do you get redux scaffolding using create-react-app?](#how-do-you-get-redux-scaffolding-using-create-react-app)|
 |329| [What are React Server components?](#what-are-react-server-components)
+|332| [What is the difference between useState and useRef Hook?](#What-is-the-difference-between-useState-and-useRef-Hook?)
 ## Core React
 
 
@@ -6770,4 +6771,11 @@ ReactDOM.render(
 
         **How to prevent it:** Make sure your state variables are immutable by either enforcing immutability by using plugins like Immutable.js, always using `setState` to make updates and returning new instances in reducers when sending updated state values.
         
+        **[⬆ Back to Top](#table-of-contents)**
+                            
+332. ### What is the difference between useState and useRef ?
+     1. useState causes components to re-render after state updates whereas useRef doesn’t cause a component to re-render when the value or state changes.
+        Essentially, useRef is like a “box” that can hold a mutable value in its (.current) property.
+     2. useState allows us to update the state inside components. While useRef allows to reference DOM elements.
+                 
         **[⬆ Back to Top](#table-of-contents)**
