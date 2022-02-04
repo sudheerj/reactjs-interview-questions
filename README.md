@@ -2861,9 +2861,7 @@ You can download the PDF and Epub version of this repository from the latest run
        static DEFAULT_PAGINATION = 10
      }
      ```
-
-     *Static fields* are part of the *Class Fields* stage 3 proposal.
-
+     
 
    **[⬆ Back to Top](#table-of-contents)**
     
