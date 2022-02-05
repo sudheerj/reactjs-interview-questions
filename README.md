@@ -3261,7 +3261,7 @@ You can download the PDF and Epub version of this repository from the latest run
          })
          ```
 
-     2. You should use the `<Router>` component instead of built-in routers. Imported the above `history.js` inside `index.js` file:
+     2. You should use the `<Router>` component instead of built-in routers. Import the above `history.js` inside `index.js` file:
 
          ```jsx harmony
          import { Router } from 'react-router-dom'
