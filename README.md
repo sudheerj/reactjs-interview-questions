@@ -4799,7 +4799,7 @@ You can download the PDF and Epub version of this repository from the latest run
     
 221. ### What is React memo function?
 
-     Class components can be restricted from rendering when their input props are the same using **PureComponent or shouldComponentUpdate**. Now you can do the same with function components by wrapping them in **React.memo**.
+     Class components can be restricted from re-rendering when their input props are the same using **PureComponent or shouldComponentUpdate**. Now you can do the same with function components by wrapping them in **React.memo**.
      ```jsx
      const MyComponent = React.memo(function MyComponent(props) {
       /* only rerenders if props change */
@@ -4809,7 +4809,7 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 222. ### What is React lazy function?
-     The `React.lazy` function lets you render an dynamic import as a regular component. It will automatically load the bundle containing the OtherComponent when the component gets rendered. This must return a Promise which resolves to a module with a default export containing a React component.
+     The `React.lazy` function lets you render a dynamic import as a regular component. It will automatically load the bundle containing the `OtherComponent` when the component gets rendered. This must return a Promise which resolves to a module with a default export containing a React component.
      ```jsx
      const OtherComponent = React.lazy(() => import('./OtherComponent'));
 
@@ -4822,7 +4822,7 @@ You can download the PDF and Epub version of this repository from the latest run
      }
      ```
      **Note:**
-     React.lazy and Suspense is not yet available for server-side rendering. If you want to do code-splitting in a server rendered app, we still recommend React Loadable.
+     `React.lazy` and `Suspense` is not yet available for server-side rendering. If you want to do code-splitting in a server rendered app, we still recommend React Loadable.
 
    **[⬆ Back to Top](#table-of-contents)**
     
@@ -5158,7 +5158,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
      ```
 
-     If props.color is not provided then it will set the default value to 'red'. i.e, Whenever you try to access the color prop it uses default value
+     If `props.color` is not provided then it will set the default value to 'red'. i.e, Whenever you try to access the color prop it uses default value
      ```javascript
      render() {
         return <MyButton /> ; // props.color will be set to red
