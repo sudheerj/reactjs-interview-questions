@@ -2658,7 +2658,33 @@ You can download the PDF and Epub version of this repository from the latest run
      ReactDOM.render(<App />, document.getElementById('app'))
      ```
 
+     Also in Functional component (react 16.08 and above)
+     
+      ```jsx harmony
+      import React, {useEffect, useRef} from 'react';
 
+      const App = () => {
+        const inputElRef = useRef(null)
+        
+        useEffect(()=>{
+          inputElRef.current.focus()
+        }, [])
+        
+        return(
+          <div>
+            <input
+              defaultValue={'Won\'t focus'}
+            />
+            <input
+              ref={inputElRef}
+              defaultValue={'Will focus'}
+            />
+          </div>
+        )
+      }
+
+      ReactDOM.render(<App />, document.getElementById('app'))
+      ```
    **[⬆ Back to Top](#table-of-contents)**
     
 108. ### What are the possible ways of updating objects in state?
