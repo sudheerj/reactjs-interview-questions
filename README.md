@@ -3658,7 +3658,7 @@ You can download the PDF and Epub version of this repository from the latest run
      
      It is recommended to always use the “object shorthand” form for the `mapDispatchToProps`.
         
-     Redux wrap it in another function that looks like (…args) => dispatch(onTodoClick(…args)), and pass that wrapper function as a prop to your component.
+     Redux wraps it in another function that looks like (…args) => dispatch(onTodoClick(…args)), and pass that wrapper function as a prop to your component.
       
       ```javascript
        const mapDispatchToProps = ({
