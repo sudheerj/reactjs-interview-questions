@@ -1,19 +1,5 @@
 # React Interview Questions & Answers
 
-> Click :star:if you like the project. Pull Request are highly appreciated. Follow me [@SudheerJonna](https://twitter.com/SudheerJonna) for technical updates.
-
----
-
-<div>
-Learn to code and get hired with <a href="https://zerotomastery.io/?utm_source=github&utm_medium=sponsor&utm_campaign=reactjs-interview-questions">Zero To Mastery:</a>
-<ol>
-<li>This <a href="https://links.zerotomastery.io/react_sudheer">React course</a> is good if you’re struggling to learn React beyond the basics</li>
-<li>This <a href="http://links.zerotomastery.io/mci_sudheer">coding interview bootcamp</a> is helpful if you’re serious about getting hired as a developer</li>
-</ol>
-</div>
-
----
-
 **Note:** This repository is specific to ReactJS. Please check [Javascript Interview questions](https://github.com/sudheerj/javascript-interview-questions) for core javascript questions.
 
 ## Downloading PDF/Epub formats
@@ -23,7 +9,7 @@ You can download the PDF and Epub version of this repository from the latest run
 ### Table of Contents
 
 | No. | Questions                                                                                                                                                                                  |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --- |
 |     | **Core React**                                                                                                                                                                             |
 | 1   | [What is React?](#what-is-react)                                                                                                                                                           |
 | 2   | [What are the major features of React?](#what-are-the-major-features-of-react)                                                                                                             |
@@ -47,7 +33,7 @@ You can download the PDF and Epub version of this repository from the latest run
 | 20  | [How to create refs?](#how-to-create-refs)                                                                                                                                                 |
 | 21  | [What are forward refs?](#what-are-forward-refs)                                                                                                                                           |
 | 22  | [Which is preferred option with in callback refs and findDOMNode()?](#which-is-preferred-option-with-in-callback-refs-and-finddomnode)                                                     |
-| 23  | [Why are String Refs legacy?](#why-are-string-refs-legacy)                                                                                                                                 |
+| 23  | [How do you memoize a component?](#why-are-string-refs-legacy)                                                                                                                             |
 | 24  | [What is Virtual DOM?](#what-is-virtual-dom)                                                                                                                                               |
 | 25  | [How Virtual DOM works?](#how-virtual-dom-works)                                                                                                                                           |
 | 26  | [What is the difference between Shadow DOM and Virtual DOM?](#what-is-the-difference-between-shadow-dom-and-virtual-dom)                                                                   |
@@ -63,12 +49,12 @@ You can download the PDF and Epub version of this repository from the latest run
 | 36  | [How to create props proxy for HOC component?](#how-to-create-props-proxy-for-hoc-component)                                                                                               |
 | 37  | [What is context?](#what-is-context)                                                                                                                                                       |
 | 38  | [What is children prop?](#what-is-children-prop)                                                                                                                                           |
-| 39  | [How to write comments in React?](#how-to-write-comments-in-react)                                                                                                                         |
+| 39  | [What is prop drilling?](#what-is-prop-drilling)                                                                                                                                           |
 | 40  | [What is the purpose of using super constructor with props argument?](#what-is-the-purpose-of-using-super-constructor-with-props-argument)                                                 |
 | 41  | [What is reconciliation?](#what-is-reconciliation)                                                                                                                                         |
 | 42  | [How to set state with a dynamic key name?](#how-to-set-state-with-a-dynamic-key-name)                                                                                                     |
 | 43  | [What would be the common mistake of function being called every time the component renders?](#what-would-be-the-common-mistake-of-function-being-called-every-time-the-component-renders) |
-| 44  | [Is lazy function supports named exports?](#is-lazy-function-supports-named-exports)                                                                                                       |
+| 44  | [What are hooks?](#what-are-hooks)                                                                                                                                                         |     |
 | 45  | [Why React uses className over class attribute?](#why-react-uses-classname-over-class-attribute)                                                                                           |
 | 46  | [What are fragments?](#what-are-fragments)                                                                                                                                                 |
 | 47  | [Why fragments are better than container divs?](#why-fragments-are-better-than-container-divs)                                                                                             |
@@ -699,32 +685,35 @@ You can download the PDF and Epub version of this repository from the latest run
 
     **[⬆ Back to Top](#table-of-contents)**
 
-23. ### Why are String Refs legacy?
+23. ### How do you memoize a component?
 
-    If you worked with React before, you might be familiar with an older API where the `ref` attribute is a string, like `ref={'textInput'}`, and the DOM node is accessed as `this.refs.textInput`. We advise against it because _string refs have below issues_, and are considered legacy. String refs were **removed in React v16**.
+    There are memoize libraries available which can be used on function components.
 
-    1. They _force React to keep track of currently executing component_. This is problematic because it makes react module stateful, and thus causes weird errors when react module is duplicated in the bundle.
-    2. They are _not composable_ — if a library puts a ref on the passed child, the user can't put another ref on it. Callback refs are perfectly composable.
-    3. They _don't work with static analysis_ like Flow. Flow can't guess the magic that framework does to make the string ref appear on `this.refs`, as well as its type (which could be different). Callback refs are friendlier to static analysis.
-    4. It doesn't work as most people would expect with the "render callback" pattern (e.g. <DataGrid renderRow={this.renderRow} />)
+    For example `moize` library can memoize the component in another component.
 
-       ```jsx harmony
-       class MyComponent extends Component {
-         renderRow = (index) => {
-           // This won't work. Ref will get attached to DataTable rather than MyComponent:
-           return <input ref={"input-" + index} />;
+    ```jsx harmony
+    import moize from "moize";
+    import Component from "./components/Component"; // this module exports a non-memoized component
 
-           // This would work though! Callback refs are awesome.
-           return <input ref={(input) => (this["input-" + index] = input)} />;
-         };
+    const MemoizedFoo = moize.react(Component);
 
-         render() {
-           return (
-             <DataTable data={this.props.data} renderRow={this.renderRow} />
-           );
-         }
-       }
-       ```
+    const Consumer = () => {
+      <div>
+        {"I will memoize the following entry:"}
+        <MemoizedFoo />
+      </div>;
+    };
+    ```
+
+    **Update:** Since React v16.6.0, we have a `React.memo`. It provides a higher order component which memoizes component unless the props change. To use it, simply wrap the component using React.memo before you use it.
+
+    ```js
+    const MemoComponent = React.memo(function MemoComponent(props) {
+      /* render using props */
+    });
+    OR;
+    export default React.memo(MyFunctionComponent);
+    ```
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -974,30 +963,10 @@ You can download the PDF and Epub version of this repository from the latest run
 
     **[⬆ Back to Top](#table-of-contents)**
 
-39. ### How to write comments in React?
+39. ### What is prop drilling?
+    Prop Drilling is the process by which you pass data from one component of the React Component tree to another by going through other components that do not need the data but only help in passing it around.
 
-    The comments in React/JSX are similar to JavaScript Multiline comments but are wrapped in curly braces.
-
-    **Single-line comments:**
-
-    ```jsx harmony
-    <div>
-      {/* Single-line comments(In vanilla JavaScript, the single-line comments are represented by double slash(//)) */}
-      {`Welcome ${user}, let's play React`}
-    </div>
-    ```
-
-    **Multi-line comments:**
-
-    ```jsx harmony
-    <div>
-      {/* Multi-line comments for more than
-       one line */}
-      {`Welcome ${user}, let's play React`}
-    </div>
-    ```
-
-    **[⬆ Back to Top](#table-of-contents)**
+**[⬆ Back to Top](#table-of-contents)**
 
 40. ### What is the purpose of using super constructor with props argument?
 
@@ -1079,29 +1048,26 @@ You can download the PDF and Epub version of this repository from the latest run
 
     **[⬆ Back to Top](#table-of-contents)**
 
-44. ### Is lazy function supports named exports?
+44. ### What are hooks?
 
-    No, currently `React.lazy` function supports default exports only. If you would like to import modules which are named exports, you can create an intermediate module that reexports it as the default. It also ensures that tree shaking keeps working and don’t pull unused components.
-    Let's take a component file which exports multiple named components,
+    Hooks is a new feature(React 16.8) that lets you use state and other React features without writing a class.
 
-    ```javascript
-    // MoreComponents.js
-    export const SomeComponent = /* ... */;
-    export const UnusedComponent = /* ... */;
-    ```
+    Let's see an example of useState hook:
 
-    and reexport `MoreComponents.js` components in an intermediate file `IntermediateComponent.js`
+    ```jsx
+    import { useState } from "react";
 
-    ```javascript
-    // IntermediateComponent.js
-    export { SomeComponent as default } from "./MoreComponents.js";
-    ```
+    function Example() {
+      // Declare a new state variable, which we'll call "count"
+      const [count, setCount] = useState(0);
 
-    Now you can import the module using lazy function as below,
-
-    ```javascript
-    import React, { lazy } from "react";
-    const SomeComponent = lazy(() => import("./IntermediateComponent.js"));
+      return (
+        <div>
+          <p>You clicked {count} times</p>
+          <button onClick={() => setCount(count + 1)}>Click me</button>
+        </div>
+      );
+    }
     ```
 
     **[⬆ Back to Top](#table-of-contents)**
