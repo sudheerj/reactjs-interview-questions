@@ -4948,7 +4948,7 @@ You can download the PDF and Epub version of this repository from the latest run
    **[⬆ Back to Top](#table-of-contents)**
     
 226. ### What are hooks?
-     Hooks is a new feature(React 16.8) that lets you use state and other React features without writing a class.
+     Hooks is a special function (introduced as a new feature in React 16.8) that lets you use state and other React features without writing a class.
 
      Let's see an example of useState hook:
      ```jsx
@@ -4968,6 +4968,7 @@ You can download the PDF and Epub version of this repository from the latest run
        );
      }
      ```
+     **Note:** Hooks can be used inside an existing function component.
 
    **[⬆ Back to Top](#table-of-contents)**
     
