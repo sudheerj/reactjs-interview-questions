@@ -2222,7 +2222,7 @@ You can download the PDF and Epub version of this repository from the latest run
     While when imported in another file it should start with capital letter:
 
     ```jsx harmony
-    import MyComponent from './MyComponent'
+    import MyComponent from './myComponent'
     ```
 
 
