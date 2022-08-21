@@ -556,6 +556,62 @@ You can download the PDF and Epub version of this repository from the latest run
     ```
     props.reactProp
     ```
+    
+
+    **Example: Props in Class Based Component**
+
+    ```jsx
+    import React from 'react'
+    import ReactDOM from 'react-dom'
+
+    class ChildComponent extends React.Component {
+        render() {
+            return (
+                <div>
+                    <p>{this.props.name}</p>
+                    <p>{this.props.age}</p>
+                </div>
+            )
+        }
+    }
+
+    class ParentComponent extends React.Component {
+        render() {
+            return (
+                <div>
+                    <ChildComponent name='John' age='30' />
+                    <ChildComponent name='Mary' age='25' />
+                </div>
+            )
+        }
+    }
+    ```
+
+    **Example: Props in Functional Component**
+
+    ```jsx
+    import React from 'react'
+    import ReactDOM from 'react-dom'
+
+    const ChildComponent = (props) => {
+        return (
+            <div>
+                <p>{props.name}</p>
+                <p>{props.age}</p>
+            </div>
+        )
+    }
+
+    const ParentComponent = () => {
+        return (
+            <div>
+                <ChildComponent name='John' age='30' />
+                <ChildComponent name='Mary' age='25' />
+            </div>
+        )
+    }
+    ```
+
 
 
    **[⬆ Back to Top](#table-of-contents)**
