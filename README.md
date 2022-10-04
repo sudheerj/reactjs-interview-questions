@@ -362,6 +362,7 @@ You can download the PDF and Epub version of this repository from the latest run
 |330| [What is prop drilling?](#what-is-prop-drilling)|
 |331| [What is state mutation and how to prevent it?](#what-is-state-mutation-and-how-to-prevent-it)|
 |332| [What is the difference between useState and useRef hook?](#what-is-the-difference-between-usestate-and-useref-hook)|
+|333| [What are the Differences Between Functional and Class Component in React](#what-are-the-differences-between-functional-and-class-component-in-react)
 
 ## Core React
 
@@ -6873,6 +6874,159 @@ ReactDOM.render(
      2. useState allows us to update the state inside components. While useRef allows refrencing DOM elements.
                  
   **[⬆ Back to Top](#table-of-contents)**
+
+  333. ### What are the Differences Between Functional and Class Component
+  ## Class Component syntax
+
+
+ ```
+class Example extends Reacts.Component {
+render(){
+return <h1>This is a class component</h1>}
+}
+
+```
+
+> I guess we all know that **Pascal Case** is the accepted way of naming a component in react`Example`. 
+
+# Functional Component syntax
+Functional component has been improved over the years with some added features like Hooks
+Here is a syntax for functional component
+
+```
+function App(){
+   return <div className="App">
+     <h1>Hello, I'm a Nigerian</h1>
+    </div>
+}
+
+```
+### States in Class Component 
+states holds information or data about a component in react which may change over time.  in class component we can update the state, when a user interacts with it or maybe a server response using the `setState()` method and the initial state is been assigned in the `Constructor( ) `method using the the  ` this.state` object. different data type can be passed in the this.state object, which can be string, boolean, numbers, etc. 
+<strong> A simple example showing how we use the setState() and constructor() <strong>
+
+```
+class Example extends Component {
+  constructor() {
+    super();
+    this.state = {
+      example: "This is a class component",
+    };
+  }
+  changeText() {
+    this.setState({
+      example: "implementing the setState() in class component",
+    });
+  }
+  render() {
+    return (
+      <>
+        <h1>{this.state.example}</h1>
+        <button
+          onClick={() => {
+            this.changeText();
+          }}>
+          Click!!
+        </button>
+      </>
+    );
+  }
+}
+
+```
+## Using Sates in Functional Components
+Initially, we could not use state in functional components because it was only supported in class components. over the years hooks were implemented in functional component. The hooks that enable us to use state in functional component is called <strong>useState</strong>
+ The useState( ) hook returns an array of the current state and a function ( setState) that we can use to update the value of the current state. The array is being destructured so we can can see the variables the array holds that is, the initial state and the updated state lets see an example
+
+ 
+
+```
+function App() {
+  const [country, setCountry] = useState("i'm a Nigerian");
+  const change = () => {
+    setCountry("i am a Canadian");
+  };
+  return (
+    <div className="App">
+      <h1>Hello, {country} </h1>
+      <button onClick={change}>Change</button>
+    </div>
+  );
+}
+```
+
+<h4> Props in Class Component</h4>
+ Props are referred to as "properties".  props are passed into react component just like arguments are passed into functions . Props are being specified as attribute just like your html. for example if the name attribute is "name " we assign a value to name. so basically, props are object that contains an attribute and its corresponding value. Data can be passed from parent component to the children component, but this data is immutable, which means that we cannot modify the props across another  component. here is an example 
+```
+class Introduction extends React.Component {
+  render() {
+    return <h1> Hello, my name is {this.props.name} </h1>;
+  }
+}
+
+class App extends React.Component {
+  render() {
+    return (
+      <div className="App">
+        <Introduction name=" Queen Elizabeth" />
+        <Introduction name=" Margret  Edeh" />
+      </div>
+    );
+  }
+}
+```
+
+## Props in Functional Components
+
+Props in functional components are similar to that of the class components, the difference is the absence of the 'this' keyword. We also destructure in a similar way without the 'this' keyword. they are also immutable in the functional component
+```
+function Food(props) {
+  return <h1>I love {props.fav}</h1>;
+}
+
+function App() {
+  return (
+    <div className="App">
+      <Food fav="Beans" />
+      <Food fav="Yam and Egg sauce"/>
+    </div>
+  );
+}
+``` 
+> As you can see in the example above there wasn't a need for the 'this' keyword.
+
+```
+
+function Food(props) {
+  const { fav } = props;
+  return <h1>I love {fav}</h1>;
+}
+
+function App() {
+  return (
+    <div className="App">
+      <Food fav="Beans" />
+      <Food fav="Yam and Egg sauce" />
+    </div>
+  );
+}
+```
+summary:
+
+*The functional components doesn't require the render method          
+*Class component require the render() method that returns JSX.                                                  
+
+To use states in functional component we use the **useState** hook.          
+To use State in class components we use the constructor method and the setState function.
+                                     
+Functional components use the useEffect hook instead of lifecycle method [useEffect](https://www.w3schools.com/react/react_useeffect.asp )    
+ Class components uses Lifecycle method    **componentWillUnmount** etc. [ Lifecycle methods](https://www.w3schools.com/react/react_lifecycle.asp )
+
+  **[⬆ Back to Top](#table-of-contents)**
+
+
+
+
 
 ## Disclaimer
 
