@@ -356,7 +356,7 @@ You can download the PDF and Epub version of this repository from the latest run
 |324| [What are the benefits of using typescript with reactjs?](#what-are-the-benefits-of-using-typescript-with-reactjs)|
 |325| [How do you make sure that user remains authenticated on page refresh while using Context API State Management?](#how-do-you-make-sure-that-user-remains-authenticated-on-page-refresh-while-using-context-api-state-management)|
 |326| [What are the benefits of new JSX transform?](#what-are-the-benefits-of-new-jsx-transform)|
-|327| [How does new JSX transform different from old transform?](#how-does-new-jsx-transform-different-from-old-transform)|
+|327| [How is the new JSX transform different from old transform?](#how-is-the-new-jsx-transform-different-from-old-transform)|
 |328| [How do you get redux scaffolding using create-react-app?](#how-do-you-get-redux-scaffolding-using-create-react-app)|
 |329| [What are React Server components?](#what-are-react-server-components)|
 |330| [What is prop drilling?](#what-is-prop-drilling)|
@@ -6760,7 +6760,7 @@ ReactDOM.render(
                  
   **[⬆ Back to Top](#table-of-contents)**
 
-327. ### How does new JSX transform different from old transform?
+327. ### How is the new JSX transform different from old transform??
      The new JSX transform doesn’t require React to be in scope. i.e, You don't need to import React package for simple scenarios.
 
      Let's take an example to look at the main differences between the old and the new transform,
