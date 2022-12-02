@@ -394,6 +394,19 @@ You can download the PDF and Epub version of this repository from the latest run
     In the example below text inside `<h1>` tag is returned as JavaScript function to the render function.
 
     ```jsx harmony
+    export default function App() {
+      return (
+        <div>
+          <h1>{'Welcome to React world!'}</h1>
+        </div>
+      );
+    }
+    ```
+
+    <details><summary><b>See Class</b></summary>
+    <p>
+
+    ```jsx harmony
     class App extends React.Component {
       render() {
         return(
@@ -404,7 +417,10 @@ You can download the PDF and Epub version of this repository from the latest run
       }
     }
     ```
+    </p>
+    </details>
 
+    **Note:** JSX is stricter than HTML
 
    **[⬆ Back to Top](#table-of-contents)**
     
