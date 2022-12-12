@@ -520,6 +520,23 @@ You can download the PDF and Epub version of this repository from the latest run
     Let's create a user component with message state,
 
     ```jsx harmony
+    import React, { useState } from 'react';
+
+    function User() {
+      const [message, setMessage] = useState("Welcome to React world");
+
+      return (
+          <div>
+            <h1>{this.message}</h1>
+          </div>
+      );
+    }
+    ```
+
+    <details><summary><b>See Class</b></summary>
+    <p>
+
+    ```jsx harmony
     class User extends React.Component {
       constructor(props) {
         super(props);
@@ -538,6 +555,8 @@ You can download the PDF and Epub version of this repository from the latest run
       }
     }
     ```
+    </p>
+    </details>
 
     ![state](images/state.jpg)
 
