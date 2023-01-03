@@ -1467,17 +1467,17 @@ You can download the PDF and Epub version of this repository from the latest run
 
     _The Equivalent Functional Component_
 
-        ```javascript
-         import React, {useState} from 'react';
+    ```javascript
+    import React, {useState} from 'react';
 
-         const App = (props) => {
-           const [count, setCount] = useState(0);
+    const App = (props) => {
+    const [count, setCount] = useState(0);
 
-           return (
-             // JSX
-           )
-         }
-        ```
+    return (
+        // JSX
+      )
+    }
+    ```
 
     **[⬆ Back to Top](#table-of-contents)**
 
