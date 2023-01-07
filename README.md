@@ -375,7 +375,7 @@ You can download the PDF and Epub version of this repository from the latest run
 | 330 | [What is prop drilling?](#what-is-prop-drilling)                                                                                                                                                                                 |
 | 331 | [What is state mutation and how to prevent it?](#what-is-state-mutation-and-how-to-prevent-it)                                                                                                                                   |
 | 332 | [What is the difference between useState and useRef hook?](#what-is-the-difference-between-usestate-and-useref-hook)                                                                                                             |
-| 333 | [What are the Differences Between Functional and Class Component in React](#what-are-the-differences-between-functional-and-class-component-in-react)                                                                            |
+| 333 | [What are the differences between Functional and Class Components ](#what-are-the-differences-between-functional-and-class-components)                                                                            |
 
 ## Core React
 
@@ -6872,7 +6872,7 @@ const loadUser = async () => {
 
 **[⬆ Back to Top](#table-of-contents)**
 
-333. ### What are the Differences Between Functional and Class Component
+333. ### What are the differences between Functional and Class Components?
 
 ## Class Component syntax
 
