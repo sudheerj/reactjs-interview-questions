@@ -389,6 +389,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
     The major features of React are:
 
+    - Uses **JSX** syntax, a syntax extension of JS that allows developers to write HTML in their JS code.
     - It uses **VirtualDOM** instead of RealDOM considering that RealDOM manipulations are expensive.
     - Supports **server-side rendering**.
     - Follows **Unidirectional** data flow or data binding.
