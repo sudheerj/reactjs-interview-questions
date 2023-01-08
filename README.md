@@ -513,7 +513,7 @@ You can download the PDF and Epub version of this repository from the latest run
 6.  ### When to use a Class Component over a Function Component?
 
     If the component needs _state or lifecycle methods_ then use class component otherwise use function component.
-   
+
     _However, from React 16.8 with the addition of Hooks, you could use state , lifecycle methods and other features that were only available in class component right in your function component._
     _So, it is always recommended to use Function components, unless you need a React functionality whose Function component equivalent is not present yet, like Error Boundaries._
 
@@ -521,7 +521,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
 7.  ### What are Pure Components?
 
-    _`React.PureComponent`_ is exactly the same as _`React.Component`_ except that it handles the `shouldComponentUpdate()` method for you. When props or state changes, _PureComponent_ will do a shallow comparison on both props and state. _Component_ on the other hand won't compare current props and state to next out of the box. Thus, the component will re-render by default whenever `shouldComponentUpdate` is called. In functional componenets we use `React.memo()` API. `React.memo()` is a higher-order component. It takes a React component as its first argument and returns a special type of React component that allows the renderer to render the component while memoizing the output. Therefore, if the component’s props are shallowly equal, the `React.memo()` component will bail out the updates.
+    _`React.PureComponent`_ is exactly the same as _`React.Component`_ except that it handles the `shouldComponentUpdate()` method for you. When props or state changes, _PureComponent_ will do a shallow comparison on both props and state. _Component_ on the other hand won't compare current props and state to next out of the box. Thus, the component will re-render by default whenever `shouldComponentUpdate` is called. In functional components we use `React.memo()` API. `React.memo()` is a higher-order component. It takes a React component as its first argument and returns a special type of React component that allows the renderer to render the component while memoizing the output. Therefore, if the component’s props are shallowly equal, the `React.memo()` component will bail out the updates.
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -4319,9 +4319,9 @@ You can download the PDF and Epub version of this repository from the latest run
           href="../../bower_components/polymer/polymer.html"
         />;
         Polymer({
-          is: "calender-element",
+          is: "calendar-element",
           ready: function () {
-            this.textContent = "I am a calender";
+            this.textContent = "I am a calendar";
           },
         });
         ```
@@ -4331,7 +4331,7 @@ You can download the PDF and Epub version of this repository from the latest run
         ```html
         <link
           rel="import"
-          href="./src/polymer-components/calender-element.html"
+          href="./src/polymer-components/calendar-element.html"
         />
         ```
 
@@ -4342,7 +4342,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
         class MyComponent extends React.Component {
           render() {
-            return <calender-element />;
+            return <calendar-element />;
           }
         }
 
@@ -6868,7 +6868,7 @@ const loadUser = async () => {
 332. ### What is the difference between useState and useRef hook?
      1. useState causes components to re-render after state updates whereas useRef doesn’t cause a component to re-render when the value or state changes.
         Essentially, useRef is like a “box” that can hold a mutable value in its (.current) property.
-     2. useState allows us to update the state inside components. While useRef allows refrencing DOM elements.
+     2. useState allows us to update the state inside components. While useRef allows referencing DOM elements.
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -6956,7 +6956,7 @@ function App() {
 ```
 
 <h4> Props in Class Component</h4>
- Props are referred to as "properties".  props are passed into react component just like arguments are passed into functions . Props are being specified as attribute just like your html. for example if the name attribute is "name " we assign a value to name. so basically, props are object that contains an attribute and its corresponding value. Data can be passed from parent component to the children component, but this data is immutable, which means that we cannot modify the props across another  component. here is an example 
+ Props are referred to as "properties".  props are passed into react component just like arguments are passed into functions . Props are being specified as attribute just like your html. for example if the name attribute is "name " we assign a value to name. so basically, props are object that contains an attribute and its corresponding value. Data can be passed from parent component to the children component, but this data is immutable, which means that we cannot modify the props across another  component. here is an example
 ```
 class Introduction extends React.Component {
   render() {
