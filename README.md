@@ -513,7 +513,7 @@ You can download the PDF and Epub version of this repository from the latest run
 6.  ### When to use a Class Component over a Function Component?
 
     If the component needs _state or lifecycle methods_ then use class component otherwise use function component.
-   
+
     _However, from React 16.8 with the addition of Hooks, you could use state , lifecycle methods and other features that were only available in class component right in your function component._
     _So, it is always recommended to use Function components, unless you need a React functionality whose Function component equivalent is not present yet, like Error Boundaries._
 
@@ -521,7 +521,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
 7.  ### What are Pure Components?
 
-    _`React.PureComponent`_ is exactly the same as _`React.Component`_ except that it handles the `shouldComponentUpdate()` method for you. When props or state changes, _PureComponent_ will do a shallow comparison on both props and state. _Component_ on the other hand won't compare current props and state to next out of the box. Thus, the component will re-render by default whenever `shouldComponentUpdate` is called. In functional componenets we use `React.memo()` API. `React.memo()` is a higher-order component. It takes a React component as its first argument and returns a special type of React component that allows the renderer to render the component while memoizing the output. Therefore, if the component’s props are shallowly equal, the `React.memo()` component will bail out the updates.
+    _`React.PureComponent`_ is exactly the same as _`React.Component`_ except that it handles the `shouldComponentUpdate()` method for you. When props or state changes, _PureComponent_ will do a shallow comparison on both props and state. _Component_ on the other hand won't compare current props and state to next out of the box. Thus, the component will re-render by default whenever `shouldComponentUpdate` is called. In functional components we use `React.memo()` API. `React.memo()` is a higher-order component. It takes a React component as its first argument and returns a special type of React component that allows the renderer to render the component while memoizing the output. Therefore, if the component’s props are shallowly equal, the `React.memo()` component will bail out the updates.
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -6956,7 +6956,7 @@ function App() {
 ```
 
 <h4> Props in Class Component</h4>
- Props are referred to as "properties".  props are passed into react component just like arguments are passed into functions . Props are being specified as attribute just like your html. for example if the name attribute is "name " we assign a value to name. so basically, props are object that contains an attribute and its corresponding value. Data can be passed from parent component to the children component, but this data is immutable, which means that we cannot modify the props across another  component. here is an example 
+ Props are referred to as "properties".  props are passed into react component just like arguments are passed into functions . Props are being specified as attribute just like your html. for example if the name attribute is "name " we assign a value to name. so basically, props are object that contains an attribute and its corresponding value. Data can be passed from parent component to the children component, but this data is immutable, which means that we cannot modify the props across another  component. here is an example
 ```
 class Introduction extends React.Component {
   render() {
