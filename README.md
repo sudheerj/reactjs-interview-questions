@@ -4319,9 +4319,9 @@ You can download the PDF and Epub version of this repository from the latest run
           href="../../bower_components/polymer/polymer.html"
         />;
         Polymer({
-          is: "calender-element",
+          is: "calendar-element",
           ready: function () {
-            this.textContent = "I am a calender";
+            this.textContent = "I am a calendar";
           },
         });
         ```
@@ -4331,7 +4331,7 @@ You can download the PDF and Epub version of this repository from the latest run
         ```html
         <link
           rel="import"
-          href="./src/polymer-components/calender-element.html"
+          href="./src/polymer-components/calendar-element.html"
         />
         ```
 
@@ -4342,7 +4342,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
         class MyComponent extends React.Component {
           render() {
-            return <calender-element />;
+            return <calendar-element />;
           }
         }
 
