@@ -2611,7 +2611,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
 104. ### Is it possible to use React without rendering HTML?
 
-     It is possible with latest version (>=16.2). Below are the possible options:
+     It is possible. Below are the possible options:
 
      ```jsx harmony
      render() {
@@ -2621,15 +2621,31 @@ You can download the PDF and Epub version of this repository from the latest run
 
      ```jsx harmony
      render() {
+       return true
+     }
+     ```
+
+     ```jsx harmony
+     render() {
        return null
      }
      ```
+
+     React version >=16.0.0:
 
      ```jsx harmony
      render() {
        return []
      }
      ```
+
+     ```jsx harmony
+     render() {
+       return ""
+     }
+     ```
+
+     React version >=16.2.0:
 
      ```jsx harmony
      render() {
@@ -2643,7 +2659,13 @@ You can download the PDF and Epub version of this repository from the latest run
      }
      ```
 
-     Returning `undefined` won't work.
+     React version >=18.0.0:
+
+     ```jsx harmony
+     render() {
+       return undefined
+     }
+     ```
 
 **[⬆ Back to Top](#table-of-contents)**
 
