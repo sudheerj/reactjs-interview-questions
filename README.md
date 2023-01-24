@@ -25,7 +25,6 @@ Learn to code and get hired with <a href="https://zerotomastery.io/?utm_source=g
 
 ---
 
-
 **Note:** This repository is specific to ReactJS. Please check [Javascript Interview questions](https://github.com/sudheerj/javascript-interview-questions) for core javascript questions.
 
 ## Downloading PDF/Epub formats
@@ -375,7 +374,9 @@ You can download the PDF and Epub version of this repository from the latest run
 | 330 | [What is prop drilling?](#what-is-prop-drilling)                                                                                                                                                                                 |
 | 331 | [What is state mutation and how to prevent it?](#what-is-state-mutation-and-how-to-prevent-it)                                                                                                                                   |
 | 332 | [What is the difference between useState and useRef hook?](#what-is-the-difference-between-usestate-and-useref-hook)                                                                                                             |
-| 333 | [What are the differences between Functional and Class Components ](#what-are-the-differences-between-functional-and-class-components)                                                                            |
+| 333 | [What is a wrapper component ](#what-is-a-wrapper-component)                                                                                                                                                                     |
+| 334 | [What are the differences between useEffect and useLayoutEffect hooks](#what-are-the-differences-between-useEffect-and-useLayoutEffect-hooks)                                                                                    |
+| 335 | [What are the differences between Functional and Class Components ](#what-are-the-differences-between-functional-and-class-components)                                                                                           |
 
 ## Core React
 
@@ -532,15 +533,15 @@ You can download the PDF and Epub version of this repository from the latest run
     Let's create a user component with message state,
 
     ```jsx harmony
-    import React, { useState } from 'react';
+    import React, { useState } from "react";
 
     function User() {
       const [message, setMessage] = useState("Welcome to React world");
 
       return (
-          <div>
-            <h1>{message}</h1>
-          </div>
+        <div>
+          <h1>{message}</h1>
+        </div>
       );
     }
     ```
@@ -567,6 +568,7 @@ You can download the PDF and Epub version of this repository from the latest run
       }
     }
     ```
+
     </p>
     </details>
 
@@ -6894,7 +6896,76 @@ const loadUser = async () => {
 
 **[⬆ Back to Top](#table-of-contents)**
 
-333. ### What are the differences between Functional and Class Components?
+333. ### What is a wrapper component?
+
+     A wrapper in React is a component that wraps or surrounds another component or group of components. It can be used for a variety of purposes such as adding additional functionality, styling, or layout to the wrapped components.
+
+     For example, consider a simple component that displays a message:
+
+     ```javascript
+     const Message = ({ text }) => {
+       return <p>{text}</p>;
+     };
+     ```
+
+     We can create a wrapper component that will add a border to the message component:
+
+     ```javascript
+     const MessageWrapper = (props) => {
+       return (
+         <div style={{ border: "1px solid black" }}>
+           <Message {...props} />
+         </div>
+       );
+     };
+     ```
+
+     Now we can use the MessageWrapper component instead of the Message component and the message will be displayed with a border:
+
+     ```javascript
+     <MessageWrapper text="Hello World" />
+     ```
+
+     Wrapper component can also accept its own props and pass them down to the wrapped component, for example, we can create a wrapper component that will add a title to the message component:
+
+     ```javascript
+     const MessageWrapperWithTitle = (props) => {
+       return (
+         <div>
+           <h3>{props.title}</h3>
+           <Message {...props} />
+         </div>
+       );
+     };
+     ```
+
+     Now we can use the MessageWrapperWithTitle component and pass title props:
+
+     ```javascript
+     <MessageWrapperWithTitle title="My Message" text="Hello World" />
+     ```
+
+     This way, the wrapper component can add additional functionality, styling, or layout to the wrapped component while keeping the wrapped component simple and reusable.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+334. ### What are the differences between useEffect and useLayoutEffect hooks?
+
+     useEffect and useLayoutEffect are both React hooks that can be used to synchronize a component with an external system, such as a browser API or a third-party library. However, there are some key differences between the two:
+
+     - Timing: useEffect runs after the browser has finished painting, while useLayoutEffect runs synchronously before the browser paints. This means that useLayoutEffect can be used to measure and update layout in a way that feels more synchronous to the user.
+
+     - Browser Paint: useEffect allows browser to paint the changes before running the effect, hence it may cause some visual flicker. useLayoutEffect synchronously runs the effect before browser paints and hence it will avoid visual flicker.
+
+     - Execution Order: The order in which multiple useEffect hooks are executed is determined by React and may not be predictable. However, the order in which multiple useLayoutEffect hooks are executed is determined by the order in which they were called.
+
+     - Error handling: useEffect has a built-in mechanism for handling errors that occur during the execution of the effect, so that it does not crash the entire application. useLayoutEffect does not have this mechanism, and errors that occur during the execution of the effect will crash the entire application.
+
+     In general, it's recommended to use useEffect as much as possible, because it is more performant and less prone to errors. useLayoutEffect should only be used when you need to measure or update layout, and you can't achieve the same result using useEffect.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+335. ### What are the differences between Functional and Class Components?
 
 ## Class Component syntax
 
