@@ -831,7 +831,7 @@ Learn to code and get hired with <a href="https://zerotomastery.io/?utm_source=g
 
     A `key` is a special string attribute you **should** include when creating arrays of elements. _Key_ prop helps React identify which items have changed, are added, or are removed.
 
-    Most often we use ID from our data as _key_:
+    Keys should be unique among its siblings. Most often we use ID from our data as _key_:
 
     ```jsx harmony
     const todoItems = todos.map((todo) => <li key={todo.id}>{todo.text}</li>);
