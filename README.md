@@ -3,7 +3,15 @@
 > Click :star:if you like the project. Pull Request are highly appreciated. Follow me [@SudheerJonna](https://twitter.com/SudheerJonna) for technical updates.
 
 ---
+<div>
+Learn to code and get hired with <a href="https://zerotomastery.io/?utm_source=github&utm_medium=sponsor&utm_campaign=reactjs-interview-questions">Zero To Mastery:</a>
+<ol>
+<li>This <a href="https://links.zerotomastery.io/react_sudheer">React course</a> is good if you’re struggling to learn React beyond the basics</li>
+<li>This <a href="http://links.zerotomastery.io/mci_sudheer">coding interview bootcamp</a> is helpful if you’re serious about getting hired as a developer</li>
+</ol>
+</div>
 
+---
 <p align="center">
   <a href=https://bit.ly/3FGD1oV>
     <img src="images/collab/codestudio-logo.svg" alt="Codestudio Logo">
@@ -12,16 +20,6 @@
     Explore the Best Free <a href=https://bit.ly/3FGD1oV target="_blank">Resource</a> to learn React and kickstart your journey as a react developer. Earn a free certification in just 40 days.
   </p>
 </p>
-
----
-
-<div>
-Learn to code and get hired with <a href="https://zerotomastery.io/?utm_source=github&utm_medium=sponsor&utm_campaign=reactjs-interview-questions">Zero To Mastery:</a>
-<ol>
-<li>This <a href="https://links.zerotomastery.io/react_sudheer">React course</a> is good if you’re struggling to learn React beyond the basics</li>
-<li>This <a href="http://links.zerotomastery.io/mci_sudheer">coding interview bootcamp</a> is helpful if you’re serious about getting hired as a developer</li>
-</ol>
-</div>
 
 ---
 
@@ -6962,166 +6960,134 @@ const loadUser = async () => {
 **[⬆ Back to Top](#table-of-contents)**
 
 335. ### What are the differences between Functional and Class Components?
+ 
+      There are two different ways to create components in ReactJS. The main differences are listed down as below,
 
-## Class Component syntax
+      ## 1.  Syntax:
 
-```
-class Example extends Reacts.Component {
-render(){
-return <h1>This is a class component</h1>}
-}
+      The classs components uses ES6 classes to create the components. It uses `render` function to display the HTML content in the webpage.
+      
+      The syntax for class component looks like as below.
+        ```
+        class App extends Reacts.Component {
+          render(){
+            return <h1>This is a class component</h1>}
+          }
 
-```
+        ```
 
-> I guess we all know that **Pascal Case** is the accepted way of naming a component in react`Example`.
+      **Note:** The **Pascal Case** is the recommended approach to provide naming to a component.
 
-# Functional Component syntax
+      Functional component has been improved over the years with some added features like Hooks. Here is a syntax for functional component.
 
-Functional component has been improved over the years with some added features like Hooks
-Here is a syntax for functional component
+      ```
+      function App(){
+        return <div className="App">
+          <h1>Hello, I'm a function component</h1>
+          </div>
+      }
 
-```
-function App(){
-   return <div className="App">
-     <h1>Hello, I'm a Nigerian</h1>
-    </div>
-}
+      ```
 
-```
+      ## 2. State:
 
-### States in Class Component
+      State contains information or data about a component which may change over time. 
+      
+      In class component, you can update the state when a user interacts with it or server updates the data using the `setState()` method. The initial state is going to be assigned in the `Constructor( ) `method using the the ` this.state` object and it is possible to different data types in the `this.state` object such as string, boolean, numbers, etc.
+      <strong> A simple example showing how we use the setState() and constructor() <strong>
 
-states holds information or data about a component in react which may change over time. in class component we can update the state, when a user interacts with it or maybe a server response using the `setState()` method and the initial state is been assigned in the `Constructor( ) `method using the the ` this.state` object. different data type can be passed in the this.state object, which can be string, boolean, numbers, etc.
-<strong> A simple example showing how we use the setState() and constructor() <strong>
+      ```
+      class App extends Component {
+        constructor() {
+          super();
+          this.state = {
+            message: "This is a class component",
+          };
+        }
+        updateMessage() {
+          this.setState({t
+            message: "Updating the class component",
+          });
+        }
+        render() {
+          return (
+            <>
+              <h1>{this.state.message}</h1>
+              <button
+                onClick={() => {
+                  this.updateMessage();
+                }}>
+                Click!!
+              </button>
+            </>
+          );
+        }
+      }
 
-```
-class Example extends Component {
-  constructor() {
-    super();
-    this.state = {
-      example: "This is a class component",
-    };
-  }
-  changeText() {
-    this.setState({
-      example: "implementing the setState() in class component",
-    });
-  }
-  render() {
-    return (
-      <>
-        <h1>{this.state.example}</h1>
-        <button
-          onClick={() => {
-            this.changeText();
-          }}>
-          Click!!
-        </button>
-      </>
-    );
-  }
-}
+      ```
 
-```
+      You not use state in functional components because it was only supported in class components. But over the years hooks have been implemented in functional component which enable to use state in functional component too.
+      
+      The `useState()` hook can used to implement state in funcitonal component. It returns an array with two items: the first item is current state and the next one is a function (setState) that updates the value of the current state. 
+      
+      Let's see an example to demonstrate the state in functional components,
 
-## Using Sates in Functional Components
+      ```
+      function App() {
+        const [message, setMessage] = useState("This is a functional component");
+        const updateMessage = () => {
+          setCountry("Updating the functional component");
+        };
+        return (
+          <div className="App">
+            <h1>{message} </h1>
+            <button onClick={updateMessage}>Click me!!</button>
+          </div>
+        );
+      }
+      ```
 
-Initially, we could not use state in functional components because it was only supported in class components. over the years hooks were implemented in functional component. The hooks that enable us to use state in functional component is called <strong>useState</strong>
-The useState( ) hook returns an array of the current state and a function ( setState) that we can use to update the value of the current state. The array is being destructured so we can can see the variables the array holds that is, the initial state and the updated state lets see an example
+      ## 4. Props:
+      Props are referred to as "properties". The props are passed into react component just like arguments passed to a function. In otherwords, they are similar to HTML attributes. 
 
-```
-function App() {
-  const [country, setCountry] = useState("i'm a Nigerian");
-  const change = () => {
-    setCountry("i am a Canadian");
-  };
-  return (
-    <div className="App">
-      <h1>Hello, {country} </h1>
-      <button onClick={change}>Change</button>
-    </div>
-  );
-}
-```
+      The props are accessible in child class component using `this.props` as shown in below example,
+      ```
+      class Child extends React.Component {
+        render() {
+          return <h1> This is a functional component and component name is {this.props.name} </h1>;
+        }
+      }
 
-<h4> Props in Class Component</h4>
- Props are referred to as "properties".  props are passed into react component just like arguments are passed into functions . Props are being specified as attribute just like your html. for example if the name attribute is "name " we assign a value to name. so basically, props are object that contains an attribute and its corresponding value. Data can be passed from parent component to the children component, but this data is immutable, which means that we cannot modify the props across another  component. here is an example
-```
-class Introduction extends React.Component {
-  render() {
-    return <h1> Hello, my name is {this.props.name} </h1>;
-  }
-}
+      class Parent extends React.Component {
+        render() {
+               return (
+                  <div className="Parent">
+                  <Child name="First child component" />
+                  <Child name="Second child component" />
+                  </div>
+                );
+         }
+      }
+      ```
 
-class App extends React.Component {
-render() {
-return (
+      Props in functional components are similar to that of the class components but the difference is the absence of 'this' keyword. 
 
-<div className="App">
-<Introduction name=" Queen Elizabeth" />
-<Introduction name=" Margret  Edeh" />
-</div>
-);
-}
-}
+      ```
+      function Child(props) {
+        return <h1>This is a child component and the component name is{props.name}</h1>;
+      }
 
-```
-
-## Props in Functional Components
-
-Props in functional components are similar to that of the class components, the difference is the absence of the 'this' keyword. We also destructure in a similar way without the 'this' keyword. they are also immutable in the functional component
-```
-
-function Food(props) {
-return <h1>I love {props.fav}</h1>;
-}
-
-function App() {
-return (
-
-<div className="App">
-<Food fav="Beans" />
-<Food fav="Yam and Egg sauce"/>
-</div>
-);
-}
-
-```
-> As you can see in the example above there wasn't a need for the 'this' keyword.
-
-```
-
-function Food(props) {
-const { fav } = props;
-return <h1>I love {fav}</h1>;
-}
-
-function App() {
-return (
-
-<div className="App">
-<Food fav="Beans" />
-<Food fav="Yam and Egg sauce" />
-</div>
-);
-}
-
-```
-summary:
-
-*The functional components doesn't require the render method
-*Class component require the render() method that returns JSX.
-
-To use states in functional component we use the **useState** hook.
-To use State in class components we use the constructor method and the setState function.
-
-Functional components use the useEffect hook instead of lifecycle method [useEffect](https://www.w3schools.com/react/react_useeffect.asp )
- Class components uses Lifecycle method    **componentWillUnmount** etc. [ Lifecycle methods](https://www.w3schools.com/react/react_lifecycle.asp )
+      function Parent() {
+        return (
+          <div className="Parent">
+                <Child name="First child component" />
+                <Child name="Second child component" />
+          </div>
+        );
+      }
+      ```
 
   **[⬆ Back to Top](#table-of-contents)**
-
-
-
 
 
 ## Disclaimer
