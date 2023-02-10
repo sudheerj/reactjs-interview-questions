@@ -6402,25 +6402,20 @@ Learn to code and get hired with <a href="https://zerotomastery.io/?utm_source=g
 
 303. ### How to fetch data with React Hooks?
 
-     The effect hook called `useEffect` is used to fetch the data with axios from the API and to set the data in the local state of the component with the state hook’s update function.
+     The effect hook called `useEffect` can be used to fetch data from an API and to set the data in the local state of the component with the useState hook’s update function.
 
-     Let's take an example in which it fetches list of react articles from the API
+     Here is an example of fetching a list of react articles from an API using fetch.
 
      ```javascript
-     import React, { useState, useEffect } from "react";
-     import axios from "axios";
+     import React from "react";
 
      function App() {
-       const [data, setData] = useState({ hits: [] });
+       const [data, setData] = React.useState({ hits: [] });
 
-       useEffect(() => {
-         (async () => {
-           const result = await axios(
-             "http://hn.algolia.com/api/v1/search?query=react"
-           );
-
-           setData(result.data);
-         })();
+       React.useEffect(() => {
+        fetch("http://hn.algolia.com/api/v1/search?query=react")
+        .then(response => response.json())
+        .then(data => setData(data))
        }, []);
 
        return (
@@ -6437,7 +6432,9 @@ Learn to code and get hired with <a href="https://zerotomastery.io/?utm_source=g
      export default App;
      ```
 
-     Remember we provided an empty array as second argument to the effect hook to avoid activating it on component updates but only on mounting of the component. i.e, It fetches only on component mount.
+     A popular way to simplify this is by using the library axios.
+
+     We provided an empty array as second argument to the useEffect hook to avoid activating it on component updates. This way, it only fetches on component mount.
 
 **[⬆ Back to Top](#table-of-contents)**
 
