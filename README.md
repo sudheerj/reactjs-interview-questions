@@ -157,6 +157,8 @@ Learn to code and get hired with <a href="https://zerotomastery.io/?utm_source=g
 | 126 | [What are the popular React-specific linters?](#what-are-the-popular-react-specific-linters)                                                                                                                                     |
 | 127 | [How to make AJAX call and In which component lifecycle methods should I make an AJAX call?](#how-to-make-ajax-call-and-in-which-component-lifecycle-methods-should-i-make-an-ajax-call)                                         |
 | 128 | [What are render props?](#what-are-render-props)                                                                                                                                                                                 |
+| 129 | [How reactjs works?](#how-reactjs-works)
+
 |     | **React Router**                                                                                                                                                                                                                 |
 | 129 | [What is React Router?](#what-is-react-router)                                                                                                                                                                                   |
 | 130 | [How React Router is different from history library?](#how-react-router-is-different-from-history-library)                                                                                                                       |
@@ -3098,6 +3100,10 @@ Learn to code and get hired with <a href="https://zerotomastery.io/?utm_source=g
      ```
 
      Libraries such as React Router and DownShift are using this pattern.
+
+129. ### How reactjs works?
+
+     ReactJS works by creating a virtual representation of the DOM called the `virtual DOM`, which is a lightweight copy of the `actual DOM`. When the state of the `UI changes`, React `updates the virtual DOM` and efficiently determines what changes need to be made to the actual DOM to reflect the `new state`. This allows for fast and efficient updates to the UI without requiring a full reload of the page. React also supports a component-based architecture, allowing developers to create reusable UI components that can be composed to build complex interfaces.
 
 ## React Router
 
