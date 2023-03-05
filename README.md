@@ -652,8 +652,10 @@ Learn to code and get hired with <a href="https://zerotomastery.io/?utm_source=g
 
 10. ### What is the difference between state and props?
 
-    Both _props_ and _state_ are plain JavaScript objects. While both of them hold information that influences the output of render, they are different in their functionality with respect to component. Props get passed to the component similar to function parameters whereas state is managed within the component similar to variables declared within a function.
-
+    In React, both `state` and `props` are are plain JavaScript objects and used to manage the data of a component, but they are used in different ways and have different characteristics.
+    `state` is managed by the component itself and can be updated using the `setState()` function. Unlike props, state can be modified by the component and is used to manage the internal state of the component. Changes in the state trigger a re-render of the component and its children.
+    `props` (short for "properties") are passed to a component by its parent component and are `read-only`, meaning that they cannot be modified by the component itself. props can be used to configure the behavior of a component and to pass data between components.
+    
     **[⬆ Back to Top](#table-of-contents)**
 
 11. ### Why should we not update the state directly?
