@@ -4,11 +4,15 @@
 
 ---
 <div>
-Learn to code and get hired with <a href="https://zerotomastery.io/?utm_source=github&utm_medium=sponsor&utm_campaign=reactjs-interview-questions">Zero To Mastery:</a>
-<ol>
-<li>This <a href="https://links.zerotomastery.io/react_sudheer">React course</a> is good if you’re struggling to learn React beyond the basics</li>
-<li>This <a href="http://links.zerotomastery.io/mci_sudheer">coding interview bootcamp</a> is helpful if you’re serious about getting hired as a developer</li>
-</ol>
+<p align="center">
+  <a href=https://zerotomastery.io/?utm_source=github&utm_medium=sponsor&utm_campaign=reactjs-interview-questions>
+    <img src=https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=height:70/https://www.filepicker.io/api/file/AKYtjj5SSGyJuyZrkAB2 alt="ZTM Logo" width="100" height="50">
+  </a>
+    <ol>
+      <li>This <a href="https://links.zerotomastery.io/react_sudheer">React course</a> is good if you’re struggling to learn React beyond the basics</li>
+      <li>This <a href="http://links.zerotomastery.io/mci_sudheer">coding interview bootcamp</a> is helpful if you’re serious about getting hired as a developer</li>
+    </ol>
+  </p>
 </div>
 
 ---
@@ -371,6 +375,8 @@ Learn to code and get hired with <a href="https://zerotomastery.io/?utm_source=g
 | 333 | [What is a wrapper component ](#what-is-a-wrapper-component)                                                                                                                                                                     |
 | 334 | [What are the differences between useEffect and useLayoutEffect hooks](#what-are-the-differences-between-useEffect-and-useLayoutEffect-hooks)                                                                                    |
 | 335 | [What are the differences between Functional and Class Components ](#what-are-the-differences-between-functional-and-class-components)                                                                                           |
+| 336 | [Why does strict mode render twice in React?]
+(#why-does-strict-mode-render-twice-in-react)                                                                                                                 |
 
 ## Core React
 
@@ -2187,6 +2193,14 @@ Learn to code and get hired with <a href="https://zerotomastery.io/?utm_source=g
     ```
 
     In the example above, the _strict mode_ checks apply to `<ComponentOne>` and `<ComponentTwo>` components only.
+
+    React.StrictMode currently helps you with:
+
+    1. Identifying components with unsafe lifecycles
+    2. Warning about legacy string ref API usage
+    3. Warning about deprecated `findDOMNode` usage
+    4. Detecting unexpected side effects
+    5. Detecting legacy context API
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -7085,6 +7099,37 @@ const loadUser = async () => {
       ```
 
   **[⬆ Back to Top](#table-of-contents)**
+
+336. ### Why does strict mode render twice in React?
+
+    StrictMode renders components twice in development mode(not production) in order to detect any problems with your code and warn you about those problems. This is used to detect accidental side effects in the render phase.  If you used `create-react-app` development tool then it automatically enables StrictMode by default.
+
+    ```js
+      ReactDOM.render(
+        <React.StrictMode>
+          {App}
+        </React.StrictMode>,
+        document.getElementById('root')
+      );
+    ```
+
+    If you want to disable this behavior then you can remove `strict` mode.
+        ```js
+      ReactDOM.render(
+          {App}, 
+        document.getElementById('root')
+      );
+    ```
+
+    To detect side effects the following functions are invoked twice:
+
+    1. Class component constructor, render, and shouldComponentUpdate methods
+    2. Class component static getDerivedStateFromProps method
+    3. Function component bodies
+    4. State updater functions
+    5. Functions passed to useState, useMemo, or useReducer (any Hook)
+
+    **[⬆ Back to Top](#table-of-contents)**
 
 
 ## Disclaimer
