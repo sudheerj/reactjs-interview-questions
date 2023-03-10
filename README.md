@@ -401,7 +401,7 @@
 
 3.  ### What is JSX?
 
-    _JSX_ stands for _JavaScript XML_ and it is a XML-like syntax extension to ECMAScript. Basically it just provides syntactic sugar for the `React.createElement()` function, giving us expressiveness of JavaScript along with HTML like template syntax.
+    _JSX_ stands for _JavaScript XML_ and it is an XML-like syntax extension to ECMAScript. Basically it just provides syntactic sugar for the `React.createElement()` function, giving us expressiveness of JavaScript along with HTML like template syntax.
 
     In the example below text inside `<h1>` tag is returned as JavaScript function to the render function.
 
@@ -409,7 +409,7 @@
     export default function App() {
       return (
         <div>
-          <h1>{"Welcome to React world!"}</h1>
+          <h1>{"This is a JSX Code!"}</h1>
         </div>
       );
     }
@@ -423,7 +423,7 @@
       render() {
         return (
           <div>
-            <h1>{"Welcome to React world!"}</h1>
+            <h1>{"This is a JSX Code!"}</h1>
           </div>
         );
       }
@@ -529,7 +529,7 @@
 
 8.  ### What is state in React?
 
-    _State_ of a component is an object that holds some information that may change over the lifetime of the component. We should always try to make our state as simple as possible and minimize the number of stateful components.
+    _State_ of a component is an object that holds some information that may change over the lifetime of the component. Whenever the state object changes, the component re-renders. We should always try to make our state as simple as possible and minimize the number of stateful components.
 
     Let's create a user component with message state,
 
