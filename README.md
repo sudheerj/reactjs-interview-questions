@@ -529,9 +529,11 @@
 
 8.  ### What is state in React?
 
-    _State_ of a component is an object that holds some information that may change over the lifetime of the component. Whenever the state object changes, the component re-renders. We should always try to make our state as simple as possible and minimize the number of stateful components.
+    _State_ of a component is an object that holds some information that may change over the lifetime of the component. The important point is whenever the state object changes, the component re-renders. It is always recommended to make our state as simple as possible and minimize the number of stateful components.
 
-    Let's create a user component with message state,
+    ![state](images/state.jpg)
+
+    Let's take an example of **User** component with message state. Here, **useState** hook has been used to add state to the User component and it returns an array with current state and function to update it.
 
     ```jsx harmony
     import React, { useState } from "react";
@@ -572,8 +574,6 @@
 
     </p>
     </details>
-
-    ![state](images/state.jpg)
 
     State is similar to props, but it is private and fully controlled by the component ,i.e., it is not accessible to any other component till the owner component decides to pass it.
 
