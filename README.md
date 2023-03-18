@@ -740,45 +740,45 @@
 
 14. ### How to bind methods or event handlers in JSX callbacks?
 
-    There are 3 possible ways to achieve this:
+    There are 3 possible ways to achieve this in class components:
 
-    1. **Binding in Constructor:** In JavaScript classes, the methods are not bound by default. The same thing applies for React event handlers defined as class methods. Normally we bind them in constructor.
+    1. **Binding in Constructor:** In JavaScript classes, the methods are not bound by default. The same rule applies for React event handlers defined as class methods. Normally we bind them in constructor.
 
        ```javascript
-       class Foo extends Component {
+       class User extends Component {
          constructor(props) {
            super(props);
            this.handleClick = this.handleClick.bind(this);
          }
          handleClick() {
-           console.log("Click happened");
+           console.log("SingOut triggered");
          }
          render() {
-           return <button onClick={this.handleClick}>Click Me</button>;
+           return <button onClick={this.handleClick}>SingOut</button>;
          }
        }
        ```
 
-    2. **Public class fields syntax:** If you don't like to use bind approach then _public class fields syntax_ can be used to correctly bind callbacks.
+    2. **Public class fields syntax:** If you don't like to use bind approach then _public class fields syntax_ can be used to correctly bind callbacks. The Create React App eanables this syntax by default.
 
        ```jsx harmony
        handleClick = () => {
-         console.log("this is:", this);
+         console.log("SingOut triggered", this);
        };
        ```
 
        ```jsx harmony
-       <button onClick={this.handleClick}>{"Click me"}</button>
+       <button onClick={this.handleClick}>SingOut</button>
        ```
 
-    3. **Arrow functions in callbacks:** You can use _arrow functions_ directly in the callbacks.
+    3. **Arrow functions in callbacks:** It is possible to use _arrow functions_ directly in the callbacks.
 
        ```jsx harmony
        handleClick() {
-           console.log('Click happened');
+           console.log('SingOut triggered');
        }
        render() {
-           return <button onClick={() => this.handleClick()}>Click Me</button>;
+           return <button onClick={() => this.handleClick()}>SignOut</button>;
        }
        ```
 
@@ -813,7 +813,24 @@
 
 16. ### What are synthetic events in React?
 
-    `SyntheticEvent` is a cross-browser wrapper around the browser's native event. Its API is same as the browser's native event, including `stopPropagation()` and `preventDefault()`, except the events work identically across all browsers.
+    `SyntheticEvent` is a cross-browser wrapper around the browser's native event. Its API is same as the browser's native event, including `stopPropagation()` and `preventDefault()`, except the events work identically across all browsers. The native events can be accessed directly from synthetic events using `nativeEvent` attribute.
+
+    Let's take an example of BookStore title search component with the ability to get all native event properties
+
+    ```js
+    function BookStore() {
+      handleTitleChange(e) {
+        console.log('The new title is:', e.target.value);
+        // 'e' represents synthetic event
+        const nativeEvent = e.nativeEvent;
+        console.log(nativeEvent);
+        e.stopPropogation();
+        e.preventDefault();
+      }
+
+      return <input name="title" onChange={handleTitleChange} />
+    }
+    ```
 
     **[⬆ Back to Top](#table-of-contents)**
 
