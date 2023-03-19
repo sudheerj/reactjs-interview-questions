@@ -387,6 +387,15 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
+2. ### What is the history behind React evolution?
+    The history of ReactJS started in 2010 with the creation of XHP. XHP is a PHP extension which improved the syntax of the language such that XML document fragments become valid PHP expressions and the primary purpose was used to create custom and reusable HTML elements. The main principle of this extension was to make front-end code easier to understand and to help avoid cross-site scripting attacks. The project was successful to prevent the malicious content submitted by the scrubbing user.
+
+    But there was a different problem with XHP in which dynamic web applications require many roundtrips to the server, and XHP did not solve this problem. Also, the whole UI was re-rendered for small change in the application. Later, the initial prototype of React is created with the name "FaxJS" by Jordan inspired from XHP. Finally after sometime React has been introduced as a new library into JavaScript world.
+
+    **Note:** JSX comes from the idea of XHP
+
+    **[⬆ Back to Top](#table-of-contents)**
+    
 2.  ### What are the major features of React?
 
     The major features of React are:
@@ -1469,38 +1478,53 @@
 
 50. ### What are stateful components?
 
-    If the behaviour of a component is dependent on the _state_ of the component then it can be termed as stateful component. These _stateful components_ are always _class components_ and have a state that gets initialized in the `constructor`.
+    If the behaviour of a component is dependent on the _state_ of the component then it can be termed as stateful component. These _stateful components_ are either function components with hooks or _class components_.
 
+    Let's take an example of function stateful component which update the state based on click event,
     ```javascript
+    import React, {useState} from 'react';
+
+    const App = (props) => {
+    const [count, setCount] = useState(0);
+    handleIncrement() {
+      setCount(count+1);
+    }
+
+    return (
+      <>
+        <button onClick={handleIncrement}>Increment</button>
+        <span>Counter: {count}</span>
+      </>
+      )
+    }
+    ```
+
+    <details><summary><b>See Class</b></summary>
+    <p>
+    The equivalent class stateful component with a state that gets initialized in the `constructor`.
+
+    ```jsx harmony
     class App extends Component {
       constructor(props) {
         super(props);
         this.state = { count: 0 };
       }
 
+      handleIncrement() {
+        setState({count: this.state.count + 1})
+      }
+
       render() {
-        // ...
+        <>
+         <button onClick={() => this.handleIncrement}>Increment</button>
+         <span>Count: {count}</span>
+        </>
       }
     }
     ```
+    </p>
+    </details>
 
-    **React 16.8 Update:**
-
-    Hooks let you use state and other React features without writing classes.
-
-    _The Equivalent Functional Component_
-
-    ```javascript
-    import React, {useState} from 'react';
-
-    const App = (props) => {
-    const [count, setCount] = useState(0);
-
-    return (
-        // JSX
-      )
-    }
-    ```
 
     **[⬆ Back to Top](#table-of-contents)**
 
