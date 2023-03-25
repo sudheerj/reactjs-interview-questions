@@ -1,68 +1,190 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Coding Exercise
 
-## Available Scripts
+#### 1. What is the output of below code
 
-In the project directory, you can run:
+```javascript
+import { useState } from 'react';
 
-### `yarn start`
+export default function Counter() {
+  const [counter, setCounter] = useState(5);
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  return (
+    <>
+      <span>{counter}</span>
+      <button onClick={() => {
+        setCounter(counter + 5);
+        setCounter(counter + 5);
+        alert(counter);
+        setCounter(counter + 5);
+        setCounter(counter + 5);
+      }}>Increment</button>
+    </>
+  )
+}
+```
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- 1: Alert with 5, 5
+- 2: Alert with 15, 25
+- 3: Alert with 5,  10
+- 4: Error: Cannot update the same state multiple times concurrently
 
-### `yarn test`
+<details><summary><b>Answer</b></summary>
+<p>
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+##### Answer: 3
+State values are fixed(i.e, default value 5) in each render and setting the state only changes it for the next render. React will wait untill all the code executed with in an event handler before your state updates follwed by re-rendering the UI. Also, all the 3 setter function calls are replacing the calculated value. Hence, irrespective of how many times you call `setCounter(counter + 5)` the final value is 10(5+5).
 
-### `yarn build`
+This can be visuallized by substituting with state variable values in the particular render,
+```javascript
+      <button onClick={() => {
+        setCounter(5 + 5);
+        setCounter(5 + 5);
+        alert(5);
+        setCounter(5 + 5);
+        setCounter(5 + 5);
+      }}>Increment</button>
+```
+</p>
+</details>
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+**[⬆ Back to Top](#table-of-contents)**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### 2. What is the output of below code
 
-### `yarn eject`
+```javascript
+import { useState } from 'react';
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+export default function Counter() {
+  const [counter, setCounter] = useState(5);
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  return (
+    <>
+      <span>{counter}</span>
+      <button onClick={() => {
+        setCounter(counter => counter + 5);
+        setCounter(counter => counter + 5);
+        alert(counter);
+        setCounter(counter => counter + 5);
+        setCounter(counter => counter + 5);
+      }}>Increment</button>
+    </>
+  )
+}
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- 1: Alert with 5, 25
+- 2: Alert with 5, 10
+- 3: Alert with 15, 25
+- 4: Alert with 15, 10
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<details><summary><b>Answer</b></summary>
+<p>
 
-## Learn More
+##### Answer: 1
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+React queues all the updater functions(e.g, counter => counter + 5) which will be processed after all the code inside event handler has been executed. During the next re-render(state update through setState), React goes through the queue and increment the counter based on the previous value in each function call. So the final value of counter becomes 25(initial value 5 + 5 + 5 + 5 + 5) whereas the alert shows default value 5 because the counter value won't be updated by that time.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+</p>
+</details>
 
-### Code Splitting
+---
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+**[⬆ Back to Top](#table-of-contents)**
 
-### Analyzing the Bundle Size
+#### 3. What is the output of span after one click?
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+```javascript
+import { useRef } from 'react';
 
-### Making a Progressive Web App
+export default function Counter() {
+  let countRef = useRef(0);
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+  function handleIncrement() {
+    countRef.current = countRef.current + 1;
+  }
 
-### Advanced Configuration
+  return 
+  <>
+    <span>Count: {countRef.current}</span>
+    <button onClick={handleIncrement}>
+      Click me
+    </button>
+  <>
+}
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+- 1: Cannot read current property of undefined
+- 2: Count: 1
+- 3: null
+- 4: Count: 0
 
-### Deployment
+<details><summary><b>Answer</b></summary>
+<p>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+##### Answer: 4
 
-### `yarn build` fails to minify
+In React, every update has two phases. 
+1. **Render:** This is where React calls the components in order to output something on the screen
+2. **Commit:** React applies changes to the DOM
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Any updates to the ref will be reflected only in the commit phase. In other words, React sets **counterRef.current** during the commit phase. Hence, **countRef.current** always holds value `0` irrespective of how many times the Increment button clicked.
+</p>
+</details>
+
+---
+
+**[⬆ Back to Top](#table-of-contents)**
+
+#### 4. What is the outcome of below code after button click?
+
+```javascript
+import { useRef } from 'react';
+
+function MyCustomInput(props) {
+  return <input {...props} />;
+}
+
+export default function MyCustomForm() {
+  const inputRef = useRef(null);
+
+  function handleInputFocus() {
+    inputRef.current.focus();
+  }
+
+  return (
+    <>
+      <MyCustomInput ref={inputRef} />
+      <button onClick={handleInputFocus}>
+        Click Me
+      </button>
+    </>
+  );
+}
+```
+
+- 1: Input gets the focus
+- 2: Warning: Function components cannot be given refs.
+- 3: Cannot read current property of undefined
+- 4: Warning: Missing ref on <input /> element
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+##### Answer: 2
+By default, React does not allow a component access the DOM nodes of other components even for child components. If you still try to access the DOM nodes directly then you will receive below error:
+
+```javascript
+Warning: Function components cannot be given refs. Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
+```
+
+This issue can be fixed by wrapping the **<MyCustomInput />** component with `forwardRef` function which accepts ref as the second argument which can be used on the **<input />** element as **ref={ref}**
+
+</p>
+</details>
+
+---
+
+**[⬆ Back to Top](#table-of-contents)**
+

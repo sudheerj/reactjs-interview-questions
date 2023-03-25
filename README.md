@@ -590,7 +590,7 @@
 
 9.  ### What are props in React?
 
-    _Props_ are inputs to components. They are single values or objects containing a set of values that are passed to components on creation using a naming convention similar to HTML-tag attributes. They are data passed down from a parent component to a child component.
+    _Props_ are inputs to components. They are single values or objects containing a set of values that are passed to components on creation similar to HTML-tag attributes. They are data passed down from a parent component to a child component.
 
     The primary purpose of props in React is to provide following component functionality:
 
