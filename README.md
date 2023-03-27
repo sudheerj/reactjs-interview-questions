@@ -7186,7 +7186,7 @@ const loadUser = async () => {
       }
       ```
 
-  **[⬆ Back to Top](#table-of-contents)**
+**[⬆ Back to Top](#table-of-contents)**
 
 336. ### Why does strict mode render twice in React?
       StrictMode renders components twice in development mode(not production) in order to detect any problems with your code and warn you about those problems. This is used to detect accidental side effects in the render phase.  If you used `create-react-app` development tool then it automatically enables StrictMode by default.
@@ -7216,7 +7216,7 @@ const loadUser = async () => {
       4. State updater functions
       5. Functions passed to useState, useMemo, or useReducer (any Hook)
 
-      **[⬆ Back to Top](#table-of-contents)**
+**[⬆ Back to Top](#table-of-contents)**
 
 ## Disclaimer
 
