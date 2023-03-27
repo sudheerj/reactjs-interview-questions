@@ -7093,7 +7093,7 @@ const loadUser = async () => {
       State contains information or data about a component which may change over time. 
       
       In class component, you can update the state when a user interacts with it or server updates the data using the `setState()` method. The initial state is going to be assigned in the `Constructor( ) `method using the the ` this.state` object and it is possible to different data types in the `this.state` object such as string, boolean, numbers, etc.
-      ** A simple example showing how we use the setState() and constructor() **
+      **A simple example showing how we use the setState() and constructor()**
 
       ```
       class App extends Component {
