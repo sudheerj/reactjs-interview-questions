@@ -459,15 +459,15 @@
 
 4.  ### What is the difference between Element and Component?
 
-    An _Element_ is a plain object describing what you want to appear on the screen in terms of the DOM nodes or other components. _Elements_ can contain other _Elements_ in their props. Creating a React element is cheap. Once an element is created, it is never mutated.
+    An _Element_ is a plain object describing what you want to appear on the screen in terms of the DOM nodes or other components. _Elements_ can contain other _Elements_ in their props. Creating a React element is cheap. Once an element is created, it cannot be mutated.
 
-    The object representation of React Element would be as follows:
+    The JavaScript representation of React Element would be as follows:
 
     ```javascript
     const element = React.createElement("div", { id: "login-btn" }, "Login");
     ```
 
-    The above `React.createElement()` function returns an object:
+    The above `React.createElement()` function returns an object as below:
 
     ```
     {
@@ -479,7 +479,7 @@
     }
     ```
 
-    And finally it renders to the DOM using `ReactDOM.render()`:
+    And finally this elements renders to the DOM using `ReactDOM.render()`:
 
     ```html
     <div id="login-btn">Login</div>
@@ -488,8 +488,8 @@
     Whereas a **component** can be declared in several different ways. It can be a class with a `render()` method or it can be defined as a function. In either case, it takes props as an input, and returns a JSX tree as the output:
 
     ```javascript
-    const Button = ({ onLogin }) => (
-      <div id={"login-btn"} onClick={onLogin}>
+    const Button = ({ handleLogin }) => (
+      <div id={"login-btn"} onClick={handleLogin}>
         Login
       </div>
     );
@@ -498,10 +498,10 @@
     Then JSX gets transpiled to a `React.createElement()` function tree:
 
     ```javascript
-    const Button = ({ onLogin }) =>
+    const Button = ({ handleLogin }) =>
       React.createElement(
         "div",
-        { id: "login-btn", onClick: onLogin },
+        { id: "login-btn", onClick: handleLogin },
         "Login"
       );
     ```
@@ -510,7 +510,7 @@
 
 5.  ### How to create components in React?
 
-    There are two possible ways to create a component.
+    Components are the building blocks of creating User Interfaces(UI) in React. There are two possible ways to create a component.
 
     1. **Function Components:** This is the simplest way to create a component. Those are pure JavaScript functions that accept props object as the first parameter and return React elements:
 
@@ -520,7 +520,7 @@
        }
        ```
 
-    2. **Class Components:** You can also use ES6 class to define a component. The above function component can be written as:
+    2. **Class Components:** You can also use ES6 class to define a component. The above function component can be written as a class component:
 
        ```jsx harmony
        class Greeting extends React.Component {
@@ -534,10 +534,26 @@
 
 6.  ### When to use a Class Component over a Function Component?
 
-    If the component needs _state or lifecycle methods_ then use class component otherwise use function component.
+    After the addition of Hooks(i.e. React 16.8 onwards) it is always recommended to use Function components over Class components  in React. Because you could use state, lifecycle methods and other features that were only available in class component present in function component too. 
+    
+    But even there are two reasons to use Class components over Function components.
 
-    _However, from React 16.8 with the addition of Hooks, you could use state , lifecycle methods and other features that were only available in class component right in your function component._
-    _So, it is always recommended to use Function components, unless you need a React functionality whose Function component equivalent is not present yet, like Error Boundaries._
+      1. If you need a React functionality whose Function component equivalent is not present yet, like Error Boundaries. 
+      2. In older versions, If the component needs _state or lifecycle methods_ then you need to use class component.
+
+
+    **Note:** You can also use reusable [react error boundary](https://github.com/bvaughn/react-error-boundary) third-party component without writing any class. i.e, No need to use class components for Error boundaries.
+
+    The usage is quite straight forward.
+    ```jsx
+    "use client";
+
+    import { ErrorBoundary } from "react-error-boundary";
+
+    <ErrorBoundary fallback={<div>Something went wrong</div>}>
+      <ExampleApplication />
+    </ErrorBoundary>
+    ```
 
     **[⬆ Back to Top](#table-of-contents)**
 
