@@ -698,7 +698,7 @@
 
    The properties from props object can be accessed directly using destructing feature from ES6 (ECMAScript 2015). The above child component can be simplified like below.
 
-    ```jsx harmony
+  ```jsx harmony
     const ChildComponent = ({name, age}) => {
         return (
           <div>
@@ -707,13 +707,12 @@
           </div>
         );
       };
-    ``` 
+  ``` 
 
-    <details><summary><b>See Class</b></summary>
-    <p>
+  <details><summary><b>See Class</b></summary>
      The Props accessed in Class Based Component as below
 
-        ```jsx
+  ```jsx
         import React from "react";
         import ReactDOM from "react-dom";
 
@@ -738,11 +737,10 @@
             );
           }
         }
-        ```
-    </p>
-    </details>
+  ```
+  </details>
 
-    **[⬆ Back to Top](#table-of-contents)**
+**[⬆ Back to Top](#table-of-contents)**
 
 10. ### What is the difference between state and props?
 
@@ -7148,7 +7146,7 @@ const loadUser = async () => {
       The classs components uses ES6 classes to create the components. It uses `render` function to display the HTML content in the webpage.
       
       The syntax for class component looks like as below.
-        ```
+        ```js
         class App extends Reacts.Component {
           render(){
             return <h1>This is a class component</h1>}
@@ -7160,7 +7158,7 @@ const loadUser = async () => {
 
       Functional component has been improved over the years with some added features like Hooks. Here is a syntax for functional component.
 
-      ```
+      ```js
       function App(){
         return <div className="App">
           <h1>Hello, I'm a function component</h1>
@@ -7174,9 +7172,9 @@ const loadUser = async () => {
       State contains information or data about a component which may change over time. 
       
       In class component, you can update the state when a user interacts with it or server updates the data using the `setState()` method. The initial state is going to be assigned in the `Constructor( ) `method using the the ` this.state` object and it is possible to different data types in the `this.state` object such as string, boolean, numbers, etc.
-      <strong> A simple example showing how we use the setState() and constructor() <strong>
+      **A simple example showing how we use the setState() and constructor()**
 
-      ```
+      ```js
       class App extends Component {
         constructor() {
           super();
@@ -7212,7 +7210,7 @@ const loadUser = async () => {
       
       Let's see an example to demonstrate the state in functional components,
 
-      ```
+      ```js
       function App() {
         const [message, setMessage] = useState("This is a functional component");
         const updateMessage = () => {
@@ -7231,7 +7229,7 @@ const loadUser = async () => {
       Props are referred to as "properties". The props are passed into react component just like arguments passed to a function. In otherwords, they are similar to HTML attributes. 
 
       The props are accessible in child class component using `this.props` as shown in below example,
-      ```
+      ```js
       class Child extends React.Component {
         render() {
           return <h1> This is a functional component and component name is {this.props.name} </h1>;
@@ -7252,7 +7250,7 @@ const loadUser = async () => {
 
       Props in functional components are similar to that of the class components but the difference is the absence of 'this' keyword. 
 
-      ```
+      ```js
       function Child(props) {
         return <h1>This is a child component and the component name is{props.name}</h1>;
       }
@@ -7267,39 +7265,37 @@ const loadUser = async () => {
       }
       ```
 
-  **[⬆ Back to Top](#table-of-contents)**
+**[⬆ Back to Top](#table-of-contents)**
 
 336. ### Why does strict mode render twice in React?
+      StrictMode renders components twice in development mode(not production) in order to detect any problems with your code and warn you about those problems. This is used to detect accidental side effects in the render phase.  If you used `create-react-app` development tool then it automatically enables StrictMode by default.
 
-    StrictMode renders components twice in development mode(not production) in order to detect any problems with your code and warn you about those problems. This is used to detect accidental side effects in the render phase.  If you used `create-react-app` development tool then it automatically enables StrictMode by default.
-
-    ```js
+      ```js
       ReactDOM.render(
         <React.StrictMode>
           {App}
         </React.StrictMode>,
         document.getElementById('root')
       );
-    ```
+      ```
 
-    If you want to disable this behavior then you can remove `strict` mode.
-        ```js
+      If you want to disable this behavior then you can remove `strict` mode.
+      ```js
       ReactDOM.render(
-          {App}, 
+        {App}, 
         document.getElementById('root')
       );
-    ```
+      ```
 
-    To detect side effects the following functions are invoked twice:
+      To detect side effects the following functions are invoked twice:
 
-    1. Class component constructor, render, and shouldComponentUpdate methods
-    2. Class component static getDerivedStateFromProps method
-    3. Function component bodies
-    4. State updater functions
-    5. Functions passed to useState, useMemo, or useReducer (any Hook)
+      1. Class component constructor, render, and shouldComponentUpdate methods
+      2. Class component static getDerivedStateFromProps method
+      3. Function component bodies
+      4. State updater functions
+      5. Functions passed to useState, useMemo, or useReducer (any Hook)
 
-    **[⬆ Back to Top](#table-of-contents)**
-
+**[⬆ Back to Top](#table-of-contents)**
 
 ## Disclaimer
 
@@ -7308,4 +7304,3 @@ The questions provided in this repository are the summary of frequently asked qu
 Good luck with your interview 😊
 
 ---
-```
