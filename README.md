@@ -16,16 +16,6 @@
 </div>
 
 ---
-<p align="center">
-  <a href=https://bit.ly/3FGD1oV>
-    <img src="images/collab/codestudio-logo.svg" alt="Codestudio Logo">
-  </a>
-  <p >
-    Explore the Best Free <a href=https://bit.ly/3FGD1oV target="_blank">Resource</a> to learn React and kickstart your journey as a react developer. Earn a free certification in just 40 days.
-  </p>
-</p>
-
----
 
 **Note:** This repository is specific to ReactJS. Please check [Javascript Interview questions](https://github.com/sudheerj/javascript-interview-questions) for core javascript questions.
 
@@ -461,10 +451,15 @@
 
     An _Element_ is a plain object describing what you want to appear on the screen in terms of the DOM nodes or other components. _Elements_ can contain other _Elements_ in their props. Creating a React element is cheap. Once an element is created, it cannot be mutated.
 
-    The JavaScript representation of React Element would be as follows:
+    The JavaScript representation(Without JSX) of React Element would be as follows:
 
     ```javascript
     const element = React.createElement("div", { id: "login-btn" }, "Login");
+    ```
+    and this element can be simiplified using JSX
+
+    ```html
+      <div id="login-btn">Login</div>
     ```
 
     The above `React.createElement()` function returns an object as below:
@@ -479,11 +474,7 @@
     }
     ```
 
-    And finally this elements renders to the DOM using `ReactDOM.render()`:
-
-    ```html
-    <div id="login-btn">Login</div>
-    ```
+    Finally, this element renders to the DOM using `ReactDOM.render()`.
 
     Whereas a **component** can be declared in several different ways. It can be a class with a `render()` method or it can be defined as a function. In either case, it takes props as an input, and returns a JSX tree as the output:
 
@@ -512,7 +503,7 @@
 
     Components are the building blocks of creating User Interfaces(UI) in React. There are two possible ways to create a component.
 
-    1. **Function Components:** This is the simplest way to create a component. Those are pure JavaScript functions that accept props object as the first parameter and return React elements:
+    1. **Function Components:** This is the simplest way to create a component. Those are pure JavaScript functions that accept props object as the first parameter and return React elements to render the output:
 
        ```jsx harmony
        function Greeting({ message }) {
@@ -544,7 +535,8 @@
 
     **Note:** You can also use reusable [react error boundary](https://github.com/bvaughn/react-error-boundary) third-party component without writing any class. i.e, No need to use class components for Error boundaries.
 
-    The usage is quite straight forward.
+    The usage of Error boundaries from the above library is quite straight forward.
+
     ```jsx
     "use client";
 
@@ -559,7 +551,49 @@
 
 7.  ### What are Pure Components?
 
-    _`React.PureComponent`_ is exactly the same as _`React.Component`_ except that it handles the `shouldComponentUpdate()` method for you. When props or state changes, _PureComponent_ will do a shallow comparison on both props and state. _Component_ on the other hand won't compare current props and state to next out of the box. Thus, the component will re-render by default whenever `shouldComponentUpdate` is called. In functional components we use `React.memo()` API. `React.memo()` is a higher-order component. It takes a React component as its first argument and returns a special type of React component that allows the renderer to render the component while memoizing the output. Therefore, if the component’s props are shallowly equal, the `React.memo()` component will bail out the updates.
+    Pure components are the components which render the same output for the same state and props. In function components, you can achieve these pure components through memoized `React.memo()` API wrapping around the component. This API prevents unnecessary re-renders by comparing the previous props and new props using shallow comparison. So it will be helpful for performance optimizations. 
+    
+    But at the same time, it won't compare the previous state with the current state because function component itself prevents the unnecessary rendering by default when you set the same state again.
+
+    The syntactic representation of memoized components looks like below,
+
+    ```jsx
+    const MemoizedComponent = memo(SomeComponent, arePropsEqual?);
+    ```
+
+    Below is the example of how child component(i.e., EmployeeProfile) prevents re-renders for the same props passed by parent component(i.e.,EmployeeRegForm).
+
+    ```jsx
+      import { memo, useState } from 'react';
+
+      const EmployeeProfile = memo(function EmployeeProfile({ name, email }) {
+        return (<>
+              <p>Name:{name}</p>
+              <p>Email: {email}</p>
+              </>);
+      });
+      export default function EmployeeRegForm() {
+        const [name, setName] = useState('');
+        const [email, setEmail] = useState('');
+        return (
+          <>
+            <label>
+              Name: <input value={name} onChange={e => setName(e.target.value)} />
+            </label>
+            <label>
+              Email: <input value={email} onChange={e => setEmail(e.target.value)} />
+            </label>
+            <hr/>
+            <EmployeeProfile name={name}/>
+          </>
+        );
+      }
+    ```
+    In the above code, the email prop has not been passed to child component. So there won't be any re-renders for email prop change.
+
+    In class components, the components extending _`React.PureComponent`_ instead of  _`React.Component`_ become the pure components. When props or state changes, _PureComponent_ will do a shallow comparison on both props and state by invoking `shouldComponentUpdate()` lifecycle method. 
+
+    **Note:** `React.memo()` is a higher-order component.
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -617,7 +651,7 @@
 
 9.  ### What are props in React?
 
-    _Props_ are inputs to components. They are single values or objects containing a set of values that are passed to components on creation similar to HTML-tag attributes. They are data passed down from a parent component to a child component.
+    _Props_ are inputs to components. They are single values or objects containing a set of values that are passed to components on creation similar to HTML-tag attributes. Here, the data is passed down from a parent component to a child component.
 
     The primary purpose of props in React is to provide following component functionality:
 
@@ -631,42 +665,13 @@
     <Element reactProp={"1"} />
     ```
 
-    This `reactProp` (or whatever you came up with) name then becomes a property attached to React's native props object which originally already exists on all components created using React library.
+    This `reactProp` (or whatever you came up with) attribute name then becomes a property attached to React's native props object which originally already exists on all components created using React library.
 
-    ```
+    ```jsx harmony
     props.reactProp
     ```
 
-    **Example: Props in Class Based Component**
-
-    ```jsx
-    import React from "react";
-    import ReactDOM from "react-dom";
-
-    class ChildComponent extends React.Component {
-      render() {
-        return (
-          <div>
-            <p>{this.props.name}</p>
-            <p>{this.props.age}</p>
-          </div>
-        );
-      }
-    }
-
-    class ParentComponent extends React.Component {
-      render() {
-        return (
-          <div>
-            <ChildComponent name="John" age="30" />
-            <ChildComponent name="Mary" age="25" />
-          </div>
-        );
-      }
-    }
-    ```
-
-    **Example: Props in Functional Component**
+    For example, the usage of props in function component looks like below:
 
     ```jsx
     import React from "react";
@@ -690,6 +695,52 @@
       );
     };
     ```
+
+   The properties from props object can be accessed directly using destructing feature from ES6 (ECMAScript 2015). The above child component can be simplified like below.
+
+    ```jsx harmony
+    const ChildComponent = ({name, age}) => {
+        return (
+          <div>
+            <p>{name}</p>
+            <p>{age}</p>
+          </div>
+        );
+      };
+    ``` 
+
+    <details><summary><b>See Class</b></summary>
+    <p>
+     The Props accessed in Class Based Component as below
+
+        ```jsx
+        import React from "react";
+        import ReactDOM from "react-dom";
+
+        class ChildComponent extends React.Component {
+          render() {
+            return (
+              <div>
+                <p>{this.props.name}</p>
+                <p>{this.props.age}</p>
+              </div>
+            );
+          }
+        }
+
+        class ParentComponent extends React.Component {
+          render() {
+            return (
+              <div>
+                <ChildComponent name="John" age="30" />
+                <ChildComponent name="Mary" age="25" />
+              </div>
+            );
+          }
+        }
+        ```
+    </p>
+    </details>
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -1434,7 +1485,7 @@
 
 45. ### Why React uses `className` over `class` attribute?
 
-    `class` is a keyword in JavaScript, and JSX is an extension of JavaScript. That's the principal reason why React uses `className` instead of `class`. Pass a string as the `className` prop.
+    The attribute `class` is a keyword in JavaScript, and JSX is an extension of JavaScript. That's the principal reason why React uses `className` instead of `class`. Pass a string as the `className` prop.
 
     ```jsx harmony
     render() {
@@ -1446,31 +1497,47 @@
 
 46. ### What are fragments?
 
-    It's a common pattern in React which is used for a component to return multiple elements. _Fragments_ let you group a list of children without adding extra nodes to the DOM.
+    It's a common pattern or practice in React for a component to return multiple elements. _Fragments_ let you group a list of children without adding extra nodes to the DOM.
+    You need to use either **<Fragment>** or a shorter syntax having empty tag (**<></>**).
 
+    Below is the example of how to use fragment inside _Story_ component.
     ```jsx harmony
-    render() {
+    function Story({title, description, date}) {
       return (
-        <React.Fragment>
-          <ChildA />
-          <ChildB />
-          <ChildC />
-        </React.Fragment>
-      )
+          <Fragment>
+            <h2>{title}</h2>
+            <p>{description}</p>
+            <p>{date}</p>
+          </>
+        );
     }
     ```
 
-    There is also a _shorter syntax_, but it's not supported in many tools:
+   It is also possible to render list of fragments inside a loop with the mandatory **key** attribute supplied.
 
     ```jsx harmony
-    render() {
+    function StoryBook() {
+      return stories.map(story =>
+        <Fragment key={ story.id}>
+          <h2>{story.title}</h2>
+          <p>{story.description}</p>
+          <p>{story.date}</p>
+        </Fragment>
+        );
+    }
+    ```
+
+    Ususally you don't need to use **<Fragment>** until unless there is a need of _key_ attribute. The usage of shorter syntax looks like below.
+
+    ```jsx harmony
+    function Story({title, description, date}) {
       return (
-        <>
-          <ChildA />
-          <ChildB />
-          <ChildC />
-        </>
-      )
+          <>
+            <h2>{title}</h2>
+            <p>{description}</p>
+            <p>{date}</p>
+          </>
+        );
     }
     ```
 
@@ -1478,7 +1545,7 @@
 
 47. ### Why fragments are better than container divs?
 
-    Below are the list of reasons,
+    Below are the list of reasons to prefer fragments over container DOM elements,
 
     1. Fragments are a bit faster and use less memory by not creating an extra DOM node. This only has a real benefit on very large and deep trees.
     2. Some CSS mechanisms like _Flexbox_ and _CSS Grid_ have a special parent-child relationships, and adding divs in the middle makes it hard to keep the desired layout.
@@ -5263,12 +5330,12 @@
 
 242. ### What are default props?
 
-     The defaultProps are defined as a property on the component class to set the default props for the class. This is used for undefined props, but not for null props.
+     The _defaultProps_ can be defined as a property on the component to set the default values for the props. These default props are used when props not supplied(i.e., undefined props), but not for null props. That means, If you provide null value then it remains null value.
 
      For example, let us create color default prop for the button component,
 
      ```javascript
-     class MyButton extends React.Component {
+     function MyButton {
        // ...
      }
 
@@ -5277,15 +5344,13 @@
      };
      ```
 
-     If `props.color` is not provided then it will set the default value to 'red'. i.e, Whenever you try to access the color prop it uses default value
+     If `props.color` is not provided then it will set the default value to 'red'. i.e, Whenever you try to access the color prop it uses the default value
 
      ```javascript
      render() {
-        return <MyButton /> ; // props.color will be set to red
+        return <MyButton /> ; // props.color will contain red value
       }
      ```
-
-     **Note:** If you provide null value then it remains null value.
 
 **[⬆ Back to Top](#table-of-contents)**
 
