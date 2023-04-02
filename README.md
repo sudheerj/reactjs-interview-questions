@@ -24,7 +24,8 @@
 | No. | Questions                                                                                                                                                                                                                        |
 | --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |     | **Core React**                                                                                                                                                                                                                   |
-| 1   | [What is React?](#what-is-react)                                                                                                                                                                                                 |
+| 0   | [What is React?](#what-is-react)                                                                                                                                                                                                 |
+| 1   | [What are the major features of React?](#what-are-the-major-features-of-React)                                                                                                                                                                                                 |
 | 2   | [What are the major features of React?](#what-are-the-major-features-of-react)                                                                                                                                                   |
 | 3   | [What is JSX?](#what-is-jsx)                                                                                                                                                                                                     |
 | 4   | [What is the difference between Element and Component?](#what-is-the-difference-between-element-and-component)                                                                                                                   |
@@ -369,7 +370,7 @@
 
 ## Core React
 
-1.  ### What is React?
+0.  ### What is React?
 
     React(aka React.js or ReactJS) is an **open-source front-end JavaScript library** that is used for building composable user interfaces, especially for single-page applications. It is used for handling view layer for web and mobile apps based on components in a declarative approach. 
     
@@ -377,7 +378,7 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-2. ### What is the history behind React evolution?
+1. ### What is the history behind React evolution?
     The history of ReactJS started in 2010 with the creation of **XHP**. XHP is a PHP extension which improved the syntax of the language such that XML document fragments become valid PHP expressions and the primary purpose was used to create custom and reusable HTML elements. 
     
     The main principle of this extension was to make front-end code easier to understand and to help avoid cross-site scripting attacks. The project was successful to prevent the malicious content submitted by the scrubbing user.
