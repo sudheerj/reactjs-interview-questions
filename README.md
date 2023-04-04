@@ -32,7 +32,10 @@
 | 6   | [When to use a Class Component over a Function Component?](#when-to-use-a-class-component-over-a-function-component)                                                                                                             |
 | 7   | [What are Pure Components?](#what-are-pure-components)                                                                                                                                                                           |
 | 8   | [What is state in React?](#what-is-state-in-react)                                                                                                                                                                               |
-| 9   | [What are props in React?](#what-are-props-in-react)                                                                                                                                                                             |
+| 9   | [What are props in React?](#what-are-props-in-react)   
+
+| 9   | [What is one way binding in React?](#What is one way binding in React) 
+
 | 10  | [What is the difference between state and props?](#what-is-the-difference-between-state-and-props)                                                                                                                               |
 | 11  | [Why should we not update the state directly?](#why-should-we-not-update-the-state-directly)                                                                                                                                     |
 | 12  | [What is the purpose of callback function as an argument of setState()?](#what-is-the-purpose-of-callback-function-as-an-argument-of-setstate)                                                                                   |
