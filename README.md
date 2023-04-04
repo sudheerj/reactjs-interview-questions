@@ -5093,7 +5093,7 @@
 
 226. ### What are hooks?
 
-     Hooks is a special function (introduced as a new feature in React 16.8) that lets you use state and other React features without writing a class.
+     Hooks is a special JavaScript function that allows you use state and other React features without writing a class. This pattern has been introduced as a new feature in React 16.8 and helped to isolate the stateful logic from the components.
 
      Let's see an example of useState hook:
 
@@ -5105,15 +5105,15 @@
        const [count, setCount] = useState(0);
 
        return (
-         <div>
+         <>
            <p>You clicked {count} times</p>
            <button onClick={() => setCount(count + 1)}>Click me</button>
-         </div>
+         </>
        );
      }
      ```
 
-     **Note:** Hooks can be used inside an existing function component.
+     **Note:** Hooks can be used inside an existing function component without rewriting the component.
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -5121,8 +5121,10 @@
 
      You need to follow two rules in order to use hooks,
 
-     1. Call Hooks only at the top level of your react functions. i.e, You shouldn’t call Hooks inside loops, conditions, or nested functions. This will ensure that Hooks are called in the same order each time a component renders and it preserves the state of Hooks between multiple useState and useEffect calls.
-     2. Call Hooks from React Functions only. i.e, You shouldn’t call Hooks from regular JavaScript functions.
+     1. **Call Hooks only at the top level of your react functions:** You shouldn’t call Hooks inside loops, conditions, or nested functions. This will ensure that Hooks are called in the same order each time a component renders and it preserves the state of Hooks between multiple useState and useEffect calls.
+     2. **Call Hooks from React Functions only:**You shouldn’t call Hooks from regular JavaScript functions. Instead, you should call them from either function components or custom hooks.
+
+     The eslint plugin named **eslint-plugin-react-hooks** can be used to enforce these two rules.
 
 **[⬆ Back to Top](#table-of-contents)**
 
