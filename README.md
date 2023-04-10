@@ -1511,7 +1511,7 @@
     }
     ```
 
-   It is also possible to render list of fragments inside a loop with the mandatory **key** attribute supplied.
+    It is also possible to render list of fragments inside a loop with the mandatory **key** attribute supplied.
 
     ```jsx harmony
     function StoryBook() {
