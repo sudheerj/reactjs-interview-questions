@@ -5125,7 +5125,7 @@
      You need to follow two rules in order to use hooks,
 
      1. **Call Hooks only at the top level of your react functions:** You shouldn’t call Hooks inside loops, conditions, or nested functions. This will ensure that Hooks are called in the same order each time a component renders and it preserves the state of Hooks between multiple useState and useEffect calls.
-     2. **Call Hooks from React Functions only:**You shouldn’t call Hooks from regular JavaScript functions. Instead, you should call them from either function components or custom hooks.
+     2. **Call Hooks from React Functions only:** You shouldn’t call Hooks from regular JavaScript functions. Instead, you should call them from either function components or custom hooks.
 
      The eslint plugin named **eslint-plugin-react-hooks** can be used to enforce these two rules.
 
@@ -5150,6 +5150,9 @@
        }
      }
      ```
+
+     For example, the linter enforce proper naming convention for hooks. If you rename your custom hooks which as prefix "use" to something else then linter won't allow you to call built-in hooks such as useState, useEffect etc inside of your custom hook anymore.
+
      **Note:** This plugin is intended to use in Create React App by default.
 
 **[⬆ Back to Top](#table-of-contents)**
