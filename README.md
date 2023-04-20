@@ -626,6 +626,7 @@
     <p>
 
     ```jsx harmony
+    import React from 'react';
     class User extends React.Component {
       constructor(props) {
         super(props);
@@ -747,7 +748,7 @@
 
 10. ### What is the difference between state and props?
 
-    In React, both `state` and `props` are are plain JavaScript objects and used to manage the data of a component, but they are used in different ways and have different characteristics.
+    In React, both `state` and `props` are plain JavaScript objects and used to manage the data of a component, but they are used in different ways and have different characteristics.
     `state` is managed by the component itself and can be updated using the `setState()` function. Unlike props, state can be modified by the component and is used to manage the internal state of the component. Changes in the state trigger a re-render of the component and its children.
     `props` (short for "properties") are passed to a component by its parent component and are `read-only`, meaning that they cannot be modified by the component itself. props can be used to configure the behavior of a component and to pass data between components.
     
@@ -1419,7 +1420,9 @@
 
 41. ### What is reconciliation?
 
-    When a component's props or state change, React decides whether an actual DOM update is necessary by comparing the newly returned element with the previously rendered one. When they are not equal, React will update the DOM. This process is called _reconciliation_.
+    `Reconciliation` is the process through which React updates the Browser DOM and makes React work faster. React use a `diffing algorithm` so that component updates are predictable and faster. React would first calculate the difference between the `real DOM` and the copy of DOM `(Virtual DOM)` when there's an update of components.
+    React stores a copy of Browser DOM which is called `Virtual DOM`. When we make changes or add data, React creates a new Virtual DOM and compares it with the previous one. This comparison is done by `Diffing Algorithm`.
+    Now React compares the Virtual DOM with Real DOM. It finds out the changed nodes and updates only the changed nodes in Real DOM leaving the rest nodes as it is. This process is called _Reconciliation_.
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -1509,12 +1512,12 @@
             <h2>{title}</h2>
             <p>{description}</p>
             <p>{date}</p>
-          </>
+          </Fragment>
         );
     }
     ```
 
-   It is also possible to render list of fragments inside a loop with the mandatory **key** attribute supplied.
+    It is also possible to render list of fragments inside a loop with the mandatory **key** attribute supplied.
 
     ```jsx harmony
     function StoryBook() {
@@ -5125,7 +5128,7 @@
      You need to follow two rules in order to use hooks,
 
      1. **Call Hooks only at the top level of your react functions:** You shouldn’t call Hooks inside loops, conditions, or nested functions. This will ensure that Hooks are called in the same order each time a component renders and it preserves the state of Hooks between multiple useState and useEffect calls.
-     2. **Call Hooks from React Functions only:**You shouldn’t call Hooks from regular JavaScript functions. Instead, you should call them from either function components or custom hooks.
+     2. **Call Hooks from React Functions only:** You shouldn’t call Hooks from regular JavaScript functions. Instead, you should call them from either function components or custom hooks.
 
      The eslint plugin named **eslint-plugin-react-hooks** can be used to enforce these two rules.
 
@@ -5150,6 +5153,9 @@
        }
      }
      ```
+
+     For example, the linter enforce proper naming convention for hooks. If you rename your custom hooks which as prefix "use" to something else then linter won't allow you to call built-in hooks such as useState, useEffect etc inside of your custom hook anymore.
+
      **Note:** This plugin is intended to use in Create React App by default.
 
 **[⬆ Back to Top](#table-of-contents)**

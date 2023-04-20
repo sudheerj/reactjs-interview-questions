@@ -188,3 +188,42 @@ This issue can be fixed by wrapping the **<MyCustomInput />** component with `fo
 
 **[⬆ Back to Top](#table-of-contents)**
 
+#### 5. What is the outcome of number of clicks after 3 button clicks?
+
+```javascript
+import { useRef } from 'react';
+
+export default function Counter() {
+  let ref = useRef(0);
+
+  function handleClick() {
+    ref.current = ref.current + 1;
+  }
+
+  return (
+    <>
+		<div>Clicked + {ref.current} + times</div>
+		<button onClick={handleClick}>
+			Click me!
+		</button>
+    </>
+  );
+}
+```
+
+- 1: 3 times
+- 2: 4 times
+- 3: 2 times
+- 4: 0 times
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+##### Answer: 4
+If you try to use **{ref.current}** in the render method, the number won’t be updated on click. This is because **ref.current** does not trigger a re-render unlike state. This property is mainly used to read and write the values inside event handler or outside the render method.
+</p>
+</details>
+
+---
+
+**[⬆ Back to Top](#table-of-contents)**
