@@ -3,7 +3,6 @@
 > Click :star:if you like the project. Pull Request are highly appreciated. Follow me [@SudheerJonna](https://twitter.com/SudheerJonna) for technical updates.
 
 ---
-
 <div>
 <p align="center">
   <a href=https://zerotomastery.io/?utm_source=github&utm_medium=sponsor&utm_campaign=reactjs-interview-questions>
@@ -373,16 +372,14 @@
 
 1.  ### What is React?
 
-    React(aka React.js or ReactJS) is an **open-source front-end JavaScript library** that is used for building composable user interfaces, especially for single-page applications. It is used for handling view layer for web and mobile apps based on components in a declarative approach.
-
+    React(aka React.js or ReactJS) is an **open-source front-end JavaScript library** that is used for building composable user interfaces, especially for single-page applications. It is used for handling view layer for web and mobile apps based on components in a declarative approach. 
+    
     React was created by [Jordan Walke](https://github.com/jordwalke), a software engineer working for Facebook. React was first deployed on Facebook's News Feed in 2011 and on Instagram in 2012.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-2.  ### What is the history behind React evolution?
-
-    The history of ReactJS started in 2010 with the creation of **XHP**. XHP is a PHP extension which improved the syntax of the language such that XML document fragments become valid PHP expressions and the primary purpose was used to create custom and reusable HTML elements.
-
+    The history of ReactJS started in 2010 with the creation of **XHP**. XHP is a PHP extension which improved the syntax of the language such that XML document fragments become valid PHP expressions and the primary purpose was used to create custom and reusable HTML elements. 
+    
     The main principle of this extension was to make front-end code easier to understand and to help avoid cross-site scripting attacks. The project was successful to prevent the malicious content submitted by the scrubbing user.
 
     But there was a different problem with XHP in which dynamic web applications require many roundtrips to the server, and XHP did not solve this problem. Also, the whole UI was re-rendered for small change in the application. Later, the initial prototype of React is created with the name **FaxJ** by Jordan inspired from XHP. Finally after sometime React has been introduced as a new library into JavaScript world.
@@ -390,7 +387,7 @@
     **Note:** JSX comes from the idea of XHP
 
     **[⬆ Back to Top](#table-of-contents)**
-
+    
 3.  ### What are the major features of React?
 
     The major features of React are:
@@ -411,20 +408,21 @@
 
     ```jsx harmony
     export default function App() {
-      return <h1 className="greeting">{"Hello, this is a JSX Code!"}</h1>;
+      return (
+          <h1 className="greeting">{"Hello, this is a JSX Code!"}</h1>
+      );
     }
     ```
-
     If you don't use JSX syntax then the respective JavaScript code should be written as below,
 
     ```javascript
-    import { createElement } from "react";
+    import { createElement } from 'react';
 
     export default function App() {
       return createElement(
-        "h1",
-        { className: "greeting" },
-        "Hello, this is a JSX Code!"
+        'h1',
+        { className: 'greeting' },
+        'Hello, this is a JSX Code!'
       );
     }
     ```
@@ -435,7 +433,9 @@
     ```jsx harmony
     class App extends React.Component {
       render() {
-        return <h1 className="greeting">{"Hello, this is a JSX Code!"}</h1>;
+        return (
+            <h1 className="greeting">{"Hello, this is a JSX Code!"}</h1>
+        );
       }
     }
     ```
@@ -456,11 +456,10 @@
     ```javascript
     const element = React.createElement("div", { id: "login-btn" }, "Login");
     ```
-
     and this element can be simiplified using JSX
 
     ```html
-    <div id="login-btn">Login</div>
+      <div id="login-btn">Login</div>
     ```
 
     The above `React.createElement()` function returns an object as below:
@@ -526,12 +525,13 @@
 
 7.  ### When to use a Class Component over a Function Component?
 
-    After the addition of Hooks(i.e. React 16.8 onwards) it is always recommended to use Function components over Class components in React. Because you could use state, lifecycle methods and other features that were only available in class component present in function component too.
-
+    After the addition of Hooks(i.e. React 16.8 onwards) it is always recommended to use Function components over Class components  in React. Because you could use state, lifecycle methods and other features that were only available in class component present in function component too. 
+    
     But even there are two reasons to use Class components over Function components.
 
-    1. If you need a React functionality whose Function component equivalent is not present yet, like Error Boundaries.
-    2. In older versions, If the component needs _state or lifecycle methods_ then you need to use class component.
+      1. If you need a React functionality whose Function component equivalent is not present yet, like Error Boundaries. 
+      2. In older versions, If the component needs _state or lifecycle methods_ then you need to use class component.
+
 
     **Note:** You can also use reusable [react error boundary](https://github.com/bvaughn/react-error-boundary) third-party component without writing any class. i.e, No need to use class components for Error boundaries.
 
@@ -551,8 +551,8 @@
 
 8.  ### What are Pure Components?
 
-    Pure components are the components which render the same output for the same state and props. In function components, you can achieve these pure components through memoized `React.memo()` API wrapping around the component. This API prevents unnecessary re-renders by comparing the previous props and new props using shallow comparison. So it will be helpful for performance optimizations.
-
+    Pure components are the components which render the same output for the same state and props. In function components, you can achieve these pure components through memoized `React.memo()` API wrapping around the component. This API prevents unnecessary re-renders by comparing the previous props and new props using shallow comparison. So it will be helpful for performance optimizations. 
+    
     But at the same time, it won't compare the previous state with the current state because function component itself prevents the unnecessary rendering by default when you set the same state again.
 
     The syntactic representation of memoized components looks like below,
@@ -564,39 +564,34 @@
     Below is the example of how child component(i.e., EmployeeProfile) prevents re-renders for the same props passed by parent component(i.e.,EmployeeRegForm).
 
     ```jsx
-    import { memo, useState } from "react";
+      import { memo, useState } from 'react';
 
-    const EmployeeProfile = memo(function EmployeeProfile({ name, email }) {
-      return (
-        <>
-          <p>Name:{name}</p>
-          <p>Email: {email}</p>
-        </>
-      );
-    });
-    export default function EmployeeRegForm() {
-      const [name, setName] = useState("");
-      const [email, setEmail] = useState("");
-      return (
-        <>
-          <label>
-            Name:{" "}
-            <input value={name} onChange={(e) => setName(e.target.value)} />
-          </label>
-          <label>
-            Email:{" "}
-            <input value={email} onChange={(e) => setEmail(e.target.value)} />
-          </label>
-          <hr />
-          <EmployeeProfile name={name} />
-        </>
-      );
-    }
+      const EmployeeProfile = memo(function EmployeeProfile({ name, email }) {
+        return (<>
+              <p>Name:{name}</p>
+              <p>Email: {email}</p>
+              </>);
+      });
+      export default function EmployeeRegForm() {
+        const [name, setName] = useState('');
+        const [email, setEmail] = useState('');
+        return (
+          <>
+            <label>
+              Name: <input value={name} onChange={e => setName(e.target.value)} />
+            </label>
+            <label>
+              Email: <input value={email} onChange={e => setEmail(e.target.value)} />
+            </label>
+            <hr/>
+            <EmployeeProfile name={name}/>
+          </>
+        );
+      }
     ```
-
     In the above code, the email prop has not been passed to child component. So there won't be any re-renders for email prop change.
 
-    In class components, the components extending _`React.PureComponent`_ instead of _`React.Component`_ become the pure components. When props or state changes, _PureComponent_ will do a shallow comparison on both props and state by invoking `shouldComponentUpdate()` lifecycle method.
+    In class components, the components extending _`React.PureComponent`_ instead of  _`React.Component`_ become the pure components. When props or state changes, _PureComponent_ will do a shallow comparison on both props and state by invoking `shouldComponentUpdate()` lifecycle method. 
 
     **Note:** `React.memo()` is a higher-order component.
 
@@ -702,62 +697,61 @@
     };
     ```
 
-The properties from props object can be accessed directly using destructing feature from ES6 (ECMAScript 2015). The above child component can be simplified like below.
+   The properties from props object can be accessed directly using destructing feature from ES6 (ECMAScript 2015). The above child component can be simplified like below.
 
-```jsx harmony
-const ChildComponent = ({ name, age }) => {
-  return (
-    <div>
-      <p>{name}</p>
-      <p>{age}</p>
-    </div>
-  );
-};
-```
+  ```jsx harmony
+    const ChildComponent = ({name, age}) => {
+        return (
+          <div>
+            <p>{name}</p>
+            <p>{age}</p>
+          </div>
+        );
+      };
+  ``` 
 
   <details><summary><b>See Class</b></summary>
      The Props accessed in Class Based Component as below
 
-```jsx
-import React from "react";
-import ReactDOM from "react-dom";
+  ```jsx
+        import React from "react";
+        import ReactDOM from "react-dom";
 
-class ChildComponent extends React.Component {
-  render() {
-    return (
-      <div>
-        <p>{this.props.name}</p>
-        <p>{this.props.age}</p>
-      </div>
-    );
-  }
-}
+        class ChildComponent extends React.Component {
+          render() {
+            return (
+              <div>
+                <p>{this.props.name}</p>
+                <p>{this.props.age}</p>
+              </div>
+            );
+          }
+        }
 
-class ParentComponent extends React.Component {
-  render() {
-    return (
-      <div>
-        <ChildComponent name="John" age="30" />
-        <ChildComponent name="Mary" age="25" />
-      </div>
-    );
-  }
-}
-```
-
+        class ParentComponent extends React.Component {
+          render() {
+            return (
+              <div>
+                <ChildComponent name="John" age="30" />
+                <ChildComponent name="Mary" age="25" />
+              </div>
+            );
+          }
+        }
+  ```
   </details>
 
 **[⬆ Back to Top](#table-of-contents)**
 
-12. ### What is the difference between state and props?
+11. ### What is the difference between state and props?
 
     In React, both `state` and `props` are plain JavaScript objects and used to manage the data of a component, but they are used in different ways and have different characteristics.
     `state` is managed by the component itself and can be updated using the `setState()` function. Unlike props, state can be modified by the component and is used to manage the internal state of the component. Changes in the state trigger a re-render of the component and its children.
     `props` (short for "properties") are passed to a component by its parent component and are `read-only`, meaning that they cannot be modified by the component itself. props can be used to configure the behavior of a component and to pass data between components.
-
+    
     **[⬆ Back to Top](#table-of-contents)**
 
-12. ### Why should we not update the state directly?
+11. ### Why should we not update the state directly?
 
     If you try to update the state directly then it won't re-render the component.
 
@@ -777,7 +771,7 @@ class ParentComponent extends React.Component {
 
     **[⬆ Back to Top](#table-of-contents)**
 
-13. ### What is the purpose of callback function as an argument of `setState()`?
+12. ### What is the purpose of callback function as an argument of `setState()`?
 
     The callback function is invoked when setState finished and the component gets rendered. Since `setState()` is **asynchronous** the callback function is used for any post action.
 
@@ -791,7 +785,7 @@ class ParentComponent extends React.Component {
 
     **[⬆ Back to Top](#table-of-contents)**
 
-14. ### What is the difference between HTML and React event handling?
+13. ### What is the difference between HTML and React event handling?
 
     Below are some of the main differences between HTML and React event handling,
 
@@ -830,7 +824,7 @@ class ParentComponent extends React.Component {
 
     **[⬆ Back to Top](#table-of-contents)**
 
-15. ### How to bind methods or event handlers in JSX callbacks?
+14. ### How to bind methods or event handlers in JSX callbacks?
 
     There are 3 possible ways to achieve this in class components:
 
@@ -1508,16 +1502,15 @@ class ParentComponent extends React.Component {
     You need to use either **<Fragment>** or a shorter syntax having empty tag (**<></>**).
 
     Below is the example of how to use fragment inside _Story_ component.
-
     ```jsx harmony
-    function Story({ title, description, date }) {
+    function Story({title, description, date}) {
       return (
-        <Fragment>
-          <h2>{title}</h2>
-          <p>{description}</p>
-          <p>{date}</p>
-        </Fragment>
-      );
+          <Fragment>
+            <h2>{title}</h2>
+            <p>{description}</p>
+            <p>{date}</p>
+          </Fragment>
+        );
     }
     ```
 
@@ -1525,27 +1518,27 @@ class ParentComponent extends React.Component {
 
     ```jsx harmony
     function StoryBook() {
-      return stories.map((story) => (
-        <Fragment key={story.id}>
+      return stories.map(story =>
+        <Fragment key={ story.id}>
           <h2>{story.title}</h2>
           <p>{story.description}</p>
           <p>{story.date}</p>
         </Fragment>
-      ));
+        );
     }
     ```
 
     Ususally you don't need to use **<Fragment>** until unless there is a need of _key_ attribute. The usage of shorter syntax looks like below.
 
     ```jsx harmony
-    function Story({ title, description, date }) {
+    function Story({title, description, date}) {
       return (
-        <>
-          <h2>{title}</h2>
-          <p>{description}</p>
-          <p>{date}</p>
-        </>
-      );
+          <>
+            <h2>{title}</h2>
+            <p>{description}</p>
+            <p>{date}</p>
+          </>
+        );
     }
     ```
 
@@ -1584,7 +1577,6 @@ class ParentComponent extends React.Component {
     If the behaviour of a component is dependent on the _state_ of the component then it can be termed as stateful component. These _stateful components_ are either function components with hooks or _class components_.
 
     Let's take an example of function stateful component which update the state based on click event,
-
     ```javascript
     import React, {useState} from 'react';
 
@@ -1615,20 +1607,20 @@ class ParentComponent extends React.Component {
       }
 
       handleIncrement() {
-        setState({ count: this.state.count + 1 });
+        setState({count: this.state.count + 1})
       }
 
       render() {
         <>
-          <button onClick={() => this.handleIncrement}>Increment</button>
-          <span>Count: {count}</span>
-        </>;
+         <button onClick={() => this.handleIncrement}>Increment</button>
+         <span>Count: {count}</span>
+        </>
       }
     }
     ```
-
     </p>
     </details>
+
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -2693,76 +2685,75 @@ class ParentComponent extends React.Component {
 
 101.  ### How to re-render the view when the browser is resized?
 
-            You can use the `useState` hook to manage the width and height state variables, and the `useEffect` hook to add and remove the `resize` event listener. The `[]` dependency array passed to useEffect ensures that the effect only runs once (on mount) and not on every re-render.
+      You can use the `useState` hook to manage the width and height state variables, and the `useEffect` hook to add and remove the `resize` event listener. The `[]` dependency array passed to useEffect ensures that the effect only runs once (on mount) and not on every re-render.
 
-            ```javascript
-            import React, { useState, useEffect } from "react";
-            function WindowDimensions() {
-              const [dimensions, setDimensions] = useState({
-                width: window.innerWidth,
-                height: window.innerHeight,
-              });
+      ```javascript
+      import React, { useState, useEffect } from "react";
+      function WindowDimensions() {
+        const [dimensions, setDimensions] = useState({
+          width: window.innerWidth,
+          height: window.innerHeight,
+        });
 
-              useEffect(() => {
-                function handleResize() {
-                  setDimensions({
-                    width: window.innerWidth,
-                    height: window.innerHeight,
-                  });
-                }
-                window.addEventListener("resize", handleResize);
-                return () => window.removeEventListener("resize", handleResize);
-              }, []);
+        useEffect(() => {
+          function handleResize() {
+            setDimensions({
+              width: window.innerWidth,
+              height: window.innerHeight,
+            });
+          }
+          window.addEventListener("resize", handleResize);
+          return () => window.removeEventListener("resize", handleResize);
+        }, []);
 
-              return (
-                <span>
-                  {dimensions.width} x {dimensions.height}
-                </span>
-              );
+        return (
+          <span>
+            {dimensions.width} x {dimensions.height}
+          </span>
+        );
+      }
+      ```
+      <details>
+        <summary><h4>Using Class Component</h4></summary>
+
+        You can listen to the `resize` event in `componentDidMount()` and then update the dimensions (`width` and `height`). You should remove the listener in `componentWillUnmount()` method.
+
+        ```javascript
+            class WindowDimensions extends React.Component {
+              constructor(props) {
+                super(props);
+                this.updateDimensions = this.updateDimensions.bind(this);
+              }
+
+              componentWillMount() {
+                this.updateDimensions();
+              }
+
+              componentDidMount() {
+                window.addEventListener("resize", this.updateDimensions);
+              }
+
+              componentWillUnmount() {
+                window.removeEventListener("resize", this.updateDimensions);
+              }
+
+              updateDimensions() {
+                this.setState({
+                  width: window.innerWidth,
+                  height: window.innerHeight,
+                });
+              }
+
+              render() {
+                return (
+                  <span>
+                    {this.state.width} x {this.state.height}
+                  </span>
+                );
+              }
             }
             ```
-            <details>
-              <summary><h4>Using Class Component</h4></summary>
-
-              You can listen to the `resize` event in `componentDidMount()` and then update the dimensions (`width` and `height`). You should remove the listener in `componentWillUnmount()` method.
-
-              ```javascript
-                  class WindowDimensions extends React.Component {
-                    constructor(props) {
-                      super(props);
-                      this.updateDimensions = this.updateDimensions.bind(this);
-                    }
-
-                    componentWillMount() {
-                      this.updateDimensions();
-                    }
-
-                    componentDidMount() {
-                      window.addEventListener("resize", this.updateDimensions);
-                    }
-
-                    componentWillUnmount() {
-                      window.removeEventListener("resize", this.updateDimensions);
-                    }
-
-                    updateDimensions() {
-                      this.setState({
-                        width: window.innerWidth,
-                        height: window.innerHeight,
-                      });
-                    }
-
-                    render() {
-                      return (
-                        <span>
-                          {this.state.width} x {this.state.height}
-                        </span>
-                      );
-                    }
-                  }
-                  ```
-
-      </details>
+</details>
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -5141,15 +5132,11 @@ class ParentComponent extends React.Component {
 **[⬆ Back to Top](#table-of-contents)**
 
 228. ### How to ensure hooks followed the rules in your project?
-
      React team released an ESLint plugin called **eslint-plugin-react-hooks** that enforces these two rules. You can add this plugin to your project using the below command,
-
      ```javascript
      npm install eslint-plugin-react-hooks@next
      ```
-
      And apply the below config in your ESLint config file,
-
      ```javascript
      // Your ESLint configuration
      {
@@ -6615,9 +6602,9 @@ class ParentComponent extends React.Component {
        const [data, setData] = React.useState({ hits: [] });
 
        React.useEffect(() => {
-         fetch("http://hn.algolia.com/api/v1/search?query=react")
-           .then((response) => response.json())
-           .then((data) => setData(data));
+        fetch("http://hn.algolia.com/api/v1/search?query=react")
+        .then(response => response.json())
+        .then(data => setData(data))
        }, []);
 
        return (
@@ -7159,174 +7146,162 @@ const loadUser = async () => {
 **[⬆ Back to Top](#table-of-contents)**
 
 335. ### What are the differences between Functional and Class Components?
+ 
+      There are two different ways to create components in ReactJS. The main differences are listed down as below,
 
-     There are two different ways to create components in ReactJS. The main differences are listed down as below,
+      ## 1.  Syntax:
 
-     ## 1. Syntax:
+      The classs components uses ES6 classes to create the components. It uses `render` function to display the HTML content in the webpage.
+      
+      The syntax for class component looks like as below.
+        ```js
+        class App extends Reacts.Component {
+          render(){
+            return <h1>This is a class component</h1>}
+          }
 
-     The classs components uses ES6 classes to create the components. It uses `render` function to display the HTML content in the webpage.
+        ```
 
-     The syntax for class component looks like as below.
+      **Note:** The **Pascal Case** is the recommended approach to provide naming to a component.
 
-     ```js
-     class App extends Reacts.Component {
-       render() {
-         return <h1>This is a class component</h1>;
-       }
-     }
-     ```
+      Functional component has been improved over the years with some added features like Hooks. Here is a syntax for functional component.
 
-     **Note:** The **Pascal Case** is the recommended approach to provide naming to a component.
+      ```js
+      function App(){
+        return <div className="App">
+          <h1>Hello, I'm a function component</h1>
+          </div>
+      }
 
-     Functional component has been improved over the years with some added features like Hooks. Here is a syntax for functional component.
+      ```
 
-     ```js
-     function App() {
-       return (
-         <div className="App">
-           <h1>Hello, I'm a function component</h1>
-         </div>
-       );
-     }
-     ```
+      ## 2. State:
 
-     ## 2. State:
+      State contains information or data about a component which may change over time. 
+      
+      In class component, you can update the state when a user interacts with it or server updates the data using the `setState()` method. The initial state is going to be assigned in the `Constructor( ) `method using the the ` this.state` object and it is possible to different data types in the `this.state` object such as string, boolean, numbers, etc.
+      **A simple example showing how we use the setState() and constructor()**
 
-     State contains information or data about a component which may change over time.
+      ```js
+      class App extends Component {
+        constructor() {
+          super();
+          this.state = {
+            message: "This is a class component",
+          };
+        }
+        updateMessage() {
+          this.setState({t
+            message: "Updating the class component",
+          });
+        }
+        render() {
+          return (
+            <>
+              <h1>{this.state.message}</h1>
+              <button
+                onClick={() => {
+                  this.updateMessage();
+                }}>
+                Click!!
+              </button>
+            </>
+          );
+        }
+      }
 
-     In class component, you can update the state when a user interacts with it or server updates the data using the `setState()` method. The initial state is going to be assigned in the `Constructor( ) `method using the the ` this.state` object and it is possible to different data types in the `this.state` object such as string, boolean, numbers, etc.
-     **A simple example showing how we use the setState() and constructor()**
+      ```
 
-     ```js
-     class App extends Component {
-       constructor() {
-         super();
-         this.state = {
-           message: "This is a class component",
-         };
-       }
-       updateMessage() {
-         this.setState({t
-           message: "Updating the class component",
-         });
-       }
-       render() {
-         return (
-           <>
-             <h1>{this.state.message}</h1>
-             <button
-               onClick={() => {
-                 this.updateMessage();
-               }}>
-               Click!!
-             </button>
-           </>
-         );
-       }
-     }
+      You not use state in functional components because it was only supported in class components. But over the years hooks have been implemented in functional component which enable to use state in functional component too.
+      
+      The `useState()` hook can used to implement state in funcitonal component. It returns an array with two items: the first item is current state and the next one is a function (setState) that updates the value of the current state. 
+      
+      Let's see an example to demonstrate the state in functional components,
 
-     ```
+      ```js
+      function App() {
+        const [message, setMessage] = useState("This is a functional component");
+        const updateMessage = () => {
+          setCountry("Updating the functional component");
+        };
+        return (
+          <div className="App">
+            <h1>{message} </h1>
+            <button onClick={updateMessage}>Click me!!</button>
+          </div>
+        );
+      }
+      ```
 
-     You not use state in functional components because it was only supported in class components. But over the years hooks have been implemented in functional component which enable to use state in functional component too.
+      ## 4. Props:
+      Props are referred to as "properties". The props are passed into react component just like arguments passed to a function. In otherwords, they are similar to HTML attributes. 
 
-     The `useState()` hook can used to implement state in funcitonal component. It returns an array with two items: the first item is current state and the next one is a function (setState) that updates the value of the current state.
+      The props are accessible in child class component using `this.props` as shown in below example,
+      ```js
+      class Child extends React.Component {
+        render() {
+          return <h1> This is a functional component and component name is {this.props.name} </h1>;
+        }
+      }
 
-     Let's see an example to demonstrate the state in functional components,
+      class Parent extends React.Component {
+        render() {
+               return (
+                  <div className="Parent">
+                  <Child name="First child component" />
+                  <Child name="Second child component" />
+                  </div>
+                );
+         }
+      }
+      ```
 
-     ```js
-     function App() {
-       const [message, setMessage] = useState("This is a functional component");
-       const updateMessage = () => {
-         setCountry("Updating the functional component");
-       };
-       return (
-         <div className="App">
-           <h1>{message} </h1>
-           <button onClick={updateMessage}>Click me!!</button>
-         </div>
-       );
-     }
-     ```
+      Props in functional components are similar to that of the class components but the difference is the absence of 'this' keyword. 
 
-     ## 4. Props:
+      ```js
+      function Child(props) {
+        return <h1>This is a child component and the component name is{props.name}</h1>;
+      }
 
-     Props are referred to as "properties". The props are passed into react component just like arguments passed to a function. In otherwords, they are similar to HTML attributes.
-
-     The props are accessible in child class component using `this.props` as shown in below example,
-
-     ```js
-     class Child extends React.Component {
-       render() {
-         return (
-           <h1>
-             {" "}
-             This is a functional component and component name is {
-               this.props.name
-             }{" "}
-           </h1>
-         );
-       }
-     }
-
-     class Parent extends React.Component {
-       render() {
-         return (
-           <div className="Parent">
-             <Child name="First child component" />
-             <Child name="Second child component" />
-           </div>
-         );
-       }
-     }
-     ```
-
-     Props in functional components are similar to that of the class components but the difference is the absence of 'this' keyword.
-
-     ```js
-     function Child(props) {
-       return (
-         <h1>
-           This is a child component and the component name is{props.name}
-         </h1>
-       );
-     }
-
-     function Parent() {
-       return (
-         <div className="Parent">
-           <Child name="First child component" />
-           <Child name="Second child component" />
-         </div>
-       );
-     }
-     ```
+      function Parent() {
+        return (
+          <div className="Parent">
+                <Child name="First child component" />
+                <Child name="Second child component" />
+          </div>
+        );
+      }
+      ```
 
 **[⬆ Back to Top](#table-of-contents)**
 
 336. ### Why does strict mode render twice in React?
+      StrictMode renders components twice in development mode(not production) in order to detect any problems with your code and warn you about those problems. This is used to detect accidental side effects in the render phase.  If you used `create-react-app` development tool then it automatically enables StrictMode by default.
 
-     StrictMode renders components twice in development mode(not production) in order to detect any problems with your code and warn you about those problems. This is used to detect accidental side effects in the render phase. If you used `create-react-app` development tool then it automatically enables StrictMode by default.
+      ```js
+      ReactDOM.render(
+        <React.StrictMode>
+          {App}
+        </React.StrictMode>,
+        document.getElementById('root')
+      );
+      ```
 
-     ```js
-     ReactDOM.render(
-       <React.StrictMode>{App}</React.StrictMode>,
-       document.getElementById("root")
-     );
-     ```
+      If you want to disable this behavior then you can remove `strict` mode.
+      ```js
+      ReactDOM.render(
+        {App}, 
+        document.getElementById('root')
+      );
+      ```
 
-     If you want to disable this behavior then you can remove `strict` mode.
+      To detect side effects the following functions are invoked twice:
 
-     ```js
-     ReactDOM.render({ App }, document.getElementById("root"));
-     ```
-
-     To detect side effects the following functions are invoked twice:
-
-     1. Class component constructor, render, and shouldComponentUpdate methods
-     2. Class component static getDerivedStateFromProps method
-     3. Function component bodies
-     4. State updater functions
-     5. Functions passed to useState, useMemo, or useReducer (any Hook)
+      1. Class component constructor, render, and shouldComponentUpdate methods
+      2. Class component static getDerivedStateFromProps method
+      3. Function component bodies
+      4. State updater functions
+      5. Functions passed to useState, useMemo, or useReducer (any Hook)
 
 **[⬆ Back to Top](#table-of-contents)**
 
