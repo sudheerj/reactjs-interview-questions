@@ -7109,7 +7109,7 @@ const loadUser = async () => {
      Wrapper component can also accept its own props and pass them down to the wrapped component, for example, we can create a wrapper component that will add a title to the message component:
 
      ```javascript
-     const MessageWrapperWithTitle = ({ title, ...props }) => {
+     const MessageWrapperWithTitle = ({title, ...props}) => {
        return (
          <div>
            <h3>{title}</h3>
