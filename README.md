@@ -5126,6 +5126,9 @@
 
      1. **Call Hooks only at the top level of your react functions:** You shouldn’t call Hooks inside loops, conditions, or nested functions. This will ensure that Hooks are called in the same order each time a component renders and it preserves the state of Hooks between multiple useState and useEffect calls.
      2. **Call Hooks from React Functions only:** You shouldn’t call Hooks from regular JavaScript functions. Instead, you should call them from either function components or custom hooks.
+     3. **Sharing stateful logic, not state:** Custom hooks are designed to share reusable stateful logic across components. However, they should not share state directly. Each component that uses a custom hook will have its own separate state. Custom hooks provide a way to share the logic and behavior, not the state itself.
+     4. **No direct rendering:** Custom hooks should not include JSX rendering logic. They are meant to be utility functions that encapsulate reusable logic. Rendering and JSX should be handled within the components that use the custom hook.
+
 
      The eslint plugin named **eslint-plugin-react-hooks** can be used to enforce these two rules.
 
