@@ -7308,7 +7308,7 @@ const loadUser = async () => {
 
 **[⬆ Back to Top](#table-of-contents)**
 
-329. ### What is hydration?
+337. ### What is hydration?
 
      Hydration is the process of taking server-rendered HTML and attaching the necessary JavaScript code and event handlers to make the page interactive. Since the server cannot execute JavaScript or access the Document Object Model (DOM) on the client side, the client-side JavaScript is responsible for attaching event listeners, managing state, and enabling interactivity.
 
