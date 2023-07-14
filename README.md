@@ -773,15 +773,32 @@
 
 12. ### What is the purpose of callback function as an argument of `setState()`?
 
-    The callback function is invoked when setState finished and the component gets rendered. Since `setState()` is **asynchronous** the callback function is used for any post action.
+    
+The callback function as an argument of setState() is used to perform actions after the state has been updated. This is because setState() is an asynchronous function, which means that the state update does not happen immediately. Instead, the state update is scheduled to happen later, and the callback function will be called once the update has completed.
 
-    **Note:** It is recommended to use lifecycle method rather than this callback function.
+The callback function can be used to perform asynchronous actions after the state has been updated, such as performing a network request to fetch new data, updating the UI with the new state, or logging the state change.
 
-    ```javascript
-    setState({ name: "John" }, () =>
-      console.log("The name has updated and component re-rendered")
-    );
-    ```
+In most cases, it is recommended to use the componentDidUpdate() lifecycle method instead of the callback function. This is because componentDidUpdate() is guaranteed to be called after the state has been updated, whereas the callback function may not be called if the state update is interrupted.
+
+Here is an example of how to use the callback function with setState():
+
+const [counter, setCounter] = useState(0);
+
+const handleClick = () => {
+  setCounter((prevCounter) => {
+    return prevCounter + 1;
+  });
+};
+
+const render = () => {
+  return (
+    <div>
+      <button onClick={handleClick}>Click me</button>
+      <p>The counter is {counter}</p>
+    </div>
+  );
+};
+
 
     **[⬆ Back to Top](#table-of-contents)**
 
