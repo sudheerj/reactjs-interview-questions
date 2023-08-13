@@ -25,6 +25,7 @@
 | --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |     | **Core React**                                                                                                                                                                                                                   |
 | 1   | [What is React?](#what-is-react)                                                                                                                                                                                                 |
+| 2   | [What is the history behind React evolution?](#what-is-the-history-behind-react-evolution) |
 | 2   | [What are the major features of React?](#what-are-the-major-features-of-react)                                                                                                                                                   |
 | 3   | [What is JSX?](#what-is-jsx)                                                                                                                                                                                                     |
 | 4   | [What is the difference between Element and Component?](#what-is-the-difference-between-element-and-component)                                                                                                                   |
@@ -2426,21 +2427,6 @@
     import MyComponent from "./myComponent";
     ```
 
-    #### What are the exceptions on React component naming?
-
-    The component names should start with an uppercase letter but there are few exceptions to this convention. The lowercase tag names with a dot (property accessors) are still considered as valid component names.
-    For example, the below tag can be compiled to a valid component,
-
-    ```jsx harmony
-         render() {
-              return (
-                <obj.component/> // `React.createElement(obj.component)`
-              )
-        }
-    ```
-
-    **[⬆ Back to Top](#table-of-contents)**
-
 88. ### Are custom DOM attributes supported in React v16?
 
     Yes. In the past, React used to ignore unknown DOM attributes. If you wrote JSX with an attribute that React doesn't recognize, React would just skip it.
@@ -3085,6 +3071,21 @@
      ```
 
      With the export specifier, the MyProfile is going to be the member and exported to this module and the same can be imported without mentioning the name in other components.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+118. ### What are the exceptions on React component naming?
+
+    The component names should start with an uppercase letter but there are few exceptions to this convention. The lowercase tag names with a dot (property accessors) are still considered as valid component names.
+    For example, the below tag can be compiled to a valid component,
+
+    ```jsx harmony
+         render() {
+              return (
+                <obj.component/> // `React.createElement(obj.component)`
+              )
+        }
+    ```
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -4677,7 +4678,7 @@
      2. Selectors are efficient. A selector is not recomputed unless one of its arguments changes.
      3. Selectors are composable. They can be used as input to other selectors.
 
-207. #### Give an example of Reselect usage?
+207. ### Give an example of Reselect usage?
 
      Let's take calculations and different amounts of a shipment order with the simplified usage of Reselect:
 
