@@ -106,7 +106,6 @@
 | 80  | [What is the recommended ordering of methods in component class?](#what-is-the-recommended-ordering-of-methods-in-component-class)                                                                                               |
 | 81  | [What is a switching component?](#what-is-a-switching-component)                                                                                                                                                                 |
 | 82  | [Why we need to pass a function to setState()?](#why-we-need-to-pass-a-function-to-setstate)                                                                                                                                     |
-| 83  | [What is strict mode in React?](#what-is-strict-mode-in-react)                                                                                                                                                                   |
 | 84  | [What are React Mixins?](#what-are-react-mixins)                                                                                                                                                                                 |
 | 85  | [Why is isMounted() an anti-pattern and what is the proper solution?](#why-is-ismounted-an-anti-pattern-and-what-is-the-proper-solution)                                                                                         |
 | 86  | [What are the Pointer Events supported in React?](#what-are-the-pointer-events-supported-in-react)                                                                                                                               |
@@ -365,7 +364,8 @@
 | 333 | [What is a wrapper component ](#what-is-a-wrapper-component)                                                                                                                                                                     |
 | 334 | [What are the differences between useEffect and useLayoutEffect hooks](#what-are-the-differences-between-useEffect-and-useLayoutEffect-hooks)                                                                                    |
 | 335 | [What are the differences between Functional and Class Components ](#what-are-the-differences-between-functional-and-class-components)                                                                                           |
-| 336 | [Why does strict mode render twice in React?](#why-does-strict-mode-render-twice-in-react)                                                                                                                 |
+| 336 | [What is strict mode in React?](#what-is-strict-mode-in-react)                                                                                                                                                                   |
+| 338 | [Why does strict mode render twice in React?](#why-does-strict-mode-render-twice-in-react)                                                                                                                 |
 
 ## Core React
 
@@ -2306,41 +2306,6 @@
       counter: prevState.counter + props.increment,
     }));
     ```
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-83. ### What is strict mode in React?
-
-    `React.StrictMode` is a useful component for highlighting potential problems in an application. Just like `<Fragment>`, `<StrictMode>` does not render any extra DOM elements. It activates additional checks and warnings for its descendants. These checks apply for _development mode_ only.
-
-    ```jsx harmony
-    import React from "react";
-
-    function ExampleApplication() {
-      return (
-        <div>
-          <Header />
-          <React.StrictMode>
-            <div>
-              <ComponentOne />
-              <ComponentTwo />
-            </div>
-          </React.StrictMode>
-          <Header />
-        </div>
-      );
-    }
-    ```
-
-    In the example above, the _strict mode_ checks apply to `<ComponentOne>` and `<ComponentTwo>` components only.
-
-    React.StrictMode currently helps you with:
-
-    1. Identifying components with unsafe lifecycles
-    2. Warning about legacy string ref API usage
-    3. Warning about deprecated `findDOMNode` usage
-    4. Detecting unexpected side effects
-    5. Detecting legacy context API
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -5508,18 +5473,6 @@
 
 **[⬆ Back to Top](#table-of-contents)**
 
-251. ### What is the benefit of strict mode?
-
-     The <StrictMode> will be helpful in the below cases
-
-     1. Identifying components with **unsafe lifecycle methods**.
-     2. Warning about **legacy string ref** API usage.
-     3. Detecting unexpected **side effects**.
-     4. Detecting **legacy context** API.
-     5. Warning about deprecated findDOMNode usage
-
-**[⬆ Back to Top](#table-of-contents)**
-
 252. ### What are Keyed Fragments?
 
      The Fragments declared with the explicit <React.Fragment> syntax may have keys. The general use case is mapping a collection to an array of fragments as below,
@@ -7272,6 +7225,46 @@ const loadUser = async () => {
         );
       }
       ```
+
+**[⬆ Back to Top](#table-of-contents)**
+
+336. ### What is strict mode in React?
+
+    `React.StrictMode` is a useful component for highlighting potential problems in an application. Just like `<Fragment>`, `<StrictMode>` does not render any extra DOM elements. It activates additional checks and warnings for its descendants. These checks apply for _development mode_ only.
+
+    ```jsx harmony
+    import React from "react";
+
+    function ExampleApplication() {
+      return (
+        <div>
+          <Header />
+          <React.StrictMode>
+            <div>
+              <ComponentOne />
+              <ComponentTwo />
+            </div>
+          </React.StrictMode>
+          <Header />
+        </div>
+      );
+    }
+    ```
+
+    In the example above, the _strict mode_ checks apply to `<ComponentOne>` and `<ComponentTwo>` components only. i.e., Part of the application only.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+337. ### What is the benefit of strict mode?
+
+     The <StrictMode> will be helpful in the below cases,
+     1. Whenever the component 
+
+     1. Identifying components with **unsafe lifecycle methods**.
+     2. Warning about **legacy string ref** API usage.
+     3. Detecting unexpected **side effects**.
+     4. Detecting **legacy context** API.
+     5. Warning about deprecated findDOMNode usage
 
 **[⬆ Back to Top](#table-of-contents)**
 
