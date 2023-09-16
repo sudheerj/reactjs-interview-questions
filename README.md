@@ -939,7 +939,7 @@
 
 18. ### What is "key" prop and what is the benefit of using it in arrays of elements?
 
-    A `key` is a special attribute you **should** include when creating arrays of elements. _Key_ prop helps React identify which items have changed, are added, or are removed.
+    A `key` is a special attribute you **should** include when mapping over arrays to render data. _Key_ prop helps React identify which items have changed, are added, or are removed.
 
     Keys should be unique among its siblings. Most often we use ID from our data as _key_:
 
