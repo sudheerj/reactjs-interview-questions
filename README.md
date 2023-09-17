@@ -7184,7 +7184,7 @@ const loadUser = async () => {
       function App() {
         const [message, setMessage] = useState("This is a functional component");
         const updateMessage = () => {
-          setCountry("Updating the functional component");
+          setMessage("Updating the functional component");
         };
         return (
           <div className="App">
