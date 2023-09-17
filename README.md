@@ -3,6 +3,17 @@
 > Click :star:if you like the project. Pull Request are highly appreciated. Follow me [@SudheerJonna](https://twitter.com/SudheerJonna) for technical updates.
 
 ---
+
+<div>
+<p align="center">
+  <a href=https://react.gg/?s=rjsiq>
+    <img src="./images/collab/uidev-banner4x.png" alt="React interview" width="100%">
+  </a>
+</p>
+</div>
+
+---
+
 <div>
 <p align="center">
   <a href=https://zerotomastery.io/?utm_source=github&utm_medium=sponsor&utm_campaign=reactjs-interview-questions>
@@ -13,15 +24,6 @@
       <li>Want to ace your coding interview and get hired at your dream company? <a href="http://links.zerotomastery.io/mci_sudheer">Take this coding interview bootcamp</a></li>
     </ol>
   </p>
-</div>
-
----
-<div>
-<p align="center">
-  <a href=https://react.gg/?s=rjsiq>
-    <img src="./images/collab/uidev-banner4x.png" alt="React interview" width="500" height="120">
-  </a>
-</p>
 </div>
 
 ---
