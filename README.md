@@ -372,6 +372,7 @@ Hide / Show table of contents.
 | 336 | [Why does strict mode render twice in React?](#why-does-strict-mode-render-twice-in-react)                                                                                                                 |
 
 </details>
+
 ## Core React
 
 1.  ### What is React?
