@@ -111,7 +111,7 @@ export default function Counter() {
     <button onClick={handleIncrement}>
       Click me
     </button>
-  <>
+  </>
 }
 ```
 
