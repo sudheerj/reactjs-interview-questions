@@ -376,7 +376,10 @@
 | 334 | [What are the differences between useEffect and useLayoutEffect hooks](#what-are-the-differences-between-useEffect-and-useLayoutEffect-hooks)                                                                                    |
 | 335 | [What are the differences between Functional and Class Components ](#what-are-the-differences-between-functional-and-class-components)                                                                                           |
 | 336 | [What is strict mode in React?](#what-is-strict-mode-in-react)                                                                                                                                                                   |
-| 338 | [Why does strict mode render twice in React?](#why-does-strict-mode-render-twice-in-react)                                                                                                                 |
+| 337 | [Explain the building blocks of react?](#explain-the-building-blocks-of-react)                                                                                                                                                                   |
+| 338 | [Explain the MVC architecture?](#explain-the-mvc-architecture)                                                                                                                                                                   |
+| 339 | [Why does strict mode render twice in React?](#why-does-strict-mode-render-twice-in-react)            
+                                                                                                |
 
 ## Core React
 
@@ -7307,6 +7310,30 @@ const loadUser = async () => {
       4. State updater functions
       5. Functions passed to useState, useMemo, or useReducer (any Hook)
 
+**[⬆ Back to Top](#table-of-contents)**
+
+337. ### Explain the building blocks of React.
+      There are five main building blocks of React which are mentioned below:
+     
+      1. Components: These are reusable blocks of code that return HTML.
+      2. JSX: It stands for JavaScript and XML and allows writing HTML in React.
+      3. Props and State: props are like function parameters and State is similar to variables.
+      4. Context: This allows data to be passed through components as props in a hierarchy.
+      5. Virtual DOM: It is a lightweight copy of the actual DOM which makes DOM manipulation easier.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+338. ### Explain the MVC architecture.
+       The Model-View-Controller (MVC) framework is an architectural/design pattern that separates
+       an application into three main logical components
+       
+       1. Model
+       2. View
+       3. Controller.
+       
+       Each architectural component is built to handle specific development aspects of an application.
+       It isolates the business, logic, and presentation layer from each other.
+     
 **[⬆ Back to Top](#table-of-contents)**
 
 ## Disclaimer
