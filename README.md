@@ -229,7 +229,8 @@
 | 188 | [What is the difference between React Native and React?](#what-is-the-difference-between-react-native-and-react)                                                                                                                 |
 | 189 | [How to test React Native apps?](#how-to-test-react-native-apps)                                                                                                                                                                 |
 | 190 | [How to do logging in React Native?](#how-to-do-logging-in-react-native)                                                                                                                                                         |
-| 191 | [How to debug your React Native?](#how-to-debug-your-react-native)                                                                                                                                                               |
+| 191 | [How to debug your React Native?](#how-to-debug-your-react-native)             
+| 192 | [How many threads work at a time in React Native?](#how-many-treads-work-at-a-time-react-native)
 |     | **React supported libraries and Integration**                                                                                                                                                                                    |
 | 192 | [What is reselect and how it works?](#what-is-reselect-and-how-it-works)                                                                                                                                                         |
 | 193 | [What is Flow?](#what-is-flow)                                                                                                                                                                                                   |
@@ -245,8 +246,7 @@
 | 203 | [Give an example of Styled Components?](#give-an-example-of-styled-components)                                                                                                                                                   |
 | 204 | [What is Relay?](#what-is-relay)                                                                                                                                                                                                 |
 | 205 | [How to use TypeScript in create-react-app application?](#how-to-use-typescript-in-create-react-app-application)       
-|       **React - Native**
-| 206 | [How many threads working in React-Native?] (#how-many-threds-in-react-native)
+|    
 |     | **Miscellaneous**                                                                                                                                                                                                                |
 | 206 | [What are the main features of reselect library?](#what-are-the-main-features-of-reselect-library)                                                                                                                               |
 | 207 | [Give an example of reselect usage?](#give-an-example-of-reselect-usage)                                                                                                                                                         |
