@@ -244,7 +244,9 @@
 | 202 | [What are styled components?](#what-are-styled-components)                                                                                                                                                                       |
 | 203 | [Give an example of Styled Components?](#give-an-example-of-styled-components)                                                                                                                                                   |
 | 204 | [What is Relay?](#what-is-relay)                                                                                                                                                                                                 |
-| 205 | [How to use TypeScript in create-react-app application?](#how-to-use-typescript-in-create-react-app-application)                                                                                                                 |
+| 205 | [How to use TypeScript in create-react-app application?](#how-to-use-typescript-in-create-react-app-application)       
+|       **React - Native**
+| 206 | [How many threads working in React-Native?] (#how-many-threds-in-react-native)
 |     | **Miscellaneous**                                                                                                                                                                                                                |
 | 206 | [What are the main features of reselect library?](#what-are-the-main-features-of-reselect-library)                                                                                                                               |
 | 207 | [Give an example of reselect usage?](#give-an-example-of-reselect-usage)                                                                                                                                                         |
