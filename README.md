@@ -475,7 +475,7 @@
 
     The above `React.createElement()` function returns an object as below:
 
-    ```
+    ```javascript
     {
       type: 'div',
       props: {
