@@ -549,7 +549,6 @@
     The usage of Error boundaries from the above library is quite straight forward.
 
     ```jsx
-    "use client";
 
     import { ErrorBoundary } from "react-error-boundary";
 
