@@ -78,7 +78,7 @@
 | 41  | [What is reconciliation?](#what-is-reconciliation)                                                                                                                                                                               |
 | 42  | [How to set state with a dynamic key name?](#how-to-set-state-with-a-dynamic-key-name)                                                                                                                                           |
 | 43  | [What would be the common mistake of function being called every time the component renders?](#what-would-be-the-common-mistake-of-function-being-called-every-time-the-component-renders)                                       |
-| 44  | [Is lazy function supports named exports?](#is-lazy-function-supports-named-exports)                                                                                                                                             |
+| 44  | [Does the lazy function support named exports??](#does-the-lazy-function-support-named-exports)                                                                                                                                             |
 | 45  | [Why React uses className over class attribute?](#why-react-uses-classname-over-class-attribute)                                                                                                                                 |
 | 46  | [What are fragments?](#what-are-fragments)                                                                                                                                                                                       |
 | 47  | [Why fragments are better than container divs?](#why-fragments-are-better-than-container-divs)                                                                                                                                   |
@@ -1469,7 +1469,7 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-44. ### Is lazy function supports named exports?
+44. ### Does the lazy function support named exports??
 
     No, currently `React.lazy` function supports default exports only. If you would like to import modules which are named exports, you can create an intermediate module that reexports it as the default. It also ensures that tree shaking keeps working and don’t pull unused components.
     Let's take a component file which exports multiple named components,
@@ -5103,6 +5103,9 @@
 
      1. **Call Hooks only at the top level of your react functions:** You shouldn’t call Hooks inside loops, conditions, or nested functions. This will ensure that Hooks are called in the same order each time a component renders and it preserves the state of Hooks between multiple useState and useEffect calls.
      2. **Call Hooks from React Functions only:** You shouldn’t call Hooks from regular JavaScript functions. Instead, you should call them from either function components or custom hooks.
+     3. **Sharing stateful logic, not state:** Custom hooks are designed to share reusable stateful logic across components. However, they should not share state directly. Each component that uses a custom hook will have its own separate state. Custom hooks provide a way to share the logic and behavior, not the state itself.
+     4. **No direct rendering:** Custom hooks should not include JSX rendering logic. They are meant to be utility functions that encapsulate reusable logic. Rendering and JSX should be handled within the components that use the custom hook.
+
 
      The eslint plugin named **eslint-plugin-react-hooks** can be used to enforce these two rules.
 
