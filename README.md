@@ -35,12 +35,8 @@
 | No. | Questions                                                                                                                                                                                                                        |
 | --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |     | **Core React**                                                                                                                                                                                                                   |
-| 1   | [What is React?]
-(#what-is-react)      
-
-| 2   | [What is the history behind React Evolution?]
-(#what-is-the-history-behind-react-evolution)      
-                                                                                                                                                                                    |
+| 1   | [What is React?](#what-is-react)                                                                                                                                                                                                             |
+| 2  | [What is the history behind React Evolution?](#what-is-the-history-behind-react-evolution)                                                                                                                                                   |
 | 3   | [What are the major features of React?](#what-are-the-major-features-of-react)                                                                                                                                                   |
 | 4   | [What is JSX?](#what-is-jsx)                                                                                                                                                                                                    |
 | 5   | [What is the difference between Element and Component?](#what-is-the-difference-between-element-and-component)                                                                                                                   |
