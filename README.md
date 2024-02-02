@@ -1540,7 +1540,7 @@
     }
     ```
 
-    Ususally you don't need to use **<Fragment>** until unless there is a need of _key_ attribute. The usage of shorter syntax looks like below.
+    Usually, you don't need to use **<Fragment>** until unless there is a need of _key_ attribute. The usage of shorter syntax looks like below.
 
     ```jsx harmony
     function Story({title, description, date}) {
