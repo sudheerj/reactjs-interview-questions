@@ -29,8 +29,12 @@
 ---
 
 **Note:** This repository is specific to ReactJS. Please check [Javascript Interview questions](https://github.com/sudheerj/javascript-interview-questions) for core javascript questions.
-
 ### Table of Contents
+<details open>
+<summary>
+Hide / Show table of contents.
+</summary>
+
 
 | No. | Questions                                                                                                                                                                                                                        |
 | --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -378,6 +382,8 @@
 | 335 | [What are the differences between Functional and Class Components ](#what-are-the-differences-between-functional-and-class-components)                                                                                           |
 | 336 | [What is strict mode in React?](#what-is-strict-mode-in-react)                                                                                                                                                                   |
 | 338 | [Why does strict mode render twice in React?](#why-does-strict-mode-render-twice-in-react)                                                                                                                 |
+
+</details>
 
 ## Core React
 
