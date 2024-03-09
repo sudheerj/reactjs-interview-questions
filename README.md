@@ -5954,9 +5954,7 @@
 
 274. ### What are loadable components?
 
-     If you want to do code-splitting in a server rendered app, it is recommend to use Loadable Components because React.lazy and Suspense is not yet available for server-side rendering. Loadable lets you render a dynamic import as a regular component.
-
-     Lets take an example,
+     With the release of React 18, React.lazy and Suspense are now available for server-side rendering. However, prior to React 18, it was recommended to use Loadable Components for code-splitting in a server-side rendered app because React.lazy and Suspense were not available for server-side rendering. Loadable Components lets you render a dynamic import as a regular component. For example, you can use Loadable Components to load the OtherComponent in a separate bundle like this:
 
      ```javascript
      import loadable from "@loadable/component";
@@ -5973,6 +5971,9 @@
      ```
 
      Now OtherComponent will be loaded in a separated bundle
+     Loadable Components provides additional benefits beyond just code-splitting, such as automatic code reloading, error handling, and preloading. By using Loadable Components, you can ensure that your application loads quickly and efficiently, providing a better user experience for your users.
+
+
 
 **[⬆ Back to Top](#table-of-contents)**
 
