@@ -786,14 +786,36 @@
 
 12. ### What is the purpose of callback function as an argument of `setState()`?
 
-    The callback function is invoked when setState finished and the component gets rendered. Since `setState()` is **asynchronous** the callback function is used for any post action.
+    `SetState` is an `asynchronous method`. `Asynchronous` means that the remaining code will get executed while the current action is being performed. Whereas `synchronous` code will block the code execution while the current action is being performed. So, if you want an action to be performed only after the state has been updated you can make use of a call back function. This `callback function` is put as an argument to setstate method. This is the exact purpose of defining a callback function as an argument of setState.
 
-    **Note:** It is recommended to use lifecycle method rather than this callback function.
-
-    ```javascript
-    setState({ name: "John" }, () =>
-      console.log("The name has updated and component re-rendered")
-    );
+    ```jsx
+    import React from "react";
+    
+    class App extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            value: 0
+        }
+    }
+  
+    call() {
+        this.setState({ value: this.state.value + 1 }, () =>
+            console.log("Updated Value :" + this.state.value)
+        );
+    }
+  
+    render() {
+        return (
+            <div>
+                <button onClick={() => { this.call() }}>
+                    Click to update state!
+                </button>
+            </div>
+        );
+        }
+    }
+    export default App;
     ```
 
     **[⬆ Back to Top](#table-of-contents)**
@@ -4895,13 +4917,25 @@
 
 218. ### How to pass numbers to React component?
 
-     You should be passing the numbers via curly braces({}) where as strings in quotes
+     We can pass `numbers` as `props` to React component using curly braces `{}` where as `strings` in double quotes `""` or single quotes `''` 
 
      ```jsx
-     React.render(
-       <User age={30} department={"IT"} />,
-       document.getElementById("container")
-     );
+     import React from "react";
+      const ChildComponent = ({ name, age }) => {
+      return (
+        <>
+          My Name is {name} and Age is {age}
+        </>
+        );
+      };
+      const ParentComponent = () => {
+      return (
+        <>
+          <ChildComponent name="Chetan" age={30} />
+        </>
+        );
+      };
+      export default ParentComponent;
      ```
 
 **[⬆ Back to Top](#table-of-contents)**
