@@ -28,7 +28,7 @@
 
 ---
 
-**Note:** This repository is specific to ReactJS. Please check [Javascript Interview questions](https://github.com/sudheerj/javascript-interview-questions) for core javascript questions.
+**Note:** This repository is specific to ReactJS. Please check [Javascript Interview questions](https://github.com/sudheerj/javascript-interview-questions) for core javascript questions and [DataStructures and Algorithms](https://github.com/sudheerj/datastructures-algorithms) for DSA related questions or problems.
 
 ### Table of Contents
 
@@ -515,7 +515,7 @@
 
     Components are the building blocks of creating User Interfaces(UI) in React. There are two possible ways to create a component.
 
-    1. **Function Components:** This is the simplest way to create a component. Those are pure JavaScript functions that accept props object as the first parameter and return React elements to render the output:
+    1. **Function Components:** This is the simplest way to create a component. Those are pure JavaScript functions that accept props object as the one and only one parameter and return React elements to render the output:
 
        ```jsx harmony
        function Greeting({ message }) {
@@ -616,7 +616,7 @@
 
     ![state](images/state.jpg)
 
-    Let's take an example of **User** component with message state. Here, **useState** hook has been used to add state to the User component and it returns an array with current state and function to update it.
+    Let's take an example of **User** component with `message` state. Here, **useState** hook has been used to add state to the User component and it returns an array with current state and function to update it.
 
     ```jsx harmony
     import React, { useState } from "react";
@@ -696,6 +696,7 @@
         <div>
           <p>{props.name}</p>
           <p>{props.age}</p>
+          <p>{props.gender}</p>
         </div>
       );
     };
@@ -703,25 +704,27 @@
     const ParentComponent = () => {
       return (
         <div>
-          <ChildComponent name="John" age="30" />
-          <ChildComponent name="Mary" age="25" />
+          <ChildComponent name="John" age="30" gender="male" />
+          <ChildComponent name="Mary" age="25" geneder="female"/>
         </div>
       );
     };
     ```
 
-   The properties from props object can be accessed directly using destructing feature from ES6 (ECMAScript 2015). The above child component can be simplified like below.
+   The properties from props object can be accessed directly using destructing feature from ES6 (ECMAScript 2015). It is also possible to fallback to default value when the prop value is not specified. The above child component can be simplified like below.
 
   ```jsx harmony
-    const ChildComponent = ({name, age}) => {
+    const ChildComponent = ({name, age, gender="male"}) => {
         return (
           <div>
             <p>{name}</p>
             <p>{age}</p>
+            <p>{gender}</p>
           </div>
         );
       };
   ``` 
+  **Note:** The default value won't be used if you pass `null` or `0` value. i.e, default value is only used if the prop value is missed or `undefined` value has been passed.
 
   <details><summary><b>See Class</b></summary>
      The Props accessed in Class Based Component as below
@@ -736,6 +739,7 @@
               <div>
                 <p>{this.props.name}</p>
                 <p>{this.props.age}</p>
+                <p>{this.props.gender}</p>
               </div>
             );
           }
@@ -745,8 +749,8 @@
           render() {
             return (
               <div>
-                <ChildComponent name="John" age="30" />
-                <ChildComponent name="Mary" age="25" />
+                <ChildComponent name="John" age="30"  gender="male" />
+                <ChildComponent name="Mary" age="25"  gender="female" />
               </div>
             );
           }
@@ -1339,11 +1343,31 @@
 
 38. ### What is children prop?
 
-    _Children_ is a prop (`this.props.children`) that allows you to pass components as data to other components, just like any other prop you use. Component tree put between component's opening and closing tag will be passed to that component as `children` prop.
-
-    There are several methods available in the React API to work with this prop. These include `React.Children.map`, `React.Children.forEach`, `React.Children.count`, `React.Children.only`, `React.Children.toArray`.
+    _Children_ is a prop that allows you to pass components as data to other components, just like any other prop you use. Component tree put between component's opening and closing tag will be passed to that component as `children` prop.
 
     A simple usage of children prop looks as below,
+
+    ```jsx harmony
+    function MyDiv({ children }){
+        return (
+          <div>
+            {children}
+          </div>;
+        );
+    };
+
+    export default function Greeting() {
+      return (
+        <MyDiv>
+          <span>{"Hello"}</span>
+          <span>{"World"}</span>
+        </MyDiv>
+      );
+    }
+    ```
+
+    <details><summary><b>See Class</b></summary>
+    <p>
 
     ```jsx harmony
     const MyDiv = React.createClass({
@@ -1360,6 +1384,10 @@
       node
     );
     ```
+    </p>
+    </details>
+
+    **Note:**  There are several methods available in the legacy React API to work with this prop. These include `React.Children.map`, `React.Children.forEach`, `React.Children.count`, `React.Children.only`, `React.Children.toArray`.
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -1499,7 +1527,7 @@
 
 45. ### Why React uses `className` over `class` attribute?
 
-    The attribute `class` is a keyword in JavaScript, and JSX is an extension of JavaScript. That's the principle reason why React uses `className` instead of `class`. Pass a string as the `className` prop.
+    The attribute names written in JSX turned into keys of JavaScript objects and the JavaScript names cannot contain dashes or reversed words, it is recommended to use camelCase whereever applicable in JSX code. The attribute `class` is a keyword in JavaScript, and JSX is an extension of JavaScript. That's the principle reason why React uses `className` instead of `class`. Pass a string as the `className` prop.
 
     ```jsx harmony
     render() {
@@ -7281,7 +7309,7 @@ const loadUser = async () => {
 
 **[⬆ Back to Top](#table-of-contents)**
 
-336. ### Why does strict mode render twice in React?
+338. ### Why does strict mode render twice in React?
       StrictMode renders components twice in development mode(not production) in order to detect any problems with your code and warn you about those problems. This is used to detect accidental side effects in the render phase.  If you used `create-react-app` development tool then it automatically enables StrictMode by default.
 
       ```js
@@ -7310,6 +7338,29 @@ const loadUser = async () => {
       5. Functions passed to useState, useMemo, or useReducer (any Hook)
 
 **[⬆ Back to Top](#table-of-contents)**
+
+339. ### What are the rules of JSX?
+    The below 3 rules needs to be followed while using JSX in a react application.
+    
+    1. **Return a single root element**:
+        If you are returning multiple elements from a component, wrap them in a single parent element. Otherwise you will receive the below error in your browser console.
+
+        ```html Adjacent JSX elements must be wrapped in an enclosing tag.```
+
+    2. **All the tags needs to be closed:**
+        Unlike HTML, all tags needs to closed explicitly with in JSX. This rule applies for self-closing tags(like hr, br and img tags) as well.
+    3. **Use camelCase naming:**
+        It is suggested to use camelCase naming for attributes in JSX. For example, the common attributes of HTML elements such as `class`, `tabindex` will be used as `className` and `tabIndex`.  
+        **Note:** There is an exception for aria-* and data-* attributes which should be lower cased all the time.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+ 340. ### What is the reason behind multiple JSX tags to be wrapped?
+
+      Behind the scenes, JSX is transformed into plain javascript objects. It is not possible to return two or more objects from a function without wrapping into an array. This is the reason you can't simply return two or more JSX tags from a function without 
+      wrapping them into a single parent tag or a Fragement.
+
+ **[⬆ Back to Top](#table-of-contents)**
 
 ## Disclaimer
 
