@@ -978,6 +978,7 @@
     2. If you extract list item as separate component then apply _keys_ on list component instead of `li` tag.
     3. There will be a warning message in the console if the `key` prop is not present on list items.
     4. The key attribute accepts either string or number and internally convert it as string type.
+    5. Don't generate the key on the fly something like `key={Math.random()}`. Because the keys will never match up between re-renders  and DOM created everytime.
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -1354,7 +1355,7 @@
             {children}
           </div>;
         );
-    };
+    }
 
     export default function Greeting() {
       return (
@@ -1916,7 +1917,7 @@
 
     Keys should be stable, predictable, and unique so that React can keep track of elements.
 
-    In the below code snippet each element's key will be based on ordering, rather than tied to the data that is being represented. This limits the optimizations that React can do.
+    In the below code snippet each element's key will be based on ordering, rather than tied to the data that is being represented. This limits the optimizations that React can do and creates confusing bugs in the application.
 
     ```jsx harmony
     {
@@ -1924,13 +1925,14 @@
     }
     ```
 
-    If you use element data for unique key, assuming todo.id is unique to this list and stable, React would be able to reorder elements without needing to reevaluate them as much.
+    If you use element data for unique key, assuming `todo.id` is unique to this list and stable, React would be able to reorder elements without needing to reevaluate them as much.
 
     ```jsx harmony
     {
       todos.map((todo) => <Todo {...todo} key={todo.id} />);
     }
     ```
+    **Note:** If you don't specify `key` prop at all, React will use index as a key's value while iterating over an array of data.
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -7272,30 +7274,30 @@ const loadUser = async () => {
 
 336. ### What is strict mode in React?
 
-    `React.StrictMode` is a useful component for highlighting potential problems in an application. Just like `<Fragment>`, `<StrictMode>` does not render any extra DOM elements. It activates additional checks and warnings for its descendants. These checks apply for _development mode_ only.
+      `React.StrictMode` is a useful component for highlighting potential problems in an application. Just like `<Fragment>`, `<StrictMode>` does not render any extra DOM elements. It activates additional checks and warnings for its descendants. These checks apply for _development mode_ only.
 
-    ```jsx harmony
-    import React from "react";
+      ```jsx harmony
+      import React from "react";
 
-    function ExampleApplication() {
-      return (
-        <div>
-          <Header />
-          <React.StrictMode>
-            <div>
-              <ComponentOne />
-              <ComponentTwo />
-            </div>
-          </React.StrictMode>
-          <Header />
-        </div>
-      );
-    }
-    ```
+      function ExampleApplication() {
+        return (
+          <div>
+            <Header />
+            <React.StrictMode>
+              <div>
+                <ComponentOne />
+                <ComponentTwo />
+              </div>
+            </React.StrictMode>
+            <Header />
+          </div>
+        );
+      }
+      ```
 
-    In the example above, the _strict mode_ checks apply to `<ComponentOne>` and `<ComponentTwo>` components only. i.e., Part of the application only.
+      In the example above, the _strict mode_ checks apply to `<ComponentOne>` and `<ComponentTwo>` components only. i.e., Part of the application only.
 
-    **[⬆ Back to Top](#table-of-contents)**
+      **[⬆ Back to Top](#table-of-contents)**
 
 337. ### What is the benefit of strict mode?
 
@@ -7341,16 +7343,16 @@ const loadUser = async () => {
 **[⬆ Back to Top](#table-of-contents)**
 
 339. ### What are the rules of JSX?
-    The below 3 rules needs to be followed while using JSX in a react application.
+      The below 3 rules needs to be followed while using JSX in a react application.
     
-    1. **Return a single root element**:
+      1. **Return a single root element**:
         If you are returning multiple elements from a component, wrap them in a single parent element. Otherwise you will receive the below error in your browser console.
 
         ```html Adjacent JSX elements must be wrapped in an enclosing tag.```
 
-    2. **All the tags needs to be closed:**
+      2. **All the tags needs to be closed:**
         Unlike HTML, all tags needs to closed explicitly with in JSX. This rule applies for self-closing tags(like hr, br and img tags) as well.
-    3. **Use camelCase naming:**
+      3. **Use camelCase naming:**
         It is suggested to use camelCase naming for attributes in JSX. For example, the common attributes of HTML elements such as `class`, `tabindex` will be used as `className` and `tabIndex`.  
         **Note:** There is an exception for aria-* and data-* attributes which should be lower cased all the time.
 
