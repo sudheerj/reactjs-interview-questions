@@ -1608,7 +1608,8 @@
 
 48. ### What are portals in React?
 
-    _Portal_ is a recommended way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.
+    _Portal_ is a recommended way to render children into a DOM node that exists outside the DOM hierarchy of the parent component. When using
+    CSS transform in a component, its descendant elements should not use fixed positioning, otherwise the layout will blow up. 
 
     ```javascript
     ReactDOM.createPortal(child, container);
@@ -1618,13 +1619,13 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-49. ### What are stateless components?
+50. ### What are stateless components?
 
     If the behaviour of a component is independent of its state then it can be a stateless component. You can use either a function or a class for creating stateless components. But unless you need to use a lifecycle hook in your components, you should go for function components. There are a lot of benefits if you decide to use function components here; they are easy to write, understand, and test, a little faster, and you can avoid the `this` keyword altogether.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-50. ### What are stateful components?
+51. ### What are stateful components?
 
     If the behaviour of a component is dependent on the _state_ of the component then it can be termed as stateful component. These _stateful components_ are either function components with hooks or _class components_.
 
@@ -1676,7 +1677,7 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-51. ### How to apply validation on props in React?
+52. ### How to apply validation on props in React?
 
     When the application is running in _development mode_, React will automatically check all props that we set on components to make sure they have _correct type_. If the type is incorrect, React will generate warning messages in the console. It's disabled in _production mode_ due to performance impact. The mandatory props are defined with `isRequired`.
 
@@ -1741,7 +1742,7 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-52. ### What are the advantages of React?
+53. ### What are the advantages of React?
 
     Below are the list of main advantages of React,
 
@@ -1753,7 +1754,7 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-53. ### What are the limitations of React?
+54. ### What are the limitations of React?
 
     Apart from the advantages, there are few limitations of React too,
 
@@ -1765,7 +1766,7 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-54. ### What are error boundaries in React v16?
+55. ### What are error boundaries in React v16?
 
     _Error boundaries_ are components that catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI instead of the component tree that crashed.
 
@@ -1808,19 +1809,19 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-55. ### How are error boundaries handled in React v15?
+56. ### How are error boundaries handled in React v15?
 
     React v15 provided very basic support for _error boundaries_ using `unstable_handleError` method. It has been renamed to `componentDidCatch` in React v16.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-56. ### What are the recommended ways for static type checking?
+57. ### What are the recommended ways for static type checking?
 
     Normally we use _PropTypes library_ (`React.PropTypes` moved to a `prop-types` package since React v15.5) for _type checking_ in the React applications. For large code bases, it is recommended to use _static type checkers_ such as Flow or TypeScript, that perform type checking at compile time and provide auto-completion features.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-57. ### What is the use of `react-dom` package?
+58. ### What is the use of `react-dom` package?
 
     The `react-dom` package provides _DOM-specific methods_ that can be used at the top level of your app. Most of the components are not required to use this module. Some of the methods of this package are:
 
@@ -1832,7 +1833,7 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-58. ### What is the purpose of render method of `react-dom`?
+59. ### What is the purpose of render method of `react-dom`?
 
     This method is used to render a React element into the DOM in the supplied container and return a reference to the component. If the React element was previously rendered into container, it will perform an update on it and only mutate the DOM as necessary to reflect the latest changes.
 
@@ -1844,7 +1845,7 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-59. ### What is ReactDOMServer?
+60. ### What is ReactDOMServer?
 
     The `ReactDOMServer` object enables you to render components to static markup (typically used on node server). This object is mainly used for _server-side rendering_ (SSR). The following methods can be used in both the server and browser environments:
 
@@ -1871,7 +1872,7 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-60. ### How to use innerHTML in React?
+61. ### How to use innerHTML in React?
 
     The `dangerouslySetInnerHTML` attribute is React's replacement for using `innerHTML` in the browser DOM. Just like `innerHTML`, it is risky to use this attribute considering cross-site scripting (XSS) attacks. You just need to pass a `__html` object as key and HTML text as value.
 
@@ -1889,7 +1890,7 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-61. ### How to use styles in React?
+62. ### How to use styles in React?
 
     The `style` attribute accepts a JavaScript object with camelCased properties rather than a CSS string. This is consistent with the DOM style JavaScript property, is more efficient, and prevents XSS security holes.
 
@@ -1908,7 +1909,7 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-62. ### How events are different in React?
+63. ### How events are different in React?
 
     Handling events in React elements has some syntactic differences:
 
@@ -1917,13 +1918,13 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-63. ### What will happen if you use `setState()` in constructor?
+64. ### What will happen if you use `setState()` in constructor?
 
     When you use `setState()`, then apart from assigning to the object state React also re-renders the component and all its children. You would get error like this: _Can only update a mounted or mounting component._ So we need to use `this.state` to initialize variables inside constructor.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-64. ### What is the impact of indexes as keys?
+65. ### What is the impact of indexes as keys?
 
     Keys should be stable, predictable, and unique so that React can keep track of elements.
 
@@ -1945,7 +1946,7 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-65. ### Is it good to use `setState()` in `componentWillMount()` method?
+66. ### Is it good to use `setState()` in `componentWillMount()` method?
 
     Yes, it is safe to use `setState()` inside `componentWillMount()` method. But at the same it is recommended to avoid async initialization in `componentWillMount()` lifecycle method. `componentWillMount()` is invoked immediately before mounting occurs. It is called before `render()`, therefore setting state in this method will not trigger a re-render. Avoid introducing any side-effects or subscriptions in this method. We need to make sure async calls for component initialization happened in `componentDidMount()` instead of `componentWillMount()`.
 
@@ -1962,7 +1963,7 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-66. ### What will happen if you use props in initial state?
+67. ### What will happen if you use props in initial state?
 
     If the props on the component are changed without the component being refreshed, the new prop value will never be displayed because the constructor function will never update the current state of the component. The initialization of state from props only runs when the component is first created.
 
@@ -2005,7 +2006,7 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-67. ### How do you conditionally render components?
+68. ### How do you conditionally render components?
 
     In some cases you want to render different components depending on some state. JSX does not render `false` or `undefined`, so you can use conditional _short-circuiting_ to render a given part of your component only if a certain condition is true.
 
@@ -2031,7 +2032,7 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-68. ### Why we need to be careful when spreading props on DOM elements?
+69. ### Why we need to be careful when spreading props on DOM elements?
 
     When we _spread props_ we run into the risk of adding unknown HTML attributes, which is a bad practice. Instead we can use prop destructuring with `...rest` operator, so it will add only required props.
 
@@ -2049,7 +2050,7 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-69. ### How you use decorators in React?
+70. ### How you use decorators in React?
 
     You can _decorate_ your _class_ components, which is the same as passing the component into a function. **Decorators** are flexible and readable way of modifying component functionality.
 
@@ -2081,7 +2082,7 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-70. ### How do you memoize a component?
+71. ### How do you memoize a component?
 
     There are memoize libraries available which can be used on function components.
 
@@ -2113,7 +2114,7 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-71. ### How you implement Server Side Rendering or SSR?
+72. ### How you implement Server Side Rendering or SSR?
 
     React is already equipped to handle rendering on Node servers. A special version of the DOM renderer is available, which follows the same pattern as on the client side.
 
@@ -2128,13 +2129,13 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-72. ### How to enable production mode in React?
+73. ### How to enable production mode in React?
 
     You should use Webpack's `DefinePlugin` method to set `NODE_ENV` to `production`, by which it strip out things like propType validation and extra warnings. Apart from this, if you minify the code, for example, Uglify's dead-code elimination to strip out development only code and comments, it will drastically reduce the size of your bundle.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-73. ### What is CRA and its benefits?
+74. ### What is CRA and its benefits?
 
     The `create-react-app` CLI tool allows you to quickly create & run React applications with no configuration step.
 
@@ -2165,7 +2166,7 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-74. ### What is the lifecycle methods order in mounting?
+75. ### What is the lifecycle methods order in mounting?
 
     The lifecycle methods are called in the following order when an instance of a component is being created and inserted into the DOM.
 
@@ -2176,7 +2177,7 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-75. ### What are the lifecycle methods going to be deprecated in React v16?
+76. ### What are the lifecycle methods going to be deprecated in React v16?
 
     The following lifecycle methods going to be unsafe coding practices and will be more problematic with async rendering.
 
@@ -2188,7 +2189,7 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-76. ### What is the purpose of `getDerivedStateFromProps()` lifecycle method?
+77. ### What is the purpose of `getDerivedStateFromProps()` lifecycle method?
 
     The new static `getDerivedStateFromProps()` lifecycle method is invoked after a component is instantiated as well as before it is re-rendered. It can return an object to update state, or `null` to indicate that the new props do not require any state updates.
 
@@ -2204,7 +2205,7 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-77. ### What is the purpose of `getSnapshotBeforeUpdate()` lifecycle method?
+78. ### What is the purpose of `getSnapshotBeforeUpdate()` lifecycle method?
 
     The new `getSnapshotBeforeUpdate()` lifecycle method is called right before DOM updates. The return value from this method will be passed as the third parameter to `componentDidUpdate()`.
 
@@ -2220,13 +2221,13 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-78. ### Do Hooks replace render props and higher order components?
+79. ### Do Hooks replace render props and higher order components?
 
     Both render props and higher-order components render only a single child but in most of the cases Hooks are a simpler way to serve this by reducing nesting in your tree.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-79. ### What is the recommended way for naming components?
+80. ### What is the recommended way for naming components?
 
     It is recommended to name the component by reference instead of using `displayName`.
 
@@ -2258,7 +2259,7 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-80. ### What is the recommended ordering of methods in component class?
+81. ### What is the recommended ordering of methods in component class?
 
     _Recommended_ ordering of methods from _mounting_ to _render stage_:
 
@@ -2279,7 +2280,7 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-81. ### What is a switching component?
+82. ### What is a switching component?
 
     A _switching component_ is a component that renders one of many components. We need to use object to map prop values to components.
 
@@ -2312,7 +2313,7 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-82. ### Why we need to pass a function to setState()?
+83. ### Why we need to pass a function to setState()?
 
     The reason behind for this is that `setState()` is an asynchronous operation. React batches state changes for performance reasons, so the state may not change immediately after `setState()` is called. That means you should not rely on the current state when calling `setState()` since you can't be sure what that state will be. The solution is to pass a function to `setState()`, with the previous state as an argument. By doing this you can avoid issues with the user getting the old state value on access due to the asynchronous nature of `setState()`.
 
