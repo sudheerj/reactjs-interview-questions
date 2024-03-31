@@ -543,6 +543,17 @@
 
       1. If you need a React functionality whose Function component equivalent is not present yet, like Error Boundaries. 
       2. In older versions, If the component needs _state or lifecycle methods_ then you need to use class component.
+  
+      So the summary to this question is as follows:
+      **Use Function Components:**
+  
+      - If you don't need state or lifecycle methods, and your component is purely presentational.
+      - For simplicity, readability, and modern code practices, especially with the use of React Hooks for state and side effects.
+    
+      **Use Class Components:**
+      
+      - If you need to manage state or use lifecycle methods.
+      - In scenarios where backward compatibility or integration with older code is necessary.
 
 
     **Note:** You can also use reusable [react error boundary](https://github.com/bvaughn/react-error-boundary) third-party component without writing any class. i.e, No need to use class components for Error boundaries.
@@ -562,7 +573,7 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-7.  ### What are Pure Components?
+8.  ### What are Pure Components?
 
     Pure components are the components which render the same output for the same state and props. In function components, you can achieve these pure components through memoized `React.memo()` API wrapping around the component. This API prevents unnecessary re-renders by comparing the previous props and new props using shallow comparison. So it will be helpful for performance optimizations. 
     
@@ -610,7 +621,7 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-8.  ### What is state in React?
+9.  ### What is state in React?
 
     _State_ of a component is an object that holds some information that may change over the lifetime of the component. The important point is whenever the state object changes, the component re-renders. It is always recommended to make our state as simple as possible and minimize the number of stateful components.
 
@@ -663,7 +674,7 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-9.  ### What are props in React?
+10.  ### What are props in React?
 
     _Props_ are inputs to components. They are single values or objects containing a set of values that are passed to components on creation similar to HTML-tag attributes. Here, the data is passed down from a parent component to a child component.
 
