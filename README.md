@@ -4939,25 +4939,13 @@
 
 218. ### How to pass numbers to React component?
 
-     We can pass `numbers` as `props` to React component using curly braces `{}` where as `strings` in double quotes `""` or single quotes `''` 
+     You should be passing the numbers via curly braces(`{}`) where as strings in quotes
 
      ```jsx
-     import React from "react";
-      const ChildComponent = ({ name, age }) => {
-      return (
-        <>
-          My Name is {name} and Age is {age}
-        </>
-        );
-      };
-      const ParentComponent = () => {
-      return (
-        <>
-          <ChildComponent name="Chetan" age={30} />
-        </>
-        );
-      };
-      export default ParentComponent;
+    React.render(
+       <User age={30} department={"IT"} />,
+       document.getElementById("container")
+     );
      ```
 
 **[⬆ Back to Top](#table-of-contents)**
