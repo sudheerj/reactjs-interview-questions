@@ -32,6 +32,11 @@
 
 ### Table of Contents
 
+<details open>
+<summary>
+Hide/Show table of contents
+</summary>
+
 | No. | Questions                                                                                                                                                                                                                        |
 | --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |     | **Core React**                                                                                                                                                                                                                   |
@@ -385,6 +390,8 @@
 | 342 | [What are capture phase events?](#what-are-capture-phase-events) |
 | 343 | [How does React updates screen in an application?](#how-does-react-updates-screen-in-an-application)   |
 
+</details>
+
 ## Core React
 
 1.  ### What is React?
@@ -636,7 +643,7 @@
     Let's take an example of **User** component with `message` state. Here, **useState** hook has been used to add state to the User component and it returns an array with current state and function to update it.
 
     ```jsx harmony
-    import React, { useState } from "react";
+    import { useState } from "react";
 
     function User() {
       const [message, setMessage] = useState("Welcome to React world");
@@ -648,6 +655,8 @@
       );
     }
     ```
+
+    Whenever React calls your component or access `useState` hook, it gives you a snapshot of the state for that particular render.
 
     <details><summary><b>See Class</b></summary>
     <p>
@@ -682,51 +691,51 @@
 
 10.  ### What are props in React?
 
-    _Props_ are inputs to components. They are single values or objects containing a set of values that are passed to components on creation similar to HTML-tag attributes. Here, the data is passed down from a parent component to a child component.
+     _Props_ are inputs to components. They are single values or objects containing a set of values that are passed to components on creation similar to HTML-tag attributes. Here, the data is passed down from a parent component to a child component.
 
-    The primary purpose of props in React is to provide following component functionality:
+     The primary purpose of props in React is to provide following component functionality:
 
-    1. Pass custom data to your component.
-    2. Trigger state changes.
-    3. Use via `this.props.reactProp` inside component's `render()` method.
+      1. Pass custom data to your component.
+      2. Trigger state changes.
+      3. Use via `this.props.reactProp` inside component's `render()` method.
 
-    For example, let us create an element with `reactProp` property:
+      For example, let us create an element with `reactProp` property:
 
-    ```jsx harmony
-    <Element reactProp={"1"} />
-    ```
+      ```jsx harmony
+      <Element reactProp={"1"} />
+      ```
 
-    This `reactProp` (or whatever you came up with) attribute name then becomes a property attached to React's native props object which originally already exists on all components created using React library.
+      This `reactProp` (or whatever you came up with) attribute name then becomes a property attached to React's native props object which originally already exists on all components created using React library.
 
-    ```jsx harmony
-    props.reactProp
-    ```
+      ```jsx harmony
+      props.reactProp
+      ```
 
-    For example, the usage of props in function component looks like below:
+      For example, the usage of props in function component looks like below:
 
-    ```jsx
-    import React from "react";
-    import ReactDOM from "react-dom";
+      ```jsx
+      import React from "react";
+      import ReactDOM from "react-dom";
 
-    const ChildComponent = (props) => {
-      return (
-        <div>
-          <p>{props.name}</p>
-          <p>{props.age}</p>
-          <p>{props.gender}</p>
-        </div>
-      );
-    };
+      const ChildComponent = (props) => {
+        return (
+          <div>
+            <p>{props.name}</p>
+            <p>{props.age}</p>
+            <p>{props.gender}</p>
+          </div>
+        );
+      };
 
-    const ParentComponent = () => {
-      return (
-        <div>
-          <ChildComponent name="John" age="30" gender="male" />
-          <ChildComponent name="Mary" age="25" geneder="female"/>
-        </div>
-      );
-    };
-    ```
+      const ParentComponent = () => {
+        return (
+          <div>
+            <ChildComponent name="John" age="30" gender="male" />
+            <ChildComponent name="Mary" age="25" geneder="female"/>
+          </div>
+        );
+      };
+      ```
 
    The properties from props object can be accessed directly using destructing feature from ES6 (ECMAScript 2015). It is also possible to fallback to default value when the prop value is not specified. The above child component can be simplified like below.
 
@@ -780,8 +789,10 @@
 10. ### What is the difference between state and props?
 
     In React, both `state` and `props` are plain JavaScript objects and used to manage the data of a component, but they are used in different ways and have different characteristics.
-    `state` is managed by the component itself and can be updated using the `setState()` function. Unlike props, state can be modified by the component and is used to manage the internal state of the component. Changes in the state trigger a re-render of the component and its children.
-    `props` (short for "properties") are passed to a component by its parent component and are `read-only`, meaning that they cannot be modified by the component itself. props can be used to configure the behavior of a component and to pass data between components.
+
+    The `state` entity is managed by the component itself and can be updated using the setter(`setState()` for class components) function. Unlike props, state can be modified by the component and is used to manage the internal state of the component. Moreover, changes in the state trigger a re-render of the component and its children. The components cannot become reusable with the usage of state alone.
+
+    On the otherhand, `props` (short for "properties") are passed to a component by its parent component and are `read-only`, meaning that they cannot be modified by the own component itself. Also, props can be used to configure the behavior of a component and to pass data between components. The components become reusable with the usage of props.
     
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -2915,7 +2926,7 @@
 
 106. ### Why you can't update props in React?
 
-     The React philosophy is that props should be _immutable_ and _top-down_. This means that a parent can send any prop values to a child, but the child can't modify received props.
+     The React philosophy is that props should be _immutable_(read only) and _top-down_. This means that a parent can send any prop values to a child, but the child can't modify received props.
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -7483,8 +7494,13 @@ const loadUser = async () => {
        2. **Rendering components:** After triggering a render, React will call your components to display them on the screen. React will call the root component for initial render and call the function component whose state update triggered the render. This is a recursive process for all nested components of the target component.
 
        3. **Commit changes to DOM:** After calling components, React will modify the DOM for initial render using `appendChild()` DOM API and apply minimal necessary DOM updates for re-renders based on differences between rerenders.
-         
 
+ **[⬆ Back to Top](#table-of-contents)**
+
+ 344. ### How does React batch multiple state updates?
+ **[⬆ Back to Top](#table-of-contents)**
+
+ 345. ### How does React batch multiple state updates?
  **[⬆ Back to Top](#table-of-contents)**
 
 ## Disclaimer
