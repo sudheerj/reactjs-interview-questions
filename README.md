@@ -376,8 +376,14 @@
 | 333 | [What is a wrapper component ](#what-is-a-wrapper-component)                                                                                                                                                                     |
 | 334 | [What are the differences between useEffect and useLayoutEffect hooks](#what-are-the-differences-between-useEffect-and-useLayoutEffect-hooks)                                                                                    |
 | 335 | [What are the differences between Functional and Class Components ](#what-are-the-differences-between-functional-and-class-components)                                                                                           |
-| 336 | [What is strict mode in React?](#what-is-strict-mode-in-react)                                                                                                                                                                   |
-| 338 | [Why does strict mode render twice in React?](#why-does-strict-mode-render-twice-in-react)                                                                                                                 |
+| 336 | [What is strict mode in React?](#what-is-strict-mode-in-react)                                                                                                                              
+| 337 | [What is the benefit of strict mode?](#what-is-the-benefit-of-strict-mode)                                     |
+| 338 | [Why does strict mode render twice in React?](#why-does-strict-mode-render-twice-in-react)|
+| 339 | [What are the rules of JSX?](#what-are-the-rules-of-JSX) |
+| 340 | [What is the reason behind multiple JSX tags to be wrapped?](#what-is-the-reason-behind-multiple-JSX-tags-to-be-wrapped) |
+| 341 | [How do you prevent mutating array variables?](#how-do-you-prevent-mutating-array-variables) |
+| 342 | [What are capture phase events?](#what-are-capture-phase-events) |
+| 343 | [How does React updates screen in an application?](#how-does-react-updates-screen-in-an-application)   |
 
 ## Core React
 
@@ -2423,15 +2429,15 @@
     If you are rendering your component using JSX, the name of that component has to begin with a capital letter otherwise React will throw an error as an unrecognized tag. This convention is because only HTML elements and SVG tags can begin with a lowercase letter.
 
     ```jsx harmony
-    class SomeComponent extends Component {
+    function SomeComponent {
       // Code goes here
     }
     ```
 
-    You can define component class which name starts with lowercase letter, but when it's imported it should have capital letter. Here lowercase is fine:
+    You can define function component which name starts with lowercase letter, but when it's imported it should have capital letter. Here lowercase is fine:
 
     ```jsx harmony
-    class myComponent extends Component {
+    function myComponent {
       render() {
         return <div />;
       }
@@ -2878,6 +2884,21 @@
      ```jsx harmony
      const data = { name: "John", age: 42 };
 
+     function User {
+         return <pre>{JSON.stringify(data, null, 2)}</pre>;
+     }
+
+     const container = createRoot(document.getElementById("container"));
+
+     container.render(<User />);
+     ```
+
+    <details><summary><b>See Class</b></summary>
+    <p>
+
+     ```jsx harmony
+     const data = { name: "John", age: 42 };
+
      class User extends React.Component {
        render() {
          return <pre>{JSON.stringify(data, null, 2)}</pre>;
@@ -2886,6 +2907,9 @@
 
      React.render(<User />, document.getElementById("container"));
      ```
+
+     </p>
+     </details>
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -5144,17 +5168,15 @@
 
      You need to follow two rules in order to use hooks,
 
-     1. **Call Hooks only at the top level of your react functions:** You shouldn’t call Hooks inside loops, conditions, or nested functions. This will ensure that Hooks are called in the same order each time a component renders and it preserves the state of Hooks between multiple useState and useEffect calls.
-     2. **Call Hooks from React Functions only:** You shouldn’t call Hooks from regular JavaScript functions. Instead, you should call them from either function components or custom hooks.
-
-     The eslint plugin named **eslint-plugin-react-hooks** can be used to enforce these two rules.
+     1. **Call Hooks only at the top level of your react functions:** You should always use hooks at the top level of react function before any early returns. i.e, You shouldn’t call Hooks inside loops, conditions, or nested functions. This will ensure that Hooks are called in the same order each time a component renders and it preserves the state of Hooks between multiple re-renders due to useState and useEffect calls.
+     2. **Call Hooks from React Functions only:** You shouldn’t call Hooks from regular JavaScript functions or class components. Instead, you should call them from either function components or custom hooks.
 
 **[⬆ Back to Top](#table-of-contents)**
 
 228. ### How to ensure hooks followed the rules in your project?
-     React team released an ESLint plugin called **eslint-plugin-react-hooks** that enforces these two rules. You can add this plugin to your project using the below command,
+     React team released an ESLint plugin called **eslint-plugin-react-hooks** that enforces Hook's two rules. It is part of Hooks API. You can add this plugin to your project using the below command,
      ```javascript
-     npm install eslint-plugin-react-hooks@next
+     npm install eslint-plugin-react-hooks --save-dev
      ```
      And apply the below config in your ESLint config file,
      ```javascript
@@ -5170,7 +5192,7 @@
        }
      }
      ```
-
+     The recommended `eslint-config-react-app` preset already includes the hooks rules of this plugin.
      For example, the linter enforce proper naming convention for hooks. If you rename your custom hooks which as prefix "use" to something else then linter won't allow you to call built-in hooks such as useState, useEffect etc inside of your custom hook anymore.
 
      **Note:** This plugin is intended to use in Create React App by default.
@@ -5694,11 +5716,33 @@
 
 258. ### How do you pass an event handler to a component?
 
-     You can pass event handlers and other functions as props to child components. It can be used in child component as below,
+     You can pass event handlers and other functions as props to child components. The functions can be passed to child component as below,
 
-     ```html
-     <button onClick="{this.handleClick}"></button>
+     ```jsx
+     function Button({ onClick }) {
+        return (
+          <button onClick={onClick}>
+            Download
+          </button>
+        );
+     }
+
+     export default function downloadExcel() {
+      function handleClick() {
+          alert('Downloaded');
+      }
+
+      return <Button onClick={handleClick}></Button>;
+     }
      ```
+
+    <details><summary><b>See Class</b></summary>
+    <p>
+     ```html
+     <Button onClick={this.handleClick}></Button>
+     ```
+    </p>
+    </details>
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -7289,38 +7333,41 @@ const loadUser = async () => {
       `React.StrictMode` is a useful component for highlighting potential problems in an application. Just like `<Fragment>`, `<StrictMode>` does not render any extra DOM elements. It activates additional checks and warnings for its descendants. These checks apply for _development mode_ only.
 
       ```jsx harmony
-      import React from "react";
+      import { StrictMode } from "react";
 
-      function ExampleApplication() {
+      function App() {
         return (
           <div>
             <Header />
-            <React.StrictMode>
+            <StrictMode>
               <div>
                 <ComponentOne />
                 <ComponentTwo />
               </div>
-            </React.StrictMode>
+            </StrictMode>
             <Header />
           </div>
         );
       }
       ```
 
-      In the example above, the _strict mode_ checks apply to `<ComponentOne>` and `<ComponentTwo>` components only. i.e., Part of the application only.
+      In the example above, the _strict mode_ checks apply to `<ComponentOne>` and `<ComponentTwo>` components only. i.e., Part of the application only. 
+      
+      **Note:** Frameworks such as NextJS has this flag enabled by default.
 
       **[⬆ Back to Top](#table-of-contents)**
 
 337. ### What is the benefit of strict mode?
 
      The <StrictMode> will be helpful in the below cases,
-     1. Whenever the component 
 
-     1. Identifying components with **unsafe lifecycle methods**.
-     2. Warning about **legacy string ref** API usage.
-     3. Detecting unexpected **side effects**.
-     4. Detecting **legacy context** API.
-     5. Warning about deprecated findDOMNode usage
+     1. To find the bugs caused by impure rendering where the components will re-render twice.
+     2. To find the bugs caused by missing cleanup of effects where the components will re-run effects one more extra time.
+     3. Identifying components with **unsafe lifecycle methods**.
+     4. Warning about **legacy string ref** API usage.
+     5. Detecting unexpected **side effects**.
+     6. Detecting **legacy context** API.
+     7. Warning about deprecated **findDOMNode** usage
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -7328,29 +7375,31 @@ const loadUser = async () => {
       StrictMode renders components twice in development mode(not production) in order to detect any problems with your code and warn you about those problems. This is used to detect accidental side effects in the render phase.  If you used `create-react-app` development tool then it automatically enables StrictMode by default.
 
       ```js
-      ReactDOM.render(
-        <React.StrictMode>
-          {App}
-        </React.StrictMode>,
-        document.getElementById('root')
+      const root = createRoot(document.getElementById('root'));
+      root.render(
+        <StrictMode>
+          <App />
+        </StrictMode>
       );
       ```
 
-      If you want to disable this behavior then you can remove `strict` mode.
+      If you want to disable this behavior then you can simply remove `strict` mode.
+
       ```js
-      ReactDOM.render(
-        {App}, 
-        document.getElementById('root')
+      const root = createRoot(document.getElementById('root'));
+      root.render(
+        <App />
       );
       ```
 
       To detect side effects the following functions are invoked twice:
 
-      1. Class component constructor, render, and shouldComponentUpdate methods
-      2. Class component static getDerivedStateFromProps method
-      3. Function component bodies
-      4. State updater functions
-      5. Functions passed to useState, useMemo, or useReducer (any Hook)
+      1. Function component bodies, excluding the code inside event handlers.
+      2. Functions passed to `useState`, `useMemo`, or `useReducer` (any other Hook)
+      3. Class component's `constructor`, `render`, and `shouldComponentUpdate` methods
+      4. Class component static `getDerivedStateFromProps` method 
+      5. State updater functions
+ 
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -7374,6 +7423,55 @@ const loadUser = async () => {
 
       Behind the scenes, JSX is transformed into plain javascript objects. It is not possible to return two or more objects from a function without wrapping into an array. This is the reason you can't simply return two or more JSX tags from a function without 
       wrapping them into a single parent tag or a Fragement.
+
+  **[⬆ Back to Top](#table-of-contents)**
+
+ 341. ### How do you prevent mutating array variables?
+      The preexisting variables outside of the function scope including state, props and context leads to a mutation and they result in unpredictable bugs during the rendering stage. The below points should be taken care while working with arrays variables.
+
+      1. You need to take copy of the original array and perform array operations on it for the rendering purpose. This is called local mutation.
+      2. Avoid triggering mutation methods such as push, pop, sort and reverse methods on original array. It is safe to use filter, map and slice method because they create a new array.
+
+  **[⬆ Back to Top](#table-of-contents)**
+  
+  342. ### What are capture phase events?
+       The `onClickCapture` React event is helpful to catch all the events of child elements irrespective of event propagation logic or even if the events propagation stopped. This is useful if you need to log every click events for analytics purpose.
+
+       For example, the below code triggers the click event of parent first followed by second level child eventhough leaf child button elements stops the propagation.
+
+       ```jsx
+        <div onClickCapture={() => alert('parent')}>
+         <div onClickCapture={() => alert('child')}>
+           <button onClick={e => e.stopPropagation()} />
+           <button onClick={e => e.stopPropagation()} />
+         </div>
+        </div>
+       ```
+       The event propagation for the above code snippet happens in the following order:
+       1. It travels downwards in the DOM tree by calling all `onClickCapture` event handlers.
+       2. It executes `onClick` event handler on the target element.
+       3. It travels upwards in the DOM tree by call all `onClick` event handlers above to it.
+
+  343. ### How does React updates screen in an application?
+
+       React updates UI in three steps,
+       1. **Triggering or initiating a render:** The component is going to triggered for render in two ways.
+
+           1. **Initial render:** When the app starts, you can trigger the initial render by calling `creatRoot` with the target DOM node followed by invoking component's `render` method. For example, the following code snippet renders `App` component on root DOM node.
+            
+            ```jsx
+            import { createRoot } from 'react-dom/client';
+
+            const root = createRoot(document.getElementById('root'))
+            root.render(<App />);
+            ```
+
+          2. **Re-render when the state updated:** When you update the component state using the state setter function, the componen't state automatically queues for a render.
+
+       2. **Rendering components:** After triggering a render, React will call your components to display them on the screen. React will call the root component for initial render and call the function component whose state update triggered the render. This is a recursive process for all nested components of the target component.
+
+       3. **Commit changes to DOM:** After calling components, React will modify the DOM for initial render using `appendChild()` DOM API and apply minimal necessary DOM updates for re-renders based on differences between rerenders.
+         
 
  **[⬆ Back to Top](#table-of-contents)**
 
