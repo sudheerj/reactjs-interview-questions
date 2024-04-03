@@ -84,7 +84,7 @@ Hide/Show table of contents
 | 42  | [What is reconciliation?](#what-is-reconciliation)                                                                                                                                                                               |
 | 43  | [How to set state with a dynamic key name?](#how-to-set-state-with-a-dynamic-key-name)                                                                                                                                           |
 | 44  | [What would be the common mistake of function being called every time the component renders?](#what-would-be-the-common-mistake-of-function-being-called-every-time-the-component-renders)                                       |
-| 45  | [Is lazy function supports named exports?](#is-lazy-function-supports-named-exports)                                                                                                                                             |
+| 45  | [Does the lazy function support named exports?](#does-the-lazy-function-support-named-exports)                                                                                                                                             |
 | 46  | [Why React uses className over class attribute?](#why-react-uses-classname-over-class-attribute)                                                                                                                                 |
 | 47  | [What are fragments?](#what-are-fragments)                                                                                                                                                                                       |
 | 48  | [Why fragments are better than container divs?](#why-fragments-are-better-than-container-divs)                                                                                                                                   |
@@ -390,6 +390,10 @@ Hide/Show table of contents
 | 342 | [What are capture phase events?](#what-are-capture-phase-events) |
 | 343 | [How does React updates screen in an application?](#how-does-react-updates-screen-in-an-application)   |
 | 346 | [What is React hydration?](#what-is-react-hydration) |
+| 347 | [What is React hydration?](#what-is-react-hydration) |
+| 348 | [What is React hydration?](#what-is-react-hydration) |
+| 349 | [What is React hydration?](#what-is-react-hydration) |
+| 350 | [What are the preferred and non-preferred array operations for updating the state?](#what-are-the-preferred-and-non-preferred-array-operations-for-updating-the-state) |
 
 </details>
 
@@ -1528,7 +1532,7 @@ Hide/Show table of contents
 
     **[⬆ Back to Top](#table-of-contents)**
 
-44. ### Is lazy function supports named exports?
+44. ### Does the lazy function support named exports?
 
     No, currently `React.lazy` function supports default exports only. If you would like to import modules which are named exports, you can create an intermediate module that reexports it as the default. It also ensures that tree shaking keeps working and don’t pull unused components.
     Let's take a component file which exports multiple named components,
@@ -7599,6 +7603,134 @@ const loadUser = async () => {
       After this step, you are able to run React application on server-side and hydrating the javascript bundle on client-side for smooth user experience and SEO purposes.
       
  **[⬆ Back to Top](#table-of-contents)**
+
+ 347. ### How do you update objects inside state?
+      You cannot update the objects which exists in the state directly. Instead, you should create a fresh new object (or copy from the existing object) and update the latest state using the newly created object. Eventhough JavaScript objects are mutable, you need to treate objects inside state as read-only while updating the state.
+
+      Let's see this comparison with an example. The issue with regular object mutation approach can be described by updating the user details fields of `Profile` component. The properties of `Profile` component such as firstName, lastName and age details mutated in an event handler as shown below.
+      
+      ```jsx
+        import { useState } from 'react';
+
+        export default function Profile() {
+          const [user, setUser] = useState({
+            firstName: 'John',
+            lastName: 'Abraham',
+            age: 30
+          });
+
+          function handleFirstNameChange(e) {
+            user.firstName = e.target.value;
+          }
+
+          function handleLastNameChange(e) {
+            user.lastName = e.target.value;
+          }
+
+          function handleAgeChange(e) {
+            user.age = e.target.value;
+          }
+
+          return (
+            <>
+              <label>
+                First name:
+                <input
+                  value={user.firstName}
+                  onChange={handleFirstNameChange}
+                />
+              </label>
+              <label>
+                Last name:
+                <input
+                  value={user.lastName}
+                  onChange={handleLastNameChange}
+                />
+              </label>
+              <label>
+                Age:
+                <input
+                  value={user.age}
+                  onChange={handleAgeChange}
+                />
+              </label>
+              <p>
+          Profile:
+                {person.firstName}{' '}
+                {person.lastName}{' '}
+                ({person.age})
+              </p>
+            </>
+          );
+        }
+      ```
+      Once you run the application with above user profile component, you can observe that user profile details won't be update upon entering the input fields.
+      This issue can be fixed by creating a new copy of object which includes existing properties through spread syntax(...obj) and add changed values in a single event handler itself as shown below.
+
+      ```jsx
+      handleProfileChange(e) {
+        setUser({
+        ...user,
+          [e.target.name]: e.target.value
+        });
+      }
+      ```
+
+      The above event handler is concise instead of maintaining separate event handler for each field. Now, UI displays the updated field values as expected without an issue. 
+
+  **[⬆ Back to Top](#table-of-contents)**
+
+ 348. ### How do you update nested objects inside state?
+      You cannot simply use spread syntax for all kinds of objects inside state. Because spread syntax is shallow and it copies properties for one level deep only. If the object has nested object structure, UI doesn't work as expected with regular JavaScript nested property mutation. Let's demonstrate this behavior with an example of User object which has address nested object inside of it.
+
+      ```jsx
+      const user = {
+        name: 'John',
+        age: 32,
+          address: {
+        country: 'Singapore',
+        postalCode: 440004
+          }
+      }
+      ```
+
+      If you try to update the country nested field in a regular javascript fashion(as shown below) then user profile screen won't be updated with latest value.
+
+      ```js
+        user.address.country = "Germany";
+      ```
+      This issue can be fixed by flattening all the fields into a top-level object or create a new object for each nested object and point it to it's parent object. In this example, first you need to create copy of address object and update it with the latest value. Later, the adress object should be linked to parent user object something like below.
+
+      ```js
+      setUser({
+        ...user,
+        address: {
+          ...user.address,
+          country: 'Germany'
+        }
+      });
+      ``` 
+      This approach is bit verbose but this workaround can be used for some levels of nested objects without any hassle.
+
+  **[⬆ Back to Top](#table-of-contents)**
+
+ 349. ### How do you update arrays inside state?
+  **[⬆ Back to Top](#table-of-contents)**
+
+ 350. ### What are the preferred and non-preferred array operations for updating the state?
+      
+      The below table represent preferred and non-preferred array operations  for updating the component state.
+
+      |  Action    |    Preferred        |    Non-preferred        |
+      | ---------- | ------------------- | ----------------------- | 
+      | Adding     | concat, [...arr]    | push, unshift       |
+      | Removing   | filter, slice       | pop, shift, splice  |
+      | Replacing  | map                 | splice, arr[i] = someValue |
+      | sorting    | copying to new array | reverse, sort |
+
+      If you use Immer library then you can able to use all array methods without any problem.
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ## Disclaimer
 
