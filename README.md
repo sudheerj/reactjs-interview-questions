@@ -389,11 +389,15 @@ Hide/Show table of contents
 | 341 | [How do you prevent mutating array variables?](#how-do-you-prevent-mutating-array-variables) |
 | 342 | [What are capture phase events?](#what-are-capture-phase-events) |
 | 343 | [How does React updates screen in an application?](#how-does-react-updates-screen-in-an-application)   |
+| 344 | [How does React batch multiple state updates?](#how-does-react-batch-multiple-state-updates) |
+| 345 | [Is it possible to prevent automatic batching?](#is-it-possible-to-prevent-automatic-batching) |
 | 346 | [What is React hydration?](#what-is-react-hydration) |
-| 347 | [What is React hydration?](#what-is-react-hydration) |
-| 348 | [What is React hydration?](#what-is-react-hydration) |
-| 349 | [What is React hydration?](#what-is-react-hydration) |
-| 350 | [What are the preferred and non-preferred array operations for updating the state?](#what-are-the-preferred-and-non-preferred-array-operations-for-updating-the-state) |
+| 347 | [How do you update objects inside state?](#how-do-you-update-objects-inside-state) |
+| 348 | [How do you update nested objects inside state?](#How-do-you-update-nested-objects-inside-state) |
+| 349 | [How do you update arrays inside state?](#how-do-you-update-arrays-inside-state) |
+| 350 | [How do you use immer library for state updates?](#how-do-you-use-immer-library-for-state-updates) |
+| 351 | [What are the benefits of preventing the direct state mutations?](#what-are-the-benefits-of-preventing-the-direct-state-mutations) |
+| 352 | [What are the preferred and non-preferred array operations for updating the state?](#what-are-the-preferred-and-non-preferred-array-operations-for-updating-the-state) |
 
 </details>
 
@@ -7715,9 +7719,73 @@ const loadUser = async () => {
   **[⬆ Back to Top](#table-of-contents)**
 
  349. ### How do you update arrays inside state?
+      Eventhough arrays in JavaScript are mutable in nature, you need to treat them as immutable while storing them in a state. That means, similar to objects, the arrays cannot be updated directly inside state. Instead, you need to create a copy of the existing array and then set the state to use newly copied array.
+
+      To ensure that arrays are not mutated, the mutation operations like direct direct assigment(arr[1]='one'), push, pop, shift, unshift, splice etc methods should be avoided on original array. Instead, you can create a copy of existing array with help of array operations such as filter, map, slice, spread syntax etc.
+
+      For example, the below push operation doesn't add the new todo to the total todo's list in an event handler.
+
+      ```jsx
+      onClick = {
+        todos.push({
+          id: id+1,
+          name: name
+        })
+      }
+      ```
+      This issue is fixed by replacing push operation with spread syntax where it will create a new array and the UI updated with new todo.
+
+      ```jsx
+      onClick = {
+        [
+          ...todos,
+          { id: id+1, name: name }
+        ]
+      }
+      ```
+
   **[⬆ Back to Top](#table-of-contents)**
 
- 350. ### What are the preferred and non-preferred array operations for updating the state?
+ 350. ### How do you use immer library for state updates?
+      Immer library enforces the immutability of state based on **copy-on-write** mechanism. It uses JavaScript proxy to keep track of updates to immutable states. Immer has 3 main states as below,
+
+      1. **Current state:** It refers to actual state
+      2. **Draft state:** All new changes will be applied to this state. In this state, draft is just a proxy of the current state.
+      3. **Next state:** It is formed after all mutations applied to the draft state
+
+      Immer can be used by following below instructions,
+
+      1. Install the dependency using `npm install use-immer` command
+      2. Replace `useState` hook with `useImmer` hook by importing at the top
+      3. The setter function of `useImmer` hook can be used to update the state.
+
+    For example, the mutation syntax of immer library simplies the nested address object of user state as follows,
+
+    ```jsx
+    import { useImmer } from 'use-immer';
+    const [user, setUser]= useImmer({
+        name: 'John',
+        age: 32,
+          address: {
+        country: 'Singapore',
+        postalCode: 440004
+          }
+    });
+
+    //Update user details upon any event
+    setUser(draft => {
+      draft.address.country = 'Germany';
+    });
+    ```
+    The preceeding code enables you to update nested objects with a conceise mutation syntax.
+
+  **[⬆ Back to Top](#table-of-contents)**
+
+ 351. ### What are the benefits of preventing the direct state mutations?
+
+  **[⬆ Back to Top](#table-of-contents)**
+
+ 352. ### What are the preferred and non-preferred array operations for updating the state?
       
       The below table represent preferred and non-preferred array operations  for updating the component state.
 
