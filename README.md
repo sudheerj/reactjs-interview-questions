@@ -1,6 +1,8 @@
 # React Interview Questions & Answers
 
 > Click :star:if you like the project. Pull Request are highly appreciated. Follow me [@SudheerJonna](https://twitter.com/SudheerJonna) for technical updates.
+> 
+> Click :star:if you like the project. Fork from [@SudheerJonna]
 
 ---
 
@@ -398,6 +400,12 @@ Hide/Show table of contents
 | 350 | [How do you use immer library for state updates?](#how-do-you-use-immer-library-for-state-updates) |
 | 351 | [What are the benefits of preventing the direct state mutations?](#what-are-the-benefits-of-preventing-the-direct-state-mutations) |
 | 352 | [What are the preferred and non-preferred array operations for updating the state?](#what-are-the-preferred-and-non-preferred-array-operations-for-updating-the-state) |
+
+| 353 | [Explain the intricacies of the React rendering process, including the Virtual DOM, reconciliation, and optimizations?](#Explain-the-intricacies-of-the-React-rendering-process,-including-the-Virtual-DOM,-reconciliation,-and-optimizations) |
+
+| 354 | [Explain how you'd handle errors in React applications, including error boundaries and custom error handling mechanisms?](#Explain-how-you'd-handle-errors-in-React-applications,-including-error-boundaries-and-custom-error-handling-mechanisms) |
+
+| 355 | [Explain React Hooks in detail and discuss their advantages over Class Components?](#Explain-React-Hooks-in-detail-and-discuss-their-advantages-over-Class-Components?) |
 
 </details>
 
@@ -7799,6 +7807,89 @@ const loadUser = async () => {
       If you use Immer library then you can able to use all array methods without any problem.
 
 **[⬆ Back to Top](#table-of-contents)**
+
+
+353. #### Explain the intricacies of the React rendering process, including the Virtual DOM, reconciliation, and optimizations?
+
+      React employs a virtual representation of the DOM, the Virtual DOM, to efficiently update the actual DOM. When state or props change, React creates a new Virtual DOM, 
+      compares it to the previous one using a diffing algorithm, and only updates the minimal necessary parts of the real DOM. This significantly improves performance.
+
+    '''jsx
+    import React, { useState } from 'react';
+
+    function MyComponent() {
+      const [count, setCount] = useState(0);
+    
+      const handleClick = () => setCount(count + 1);
+    
+      return (
+        <div>
+          <p>You clicked {count} times</p>
+          <button onClick={handleClick}>Click me</button>
+        </div>
+      );
+    }
+    '''
+
+**[⬆ Back to Top](#table-of-contents)**
+
+
+354. ### Explain how you'd handle errors in React applications, including error boundaries and custom error handling mechanisms?
+
+      Handle errors gracefully to prevent the entire application from crashing. React Error Boundaries catch errors within a subtree, provide fallback UI, and log errors. 
+      Implement custom error handling for specific scenarios.
+
+    '''jsx
+    import React, { ErrorBoundary } from 'react';
+
+    class MyErrorBoundary extends ErrorBoundary {
+      componentDidCatch(error, info) {
+        // Log the error
+        console.error(error, info);
+      }
+    
+      render() {
+        return (
+          <div>
+            {this.props.error ? (
+              <p>Something went wrong!</p
+    '''
+
+**[⬆ Back to Top](#table-of-contents)** 
+
+
+355. ### Explain React Hooks in detail and discuss their advantages over Class Components?
+
+      React Hooks introduced in React 16.8 provide a functional way to "hook into" React state and lifecycle features from functional components. 
+      This eliminates the need for class components in many cases. Advantages include:
+            Improved code readability and maintainability.
+            Easier logic reuse through custom hooks.
+            Better separation of concerns.
+
+    '''jsx
+    import { useState, useEffect } from 'react';
+
+    function Counter() {
+      const [count, setCount] = useState(0);
+    
+      useEffect(() => {
+        document.title = `You clicked ${count} times`;
+      }, [count]); // Only re-run when count changes
+    
+      return (
+        <div>
+          <p>You clicked {count} times</p>
+          <button onClick={() => setCount(count + 1)}>Click me</button>
+        </div>
+      );
+    }
+    
+    export default Counter;
+    '''
+
+**[⬆ Back to Top](#table-of-contents)** 
+
+
 
 ## Disclaimer
 
