@@ -1,6 +1,6 @@
 # React Interview Questions & Answers
 
-> Click :star:if you like the project. Follow me [@SudheerJonna](https://www.linkedin.com/in/sisitarak/) for technical updates.
+> Click :star:if you like the project. Follow me [@sisi-tarak](https://www.linkedin.com/in/sisitarak/) for technical updates.
 > 
 > Click :star:if you like the project. Fork from [@SudheerJonna]
 
