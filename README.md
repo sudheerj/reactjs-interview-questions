@@ -4753,8 +4753,33 @@ Hide/Show table of contents
 **[⬆ Back to Top](#table-of-contents)**
 
 205. ### How to use TypeScript in `create-react-app` application?
+     **Note:** this feature is available with react-scripts@3.3.0 and higher. As per official documentation of [Create React App](https://create-react-app.dev/docs/getting-started).
 
-     Starting from react-scripts@2.1.0 or higher, there is a built-in support for typescript. i.e, `create-react-app` now supports typescript natively. You can just pass `--typescript` option as below
+     You can now optionally start a new app from a template by appending `--template [template-name]` to the creation command.
+
+     If you don't select a template, we'll create your project with our base template.
+
+     Templates are always named in the format `cra-template-[template-name]`, however you only need to provide the `[template-name]` to the creation command.
+
+     ```bash
+     npx create-react-app my-app --template [template-name]
+
+     # or
+
+     yarn create react-app my-app --template [template-name]
+     ```
+
+     Our [Custom Templates](https://create-react-app.dev/docs/custom-templates) documentation describes how you can build your own template.
+
+     #### Creating a TypeScript app
+
+     You can start a new TypeScript app using templates. To use our provided TypeScript template, append `--template typescript` to the creation command.
+
+     ```bash
+     npx create-react-app my-app --template typescript
+     ```
+
+     For older version starting from react-scripts@2.1.0 or higher, there is a built-in support for typescript. i.e, `create-react-app` now supports typescript natively. You can just pass `--typescript` option as below
 
      ```bash
      npx create-react-app my-app --typescript
