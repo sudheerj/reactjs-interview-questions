@@ -4753,13 +4753,7 @@ Hide/Show table of contents
 **[⬆ Back to Top](#table-of-contents)**
 
 205. ### How to use TypeScript in `create-react-app` application?
-     **Note:** this feature is available with react-scripts@3.3.0 and higher. As per official documentation of [Create React App](https://create-react-app.dev/docs/getting-started).
-
-     You can now optionally start a new app from a template by appending `--template [template-name]` to the creation command.
-
-     If you don't select a template, we'll create your project with our base template.
-
-     Templates are always named in the format `cra-template-[template-name]`, however you only need to provide the `[template-name]` to the creation command.
+     **Note:** this feature is available with react-scripts@3.3.0 and higher. As per official documentation of [Create React App](https://create-react-app.dev/docs/getting-started). You can now optionally start a new app from a template by appending `--template [template-name]` to the creation command. If you don't select a template, we'll create your project with our base template. Templates are always named in the format `cra-template-[template-name]`, however you only need to provide the `[template-name]` to the creation command.
 
      ```bash
      npx create-react-app my-app --template [template-name]
@@ -4790,7 +4784,6 @@ Hide/Show table of contents
      ```
 
      But for lower versions of react scripts, just supply `--scripts-version` option as `react-scripts-ts` while you create a new project. `react-scripts-ts` is a set of adjustments to take the standard `create-react-app` project pipeline and bring TypeScript into the mix.
-
      Now the project layout should look like the following:
 
      ```
