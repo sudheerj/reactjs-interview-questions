@@ -1756,7 +1756,7 @@ Hide/Show table of contents
     }
     ```
 
-    You can define function component which name starts with lowercase letter, but when it's imported it should have capital letter. Here lowercase is fine:
+    You can define function component whose name starts with lowercase letter, but when it's imported it should have a capital letter. Here lowercase is fine:
 
     ```jsx harmony
     function myComponent {
