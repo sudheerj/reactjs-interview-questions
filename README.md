@@ -121,9 +121,9 @@ Hide/Show table of contents
 |     | **React Router**                                                                                                                                                                                                                 |
 | 79 | [What is React Router?](#what-is-react-router)                                                                                                                                                                                   |
 | 80 | [How React Router is different from history library?](#how-react-router-is-different-from-history-library)                                                                                                                       |
-| 81 | [What are the \<Router> components of React Router v6?](#what-are-the-router-components-of-react-router-v6)                                                                                                                      |
+| 81 | [What are the \<Router> components of React Router v4?](#what-are-the-router-components-of-react-router-v4)                                                                                                                      |
 | 82 | [What is the purpose of push and replace methods of history?](#what-is-the-purpose-of-push-and-replace-methods-of-history)                                                                                                       |
-| 83 | [How do you programmatically navigate using React router v4?](#how-do-you-programmatically-navigate-using-react-router-v4)                                                                                                       |
+| 83 | [How do you programmatically navigate using React router v6?](#how-do-you-programmatically-navigate-using-react-router-v6)                                                                                                       |
 | 84 | [How to get query parameters in React Router v4](#how-to-get-query-parameters-in-react-router-v4)                                                                                                                                |
 | 85 | [Why you get "Router may have only one child element" warning?](#why-you-get-router-may-have-only-one-child-element-warning)                                                                                                     |
 | 86 | [How to pass params to history.push method in React Router v4?](#how-to-pass-params-to-historypush-method-in-react-router-v4)                                                                                                    |
@@ -2316,16 +2316,15 @@ Hide/Show table of contents
 
 **[⬆ Back to Top](#table-of-contents)**
 
-81. ### What are the `<Router>` components of React Router v6?
+81. ### What are the `<Router>` components of React Router v4?
 
-     React Router v6 provides below 4 `<Router>` components:
+     React Router v4 provides below 3 `<Router>` components:
 
-     1. `<BrowserRouter>`:Uses the HTML5 history API for standard web apps.
-     2. `<HashRouter>`:Uses hash-based routing for static servers.
-     3. `<MemoryRouter>`:Uses in-memory routing for testing and non-browser environments.
-     4. `<StaticRouter>`:Provides static routing for server-side rendering (SSR).
+     1. `<BrowserRouter>`
+     2. `<HashRouter>`
+     3. `<MemoryRouter>`
 
-     The above components will create _browser_, _hash_, _memory_ and _static_ history instances. React Router v6 makes the properties and methods of the `history` instance associated with your router available through the context in the `router` object.
+     The above components will create _browser_, _hash_, and _memory_ history instances. React Router v4 makes the properties and methods of the `history` instance associated with your router available through the context in the `router` object.
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -2340,73 +2339,74 @@ Hide/Show table of contents
 
 **[⬆ Back to Top](#table-of-contents)**
 
-83. ### How do you programmatically navigate using React Router v4?
+83. ### How do you programmatically navigate using React Router v6?
 
-     There are three different ways to achieve programmatic routing/navigation within components.
+    In React Router v6, you can achieve programmatic routing/navigation within components using the following methods:
 
-     1. **Using the `withRouter()` higher-order function:**
+     1. **Using the `useNavigate` Hook:**
 
-        The `withRouter()` higher-order function will inject the history object as a prop of the component. This object provides `push()` and `replace()` methods to avoid the usage of context.
+        The `useNavigate` hook provides a function to navigate programmatically within functional components
 
         ```jsx harmony
-        import { withRouter } from "react-router-dom"; // this also works with 'react-router-native'
-
-        const Button = withRouter(({ history }) => (
-          <button
-            type="button"
-            onClick={() => {
-              history.push("/new-location");
-            }}
-          >
-            {"Click Me!"}
-          </button>
-        ));
+        import { useNavigate } from 'react-router-dom';
+        const Button = () => {
+    const navigate = useNavigate();
+       return (
+      <button
+      type="button"
+      onClick={() => {
+        navigate('/new-location');
+      }}
+    >
+      Click Me!
+    </button>
+      );
+      };
         ```
 
-     2. **Using `<Route>` component and render props pattern:**
+     2. **Using the `<Navigate>` Component:**
 
-        The `<Route>` component passes the same props as `withRouter()`, so you will be able to access the history methods through the history prop.
+        The `<Navigate>` component allows you to navigate programmatically within JSX code.
 
         ```jsx harmony
-        import { Route } from "react-router-dom";
+        import { Navigate } from 'react-router-dom';
 
-        const Button = () => (
-          <Route
-            render={({ history }) => (
-              <button
-                type="button"
-                onClick={() => {
-                  history.push("/new-location");
-                }}
-              >
-                {"Click Me!"}
-              </button>
-            )}
-          />
-        );
+const Button = () => (
+  <button
+    type="button"
+    onClick={() => {
+      return <Navigate to="/new-location" />;
+    }}
+  >
+    Click Me!
+  </button>
+);
+
         ```
 
-     3. **Using context:**
+     3. **Using the `useParams` Hook:**
 
-        This option is not recommended and treated as unstable API.
+        If you're navigating based on URL parameters, you can use the `useParams` hook to access the parameters and navigate accordingly.
 
         ```jsx harmony
-        const Button = (props, context) => (
-          <button
-            type="button"
-            onClick={() => {
-              context.history.push("/new-location");
-            }}
-          >
-            {"Click Me!"}
-          </button>
-        );
+        import { useParams, useNavigate } from 'react-router-dom';
 
-        Button.contextTypes = {
-          history: React.PropTypes.shape({
-            push: React.PropTypes.func.isRequired,
-          }),
-        };
+const Button = () => {
+  const params = useParams();
+  const navigate = useNavigate();
+
+  return (
+    <button
+      type="button"
+      onClick={() => {
+        navigate(`/new-location/${params.id}`);
+      }}
+    >
+      Click Me!
+    </button>
+  );
+};
+
         ```
 
 **[⬆ Back to Top](#table-of-contents)**
