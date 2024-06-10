@@ -121,7 +121,7 @@ Hide/Show table of contents
 |     | **React Router**                                                                                                                                                                                                                 |
 | 79 | [What is React Router?](#what-is-react-router)                                                                                                                                                                                   |
 | 80 | [How React Router is different from history library?](#how-react-router-is-different-from-history-library)                                                                                                                       |
-| 81 | [What are the \<Router> components of React Router v4?](#what-are-the-router-components-of-react-router-v4)                                                                                                                      |
+| 81 | [What are the \<Router> components of React Router v6?](#what-are-the-router-components-of-react-router-v6)                                                                                                                      |
 | 82 | [What is the purpose of push and replace methods of history?](#what-is-the-purpose-of-push-and-replace-methods-of-history)                                                                                                       |
 | 83 | [How do you programmatically navigate using React router v4?](#how-do-you-programmatically-navigate-using-react-router-v4)                                                                                                       |
 | 84 | [How to get query parameters in React Router v4](#how-to-get-query-parameters-in-react-router-v4)                                                                                                                                |
@@ -2316,15 +2316,16 @@ Hide/Show table of contents
 
 **[⬆ Back to Top](#table-of-contents)**
 
-81. ### What are the `<Router>` components of React Router v4?
+81. ### What are the `<Router>` components of React Router v6?
 
-     React Router v4 provides below 3 `<Router>` components:
+     React Router v6 provides below 4 `<Router>` components:
 
-     1. `<BrowserRouter>`
-     2. `<HashRouter>`
-     3. `<MemoryRouter>`
+     1. `<BrowserRouter>`:Uses the HTML5 history API for standard web apps.
+     2. `<HashRouter>`:Uses hash-based routing for static servers.
+     3. `<MemoryRouter>`:Uses in-memory routing for testing and non-browser environments.
+     4. `<StaticRouter>`:Provides static routing for server-side rendering (SSR).
 
-     The above components will create _browser_, _hash_, and _memory_ history instances. React Router v4 makes the properties and methods of the `history` instance associated with your router available through the context in the `router` object.
+     The above components will create _browser_, _hash_, _memory_ and _static_ history instances. React Router v6 makes the properties and methods of the `history` instance associated with your router available through the context in the `router` object.
 
 **[⬆ Back to Top](#table-of-contents)**
 
