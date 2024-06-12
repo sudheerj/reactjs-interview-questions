@@ -172,7 +172,7 @@ Hide/Show table of contents
 | 126 | [What are the differences between redux-saga and redux-thunk](#what-are-the-differences-between-redux-saga-and-redux-thunk)                                                                                                      |
 | 127 | [What is Redux DevTools?](#what-is-redux-devtools)                                                                                                                                                                               |
 | 128 | [What are the features of Redux DevTools?](#what-are-the-features-of-redux-devtools)                                                                                                                                             |
-| 129 | [What are Redux selectors and Why to use them?](#what-are-redux-selectors-and-why-to-use-them)                                                                                                                                   |
+| 129 | [What are Redux selectors and Why use them?](#what-are-redux-selectors-and-why-use-them)                                                                                                                                   |
 | 130 | [What is Redux Form?](#what-is-redux-form)                                                                                                                                                                                       |
 | 131 | [What are the main features of Redux Form?](#what-are-the-main-features-of-redux-form)                                                                                                                                           |
 | 132 | [How to add multiple middlewares to Redux?](#how-to-add-multiple-middlewares-to-redux)                                                                                                                                           |
@@ -3236,7 +3236,7 @@ Hide/Show table of contents
 
 **[⬆ Back to Top](#table-of-contents)**
 
-129. ### What are Redux selectors and why to use them?
+129. ### What are Redux selectors and why use them?
 
      _Selectors_ are functions that take Redux state as an argument and return some data to pass to the component.
 
