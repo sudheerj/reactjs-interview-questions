@@ -3697,7 +3697,7 @@ Hide/Show table of contents
 
      It is up to the developer's decision, i.e., it is developer's job to determine what kinds of state make up your application, and where each piece of state should live. Some users prefer to keep every single piece of data in Redux, to maintain a fully serializable and controlled version of their application at all times. Others prefer to keep non-critical or UI state, such as “is this dropdown currently open”, inside a component's internal state.
 
-     Below are the thumb rules to determine what kind of data should be put into Redux
+     Below are the rules of thumb to determine what kind of data should be put into Redux
 
      1. Do other parts of the application care about this data?
      2. Do you need to be able to create further derived data based on this original data?
