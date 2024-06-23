@@ -327,7 +327,7 @@ Hide/Show table of contents
 | 266 | [How do you compare useState and useReducer?](#how-do-you-compare-use-state-and-use-reducer)                                                                                                                                     |
 | 267 | [How does context works using useContext hook?](#how-does-context-works-using-use-context-hook)                                                                                                                                  |
 | 268 | [What are the use cases of useContext hook?](#what-are-the-use-cases-of-use-context-hook)                                                                                                                                        |
-
+| 269 | [When to use client and server components?](#when-to-use-client-and-server-components)                                                                                                                                        |
 </details>
 
 ### Table of Contents
@@ -5818,6 +5818,30 @@ Technically it is possible to write nested function components but it is not sug
 **[⬆ Back to Top](#table-of-contents)**
 
 268. ### What are the use cases of useContext hook?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+269. ### When to use client and server components?
+
+    You can efficiently build nextjs application if you are aware about which part of the application needs to use client components and which other parts needs to use server components. The common cases of both client and server components are listed below:
+
+    **Client components:**
+    1. Whenever your need to add interactivity and event listeners such as onClick(), onChange(), etc to the pages
+    2. If you need to use State and Lifecycle Effects like useState(), useReducer(), useEffect() etc.
+    3. If there is a requirement to use browser-only APIs.
+    4. If you need to implement custom hooks that depend on state, effects, or browser-only APIs.
+    5. There are React Class components in the pages.
+
+    **Server components:**
+    1. If the component logic is about data fetching.
+    2. If you need to access backend resources directly.
+    3. When you need to keep sensitive information((access tokens, API keys, etc)	) on the server.
+    4. If you want reduce client-side JavaScript and placing large dependencies on the server.
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+270. ### What are the differences between page router and app router in nextjs?
 
 **[⬆ Back to Top](#table-of-contents)**
 
