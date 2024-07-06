@@ -1044,7 +1044,7 @@ class ParentComponent extends React.Component {
 
     The uncontrolled components will be implemented using the below steps,
 
-    1. Create a ref using useRef react hook in function component or `React.createRef()` in function component.
+    1. Create a ref using useRef react hook in function component or `React.createRef()` in class based component.
     2. Attach this ref to the form element.
     3. The form element value can be accessed directly through `ref` in event handlers or `componentDidMount` for class components
 
