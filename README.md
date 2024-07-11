@@ -1267,7 +1267,7 @@ class ParentComponent extends React.Component {
 31. ### What are fragments?
 
     It's a common pattern or practice in React for a component to return multiple elements. _Fragments_ let you group a list of children without adding extra nodes to the DOM.
-    You need to use either **<Fragment>** or a shorter syntax having empty tag (**<></>**).
+    You need to use either `<Fragment>` or a shorter syntax having empty tag (`<></>`).
 
     Below is the example of how to use fragment inside _Story_ component.
 
