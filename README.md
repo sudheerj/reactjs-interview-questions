@@ -5198,12 +5198,12 @@ class ParentComponent extends React.Component {
 
      ## 1. Syntax:
 
-     The classs components uses ES6 classes to create the components. It uses `render` function to display the HTML content in the webpage.
+     The class components uses ES6 classes to create the components. It uses `render` function to display the HTML content in the webpage.
 
      The syntax for class component looks like as below.
 
      ```js
-     class App extends Reacts.Component {
+     class App extends React.Component {
        render() {
          return <h1>This is a class component</h1>;
        }
