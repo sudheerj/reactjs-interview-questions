@@ -5198,12 +5198,12 @@ class ParentComponent extends React.Component {
 
      ## 1. Syntax:
 
-     The classs components uses ES6 classes to create the components. It uses `render` function to display the HTML content in the webpage.
+     The class components uses ES6 classes to create the components. It uses `render` function to display the HTML content in the webpage.
 
      The syntax for class component looks like as below.
 
      ```js
-     class App extends Reacts.Component {
+     class App extends React.Component {
        render() {
          return <h1>This is a class component</h1>;
        }
@@ -5228,8 +5228,9 @@ class ParentComponent extends React.Component {
 
      State contains information or data about a component which may change over time.
 
-     In class component, you can update the state when a user interacts with it or server updates the data using the `setState()` method. The initial state is going to be assigned in the `Constructor( ) `method using the the ` this.state` object and it is possible to different data types in the `this.state` object such as string, boolean, numbers, etc.
-     **A simple example showing how we use the setState() and constructor()**
+     In class component, you can update the state when a user interacts with it or server updates the data using the `setState()` method. The initial state is going to be assigned in the `Constructor()` method using the `this.state` object and it is possible to assign different data types such as string, boolean, numbers, etc.
+
+     **A simple example showing how we use the setState() and constructor():**
 
      ```js
      class App extends Component {
@@ -5240,7 +5241,7 @@ class ParentComponent extends React.Component {
          };
        }
        updateMessage() {
-         this.setState({t
+         this.setState({
            message: "Updating the class component",
          });
        }
@@ -5261,9 +5262,9 @@ class ParentComponent extends React.Component {
 
      ```
 
-     You not use state in functional components because it was only supported in class components. But over the years hooks have been implemented in functional component which enable to use state in functional component too.
+     You didn't use state in functional components because it was only supported in class components. But over the years hooks have been implemented in functional components which enables to use state too.
 
-     The `useState()` hook can used to implement state in funcitonal component. It returns an array with two items: the first item is current state and the next one is a function (setState) that updates the value of the current state.
+     The `useState()` hook can used to implement state in functional components. It returns an array with two items: the first item is current state and the next one is a function (setState) that updates the value of the current state.
 
      Let's see an example to demonstrate the state in functional components,
 
@@ -5284,7 +5285,7 @@ class ParentComponent extends React.Component {
 
      ## 3. Props:
 
-     Props are referred to as "properties". The props are passed into react component just like arguments passed to a function. In otherwords, they are similar to HTML attributes.
+     Props are referred to as "properties". The props are passed into React component just like arguments passed to a function. In other words, they are similar to HTML attributes.
 
      The props are accessible in child class component using `this.props` as shown in below example,
 
