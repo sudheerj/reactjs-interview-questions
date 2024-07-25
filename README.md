@@ -4821,7 +4821,7 @@ class ParentComponent extends React.Component {
 **[⬆ Back to Top](#table-of-contents)**
 
 227. ### What is MobX?
-     MobX is a simple, scalable and battle tested state management solution for applying functional reactive programming (TFRP). For reactJs application, you need to install below packages,
+     MobX is a simple, scalable and battle tested state management solution for applying functional reactive programming (TFRP). For ReactJs application, you need to install below packages,
      ```bash
      npm install mobx --save
      npm install mobx-react --save
@@ -4961,9 +4961,9 @@ class ParentComponent extends React.Component {
 
 **[⬆ Back to Top](#table-of-contents)**
 
-235. ### What are the benefits of using typescript with reactjs?
+235. ### What are the benefits of using TypeScript with ReactJS?
 
-     Below are some of the benefits of using typescript with Reactjs,
+     Below are some of the benefits of using TypeScript with ReactJS,
 
      1. It is possible to use latest JavaScript features
      2. Use of interfaces for complex type definitions
@@ -7109,7 +7109,7 @@ Technically it is possible to write nested function components but it is not sug
          npx create-react-app my-app --template typescript
          ```
 
-        But if you are using React Scripting between react-scripts@2.1.0 and react-scripts@3.2.x , there is a built-in support for typescript. i.e, `create-react-app` now supports typescript natively. You can just pass `--typescript` option as below
+        But if you are using React Scripting between react-scripts@2.1.0 and react-scripts@3.2.x , there is a built-in support for TypeScript. i.e, `create-react-app` now supports TypeScript natively. You can just pass `--typescript` option as below
 
          ```bash
          npx create-react-app my-app --typescript
