@@ -837,9 +837,9 @@ class ParentComponent extends React.Component {
 
     In React, both `state` and `props` are plain JavaScript objects and used to manage the data of a component, but they are used in different ways and have different characteristics.
 
-    The `state` entity is managed by the component itself and can be updated using the setter(`setState()` for class components) function. Unlike props, state can be modified by the component and is used to manage the internal state of the component. Moreover, changes in the state trigger a re-render of the component and its children. The components cannot become reusable with the usage of state alone.
+    The `state` entity is managed by the component itself and can be updated using the setter(`setState()` for class components) function. Unlike props, state can be modified by the component and is used to manage the internal state of the component. i.e, state acts as a component's memory. Moreover, changes in the state trigger a re-render of the component and its children. The components cannot become reusable with the usage of state alone.
 
-    On the otherhand, `props` (short for "properties") are passed to a component by its parent component and are `read-only`, meaning that they cannot be modified by the own component itself. Also, props can be used to configure the behavior of a component and to pass data between components. The components become reusable with the usage of props.
+    On the otherhand, `props` (short for "properties") are passed to a component by its parent component and are `read-only`, meaning that they cannot be modified by the own component itself. i.e, props acts as arguments for a function. Also, props can be used to configure the behavior of a component and to pass data between components. The components become reusable with the usage of props.
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -1258,7 +1258,7 @@ class ParentComponent extends React.Component {
 
     ```jsx harmony
     render() {
-      return <span className={'menu navigation-menu'}>{'Menu'}</span>
+      return <span className="menu navigation-menu">{'Menu'}</span>
     }
     ```
 
@@ -5424,14 +5424,14 @@ class ParentComponent extends React.Component {
         Unlike HTML, all tags needs to closed explicitly with in JSX. This rule applies for self-closing tags(like hr, br and img tags) as well.
      3. **Use camelCase naming:**
         It is suggested to use camelCase naming for attributes in JSX. For example, the common attributes of HTML elements such as `class`, `tabindex` will be used as `className` and `tabIndex`.  
-        **Note:** There is an exception for aria-_ and data-_ attributes which should be lower cased all the time.
+        **Note:** There is an exception for `aria-*` and `data-*` attributes which should be lower cased all the time.
 
 **[⬆ Back to Top](#table-of-contents)**
 
 249.  ### What is the reason behind multiple JSX tags to be wrapped?
 
       Behind the scenes, JSX is transformed into plain javascript objects. It is not possible to return two or more objects from a function without wrapping into an array. This is the reason you can't simply return two or more JSX tags from a function without
-      wrapping them into a single parent tag or a Fragement.
+      wrapping them into a single parent tag or a Fragment.
 
 **[⬆ Back to Top](#table-of-contents)**
 
