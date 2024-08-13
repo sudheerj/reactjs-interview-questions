@@ -612,7 +612,7 @@ Hide/Show table of contents
 
     The usage of Error boundaries from the above library is quite straight forward.
 
-    > **_Note when using react-error-boundary:_** ErrorBoundary is a client component. You can only pass props to it that are serializeable or use it in files that have a `"use client";` directive.
+    > **_Note when using react-error-boundary:_** ErrorBoundary is a client component. You can only pass props to it that are serializable or use it in files that have a `"use client";` directive.
 
     ```jsx
     "use client";
@@ -1254,7 +1254,7 @@ class ParentComponent extends React.Component {
 
 30. ### Why React uses `className` over `class` attribute?
 
-    The attribute names written in JSX turned into keys of JavaScript objects and the JavaScript names cannot contain dashes or reversed words, it is recommended to use camelCase whereever applicable in JSX code. The attribute `class` is a keyword in JavaScript, and JSX is an extension of JavaScript. That's the principle reason why React uses `className` instead of `class`. Pass a string as the `className` prop.
+    The attribute names written in JSX turned into keys of JavaScript objects and the JavaScript names cannot contain dashes or reversed words, it is recommended to use camelCase wherever applicable in JSX code. The attribute `class` is a keyword in JavaScript, and JSX is an extension of JavaScript. That's the principle reason why React uses `className` instead of `class`. Pass a string as the `className` prop.
 
     ```jsx harmony
     render() {
@@ -4957,7 +4957,7 @@ class ParentComponent extends React.Component {
      }
      ```
 
-     Because the declarative approach separates concerns, this part of it only needs to handle how the UI should look in a sepecific state, and is therefore much simpler to understand.
+     Because the declarative approach separates concerns, this part of it only needs to handle how the UI should look in a specific state, and is therefore much simpler to understand.
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -5520,7 +5520,7 @@ class ParentComponent extends React.Component {
       }
       ```
 
-      The preceeding code updated two state variables with in an event handler. However, React will perform automatic batching feature and the component will be re-rendered only once for better performance.
+      The preceding code updated two state variables with in an event handler. However, React will perform automatic batching feature and the component will be re-rendered only once for better performance.
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -5597,7 +5597,7 @@ class ParentComponent extends React.Component {
 
 256.  ### How do you update objects inside state?
 
-      You cannot update the objects which exists in the state directly. Instead, you should create a fresh new object (or copy from the existing object) and update the latest state using the newly created object. Eventhough JavaScript objects are mutable, you need to treate objects inside state as read-only while updating the state.
+      You cannot update the objects which exists in the state directly. Instead, you should create a fresh new object (or copy from the existing object) and update the latest state using the newly created object. Eventhough JavaScript objects are mutable, you need to treat objects inside state as read-only while updating the state.
 
       Let's see this comparison with an example. The issue with regular object mutation approach can be described by updating the user details fields of `Profile` component. The properties of `Profile` component such as firstName, lastName and age details mutated in an event handler as shown below.
 
@@ -5683,7 +5683,7 @@ class ParentComponent extends React.Component {
       user.address.country = "Germany";
       ```
 
-      This issue can be fixed by flattening all the fields into a top-level object or create a new object for each nested object and point it to it's parent object. In this example, first you need to create copy of address object and update it with the latest value. Later, the adress object should be linked to parent user object something like below.
+      This issue can be fixed by flattening all the fields into a top-level object or create a new object for each nested object and point it to it's parent object. In this example, first you need to create copy of address object and update it with the latest value. Later, the address object should be linked to parent user object something like below.
 
       ```js
       setUser({
@@ -5703,7 +5703,7 @@ class ParentComponent extends React.Component {
 
       Eventhough arrays in JavaScript are mutable in nature, you need to treat them as immutable while storing them in a state. That means, similar to objects, the arrays cannot be updated directly inside state. Instead, you need to create a copy of the existing array and then set the state to use newly copied array.
 
-      To ensure that arrays are not mutated, the mutation operations like direct direct assigment(arr[1]='one'), push, pop, shift, unshift, splice etc methods should be avoided on original array. Instead, you can create a copy of existing array with help of array operations such as filter, map, slice, spread syntax etc.
+      To ensure that arrays are not mutated, the mutation operations like direct direct assignment(arr[1]='one'), push, pop, shift, unshift, splice etc methods should be avoided on original array. Instead, you can create a copy of existing array with help of array operations such as filter, map, slice, spread syntax etc.
 
       For example, the below push operation doesn't add the new todo to the total todo's list in an event handler.
 
@@ -5743,7 +5743,7 @@ class ParentComponent extends React.Component {
       2. Replace `useState` hook with `useImmer` hook by importing at the top
       3. The setter function of `useImmer` hook can be used to update the state.
 
-      For example, the mutation syntax of immer library simplies the nested address object of user state as follows,
+      For example, the mutation syntax of immer library simplifies the nested address object of user state as follows,
 
       ```jsx
       import { useImmer } from "use-immer";
@@ -5762,7 +5762,7 @@ class ParentComponent extends React.Component {
       });
       ```
 
-      The preceeding code enables you to update nested objects with a conceise mutation syntax.
+      The preceding code enables you to update nested objects with a conceise mutation syntax.
 
 **[⬆ Back to Top](#table-of-contents)**
 

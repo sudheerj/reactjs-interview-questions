@@ -32,7 +32,7 @@ export default function Counter() {
 <p>
 
 ##### Answer: 3
-State values are fixed(i.e, default value 5) in each render and setting the state only changes it for the next render. React will wait untill all the code executed with in an event handler before your state updates follwed by re-rendering the UI. Also, all the 3 setter function calls are replacing the calculated value. Hence, irrespective of how many times you call `setCounter(counter + 5)` the final value is 10(5+5).
+State values are fixed(i.e, default value 5) in each render and setting the state only changes it for the next render. React will wait until all the code executed with in an event handler before your state updates followed by re-rendering the UI. Also, all the 3 setter function calls are replacing the calculated value. Hence, irrespective of how many times you call `setCounter(counter + 5)` the final value is 10(5+5).
 
 This can be visuallized by substituting with state variable values in the particular render,
 ```javascript
