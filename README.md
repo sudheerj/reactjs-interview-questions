@@ -3998,7 +3998,7 @@ class ParentComponent extends React.Component {
 
 178. ### What are default props?
 
-     The _defaultProps_ can be defined as a property on the component to set the default values for the props. These default props are used when props not supplied(i.e., undefined props), but not for null props. That means, If you provide null value then it remains null value.
+     The _defaultProps_ can be defined as a property on the component to set the default values for the props. These default props are used when props not supplied(i.e., undefined props), but not for `null` or `0` as props. That means, If you provide null value then it remains null value. It's the same behavior with 0 as well.
 
      For example, let us create color default prop for the button component,
 
@@ -5825,20 +5825,20 @@ Technically it is possible to write nested function components but it is not sug
 
 269. ### When to use client and server components?
 
-    You can efficiently build nextjs application if you are aware about which part of the application needs to use client components and which other parts needs to use server components. The common cases of both client and server components are listed below:
+      You can efficiently build nextjs application if you are aware about which part of the application needs to use client components and which other parts needs to use server components. The common cases of both client and server components are listed below:
 
-    **Client components:**
-    1. Whenever your need to add interactivity and event listeners such as onClick(), onChange(), etc to the pages
-    2. If you need to use State and Lifecycle Effects like useState(), useReducer(), useEffect() etc.
-    3. If there is a requirement to use browser-only APIs.
-    4. If you need to implement custom hooks that depend on state, effects, or browser-only APIs.
-    5. There are React Class components in the pages.
+        **Client components:**
+        1. Whenever your need to add interactivity and event listeners such as onClick(), onChange(), etc to the pages
+        2. If you need to use State and Lifecycle Effects like useState(), useReducer(), useEffect() etc.
+        3. If there is a requirement to use browser-only APIs.
+        4. If you need to implement custom hooks that depend on state, effects, or browser-only APIs.
+         5. There are React Class components in the pages.
 
-    **Server components:**
-    1. If the component logic is about data fetching.
-    2. If you need to access backend resources directly.
-    3. When you need to keep sensitive information((access tokens, API keys, etc)	) on the server.
-    4. If you want reduce client-side JavaScript and placing large dependencies on the server.
+        **Server components:**
+        1. If the component logic is about data fetching.
+        2. If you need to access backend resources directly.
+        3. When you need to keep sensitive information((access tokens, API keys, etc)	) on the server.
+        4. If you want reduce client-side JavaScript and placing large dependencies on the server.
 
 
 **[⬆ Back to Top](#table-of-contents)**
