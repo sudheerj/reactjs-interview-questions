@@ -6,16 +6,6 @@
 
 <div>
 <p align="center">
-  <a href=https://react.gg/?s=rjsiq>
-    <img src="./images/collab/uidev-banner4x.png" alt="React interview" width="100%">
-  </a>
-</p>
-</div>
-
----
-
-<div>
-<p align="center">
   <a href="https://www.greatfrontend.com/questions/react?utm_source=github&utm_medium=referral&utm_campaign=sudheerj-react&gnrs=sudheerj">
     <img src="./images/collab/greatfrontend-banner4x.png" alt="GreatFrontEnd React Interview Questions" width="100%">
   </a>
@@ -23,6 +13,28 @@
 </div>
 
 > 💡 Nail React interviews with questions and solutions from ex-interviewers! [Try GreatFrontEnd →](https://www.greatfrontend.com/questions/react?utm_source=github&utm_medium=referral&utm_campaign=sudheerj-react&gnrs=sudheerj) 💡
+
+---
+
+<div>
+<p align="center">
+  <a href=https://www.frontendlead.com/coding-questions?type=react&type=vanilla&utm_source=github&%0Dutm_medium=referral&utm_campaign=sudheerj-react>
+    <img src="./images/collab/frontendlead-banner.png" alt="React interview" width="100%">
+  </a>
+</p>
+</div>
+
+> 🚀 Ace React interview questions with solutions from FAANG+ companies! [Try FrontendLead →](https://www.frontendlead.com/coding-questions?type=react&type=vanilla&utm_source=github&%0Dutm_medium=referral&utm_campaign=sudheerj-react) 🚀
+
+---
+
+<div>
+<p align="center">
+  <a href=https://react.gg/?s=rjsiq>
+    <img src="./images/collab/uidev-banner4x.png" alt="React interview" width="100%">
+  </a>
+</p>
+</div>
 
 ---
 
@@ -2692,27 +2704,27 @@ class ParentComponent extends React.Component {
 
 95. ### How to format date using React Intl?
 
-         The `injectIntl()` higher-order component will give you access to the `formatDate()` method via the props in your component. The method is used internally by instances of `FormattedDate` and it returns the string representation of the formatted date.
+     The `injectIntl()` higher-order component will give you access to the `formatDate()` method via the props in your component. The method is used internally by instances of `FormattedDate` and it returns the string representation of the formatted date.
 
-         ```jsx harmony
-         import { injectIntl, intlShape } from "react-intl";
+     ```jsx harmony
+     import { injectIntl, intlShape } from "react-intl";
 
-         const stringDate = this.props.intl.formatDate(date, {
-           year: "numeric",
-           month: "numeric",
-           day: "numeric",
-         });
+     const stringDate = this.props.intl.formatDate(date, {
+       year: "numeric",
+       month: "numeric",
+       day: "numeric",
+     });
 
-         const MyComponent = ({ intl }) => (
-           <div>{`The formatted date is ${stringDate}`}</div>
-         );
+     const MyComponent = ({ intl }) => (
+       <div>{`The formatted date is ${stringDate}`}</div>
+     );
 
-         MyComponent.propTypes = {
-           intl: intlShape.isRequired,
-         };
+     MyComponent.propTypes = {
+       intl: intlShape.isRequired,
+     };
 
-         export default injectIntl(MyComponent);
-         ```
+     export default injectIntl(MyComponent);
+     ```
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -3709,6 +3721,7 @@ class ParentComponent extends React.Component {
 
      ```jsx
      import React from "react";
+
      const ChildComponent = ({ name, age }) => {
        return (
          <>
@@ -3716,6 +3729,7 @@ class ParentComponent extends React.Component {
          </>
        );
      };
+
      const ParentComponent = () => {
        return (
          <>
@@ -3723,6 +3737,7 @@ class ParentComponent extends React.Component {
          </>
        );
      };
+
      export default ParentComponent;
      ```
 
@@ -4057,6 +4072,7 @@ class ParentComponent extends React.Component {
      Code-Splitting is a feature supported by bundlers like Webpack and Browserify which can create multiple bundles that can be dynamically loaded at runtime. The react project supports code splitting via dynamic import() feature.
 
      For example, in the below code snippets, it will make moduleA.js and all its unique dependencies as a separate chunk that only loads after the user clicks the 'Load' button.
+
      **moduleA.js**
 
      ```javascript
@@ -4087,11 +4103,11 @@ class ParentComponent extends React.Component {
      }
      ```
 
-
-    <details><summary><b>See Class</b></summary>
+  <details><summary><b>See Class</b></summary>
     <p>
-     ```javascript
-     import React, { Component } from "react";
+
+  ```javascript
+    import React, { Component } from "react";
 
      class App extends Component {
        handleClick = () => {
@@ -4114,9 +4130,10 @@ class ParentComponent extends React.Component {
      }
 
      export default App;
-     ```
-    </p>
-    </details>
+  ```
+
+  </p>
+</details>
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -4859,7 +4876,7 @@ class ParentComponent extends React.Component {
         const { someData, dispatch } = this.props;
         ```
 
-     2. Spread operator: Helps in passing props down into a component
+     2. **Spread operator:** Helps in passing props down into a component
 
         ```javascript
         // in es 5
@@ -4869,7 +4886,7 @@ class ParentComponent extends React.Component {
         <SomeComponent {...this.props} />
         ```
 
-     3. Arrow functions: Makes compact syntax
+     3. **Arrow functions:** Makes compact syntax
         ```javascript
         // es 5
         var users = usersList.map(function (user) {
