@@ -18,13 +18,13 @@
 
 <div>
 <p align="center">
-  <a href=https://www.frontendlead.com/coding-questions?type=react&type=vanilla&utm_source=github&%0Dutm_medium=referral&utm_campaign=sudheerj-react rel="dofollow">
+  <a href="https://www.frontendlead.com/coding-questions?utm_source=github&utm_medium=referral&utm_campaign=sudheerj-react" rel="dofollow">
     <img src="./images/collab/frontendlead-banner.png" alt="React interview" width="100%">
   </a>
 </p>
 </div>
 
-> 🚀 Ace React interview questions with solutions from FAANG+ companies! [Try FrontendLead →](https://www.frontendlead.com/coding-questions?type=react&type=vanilla&utm_source=github&%0Dutm_medium=referral&utm_campaign=sudheerj-react) 🚀
+> 🚀 Ace React interview questions with solutions from FAANG+ companies! [Try FrontendLead →](https://www.frontendlead.com/coding-questions?utm_source=github&utm_medium=referral&utm_campaign=sudheerj-react) 🚀
 
 ---
 
@@ -5828,10 +5828,15 @@ Technically it is possible to write nested function components but it is not sug
 **[⬆ Back to Top](#table-of-contents)**
 
 268. ### What are the use cases of useContext hook?
+     Some of the common use cases of useContext are listed below,
+
+     1. **Theme customizations:** The useContext hook can be used to manage and apply custom themes for an application. That means it allows users to personalize the appearance of the application.
+     2. **Support localization:** The context hook is helpful to implement localization by providing translated strings to components based on the user's language/locale preference.
+     3. **User authentication:** It can be used to manage user authentication or session status and display user specific information with in components.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-269. ### When to use client and server components?
+269.  ### When to use client and server components?
 
       You can efficiently build nextjs application if you are aware about which part of the application needs to use client components and which other parts needs to use server components. The common cases of both client and server components are listed below:
 
@@ -5840,7 +5845,7 @@ Technically it is possible to write nested function components but it is not sug
         2. If you need to use State and Lifecycle Effects like useState(), useReducer(), useEffect() etc.
         3. If there is a requirement to use browser-only APIs.
         4. If you need to implement custom hooks that depend on state, effects, or browser-only APIs.
-         5. There are React Class components in the pages.
+        5. There are React Class components in the pages.
 
         **Server components:**
         1. If the component logic is about data fetching.
