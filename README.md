@@ -1011,7 +1011,7 @@ class ParentComponent extends React.Component {
 
     The controlled components will be implemented using the below steps,
 
-    1. Initialize the state using use state hooks in function components or inside constructor for class components.
+    1. Initialize the state using useState hooks in function components or inside constructor for class components.
     2. Set the value of the form element to the respective state variable.
     3. Create an event handler to handle the user input changes through useState updater function or setState from class component.
     4. Attach the above event handler to form elements change or click events
