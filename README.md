@@ -1011,7 +1011,7 @@ class ParentComponent extends React.Component {
 
     The controlled components will be implemented using the below steps,
 
-    1. Initialize the state using use state hooks in function components or inside constructor for class components.
+    1. Initialize the state using `useState` hooks in function components or inside constructor for class components.
     2. Set the value of the form element to the respective state variable.
     3. Create an event handler to handle the user input changes through useState updater function or setState from class component.
     4. Attach the above event handler to form elements change or click events
@@ -1043,12 +1043,12 @@ class ParentComponent extends React.Component {
 
 22. ### What are uncontrolled components?
 
-    The **Uncontrolled Components** are the ones that store their own state internally, and you query the DOM using a ref to find its current value when you need it. This is a bit more like traditional HTML.
+    The **Uncontrolled Components** are the ones that store their own state internally, and you query the DOM using a `ref` to find its current value when you need it. This is a bit more like traditional HTML.
 
     The uncontrolled components will be implemented using the below steps,
 
-    1. Create a ref using useRef react hook in function component or `React.createRef()` in class based component.
-    2. Attach this ref to the form element.
+    1. Create a ref using `useRef` react hook in function component or `React.createRef()` in class based component.
+    2. Attach this `ref` to the form element.
     3. The form element value can be accessed directly through `ref` in event handlers or `componentDidMount` for class components
 
     In the below UserProfile component, the `username` input is accessed using ref.
