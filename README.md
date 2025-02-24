@@ -327,8 +327,8 @@ Hide/Show table of contents
 | 264 | [What are the guidelines to be followed for writing reducers?](#what-are-the-guidelines-to-be-followed-for-writing-reducers)                                                                                                     |
 | 265 | [What is useReducer hook? Can you describe its usage?](#what-is-use-reducer-hook-Can-you-describe-its-usage)                                                                                                                     |
 | 266 | [How do you compare useState and useReducer?](#how-do-you-compare-use-state-and-use-reducer)                                                                                                                                     |
-| 267 | [How does context works using useContext hook?](#how-does-context-works-using-use-context-hook)                                                                                                                                  |
-| 268 | [What are the use cases of useContext hook?](#what-are-the-use-cases-of-use-context-hook)                                                                                                                                        |
+| 267 | [How does context works using useContext hook?](#how-does-context-works-using-useContext-hook)                                                                                                                                  |
+| 268 | [What are the use cases of useContext hook?](#what-are-the-use-cases-of-useContext-hook)                                                                                                                                        |
 | 269 | [When to use client and server components?](#when-to-use-client-and-server-components)                                                                                                                                        |
 | 270 | [What are the differences between page router and app router in nextjs?](#what-are-the-differences-between-page-router-and-app-router-in-nextjs)                                                                                                                                        |
 </details>
@@ -3893,12 +3893,108 @@ class ParentComponent extends React.Component {
 
      You need to follow two rules in order to use hooks,
 
-     1. **Call Hooks only at the top level of your react functions:** You should always use hooks at the top level of react function before any early returns. i.e, You shouldn’t call Hooks inside loops, conditions, or nested functions. This will ensure that Hooks are called in the same order each time a component renders and it preserves the state of Hooks between multiple re-renders due to useState and useEffect calls.
+     1. **Call Hooks only at the top level of your react functions:** You should always use hooks at the top level of react function before any early returns. i.e, You shouldn’t call Hooks inside loops, conditions, or nested functions. This will ensure that Hooks are called in the same order each time a component renders and it preserves the state of Hooks between multiple re-renders due to `useState` and `useEffect` calls.
+
+     Let's see the difference using an example,
+     **Correct usage:**:
+     ```jsx
+     function UserProfile() {
+      // Correct: Hooks called at the top level
+      const [name, setName] = useState('John');
+      const [country, setCountry] = useState('US');
+
+      return (
+        <div>
+          <h1>Name: {name}</h1>
+          <p>Country: {country}</p>
+        </div>
+      );
+     }
+     ```
+     **Incorrect usage:**:
+     ```jsx
+     function UserProfile() {
+      const [name, setName] = useState('John');
+      
+      if (name === 'John') {
+        // Incorrect: useState is called inside a conditional
+        const [country, setCountry] = useState('US'); 
+      }
+
+      return (
+        <div>
+          <h1>Name: {name}</h1>
+          <p>Country: {country}</p> {/* This will throw an error if the name condition isn't met */}
+        </div>
+      );
+     }
+     ```
+     The `useState` hook for the country field is being called conditionally within an `if` block. This can lead to inconsistent state behavior and may cause hooks to be called in a different order on each re-render.
+
      2. **Call Hooks from React Functions only:** You shouldn’t call Hooks from regular JavaScript functions or class components. Instead, you should call them from either function components or custom hooks.
+     
+     Let's find the difference of correct and incorrect usage with below examples,
+
+     **Correct usage:**:
+     ```jsx
+     //Example1:
+     function Counter() {
+      // Correct: useState is used inside a functional component
+      const [count, setCount] = useState(0);
+
+      return <div>Counter: {count}</div>;
+     }
+     //Example2:
+     function useFetchData(url) {
+      const [data, setData] = useState(null);
+
+      useEffect(() => {
+        fetch(url)
+          .then((response) => response.json())
+          .then((data) => setData(data));
+      }, [url]);
+
+      return data;
+     }
+
+     function UserProfile() {
+      // Correct: Using a custom hook here
+      const user = useFetchData('https://some-api.com/user');
+
+      return (
+        <div>
+          <h1>{user ? user.name : 'Loading profile...'}</h1>
+        </div>
+      );
+     }
+     ```
+     **Incorrect usage:**:
+     ```jsx
+      //Example1
+      function normalFunction() {
+        // Incorrect: Can't call hooks in normal functions
+        const [count, setCount] = useState(0); 
+      }
+
+      //Example2
+      function fetchData(url) {
+        // Incorrect: Hooks can't be used in non-React functions
+        const [data, setData] = useState(null);
+
+        useEffect(() => {
+          fetch(url)
+            .then((response) => response.json())
+            .then((data) => setData(data));
+        }, [url]);
+
+        return data;
+      }
+     ```
+     In the above incorrect usage example, both `useState` and `useEffect` are used in non-React functions(`normalFunction` and `fetchData`), which is not allowed.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-170. ### How to ensure hooks followed the rules in your project?
+170.   ### How to ensure hooks followed the rules in your project?
 
      React team released an ESLint plugin called **eslint-plugin-react-hooks** that enforces Hook's two rules. It is part of Hooks API. You can add this plugin to your project using the below command,
 
