@@ -28,19 +28,6 @@
 
 ---
 
-<div>
-<p align="center">
-  <a href=https://zerotomastery.io/?utm_source=github&utm_medium=sponsor&utm_campaign=reactjs-interview-questions>
-    <img src=https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=height:70/https://www.filepicker.io/api/file/AKYtjj5SSGyJuyZrkAB2 alt="ZTM Logo" width="100" height="50">
-  </a>
-    <ol>
-      <li>I recommend this <a href="https://links.zerotomastery.io/react_sudheer">React course</a> if you’re serious about learning React and want to go beyond the basics</li>
-      <li>Want to ace your coding interview and get hired at your dream company? <a href="http://links.zerotomastery.io/mci_sudheer">Take this coding interview bootcamp</a></li>
-    </ol>
-  </p>
-</div>
-
----
 
 **Note:** This repository is specific to ReactJS. Please check [Javascript Interview questions](https://github.com/sudheerj/javascript-interview-questions) for core javascript questions and [DataStructures and Algorithms](https://github.com/sudheerj/datastructures-algorithms) for DSA related questions or problems.
 
@@ -325,6 +312,7 @@ Hide/Show table of contents
 | 262 | [What will happen by defining nested function components?](#what-will-happen-by-defining-nested-function-components)                                                                                                             |
 | 263 | [Can I use keys for non-list items?](#can-i-use-keys-for-non-list-items)                                                                                                                                                         |
 | 264 | [What are the guidelines to be followed for writing reducers?](#what-are-the-guidelines-to-be-followed-for-writing-reducers)                                                                                                     |
+|     | **Hooks**                                                                                                                                                                                                                 |
 | 265 | [What is useReducer hook? Can you describe its usage?](#what-is-use-reducer-hook-Can-you-describe-its-usage)                                                                                                                     |
 | 266 | [How do you compare useState and useReducer?](#how-do-you-compare-use-state-and-use-reducer)                                                                                                                                     |
 | 267 | [How does context works using useContext hook?](#how-does-context-works-using-useContext-hook)                                                                                                                                  |
@@ -4018,6 +4006,14 @@ class ParentComponent extends React.Component {
         }
         ```
 
+        This plugin also provide another important rule through `react-hooks/exhaustive-deps`. It ensures that the dependencies of useEffect, useCallback, and useMemo hooks are correctly listed to avoid potential bugs.
+
+        ```jsx
+        useEffect(() => {
+          // Forgetting `message` will result in incorrect behavior
+          console.log(message);
+        }, []); // Here `message` should be a dependency
+        ```
         The recommended `eslint-config-react-app` preset already includes the hooks rules of this plugin.
         For example, the linter enforce proper naming convention for hooks. If you rename your custom hooks which as prefix "use" to something else then linter won't allow you to call built-in hooks such as useState, useEffect etc inside of your custom hook anymore.
 
