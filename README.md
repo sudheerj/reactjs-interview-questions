@@ -316,16 +316,17 @@ Hide/Show table of contents
 | 253 | [How does React batch multiple state updates?](#how-does-react-batch-multiple-state-updates)                                                                                                                                     |
 | 254 | [Is it possible to prevent automatic batching?](#is-it-possible-to-prevent-automatic-batching)                                                                                                                                   |
 | 255 | [What is React hydration?](#what-is-react-hydration)                                                                                                                                                                             |
-| 256 | [How do you update objects inside state?](#how-do-you-update-objects-inside-state)                                                                                                                                               |
-| 257 | [How do you update nested objects inside state?](#how-do-you-update-nested-objects-inside-state)                                                                                                                                 |
-| 258 | [How do you update arrays inside state?](#how-do-you-update-arrays-inside-state)                                                                                                                                                 |
-| 259 | [How do you use the Immer library for state updates?](#how-do-you-use-immer-library-for-state-updates)                                                                                                                           |
-| 260 | [What are the benefits of preventing direct state mutations?](#what-are-the-benefits-of-preventing-the-direct-state-mutations)                                                                                                   |
-| 261 | [What are the preferred and non-preferred array operations for updating state?](#what-are-the-preferred-and-non-preferred-array-operations-for-updating-the-state)                                                               |
-| 262 | [What happens when you define nested function components?](#what-will-happen-by-defining-nested-function-components)                                                                                                             |
-| 263 | [Can you use keys for non-list items?](#can-i-use-keys-for-non-list-items)                                                                                                                                                       |
-| 264 | [What guidelines should be followed for writing reducers?](#what-are-the-guidelines-to-be-followed-for-writing-reducers)                                                                                                         |
-| 265 | [What is the useReducer Hook, and can you describe its usage?](#what-is-use-reducer-hook-can-you-describe-its-usage)                                                                                                             |
+| 256 | [How do you update objects inside the state?](#how-do-you-update-objects-inside-state)                                                                                                                                               |
+| 257 | [How do you update nested objects inside the state?](#How-do-you-update-nested-objects-inside-state)                                                                                                                                 |
+| 258 | [How do you update arrays inside the state?](#how-do-you-update-arrays-inside-state)                                                                                                                                                 |
+| 259 | [How do you use immer library for state updates?](#how-do-you-use-immer-library-for-state-updates)                                                                                                                               |
+| 260 | [What are the benefits of preventing the direct state mutations?](#what-are-the-benefits-of-preventing-the-direct-state-mutations)                                                                                               |
+| 261 | [What are the preferred and non-preferred array operations for updating the state?](#what-are-the-preferred-and-non-preferred-array-operations-for-updating-the-state)                                                           |
+| 262 | [What will happen by defining nested function components?](#what-will-happen-by-defining-nested-function-components)                                                                                                             |
+| 263 | [Can I use keys for non-list items?](#can-i-use-keys-for-non-list-items)                                                                                                                                                         |
+| 264 | [What are the guidelines to be followed for writing reducers?](#what-are-the-guidelines-to-be-followed-for-writing-reducers)                                                                                                     |
+|     | **Hooks**                                                                                                                                                                                                                 |
+| 265 | [What is useReducer hook? Can you describe its usage?](#what-is-use-reducer-hook-Can-you-describe-its-usage)                                                                                                                     |
 | 266 | [How do you compare useState and useReducer?](#how-do-you-compare-use-state-and-use-reducer)                                                                                                                                     |
 | 267 | [How does Context work with the useContext Hook?](#how-does-context-works-using-usecontext-hook)                                                                                                                                 |
 | 268 | [What are the use cases of the useContext Hook?](#what-are-the-use-cases-of-usecontext-hook)                                                                                                                                     |
@@ -4019,6 +4020,14 @@ class ParentComponent extends React.Component {
         }
         ```
 
+        This plugin also provide another important rule through `react-hooks/exhaustive-deps`. It ensures that the dependencies of useEffect, useCallback, and useMemo hooks are correctly listed to avoid potential bugs.
+
+        ```jsx
+        useEffect(() => {
+          // Forgetting `message` will result in incorrect behavior
+          console.log(message);
+        }, []); // Here `message` should be a dependency
+        ```
         The recommended `eslint-config-react-app` preset already includes the hooks rules of this plugin.
         For example, the linter enforce proper naming convention for hooks. If you rename your custom hooks which as prefix "use" to something else then linter won't allow you to call built-in hooks such as useState, useEffect etc inside of your custom hook anymore.
 
