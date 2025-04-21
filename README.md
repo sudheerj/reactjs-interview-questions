@@ -517,7 +517,7 @@ Hide/Show table of contents
 
 5.  ### What is the difference between Element and Component?
 
-    An _Element_ is a plain object describing what you want to appear on the screen in terms of the DOM nodes or other components. _Elements_ can contain other _Elements_ in their props. Creating a React element is cheap. Once an element is created, it cannot be mutated.
+    An _Element_ is a plain object that describes what you want to appear on the screen in terms of the DOM nodes or other components. _Elements_ can contain other _Elements_ in their props. Creating a React _Element_ is inexpensive. Once an _Element_ is created, it cannot be mutated.
 
     The JavaScript representation(Without JSX) of React Element would be as follows:
 
