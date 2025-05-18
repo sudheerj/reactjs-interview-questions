@@ -515,56 +515,70 @@ Hide/Show table of contents
 
     **[⬆ Back to Top](#table-of-contents)**
 
-5.  ### What is the difference between Element and Component?
+5.  ### What is the difference between an Element and a Component?
 
-    An _Element_ is a plain object that describes what you want to appear on the screen in terms of the DOM nodes or other components. _Elements_ can contain other _Elements_ in their props. Creating a React _Element_ is inexpensive. Once an _Element_ is created, it cannot be mutated.
+      **Element:**
+      - A React **Element** is a plain JavaScript object that describes what you want to see on the UI. It represents a DOM node or a component at a specific point in time. 
+      - Elements are immutable: once created, you cannot change their properties. Instead, you create new elements to reflect updates.
+      - Elements can be nested within other elements through their `props`.
+      - Creating an element is a fast, lightweight operation—it does **not** create any actual DOM nodes or render anything to the screen directly.
 
-    The JavaScript representation(Without JSX) of React Element would be as follows:
+        **Example (without JSX):**
+        ```js
+        const element = React.createElement("button", { id: "login-btn" }, "Login");
+        ```
 
-    ```javascript
-    const element = React.createElement("div", { id: "login-btn" }, "Login");
-    ```
+        **Equivalent JSX syntax:**
+        ```jsx
+        <button id="login-btn">Login</button>
+        ```
 
-    and this element can be simiplified using JSX
+        **The object returned by `React.createElement`:**
+        ```js
+        {
+          type: 'button',
+          props: {
+            id: 'login-btn',
+            children: 'Login'
+          }
+        }
+        ```
+        Elements are then passed to the React DOM renderer (e.g., `ReactDOM.render()`), which translates them to actual DOM nodes.
 
-    ```html
-    <div id="login-btn">Login</div>
-    ```
+        ---
 
-    The above `React.createElement()` function returns an object as below:
+      **Component:**
+      - A **Component** is a function or class that returns an element (or a tree of elements) to describe part of the UI. Components can accept inputs (called **props**) and manage their own state (in case of class or function components with hooks).
+      - Components allow you to split the UI into independent, reusable pieces, each isolated and composable.
+      - You can define a component using a function or a class:
 
-    ```javascript
-    {
-      type: 'div',
-      props: {
-        children: 'Login',
-        id: 'login-btn'
-      }
-    }
-    ```
+        **Example (Function Component with JSX):**
+        ```jsx
+        const Button = ({ handleLogin }) => (
+          <button id="login-btn" onClick={handleLogin}>
+            Login
+          </button>
+        );
+        ```
 
-    Finally, this element renders to the DOM using `ReactDOM.render()`.
+        When JSX is compiled, it's transformed into a tree of `React.createElement` calls:
 
-    Whereas a **component** can be declared in several different ways. It can be a class with a `render()` method or it can be defined as a function. In either case, it takes props as an input, and returns a JSX tree as the output:
+        ```js
+        const Button = ({ handleLogin }) =>
+          React.createElement(
+            "button",
+            { id: "login-btn", onClick: handleLogin },
+            "Login"
+          );
+        ```
 
-    ```javascript
-    const Button = ({ handleLogin }) => (
-      <div id={"login-btn"} onClick={handleLogin}>
-        Login
-      </div>
-    );
-    ```
+        ---
 
-    Then JSX gets transpiled to a `React.createElement()` function tree:
+      **In summary:**
+      - **Elements** are the smallest building blocks in React—objects that describe what you want to see.
+      - **Components** are functions or classes that return elements and encapsulate logic, structure, and behavior for parts of your UI.
 
-    ```javascript
-    const Button = ({ handleLogin }) =>
-      React.createElement(
-        "div",
-        { id: "login-btn", onClick: handleLogin },
-        "Login"
-      );
-    ```
+       > Think of **elements** as the instructions for creating UI, and **components** as reusable blueprints that combine logic and structure to generate those instructions.
 
     **[⬆ Back to Top](#table-of-contents)**
 
