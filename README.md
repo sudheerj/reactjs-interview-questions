@@ -854,11 +854,43 @@ class ParentComponent extends React.Component {
 
 11. ### What is the difference between state and props?
 
-    In React, both `state` and `props` are plain JavaScript objects and used to manage the data of a component, but they are used in different ways and have different characteristics.
+    In React, both **state** and **props** are plain JavaScript objects, but they serve different purposes and have distinct behaviors:
 
-    The `state` entity is managed by the component itself and can be updated using the setter(`setState()` for class components) function. Unlike props, state can be modified by the component and is used to manage the internal state of the component. i.e, state acts as a component's memory. Moreover, changes in the state trigger a re-render of the component and its children. The components cannot become reusable with the usage of state alone.
+    ### State
+    - **Definition:**  
+      State is a data structure that is managed within a component. It represents information that can change over the lifetime of the component.
+    - **Mutability:**  
+      State is mutable, meaning it can be changed using the setter function (`setState` in class components or the updater function from `useState` in functional components).
+    - **Scope:**  
+      State is local to the component where it is defined. Only that component can modify its own state.
+    - **Usage:**  
+      State is typically used for data that needs to change in response to user actions, network responses, or other dynamic events.
+    - **Re-rendering:**  
+      Updating the state triggers a re-render of the component and its descendants.
 
-    On the otherhand, `props` (short for "properties") are passed to a component by its parent component and are `read-only`, meaning that they cannot be modified by the own component itself. i.e, props acts as arguments for a function. Also, props can be used to configure the behavior of a component and to pass data between components. The components become reusable with the usage of props.
+    ### Props
+    - **Definition:**  
+      Props (short for “properties”) are inputs to a component, provided by its parent component.
+    - **Mutability:**  
+      Props are read-only. A component cannot modify its own props; they are immutable from the component’s perspective.
+    - **Scope:**  
+      Props are used to pass data and event handlers down the component tree, enabling parent components to configure or communicate with their children.
+    - **Usage:**  
+      Props are commonly used to make components reusable and configurable. They allow the same component to be rendered with different data or behavior.
+    - **Analogy:**  
+      Think of props as arguments to a function, whereas state is like variables declared inside the function.
+
+    ### Summary Table
+
+    | Feature   | State                               | Props                             |
+    |-----------|-------------------------------------|-----------------------------------|
+    | Managed by| The component itself                | Parent component                  |
+    | Mutable   | Yes                                 | No (read-only)                    |
+    | Scope     | Local to the component              | Passed from parent to child       |
+    | Usage     | Manage dynamic data and UI changes  | Configure and customize component |
+    | Update    | Using setState/useState             | Cannot be updated by the component|
+
+    ---
 
     **[⬆ Back to Top](#table-of-contents)**
 
