@@ -58,7 +58,7 @@ Hide/Show table of contents
 | 2   | [What is the history behind React’s evolution?](#what-is-the-history-behind-react-evolution)                                                                                                                                      |
 | 3   | [What are the major features of React?](#what-are-the-major-features-of-react)                                                                                                                                                   |
 | 4   | [What is JSX?](#what-is-jsx)                                                                                                                                                                                                     |
-| 5   | [What is the difference between an Element and a Component?](#what-is-the-difference-between-element-and-component)                                                                                                              |
+| 5   | [What is the difference between an Element and a Component?](#what-is-the-difference-between-an-element-and-a-component)                                                                                                              |
 | 6   | [How do you create components in React?](#how-to-create-components-in-react)                                                                                                                                                     |
 | 7   | [When should you use a Class Component over a Function Component?](#when-to-use-a-class-component-over-a-function-component)                                                                                                    |
 | 8   | [What are Pure Components?](#what-are-pure-components)                                                                                                                                                                           |
@@ -2101,7 +2101,7 @@ class ParentComponent extends React.Component {
 
 **[⬆ Back to Top](#table-of-contents)**
 
-67. ### Why you can't update props in React?
+67. ### Why can't you update props in React?
 
     The React philosophy is that props should be _immutable_(read only) and _top-down_. This means that a parent can send any prop values to a child, but the child can't modify received props.
 
