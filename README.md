@@ -6036,19 +6036,29 @@ Technically it is possible to write nested function components but it is not sug
 
 2. ### What is the purpose of callback function as an argument of `setState()`?
 
-   The callback function is invoked when setState finished and the component gets rendered. Since `setState()` is **asynchronous** the callback function is used for any post action.
+    The callback function provided as the second argument to `setState` is executed after the state has been updated and the component has re-rendered. Because `setState()` is asynchronous, you cannot reliably perform actions that require the updated state immediately after calling `setState`. The callback ensures your code runs only after the update and re-render are complete.
 
-   **Note:** It is recommended to use lifecycle method rather than this callback function.
+    #### Example
 
-   ```javascript
-   setState({ name: "John" }, () =>
-     console.log("The name has updated and component re-rendered")
-   );
-   ```
+    ```jsx
+    this.setState({ name: "Sudheer" }, () => {
+      console.log("The name has been updated and the component has re-rendered.");
+    });
+    ```
+
+    #### When to use the callback?
+
+    Use the `setState` callback when you need to perform an action immediately after the DOM has been updated in response to a state change. i.e, The callback is a reliable way to perform actions after a state update and re-render, especially when the timing is critical due to the asynchronous nature of state updates in React. For example, if you need to interact with the updated DOM, trigger analytics, or perform further computations that depend on the new state or rendered output.
+
+    #### Note
+
+    - In modern React (with function components), you can achieve similar effects using the `useEffect` hook to respond to state changes.
+    - In class components, you can also use lifecycle methods like `componentDidUpdate` for broader post-update logic.
+    - The `setState` callback is still useful for one-off actions that directly follow a specific state change.
 
    **[⬆ Back to Top](#table-of-contents)**
 
-3. ### How to bind methods or event handlers in JSX callbacks?
+1. ### How to bind methods or event handlers in JSX callbacks?
 
    There are 3 possible ways to achieve this in class components:
 
@@ -6096,7 +6106,7 @@ Technically it is possible to write nested function components but it is not sug
 
    **[⬆ Back to Top](#table-of-contents)**
 
-4. ### How to pass a parameter to an event handler or callback?
+2. ### How to pass a parameter to an event handler or callback?
 
    You can use an _arrow function_ to wrap around an _event handler_ and pass parameters:
 
@@ -6121,13 +6131,13 @@ Technically it is possible to write nested function components but it is not sug
 
    **[⬆ Back to Top](#table-of-contents)**
 
-5. ### What is the use of refs?
+3. ### What is the use of refs?
 
    The _ref_ is used to return a reference to the element. They _should be avoided_ in most cases, however, they can be useful when you need a direct access to the DOM element or an instance of a component.
 
    **[⬆ Back to Top](#table-of-contents)**
 
-6. ### How to create refs?
+4. ### How to create refs?
 
    There are two approaches
 
@@ -6176,7 +6186,7 @@ Technically it is possible to write nested function components but it is not sug
 
    **[⬆ Back to Top](#table-of-contents)**
 
-7. ### What are forward refs?
+5. ### What are forward refs?
 
    _Ref forwarding_ is a feature that lets some components take a _ref_ they receive, and pass it further down to a child.
 
@@ -6194,7 +6204,7 @@ Technically it is possible to write nested function components but it is not sug
 
    **[⬆ Back to Top](#table-of-contents)**
 
-8. ### Which is preferred option with in callback refs and findDOMNode()?
+6. ### Which is preferred option with in callback refs and findDOMNode()?
 
    It is preferred to use _callback refs_ over `findDOMNode()` API. Because `findDOMNode()` prevents certain improvements in React in the future.
 
@@ -6232,7 +6242,7 @@ Technically it is possible to write nested function components but it is not sug
 
    **[⬆ Back to Top](#table-of-contents)**
 
-9. ### Why are String Refs legacy?
+7. ### Why are String Refs legacy?
 
    If you worked with React before, you might be familiar with an older API where the `ref` attribute is a string, like `ref={'textInput'}`, and the DOM node is accessed as `this.refs.textInput`. We advise against it because _string refs have below issues_, and are considered legacy. String refs were **removed in React v16**.
 
@@ -6261,7 +6271,7 @@ Technically it is possible to write nested function components but it is not sug
 
    **[⬆ Back to Top](#table-of-contents)**
 
-10. ### What are the different phases of component lifecycle?
+8.  ### What are the different phases of component lifecycle?
 
     The component lifecycle has three distinct lifecycle phases:
 
@@ -6273,11 +6283,11 @@ Technically it is possible to write nested function components but it is not sug
 
     It's worth mentioning that React internally has a concept of phases when applying changes to the DOM. They are separated as follows
 
-    1. **Render** The component will render without any side effects. This applies to Pure components and in this phase, React can pause, abort, or restart the render.
+    4. **Render** The component will render without any side effects. This applies to Pure components and in this phase, React can pause, abort, or restart the render.
 
-    2. **Pre-commit** Before the component actually applies the changes to the DOM, there is a moment that allows React to read from the DOM through the `getSnapshotBeforeUpdate()`.
+    5. **Pre-commit** Before the component actually applies the changes to the DOM, there is a moment that allows React to read from the DOM through the `getSnapshotBeforeUpdate()`.
 
-    3. **Commit** React works with the DOM and executes the final lifecycles respectively `componentDidMount()` for mounting, `componentDidUpdate()` for updating, and `componentWillUnmount()` for unmounting.
+    6. **Commit** React works with the DOM and executes the final lifecycles respectively `componentDidMount()` for mounting, `componentDidUpdate()` for updating, and `componentWillUnmount()` for unmounting.
 
     React 16.3+ Phases (or an [interactive version](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/))
 
@@ -6289,7 +6299,7 @@ Technically it is possible to write nested function components but it is not sug
 
     **[⬆ Back to Top](#table-of-contents)**
 
-11. ### What are the lifecycle methods of React?
+9.  ### What are the lifecycle methods of React?
 
     Before React 16.3
 
@@ -6312,7 +6322,7 @@ Technically it is possible to write nested function components but it is not sug
 
     **[⬆ Back to Top](#table-of-contents)**
 
-12. ### How to create props proxy for HOC component?
+10. ### How to create props proxy for HOC component?
 
     You can add/edit props passed to the component using _props proxy_ pattern like this:
 
@@ -6335,7 +6345,7 @@ Technically it is possible to write nested function components but it is not sug
 
     **[⬆ Back to Top](#table-of-contents)**
 
-13. ### What is context?
+11. ### What is context?
 
     _Context_ provides a way to pass data through the component tree without having to pass props down manually at every level.
 
@@ -6347,7 +6357,7 @@ Technically it is possible to write nested function components but it is not sug
 
     **[⬆ Back to Top](#table-of-contents)**
 
-14. ### What is the purpose of using super constructor with props argument?
+12. ### What is the purpose of using super constructor with props argument?
 
     A child class constructor cannot make use of `this` reference until the `super()` method has been called. The same applies to ES6 sub-classes as well. The main reason for passing props parameter to `super()` call is to access `this.props` in your child constructors.
 
@@ -6387,7 +6397,7 @@ Technically it is possible to write nested function components but it is not sug
 
     **[⬆ Back to Top](#table-of-contents)**
 
-15. ### How to set state with a dynamic key name?
+13. ### How to set state with a dynamic key name?
 
     If you are using ES6 or the Babel transpiler to transform your JSX code then you can accomplish this with _computed property names_.
 
@@ -6399,7 +6409,7 @@ Technically it is possible to write nested function components but it is not sug
 
     **[⬆ Back to Top](#table-of-contents)**
 
-16. ### What would be the common mistake of function being called every time the component renders?
+14. ### What would be the common mistake of function being called every time the component renders?
 
     You need to make sure that function is not being called while passing the function as a parameter.
 
