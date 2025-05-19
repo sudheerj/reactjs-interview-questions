@@ -6037,6 +6037,79 @@ Technically it is possible to write nested function components but it is not sug
 
 **[⬆ Back to Top](#table-of-contents)**
 
+271. ### Can you describe the useMemo() Hook?
+     
+     The `useMemo()` Hook in React is used to **optimize performance** by **memoizing the result of expensive calculations**. It ensures that a function is **only re-executed when its dependencies change**, preventing unnecessary computations on every re-render.
+
+     #### Syntax
+
+     ```js
+      const memoizedValue = useMemo(() => computeExpensiveValue(arg), [dependencies]);
+     ```
+      - **`computeExpensiveValue`**:  
+      A function that returns the computed result.
+
+     - **`dependencies`**:  
+      An array of values that, when changed, will cause the memoized function to re-run.
+
+      If the dependencies haven’t changed since the last render, React returns the **cached result** instead of re-running the function.
+
+      Let's exaplain the usage of `useMemo` hook with an example of user search and its respective filtered users list.
+
+      #### Example: Memoizing a Filtered List
+      ```javascript
+      import React, { useState, useMemo } from 'react';
+
+      const users = [
+        { id: 1, name: 'Sudheer' },
+        { id: 2, name: 'Brendon' },
+        { id: 3, name: 'Charlie' },
+        { id: 4, name: 'Dary' },
+        { id: 5, name: 'Eden' }
+      ];
+
+      export default function UserSearch() {
+        const [searchTerm, setSearchTerm] = useState('');
+        const [counter, setCounter] = useState(0);
+
+        // Memoize the filtered user list based on the search term
+        const filteredUsers = useMemo(() => {
+          console.log("Filtering users...");
+          return users.filter(user =>
+            user.name.toLowerCase().includes(searchTerm.toLowerCase())
+          );
+        }, [searchTerm]);
+
+        return (
+          <div>
+            <h2>Counter: {counter}</h2>
+            <button onClick={() => setCounter(prev => prev + 1)}>Increment Counter</button>
+
+            <h2>Search Users</h2>
+            <input
+              type="text"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              placeholder="Enter name"
+            />
+
+            <ul>
+              {filteredUsers.map(user => (
+                <li key={user.id}>{user.name}</li>
+              ))}
+            </ul>
+          </div>
+        );
+      }
+      ```
+
+      In the above example:
+        - The filteredUsers list is only recomputed when searchTerm changes.
+        - Pressing the "Increment Counter" button does not trigger the filtering logic again, as it's not a dependency.
+        - The console will only log "Filtering users..." when the search term updates.
+
+**[⬆ Back to Top](#table-of-contents)**
+
 ## Old Q&A
 
 1. ### Why should we not update the state directly?
