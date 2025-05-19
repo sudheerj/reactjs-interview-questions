@@ -2289,11 +2289,36 @@ class ParentComponent extends React.Component {
 
 74. ### Is it possible to use async/await in plain React?
 
-    If you want to use `async`/`await` in React, you will need _Babel_ and [transform-async-to-generator](https://babeljs.io/docs/en/babel-plugin-transform-async-to-generator) plugin. React Native ships with Babel and a set of transforms.
+    # Can You Use async/await in Plain React?
+
+    Yes, you can use `async/await` in plain React, as long as your JavaScript environment supports ES2017+. Nowadays most modern browsers and build tools support ES2017+ version. If you're using **Create React App**, **Next.js**, **Remix**, or any modern React setup, `async/await` is supported out of the box through **Babel**.
+
+    ### Example Usage
+
+    ```jsx
+    import { useEffect, useState } from 'react';
+
+    function UserProfile() {
+      const [user, setUser] = useState(null);
+
+      useEffect(() => {
+        const fetchUser = async () => {
+          const response = await fetch('/api/user');
+          const data = await response.json();
+          setUser(data);
+        };
+
+        fetchUser();
+      }, []);
+
+      return user ? <div>Hello, {user.name}</div> : <div>Loading...</div>;
+    }
+    ```
+    But If you're not using a bundler like **Webpack or Babel**, you will need _Babel_ and [transform-async-to-generator](https://babeljs.io/docs/en/babel-plugin-transform-async-to-generator) plugin. However, React Native ships with Babel and a set of transforms.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-75. ### What are the common folder structures for React?
+75.   ### What are the common folder structures for React?
 
     There are two common practices for React project file structure.
 
