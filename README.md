@@ -441,33 +441,92 @@ Hide/Show table of contents
 
 1.  ### What is React?
 
-    React (aka React.js or ReactJS) is an **open-source front-end JavaScript library** that is used for building composable user interfaces, especially for single-page applications. It is used for handling view layer for web and mobile apps based on components in a declarative approach.
+    React (aka React.js or ReactJS) is an **open-source front-end JavaScript library** for building user interfaces based on components. It's used for handling the view layer in web and mobile applications, and allows developers to create reusable UI components and manage the state of those components efficiently.
 
-    React was created by [Jordan Walke](https://github.com/jordwalke), a software engineer working for Facebook. React was first deployed on Facebook's News Feed in 2011 and on Instagram in 2012.
+    React was created by [Jordan Walke](https://github.com/jordwalke), a software engineer at Facebook (now Meta). It was first deployed on Facebook's News Feed in 2011 and on Instagram in 2012. The library was open-sourced in May 2013 and has since become one of the most popular JavaScript libraries for building modern user interfaces.
 
     **[⬆ Back to Top](#table-of-contents)**
 
 2.  ### What is the history behind React evolution?
-
     The history of ReactJS started in 2010 with the creation of **XHP**. XHP is a PHP extension which improved the syntax of the language such that XML document fragments become valid PHP expressions and the primary purpose was used to create custom and reusable HTML elements.
 
     The main principle of this extension was to make front-end code easier to understand and to help avoid cross-site scripting attacks. The project was successful to prevent the malicious content submitted by the scrubbing user.
 
     But there was a different problem with XHP in which dynamic web applications require many roundtrips to the server, and XHP did not solve this problem. Also, the whole UI was re-rendered for small change in the application. Later, the initial prototype of React is created with the name **FaxJ** by Jordan inspired from XHP. Finally after sometime React has been introduced as a new library into JavaScript world.
 
-    **Note:** JSX comes from the idea of XHP
+    <details>
+        <summary><b>See deep-dive answer</b></summary>
+        The evolution of React has a fascinating history that spans over a decade:
+    
+        **2010-2011: The Origins**
+        - The journey began with **XHP**, a PHP extension created at Facebook that allowed HTML components to be used in PHP code
+        - XHP improved front-end code readability and helped prevent cross-site scripting (XSS) attacks
+        - However, XHP had limitations with dynamic web applications, requiring frequent server roundtrips and complete UI re-renders for small changes
+    
+        **2011-2012: Early Development**
+        - Jordan Walke created the first prototype called **FaxJS** (later renamed to React), inspired by XHP's component model
+        - The key innovation was bringing XHP's component model to JavaScript with performance improvements
+        - React introduced the Virtual DOM concept to solve the performance issues of full page re-renders
+        - First deployed internally on Facebook's News Feed in 2011 and Instagram in 2012
+    
+        **2013: Public Release**
+        - React was officially open-sourced at JSConf US in May 2013
+        - Initial public reception was mixed, with some developers skeptical about the JSX syntax and the approach of mixing markup with JavaScript
+    
+        **2014-2015: Growing Adoption**
+        - React Native was announced in 2015, extending React's paradigm to mobile app development
+        - The ecosystem began to grow with tools like Redux for state management
+        - Companies beyond Facebook began adopting React for production applications
+    
+        **2016-2018: Maturation**
+        - React 16 ("Fiber") was released in 2017 with a complete rewrite of the core architecture
+        - Introduction of new features like Error Boundaries, Portals, and improved server-side rendering
+        - React 16.3 introduced the Context API for easier state management
+    
+        **2019-Present: Modern React**
+        - React Hooks were introduced in React 16.8 (February 2019), revolutionizing state management in functional components
+        - React 17 (October 2020) focused on making React upgrades easier
+        - React 18 (March 2022) introduced concurrent rendering and automatic batching
+        - React continues to evolve with Server Components, the new React compiler (React Forget), and other performance improvements
+    </details>
+
+    **Note:** JSX, React's syntax extension, was indeed inspired by XHP's approach of embedding XML-like syntax in code.
 
     **[⬆ Back to Top](#table-of-contents)**
 
 3.  ### What are the major features of React?
 
-    The major features of React are:
+    React offers a powerful set of features that have made it one of the most popular JavaScript libraries for building user interfaces:
 
-    - Uses **JSX** syntax, a syntax extension of JS that allows developers to write HTML in their JS code.
-    - It uses **Virtual DOM** instead of Real DOM considering that Real DOM manipulations are expensive.
-    - Supports **server-side rendering** which is useful for Search Engine Optimizations(SEO).
-    - Follows **Unidirectional or one-way** data flow or data binding.
-    - Uses **reusable/composable** UI components to develop the view.
+    **Core Features:**
+
+    - **Component-Based Architecture**: React applications are built using components - independent, reusable pieces of code that return HTML via a render function. This modular approach enables better code organization, reusability, and maintenance.
+
+    - **Virtual DOM**: React creates an in-memory data structure cache, computes the resulting differences, and efficiently updates only the changed parts in the browser DOM. This approach significantly improves performance compared to direct DOM manipulation.
+
+    - **JSX (JavaScript XML)**: A syntax extension that allows writing HTML-like code in JavaScript. JSX makes the code more readable and expressive while providing the full power of JavaScript.
+
+    - **Unidirectional Data Flow**: React follows a one-way data binding model where data flows from parent to child components. This makes the code more predictable and easier to debug.
+
+    - **Declarative UI**: React allows you to describe what your UI should look like for a given state, and it handles the DOM updates when the underlying data changes.
+
+    **Advanced Features:**
+
+    - **React Hooks**: Introduced in React 16.8, hooks allow using state and other React features in functional components without writing classes.
+
+    - **Context API**: Provides a way to share values between components without explicitly passing props through every level of the component tree.
+
+    - **Error Boundaries**: Components that catch JavaScript errors anywhere in their child component tree and display fallback UI instead of crashing.
+
+    - **Server-Side Rendering (SSR)**: Enables rendering React components on the server before sending HTML to the client, improving performance and SEO.
+
+    - **Concurrent Mode**: A set of new features (in development) that help React apps stay responsive and gracefully adjust to the user's device capabilities and network speed.
+
+    - **React Server Components**: A new feature that allows components to be rendered entirely on the server, reducing bundle size and improving performance.
+
+    - **Suspense**: A feature that lets your components "wait" for something before rendering, supporting code-splitting and data fetching with cleaner code.
+
+    These features collectively make React powerful for building everything from small widgets to complex, large-scale web applications.
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -3988,7 +4047,7 @@ class ParentComponent extends React.Component {
      ```jsx
      function UserProfile() {
       const [name, setName] = useState('John');
-      
+
       if (name === 'John') {
         // Incorrect: useState is called inside a conditional
         const [country, setCountry] = useState('US'); 
@@ -4005,7 +4064,7 @@ class ParentComponent extends React.Component {
      The `useState` hook for the country field is being called conditionally within an `if` block. This can lead to inconsistent state behavior and may cause hooks to be called in a different order on each re-render.
 
      2. **Call Hooks from React Functions only:** You shouldn’t call Hooks from regular JavaScript functions or class components. Instead, you should call them from either function components or custom hooks.
-     
+
      Let's find the difference of correct and incorrect usage with below examples,
 
      **Correct usage:**:
@@ -6038,7 +6097,7 @@ Technically it is possible to write nested function components but it is not sug
 **[⬆ Back to Top](#table-of-contents)**
 
 271. ### Can you describe the useMemo() Hook?
-     
+
      The `useMemo()` Hook in React is used to **optimize performance** by **memoizing the result of expensive calculations**. It ensures that a function is **only re-executed when its dependencies change**, preventing unnecessary computations on every re-render.
 
      #### Syntax
