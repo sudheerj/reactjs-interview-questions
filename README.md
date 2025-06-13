@@ -447,52 +447,52 @@ Hide/Show table of contents
 
     **[⬆ Back to Top](#table-of-contents)**
 
-2.  ### What is the history behind React evolution?
-    The history of ReactJS started in 2010 with the creation of **XHP**. XHP is a PHP extension which improved the syntax of the language such that XML document fragments become valid PHP expressions and the primary purpose was used to create custom and reusable HTML elements.
+   2.  ### What is the history behind React evolution?
+       The history of ReactJS started in 2010 with the creation of **XHP**. XHP is a PHP extension which improved the syntax of the language such that XML document fragments become valid PHP expressions and the primary purpose was used to create custom and reusable HTML elements.
 
-    The main principle of this extension was to make front-end code easier to understand and to help avoid cross-site scripting attacks. The project was successful to prevent the malicious content submitted by the scrubbing user.
+       The main principle of this extension was to make front-end code easier to understand and to help avoid cross-site scripting attacks. The project was successful to prevent the malicious content submitted by the scrubbing user.
 
-    But there was a different problem with XHP in which dynamic web applications require many roundtrips to the server, and XHP did not solve this problem. Also, the whole UI was re-rendered for small change in the application. Later, the initial prototype of React is created with the name **FaxJ** by Jordan inspired from XHP. Finally after sometime React has been introduced as a new library into JavaScript world.
+       But there was a different problem with XHP in which dynamic web applications require many roundtrips to the server, and XHP did not solve this problem. Also, the whole UI was re-rendered for small change in the application. Later, the initial prototype of React is created with the name **FaxJ** by Jordan inspired from XHP. Finally after sometime React has been introduced as a new library into JavaScript world.
 
-    <details>
-        <summary><b>See deep-dive answer</b></summary>
-        The evolution of React has a fascinating history that spans over a decade:
+       <details>
+           <summary><b>See deep-dive answer</b></summary>
+           The evolution of React has a fascinating history that spans over a decade:
     
-        **2010-2011: The Origins**
-        - The journey began with **XHP**, a PHP extension created at Facebook that allowed HTML components to be used in PHP code
-        - XHP improved front-end code readability and helped prevent cross-site scripting (XSS) attacks
-        - However, XHP had limitations with dynamic web applications, requiring frequent server roundtrips and complete UI re-renders for small changes
-    
-        **2011-2012: Early Development**
-        - Jordan Walke created the first prototype called **FaxJS** (later renamed to React), inspired by XHP's component model
-        - The key innovation was bringing XHP's component model to JavaScript with performance improvements
-        - React introduced the Virtual DOM concept to solve the performance issues of full page re-renders
-        - First deployed internally on Facebook's News Feed in 2011 and Instagram in 2012
-    
-        **2013: Public Release**
-        - React was officially open-sourced at JSConf US in May 2013
-        - Initial public reception was mixed, with some developers skeptical about the JSX syntax and the approach of mixing markup with JavaScript
-    
-        **2014-2015: Growing Adoption**
-        - React Native was announced in 2015, extending React's paradigm to mobile app development
-        - The ecosystem began to grow with tools like Redux for state management
-        - Companies beyond Facebook began adopting React for production applications
-    
-        **2016-2018: Maturation**
-        - React 16 ("Fiber") was released in 2017 with a complete rewrite of the core architecture
-        - Introduction of new features like Error Boundaries, Portals, and improved server-side rendering
-        - React 16.3 introduced the Context API for easier state management
-    
-        **2019-Present: Modern React**
-        - React Hooks were introduced in React 16.8 (February 2019), revolutionizing state management in functional components
-        - React 17 (October 2020) focused on making React upgrades easier
-        - React 18 (March 2022) introduced concurrent rendering and automatic batching
-        - React continues to evolve with Server Components, the new React compiler (React Forget), and other performance improvements
-    </details>
+       **2010-2011: The Origins**
+       - The journey began with **XHP**, a PHP extension created at Facebook that allowed HTML components to be used in PHP code
+       - XHP improved front-end code readability and helped prevent cross-site scripting (XSS) attacks
+       - However, XHP had limitations with dynamic web applications, requiring frequent server roundtrips and complete UI re-renders for small changes
 
-    **Note:** JSX, React's syntax extension, was indeed inspired by XHP's approach of embedding XML-like syntax in code.
+       **2011-2012: Early Development**
+       - Jordan Walke created the first prototype called **FaxJS** (later renamed to React), inspired by XHP's component model
+       - The key innovation was bringing XHP's component model to JavaScript with performance improvements
+       - React introduced the Virtual DOM concept to solve the performance issues of full page re-renders
+       - First deployed internally on Facebook's News Feed in 2011 and Instagram in 2012
 
-    **[⬆ Back to Top](#table-of-contents)**
+       **2013: Public Release**
+       - React was officially open-sourced at JSConf US in May 2013
+       - Initial public reception was mixed, with some developers skeptical about the JSX syntax and the approach of mixing markup with JavaScript
+
+       **2014-2015: Growing Adoption**
+       - React Native was announced in 2015, extending React's paradigm to mobile app development
+       - The ecosystem began to grow with tools like Redux for state management
+       - Companies beyond Facebook began adopting React for production applications
+
+       **2016-2018: Maturation**
+       - React 16 ("Fiber") was released in 2017 with a complete rewrite of the core architecture
+       - Introduction of new features like Error Boundaries, Portals, and improved server-side rendering
+       - React 16.3 introduced the Context API for easier state management
+
+       **2019-Present: Modern React**
+       - React Hooks were introduced in React 16.8 (February 2019), revolutionizing state management in functional components
+       - React 17 (October 2020) focused on making React upgrades easier
+       - React 18 (March 2022) introduced concurrent rendering and automatic batching
+       - React continues to evolve with Server Components, the new React compiler (React Forget), and other performance improvements
+       </details>
+
+       **Note:** JSX, React's syntax extension, was indeed inspired by XHP's approach of embedding XML-like syntax in code.
+
+       **[⬆ Back to Top](#table-of-contents)**
 
 3.  ### What are the major features of React?
 
