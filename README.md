@@ -6169,6 +6169,66 @@ Technically it is possible to write nested function components but it is not sug
 
 **[⬆ Back to Top](#table-of-contents)**
 
+272. ### Can Hooks be used in class components?
+     No, Hooks cannot be used inside class components. They are specially designed for function components. This is because hooks depend on the sequence in which they are called during a component’s render, something that's only guaranteed in functional components. However, both class and function components can coexist in the same application.
+**[⬆ Back to Top](#table-of-contents)**
+273. ### What is an updater function? Should an updater function be used in all cases?
+     An **updater function** is a form of `setState` where you pass a **function** instead of a direct value. This function receives the **previous state** as an argument and returns the **next state**.
+     
+     The updater function expression looks like below,
+     ```js
+     setCount(prevCount => prevCount + 1); // Safe and predictable
+     ```
+     Here, `prevCount => prevCount + 1` is the updater function.
+
+     In the React community, there's often a recommendation to use updater functions when updating state that depends on its previous value. This helps prevent unexpected behaviors that can arise from working with outdated or "stale" state.
+
+     While using an updater function is a good habit, it's not always necessary. In most cases, React batches updates and ensures that the state is up-to-date at the beginning of the event handler, so you typically don’t run into stale state issues during a single synchronous event.
+     However, if you’re doing multiple updates to the same state variable within a single handler, using the updater form ensures that each update correctly uses the latest state value, rather than a potentially outdated one.
+
+     **Example: Multiple Updates in One Handler**
+     ```js
+     function handleCount() {
+        setCounter(a => a + 1);
+        setCounter(a => a + 1);
+        setCounter(a => a + 1);
+     }
+     ```
+
+     In this example, `a => a + 1` is an **updater function**. React queues these updater functions and applies them sequentially, each using the most recent state value. As a result, the counter will correctly increment by 3.
+
+     In many cases, such as setting state based on user input or assigning static values, you don’t need the updater function:
+     ```js
+     setName('Sudheer');
+     ```
+     
+**[⬆ Back to Top](#table-of-contents)**
+
+274. Can useState take a function as an initial value?
+     Yes, `useState` can take a function as an initial value, and this is a useful feature in React called **lazy initialization**. This function is also known as **initializer function**.
+
+     When you call useState(initialValue), you normally pass in a value directly:
+     
+     ```js
+     const [count, setCount] = useState(0);  // initial value is 0
+     ```
+
+     But if calculating that initial value is expensive or involves logic, you can pass a function that returns the value:
+     ```js
+        const [count, setCount] = useState(() => {
+        // This function only runs once — when the component first renders
+        return expensiveComputation();
+        });
+     ```
+     
+     This function avoids doing heavy computation on every render. If you don't use this function form and invokes it directly, the function will run everytime the component renders and impact the performance.
+     For example, the below usage is not recommended. 
+     ```js
+     const [count, setCount] = useState(expensiveComputation());
+     ```
+
+**[⬆ Back to Top](#table-of-contents)**
+275. 
 ## Old Q&A
 
 1. ### Why should we not update the state directly?
