@@ -6204,7 +6204,7 @@ Technically it is possible to write nested function components but it is not sug
      
 **[⬆ Back to Top](#table-of-contents)**
 
-274. Can useState take a function as an initial value?
+274. ### Can useState take a function as an initial value?
      Yes, `useState` can take a function as an initial value, and this is a useful feature in React called **lazy initialization**. This function is also known as **initializer function**.
 
      When you call useState(initialValue), you normally pass in a value directly:
@@ -6228,7 +6228,154 @@ Technically it is possible to write nested function components but it is not sug
      ```
 
 **[⬆ Back to Top](#table-of-contents)**
-275. 
+275. ###  What types of values can `useState` hold?
+
+     The `useState` hook accepts different types of values.
+
+     *   Primitives: `number`, `string`, `boolean`
+     *   Arrays
+     *   Objects
+     *   Functions
+     *   `null` or `undefined`
+
+     But you needs to be cautious with **reference types (objects/arrays)** because React compares old and new values **by reference**, so direct mutations won't trigger a re-render.
+     For example, the correct and wrong ways of state updates as shown below, 
+     ```js
+     user.name = "Sudheer"; //wrong way
+     setUser(prev => ({ ...prev, name: 'Sudheer' })); //correct way
+     ```
+**[⬆ Back to Top](#table-of-contents)**
+276. ### What happens if you call `useState` conditionally?
+     As per rules of React Hooks, hooks must be called unconditionally. For example, if you conditionally call it:
+     ```js
+     if (someCondition) { 
+        const [state, setState] = useState(0); 
+     }
+     ```
+
+     React will throw a runtime error because it **relies on the order of Hook calls**, and conditional logic breaks that order.
+**[⬆ Back to Top](#table-of-contents)**
+277. ### Is useState Synchronous or Asynchronous?
+     The `useState` hook is synchronous, but state updates are asynchronous. When you call `useState()`, it runs synchronously and returns the state variable and setter function as tuple.
+     ```js
+     const [count, setCount] = useState(0);
+     ```
+     This happens immediately during rendering.
+     However, the state update function (**`**setState**`**) is asynchronous in the sense that it doesn't update the state immediately.
+     React **batches** updates and applies them before the next render. You won’t see the updated value immediately after calling `setState`.
+     **Example:**
+     ```js
+     const [count, setCount] = useState(0);
+    
+     function handleClick() {
+       setCount(count + 1);
+       console.log(count); // ❗️Still logs the old value
+     }
+     ```
+     The > `console.log(count)` prints the **old value**, because the update hasn’t happened yet.
+     
+     To see the updated state value, you can use `useEffect()` hook. It runs **after the component has re-rendered.**  By the time `useEffect` runs:
+
+        *   The component has been updated.
+        *   The **state contains the new value**.
+     
+        ```js
+        import React, { useState, useEffect } from 'react';
+
+        function Counter() {
+        const [count, setCount] = useState(0);
+        
+        const handleClick = () => {
+        setCount(count + 1);
+        console.log('Clicked count (old):', count); // Old value
+        };
+        
+        useEffect(() => {
+        console.log('Updated count:', count); // New value
+        }, [count]); // Only runs when `count` changes
+        
+        return <button onClick={handleClick}>Count: {count}</button>;
+        }
+        ```
+**[⬆ Back to Top](#table-of-contents)**
+
+278.  ### Can you explain how useState works internally?
+      React’s hooks, including `useState`, rely on some internal machinery that keeps track of state **per component** and **per hook call** during rendering. Here's a simplified explanation of the internal mechanics:
+
+      #### 1. **Hook List / Linked List**
+
+      *   React maintains a linked list or array of "hook states" for each component.
+      *   When a component renders, React keeps track of which hook it is currently processing via a cursor/index.
+      *   Each call to `useState()` corresponds to one "slot" in this list.
+
+      #### 2. **State Storage**
+
+      *   Each slot stores:
+        *   The current state value.
+        *   A queue of pending state updates.
+
+      #### 3. **Initial Render**
+        
+      *   When the component first renders, React:
+         *   Creates a new slot for `useState` with the initial state (e.g., `0`).
+         *   Returns `[state, updaterFunction]`.
+
+      #### 4. **Updater Function**
+    
+      *   The updater function (`setCount`) is a closure that, when called:
+        *   Enqueues a state update to React's internal queue.
+        *   Schedules a re-render of the component.
+    
+      #### 5. **Re-render and State Update**
+    
+      *   On the next render:
+        *   React processes all queued updates for each hook slot.
+        *   Updates the stored state value accordingly.
+        *   Returns the new state to the component.
+
+      #### 6. **Important: Hook Order**
+
+      *   Hooks must be called in the same order on every render so React can match hook calls to their internal slots.
+      *   That’s why you can’t call hooks conditionally.
+      
+      The pseudocode for internal implementation of `useState` looks like below,
+      ```js
+        let hookIndex = 0;
+        const hooks = [];
+        
+        function useState(initialValue) {
+            const currentIndex = hookIndex;
+        
+            if (!hooks[currentIndex]) {
+                // First render: initialize state
+                hooks[currentIndex] = {
+                    state: initialValue,
+                    queue: [],
+                };
+            }
+        
+            const hook = hooks[currentIndex];
+        
+            // Process queued updates
+            hook.queue.forEach(update => {
+                hook.state = update(hook.state);
+            });
+            hook.queue = [];
+        
+            // Define updater function
+            function setState(action) {
+                // action can be new state or function(state) => new state
+                hook.queue.push(typeof action === 'function' ? action : () => action);
+                scheduleRender(); // triggers React re-render
+            }
+        
+            hookIndex++;
+            return [hook.state, setState];
+        }
+        ```
+      
+**[⬆ Back to Top](#table-of-contents)**
+
 ## Old Q&A
 
 1. ### Why should we not update the state directly?
