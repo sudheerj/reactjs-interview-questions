@@ -6047,15 +6047,88 @@ Technically it is possible to write nested function components but it is not sug
 
      1. Reducers must be pure without mutating the state. That means, same input always returns the same output. These reducers run during rendering time similar to state updater functions. So these functions should not send any requests, schedule time outs and any other side effects.
 
-     2. Each action should describe a single user interaction eventhough there are multiple changes applied to data. For example, if you "reset" registration form which has many user input fields managed by a reducer, it is suggested to send one "reset" action instead of creating separate action for each fields. The proper ordering of actions should reflect the user interactions in the browser and it helps a lot for debugging purpose.
+     2. Each action should describe a single user interaction even though there are multiple changes applied to data. For example, if you "reset" registration form which has many user input fields managed by a reducer, it is suggested to send one "reset" action instead of creating separate action for each fields. The proper ordering of actions should reflect the user interactions in the browser and it helps a lot for debugging purpose.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-265. ### What is useReducer hook? Can you describe its usage?
+265. ### How does ReactJS work behind the scenes?
+     ReactJS is a powerful JavaScript library for building user interfaces. While it appears simple on the surface, React performs a lot of complex operations behind the scenes to efficiently update the UI. Here's an overview of how it works internally:
+
+     #### **1. Virtual DOM & Component Rendering**
+
+     React doesn't manipulate the real DOM directly. Instead, it uses a **Virtual DOM** — a lightweight JavaScript representation of the UI.
+
+     When a component renders (e.g., `<App />`):
+
+        *   React **executes the component function** (e.g., `App()`).
+        *   Hooks like `useState` are registered and tracked in order.
+        *   React builds a **Virtual DOM tree** from the returned JSX.
+        *   This virtual DOM is a **plain JS object** that describes the desired UI.
+
+     This process ensures fast and efficient rendering before React decides how to update the real DOM.
+
+     #### 2. **React Fiber Architecture**
+
+     React’s core engine is called **Fiber**, introduced in React 16. Fiber is a reimplementation of the React reconciliation algorithm with the following capabilities:
+
+        *   Breaks rendering work into **units of work** (fiber nodes).
+        *   Enables **interruptible rendering** (important for responsiveness).
+        *   Supports **priority scheduling** and **concurrent rendering**.
+
+     Each Fiber node represents a component and stores:
+
+        *   The component type (function/class).
+        *   Props, state, and effects.
+        *   Links to parent, child, and sibling fibers.
+
+     #### 3. **Reconciliation (Diffing Algorithm)**
+
+     When state or props change:
+
+        *   React re-executes the component to produce a new virtual DOM.
+        *   It **compares the new virtual DOM to the previous one** using an efficient diffing algorithm.
+        *   React determines the **minimal set of DOM changes** required.
+
+     This process is known as **reconciliation**.
+
+     #### 4. **Commit Phase (Real DOM Updates)**
+
+     Once reconciliation is done:
+
+        *   React enters the **commit phase**.
+        *   It applies calculated changes to the **real DOM**.
+        *   It also runs side effects like `useEffect` or `useLayoutEffect`.
+
+     This is the only time React interacts directly with the browser DOM.
+
+     #### 5. **Hooks and State Management**
+
+     With Hooks (like `useState`, `useEffect`):
+
+        *   React keeps an **internal list of hooks per component**.
+        *   Hooks are identified by their order in the function.
+        *   When state updates occur, React re-renders the component and re-runs the hooks in the same order.
+
+     #### 6. **React Scheduler**
+
+     React uses an internal **Scheduler** to control how updates are prioritized:
+
+        *   Urgent tasks like clicks and inputs are processed immediately.
+        *   Non-urgent tasks (like data fetching) can be delayed or paused.
+        *   This improves responsiveness and allows for **time slicing** in Concurrent Mode.
+
 
 **[⬆ Back to Top](#table-of-contents)**
 
-266. ### How do you compare useState and useReducer?
+266. ### How is `useReducer` Different from `useState`?
+     There are notable differences between `useState` and `useReducer` hooks.
+           
+        | Feature               | `useState`                           | `useReducer`                          |
+        |-----------------------|--------------------------------------|---------------------------------------|
+        | State complexity      | Simple (one variable or flat object) | Complex, multi-part or deeply nested  |
+        | Update style          | Direct (e.g. `setState(x)`)          | Through actions (e.g. `dispatch({})`) |
+        | Update logic          | In component                         | In reducer function                   |
+        | Reusability & testing | Less reusable                        | Highly reusable & testable            |
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -6267,8 +6340,9 @@ Technically it is possible to write nested function components but it is not sug
      const [count, setCount] = useState(0);
      ```
      This happens immediately during rendering.
-     However, the state update function (**`**setState**`**) is asynchronous in the sense that it doesn't update the state immediately.
+     However, the state update function (**setState**) is asynchronous in the sense that it doesn't update the state immediately.
      React **batches** updates and applies them before the next render. You won’t see the updated value immediately after calling `setState`.
+     
      **Example:**
      ```js
      const [count, setCount] = useState(0);
