@@ -6171,7 +6171,9 @@ Technically it is possible to write nested function components but it is not sug
 
 272. ### Can Hooks be used in class components?
      No, Hooks cannot be used inside class components. They are specially designed for function components. This is because hooks depend on the sequence in which they are called during a component’s render, something that's only guaranteed in functional components. However, both class and function components can coexist in the same application.
+
 **[⬆ Back to Top](#table-of-contents)**
+
 273. ### What is an updater function? Should an updater function be used in all cases?
      An **updater function** is a form of `setState` where you pass a **function** instead of a direct value. This function receives the **previous state** as an argument and returns the **next state**.
      
@@ -6228,7 +6230,8 @@ Technically it is possible to write nested function components but it is not sug
      ```
 
 **[⬆ Back to Top](#table-of-contents)**
-275. ###  What types of values can `useState` hold?
+
+275. ### What types of values can `useState` hold?
 
      The `useState` hook accepts different types of values.
 
@@ -6245,6 +6248,7 @@ Technically it is possible to write nested function components but it is not sug
      setUser(prev => ({ ...prev, name: 'Sudheer' })); //correct way
      ```
 **[⬆ Back to Top](#table-of-contents)**
+
 276. ### What happens if you call `useState` conditionally?
      As per rules of React Hooks, hooks must be called unconditionally. For example, if you conditionally call it:
      ```js
@@ -6254,7 +6258,9 @@ Technically it is possible to write nested function components but it is not sug
      ```
 
      React will throw a runtime error because it **relies on the order of Hook calls**, and conditional logic breaks that order.
+
 **[⬆ Back to Top](#table-of-contents)**
+
 277. ### Is useState Synchronous or Asynchronous?
      The `useState` hook is synchronous, but state updates are asynchronous. When you call `useState()`, it runs synchronously and returns the state variable and setter function as tuple.
      ```js
@@ -6374,6 +6380,23 @@ Technically it is possible to write nested function components but it is not sug
         }
         ```
       
+**[⬆ Back to Top](#table-of-contents)**
+
+279. ### What is `useReducer`? Why do you use useReducer?
+     The `useReducer` hook is a React hook used to manage **complex state logic** inside **functional components**. It is conceptually similar to **Redux**. i.e, Instead of directly updating state like with `useState`, you **dispatch an action** to a **reducer function**, and the reducer returns the new state.
+
+     The `useReducer`  hook is used when:
+
+     *   The **state is complex**, such as nested structures or multiple related values.
+     *   State updates depend on the **previous state** and **logic**.
+     *   You want to **separate state update logic** from UI code to make it cleaner and testable.
+     *   You’re managing features like:
+         *   Forms
+         *   Wizards / Multi-step flows
+         *   Undo/Redo functionality
+         *   Shopping cart logic
+         *   Toggle & conditional UI logic
+         
 **[⬆ Back to Top](#table-of-contents)**
 
 ## Old Q&A
