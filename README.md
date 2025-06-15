@@ -6459,7 +6459,17 @@ Technically it is possible to write nested function components but it is not sug
 279. ### What is `useReducer`? Why do you use useReducer?
      The `useReducer` hook is a React hook used to manage **complex state logic** inside **functional components**. It is conceptually similar to **Redux**. i.e, Instead of directly updating state like with `useState`, you **dispatch an action** to a **reducer function**, and the reducer returns the new state.
 
-     The `useReducer`  hook is used when:
+     The `useReducer` hook takes three arguments:
+
+        ```js
+        const [state, dispatch] = useReducer(reducer, initialState, initFunction);
+        ```
+
+        *   `**reducer**`: A function `(state, action) => newState` that handles how state should change based on the action.
+        *   `**initialState**`: The starting state.
+        *   `**dispatch**`: A function you call to trigger an update by passing an action.
+
+     The `useReducer` hook is used when:
 
      *   The **state is complex**, such as nested structures or multiple related values.
      *   State updates depend on the **previous state** and **logic**.
@@ -6473,6 +6483,74 @@ Technically it is possible to write nested function components but it is not sug
          
 **[⬆ Back to Top](#table-of-contents)**
 
+280. ### How does `useReducer` works? Explain with an example
+     The `useReducer` hooks works similarly to Redux, where:
+
+        *   You define a **reducer function** to handle state transitions.
+        *   You dispatch actions to update the state.
+     
+     **Counter Example with Increment, Decrement, and Reset:**
+     1. Reducer function:
+
+        Define a counter reducer function that takes the current state and an action object with a type, and returns a new state based on that type.
+     
+         ```js
+         function counterReducer(state, action) {
+            switch (action.type) {
+              case 'increment':
+                return { count: state.count + 1 };
+              case 'decrement':
+                return { count: state.count - 1 };
+              case 'reset':
+                return { count: 0 };
+              default:
+                return state;
+            }
+          }
+         ```
+     2. Using `useReducer`:
+      Invoke `useReducer` with above reducer function along with initial state. Thereafter, you can attach dispatch actions for respective button handlers.
+      ```js
+      import React, { useReducer } from 'react';
+
+        function Counter() {
+          const initialState = { count: 0 };
+          const [state, dispatch] = useReducer(counterReducer, initialState);
+
+          return (
+            <div style={{ textAlign: 'center' }}>
+              <h2>Count: {state.count}</h2>
+              <button onClick={() => dispatch({ type: 'increment' })}>Increment</button>
+              <button onClick={() => dispatch({ type: 'decrement' })}>Decrement</button>
+              <button onClick={() => dispatch({ type: 'reset' })}>Reset</button>
+            </div>
+          );
+        }
+
+      export default Counter;
+      ```
+      Once the new state has been returned, React re-renders the component with the updated `state.count`.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+281. ### Can you combine **useReducer** with **useContext**?
+
+      Yes, it's common to **combine** `**useReducer**` **with** `**useContext**` to build a lightweight state management system similar to Redux:
+
+      ```js
+      const AppContext = React.createContext();
+
+      function AppProvider({ children }) {
+        const [state, dispatch] = useReducer(reducer, initialState);
+        return (
+          <AppContext.Provider value={{ state, dispatch }}>
+            {children}
+          </AppContext.Provider>
+        );
+      }
+      ```
+
+**[⬆ Back to Top](#table-of-contents)**
 ## Old Q&A
 
 1. ### Why should we not update the state directly?
