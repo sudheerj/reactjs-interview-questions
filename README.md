@@ -6132,16 +6132,68 @@ Technically it is possible to write nested function components but it is not sug
 
 **[⬆ Back to Top](#table-of-contents)**
 
-267. ### How does context works using useContext hook?
+267. ### What is useContext? What are the steps to follow for useContext?
+     The `useContext` hook is a built-in React Hook that lets you access the value of a context inside a functional component without needing to wrap it in a <Context.Consumer> component.
+
+     It helps you **avoid prop drilling** (passing props through multiple levels) by allowing components to access shared data like themes, authentication status, or user preferences.
+
+     The usage of useContext involves three main steps:
+      #### **Step 1 : Create the Context**
+    
+        Use `React.createContext()` to create a context object.
+    
+        ```jsx
+        import React, { createContext } from 'react'; 
+    
+        const ThemeContext = createContext(); // default value optional
+        ```
+    
+      You typically export this so other components can import it.
+
+      #### **Step 2: Provide the Context Value**
+    
+        Wrap your component tree (or a part of it) with the `Context.Provider` and pass a `value` prop.
+    
+        ```jsx
+        function App() {
+            return ( 
+                <ThemeContext.Provider value="dark">
+                   <MyComponent />
+                </ThemeContext.Provider>
+            ); 
+        }
+        ```
+    
+        Now any component inside `<ThemeContext.Provider>` can access the context value.
+
+        #### **Step 3: Consume the Context with** `**useContext**`
+    
+        In any functional component **inside the Provider**, use the `useContext` hook:
+    
+        ```jsx
+        import { useContext } from 'react'; 
+        function MyComponent() {
+            const theme = useContext(ThemeContext); // theme = "dark"
+            return <p>Current Theme: {theme}</p>; 
+        }
+        ```
 
 **[⬆ Back to Top](#table-of-contents)**
 
 268. ### What are the use cases of useContext hook?
-     Some of the common use cases of useContext are listed below,
+     The `useContext` hook in React is used to share data across components without having to pass props manually through each level. Here are some common and effective use cases:
 
-     1. **Theme customizations:** The useContext hook can be used to manage and apply custom themes for an application. That means it allows users to personalize the appearance of the application.
-     2. **Support localization:** The context hook is helpful to implement localization by providing translated strings to components based on the user's language/locale preference.
-     3. **User authentication:** It can be used to manage user authentication or session status and display user specific information with in components.
+        1.  **Theme Customization**  
+            `useContext` can be used to manage application-wide themes, such as light and dark modes, ensuring consistent styling and enabling user-driven customization.
+        2.  **Localization and Internationalization**  
+            It supports localization by providing translated strings or locale-specific content to components, adapting the application for users in different regions.
+        3.  **User Authentication and Session Management**  
+            `useContext` allows global access to authentication status and user data. This enables conditional rendering of components and helps manage protected routes or user-specific UI elements.
+        4.  **Shared Modal or Sidebar Visibility**  
+            It's ideal for managing the visibility of shared UI components like modals, drawers, or sidebars, especially when their state needs to be controlled from various parts of the app.
+        5.  **Combining with** `**useReducer**` **for Global State Management**  
+            When combined with `useReducer`, `useContext` becomes a powerful tool for managing more complex global state logic. This pattern helps maintain cleaner, scalable state logic without introducing external libraries like Redux.
+             Some of the common use cases of useContext are listed below,
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -6581,6 +6633,117 @@ Technically it is possible to write nested function components but it is not sug
      ```
 
 **[⬆ Back to Top](#table-of-contents)**
+
+283. ### How does useContext works? Explain with an example
+     The `useContext` hook can be used for authentication state management across multiple components and pages in a React application.
+    
+     Let's build a simple authentication flow with:
+
+        *   **Login and Logout buttons**
+        *   Global `AuthContext` to share state
+        *   Components that can **access and update** auth status
+     
+      **1. Create the Auth Context:**
+
+       You can define `AuthProvider` which holds and provides `user`, `login()`, and `logout()` via context.
+        ```js
+        // AuthContext.js
+        import React, { createContext, useContext, useState } from 'react';
+        
+        const AuthContext = createContext();
+        
+        export function AuthProvider({ children }) {
+          const [user, setUser] = useState(null);
+        
+          const login = (username) => setUser({ name: username });
+          const logout = () => setUser(null);
+        
+          return (
+            <AuthContext.Provider value={{ user, login, logout }}>
+              {children}
+            </AuthContext.Provider>
+          );
+        }
+        
+        // Custom hook for cleaner usage
+        export const useAuth = () => useContext(AuthContext);
+        ```
+     **2. Wrap Your App with the Provider:**
+       
+        Wrap the above created provider in main `App.js` file      
+        ```js
+        // App.js
+        import React from 'react';
+        import { AuthProvider } from './AuthContext';
+        import HomePage from './HomePage';
+        import Dashboard from './Dashboard';
+        
+        function App() {
+          return (
+            <AuthProvider>
+              <HomePage />
+              <Dashboard />
+            </AuthProvider>
+          );
+        }
+        
+        export default App;
+        ```
+     **3. Home page with login:**
+      Read or access user and login details through custom useAuth hook and use it inside home page.
+
+        ```js
+         // HomePage.js
+         import React from 'react';
+         import { useAuth } from './AuthContext';
+    
+         function HomePage() {
+           const { user, login } = useAuth();
+    
+           return (
+             <div>
+               <h1>Home</h1>
+               {user ? (
+                 <p>Welcome back, {user.name}!</p>
+               ) : (
+                 <button onClick={() => login('Alice')}>Login</button>
+               )}
+             </div>
+           );
+         }
+    
+         export default HomePage;
+        ```
+     
+     **4. Dashboard with logout:**
+      Read or access user and logout details from `useAuth` custom hook and use it inside dashboard page.
+
+      ```js
+        // Dashboard.js
+        import React from 'react';
+        import { useAuth } from './AuthContext';
+        
+        function Dashboard() {
+          const { user, logout } = useAuth();
+        
+          if (!user) {
+            return <p>Please login to view the dashboard.</p>;
+          }
+        
+          return (
+            <div>
+              <h2>Dashboard</h2>
+              <p>Logged in as: {user.name}</p>
+              <button onClick={logout}>Logout</button>
+            </div>
+          );
+        }
+        
+        export default Dashboard;
+      ```
+
+**[⬆ Back to Top](#table-of-contents)**
+
 ## Old Q&A
 
 1. ### Why should we not update the state directly?
