@@ -4946,11 +4946,25 @@ class ParentComponent extends React.Component {
 
 **[⬆ Back to Top](#table-of-contents)**
 
-217. ### How to fetch data with React Hooks?
+217. ### What is useEffect hook? How to fetch data with React Hooks?
 
-     The effect hook called `useEffect` can be used to fetch data from an API and to set the data in the local state of the component with the useState hook’s update function.
+     The `useEffect` hook is a React Hook that lets you perform **side effects** in function components. Side effects are operations that interact with the outside world or system and aren't directly related to rendering UI — such as fetching data, setting up subscriptions, timers, manually manipulating the DOM, etc.
 
-     Here is an example of fetching a list of react articles from an API using fetch.
+     In function components, useEffect replaces the class component lifecycle methods(`componentDidMount`, `componentDidUpdate` and `componentWillUnmount`) with a single, unified API.     
+
+     **Syntax**
+     ```js
+     useEffect(() => {
+        // Side effect logic here
+
+        return () => {
+        // Cleanup logic (optional)
+        };
+        }, [dependencies]);
+     ```
+     This effect hook can be used to fetch data from an API and to set the data in the local state of the component with the useState hook’s update function.
+
+     Here is an example of fetching a list of ReactJS articles from an API using fetch.
 
      ```javascript
      import React from "react";
@@ -6862,6 +6876,125 @@ Technically it is possible to write nested function components but it is not sug
 
 **[⬆ Back to Top](#table-of-contents)**
 
+287. ### How do reactive dependencies in the useEffect dependency array affect its execution behavior?
+     The `useEffect` hook accepts an optional dependencies argument that accepts an array of reactive values. The **dependency array** determines **when** the effect runs. i.e, It makes `useEffect` _reactive_ to changes in specified values.
+
+     #### **How Dependency Array Affects Behavior**
+
+     1. **Empty Dependency Array:** `**[]**`
+
+     ```css
+     useEffect(() => {
+       // runs once after the initial render
+     }, []);
+     ```
+
+      *   Effect runs **only once** (like `componentDidMount`).
+      *   Ignores all state/prop changes.
+
+     2. **With Specific Dependencies:** `**[count, user]**`
+
+     ```css
+     useEffect(() => {
+       // runs after initial render
+       // AND whenever `count` or `user` changes
+     }, [count, user]);
+     ```
+
+       *   Effect runs on **first render**, and
+       *   Again **every time** any dependency value changes.
+
+     3. **No Dependency Array (Omitted)**
+
+          ```css
+          useEffect(() => {
+            // runs after **every** render
+          });
+          ```
+
+           *   Effect runs after **every render**, regardless of what changed.
+           *   Can lead to **performance issues** if not used carefully.
+
+       React uses shallow comparison of the dependencies. If any value has changed (!==), the effect will re-run.
+       
+       **Note:** This hook works well when dependencies are primitives or memoized objects/functions.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+288. ### When and how often does React invoke the setup and cleanup functions inside a useEffect hook?
+
+     1. **Setup Function Execution (`useEffect`)**
+
+         The setup function (or the main function) you pass to `useEffect` runs at specific points:
+
+           1.  **After the component is mounted** (if the dependency array is empty `[]`)
+           2.  **After every render** (if no dependency array is provided)
+           3.  **After a dependency value changes** (if the dependency array contains variables)
+
+     2. **Cleanup Function Execution (Returned function from `useEffect`)**
+
+        The cleanup function is called **before the effect is re-executed** and when the component **unmounts**.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+289. ### What happens if you return a Promise from useEffect??
+      You should NOT return a Promise from useEffect. React expects the function passed to useEffect to return either nothing (undefined) or a cleanup function (synchronous function). i.e, It does not expect or handle a returned Promise. If you still return a Promise, React will ignore it silently, and it may lead to bugs or warnings in strict mode.
+
+      **Incorrect:**
+      ```js
+      useEffect(async () => {
+        await fetchData(); // ❌ useEffect shouldn't be async
+      }, []);
+      ```
+      **Correct:**
+      ```jsx
+      useEffect(() => {
+        const fetchData = async () => {
+          const res = await fetch('/api');
+          const data = await res.json();
+          setData(data);
+        };
+
+        fetchData();
+      }, []);
+      ```
+**[⬆ Back to Top](#table-of-contents)**
+
+289. ### Can you have multiple useEffect hooks in a single component?
+      Yes, multiple useEffect hooks are allowed and recommended when you want to separate concerns.
+
+      ```jsx
+      useEffect(() => {
+        // Handles API fetch
+      }, []);
+
+      useEffect(() => {
+        // Handles event listeners
+      }, []);
+      ```
+      Each effect runs independently and helps make code modular and easier to debug.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+290. ### How to prevent infinite loops with useEffect?
+        Infinite loops happen when the effect updates state that’s listed in its own dependency array, which causes the effect to re-run, updating state again and so on.
+        
+        **Infinite loop scenario:**
+        ```js
+        useEffect(() => {
+          setCount(count + 1);
+        }, [count]); // Triggers again every time count updates
+        ```
+        You need to ensure that setState calls do not depend on values that cause the effect to rerun, or isolate them with a guard.
+        ```js
+        useEffect(() => {
+          if (count < 5) {
+            setCount(count + 1);
+          }
+        }, [count]);
+        ```
+**[⬆ Back to Top](#table-of-contents)**
+
 ## Old Q&A
 
 1. ### Why should we not update the state directly?
@@ -6908,7 +7041,7 @@ Technically it is possible to write nested function components but it is not sug
 
    **[⬆ Back to Top](#table-of-contents)**
 
-1. ### How to bind methods or event handlers in JSX callbacks?
+3. ### How to bind methods or event handlers in JSX callbacks?
 
    There are 3 possible ways to achieve this in class components:
 
@@ -6956,7 +7089,7 @@ Technically it is possible to write nested function components but it is not sug
 
    **[⬆ Back to Top](#table-of-contents)**
 
-2. ### How to pass a parameter to an event handler or callback?
+4. ### How to pass a parameter to an event handler or callback?
 
    You can use an _arrow function_ to wrap around an _event handler_ and pass parameters:
 
@@ -6981,13 +7114,13 @@ Technically it is possible to write nested function components but it is not sug
 
    **[⬆ Back to Top](#table-of-contents)**
 
-3. ### What is the use of refs?
+5. ### What is the use of refs?
 
    The _ref_ is used to return a reference to the element. They _should be avoided_ in most cases, however, they can be useful when you need a direct access to the DOM element or an instance of a component.
 
    **[⬆ Back to Top](#table-of-contents)**
 
-4. ### How to create refs?
+6. ### How to create refs?
 
    There are two approaches
 
@@ -7036,7 +7169,7 @@ Technically it is possible to write nested function components but it is not sug
 
    **[⬆ Back to Top](#table-of-contents)**
 
-5. ### What are forward refs?
+7. ### What are forward refs?
 
    _Ref forwarding_ is a feature that lets some components take a _ref_ they receive, and pass it further down to a child.
 
@@ -7054,7 +7187,7 @@ Technically it is possible to write nested function components but it is not sug
 
    **[⬆ Back to Top](#table-of-contents)**
 
-6. ### Which is preferred option with in callback refs and findDOMNode()?
+8. ### Which is preferred option with in callback refs and findDOMNode()?
 
    It is preferred to use _callback refs_ over `findDOMNode()` API. Because `findDOMNode()` prevents certain improvements in React in the future.
 
@@ -7092,7 +7225,7 @@ Technically it is possible to write nested function components but it is not sug
 
    **[⬆ Back to Top](#table-of-contents)**
 
-7. ### Why are String Refs legacy?
+9. ### Why are String Refs legacy?
 
    If you worked with React before, you might be familiar with an older API where the `ref` attribute is a string, like `ref={'textInput'}`, and the DOM node is accessed as `this.refs.textInput`. We advise against it because _string refs have below issues_, and are considered legacy. String refs were **removed in React v16**.
 
@@ -7121,7 +7254,7 @@ Technically it is possible to write nested function components but it is not sug
 
    **[⬆ Back to Top](#table-of-contents)**
 
-8.  ### What are the different phases of component lifecycle?
+10. ### What are the different phases of component lifecycle?
 
     The component lifecycle has three distinct lifecycle phases:
 
@@ -7149,7 +7282,7 @@ Technically it is possible to write nested function components but it is not sug
 
     **[⬆ Back to Top](#table-of-contents)**
 
-9.  ### What are the lifecycle methods of React?
+11. ### What are the lifecycle methods of React?
 
     Before React 16.3
 
@@ -7172,7 +7305,7 @@ Technically it is possible to write nested function components but it is not sug
 
     **[⬆ Back to Top](#table-of-contents)**
 
-10. ### How to create props proxy for HOC component?
+12. ### How to create props proxy for HOC component?
 
     You can add/edit props passed to the component using _props proxy_ pattern like this:
 
@@ -7195,7 +7328,7 @@ Technically it is possible to write nested function components but it is not sug
 
     **[⬆ Back to Top](#table-of-contents)**
 
-11. ### What is context?
+13. ### What is context?
 
     _Context_ provides a way to pass data through the component tree without having to pass props down manually at every level.
 
@@ -7207,7 +7340,7 @@ Technically it is possible to write nested function components but it is not sug
 
     **[⬆ Back to Top](#table-of-contents)**
 
-12. ### What is the purpose of using super constructor with props argument?
+14. ### What is the purpose of using super constructor with props argument?
 
     A child class constructor cannot make use of `this` reference until the `super()` method has been called. The same applies to ES6 sub-classes as well. The main reason for passing props parameter to `super()` call is to access `this.props` in your child constructors.
 
@@ -7247,7 +7380,7 @@ Technically it is possible to write nested function components but it is not sug
 
     **[⬆ Back to Top](#table-of-contents)**
 
-13. ### How to set state with a dynamic key name?
+15. ### How to set state with a dynamic key name?
 
     If you are using ES6 or the Babel transpiler to transform your JSX code then you can accomplish this with _computed property names_.
 
@@ -7259,7 +7392,7 @@ Technically it is possible to write nested function components but it is not sug
 
     **[⬆ Back to Top](#table-of-contents)**
 
-14. ### What would be the common mistake of function being called every time the component renders?
+16. ### What would be the common mistake of function being called every time the component renders?
 
     You need to make sure that function is not being called while passing the function as a parameter.
 
