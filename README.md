@@ -2348,8 +2348,6 @@ class ParentComponent extends React.Component {
 
 74. ### Is it possible to use async/await in plain React?
 
-    # Can You Use async/await in Plain React?
-
     Yes, you can use `async/await` in plain React, as long as your JavaScript environment supports ES2017+. Nowadays most modern browsers and build tools support ES2017+ version. If you're using **Create React App**, **Next.js**, **Remix**, or any modern React setup, `async/await` is supported out of the box through **Babel**.
 
     ### Example Usage
@@ -2377,11 +2375,11 @@ class ParentComponent extends React.Component {
 
 **[⬆ Back to Top](#table-of-contents)**
 
-75.   ### What are the common folder structures for React?
+75.  ### What are the common folder structures for React?
 
-    There are two common practices for React project file structure.
+     There are two common practices for React project file structure.
 
-    1.  **Grouping by features or routes:**
+     1.  **Grouping by features or routes:**
 
         One common way to structure projects is locate CSS, JS, and tests together, grouped by feature or route.
 
@@ -2406,7 +2404,7 @@ class ParentComponent extends React.Component {
         └─ ProfileAPI.js
         ```
 
-    2.  **Grouping by file type:**
+     2.  **Grouping by file type:**
 
         Another popular way to structure projects is to group similar files together.
 
