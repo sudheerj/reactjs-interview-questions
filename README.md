@@ -6535,7 +6535,7 @@ Technically it is possible to write nested function components but it is not sug
 
 281. ### Can you combine **useReducer** with **useContext**?
 
-      Yes, it's common to **combine** `**useReducer**` **with** `**useContext**` to build a lightweight state management system similar to Redux:
+      Yes, it's common to combine **useReducer** with **useContext** to build a lightweight state management system similar to Redux:
 
       ```js
       const AppContext = React.createContext();
@@ -6549,6 +6549,36 @@ Technically it is possible to write nested function components but it is not sug
         );
       }
       ```
+
+**[⬆ Back to Top](#table-of-contents)**
+
+282. ### Can you dispatch multiple actions in a row with useReducer?
+     Yes, you can dispatch multiple actions in a row using `useReducer` but not directly in one call. You'd have to call dispatch multiple times or create a composite action in your reducer that performs multiple updates based on the action type.
+     
+     **Example: Dispatching Multiple Actions**
+     You can define a custom function with dispatching actions one by one.
+     ```js
+     function handleMultipleActions(dispatch) {
+       dispatch({ type: 'increment' });
+       dispatch({ type: 'increment' });
+       dispatch({ type: 'reset' });
+     }
+     ```
+     After that, you need to invoke it through event handler
+     ```js
+     <button onClick={() => handleMultipleActions(dispatch)}>
+       Run Multiple Actions
+     </button>
+     ```
+     **Note:** You can also define a custom action type If you want multiple state changes to be handled in one reducer call.
+     ```js
+     case 'increment_twice':
+       return { count: state.count + 2 };
+     ```
+     Then dispatch
+     ```js
+     dispatch({ type: 'increment_twice' });
+     ```
 
 **[⬆ Back to Top](#table-of-contents)**
 ## Old Q&A
