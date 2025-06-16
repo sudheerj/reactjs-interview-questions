@@ -6744,6 +6744,126 @@ Technically it is possible to write nested function components but it is not sug
 
 **[⬆ Back to Top](#table-of-contents)**
 
+284. ### Can You Use Multiple Contexts in One Component?
+     Yes, it is possible. You can use multiple contexts inside the same component by calling useContext multiple times, once for each context.
+
+     It can be achieved with below steps,
+
+        *   Create multiple contexts using `createContext()`.
+        *   Wrap your component tree with multiple `<Provider>`s.
+        *   Call `useContext()` separately for each context in the same component.
+     
+     **Example: Using `ThemeContext` and `UserContext` Together**
+     ```js
+     import React, { createContext, useContext } from 'react';
+
+      // Step 1: Create two contexts
+      const ThemeContext = createContext();
+      const UserContext = createContext();
+
+      function Dashboard() {
+        // Step 2: Use both contexts
+        const theme = useContext(ThemeContext);
+        const user = useContext(UserContext);
+
+        return (
+          <div style={{ background: theme === 'dark' ? '#333' : '#fff' }}>
+            <h1>Welcome, {user.name}</h1>
+            <p>Current theme: {theme}</p>
+          </div>
+        );
+      }
+
+      // Step 3: Provide both contexts
+      function App() {
+        return (
+          <ThemeContext.Provider value="dark">
+            <UserContext.Provider value={{ name: 'Sudheer' }}>
+              <Dashboard />
+            </UserContext.Provider>
+          </ThemeContext.Provider>
+        );
+      }
+
+      export default App;
+     ```
+
+**[⬆ Back to Top](#table-of-contents)**
+
+285. ###  What's a common pitfall when using useContext with objects?
+     A **common pitfall** when using `useContext` with objects is **triggering unnecessary re-renders** across all consuming components — even when only part of the context value changes.
+
+     When you provide an object as the context value, React compares the entire object reference. If the object changes (even slightly), React assumes the whole context has changed, and **all components using** `useContext(MyContext)` **will re-render**, regardless of whether they use the part that changed.
+
+     **Example:**
+     ```js
+        const MyContext = React.createContext();
+
+        function MyProvider({ children }) {
+          const [user, setUser] = useState(null);
+          const [theme, setTheme] = useState('light');
+
+          // This causes all consumers to re-render on any state change
+          const contextValue = { user, setUser, theme, setTheme };
+
+          return (
+            <MyContext.Provider value={contextValue}>
+              {children}
+            </MyContext.Provider>
+          );
+        }
+     ```
+     In this case, a change in `theme` will also trigger a re-render in components that only care about `user`.
+
+     This issue can be fixed in two ways,
+     **1. Split Contexts**  
+     Create separate contexts for unrelated pieces of state:
+
+     ```jsx
+     const UserContext = React.createContext(); 
+     const ThemeContext = React.createContext();
+     ```
+
+     **2. Memoize Context Value**  
+     Use `useMemo` to prevent unnecessary re-renders:
+
+     ```jsx
+       const contextValue = useMemo(() => ({ user, setUser, theme, setTheme }), [user, theme]);
+     ```
+
+     However, this only helps if the object structure and dependencies are well controlled.
+    
+  **[⬆ Back to Top](#table-of-contents)**
+
+286. ### What would the context value be for no matching provider?
+    
+     When a component calls `useContext(SomeContext)` but **no matching** `**<SomeContext.Provider>**` **is present higher up in the component tree**, the **default value** passed to `React.createContext(defaultValue)` is returned.
+    
+     ```js
+     const ThemeContext = React.createContext('light'); // 'light' is the default value
+    
+     function ThemedComponent() {
+       const theme = useContext(ThemeContext);
+       return <div>Current theme: {theme}</div>;
+     }
+    
+     // No ThemeContext.Provider anywhere in the tree
+     ```
+     In this case, `theme` will be 'light'. It's the default value you provided when you created the context.
+    
+     **Note:** If you don’t specify a default value, the context value will be undefined when used without a provider:
+    
+     ```jsx
+     const AuthContext = React.createContext(); // No default
+    
+     function Profile() {
+       const auth = useContext(AuthContext);
+       // auth will be undefined if there's no AuthContext.Provider
+     }
+     ```
+
+**[⬆ Back to Top](#table-of-contents)**
+
 ## Old Q&A
 
 1. ### Why should we not update the state directly?
