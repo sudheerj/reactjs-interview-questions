@@ -1114,43 +1114,52 @@ class ParentComponent extends React.Component {
 
 21. ### What are controlled components?
 
-    A component that controls the input elements within the forms on subsequent user input is called **Controlled Component**, i.e, every state mutation will have an associated handler function. That means, the displayed data is always in sync with the state of the component.
+    A **controlled component** is a React component that **fully manages the form element's state**(e.g, elements like `<input>`, `<textarea>`, or `<select>`))  using React's internal state mechanism. i.e, The component does not manage its own internal state — instead, React acts as the single source of truth for form data.
 
     The controlled components will be implemented using the below steps,
 
     1. Initialize the state using `useState` hooks in function components or inside constructor for class components.
     2. Set the value of the form element to the respective state variable.
-    3. Create an event handler to handle the user input changes through useState updater function or setState from class component.
-    4. Attach the above event handler to form elements change or click events
+    3. Create an event handler(`onChange`) to handle the user input changes through `useState`'s updater function or `setState` from class component.
+    4. Attach the above event handler to form element's change or click events
 
-    For example, the name input field updates the user name using `handleChange` event handler as below,
+    **Note:** React re-renders the component every time the input value changes.
 
-    ```javascript
-    import React, { useState } from "react";
+   For example, the name input field updates the username using `handleChange` event handler as below,
 
-    function UserProfile() {
-      const [username, setUsername] = useState("");
+   ```javascript
+   import React, { useState } from "react";
 
-      const handleChange = (e) => {
-        setUsername(e.target.value);
-      };
+   function UserProfile() {
+     const [username, setUsername] = useState("");
 
-      return (
-        <form>
-          <label>
-            Name:
-            <input type="text" value={username} onChange={handleChange} />
-          </label>
-        </form>
-      );
-    }
-    ```
+     const handleChange = (e) => {
+       setUsername(e.target.value);
+     };
 
-    **[⬆ Back to Top](#table-of-contents)**
+     return (
+       <form>
+         <label>
+           Name:
+           <input type="text" value={username} onChange={handleChange} />
+         </label>
+       </form>
+     );
+   }
+   ```
+   In these components, DOM does not hold the actual data instead React does.
+   
+   **Benefits:**
+
+   *   Easy to implement **validation**, **conditional formatting**, or **live feedback**.
+   *   Full control over form data.
+   *   Easier to test and debug because the data is centralized in the component’s state.
+
+   **[⬆ Back to Top](#table-of-contents)**
 
 22. ### What are uncontrolled components?
-
-    The **Uncontrolled Components** are the ones that store their own state internally, and you query the DOM using a `ref` to find its current value when you need it. This is a bit more like traditional HTML.
+    The **Uncontrolled components** are form elements (like `<input>`, `<textarea>`, or `<select>`) that **manage their own state internally** via the **DOM**, rather than through React state.
+    You can query the DOM using a `ref` to find its current value when you need it. This is a bit more like traditional HTML.
 
     The uncontrolled components will be implemented using the below steps,
 
@@ -1182,6 +1191,12 @@ class ParentComponent extends React.Component {
       );
     }
     ```
+    **Note:** Here, DOM is in charge of the value. React only accesses the value when needed (via `ref`).
+
+    **Benefits:**
+     *   **Less boilerplate** — no need for `useState` and `onChange`.
+     *   Useful for **quick form setups** or when integrating with **non-React code**.
+     *   Slightly better **performance** in very large forms (fewer re-renders).
 
     In most cases, it's recommend to use controlled components to implement forms. In a controlled component, form data is handled by a React component. The alternative is uncontrolled components, where form data is handled by the DOM itself.
 
@@ -1218,7 +1233,7 @@ class ParentComponent extends React.Component {
     </p>
     </details>
 
-    **[⬆ Back to Top](#table-of-contents)**
+**[⬆ Back to Top](#table-of-contents)**
 
 23. ### What is the difference between createElement and cloneElement?
 
