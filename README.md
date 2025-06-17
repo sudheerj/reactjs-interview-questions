@@ -7010,6 +7010,78 @@ Technically it is possible to write nested function components but it is not sug
         ```
 **[⬆ Back to Top](#table-of-contents)**
 
+291. ### What are the usecases of useLayoutEffect?
+      You need to use `useLayoutEffect` when your effect **must run before the browser paints**, such as:
+
+      *   **Reading layout measurements** (e.g., element size, scroll position)
+      *   **Synchronously applying DOM styles** to prevent visual flicker
+      *   **Animating layout or transitions**
+      *   **Integrating with third-party libraries** that require DOM manipulation
+
+      If there's no visual or layout dependency, prefer `useEffect` — it's more performance-friendly.
+
+      ```js
+      useLayoutEffect(() => {
+        const width = divRef.current.offsetWidth;
+        if (width < 400) {
+          divRef.current.style.background = 'blue'; // prevents flicker
+        }
+      }, []);
+      ```
+
+**[⬆ Back to Top](#table-of-contents)**
+
+292. ### How does useLayoutEffect work during server-side rendering (SSR)?
+
+     The `useLayoutEffect` hook does **not run on the server**, because there is no DOM. React issues a warning in server environments like Next.js if `useLayoutEffect` is used directly.
+
+     This can be mitigated using a conditional polyfill:
+
+      ```jsx
+      const useIsomorphicLayoutEffect =
+        typeof window !== 'undefined' ? useLayoutEffect : useEffect;
+      ```
+
+      i.e, Use `useIsomorphicLayoutEffect` in components that render both on client and server.     
+
+**[⬆ Back to Top](#table-of-contents)** 
+
+293. ### What happens if you use useLayoutEffect for non-layout logic?
+      Using `useLayoutEffect` for logic **unrelated to layout or visual DOM changes** (such as logging, data fetching, or analytics) is **not recommended**. It can lead to **performance issues** or even unexpected behavior.
+
+      **Example: Anti-pattern**
+      ```js
+      useLayoutEffect(() => {
+        console.log("Tracking analytics");
+        fetch('/log-page-view');
+      }, []);
+      ```
+      The above usage delays the paint of the UI just to send a network request, which could (and should) be done after paint using useEffect.
+
+**[⬆ Back to Top](#table-of-contents)** 
+
+294. ### How does useLayoutEffect cause layout thrashing?
+      The `useLayoutEffect` can **cause layout thrashing** when you **repeatedly read and write to the DOM** in ways that force the browser to recalculate layout multiple times per frame. This is because `useLayoutEffect` runs _before the browser paints_, these reflows happen _synchronously_, blocking rendering and degrading performance.
+
+      **Example:**
+      ```js
+      function ThrashingComponent() {
+        const ref = useRef();
+
+        useLayoutEffect(() => {
+          const height = ref.current.offsetHeight; //Read
+          ref.current.style.height = height + 20 + 'px'; //Write
+          const newHeight = ref.current.offsetHeight; //Read again — forces reflow
+        }, []);
+
+        return <div ref={ref}>Hello</div>;
+      }
+      ```
+      In the above code, each read/write cycle triggers synchronous reflows, blocking the main thread and delays UI rendering.
+
+      This issue can be avoided by batching your DOM reads and writes and prevent unnecessary reads after writes.
+
+**[⬆ Back to Top](#table-of-contents)** 
 ## Old Q&A
 
 1. ### Why should we not update the state directly?
