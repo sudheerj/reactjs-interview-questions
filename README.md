@@ -5389,8 +5389,8 @@ class ParentComponent extends React.Component {
 
 241. ### What is the difference between useState and useRef hook?
      1. useState causes components to re-render after state updates whereas useRef doesn’t cause a component to re-render when the value or state changes.
-        Essentially, useRef is like a “box” that can hold a mutable value in its (.current) property.
-     2. useState allows us to update the state inside components. While useRef allows referencing DOM elements.
+        Essentially, useRef is like a “box” that can hold a mutable value in its (`.current`) property.
+     2. useState allows us to update the state inside components. While useRef allows referencing DOM elements and tracking values.
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -6279,7 +6279,7 @@ Technically it is possible to write nested function components but it is not sug
         { id: 5, name: 'Eden' }
       ];
 
-      export default function UserSearch() {
+      export default function UserSearch({ users }) {
         const [searchTerm, setSearchTerm] = useState('');
         const [counter, setCounter] = useState(0);
 
@@ -6843,6 +6843,7 @@ Technically it is possible to write nested function components but it is not sug
      In this case, a change in `theme` will also trigger a re-render in components that only care about `user`.
 
      This issue can be fixed in two ways,
+
      **1. Split Contexts**  
      Create separate contexts for unrelated pieces of state:
 
@@ -6864,7 +6865,7 @@ Technically it is possible to write nested function components but it is not sug
 
 286. ### What would the context value be for no matching provider?
     
-     When a component calls `useContext(SomeContext)` but **no matching** `**<SomeContext.Provider>**` **is present higher up in the component tree**, the **default value** passed to `React.createContext(defaultValue)` is returned.
+     When a component calls `useContext(SomeContext)` but **no matching** `<SomeContext.Provider>` **is present higher up in the component tree**, the **default value** passed to `React.createContext(defaultValue)` is returned.
     
      ```js
      const ThemeContext = React.createContext('light'); // 'light' is the default value
@@ -7082,6 +7083,208 @@ Technically it is possible to write nested function components but it is not sug
       This issue can be avoided by batching your DOM reads and writes and prevent unnecessary reads after writes.
 
 **[⬆ Back to Top](#table-of-contents)** 
+
+295. ### How Do You Use useRef to Access a DOM Element in React? Give an example.
+        The `useRef` hook is commonly used in React to directly reference and interact with DOM elements — like focusing an input, scrolling to a section, or controlling media elements.
+        
+        When you assign a ref to a DOM element using useRef, React gives you access to the underlying DOM node via the .current property of the ref object.
+        
+        **Example: Focus an input**
+
+        ```js
+        import React, { useRef } from 'react';
+        
+        function FocusInput() {
+          const inputRef = useRef(null); // create the ref
+        
+          const handleFocus = () => {
+            inputRef.current.focus(); // access DOM element and focus it
+          };
+        
+          return (
+            <div>
+              <input type="text" ref={inputRef} />
+              <button onClick={handleFocus}>Focus the input</button>
+            </div>
+          );
+        }
+        ```
+       **Note:** The DOM reference is only available **after the component has mounted** — typically accessed in `useEffect` or event handlers.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+296. ### Can you use useRef to persist values across renders??
+        Yes, you can use `useRef` to persist values across renders in React. Unlike `useState`, changing `.current` does not cause re-renders, but the value is preserved across renders.
+        
+        **Example:**
+        ```js
+        function Timer() {
+          const renderCount = useRef(0);
+          useEffect(() => {
+            renderCount.current++;
+            console.log("Render count:", renderCount.current);
+          });
+        
+          return <div>Check console for render count.</div>;
+        }
+        ```
+**[⬆ Back to Top](#table-of-contents)**
+
+297. ###  Can useRef be used to store previous values?
+        Yes, `useRef` is a common pattern when you want to compare current and previous props or state without causing re-renders.
+        
+        **Example: Storing previous state value**
+        ```js
+        import { useEffect, useRef, useState } from 'react';
+        
+        function PreviousValueExample() {
+          const [count, setCount] = useState(0);
+          const prevCountRef = useRef();
+        
+          useEffect(() => {
+            prevCountRef.current = count;
+          }, [count]);
+        
+          const prevCount = prevCountRef.current;
+        
+          return (
+            <div>
+              <p>Current: {count}</p>
+              <p>Previous: {prevCount}</p>
+              <button onClick={() => setCount(c => c + 1)}>Increment</button>
+            </div>
+          );
+        }
+        ```
+     
+**[⬆ Back to Top](#table-of-contents)**
+
+298. ### Is it possible to access a ref in the render method?
+        Yes, you can access a ref in the render method, but what you get from it depends on how you're using the ref and when in the component lifecycle you're rendering.
+        
+        For example, when using ref to access a DOM node (e.g., divRef.current), it's not immediately available on the first render.
+        ```js
+        const divRef = useRef(null);
+        
+        console.log(divRef.current); // ❌ null on initial render
+        return <div ref={divRef}>Hello</div>;
+        ```
+     
+**[⬆ Back to Top](#table-of-contents)**
+
+299. ### What are the common usecases of useRef hook?
+      Some of the common cases are:
+      *   Automatically focus an input when a component mounts.
+      *   Scroll to a specific element.
+      *   Measure element dimensions (`offsetWidth`, `clientHeight`).
+      *   Control video/audio playback.
+      *   Integrate with non-React libraries (like D3 or jQuery).
+
+**[⬆ Back to Top](#table-of-contents)**
+
+300. ### What is useImperativeHandle Hook? Give an example.
+      `useImperativeHandle` is a React Hook that allows a **child component** to expose **custom functions or properties** to its **parent component**, when using `ref`.
+      It is typically used with `forwardRef` and is very useful in cases like **modals**, **dialogs**, **custom inputs**, etc., where the parent needs to **control behavior imperatively** (e.g., open, close, reset).
+
+      **Example: Dialog component**
+      ```js
+      import React, {
+        useRef,
+        useState,
+        useImperativeHandle,
+        forwardRef,
+      } from 'react';
+      import './Dialog.css'; 
+
+      const Dialog = forwardRef((props, ref) => {
+        const [isOpen, setIsOpen] = useState(false);
+        const [formData, setFormData] = useState('');
+
+        useImperativeHandle(ref, () => ({
+          open: () => setIsOpen(true),
+          close: () => setIsOpen(false),
+          reset: () => setFormData(''),
+        }));
+
+        if (!isOpen) return null;
+
+        return (
+          <div className="dialog"> 
+            <h2>Dialog</h2>
+            <input
+              type="text"
+              value={formData}
+              placeholder="Type something..."
+              onChange={(e) => setFormData(e.target.value)}
+            />
+            <br />
+            <button onClick={() => setIsOpen(false)}>Close</button>
+          </div>
+        );
+      });
+
+      function Parent() {
+        const dialogRef = useRef();
+
+        return (
+          <div>
+            <h1>useImperativeHandle Dialog Example</h1>
+            <button onClick={() => dialogRef.current.open()}>Open Dialog</button>
+            <button onClick={() => dialogRef.current.reset()}>Reset Dialog</button>
+            <button onClick={() => dialogRef.current.close()}>Close Dialog</button>
+
+            <Dialog ref={dialogRef} />
+          </div>
+        );
+      }
+
+      export default Parent;
+      ```
+
+**[⬆ Back to Top](#table-of-contents)**
+
+301. ### When should you use useImperativeHandle?
+      The useImperativeHandler hook will be used in below cases:
+
+      *   You want to expose **imperative methods** from a child component 
+            - Custom input controls exposing `focus`, `clear`, or `validate` methods
+            - Modal components exposing `open()` and `close()` methods
+            - Scroll containers exposing `scrollToTop()` or `scrollToBottom()` methods
+      *   You want to **hide internal implementation** but provide controlled external access.
+      *   You're building **reusable component libraries** (e.g., inputs, modals, form controls).
+  
+**[⬆ Back to Top](#table-of-contents)**
+
+302. ### Is that possible to use useImperativeHandle without forwardRef?
+        **No.** `useImperativeHandle` only works when the component is wrapped in `forwardRef`. It's the combination that allows parent components to use a `ref` on a function component.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+303. ### How is useMemo different from useCallback?
+     The following table compares both useMemo and useCallback:
+
+      | Feature | `useMemo` | `useCallback` |
+      | --- | --- | --- |
+      | **Purpose** | Memoizes the **result of a computation** | Memoizes a **function reference** |
+      | **Returns** | A **value** (e.g., result of a function) | A **function** |
+      | **Usage** | `useMemo(() => computeValue(), [deps])` | `useCallback(() => doSomething(), [deps])` |
+      | **Primary Use Case** | Avoid expensive recalculations | Prevent unnecessary re-creations of functions |
+      | **Common Scenario** | Filtering, sorting, calculating derived data | Passing callbacks to child components |
+      | **When It's Useful** | When the value is expensive to compute | When referential equality matters (e.g., props) |
+      | **Recomputed When** | Dependencies change | Dependencies change |
+      | **Returned Value Type** | Any (number, object, array, etc.) | Always a function |
+      | **Overhead** | Slight (evaluates a function and caches result) | Slight (caches a function reference) |
+
+**[⬆ Back to Top](#table-of-contents)**
+
+304. ### Does useMemo prevent re-rendering of child components?
+
+        The `useMemo` hook **does not directly prevent re-rendering of child components**. Its main purpose is to memoize the result of an expensive computation so that it doesn’t get recalculated unless its dependencies change. While this can improve performance, it doesn’t inherently control whether a child component re-renders.
+        
+        However, `useMemo` **can help prevent re-renders** when the memoized value is passed as a prop to a child component that is wrapped in `React.memo`. In that case, if the memoized value doesn’t change between renders (i.e., it has the same reference), React.memo can skip re-rendering the child. So, while `useMemo` doesn’t stop renders on its own, it **works in combination** with tools like `React.memo` to optimize rendering behavior.
+
+**[⬆ Back to Top](#table-of-contents)**
+
 ## Old Q&A
 
 1. ### Why should we not update the state directly?
