@@ -7285,6 +7285,22 @@ Technically it is possible to write nested function components but it is not sug
 
 **[⬆ Back to Top](#table-of-contents)**
 
+305. ### What is `useCallback` and why is it used?
+
+        The `useCallback` is a React Hook used to memoize **function definitions** between renders. It returns the same function reference unless its dependencies change. This is especially useful when passing callbacks to optimized child components (e.g. those wrapped in `React.memo`) to prevent unnecessary re-renders.
+        
+        **Example:**
+        
+        ```css
+        const handleClick = useCallback(() => {
+          console.log('Button clicked');
+        }, []);
+        ```
+        
+        Without `useCallback`, a new function is created on every render, potentially causing child components to re-render unnecessarily.
+
+**[⬆ Back to Top](#table-of-contents)**
+
 ## Old Q&A
 
 1. ### Why should we not update the state directly?
