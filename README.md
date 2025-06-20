@@ -7301,6 +7301,81 @@ Technically it is possible to write nested function components but it is not sug
 
 **[⬆ Back to Top](#table-of-contents)**
 
+306. ### What are Custom React Hooks, and How Can You Develop One?
+
+      **Custom Hooks** in React are JavaScript functions that allow you to **extract and reuse component logic** using React’s built-in Hooks like `useState`, `useEffect`, etc.
+
+      They start with the word **"use"** and let you encapsulate logic that multiple components might share—such as fetching data, handling forms, or managing timers—without repeating code.
+
+      Let's explain the custom hook usage with `useFetchData` example. The `useFetchData` custom Hook is a reusable function in React that simplifies the process of fetching data from an API. It encapsulates common logic such as initiating the fetch request, managing loading and error states, and storing the fetched data. By using built-in Hooks like `useState` and `useEffect`, `useFetchData` provides a clean interface that returns the `data`, `loading`, and `error` values, which can be directly used in components.
+
+      ```jsx
+      import { useState, useEffect } from 'react';
+
+      function useFetchData(url) {
+        const [data, setData] = useState(null);     // Holds the response
+        const [loading, setLoading] = useState(true); // Loading state
+        const [error, setError] = useState(null);     // Error state
+
+        useEffect(() => {
+          let isMounted = true; // Prevent setting state on unmounted component
+          setLoading(true);
+
+          fetch(url)
+            .then((response) => {
+              if (!response.ok) throw new Error('Network response was not ok');
+              return response.json();
+            })
+            .then((json) => {
+              if (isMounted) {
+                setData(json);
+                setLoading(false);
+              }
+            })
+            .catch((err) => {
+              if (isMounted) {
+                setError(err.message);
+                setLoading(false);
+              }
+            });
+
+          return () => {
+            isMounted = false; // Clean-up function to avoid memory leaks
+          };
+        }, [url]);
+
+        return { data, loading, error };
+      }
+      ```
+
+      The above custom hook can be used to retrieve users data for `AuthorList`, `ReviewerList` components.
+
+      **Example: AuthorList component**
+      ```jsx
+      function AuthorList() {
+        const { data, loading, error } = useFetchData('https://api.example.com/authors');
+
+        if (loading) return <p>Loading authors...</p>;
+        if (error) return <p>Error: {error}</p>;
+
+        return (
+          <ul>
+            {data.map((author) => (
+              <li key={author.id}>{author.name}</li>
+            ))}
+          </ul>
+        );
+      }
+      ```
+     
+      Some of the benefits of custom hooks are:
+       *   Promotes **code reuse**
+       *   Keeps components **clean and focused**
+       *   Makes complex logic **easier to test and maintain**
+  
+**[⬆ Back to Top](#table-of-contents)**
+
+    
 ## Old Q&A
 
 1. ### Why should we not update the state directly?
