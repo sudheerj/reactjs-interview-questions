@@ -2994,17 +2994,36 @@ class ParentComponent extends React.Component {
 
 102. ### What is flux?
 
-     _Flux_ is an _application design paradigm_ used as a replacement for the more traditional MVC pattern. It is not a framework or a library but a new kind of architecture that complements React and the concept of Unidirectional Data Flow. Facebook uses this pattern internally when working with React.
+       **Flux** is an **application architecture** (not a framework or library) designed by Facebook to manage **data flow** in React applications. It was created as an alternative to the traditional **MVC (Model-View-Controller)** pattern, and it emphasizes a **unidirectional data flow** to make state changes more predictable and easier to debug.
 
-     The workflow between dispatcher, stores and views components with distinct inputs and outputs as follows:
+       Flux complements React by organizing the way data moves through your application, especially in large-scale or complex projects.
 
-     ![flux](images/flux.png)
+       #### Core Concepts of Flux
+
+       Flux operates using **four key components**, each with a specific responsibility:
+       *   **Actions**
+             *   Plain JavaScript objects or functions that describe _what happened_ (e.g., user interactions or API responses).
+             *   Example: `{ type: 'ADD_TODO', payload: 'Buy milk' }`
+       *   **Dispatcher**
+             *   A central hub that receives actions and **dispatches** them to the appropriate stores.
+             *   There is **only one dispatcher** in a Flux application.
+       *   **Stores**
+             *   Hold the **application state** and business logic.
+             *   Respond to actions from the dispatcher and update themselves accordingly.
+             *   They **emit change events** that views can listen to.
+       *   **Views (React Components)**
+             *   Subscribe to stores and **re-render** when the data changes.
+             *   They can also trigger new actions (e.g., on user input).
+
+
+       The workflow between dispatcher, stores and views components with distinct inputs and outputs as follows:
+
+       ![flux](images/flux.png)
 
 **[⬆ Back to Top](#table-of-contents)**
 
-103. ### What is Redux?
-
-     _Redux_ is a predictable state container for JavaScript apps based on the _Flux design pattern_. Redux can be used together with React, or with any other view library. It is tiny (about 2kB) and has no dependencies.
+103.  ### What is Redux?
+       Redux is a predictable state container for JavaScript applications, most commonly used with React. It helps you manage and centralize your application’s state in a single source of truth, enabling easier debugging, testing, and maintenance—especially in large or complex applications. Redux core is tiny library(about 2.5kB gzipped) and has no dependencies.
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -3013,8 +3032,29 @@ class ParentComponent extends React.Component {
      Redux follows three fundamental principles:
 
      1. **Single source of truth:** The state of your whole application is stored in an object tree within a single store. The single state tree makes it easier to keep track of changes over time and debug or inspect the application.
+   
+      ```jsx
+      const store = createStore(reducer);
+      ```
      2. **State is read-only:** The only way to change the state is to emit an action, an object describing what happened. This ensures that neither the views nor the network callbacks will ever write directly to the state.
-     3. **Changes are made with pure functions:** To specify how the state tree is transformed by actions, you write reducers. Reducers are just pure functions that take the previous state and an action as parameters, and return the next state.
+      ```js
+      const action = { type: 'INCREMENT' };
+      store.dispatch(action);
+      ```
+     3. **Changes are made with pure functions(Reducers):** To specify how the state tree is transformed by actions, you write reducers. Reducers are just pure functions that take the previous state and an action as parameters, and return the next state.
+      
+      ```jsx
+      function counter(state = 0, action) {
+        switch (action.type) {
+          case 'INCREMENT':
+            return state + 1;
+          case 'DECREMENT':
+            return state - 1;
+          default:
+            return state;
+        }
+      }
+      ```
 
 **[⬆ Back to Top](#table-of-contents)**
 
