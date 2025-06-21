@@ -996,15 +996,14 @@ class ParentComponent extends React.Component {
 
     `SyntheticEvent` is a cross-browser wrapper around the browser's native event. Its API is same as the browser's native event, including `stopPropagation()` and `preventDefault()`, except the events work identically across all browsers. The native events can be accessed directly from synthetic events using `nativeEvent` attribute.
 
-    Let's take an example of BookStore title search component with the ability to get all native event properties
+    Let's take an example of `BookStore` title search component with the ability to get all native event properties
 
     ```js
     function BookStore() {
       function handleTitleChange(e) {
         console.log("The new title is:", e.target.value);
-        // 'e' represents synthetic event
-        const nativeEvent = e.nativeEvent;
-        console.log(nativeEvent);
+        console.log('Synthetic event:', e); // React SyntheticEvent
+        console.log('Native event:', e.nativeEvent); // Browser native event
         e.stopPropagation();
         e.preventDefault();
       }
@@ -1012,12 +1011,22 @@ class ParentComponent extends React.Component {
       return <input name="title" onChange={handleTitleChange} />;
     }
     ```
+    
+    List of common synthetic events are:
+
+    *   `onClick`
+    *   `onChange`
+    *   `onSubmit`
+    *   `onKeyDown`, `onKeyUp`
+    *   `onFocus`, `onBlur`
+    *   `onMouseEnter`, `onMouseLeave`
+    *   `onTouchStart`, `onTouchEnd`
 
     **[⬆ Back to Top](#table-of-contents)**
 
 14. ### What are inline conditional expressions?
 
-    You can use either _if statements_ or _ternary expressions_ which are available from JS to conditionally render expressions. Apart from these approaches, you can also embed any expressions in JSX by wrapping them in curly braces and then followed by JS logical operator `&&`.
+    You can use either _if statements_ or _ternary expressions_ which are available in JS(and JSX in React) to conditionally execute or render expressions. Apart from these approaches, you can also embed any expressions in JSX by wrapping them in curly braces and then followed by JS logical operator `&&`. It is helpful to render elements conditionally within a single line and commonly used for concise logic, especially in JSX rendering.
 
     ```jsx harmony
     <h1>Hello!</h1>;
@@ -1049,6 +1058,10 @@ class ParentComponent extends React.Component {
       <li key={index}>{todo.text}</li>
     ));
     ```
+    **Benefits of key:**
+      *   Enables React to **efficiently update and re-render** components.
+      *   Prevents unnecessary re-renders by **reusing** components when possible.
+      *   Helps **maintain internal state** of list items correctly.
 
     **Note:**
 
@@ -1062,25 +1075,33 @@ class ParentComponent extends React.Component {
 
 16. ### What is Virtual DOM?
 
-    The _Virtual DOM_ (VDOM) is an in-memory representation of _Real DOM_. The representation of a UI is kept in memory and synced with the "real" DOM. It's a step that happens between the render function being called and the displaying of elements on the screen. This entire process is called _reconciliation_.
+    The _Virtual DOM_ (VDOM) is a lightweight, in-memory representation of _Real DOM_ used by libraries like React to optimize UI rendering. The representation of a UI is kept in memory and synced with the "real" DOM. It's a step that happens between the render function being called and the displaying of elements on the screen. This entire process is called _reconciliation_.
 
     **[⬆ Back to Top](#table-of-contents)**
 
 17. ### How Virtual DOM works?
 
-    The _Virtual DOM_ works in three simple steps.
+    The _Virtual DOM_ works in five simple steps.
+    **1. Initial Render**  
+        When a UI component renders for the first time, it returns JSX. React uses this structure to create a Virtual DOM tree, which is a lightweight copy of the actual DOM. This Virtual DOM is then used to build and render the Real DOM in the browser.
 
-    1. Whenever any underlying data changes, the entire UI is re-rendered in Virtual DOM representation.
+    **2. State or Props Change**  
+        When the component's state or props change, React creates a new Virtual DOM reflecting the updated UI. However, it doesn't immediately update the Real DOM; instead, it works in memory to prepare for an efficient update.
+               
+      ![vdom](images/vdom1.png)
 
-       ![vdom](images/vdom1.png)
+    **3. Diffing Algorithm**  
+        React then compares the new Virtual DOM with the previous one using a process called diffing. It determines what has changed between the two versions and identifies the minimal set of updates needed.
+       
+       ![vdom2](images/vdom2.png)  
 
-    2. Then the difference between the previous DOM representation and the new one is calculated.
-
-       ![vdom2](images/vdom2.png)
-
-    3. Once the calculations are done, the real DOM will be updated with only the things that have actually changed.
-
+    **4. Reconciliation**  
+        Based on the diffing results, React decides which parts of the Real DOM should be updated. It avoids re-rendering the entire DOM and instead updates only the elements that actually changed.
+        
        ![vdom3](images/vdom3.png)
+
+    **5. Efficient DOM Updates**  
+        This entire process—working with the Virtual DOM, diffing, and selective updating—makes the UI rendering much faster and more efficient than manipulating the Real DOM directly.
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -1088,11 +1109,21 @@ class ParentComponent extends React.Component {
 
     The _Shadow DOM_ is a browser technology designed primarily for scoping variables and CSS in _web components_. The _Virtual DOM_ is a concept implemented by libraries in JavaScript on top of browser APIs.
 
+    The key differences in a table format shown below:
+
+    | Feature | Shadow DOM | Virtual DOM |
+    | --- | --- | --- |
+    | Purpose | Encapsulation for Web Components | Efficient UI rendering |
+    | Managed by | Browser | JS frameworks (e.g., React) |
+    | DOM Type | Part of real DOM (scoped) | In-memory representation |
+    | Encapsulation | Yes | No |
+    | Use Case | Web Components, scoped styling | UI diffing and minimal DOM updates |
+
     **[⬆ Back to Top](#table-of-contents)**
 
 19. ### What is React Fiber?
 
-    Fiber is the new _reconciliation_ engine or reimplementation of core algorithm in React v16. The goal of React Fiber is to increase its suitability for areas like animation, layout, gestures, ability to pause, abort, or reuse work and assign priority to different types of updates; and new concurrency primitives.
+    **React Fiber** is the **new reconciliation engine** in React, introduced in React 16. It’s a complete rewrite of React’s core algorithm(old stack-based algorithm) for rendering and updating the UI. Fiber enhances React’s ability to handle **asynchronous rendering**, **prioritized updates**(assign priority to different types of updates), and **interruption**(ability to pause, abort, or reuse work) of rendering work, enabling smoother and more responsive user interfaces.
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -1100,15 +1131,15 @@ class ParentComponent extends React.Component {
 
     The goal of _React Fiber_ is to increase its suitability for areas like animation, layout, and gestures. Its headline feature is **incremental rendering**: the ability to split rendering work into chunks and spread it out over multiple frames.
 
-    _from documentation_
-
     Its main goals are:
 
-    1. Ability to split interruptible work in chunks.
-    2. Ability to prioritize, rebase and reuse work in progress.
-    3. Ability to yield back and forth between parents and children to support layout in React.
-    4. Ability to return multiple elements from render().
-    5. Better support for error boundaries.
+    *   **Incremental Rendering** – Breaks work into chunks for smoother updates.
+    *   **Interruptible Rendering** – Pauses and resumes rendering to keep the UI responsive.
+    *   **Prioritization** – Handles high-priority updates (e.g. animations) before low-priority ones.
+    *   **Concurrency Support** – Enables working on multiple UI versions simultaneously.
+    *   **Better Error Handling** – Supports component-level error boundaries.
+    *   **Suspense Support** – Allows waiting for async data before rendering.
+    *   **Improved DevTools** – Enables better debugging and performance tracking.
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -1236,9 +1267,31 @@ class ParentComponent extends React.Component {
 **[⬆ Back to Top](#table-of-contents)**
 
 23. ### What is the difference between createElement and cloneElement?
+    Both `React.createElement` and `React.cloneElement` are used to work with React elements, but they serve different purposes.
 
-    JSX elements will be transpiled to `React.createElement()` functions to create React elements which are going to be used for the object representation of UI. Whereas `cloneElement` is used to clone an element and pass it new props.
+    #### **createElement:** 
+    Creates a new React element from scratch. JSX elements will be transpiled to `React.createElement()` functions to create React elements which are going to be used for the object representation of UI.
+    **Syntax:**
+    ```jsx
+    React.createElement(type, props, ...children)
+    ```
+    **Example:**
+    ```jsx
+    React.createElement('button', { className: 'btn' }, 'Click Me')
+    ```
+    #### **cloneElement:**
+     The `cloneElement` method is used to clone an existing React element and optionally adds or overrides props.
 
+    **Syntax:**
+    ```jsx
+    React.cloneElement(element, newProps, ...children)
+    ```
+    **Example:**
+    ```jsx
+    const button = <button className="btn">Click Me</button>;
+    const cloned = React.cloneElement(button, { className: 'btn-primary' });
+    // Result: <button className="btn-primary">Click Me</button>
+    ```
     **[⬆ Back to Top](#table-of-contents)**
 
 24. ### What is Lifting State Up in React?
@@ -1249,20 +1302,66 @@ class ParentComponent extends React.Component {
 
 25. ### What are Higher-Order Components?
 
-    A _higher-order component_ (_HOC_) is a function that takes a component and returns a new component. Basically, it's a pattern that is derived from React's compositional nature.
+    A _higher-order component_ (_HOC_) is a function that takes a component and returns a new enhanced component with additional props, behavior, or data. It’s a design pattern based on React’s compositional nature, allowing you to reuse logic across multiple components without modifying their internals.
 
-    We call them **pure components** because they can accept any dynamically provided child component but they won't modify or copy any behavior from their input components.
+    We consider HOCs **pure components** because they don’t mutate or copy behavior from the original component—they simply **wrap it**, enhance it, and pass through the necessary props. The wrapped component remains decoupled and reusable.
 
     ```javascript
     const EnhancedComponent = higherOrderComponent(WrappedComponent);
     ```
+    Let's take an example of a `withAuth` higher-order component (HOC) in React. This HOC will check if a user is authenticated and either render the wrapped component if authenticated or redirect (or show a message) if not.
+
+    **withAuth HOC Example:**
+    ```jsx
+    import React from 'react';
+    import { Navigate } from 'react-router-dom'; // For redirection (assuming React Router v6)
+
+    const isAuthenticated = () => {
+      // e.g., check for a valid token in localStorage or context
+      return !!localStorage.getItem('authToken');
+    };
+
+    function withAuth(WrappedComponent) {
+      return function AuthenticatedComponent(props) {
+        if (!isAuthenticated()) {
+          // User is NOT authenticated, redirect to login page
+          return <Navigate to="/login" replace />;
+        }
+
+        // User is authenticated, render the wrapped component
+        return <WrappedComponent {...props} />;
+      };
+    }
+
+    export default withAuth;
+    ```
+    **Usage**
+    ```jsx
+    import React from 'react';
+    import withAuth from './withAuth';
+
+    function Dashboard() {
+      return <h1>Welcome to the Dashboard!</h1>;
+    }
+
+    // Wrap Dashboard with withAuth HOC
+    export default withAuth(Dashboard);
+    ```
 
     HOC can be used for many use cases:
 
-    1. Code reuse, logic and bootstrap abstraction.
-    2. Render hijacking.
-    3. State abstraction and manipulation.
-    4. Props manipulation.
+    1. Code reuse, logic and bootstrap abstraction (e.g., fetching data, permissions, theming).
+    2. Render hijacking (e.g., conditional rendering or layout changes).
+    3. State abstraction and manipulation(e.g., handling form logic).
+    4. Props manipulation(e.g., injecting additional props or filtering them).
+    
+    Some of the real-world examples of HOCs in react eco-system:
+    1. connect() from react-redux
+    2. withRouter() from React Router v5
+    3. withTranslation() from react-i18next
+    4. withApollo() from Apollo client
+    5. withFormik from Formik library
+    6. withTheme from styled components
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -7415,7 +7514,52 @@ Technically it is possible to write nested function components but it is not sug
   
 **[⬆ Back to Top](#table-of-contents)**
 
-    
+307. ### How does React Fiber works? Explain in detail.
+
+      React Fiber is the **core engine** that enables advanced features like **concurrent rendering**, **prioritization**, and **interruptibility** in React. Here's how it works:
+          
+      ### 1. **Fiber Tree Structure**
+          
+      Each component in your app is represented by a **Fiber node** in a tree structure. A Fiber node contains:
+      *   Component type
+      *   Props & state
+      *   Pointers to parent, child, and sibling nodes
+      *   Effect tags to track changes (e.g., update, placement)
+      *   This forms the **Fiber Tree**, a data structure React uses instead of the traditional call stack.
+          
+      ### 2. **Two Phases of Rendering**
+          
+        #### **A. Render Phase (work-in-progress)**
+          
+      *   React builds a **work-in-progress Fiber tree**.
+      *   It walks through each component (begin phase), calculates what needs to change, and collects side effects (complete phase).
+      *   This phase is **interruptible**—React can pause it and resume later.
+        #### **B. Commit Phase**
+          
+      *   React applies changes to the **Real DOM**.
+      *   Runs lifecycle methods (e.g., `componentDidMount`, `useEffect`).
+      *   This phase is **non-interruptible** but fast.
+          
+        ### 3. **Work Units and Scheduling**
+          
+      *   React breaks rendering into **units of work** (small tasks).
+      *   These units are scheduled based on **priority** using the **React Scheduler**.
+      *   If time runs out (e.g., user starts typing), React can **pause and yield** control back to the browser.
+          
+        ### 4. **Double Buffering with Two Trees**
+          
+      *   React maintains two trees:
+      *   **Current Tree** – what's visible on the screen.
+      *   **Work-In-Progress Tree** – the next version being built in memory.
+      *   Only after the new tree is fully ready, React **commits** it, making it the new current tree.
+          
+        ### 5. **Concurrency and Prioritization**
+          
+      *   React can prepare multiple versions of UI at once (e.g., during slow data loading).
+      *   Updates can be **assigned priorities**, so urgent updates (like clicks) are handled faster than background work.
+
+**[⬆ Back to Top](#table-of-contents)**
+
 ## Old Q&A
 
 1. ### Why should we not update the state directly?
