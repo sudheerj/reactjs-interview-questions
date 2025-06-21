@@ -1366,8 +1366,7 @@ class ParentComponent extends React.Component {
     **[⬆ Back to Top](#table-of-contents)**
 
 26. ### What is children prop?
-
-    _Children_ is a prop that allows you to pass components as data to other components, just like any other prop you use. Component tree put between component's opening and closing tag will be passed to that component as `children` prop.
+    The `children` prop is a special prop in React used to pass elements between the opening and closing tags of a component. It is commonly used in layout and wrapper componnents. 
 
     A simple usage of children prop looks as below,
 
@@ -1389,6 +1388,9 @@ class ParentComponent extends React.Component {
       );
     }
     ```
+    Here, everything inside `<MyDiv>...</MyDiv>` is passed as children to the custom div component.
+
+    The children can be text, JSX elements, fragments, arrays and functions(for advance use case like render props).
 
     <details><summary><b>See Class</b></summary>
     <p>
@@ -1439,6 +1441,8 @@ class ParentComponent extends React.Component {
     </div>
     ```
 
+    You can use `//` and `/* */` in JS logic, hooks, and functions.
+
     **[⬆ Back to Top](#table-of-contents)**
 
 28. ### What is reconciliation?
@@ -1478,13 +1482,46 @@ class ParentComponent extends React.Component {
 
 30. ### Why React uses `className` over `class` attribute?
 
-    The attribute names written in JSX turned into keys of JavaScript objects and the JavaScript names cannot contain dashes or reserved words, it is recommended to use camelCase wherever applicable in JSX code. The attribute `class` is a keyword in JavaScript, and JSX is an extension of JavaScript. That's the principle reason why React uses `className` instead of `class`. Pass a string as the `className` prop.
+    React uses **className** instead of **class** because of a JavaScript naming conflict with the class keyword.
 
-    ```jsx harmony
-    render() {
-      return <span className="menu navigation-menu">{'Menu'}</span>
-    }
-    ```
+    1. `class` is a reserved keyword in JavaScript
+        In JavaScript, class is used to define ES6 classes:
+      
+        ```js
+        class Person {
+          constructor(name) {
+            this.name = name;
+          }
+        }
+        ```
+        If you try to use class as a variable or property name, it will throw a syntax error. Since JSX is just JavaScript with XML-like syntax, using class directly in JSX would break the parser.
+
+    2. JSX Is JavaScript
+    
+        When you write JSX like this:
+        ```jsx
+        <div class="btn">Click</div>
+        ```
+        It will be compiled to:
+        ```jsx
+        React.createElement('div', { class: 'btn' }, 'Click');
+        ```
+        But `class` is invalid in this object literal context (since it clashes with the JS keyword), hence React instead uses className.
+        ```jsx
+        <div className="btn">Click</div>
+        ```
+        which compiles to:
+        ```jsx
+        React.createElement('div', { className: 'btn' }, 'Click');
+        ```
+        React then translates `className` to` class` in the final HTML DOM.
+
+    3. Aligns with DOM APIs
+        In vanilla JavaScript, you interact with element classes using:
+        ```js
+        element.className = 'my-class';
+        ```
+        React follows this convention, staying consistent with the DOM API's property name rather than HTML’s attribute.
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -1549,7 +1586,7 @@ class ParentComponent extends React.Component {
 
 33. ### What are portals in React?
 
-    _Portal_ is a recommended way to render children into a DOM node that exists outside the DOM hierarchy of the parent component. When using
+    A Portal is a React feature that enables rendering children into a DOM node that exists outside the parent component's DOM hierarchy, while still preserving the React component hierarchy. When using
     CSS transform in a component, its descendant elements should not use fixed positioning, otherwise the layout will blow up.
 
     ```javascript
