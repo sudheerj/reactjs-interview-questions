@@ -1586,14 +1586,26 @@ class ParentComponent extends React.Component {
 
 33. ### What are portals in React?
 
-    A Portal is a React feature that enables rendering children into a DOM node that exists outside the parent component's DOM hierarchy, while still preserving the React component hierarchy. When using
-    CSS transform in a component, its descendant elements should not use fixed positioning, otherwise the layout will blow up.
+    A Portal is a React feature that enables rendering children into a DOM node that exists outside the parent component's DOM hierarchy, while still preserving the React component hierarchy. Portals help avoid CSS stacking issues—for example, elements with position: fixed may not behave as expected inside a parent with transform. Portals solve this by rendering content (like modals or tooltips) outside such constrained DOM contexts.
 
     ```javascript
     ReactDOM.createPortal(child, container);
     ```
+    *   `child`: Any valid React node (e.g., JSX, string, fragment).
+    *   `container`: A real DOM node (e.g., `document.getElementById('modal-root')`).
 
-    The first argument is any render-able React child, such as an element, string, or fragment. The second argument is a DOM element.
+    Even though the content renders elsewhere in the DOM, it still behaves like a normal child in React. It has access to context, state, and event handling.
+
+    **Example:- Modal:**
+    ```jsx
+    function Modal({ children }) {
+      return ReactDOM.createPortal(
+        <div className="modal">{children}</div>,
+        document.body)
+      );
+    }
+    ```
+    The above code will render the modal content into the body element in the HTML, not inside the component's usual location.
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -5040,14 +5052,16 @@ class ParentComponent extends React.Component {
 **[⬆ Back to Top](#table-of-contents)**
 
 209. ### What is the typical use case of portals?
+     React Portals are primarily used to render UI components such as **modals, tooltips, dropdowns, hovercards, and notifications** outside of their parent component's DOM tree. This helps avoid common CSS issues caused by parent elements, such as:
 
-     React portals are very useful when a parent component has overflow: hidden or has properties that affect the stacking context (e.g. z-index, position, opacity) and you need to visually “break out” of its container.
+     *   `**overflow: hidden**` on parent elements clipping or hiding child elements like modals or tooltips,
+     *   **stacking context and** `**z-index**` **conflicts** created by parent containers that prevent child elements from appearing above other content.
 
-     For example, dialogs, global message notifications, hovercards, and tooltips.
+     That means, you need to visually “break out” of its container. By rendering these UI elements into a separate DOM node (often directly under `<body>`), portals ensure they appear above all other content and are not restricted by the parent’s CSS or layout constraints, resulting in correct positioning and visibility regardless of the parent’s styling.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-210. ### How do you set default value for uncontrolled component?
+210.   ### How do you set default value for uncontrolled component?
 
      In React, the value attribute on form elements will override the value in the DOM. With an uncontrolled component, you might want React to specify the initial value, but leave subsequent updates uncontrolled. To handle this case, you can specify a **defaultValue** attribute instead of **value**.
 
