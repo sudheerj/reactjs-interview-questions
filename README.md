@@ -4859,25 +4859,46 @@ class ParentComponent extends React.Component {
 
 199. ### What is suspense component?
 
-     If the module containing the dynamic import is not yet loaded by the time parent component renders, you must show some fallback content while you’re waiting for it to load using a loading indicator. This can be done using **Suspense** component.
+     React Suspense is a built-in feature that lets you defer rendering part of your component tree until some condition(asynchronous operation) is met—usually, data or code has finished loading. While waiting, Suspense lets you display a fallback UI like a spinner or placeholder.
 
-     For example, the below code uses suspense component,
 
-     ```javascript
-     const OtherComponent = React.lazy(() => import("./OtherComponent"));
+     1. Lazy loading components uses suspense feature,
 
-     function MyComponent() {
-       return (
-         <div>
-           <Suspense fallback={<div>Loading...</div>}>
-             <OtherComponent />
-           </Suspense>
-         </div>
-       );
-     }
-     ```
 
-     As mentioned in the above code, Suspense is wrapped above the lazy component.
+        If the module containing the dynamic import is not yet loaded by the time parent component renders, you must show some fallback content while you’re waiting for it to load using a loading indicator. This can be done using **Suspense** component.
+    
+        ```javascript
+        const OtherComponent = React.lazy(() => import("./OtherComponent"));
+
+        function MyComponent() {
+          return (
+            <div>
+              <Suspense fallback={<div>Loading...</div>}>
+                <OtherComponent />
+              </Suspense>
+            </div>
+          );
+        }
+        ```
+        The above component shows fallback UI instead real component until `OtherComponent` is fully loaded.
+
+     2. As an another example, suspend until async data(data fetching) is ready
+      ```jsx
+        function UserProfile() {
+          const user = use(fetchUser()); // throws a promise internally
+          return <div>{user.name}</div>;
+        }
+
+        function App() {
+          return (
+            <Suspense fallback={<div>Loading user...</div>}>
+              <UserProfile />
+            </Suspense>
+          );
+        }
+
+    ```
+     
 
 **[⬆ Back to Top](#table-of-contents)**
 
