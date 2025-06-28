@@ -1082,6 +1082,7 @@ class ParentComponent extends React.Component {
 17. ### How Virtual DOM works?
 
     The _Virtual DOM_ works in five simple steps.
+
     **1. Initial Render**  
         When a UI component renders for the first time, it returns JSX. React uses this structure to create a Virtual DOM tree, which is a lightweight copy of the actual DOM. This Virtual DOM is then used to build and render the Real DOM in the browser.
 
@@ -3208,11 +3209,15 @@ class ParentComponent extends React.Component {
 
 105. ### What are the downsides of Redux compared to Flux?
 
-     Instead of saying downsides we can say that there are few compromises of using Redux over Flux. Those are as follows:
+     While Redux offers a powerful and predictable state management solution, it comes with a few trade-offs when compared to Flux. These include:
 
-     1. **You will need to learn to avoid mutations:** Flux is un-opinionated about mutating data, but Redux doesn't like mutations and many packages complementary to Redux assume you never mutate the state. You can enforce this with dev-only packages like `redux-immutable-state-invariant`, Immutable.js, or instructing your team to write non-mutating code.
-     2. **You're going to have to carefully pick your packages:** While Flux explicitly doesn't try to solve problems such as undo/redo, persistence, or forms, Redux has extension points such as middleware and store enhancers, and it has spawned a rich ecosystem.
-     3. **There is no nice Flow integration yet:** Flux currently lets you do very impressive static type checks which Redux doesn't support yet.
+     1.  **Immutability is essential**  
+        Redux enforces a strict immutability model for state updates, which differs from Flux’s more relaxed approach. This means you must avoid mutating state directly. Many Redux-related libraries assume immutability, so your team must be disciplined in writing pure update logic. You can use tools like `redux-immutable-state-invariant`, `Immer`, or `Immutable.js` to help enforce this practice, especially during development.
+     2.  **Careful selection of complementary packages**  
+        Redux is more minimal by design and provides extension points such as middleware and store enhancers. This has led to a large ecosystem, but it also means you must thoughtfully choose and configure additional packages for features like undo/redo, persistence, or form handling—something Flux explicitly leaves out but may be simpler to manage in smaller setups.
+     3.  **Limited static type integration**  
+        While Flux has mature support for static type checking with tools like Flow, Redux’s type integration is less seamless. Although TypeScript is commonly used with Redux now, early Flow support was limited, and more boilerplate was required for static type safety. This may affect teams that rely heavily on type systems for large codebases.
+
 
 **[⬆ Back to Top](#table-of-contents)**
 
