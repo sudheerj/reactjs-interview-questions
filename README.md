@@ -9724,10 +9724,8 @@ Technically it is possible to write nested function components but it is not sug
     For example, let us take a greeting example with JSX,
 
     ```javascript
-    class Greeting extends React.Component {
-      render() {
-        return <div>Hello {this.props.message}</div>;
-      }
+    function Greeting(props) {
+      return <div>Hello {props.message}</div>;
     }
 
     ReactDOM.render(
@@ -9739,16 +9737,15 @@ Technically it is possible to write nested function components but it is not sug
     You can write the same code without JSX as below,
 
     ```javascript
-    class Greeting extends React.Component {
-      render() {
-        return React.createElement("div", null, `Hello ${this.props.message}`);
-      }
+    function Greeting(props) {
+      return React.createElement("div", null, `Hello ${props.message}`);
     }
 
     ReactDOM.render(
       React.createElement(Greeting, { message: "World" }, null),
       document.getElementById("root")
     );
+
     ```
 
 **[⬆ Back to Top](#table-of-contents)**
