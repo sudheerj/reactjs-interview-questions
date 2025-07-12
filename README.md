@@ -5958,7 +5958,7 @@ class ParentComponent extends React.Component {
 
      1. **Triggering or initiating a render:** The component is going to triggered for render in two ways.
 
-        1. **Initial render:** When the app starts, you can trigger the initial render by calling `creatRoot` with the target DOM node followed by invoking component's `render` method. For example, the following code snippet renders `App` component on root DOM node.
+        1. **Initial render:** When the app starts, you can trigger the initial render by calling `createRoot` with the target DOM node followed by invoking component's `render` method. For example, the following code snippet renders `App` component on root DOM node.
 
         ```jsx
         import { createRoot } from "react-dom/client";
