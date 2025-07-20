@@ -7,12 +7,12 @@
 <div>
 <p align="center">
   <a href="https://www.greatfrontend.com/questions/react?utm_source=github&utm_medium=referral&utm_campaign=sudheerj-react&fpr=sudheerj">
-    <img src="./images/collab/greatfrontend-banner4x.png" alt="GreatFrontEnd React Interview Questions" width="100%">
+    <img src="./images/collab/greatfrontend-react.gif" alt="GreatFrontEnd React Interview Questions" width="100%">
   </a>
 </p>
 </div>
 
-> 💡 Nail React interviews with questions and solutions from ex-interviewers! [Try GreatFrontEnd →](https://www.greatfrontend.com/questions/react?utm_source=github&utm_medium=referral&utm_campaign=sudheerj-react&gnrs=sudheerj) 💡
+> Practice 280+ JavaScript coding interview questions in-browser. Built by ex-FAANG interviewers. No AI-generated fluff. No fake reviews. [Try GreatFrontEnd →](https://www.greatfrontend.com/questions/react?utm_source=github&utm_medium=referral&utm_campaign=sudheerj-react&gnrs=sudheerj) 💡
 
 ---
 
