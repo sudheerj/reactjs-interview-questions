@@ -55,7 +55,8 @@ Hide/Show table of contents
 | --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |     | **Core React**                                                                                                                                                                                                                   |
 | 1   | [What is React?](#what-is-react)                                                                                                                                                                                                 |
-| 2   | [What is the history behind React’s evolution?](#what-is-the-history-behind-react-evolution)                                                                                                                                      |
+| 2   | 
+
 | 3   | [What are the major features of React?](#what-are-the-major-features-of-react)                                                                                                                                                   |
 | 4   | [What is JSX?](#what-is-jsx)                                                                                                                                                                                                     |
 | 5   | [What is the difference between an Element and a Component?](#what-is-the-difference-between-an-element-and-a-component)                                                                                                              |
@@ -532,6 +533,10 @@ Hide/Show table of contents
 
 4.  ### What is JSX?
 
+    ~ Interview"JSX (JavaScript XML) is a syntax extension used in React that allows us to write HTML-like code inside JavaScript. It makes the UI code more readable and expressive by combining the structure (HTML) and logic (JavaScript) in one place.
+
+JSX is not required in React, but it is widely used because it's easier to write and understand. Under the hood, JSX gets compiled to React.createElement() calls by tools like Babel."
+
     _JSX_ stands for _JavaScript XML_ and it is an XML-like syntax extension to ECMAScript. Basically it just provides the syntactic sugar for the `React.createElement(type, props, ...children)` function, giving us expressiveness of JavaScript along with HTML like template syntax.
 
     In the example below, the text inside `<h1>` tag is returned as JavaScript function to the render function.
@@ -574,7 +579,7 @@ Hide/Show table of contents
 
     **[⬆ Back to Top](#table-of-contents)**
 
-5.  ### What is the difference between an Element and a Component?
+6.  ### What is the difference between an Element and a Component?
 
       **Element:**
       - A React **Element** is a plain JavaScript object that describes what you want to see on the UI. It represents a DOM node or a component at a specific point in time. 
@@ -641,7 +646,7 @@ Hide/Show table of contents
 
     **[⬆ Back to Top](#table-of-contents)**
 
-6.  ### How to create components in React?
+7.  ### How to create components in React?
 
     Components are the building blocks of creating User Interfaces(UI) in React. There are two possible ways to create a component.
 
@@ -665,7 +670,7 @@ Hide/Show table of contents
 
     **[⬆ Back to Top](#table-of-contents)**
 
-7.  ### When to use a Class Component over a Function Component?
+8.  ### When to use a Class Component over a Function Component?
 
     After the addition of Hooks(i.e. React 16.8 onwards) it is always recommended to use Function components over Class components in React. Because you could use state, lifecycle methods and other features that were only available in class component present in function component too.
 
@@ -704,7 +709,7 @@ Hide/Show table of contents
 
     **[⬆ Back to Top](#table-of-contents)**
 
-8.  ### What are Pure Components?
+9.  ### What are Pure Components?
 
     Pure components are the components which render the same output for the same state and props. In function components, you can achieve these pure components through memoized `React.memo()` API wrapping around the component. This API prevents unnecessary re-renders by comparing the previous props and new props using shallow comparison. So it will be helpful for performance optimizations.
 
@@ -757,7 +762,7 @@ Hide/Show table of contents
 
     **[⬆ Back to Top](#table-of-contents)**
 
-9.  ### What is state in React?
+10.  ### What is state in React?
 
     _State_ of a component is an object that holds some information that may change over the lifetime of the component. The important point is whenever the state object changes, the component re-renders. It is always recommended to make our state as simple as possible and minimize the number of stateful components.
 
@@ -812,7 +817,7 @@ Hide/Show table of contents
 
     **[⬆ Back to Top](#table-of-contents)**
 
-10. ### What are props in React?
+11. ### What are props in React?
 
     _Props_ are inputs to components. They are single values or objects containing a set of values that are passed to components on creation similar to HTML-tag attributes. Here, the data is passed down from a parent component to a child component.
 
