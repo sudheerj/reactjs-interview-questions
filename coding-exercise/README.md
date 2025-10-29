@@ -202,10 +202,10 @@ export default function Counter() {
 
   return (
     <>
-		<div>Clicked + {ref.current} + times</div>
-		<button onClick={handleClick}>
-			Click me!
-		</button>
+      <div>Clicked {ref.current} times</div>
+      <button onClick={handleClick}>
+        Click me!
+      </button>
     </>
   );
 }
