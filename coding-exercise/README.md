@@ -105,7 +105,7 @@ export default function Counter() {
     countRef.current = countRef.current + 1;
   }
 
-  return 
+  return;
   <>
     <span>Count: {countRef.current}</span>
     <button onClick={handleIncrement}>
