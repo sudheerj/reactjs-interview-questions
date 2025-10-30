@@ -9841,3 +9841,551 @@ The questions provided in this repository are the summary of frequently asked qu
 Good luck with your interview 😊
 
 ---
+
+90. ### What are React Hooks and why were they introduced?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+React Hooks are functions that let you use state and other React features in functional components. They were introduced in React 16.8 to allow using state without writing a class, reuse stateful logic between components, and make code more readable.
+
+91. ### What is the difference between useState and useReducer?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+useState is best for simple state logic, while useReducer is better for complex state logic with multiple sub-values or when next state depends on previous state.
+
+92. ### What is useEffect and how does it work?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+useEffect is a Hook that lets you perform side effects in functional components. It runs after every render by default and can be controlled with a dependency array.
+
+93. ### What is the difference between useEffect and useLayoutEffect?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+useEffect runs asynchronously after paint, while useLayoutEffect runs synchronously after DOM mutations but before paint, blocking visual updates.
+
+94. ### What is useContext and when should you use it?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+useContext lets you subscribe to React context without introducing nesting. Use it when you need to access context in a functional component or want to avoid prop drilling.
+
+95. ### What is useMemo and when should you use it?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+useMemo memoizes a computed value, recomputing only when dependencies change. Use it for expensive calculations to avoid unnecessary recalculations.
+
+96. ### What is useCallback and how is it different from useMemo?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+useCallback memoizes a function, while useMemo memoizes a value. Use useCallback when passing callbacks to optimized child components.
+
+97. ### What is useRef and what are its use cases?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+useRef returns a mutable ref object that persists across renders. Use cases include accessing DOM elements, storing mutable values, and keeping previous values.
+
+98. ### What are custom Hooks and how do you create them?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Custom Hooks are JavaScript functions that use other Hooks and allow you to extract component logic into reusable functions. Names must start with "use".
+
+99. ### What is the useImperativeHandle Hook?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+useImperativeHandle customizes the instance value exposed to parent components when using ref, allowing you to expose specific methods to parent.
+
+100. ### What is React.memo and how does it differ from useMemo?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+React.memo is a higher-order component that memoizes a component, while useMemo memoizes a value within a component.
+
+
+101. ### What are React Server Components?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+React Server Components run only on the server, reducing bundle size and allowing direct backend access.
+
+102. ### What is Concurrent Rendering in React 18?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Concurrent Rendering allows React to work on multiple state updates simultaneously and interrupt rendering work for better user experience.
+
+103. ### What is the useTransition Hook?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+useTransition lets you mark state updates as non-urgent transitions, keeping UI responsive during expensive updates.
+
+104. ### What is the useDeferredValue Hook?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+useDeferredValue lets you defer updating a part of the UI, useful for keeping input responsive during expensive rendering.
+
+105. ### What is the useId Hook?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+useId generates unique IDs that are stable across server and client, useful for accessibility attributes.
+
+106. ### What is Suspense and how does it work?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Suspense lets components wait for something before rendering, showing a fallback in the meantime. Used for code splitting and data fetching.
+
+107. ### What is Error Boundary and how do you create one?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Error Boundaries catch JavaScript errors in child components and display fallback UI. Only class components can be Error Boundaries.
+
+108. ### What is React.lazy and code splitting?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+React.lazy enables code splitting by dynamically importing components, reducing initial bundle size and improving load time.
+
+109. ### What is forwardRef and when should you use it?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+forwardRef lets you pass refs through components to child elements, useful for accessing DOM elements in child components.
+
+110. ### What is Strict Mode and why should you use it?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+StrictMode highlights potential problems in an application by identifying unsafe lifecycles and deprecated APIs. Only runs in development mode.
+
+111. ### What are Portals and when would you use them?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Portals provide a way to render children into a DOM node outside the parent hierarchy. Use for modals, tooltips, and dropdowns.
+
+112. ### What is hydration in React?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Hydration is the process of attaching event listeners to server-rendered HTML, enabling faster initial page load and better SEO.
+
+113. ### What are the differences between Decorators and Higher-Order Components?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Decorators are syntactic sugar for applying HOCs using @ symbol (experimental). HOCs are standard JavaScript functions that enhance components. Modern React prefers Hooks over both patterns.
+
+114. ### What is React Fiber?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+React Fiber is the reimplementation of React's core algorithm enabling incremental rendering, pause/resume, prioritization, and concurrency.
+
+115. ### What is Automatic Batching in React 18?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Automatic Batching groups multiple state updates into a single re-render for better performance, now working everywhere including promises and timeouts.
+
+
+116. ### What is the difference between Component and PureComponent?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Component re-renders on every state/props change, while PureComponent implements shallow comparison in shouldComponentUpdate, automatically skipping re-renders if props/state haven't changed. In functional components, use React.memo instead.
+
+117. ### What is the difference between createElement and cloneElement?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+createElement creates a new React element from scratch, while cloneElement clones an existing element with new props. Use cloneElement when modifying children in parent components.
+
+118. ### What is React.Children and when would you use it?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+React.Children provides utilities (map, forEach, count, only, toArray) for dealing with props.children opaque data structure safely.
+
+119. ### What is the difference between Controlled and Uncontrolled Components?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Controlled components have form data handled by React state, while uncontrolled components have form data handled by the DOM itself using refs.
+
+120. ### What is the difference between HOC and Render Props?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+HOC is a function that takes a component and returns an enhanced component (static composition), while Render Props is a component with a function prop that returns React elements (dynamic composition). Hooks are the modern alternative to both.
+
+121. ### What is the Profiler and how do you use it?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Profiler measures rendering performance of React components, providing metrics like actualDuration, baseDuration, and phase (mount/update).
+
+122. ### What is the difference between React and React DOM?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+React is the core library with component logic and hooks, while React DOM is the renderer for web browsers that handles DOM operations. This separation allows for different renderers like React Native.
+
+123. ### What is the difference between renderToString and renderToStaticMarkup?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+renderToString renders to HTML with React attributes for hydration, while renderToStaticMarkup renders to HTML without React attributes for static pages.
+
+124. ### What is the difference between React.Fragment and div?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Fragment groups elements without adding extra DOM node, while div adds an actual DOM element. Use Fragment to avoid affecting CSS layout or adding unnecessary nodes.
+
+125. ### What is the useSyncExternalStore Hook?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+useSyncExternalStore lets you subscribe to external stores in a concurrent-safe way, useful for browser APIs and third-party state management.
+
+126. ### What is the useInsertionEffect Hook?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+useInsertionEffect is designed for CSS-in-JS libraries to inject styles before any layout effects fire, running before useLayoutEffect.
+
+127. ### What is the difference between useEffect cleanup and componentWillUnmount?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+useEffect cleanup runs before every effect re-run and on unmount, while componentWillUnmount only runs once on unmount. useEffect cleanup is more flexible for handling dependencies.
+
+128. ### How do you optimize performance in React applications?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Performance optimization techniques include: React.memo for component memoization, useMemo for expensive calculations, useCallback for function memoization, code splitting with React.lazy, virtualization for long lists, and proper key usage in lists.
+
+129. ### What is the difference between shallow rendering and full rendering?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Shallow rendering renders only the component itself without children (useful for unit tests), while full rendering renders the component and all its children (useful for integration tests).
+
+130. ### What are the rules of Hooks?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Hook rules: 1) Only call Hooks at the top level (not inside loops, conditions, or nested functions), 2) Only call Hooks from React function components or custom Hooks, 3) Custom Hook names must start with "use".
+
+131. ### What is the difference between state and props?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+State is managed within the component (mutable), while props are passed from parent to child (immutable). State changes trigger re-renders, props are read-only in the receiving component.
+
+132. ### What is prop drilling and how can you avoid it?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Prop drilling is passing props through multiple levels of components. Avoid it using Context API, state management libraries (Redux, Zustand), or component composition.
+
+133. ### What is the difference between synthetic events and native events?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Synthetic events are React's cross-browser wrapper around native events, providing consistent API across browsers. They use event delegation and are automatically pooled for performance.
+
+134. ### What is event pooling in React?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Event pooling (removed in React 17) was a performance optimization where synthetic event objects were reused. In React 17+, events are no longer pooled, and you can access event properties asynchronously.
+
+135. ### What is the difference between React.createElement and JSX?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+JSX is syntactic sugar for React.createElement. JSX gets compiled to createElement calls by Babel. JSX is more readable and familiar to HTML developers.
+
+136. ### What is reconciliation in React?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Reconciliation is the algorithm React uses to diff one tree with another to determine which parts need to be changed. It uses keys to identify elements and minimize DOM operations.
+
+137. ### What is the Virtual DOM and how does it work?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Virtual DOM is a lightweight copy of the actual DOM. React updates the Virtual DOM first, compares it with previous version (diffing), then updates only changed parts in real DOM (reconciliation).
+
+138. ### What is the difference between keys and refs?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Keys help React identify which items have changed in lists (used in reconciliation), while refs provide direct access to DOM elements or component instances.
+
+139. ### Why should keys be unique among siblings?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Keys help React identify which items have changed, been added, or removed. They must be unique among siblings to correctly track element identity during reconciliation.
+
+140. ### What happens if you use index as key?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Using index as key can cause issues when items are reordered, added, or removed, leading to incorrect component state, poor performance, and potential bugs. Use stable unique IDs instead.
+
+141. ### What is lifting state up?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Lifting state up means moving state to the closest common ancestor of components that need it, allowing sibling components to share state through props.
+
+142. ### What is composition vs inheritance in React?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+React recommends composition over inheritance. Use composition (props.children, multiple props) to reuse code between components instead of extending classes.
+
+143. ### What are the lifecycle methods in class components?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Mounting: constructor, getDerivedStateFromProps, render, componentDidMount. Updating: getDerivedStateFromProps, shouldComponentUpdate, render, getSnapshotBeforeUpdate, componentDidUpdate. Unmounting: componentWillUnmount. Error: getDerivedStateFromError, componentDidCatch.
+
+144. ### How do lifecycle methods map to Hooks?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+componentDidMount: useEffect(() => {}, []), componentDidUpdate: useEffect(() => {}), componentWillUnmount: useEffect(() => { return () => {} }, []), shouldComponentUpdate: React.memo, getDerivedStateFromProps: useState with props, componentDidCatch: Error Boundary (no Hook equivalent).
+
+145. ### What is the difference between componentDidMount and useEffect?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+componentDidMount runs once after mount, while useEffect can run after every render or be controlled with dependencies. useEffect can also handle cleanup and multiple effects in one component.
+
+146. ### What is React Context and when should you use it?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Context provides a way to pass data through the component tree without prop drilling. Use for global data like theme, user authentication, or language preferences.
+
+147. ### What are the performance implications of Context?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+All consumers re-render when context value changes. Optimize by splitting contexts, memoizing values, and using useMemo/useCallback for context values.
+
+148. ### What is the difference between Context and Redux?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Context is built into React for passing data, while Redux is a state management library with middleware, time-travel debugging, and predictable state updates. Use Context for simple state, Redux for complex applications.
+
+149. ### What is React Router and how does it work?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+React Router is a library for routing in React applications, enabling navigation between views. It uses declarative routing with components like BrowserRouter, Route, Link, and Navigate.
+
+150. ### What is the difference between BrowserRouter and HashRouter?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+BrowserRouter uses HTML5 history API (clean URLs), while HashRouter uses URL hash (works without server configuration). BrowserRouter is preferred for production.
+
+151. ### What are React Testing Library best practices?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Test user behavior not implementation, use semantic queries (getByRole, getByLabelText), avoid testing internal state, use userEvent for interactions, and test accessibility.
+
+152. ### What is the difference between shallow and deep comparison?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Shallow comparison checks if primitive values or object references are equal (===), while deep comparison recursively checks all nested values. React uses shallow comparison for performance.
+
+153. ### What is immutability and why is it important in React?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Immutability means not modifying existing data structures. It's important for React's change detection, time-travel debugging, and preventing bugs from unexpected mutations.
+
+154. ### How do you handle forms in React?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Handle forms using controlled components (state + onChange), uncontrolled components (refs), or form libraries like Formik or React Hook Form for complex validation.
+
+155. ### What is the difference between React and Vue?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+React uses JSX and one-way data flow, Vue uses templates and two-way binding. React has larger ecosystem, Vue has gentler learning curve. Both use virtual DOM and component-based architecture.
+
+156. ### What is the difference between React and Angular?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+React is a library focused on UI, Angular is a full framework with built-in solutions. React uses JSX, Angular uses TypeScript templates. React is more flexible, Angular is more opinionated.
+
+157. ### What is Server-Side Rendering (SSR) and its benefits?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+SSR renders React components on the server, sending HTML to client. Benefits: faster initial load, better SEO, improved performance on slow devices, progressive enhancement.
+
+158. ### What is Static Site Generation (SSG)?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+SSG pre-renders pages at build time, generating static HTML files. Benefits: fastest performance, great SEO, works without JavaScript, easy deployment, lower server costs.
+
+159. ### What is Incremental Static Regeneration (ISR)?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+ISR allows updating static pages after build without rebuilding entire site. Pages are regenerated in background when requested after revalidation period.
+
+160. ### What are the different ways to style React components?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Styling options: inline styles, CSS modules, styled-components, Emotion, Tailwind CSS, CSS-in-JS libraries, Sass/Less, and traditional CSS files.
+
+161. ### What is CSS-in-JS and its pros/cons?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+CSS-in-JS writes styles in JavaScript. Pros: scoped styles, dynamic styling, no class name conflicts. Cons: runtime overhead, larger bundle size, learning curve.
+
+162. ### What is the difference between inline styles and CSS classes?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Inline styles are JavaScript objects with camelCase properties, have higher specificity, and don't support pseudo-classes. CSS classes are more performant and support full CSS features.
+
+163. ### What is code splitting and why is it important?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Code splitting divides bundle into smaller chunks loaded on demand. Important for: reducing initial load time, improving performance, better user experience, efficient resource usage.
+
+164. ### What is tree shaking?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Tree shaking removes unused code from final bundle. Works with ES6 modules and modern bundlers like Webpack. Reduces bundle size and improves load time.
+
+165. ### What is lazy loading and how do you implement it?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Lazy loading defers loading of components until needed. Implement using React.lazy() with Suspense for code splitting and dynamic imports.
+
+166. ### What is memoization in React?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Memoization caches computation results to avoid recalculation. React provides React.memo (components), useMemo (values), and useCallback (functions) for memoization.
+
+167. ### When should you NOT use useMemo or useCallback?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Don't use for: simple calculations, primitive values, components that rarely re-render, or premature optimization. Memoization has overhead and can hurt performance if overused.
+
+168. ### What is the difference between useMemo and React.memo?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+useMemo memoizes a value inside a component, React.memo memoizes an entire component. useMemo prevents recalculation, React.memo prevents re-rendering.
+
+169. ### What are render props and their use cases?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Render props is a pattern where a component takes a function prop that returns React elements. Use for: sharing code, dynamic composition, flexibility. Largely replaced by Hooks.
+
+170. ### What is the children prop?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+children is a special prop containing content between component tags. It enables composition and is the foundation of React's component model.
+
+171. ### What is prop types and why use them?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+PropTypes provide runtime type checking for props. Use for: catching bugs, documentation, development warnings. TypeScript is preferred for static type checking.
+
+172. ### What is the difference between PropTypes and TypeScript?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+PropTypes provide runtime checking, TypeScript provides compile-time checking. TypeScript is more powerful, catches more errors, and provides better IDE support.
+
+173. ### What is defaultProps?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+defaultProps specifies default values for props. Useful for optional props with sensible defaults. In functional components, use default parameters instead.
+
+174. ### What is the displayName property?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+displayName is used in debugging messages and React DevTools. Automatically set for named components, useful for HOCs and dynamic components.
+
+175. ### What are React DevTools and how do you use them?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+React DevTools is a browser extension for inspecting React component hierarchy, props, state, hooks, and performance. Essential for debugging React applications.
+
+176. ### What is the React Profiler API?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Profiler API measures rendering performance programmatically. Use for: production monitoring, performance tracking, identifying bottlenecks, A/B testing performance.
+
+177. ### What is the difference between development and production builds?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Development includes warnings, debugging tools, and unminified code. Production is optimized, minified, and removes development-only code for better performance.
+
+178. ### What are the common performance bottlenecks in React?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Common bottlenecks: unnecessary re-renders, large component trees, expensive calculations, improper key usage, not using production build, large bundle size, unoptimized images.
+
+179. ### How do you debug React applications?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+Debugging tools: React DevTools, console.log, debugger statement, React error boundaries, source maps, browser DevTools, React Profiler, and testing.
+
+180. ### What is the difference between React.StrictMode and production mode?
+
+**[⬆ Back to Top](#table-of-contents)**
+
+StrictMode is a development tool that highlights problems, runs effects twice, and warns about deprecated APIs. Production mode removes all development checks for performance.
