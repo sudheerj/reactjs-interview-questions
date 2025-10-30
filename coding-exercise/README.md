@@ -105,13 +105,14 @@ export default function Counter() {
     countRef.current = countRef.current + 1;
   }
 
-  return;
-  <>
-    <span>Count: {countRef.current}</span>
-    <button onClick={handleIncrement}>
-      Click me
-    </button>
-  </>
+  return (
+    <>
+      <span>Count: {countRef.current}</span>
+      <button onClick={handleIncrement}>
+        Click me
+      </button>
+    </>
+  )
 }
 ```
 
