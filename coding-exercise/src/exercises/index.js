@@ -1,5 +1,6 @@
 import * as Exercise01 from './exercise-01-state-batching';
 import * as Exercise02 from './exercise-02-useeffect-dependencies';
+import * as Exercise03 from './exercise-03-useCallback-memoization';
 
 /**
  * Exercise Registry
@@ -29,6 +30,15 @@ export const exercises = [
     topics: ['useEffect', 'Dependencies', 'Infinite Loops', 'useRef'],
     Problem: Exercise02.Problem,
     Solution: Exercise02.Solution,
+  },
+  {
+    id: 'exercise-03',
+    title: 'useCallback & Memoization',
+    description: 'Prevent unnecessary re-renders with useCallback and React.memo',
+    difficulty: 'Medium',
+    topics: ['useCallback', 'React.memo', 'Performance', 'Re-renders'],
+    Problem: Exercise03.Problem,
+    Solution: Exercise03.Solution,
   },
   // Add more exercises here...
 ];
