@@ -1,6 +1,7 @@
 import * as Exercise01 from './exercise-01-state-batching';
 import * as Exercise02 from './exercise-02-useeffect-dependencies';
 import * as Exercise03 from './exercise-03-useCallback-memoization';
+import * as Exercise04 from './exercise-04-custom-hooks';
 
 /**
  * Exercise Registry
@@ -39,6 +40,15 @@ export const exercises = [
     topics: ['useCallback', 'React.memo', 'Performance', 'Re-renders'],
     Problem: Exercise03.Problem,
     Solution: Exercise03.Solution,
+  },
+  {
+    id: 'exercise-04',
+    title: 'Custom Hooks',
+    description: 'Extract reusable logic with custom hooks for cleaner code',
+    difficulty: 'Medium',
+    topics: ['Custom Hooks', 'Code Reusability', 'DRY', 'Best Practices'],
+    Problem: Exercise04.Problem,
+    Solution: Exercise04.Solution,
   },
   // Add more exercises here...
 ];
