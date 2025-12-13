@@ -5988,7 +5988,7 @@ class ParentComponent extends React.Component {
 
         console.log("Application Rendered");
 
-        const handleUsers = () => {
+        const handleAsyncFetch = () => {
           fetch("https://jsonplaceholder.typicode.com/users/1").then(() => {
             // Automatic Batching re-render only once
             setCount(count + 1);
