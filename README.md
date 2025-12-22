@@ -21,12 +21,10 @@
   <a href="https://zerotomastery.io/?utm_source=github&utm_medium=sponsor&utm_campaign=reactjs-interview-questions">
     <img src="https://images.ctfassets.net/aq13lwl6616q/16U1iCKYMvT2KK1TA5gDfi/2885ffc1c274f493942fb29d338d63d3/ztm-logo-academy.svg" alt="ZTM Logo" width="100" height="50">
   </a>
-    <ol>
-      <li>I recommend this <a href="https://links.zerotomastery.io/react_sudheer">React course</a> if you’re serious about learning React and want to go beyond the basics.</li>
-      <li>Want to ace your coding interview and get hired at your dream company? <a href="http://links.zerotomastery.io/mci_sudheer">Take this coding interview bootcamp</a>.</li>
-    </ol>
-  </p>
+</p>
 </div>
+
+ > I recommend this [React course](https://zerotomastery.io/courses/learn-react/?utm_source=github&utm_medium=sponsor&utm_campaign=reactjs-interview-questions) to become top 10% at React and [this coding interview bootcamp](https://zerotomastery.io/courses/learn-data-structures-and-algorithms/?utm_source=github&utm_medium=sponsor&utm_campaign=reactjs-interview-questions) to ace your coding interview and actually get hired.
 
 ---
 
