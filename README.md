@@ -6458,6 +6458,51 @@ Technically it is possible to write nested function components but it is not sug
 
 270. ### What are the differences between page router and app router in nextjs?
 
+     Next.js provides two different routing systems: the **Page Router** (traditional) and the **App Router** (introduced in Next.js 13). The App Router is built on React Server Components and offers more powerful features for modern web applications.
+
+     Here are the main differences between them:
+
+     | Feature | Page Router | App Router |
+     |---------|-------------|------------|
+     | Directory | Uses `pages/` directory | Uses `app/` directory |
+     | Routing | File-based routing with files like `pages/about.js` | File-based routing with folders and special files like `app/about/page.js` |
+     | Components | All components are Client Components by default | All components are Server Components by default |
+     | Layouts | Custom `_app.js` and `_document.js` for shared layouts | Native nested layouts using `layout.js` files |
+     | Data Fetching | Uses `getServerSideProps`, `getStaticProps`, and `getInitialProps` | Uses `async/await` in Server Components with native `fetch` |
+     | Loading States | Manual implementation required | Built-in `loading.js` for streaming and suspense |
+     | Error Handling | Custom `_error.js` page | Built-in `error.js` for error boundaries at any level |
+     | Streaming | Limited support | Built-in support for streaming with Suspense |
+     | Server Actions | Not available | Native support for server-side mutations |
+     | Metadata | Using `Head` component from `next/head` | Native Metadata API with `metadata` object or `generateMetadata` function |
+     | Rendering | SSR, SSG, ISR, and CSR | SSR, SSG, ISR, CSR plus React Server Components |
+
+     **Example of Page Router structure:**
+     ```
+     pages/
+     ├── index.js          // Home page (/)
+     ├── about.js          // About page (/about)
+     ├── _app.js           // Custom App component
+     ├── _document.js      // Custom Document
+     └── posts/
+         └── [id].js       // Dynamic route (/posts/:id)
+     ```
+
+     **Example of App Router structure:**
+     ```
+     app/
+     ├── page.js           // Home page (/)
+     ├── layout.js         // Root layout
+     ├── loading.js        // Loading UI
+     ├── error.js          // Error UI
+     ├── about/
+     │   └── page.js       // About page (/about)
+     └── posts/
+         └── [id]/
+             └── page.js   // Dynamic route (/posts/:id)
+     ```
+
+     **Note:** The App Router is recommended for new Next.js applications as it provides better performance, simpler data fetching patterns, and improved developer experience with React Server Components.
+
 **[⬆ Back to Top](#table-of-contents)**
 
 271. ### Can you describe the useMemo() Hook?
