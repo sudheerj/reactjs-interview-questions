@@ -10370,6 +10370,18 @@ Technically it is possible to write nested function components but it is not sug
     );
     ```
 
+    #### Functional component version
+    ```javascript
+    const Greeting = ({ message }) => {
+      return <div>Hello {message}</div>;
+    };
+
+    ReactDOM.render(
+      <Greeting message="World" />,
+      document.getElementById("root")
+    );
+    ```
+
     You can write the same code without JSX as below,
 
     ```javascript
@@ -10378,6 +10390,18 @@ Technically it is possible to write nested function components but it is not sug
         return React.createElement("div", null, `Hello ${this.props.message}`);
       }
     }
+
+    ReactDOM.render(
+      React.createElement(Greeting, { message: "World" }, null),
+      document.getElementById("root")
+    );
+    ```
+
+    #### Functional component version
+    ```javascript
+    const Greeting = ({ message }) => {
+      return React.createElement("div", null, `Hello ${message}`);
+    };
 
     ReactDOM.render(
       React.createElement(Greeting, { message: "World" }, null),
