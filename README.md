@@ -366,6 +366,16 @@ Hide/Show table of contents
 | 306 | [What is useCallback and why is it used?](#what-is-usecallback-and-why-is-it-used)                                                                                                                                               |
 | 307 | [What are Custom React Hooks, and how can you develop one?](#what-are-custom-react-hooks-and-how-can-you-develop-one)                                                                                                            |
 | 308 | [How does React Fiber work? Explain in detail](#how-does-react-fiber-works-explain-in-detail)                                                                                                                                    |
+| 309 | [What is the useId hook and when should you use it?](#what-is-the-useid-hook-and-when-should-you-use-it)                                                                                                                         |
+| 310 | [What is the useDeferredValue hook?](#what-is-the-usedeferredvalue-hook)                                                                                                                                                         |
+| 311 | [What is the useTransition hook and how does it differ from useDeferredValue?](#what-is-the-usetransition-hook-and-how-does-it-differ-from-usedeferredvalue)                                                                     |
+| 312 | [What is the useSyncExternalStore hook?](#what-is-the-usesyncexternalstore-hook)                                                                                                                                                 |
+| 313 | [What is the useInsertionEffect hook?](#what-is-the-useinsertioneffect-hook)                                                                                                                                                     |
+| 314 | [How do you share state logic between components using custom hooks?](#how-do-you-share-state-logic-between-components-using-custom-hooks)                                                                                       |
+| 315 | [What is the useDebugValue hook?](#what-is-the-usedebugvalue-hook)                                                                                                                                                               |
+| 316 | [How do you handle cleanup in useEffect?](#how-do-you-handle-cleanup-in-useeffect)                                                                                                                                               |
+| 317 | [What are the differences between useEffect and useEvent (experimental)?](#what-are-the-differences-between-useeffect-and-useevent-experimental)                                                                                 |
+| 318 | [What are the best practices for using React Hooks?](#what-are-the-best-practices-for-using-react-hooks)                                                                                                                         |
 
 </details>
 
@@ -7670,7 +7680,7 @@ Technically it is possible to write nested function components but it is not sug
   
 **[⬆ Back to Top](#table-of-contents)**
 
-307. ### How does React Fiber works? Explain in detail.
+308. ### How does React Fiber works? Explain in detail.
 
       React Fiber is the **core engine** that enables advanced features like **concurrent rendering**, **prioritization**, and **interruptibility** in React. Here's how it works:
           
@@ -7713,6 +7723,551 @@ Technically it is possible to write nested function components but it is not sug
           
       *   React can prepare multiple versions of UI at once (e.g., during slow data loading).
       *   Updates can be **assigned priorities**, so urgent updates (like clicks) are handled faster than background work.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+309. ### What is the useId hook and when should you use it?
+
+     The `useId` hook is a React hook introduced in React 18 that generates **unique IDs** that are stable across server and client renders. It's primarily used for **accessibility attributes** like linking form labels to inputs.
+
+     #### Syntax
+     ```js
+     const id = useId();
+     ```
+
+     #### Example: Accessible Form Input
+     ```jsx
+     import { useId } from 'react';
+
+     function EmailField() {
+       const id = useId();
+       
+       return (
+         <div>
+           <label htmlFor={id}>Email:</label>
+           <input id={id} type="email" />
+         </div>
+       );
+     }
+     ```
+
+     #### When to Use
+     - Generating unique IDs for form elements (`htmlFor`, `aria-describedby`, `aria-labelledby`)
+     - Creating stable IDs in server-side rendering (SSR) applications
+     - Avoiding ID collisions when the same component is rendered multiple times
+
+     #### When NOT to Use
+     - As keys in a list (use data-based keys instead)
+     - As CSS selectors or query selectors
+     - For any purpose that requires the ID to be predictable
+
+     **Note:** The IDs generated by `useId` contain colons (`:`) which may not work in CSS selectors. For multiple related IDs, you can use the same `id` as a prefix: `${id}-firstName`, `${id}-lastName`.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+310. ### What is the useDeferredValue hook?
+
+     The `useDeferredValue` hook is used to **defer updating a part of the UI** to keep other parts responsive. It accepts a value and returns a "deferred" version of that value that may lag behind. This is useful for optimizing performance when rendering expensive components.
+
+     #### Syntax
+     ```js
+     const deferredValue = useDeferredValue(value);
+     ```
+
+     #### Example: Search with Deferred Results
+     ```jsx
+     import { useState, useDeferredValue, useMemo } from 'react';
+
+     function SearchResults({ query }) {
+       // Expensive computation or large list filtering
+       const results = useMemo(() => {
+         return largeDataSet.filter(item => 
+           item.name.toLowerCase().includes(query.toLowerCase())
+         );
+       }, [query]);
+
+       return (
+         <ul>
+           {results.map(item => <li key={item.id}>{item.name}</li>)}
+         </ul>
+       );
+     }
+
+     function SearchPage() {
+       const [query, setQuery] = useState('');
+       const deferredQuery = useDeferredValue(query);
+       const isStale = query !== deferredQuery;
+
+       return (
+         <div>
+           <input 
+             value={query} 
+             onChange={(e) => setQuery(e.target.value)}
+             placeholder="Search..."
+           />
+           <div style={{ opacity: isStale ? 0.5 : 1 }}>
+             <SearchResults query={deferredQuery} />
+           </div>
+         </div>
+       );
+     }
+     ```
+
+     The input stays responsive while the expensive `SearchResults` component re-renders with a slight delay using the deferred value.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+311. ### What is the useTransition hook and how does it differ from useDeferredValue?
+
+     The `useTransition` hook allows you to mark certain state updates as **non-urgent transitions**, keeping the UI responsive during expensive re-renders. It returns a `isPending` flag and a `startTransition` function.
+
+     #### Syntax
+     ```js
+     const [isPending, startTransition] = useTransition();
+     ```
+
+     #### Example: Tab Switching
+     ```jsx
+     import { useState, useTransition } from 'react';
+
+     function TabContainer() {
+       const [isPending, startTransition] = useTransition();
+       const [tab, setTab] = useState('home');
+
+       function selectTab(nextTab) {
+         startTransition(() => {
+           setTab(nextTab);
+         });
+       }
+
+       return (
+         <div>
+           <button onClick={() => selectTab('home')}>Home</button>
+           <button onClick={() => selectTab('posts')}>Posts (slow)</button>
+           <button onClick={() => selectTab('contact')}>Contact</button>
+           
+           {isPending && <Spinner />}
+           
+           {tab === 'home' && <HomeTab />}
+           {tab === 'posts' && <PostsTab />}  {/* Expensive component */}
+           {tab === 'contact' && <ContactTab />}
+         </div>
+       );
+     }
+     ```
+
+     #### Differences from useDeferredValue
+
+     | Feature | useTransition | useDeferredValue |
+     |---------|--------------|------------------|
+     | Controls | State updates (wraps `setState`) | Values (wraps a value) |
+     | Use case | When you control the state update | When you receive a value from props or other hooks |
+     | Returns | `[isPending, startTransition]` | Deferred value |
+     | Pending state | Built-in `isPending` flag | Manual comparison needed |
+
+**[⬆ Back to Top](#table-of-contents)**
+
+312. ### What is the useSyncExternalStore hook?
+
+     The `useSyncExternalStore` hook is designed to **subscribe to external stores** (non-React state sources) in a way that's compatible with concurrent rendering. It's primarily used by library authors for state management libraries.
+
+     #### Syntax
+     ```js
+     const state = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot?);
+     ```
+
+     - **subscribe**: Function to subscribe to the store, returns an unsubscribe function
+     - **getSnapshot**: Function that returns the current store value
+     - **getServerSnapshot**: Optional function for SSR that returns the initial server snapshot
+
+     #### Example: Browser Online Status
+     ```jsx
+     import { useSyncExternalStore } from 'react';
+
+     function getSnapshot() {
+       return navigator.onLine;
+     }
+
+     function subscribe(callback) {
+       window.addEventListener('online', callback);
+       window.addEventListener('offline', callback);
+       return () => {
+         window.removeEventListener('online', callback);
+         window.removeEventListener('offline', callback);
+       };
+     }
+
+     function useOnlineStatus() {
+       return useSyncExternalStore(subscribe, getSnapshot, () => true);
+     }
+
+     function StatusBar() {
+       const isOnline = useOnlineStatus();
+       return <h1>{isOnline ? '✅ Online' : '❌ Disconnected'}</h1>;
+     }
+     ```
+
+     This hook ensures that when the external store changes, React re-renders consistently without tearing (showing inconsistent data).
+
+**[⬆ Back to Top](#table-of-contents)**
+
+313. ### What is the useInsertionEffect hook?
+
+     The `useInsertionEffect` hook is designed for **CSS-in-JS library authors** to inject styles into the DOM before any layout effects run. It fires synchronously before DOM mutations.
+
+     #### Syntax
+     ```js
+     useInsertionEffect(() => {
+       // Insert styles here
+       return () => {
+         // Cleanup
+       };
+     }, [dependencies]);
+     ```
+
+     #### Execution Order
+     ```
+     1. useInsertionEffect  → Inject styles
+     2. DOM mutations       → React updates DOM
+     3. useLayoutEffect     → Read layout, synchronously re-render if needed
+     4. Browser paint       → User sees the result
+     5. useEffect           → Side effects run
+     ```
+
+     #### Example: Dynamic Style Injection
+     ```jsx
+     import { useInsertionEffect } from 'react';
+
+     let isInserted = new Set();
+
+     function useCSS(rule) {
+       useInsertionEffect(() => {
+         if (!isInserted.has(rule)) {
+           isInserted.add(rule);
+           const style = document.createElement('style');
+           style.textContent = rule;
+           document.head.appendChild(style);
+         }
+       }, [rule]);
+     }
+
+     function Button() {
+       useCSS('.dynamic-btn { background: blue; color: white; }');
+       return <button className="dynamic-btn">Click me</button>;
+     }
+     ```
+
+     **Note:** This hook is not intended for application code. It's specifically for CSS-in-JS libraries like styled-components or Emotion to prevent style flickering.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+314. ### How do you share state logic between components using custom hooks?
+
+     Custom hooks allow you to **extract and share stateful logic** between components without changing their hierarchy. The state itself is not shared—each component using the hook gets its own isolated state.
+
+     #### Example: useLocalStorage Hook
+     ```jsx
+     import { useState, useEffect } from 'react';
+
+     function useLocalStorage(key, initialValue) {
+       // Get stored value or use initial value
+       const [storedValue, setStoredValue] = useState(() => {
+         try {
+           const item = window.localStorage.getItem(key);
+           return item ? JSON.parse(item) : initialValue;
+         } catch (error) {
+           console.error(error);
+           return initialValue;
+         }
+       });
+
+       // Update localStorage when state changes
+       useEffect(() => {
+         try {
+           window.localStorage.setItem(key, JSON.stringify(storedValue));
+         } catch (error) {
+           console.error(error);
+         }
+       }, [key, storedValue]);
+
+       return [storedValue, setStoredValue];
+     }
+
+     // Usage in multiple components
+     function ThemeToggle() {
+       const [theme, setTheme] = useLocalStorage('theme', 'light');
+       return (
+         <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
+           Current: {theme}
+         </button>
+       );
+     }
+
+     function FontSizeSelector() {
+       const [fontSize, setFontSize] = useLocalStorage('fontSize', 16);
+       return (
+         <input 
+           type="range" 
+           value={fontSize} 
+           onChange={(e) => setFontSize(Number(e.target.value))} 
+         />
+       );
+     }
+     ```
+
+     Both components use `useLocalStorage`, but each has **its own independent state** that persists to localStorage.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+315. ### What is the useDebugValue hook?
+
+     The `useDebugValue` hook is used to **display a label** for custom hooks in **React DevTools**. It helps developers debug custom hooks by showing meaningful information.
+
+     #### Syntax
+     ```js
+     useDebugValue(value);
+     useDebugValue(value, formatFn); // With optional formatter
+     ```
+
+     #### Example: Custom Hook with Debug Value
+     ```jsx
+     import { useState, useEffect, useDebugValue } from 'react';
+
+     function useOnlineStatus() {
+       const [isOnline, setIsOnline] = useState(true);
+
+       useEffect(() => {
+         const handleOnline = () => setIsOnline(true);
+         const handleOffline = () => setIsOnline(false);
+         
+         window.addEventListener('online', handleOnline);
+         window.addEventListener('offline', handleOffline);
+         
+         return () => {
+           window.removeEventListener('online', handleOnline);
+           window.removeEventListener('offline', handleOffline);
+         };
+       }, []);
+
+       // Shows "OnlineStatus: Online" or "OnlineStatus: Offline" in DevTools
+       useDebugValue(isOnline ? 'Online' : 'Offline');
+
+       return isOnline;
+     }
+     ```
+
+     #### With Formatting Function (for expensive computations)
+     ```jsx
+     function useUser(userId) {
+       const [user, setUser] = useState(null);
+       
+       // The format function only runs when DevTools is open
+       useDebugValue(user, (user) => user ? `User: ${user.name}` : 'Loading...');
+       
+       return user;
+     }
+     ```
+
+     **Note:** Only use `useDebugValue` in custom hooks that are part of shared libraries. It's not necessary for every custom hook in application code.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+316. ### How do you handle cleanup in useEffect?
+
+     The cleanup function in `useEffect` is used to **clean up side effects** before the component unmounts or before the effect runs again. This prevents memory leaks, stale data, and unexpected behavior.
+
+     #### Syntax
+     ```js
+     useEffect(() => {
+       // Setup code
+       
+       return () => {
+         // Cleanup code
+       };
+     }, [dependencies]);
+     ```
+
+     #### Common Cleanup Scenarios
+
+     **1. Event Listeners**
+     ```jsx
+     useEffect(() => {
+       const handleResize = () => setWidth(window.innerWidth);
+       window.addEventListener('resize', handleResize);
+       
+       return () => window.removeEventListener('resize', handleResize);
+     }, []);
+     ```
+
+     **2. Timers and Intervals**
+     ```jsx
+     useEffect(() => {
+       const intervalId = setInterval(() => {
+         setCount(c => c + 1);
+       }, 1000);
+       
+       return () => clearInterval(intervalId);
+     }, []);
+     ```
+
+     **3. Subscriptions**
+     ```jsx
+     useEffect(() => {
+       const subscription = dataSource.subscribe(handleChange);
+       
+       return () => subscription.unsubscribe();
+     }, [dataSource]);
+     ```
+
+     **4. Abort Fetch Requests**
+     ```jsx
+     useEffect(() => {
+       const controller = new AbortController();
+       
+       fetch(url, { signal: controller.signal })
+         .then(response => response.json())
+         .then(data => setData(data))
+         .catch(err => {
+           if (err.name !== 'AbortError') {
+             setError(err);
+           }
+         });
+       
+       return () => controller.abort();
+     }, [url]);
+     ```
+
+     **When Cleanup Runs:**
+     - Before the component unmounts
+     - Before re-running the effect when dependencies change
+
+**[⬆ Back to Top](#table-of-contents)**
+
+316. ### What are the differences between useEffect and useEvent (experimental)?
+
+     `useEvent` is an **experimental hook** (not yet stable in React) designed to solve the problem of creating **stable event handlers** that always access the latest props and state without causing re-renders or needing to be in dependency arrays.
+
+     #### The Problem useEvent Solves
+     ```jsx
+     // Problem: onTick changes on every render, causing interval to reset
+     function Timer({ onTick }) {
+       useEffect(() => {
+         const id = setInterval(() => {
+           onTick(); // Uses stale closure if onTick is not in deps
+         }, 1000);
+         return () => clearInterval(id);
+       }, [onTick]); // Adding onTick causes interval to reset frequently
+     }
+     ```
+
+     #### Solution with useEvent (Experimental)
+     ```jsx
+     import { useEvent } from 'react'; // Experimental
+
+     function Timer({ onTick }) {
+       const stableOnTick = useEvent(onTick);
+
+       useEffect(() => {
+         const id = setInterval(() => {
+           stableOnTick(); // Always calls latest onTick
+         }, 1000);
+         return () => clearInterval(id);
+       }, []); // No dependency needed!
+     }
+     ```
+
+     #### Key Differences
+
+     | Feature | useEffect | useEvent (experimental) |
+     |---------|-----------|------------------------|
+     | Purpose | Run side effects | Create stable callbacks |
+     | Runs | After render | During render (creates function) |
+     | Returns | Cleanup function | Stable event handler |
+     | Closure | Captures values at render time | Always accesses latest values |
+     | Dependencies | Must list all used values | Not needed in other hooks' deps |
+
+     **Note:** Until `useEvent` is stable, you can use `useCallback` with `useRef` as a workaround for stable callbacks.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+317. ### What are the best practices for using React Hooks?
+
+     Following best practices ensures your hooks are predictable, maintainable, and bug-free.
+
+     #### 1. **Follow the Rules of Hooks**
+     - Only call hooks at the top level (not inside loops, conditions, or nested functions)
+     - Only call hooks from React functions (components or custom hooks)
+
+     #### 2. **Use the ESLint Plugin**
+     ```bash
+     npm install eslint-plugin-react-hooks --save-dev
+     ```
+     ```json
+     {
+       "plugins": ["react-hooks"],
+       "rules": {
+         "react-hooks/rules-of-hooks": "error",
+         "react-hooks/exhaustive-deps": "warn"
+       }
+     }
+     ```
+
+     #### 3. **Keep Hooks Focused and Simple**
+     ```jsx
+     // ❌ Bad: One hook doing too much
+     function useEverything() {
+       const [user, setUser] = useState(null);
+       const [posts, setPosts] = useState([]);
+       const [theme, setTheme] = useState('light');
+       // ... lots of unrelated logic
+     }
+
+     // ✅ Good: Separate concerns
+     function useUser() { /* user logic */ }
+     function usePosts() { /* posts logic */ }
+     function useTheme() { /* theme logic */ }
+     ```
+
+     #### 4. **Use Descriptive Names for Custom Hooks**
+     ```jsx
+     // ❌ Bad
+     function useData() { }
+
+     // ✅ Good
+     function useUserAuthentication() { }
+     function useFetchProducts() { }
+     function useFormValidation() { }
+     ```
+
+     #### 5. **Properly Manage Dependencies**
+     ```jsx
+     // ❌ Bad: Missing dependency
+     useEffect(() => {
+       fetchUser(userId);
+     }, []); // userId is missing
+
+     // ✅ Good: All dependencies listed
+     useEffect(() => {
+       fetchUser(userId);
+     }, [userId]);
+     ```
+
+     #### 6. **Avoid Inline Object/Function Dependencies**
+     ```jsx
+     // ❌ Bad: New object on every render
+     useEffect(() => {
+       doSomething(options);
+     }, [{ page: 1, limit: 10 }]); // Always different reference
+
+     // ✅ Good: Memoize or extract
+     const options = useMemo(() => ({ page: 1, limit: 10 }), []);
+     useEffect(() => {
+       doSomething(options);
+     }, [options]);
+     ```
+
+     #### 7. **Clean Up Side Effects**
+     Always return a cleanup function when subscribing to events, timers, or external data sources.
 
 **[⬆ Back to Top](#table-of-contents)**
 
