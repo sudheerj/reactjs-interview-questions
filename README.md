@@ -31,7 +31,7 @@
 <div>
 <p align="center">
   <a href="https://resumeloom.com/?ref=FZ818184">
-    <img src="./images/collab/resumeloom.png" alt="Resume Loom" width="100%" height="">
+    <img src="./images/collab/resumeloom1.png" alt="Resume Loom" width="100%" height="">
   </a>
 </p>
 </div>
