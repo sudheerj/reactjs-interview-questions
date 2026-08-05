@@ -376,6 +376,7 @@ Hide/Show table of contents
 | 317 | [How do you handle cleanup in useEffect?](#how-do-you-handle-cleanup-in-useeffect)                                                                                                                                               |
 | 318 | [What are the differences between useEffect and useEvent (experimental)?](#what-are-the-differences-between-useeffect-and-useevent-experimental)                                                                                 |
 | 319 | [What are the best practices for using React Hooks?](#what-are-the-best-practices-for-using-react-hooks)                                                                                                                         |
+| 320 | [How does React Fiber enable Concurrent Rendering?](#how-does-react-fiber-enable-concurrent-rendering) |                                                                                                                         |
 
 </details>
 
