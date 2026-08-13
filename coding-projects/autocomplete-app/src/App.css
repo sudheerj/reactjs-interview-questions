@@ -1,0 +1,83 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+}
+
+.app {
+  width: 400px;
+  margin: 100px auto;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.autocomplete {
+  position: relative;
+}
+
+input {
+  width: 100%;
+  padding: 14px 16px;
+
+  font-size: 16px;
+
+  border: 1px solid #ccc;
+  border-radius: 8px;
+
+  outline: none;
+}
+
+input:focus {
+  border-color: #555;
+}
+
+.suggestions {
+  position: absolute;
+
+  top: 52px;
+  left: 0;
+  right: 0;
+
+  max-height: 250px;
+  overflow-y: auto;
+
+  margin: 5px 0 0;
+  padding: 0;
+
+  background: white;
+
+  border: 1px solid #ddd;
+  border-radius: 8px;
+
+  list-style: none;
+}
+
+.suggestions li {
+  padding: 12px 16px;
+  cursor: pointer;
+}
+
+.suggestions li:hover,
+.suggestions li.active {
+  background: #eee;
+}
+
+.loading,
+.no-results {
+  margin-top: 5px;
+  padding: 12px;
+
+  background: white;
+
+  border: 1px solid #ddd;
+  border-radius: 8px;
+
+  color: #777;
+}
