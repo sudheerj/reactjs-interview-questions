@@ -1,0 +1,57 @@
+#root {
+  width: 100%;
+}
+
+.container {
+  width: min(800px, 90%);
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.container h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.post-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 5%);
+}
+
+.post-card h2 {
+  font-size: 18px;
+  margin-top: 0;
+  text-transform: capitalize;
+}
+
+.post-card p {
+  color: #555;
+  line-height: 1.6;
+}
+
+.loader {
+  padding: 30px;
+  text-align: center;
+  color: #666;
+}
+
+.error {
+  padding: 20px;
+  text-align: center;
+  color: #c00;
+}
+
+.error button {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.end-message {
+  text-align: center;
+  padding: 30px;
+  color: #666;
+}
