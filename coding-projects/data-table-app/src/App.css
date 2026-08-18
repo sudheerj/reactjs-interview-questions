@@ -1,0 +1,198 @@
+/* Global */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  background: #f5f7fb;
+  color: #1f2937;
+}
+
+/* Main container */
+.container {
+  max-width: 1100px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+header h1 {
+  margin: 0 0 6px;
+  font-size: 28px;
+}
+
+header p {
+  margin: 0;
+  color: #6b7280;
+}
+
+/* Search */
+input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 20px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+
+  background: white;
+  font-size: 15px;
+
+  outline: none;
+}
+
+input:focus {
+  border-color: #6366f1;
+
+  box-shadow:
+    0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* Table container */
+.table-wrapper {
+  overflow-x: auto;
+
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Table header */
+th {
+  padding: 14px 16px;
+
+  background: #f9fafb;
+  color: #374151;
+
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Table cells */
+td {
+  padding: 14px 16px;
+
+  color: #4b5563;
+  font-size: 14px;
+
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* Row hover */
+tbody tr:hover {
+  background: #f9fafb;
+}
+
+/* Remove border from last row */
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Empty state */
+.empty {
+  padding: 40px;
+  text-align: center;
+  color: #9ca3af;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 9px 16px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+
+  background: white;
+  color: #374151;
+
+  cursor: pointer;
+}
+
+.pagination button:hover:not(:disabled) {
+  background: #f3f4f6;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* Loading / error */
+.status {
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 18px;
+}
+
+.error {
+  color: #dc2626;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .container {
+    margin: 30px auto;
+    padding: 0 12px;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  header h1 {
+    font-size: 24px;
+  }
+
+  th,
+  td {
+    padding: 10px;
+  }
+
+  .pagination {
+    justify-content: center;
+  }
+}
