@@ -1,0 +1,90 @@
+/* App container */
+
+.app {
+  width: min(700px, 90%);
+  margin: 50px auto;
+  padding: 30px;
+
+  background-color: #ffffff;
+
+  border-radius: 10px;
+
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.app h1 {
+  margin: 0 0 25px;
+
+  font-size: 24px;
+  color: #1e293b;
+}
+
+
+/* Tree */
+
+.tree {
+  width: 100%;
+}
+
+
+/* Individual tree node */
+
+.tree-node {
+  display: flex;
+  align-items: center;
+
+  min-height: 32px;
+
+  padding-top: 4px;
+  padding-right: 8px;
+  padding-bottom: 4px;
+
+  border-radius: 4px;
+
+  cursor: pointer;
+  user-select: none;
+}
+
+.tree-node:hover {
+  background-color: #f1f5f9;
+}
+
+
+/* Expand / collapse arrow */
+
+.arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 20px;
+
+  color: #64748b;
+
+  font-size: 10px;
+
+  flex-shrink: 0;
+}
+
+
+/* File / folder icon */
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+
+  width: 25px;
+
+  flex-shrink: 0;
+}
+
+
+/* Node name */
+
+.node-name {
+  color: #1e293b;
+
+  font-size: 15px;
+
+  line-height: 1.5;
+}
