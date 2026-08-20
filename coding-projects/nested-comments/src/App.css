@@ -1,0 +1,105 @@
+.app {
+  width: 700px;
+  max-width: 90%;
+  margin: 40px auto;
+  padding: 24px;
+
+  background: #ffffff;
+  border-radius: 8px;
+
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.app h1 {
+  margin: 0 0 24px;
+
+  font-size: 28px;
+  text-align: center;
+}
+
+/* Comment form */
+
+.comment-form {
+  display: flex;
+  gap: 8px;
+
+  margin-bottom: 20px;
+}
+
+.comment-form input {
+  flex: 1;
+
+  padding: 10px;
+
+  border: 1px solid #ccc;
+  border-radius: 5px;
+
+  font-size: 14px;
+}
+
+.comment-form input:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+.comment-form button {
+  padding: 10px 16px;
+
+  border: none;
+  border-radius: 5px;
+
+  background: #2563eb;
+  color: white;
+
+  cursor: pointer;
+}
+
+.comment-form button:hover {
+  background: #1d4ed8;
+}
+
+/* Comment */
+
+.comment {
+  margin-top: 15px;
+  padding: 14px;
+
+  border: 1px solid #ddd;
+  border-radius: 6px;
+
+  text-align: left;
+}
+
+.comment strong {
+  color: #374151;
+}
+
+.comment p {
+  margin: 8px 0;
+
+  color: #4b5563;
+}
+
+/* Reply button */
+
+.comment > button {
+  padding: 0;
+
+  border: none;
+  background: transparent;
+
+  color: #2563eb;
+
+  cursor: pointer;
+}
+
+.comment > button:hover {
+  text-decoration: underline;
+}
+
+/* Nested replies */
+
+.replies {
+  margin-top: 12px;
+  margin-left: 30px;
+}
