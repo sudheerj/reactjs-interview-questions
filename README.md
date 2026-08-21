@@ -1538,8 +1538,7 @@ class ParentComponent extends React.Component {
 
     React uses **className** instead of **class** because of a JavaScript naming conflict with the class keyword.
 
-    1. `class` is a reserved keyword in JavaScript
-        In JavaScript, class is used to define ES6 classes:
+    1. `class` is a reserved keyword in JavaScript, class is used to define ES6 classes:
       
         ```js
         class Person {
