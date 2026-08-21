@@ -27,7 +27,7 @@ function UserProfile() {
   useEffect(() => {
     setLoading(true);
     // Simulating API call
-    setTimeout(() => {
+    const timerId = setTimeout(() => {
       try {
         setData({ name: 'John Doe', email: 'john@example.com' });
         setLoading(false);
@@ -36,6 +36,8 @@ function UserProfile() {
         setLoading(false);
       }
     }, 1000);
+
+    return () => clearTimeout(timerId);
   }, []);
 
   if (loading) return <div>Loading user...</div>;
@@ -58,7 +60,7 @@ function PostsList() {
   useEffect(() => {
     setLoading(true);
     // Simulating API call
-    setTimeout(() => {
+    const timerId = setTimeout(() => {
       try {
         setData([
           { id: 1, title: 'First Post' },
@@ -70,6 +72,8 @@ function PostsList() {
         setLoading(false);
       }
     }, 1000);
+
+    return () => clearTimeout(timerId);
   }, []);
 
   if (loading) return <div>Loading posts...</div>;
