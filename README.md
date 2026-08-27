@@ -374,15 +374,7 @@ Hide/Show table of contents
 | 317 | [How do you handle cleanup in useEffect?](#how-do-you-handle-cleanup-in-useeffect)                                                                                                                                               |
 | 318 | [What are the differences between useEffect and useEvent (experimental)?](#what-are-the-differences-between-useeffect-and-useevent-experimental)                                                                                 |
 | 319 | [What are the best practices for using React Hooks?](#what-are-the-best-practices-for-using-react-hooks)                                                                                                                         |
-|     | **Modern React Features (React 18/19)**                                                                                                                                                                                           |
-| 320 | [What are the key features introduced in React 18?](#what-are-the-key-features-introduced-in-react-18)                                                                                                                            |
-| 321 | [What are the key features introduced in React 19?](#what-are-the-key-features-introduced-in-react-19)                                                                                                                            |
-| 322 | [What is the use() hook in React 19?](#what-is-the-use-hook-in-react-19)                                                                                                                                                         |
-| 323 | [What are Server Actions in React 19?](#what-are-server-actions-in-react-19)                                                                                                                                                     |
-| 324 | [What are useFormState and useFormStatus hooks?](#what-are-useformstate-and-useformstatus-hooks)                                                                                                                                 |
-| 325 | [What is the useOptimistic hook?](#what-is-the-useoptimistic-hook)                                                                                                                                                               |
-| 326 | [What is the React Compiler (React Forget)?](#what-is-the-react-compiler-react-forget)                                                                                                                                           |
-| 327 | [What is Streaming SSR and how does React 18+ improve it?](#what-is-streaming-ssr-and-how-does-react-18-improve-it)                                                                                                              |
+
 
 </details>
 
