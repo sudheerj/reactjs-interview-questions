@@ -7,6 +7,7 @@ import Toggle from "./hooks/04-useToggle/App";
 import Interval from "./hooks/05-useInterval/App";
 import LocalStorage from "./hooks/06-useLocalStorage/App";
 import Fetch from "./hooks/07-useFetch/App";
+import Throttle from "./hooks/08-useThrottle/App";
 
 export default function App() {
   const [question, setQuestion] = useState(1);
@@ -43,6 +44,10 @@ export default function App() {
         <button onClick={() => setQuestion(7)}>
           07 Fetch
         </button>
+
+        <button onClick={() => setQuestion(8)}>
+          08 Throttle
+        </button>
       </div>
 
       <hr />
@@ -54,6 +59,7 @@ export default function App() {
       {question === 5 && <Interval />}
       {question === 6 && <LocalStorage />}
       {question === 7 && <Fetch />}
+      {question === 8 && <Throttle />}
     </div>
   );
 }

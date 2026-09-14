@@ -14,12 +14,12 @@ export function InfintePosts() {
 
     const observerRef = useRef<IntersectionObserver |null>(null);
 
-    const loadPosts = useCallback(async (pageNumber: number) => {
+    const loadPosts = useCallback(async (pageNumber: number, signal?: AbortSignal) => {
         setLoading(true);
         setError(null);
 
         try {
-            const data = await fetchPosts(pageNumber);
+            const data = await fetchPosts(pageNumber, signal);
 
             setPosts((previousPosts) => {
                 const existingsIds = new Set(previousPosts.map((post) => post.id));
@@ -33,19 +33,29 @@ export function InfintePosts() {
                 setHasMore(false);
             }
         } catch(error) {
+            if(error instanceof Error && error.name === "AbortError") {
+                return;
+            }
+
             if(error instanceof Error) {
                 setError(error.message);
             } else {
                 setError("Something went wrong");
             }
         } finally {
-            setLoading(false);
+            if(!signal?.aborted) {
+                setLoading(false);
+            }
         }
 
     }, []);
 
     useEffect(() => {
-        loadPosts(page);
+        const controller = new AbortController();
+
+        loadPosts(page, controller.signal);
+
+        return () => controller.abort();
     },[page, loadPosts]);
 
     const lastElementRef = useCallback((node: HTMLDivElement | null) => {

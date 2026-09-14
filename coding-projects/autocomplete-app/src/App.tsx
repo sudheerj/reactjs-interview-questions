@@ -15,24 +15,22 @@ function App() {
       return;
     }
 
-    const timer = setTimeout(() => {
-      setLoading(true);
-      setTimeout(() => {
-        const result = fruits.filter((fruit: string) => {
-          return fruit.toLowerCase().includes(query.toLowerCase());
-        })
-        setSuggestions(result);
-        setLoading(false);
-        setSelectedIndex(-1);
-      }, 300);
+    setLoading(true);
 
+    const timer = setTimeout(() => {
+      const result = fruits.filter((fruit: string) => {
+        return fruit.toLowerCase().includes(query.toLowerCase());
+      })
+      setSuggestions(result);
+      setLoading(false);
+      setSelectedIndex(-1);
     }, 300);
 
     return () => clearTimeout(timer);
   }, [query]);
 
   const handleKeydown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if(!suggestions) {
+    if(!suggestions.length) {
       return;
     }
 
