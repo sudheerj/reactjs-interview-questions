@@ -566,11 +566,16 @@ Hide/Show table of contents
        - Introduction of new features like Error Boundaries, Portals, and improved server-side rendering
        - React 16.3 introduced the Context API for easier state management
 
-       **2019-Present: Modern React**
+       **2019-2022: Hooks and Concurrent React**
        - React Hooks were introduced in React 16.8 (February 2019), revolutionizing state management in functional components
        - React 17 (October 2020) focused on making React upgrades easier
        - React 18 (March 2022) introduced concurrent rendering and automatic batching
-       - React continues to evolve with Server Components, the new React compiler (React Forget), and other performance improvements
+
+       **2024-Present: React 19**
+       - React 19 (stable: December 2024) introduced Actions, the `use()` hook, stable Server Components, `ref` as a regular prop (no more `forwardRef` needed in most cases), and the React Compiler
+       - React 19 also removed several long-deprecated legacy APIs, including `ReactDOM.render()`, `ReactDOM.unmountComponentAtNode()`, `findDOMNode()`, string refs, and `defaultProps` on function components
+       - Point releases 19.1 and 19.2 followed through 2025 with further refinements
+       - React continues to evolve with the React Compiler, Server Components, and other performance improvements
        </details>
 
        **Note:** JSX, React's syntax extension, was indeed inspired by XHP's approach of embedding XML-like syntax in code.
@@ -685,7 +690,7 @@ Hide/Show table of contents
           }
         }
         ```
-        Elements are then passed to the React DOM renderer (e.g., `ReactDOM.render()`), which translates them to actual DOM nodes.
+        Elements are then passed to the React DOM renderer (e.g., `createRoot(container).render()` from `react-dom/client`), which translates them to actual DOM nodes.
 
         ---
 
@@ -1480,25 +1485,26 @@ class ParentComponent extends React.Component {
     <p>
 
     ```jsx harmony
-    const MyDiv = React.createClass({
-      render: function () {
-        return <div>{this.props.children}</div>;
-      },
-    });
+    function MyDiv({ children }) {
+      return <div>{children}</div>;
+    }
 
-    ReactDOM.render(
+    import { createRoot } from "react-dom/client";
+
+    createRoot(node).render(
       <MyDiv>
         <span>{"Hello"}</span>
         <span>{"World"}</span>
-      </MyDiv>,
-      node
+      </MyDiv>
     );
     ```
 
     </p>
     </details>
 
-    **Note:** There are several methods available in the legacy React API to work with this prop. These include `React.Children.map`, `React.Children.forEach`, `React.Children.count`, `React.Children.only`, `React.Children.toArray`.
+    **Note:** The example above previously used `React.createClass()`, which was removed in React 16 (replaced by ES6 classes or, as shown above, function components), and `ReactDOM.render()`, which was removed in React 19 (replaced by `createRoot().render()` from `react-dom/client`).
+
+    There are several methods available in the legacy React API to work with this prop. These include `React.Children.map`, `React.Children.forEach`, `React.Children.count`, `React.Children.only`, `React.Children.toArray`. `React.Children` is still available in modern React but is rarely needed now that most components simply render `props.children` directly or use array methods on children collected via composition.
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -1901,11 +1907,11 @@ class ParentComponent extends React.Component {
 
     The `react-dom` package provides _DOM-specific methods_ that can be used at the top level of your app. Most of the components are not required to use this module. Some of the methods of this package are:
 
-    1. `render()`
-    2. `hydrate()`
-    3. `unmountComponentAtNode()`
-    4. `findDOMNode()`
-    5. `createPortal()`
+    1. `createRoot()` / `root.render()` (from `react-dom/client`) — replaces the legacy `render()`, which was removed in React 19
+    2. `hydrateRoot()` (from `react-dom/client`) — replaces the legacy `hydrate()`, which was removed in React 19
+    3. ~~`unmountComponentAtNode()`~~ — **removed in React 19**; use `root.unmount()` instead
+    4. ~~`findDOMNode()`~~ — deprecated in React 16.6 and **removed in React 19**; use `refs` instead
+    5. `createPortal()` — still available and unchanged
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -2310,7 +2316,7 @@ class ParentComponent extends React.Component {
 
 61. ### What is the difference between React and ReactDOM?
 
-    The `react` package contains `React.createElement()`, `React.Component`, `React.Children`, and other helpers related to elements and component classes. You can think of these as the isomorphic or universal helpers that you need to build components. The `react-dom` package contains `ReactDOM.render()`, and in `react-dom/server` we have _server-side rendering_ support with `ReactDOMServer.renderToString()` and `ReactDOMServer.renderToStaticMarkup()`.
+    The `react` package contains `React.createElement()`, `React.Component`, `React.Children` (still available, though rarely needed directly in modern React), and other helpers related to elements and component classes. You can think of these as the isomorphic or universal helpers that you need to build components. The `react-dom` package contains client APIs such as `createRoot()` from `react-dom/client` (the legacy `ReactDOM.render()` was removed in React 19), and in `react-dom/server` we have _server-side rendering_ support with `ReactDOMServer.renderToString()` and `ReactDOMServer.renderToStaticMarkup()`.
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -2396,15 +2402,17 @@ class ParentComponent extends React.Component {
 
     You can listen to the `resize` event in `componentDidMount()` and then update the dimensions (`width` and `height`). You should remove the listener in `componentWillUnmount()` method.
 
+    **Note:** `componentWillMount()` is a legacy lifecycle method — it required the `UNSAFE_` prefix since React 16.3, logs warnings in StrictMode, and its use cases are better covered by the constructor (for synchronous setup) or `componentDidMount()`. The example below initializes dimensions in the constructor instead.
+
     ```javascript
     class WindowDimensions extends React.Component {
       constructor(props) {
         super(props);
         this.updateDimensions = this.updateDimensions.bind(this);
-      }
-
-      componentWillMount() {
-        this.updateDimensions();
+        this.state = {
+          width: window.innerWidth,
+          height: window.innerHeight,
+        };
       }
 
       componentDidMount() {
@@ -2500,7 +2508,9 @@ class ParentComponent extends React.Component {
       );
     };
 
-    ReactDOM.render(<App />, document.getElementById("app"));
+    import { createRoot } from "react-dom/client";
+
+    createRoot(document.getElementById("app")).render(<App />);
     ```
 
       <details><summary><b>See Class</b></summary>
@@ -2526,11 +2536,15 @@ class ParentComponent extends React.Component {
       }
     }
 
-    ReactDOM.render(<App />, document.getElementById("app"));
+    import { createRoot } from "react-dom/client";
+
+    createRoot(document.getElementById("app")).render(<App />);
     ```
 
       </p>
       </details>
+
+    **Note:** `ReactDOM.render()` was removed in React 19; use `createRoot().render()` from `react-dom/client` instead, as shown above.
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -2539,11 +2553,12 @@ class ParentComponent extends React.Component {
     You can use `React.version` to get the version.
 
     ```jsx harmony
+    import { createRoot } from "react-dom/client";
+
     const REACT_VERSION = React.version;
 
-    ReactDOM.render(
-      <div>{`React version: ${REACT_VERSION}`}</div>,
-      document.getElementById("app")
+    createRoot(document.getElementById("app")).render(
+      <div>{`React version: ${REACT_VERSION}`}</div>
     );
     ```
 
@@ -2551,7 +2566,19 @@ class ParentComponent extends React.Component {
 
 70. ### How to add Google Analytics for React Router?
 
+    **Note:** Universal Analytics (the `window.ga(...)` API shown in the legacy example below) was fully sunset by Google in July 2023. Use Google Analytics 4 (GA4) with the `gtag.js` API instead.
+
     Add a listener on the `history` object to record each page view:
+
+    ```javascript
+    history.listen(function (location) {
+      window.gtag("event", "page_view", {
+        page_path: location.pathname + location.search,
+      });
+    });
+    ```
+
+    **Legacy (Universal Analytics, sunset July 2023):**
 
     ```javascript
     history.listen(function (location) {
@@ -2949,15 +2976,15 @@ class ParentComponent extends React.Component {
     2.  You should use the `<Router>` component instead of built-in routers. Import the above `history.js` inside `index.js` file:
 
         ```jsx harmony
+        import { createRoot } from "react-dom/client";
         import { Router } from "react-router-dom";
         import history from "./history";
         import App from "./App";
 
-        ReactDOM.render(
+        createRoot(holder).render(
           <Router history={history}>
             <App />
-          </Router>,
-          holder
+          </Router>
         );
         ```
 
@@ -4227,11 +4254,11 @@ class ParentComponent extends React.Component {
 
      ```jsx
      import React from "react";
-     import ReactDOM from "react-dom";
+     import { createRoot } from "react-dom/client";
      import App from "./App";
      import registerServiceWorker from "./registerServiceWorker";
 
-     ReactDOM.render(<App />, document.getElementById("root"));
+     createRoot(document.getElementById("root")).render(<App />);
      registerServiceWorker();
      ```
 
@@ -4643,10 +4670,14 @@ class ParentComponent extends React.Component {
 
      The _defaultProps_ can be defined as a property on the component to set the default values for the props. These default props are used when props not supplied(i.e., undefined props), but not for `null` or `0` as props. That means, If you provide null value then it remains null value. It's the same behavior with 0 as well.
 
+     **Note:** `defaultProps` on **function components** was deprecated in React 18.3 and **removed in React 19** (a console warning was emitted in 18.3, and the property is simply ignored in 19+). It is still supported on **class components**. For function components, use ES6 default parameters in destructuring instead.
+
      For example, let us create color default prop for the button component,
 
+     **Legacy (removed for function components in React 19):**
+
      ```javascript
-     function MyButton {
+     function MyButton(props) {
        // ...
      }
 
@@ -4655,10 +4686,18 @@ class ParentComponent extends React.Component {
      };
      ```
 
+     **Modern replacement — ES6 default parameters:**
+
+     ```javascript
+     function MyButton({ color = "red" }) {
+       // ...
+     }
+     ```
+
      If `props.color` is not provided then it will set the default value to 'red'. i.e, Whenever you try to access the color prop it uses the default value
 
      ```javascript
-     function MyButton() {
+     function App() {
        return <MyButton />; // props.color will contain red value
      }
      ```
@@ -4881,11 +4920,17 @@ class ParentComponent extends React.Component {
 
 189. ### How do you update rendered elements?
 
-     You can update UI(represented by rendered element) by passing the newly created element to ReactDOM's render method.
+     You can update UI(represented by rendered element) by passing the newly created element to the root's render method.
+
+     **Note:** `ReactDOM.render()` was removed in React 19. Create a root once with `createRoot()` from `react-dom/client`, then call `root.render()` as many times as needed — each call updates the existing root rather than creating a new one.
 
      For example, lets take a ticking clock example, where it updates the time by calling render method multiple times,
 
      ```javascript
+     import { createRoot } from "react-dom/client";
+
+     const root = createRoot(document.getElementById("root"));
+
      function tick() {
        const element = (
          <div>
@@ -4893,7 +4938,7 @@ class ParentComponent extends React.Component {
            <h2>It is {new Date().toLocaleTimeString()}.</h2>
          </div>
        );
-       ReactDOM.render(element, document.getElementById("root"));
+       root.render(element);
      }
 
      setInterval(tick, 1000);
@@ -5036,7 +5081,7 @@ class ParentComponent extends React.Component {
 
 198. ### What are loadable components?
 
-     With the release of React 18, React.lazy and Suspense are now available for server-side rendering. However, prior to React 18, it was recommended to use Loadable Components for code-splitting in a server-side rendered app because React.lazy and Suspense were not available for server-side rendering. Loadable Components lets you render a dynamic import as a regular component. For example, you can use Loadable Components to load the OtherComponent in a separate bundle like this:
+     **Note:** This is a historical/legacy pattern. Before React 18 (released March 2022), `React.lazy` and `Suspense` were not available for server-side rendering, so **Loadable Components** was the recommended way to do code-splitting in an SSR app. Since React 18 (and now React 19), `React.lazy` and `Suspense` support SSR natively, so most modern applications no longer need Loadable Components. Loadable Components lets you render a dynamic import as a regular component. For example, you can use Loadable Components to load the OtherComponent in a separate bundle like this:
 
      ```javascript
      import loadable from "@loadable/component";
@@ -5198,7 +5243,7 @@ class ParentComponent extends React.Component {
         ```
 
      3. **Component Elements Of The Same Type:**
-        When a component updates, the instance stays the same, so that state is maintained across renders. React updates the props of the underlying component instance to match the new element, and calls componentWillReceiveProps() and componentWillUpdate() on the underlying instance. After that, the render() method is called and the diff algorithm recurses on the previous result and the new result.
+        When a component updates, the instance stays the same, so that state is maintained across renders. React updates the props of the underlying component instance to match the new element, and calls componentWillReceiveProps() and componentWillUpdate() on the underlying instance (legacy lifecycle methods — since React 16.3 these require the `UNSAFE_` prefix and warn in StrictMode; modern class components use `static getDerivedStateFromProps()` and `getSnapshotBeforeUpdate()`/`componentDidUpdate()` instead, and function components use `useEffect`). After that, the render() method is called and the diff algorithm recurses on the previous result and the new result.
      4. **Recursing On Children:**
         when recursing on the children of a DOM node, React just iterates over both lists of children at the same time and generates a mutation whenever there’s a difference. For example, when adding an element at the end of the children, converting between these two trees works well.
 
@@ -5738,17 +5783,16 @@ class ParentComponent extends React.Component {
 
      ```js
      import React from "react";
-     import ReactDOM from "react-dom";
+     import { createRoot } from "react-dom/client";
      import App from "./App";
      import AuthState from "./context/auth/AuthState";
 
-     ReactDOM.render(
+     createRoot(document.getElementById("root")).render(
        <React.StrictMode>
          <AuthState>
            <App />
          </AuthState>
-       </React.StrictMode>,
-       document.getElementById("root")
+       </React.StrictMode>
      );
      ```
 
@@ -8619,7 +8663,7 @@ Technically it is possible to write nested function components but it is not sug
 
 321. ### What are the key features introduced in React 19?
 
-     React 19 (released 2024) brings major improvements for full-stack React applications:
+     React 19 (stable release: December 2024, with 19.1 and 19.2 following through 2025) brings major improvements for full-stack React applications:
 
      #### 1. **React Compiler (formerly React Forget)**
      Automatic memoization - no more manual `useMemo`, `useCallback`, or `React.memo` needed!
@@ -10389,9 +10433,12 @@ Technically it is possible to write nested function components but it is not sug
 
 0. ### What is Concurrent Rendering? (Legacy)
 
-   The Concurrent rendering makes React apps to be more responsive by rendering component trees without blocking the main UI thread. It allows React to interrupt a long-running render to handle a high-priority event. i.e, When you enabled concurrent Mode, React will keep an eye on other tasks that need to be done, and if there's something with a higher priority it will pause what it is currently rendering and let the other task finish first. You can enable this in two ways,
+   The Concurrent rendering makes React apps to be more responsive by rendering component trees without blocking the main UI thread. It allows React to interrupt a long-running render to handle a high-priority event. i.e, When you enabled concurrent Mode, React will keep an eye on other tasks that need to be done, and if there's something with a higher priority it will pause what it is currently rendering and let the other task finish first.
+
+   **Note:** `React.unstable_ConcurrentMode` and `ReactDOM.unstable_createRoot` shown below were **experimental APIs that never shipped stably** — they were removed and superseded by the stable `createRoot()` API (from `react-dom/client`) in React 18. Concurrent rendering is now opt-in per update via APIs like `useTransition` and `useDeferredValue`, rather than a global "Concurrent Mode" you wrap your app in.
 
    ```javascript
+   // Legacy/experimental (never stable, removed):
    // 1. Part of an app by wrapping with ConcurrentMode
    <React.unstable_ConcurrentMode>
      <Something />
@@ -10399,6 +10446,14 @@ Technically it is possible to write nested function components but it is not sug
 
    // 2. Whole app using createRoot
    ReactDOM.unstable_createRoot(domNode).render(<App />);
+   ```
+
+   **Modern equivalent (React 18+):**
+
+   ```javascript
+   import { createRoot } from "react-dom/client";
+
+   createRoot(domNode).render(<App />);
    ```
 
    **[⬆ Back to Top](#table-of-contents)**
@@ -10595,9 +10650,9 @@ Technically it is possible to write nested function components but it is not sug
 
 8. ### Which is preferred option with in callback refs and findDOMNode()?
 
-   It is preferred to use _callback refs_ over `findDOMNode()` API. Because `findDOMNode()` prevents certain improvements in React in the future.
+   It is preferred to use _callback refs_ (or `createRef`/`useRef`) over `findDOMNode()`. `findDOMNode()` was deprecated in React 16.6 and has been **removed entirely in React 19** — it is no longer available at all, so refs are now the only option, not just the preferred one.
 
-   The **legacy** approach of using `findDOMNode`:
+   The **legacy** approach of using `findDOMNode` (deprecated in 16.6, removed in React 19):
 
    ```javascript
    class MyComponent extends Component {
@@ -10633,7 +10688,7 @@ Technically it is possible to write nested function components but it is not sug
 
 9. ### Why are String Refs legacy?
 
-   If you worked with React before, you might be familiar with an older API where the `ref` attribute is a string, like `ref={'textInput'}`, and the DOM node is accessed as `this.refs.textInput`. We advise against it because _string refs have below issues_, and are considered legacy. String refs were **removed in React v16**.
+   If you worked with React before, you might be familiar with an older API where the `ref` attribute is a string, like `ref={'textInput'}`, and the DOM node is accessed as `this.refs.textInput`. We advise against it because _string refs have below issues_, and are considered legacy. String refs were **deprecated in React 16.3** (requiring migration to callback refs or `createRef`/`useRef`) and were only actually **removed in React 19** — they continued to work (with a deprecation warning) throughout React 16, 17, and 18.
 
    1. They _force React to keep track of currently executing component_. This is problematic because it makes react module stateful, and thus causes weird errors when react module is duplicated in the bundle.
    2. They are _not composable_ — if a library puts a ref on the passed child, the user can't put another ref on it. Callback refs are perfectly composable.
@@ -10885,13 +10940,26 @@ Technically it is possible to write nested function components but it is not sug
 
 19. ### What is the purpose of render method of `react-dom`?
 
-    This method is used to render a React element into the DOM in the supplied container and return a reference to the component. If the React element was previously rendered into container, it will perform an update on it and only mutate the DOM as necessary to reflect the latest changes.
+    **⚠️ DEPRECATED:** `ReactDOM.render()` was **removed in React 19**. Use `createRoot()` from `react-dom/client` instead, as shown below. (The optional `callback` argument had already been removed earlier, in React 18.)
+
+    **Modern API (React 18+):**
+
+    ```jsx
+    import { createRoot } from "react-dom/client";
+
+    const root = createRoot(container);
+    root.render(element);
+    ```
+
+    `createRoot(container)` creates a root for the supplied DOM container and returns a root object. Calling `root.render(element)` renders a React element into that root. If an element was previously rendered into the same root, it will perform an update and only mutate the DOM as necessary to reflect the latest changes — calling `root.render()` again does **not** create a new root.
+
+    **Legacy API (removed in React 19):**
 
     ```
     ReactDOM.render(element, container, [callback])
     ```
 
-    If the optional callback is provided, it will be executed after the component is rendered or updated.
+    In the legacy API, an optional `callback` could be provided to run after the component was rendered or updated — but that callback parameter was already removed as of React 18, well before `ReactDOM.render()` itself was removed in React 19. If you need to run code after a render/commit in modern React, use `useEffect` (for effects that run after commit) instead of a render callback.
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -11150,6 +11218,8 @@ Technically it is possible to write nested function components but it is not sug
 
     Using `displayName` for naming component:
 
+    **Note:** `React.createClass()` was removed in React 16; it is shown here only to illustrate the historical `displayName` pattern.
+
     ```javascript
     export default React.createClass({
       displayName: "TodoApp",
@@ -11194,6 +11264,8 @@ Technically it is possible to write nested function components but it is not sug
     12. getter methods for render like `getSelectReason()` or `getFooterContent()`
     13. optional render methods like `renderNavigation()` or `renderProfilePicture()`
     14. `render()`
+
+    **Note:** `componentWillMount()`, `componentWillReceiveProps()`, and `componentWillUpdate()` are legacy lifecycle methods — since React 16.3 they require the `UNSAFE_` prefix and log warnings in StrictMode. Prefer the constructor or `componentDidMount()` in place of `componentWillMount()`, `static getDerivedStateFromProps()` in place of `componentWillReceiveProps()`, and `getSnapshotBeforeUpdate()`/`componentDidUpdate()` in place of `componentWillUpdate()`.
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -11265,6 +11337,8 @@ Technically it is possible to write nested function components but it is not sug
 33. ### What is the difference between constructor and getInitialState?
 
     You should initialize state in the constructor when using ES6 classes, and `getInitialState()` method when using `React.createClass()`.
+
+    **Note:** `React.createClass()` (and its `getInitialState()` method) is legacy — it was removed from the core `react` package in React 16. In modern React, function components use the `useState()` hook to initialize and manage state instead of either `getInitialState()` or a class constructor, e.g. `const [value, setValue] = useState(initialValue)`. ES6 class components (constructor-based state) are still supported, but are no longer the recommended default for new code.
 
     **Using ES6 classes:**
 
@@ -11351,7 +11425,7 @@ Technically it is possible to write nested function components but it is not sug
     componentDidUpdate(object prevProps, object prevState)
     ```
 
-    **Note:** The previous releases of ReactJS also uses `componentWillUpdate(object nextProps, object nextState)` for state changes. It has been deprecated in latest releases.
+    **Note:** The previous releases of ReactJS also used `componentWillUpdate(object nextProps, object nextState)` for state changes. It is legacy — it has required the `UNSAFE_` prefix since React 16.3 and logs a warning in StrictMode; prefer `componentDidUpdate()` (or `getSnapshotBeforeUpdate()` if you need a pre-update snapshot) instead.
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -11825,7 +11899,7 @@ Technically it is possible to write nested function components but it is not sug
 
 54. ### Does the statics object work with ES6 classes in React?
 
-    No, `statics` only works with `React.createClass()`:
+    No, `statics` only worked with `React.createClass()`, which was removed in React 16 (this is now purely historical, since `React.createClass()` no longer exists):
 
     ```javascript
     someComponent = React.createClass({
@@ -12157,12 +12231,26 @@ Technically it is possible to write nested function components but it is not sug
 
 68. ### What is the purpose of unmountComponentAtNode method?
 
-    This method is available from react-dom package and it removes a mounted React component from the DOM and clean up its event handlers and state. If no component was mounted in the container, calling this function does nothing. Returns true if a component was unmounted and false if there was no component to unmount.
+    **⚠️ DEPRECATED:** `ReactDOM.unmountComponentAtNode()` was **removed in React 19**. Use the `unmount()` method on the root object returned by `createRoot()` instead.
 
-    The method signature would be as follows,
+    This method was available from the react-dom package and it removed a mounted React component from the DOM and cleaned up its event handlers and state. If no component was mounted in the container, calling this function did nothing. It returned `true` if a component was unmounted and `false` if there was no component to unmount.
+
+    The legacy method signature was as follows,
 
     ```javascript
     ReactDOM.unmountComponentAtNode(container);
+    ```
+
+    **Modern replacement (React 18+):**
+
+    ```javascript
+    import { createRoot } from "react-dom/client";
+
+    const root = createRoot(container);
+    root.render(<App />);
+
+    // Later, to unmount and clean up:
+    root.unmount();
     ```
 
 **[⬆ Back to Top](#table-of-contents)**
@@ -12574,6 +12662,8 @@ Technically it is possible to write nested function components but it is not sug
 
 82. ### How to create react class components without ES6?
 
+    **Note:** This is a legacy pattern from the pre-ES6-classes era. `React.createClass()` was removed from the core `react` package in React 16 and replaced by the standalone `create-react-class` npm package shown below. In modern React, function components (with `useState`/ES6 default parameters) or ES6 classes are used instead — the `create-react-class` package is rarely seen in current codebases.
+
     If you don’t use ES6 then you may need to use the create-react-class module instead. For default props, you need to define getDefaultProps() as a function on the passed object. Whereas for initial state, you have to provide a separate getInitialState method that returns the initial state.
 
     ```javascript
@@ -12606,30 +12696,32 @@ Technically it is possible to write nested function components but it is not sug
     For example, let us take a greeting example with JSX,
 
     ```javascript
+    import { createRoot } from "react-dom/client";
+
     class Greeting extends React.Component {
       render() {
         return <div>Hello {this.props.message}</div>;
       }
     }
 
-    ReactDOM.render(
-      <Greeting message="World" />,
-      document.getElementById("root")
+    createRoot(document.getElementById("root")).render(
+      <Greeting message="World" />
     );
     ```
 
     You can write the same code without JSX as below,
 
     ```javascript
+    import { createRoot } from "react-dom/client";
+
     class Greeting extends React.Component {
       render() {
         return React.createElement("div", null, `Hello ${this.props.message}`);
       }
     }
 
-    ReactDOM.render(
-      React.createElement(Greeting, { message: "World" }, null),
-      document.getElementById("root")
+    createRoot(document.getElementById("root")).render(
+      React.createElement(Greeting, { message: "World" }, null)
     );
     ```
 
