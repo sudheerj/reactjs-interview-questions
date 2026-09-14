@@ -45,9 +45,9 @@ export default function App() {
 
     return users.filter(
       (user) =>
-        user.name.includes(query) ||
-        user.email.includes(query) ||
-        user.company.name.includes(query),
+        user.name.toLowerCase().includes(query) ||
+        user.email.toLowerCase().includes(query) ||
+        user.company.name.toLowerCase().includes(query),
     );
   }, [search, users]);
 
@@ -68,14 +68,6 @@ export default function App() {
     setCurrentPage(page);
   };
 
-  {
-    loading && <div className="status">Loading...</div>;
-  }
-
-  {
-    error && <div className="status error">{error}</div>;
-  }
-
   return (
     <main className="container">
       <header>
@@ -83,6 +75,8 @@ export default function App() {
         <span>Total users: {filteredUsers.length}</span>
       </header>
       <SearchBar value={search} onChange={handleSearch}></SearchBar>
+      {loading && <div className="status">Loading...</div>}
+      {error && <div className="status error">{error}</div>}
       <DataTable users={paginatedUsers}></DataTable>
       {totalPages > 1 && (
         <Pagination

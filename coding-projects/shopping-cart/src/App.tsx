@@ -28,7 +28,7 @@ export default function App() {
 
   const onDecrement = (id: number) => {
     setCart((items) => {
-      return items.map((item) => item.id === id ? {...item, quantity: item.quantity-1} : item);
+      return items.map((item) => item.id === id ? {...item, quantity: Math.max(1, item.quantity-1)} : item);
     })
   }
 

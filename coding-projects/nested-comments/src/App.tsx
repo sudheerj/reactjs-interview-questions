@@ -5,6 +5,10 @@ import { initialComments } from "./data/Comments";
 import type { Comment } from "./types/Comment";
 import "./App.css";
 
+// Monotonic id source: Date.now() collides for items created in the same ms.
+let idCounter = Date.now();
+const nextId = () => ++idCounter;
+
 export default function App() {
   const [comments, setComments] = useState<Comment[]>(initialComments);
   const addReply = (
@@ -27,7 +31,7 @@ export default function App() {
   };
   const handleReply = (parentId: number, text: string) => {
     const newReply: Comment = {
-      id: Date.now(),
+      id: nextId(),
       author: "You",
       text,
       replies: [],
@@ -37,7 +41,7 @@ export default function App() {
   };
   const handleNewComment = (text: string) => {
     const newComment: Comment = {
-      id: Date.now(),
+      id: nextId(),
       author: "You",
       text,
       replies: [],

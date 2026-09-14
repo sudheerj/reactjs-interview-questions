@@ -18,8 +18,8 @@ export function TodoForm({onAdd}: TodoFormProps) {
 
     return (
         <div className="todo-form">
-            <input type="text" placeholder="Add your todo" value={newTodo} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNewTodo(e.target.value)}></input>
-            <button type="submit" onClick={handleSubmit} onKeyDown={(e) => {if(e.key === 'Enter') {handleSubmit()}}}>
+            <input type="text" placeholder="Add your todo" value={newTodo} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNewTodo(e.target.value)} onKeyDown={(e) => {if(e.key === 'Enter') {handleSubmit()}}}></input>
+            <button type="submit" onClick={handleSubmit}>
                 Submit
             </button>
         </div>

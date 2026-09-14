@@ -17,10 +17,10 @@ function Modal({ isOpen, title, onClose, children }: ModalProps) {
     };
 
     if (isOpen) {
-      document.addEventListener("click", handleEscape);
+      document.addEventListener("keydown", handleEscape);
     }
 
-    return () => document.removeEventListener("click", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
   }, [isOpen, onClose]);
 
   const handleOverlayClick = (event: React.MouseEvent<HTMLDivElement>) => {

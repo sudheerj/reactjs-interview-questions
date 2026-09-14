@@ -1,21 +1,25 @@
-export function useThrottle<T>(search: T, delay: number): T {
-    const [throttledValue, setThrottledValue] = useState<T>(search);
+import { useState, useRef, useEffect } from "react";
+
+export function useThrottle<T>(value: T, delay: number): T {
+    const [throttledValue, setThrottledValue] = useState<T>(value);
     const lastExecuted = useRef<number>(0);
 
     useEffect(() => {
         const now = Date.now();
-        const remaining = delay -(now-lastExecuted);
+        const remaining = delay -(now-lastExecuted.current);
 
         if(remaining <=0) {
-            setThrottledValue(search);
-            lastExecuted = now;
+            setThrottledValue(value);
+            lastExecuted.current = now;
         } else {
             const timer = setTimeout(() => {
-                setThrottledValue(search);
-                lastExecuted = Date.now();
+                setThrottledValue(value);
+                lastExecuted.current = Date.now();
             }, delay);
+
+            return () => clearTimeout(timer);
         }
-    },[search, delay]);
+    },[value, delay]);
 
     return throttledValue;
 }

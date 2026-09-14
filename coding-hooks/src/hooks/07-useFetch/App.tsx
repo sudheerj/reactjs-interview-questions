@@ -5,10 +5,14 @@ interface User {
     email: string;
 }
 export default function App() {
-    const {data, loading} = useFetch<User>("https://jsonplaceholder.typicode.com/users/1");
+    const {data, loading, error} = useFetch<User>("https://jsonplaceholder.typicode.com/users/1");
 
     if(loading) {
         return <p>Loading...</p>
+    }
+
+    if(error) {
+        return <p>Error: {error}</p>
     }
     return(
         <div>

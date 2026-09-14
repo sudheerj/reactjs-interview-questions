@@ -1,29 +1,29 @@
-import {useState} from "react";
+import {useRef, useState} from "react";
 import type { Todo } from "./types/todo";
 import { TodoForm } from "./components/TodoForm";
 import { TodoList } from "./components/TodoList";
 
-let nextId = 0;
 const INITIAL_TODOS: Todo[] = [
   {
-    id: nextId++,
+    id: 0,
     label: 'one'
   },
   {
-    id: nextId++,
+    id: 1,
     label: 'two'
   },
   {
-    id: nextId++,
+    id: 2,
     label: 'three'
   },
 ];
 
 export default function App() {
   const [todos, setTodos] = useState<Todo[]>(INITIAL_TODOS);
+  const nextId = useRef(INITIAL_TODOS.length);
 
   const addTodo = (label: string) => {
-    setTodos((todos) => [...todos, {id: nextId++, label}]);
+    setTodos((todos) => [...todos, {id: nextId.current++, label}]);
   }
 
   const deleteTodo = (id: number) => {

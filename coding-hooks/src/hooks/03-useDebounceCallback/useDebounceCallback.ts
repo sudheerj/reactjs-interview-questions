@@ -1,4 +1,3 @@
-import { time } from "node:console";
 import {useCallback, useEffect, useRef} from "react";
 
 export function useDebounceCallback<T extends unknown[]>(callback: (...args: T) => void, delay: number): (...args: T) => void {

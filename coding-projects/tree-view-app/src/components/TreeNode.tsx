@@ -16,6 +16,15 @@ export function TreeNode({ node, level = 0 }: TreeNodeProps) {
     setIsOpen((previous) => !previous);
   };
 
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (!isFolder) return;
+
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      setIsOpen((previous) => !previous);
+    }
+  };
+
   return (
     <div>
       {/* Current node */}
@@ -23,6 +32,9 @@ export function TreeNode({ node, level = 0 }: TreeNodeProps) {
         className="tree-node"
         style={{ paddingLeft: `${level * 20}px` }}
         onClick={handleClick}
+        role={isFolder ? "button" : undefined}
+        tabIndex={isFolder ? 0 : undefined}
+        onKeyDown={handleKeyDown}
       >
         {/* Expand / collapse arrow */}
         <span className="arrow">{isFolder ? (isOpen ? "▼" : "▶") : ""}</span>
